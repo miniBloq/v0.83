@@ -353,11 +353,10 @@ MainFrame::MainFrame(   wxWindow* parent,
     //bubble.setLibPath(bubble.getAppPath() + wxString("/Lib"));
     bubble.setLibPath((bubble.getAppPath().BeforeLast(wxFileName::GetPathSeparator())) + wxString("/Lib"));
 
-    //##¿Quedará como bloqs o como blocks?
-    bubble.setBlocksPath(bubble.getLibPath() + wxString("/CPP/Blocks"));
+    bubble.setBlocksPath(bubble.getComponentsRepositoryPath() + wxString("/blocks"));
 
     //##Horrible! un hardcode this once the real Multi-board system becomes ready:
-    bubble.setMatrixPath(bubble.getLibPath() + wxString("/CPP/Targets/DuinoBot.Kids.v1.x_Arduino.v1.0/Matrix"));
+    bubble.setMatrixPath(bubble.getComponentsRepositoryPath() + wxString("/hard/DuinoBot.v1.x.HID/rel"));
 
     bubble.setDocPath(bubble.getAppPath() + wxString("/Doc"));
 

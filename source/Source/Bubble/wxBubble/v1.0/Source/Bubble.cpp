@@ -398,11 +398,11 @@ void Bubble::changeBoardPaths()
     {
         setToolsPath(getComponentsRepositoryPath() + wxString("/lang/WinAVR/v20090313/bin")); //##Un-hardcode...
         setLibPath((getAppPath().BeforeLast(wxFileName::GetPathSeparator())) + wxString("/Lib"));
-        setBlocksPath(getLibPath() + wxString("/CPP/Blocks"));
+        setBlocksPath(getComponentsRepositoryPath() + wxString("/blocks"));
 
-        setMatrixPath(getLibPath() + wxString("/CPP/Targets/DuinoBot.v1.x.HID_Arduino.v1.0/Matrix"));
-        setCorePath(getLibPath() + wxString("/CPP/Targets/DuinoBot.v1.x.HID_Arduino.v1.0/Core"));
-        setBoardPath(getLibPath() + wxString("/CPP/Targets/DuinoBot.v1.x.HID_Arduino.v1.0"));
+        setMatrixPath(getComponentsRepositoryPath() + wxString("/hard/DuinoBot.v1.x.HID/rel"));
+        setCorePath(getComponentsRepositoryPath() + wxString("/hard/DuinoBot.v1.x.HID/core"));
+        setBoardPath(getComponentsRepositoryPath() + wxString("/hard/DuinoBot.v1.x.HID"));
     }
     else if (getBoardName() == wxString("DuinoBot.v1.x"))
     {

@@ -8,6 +8,12 @@ void setup()
 {
 	initBoard();
 
+	while(
+	{
+		for(unsigned int _i=0; _i<(unsigned int)(
+		{
+		}
+	}
 }
 
 void loop()
