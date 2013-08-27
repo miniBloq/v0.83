@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<block xmlns="http://block.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.8.Beta">
+    <properties>
+		<name>numberConstant</name>
+		<function>Constant</function>
+		<loadAction>load</loadAction>
+    </properties>
+    <code>
+		<dataType>number</dataType>
+	</code>
+    <interface>
+		<originalSize>
+			<width>blockDefaultWidth::</width>
+			<height>blockDefaultHeight::</height>
+		</originalSize>
+        <childFactor>0.9</childFactor>
+        <defaultBackgroundColour0>
+			<R>constantBlockColour0R::</R>
+			<G>constantBlockColour0G::</G>
+			<B>constantBlockColour0B::</B>
+		</defaultBackgroundColour0>
+        <defaultBackgroundColour1>
+			<R>constantBlockColour1R::</R>
+			<G>constantBlockColour1G::</G>
+			<B>constantBlockColour1B::</B>
+		</defaultBackgroundColour1>
+		<hasConstantField>true</hasConstantField>
+		<constantFieldDefaultValue>0</constantFieldDefaultValue>
+		<picker>
+			<imagesBasePath>thisBlockPath::</imagesBasePath>
+			<default>Images/BlockDefault.png</default>
+			<hover>Images/BlockHover.png</hover>
+			<pressed>Images/BlockPressed.png</pressed>
+			<disabled>Images/BlockDisabled.png</disabled>
+		</picker>
+	</interface>
+</block>

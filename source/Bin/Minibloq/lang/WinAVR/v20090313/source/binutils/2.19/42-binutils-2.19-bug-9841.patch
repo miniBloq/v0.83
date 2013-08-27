@@ -1,0 +1,50 @@
+Fixed for binutils >= 2.19.2.
+Index: elf32-avr.c
+===================================================================
+RCS file: /cvs/src/src/bfd/elf32-avr.c,v
+retrieving revision 1.39
+diff -C9 -r1.39 elf32-avr.c
+*** bfd/elf32-avr.c	3 Feb 2009 17:21:02 -0000	1.39
+--- bfd/elf32-avr.c	15 Feb 2009 10:17:56 -0000
+***************
+*** 1548,1566 ****
+  	   /* else...Reference symbol is extern.  No need for adjusting
+  	      the addend.  */
+  	 }
+       }
+    }
+  
+    /* Adjust the local symbols defined in this section.  */
+    isym = (Elf_Internal_Sym *) symtab_hdr->contents;
+    isymend = isym + symtab_hdr->sh_info;
+!   for (; isym < isymend; isym++)
+      {
+        if (isym->st_shndx == sec_shndx
+            && isym->st_value > addr
+            && isym->st_value < toaddr)
+          isym->st_value -= count;
+      }
+  
+    /* Now adjust the global symbols defined in this section.  */
+    symcount = (symtab_hdr->sh_size / sizeof (Elf32_External_Sym)
+--- 1548,1567 ----
+  	   /* else...Reference symbol is extern.  No need for adjusting
+  	      the addend.  */
+  	 }
+       }
+    }
+  
+    /* Adjust the local symbols defined in this section.  */
+    isym = (Elf_Internal_Sym *) symtab_hdr->contents;
+    isymend = isym + symtab_hdr->sh_info;
+!   /* Fix PR 9841, there may be no local symbols.  */ 
+!   for (; isym != NULL && isym < isymend; isym++)
+      {
+        if (isym->st_shndx == sec_shndx
+            && isym->st_value > addr
+            && isym->st_value < toaddr)
+          isym->st_value -= count;
+      }
+  
+    /* Now adjust the global symbols defined in this section.  */
+    symcount = (symtab_hdr->sh_size / sizeof (Elf32_External_Sym)

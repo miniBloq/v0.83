@@ -1,0 +1,61 @@
+.TH "deprecated" 3 "30 Jul 2010" "Version 1.6.8" "avr-libc" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+deprecated \- Deprecated List 
+ 
+.IP "\fBGlobal \fBcbi\fP(port, bit) \fP" 1c
+.PP
+.PP
+.PP
+ 
+.IP "\fBGlobal \fBenable_external_int\fP(mask) \fP" 1c
+.PP
+.PP
+.PP
+ 
+.IP "\fBGlobal \fBinb\fP(port) \fP" 1c
+.PP
+.PP
+.PP
+ 
+.IP "\fBGlobal \fBinp\fP(port) \fP" 1c
+.PP
+.PP
+.PP
+ 
+.IP "\fBGlobal \fBINTERRUPT\fP(signame) \fP" 1c
+.PP
+.PP
+.PP
+ 
+.IP "\fBGlobal \fBISR_ALIAS\fP(vector, target_vector) \fP" 1c
+For new code, the use of ISR(..., ISR_ALIASOF(...)) is recommended.
+.PP
+.PP
+.PP
+ 
+.IP "\fBGlobal \fBoutb\fP(port, val) \fP" 1c
+.PP
+.PP
+.PP
+ 
+.IP "\fBGlobal \fBoutp\fP(val, port) \fP" 1c
+.PP
+.PP
+.PP
+ 
+.IP "\fBGlobal \fBsbi\fP(port, bit) \fP" 1c
+.PP
+.PP
+.PP
+ 
+.IP "\fBGlobal \fBSIGNAL\fP(vector) \fP" 1c
+Do not use \fBSIGNAL()\fP in new code. Use \fBISR()\fP instead. 
+.PP
+.PP
+ 
+.IP "\fBGlobal \fBtimer_enable_int\fP(unsigned char ints) \fP" 1c
+.PP
+.PP
+

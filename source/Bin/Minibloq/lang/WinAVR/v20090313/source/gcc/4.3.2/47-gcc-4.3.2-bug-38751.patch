@@ -1,0 +1,131 @@
+http://gcc.gnu.org/ml/gcc/2008-12/msg00330.html
+Bug #38751.
+=====================================================
+*** gcc/fold-const.c.0	2008-12-11 10:47:40.000000000 +0100
+--- gcc/fold-const.c	2008-12-11 20:08:18.000000000 +0100
+*************** optimize_minmax_comparison (enum tree_co
+*** 6010,6019 ****
+     expression would not overflow or that overflow is undefined for the type
+     in the language in question.
+  
+-    We also canonicalize (X + 7) * 4 into X * 4 + 28 in the hope that either
+-    the machine has a multiply-accumulate insn or that this is part of an
+-    addressing calculation.
+- 
+     If we return a non-null expression, it is an equivalent form of the
+     original computation, but need not be in the original type.
+  
+--- 6010,6015 ----
+*************** fold_plusminus_mult_expr (enum tree_code
+*** 7459,7497 ****
+    else if (operand_equal_p (arg01, arg10, 0))
+      same = arg01, alt0 = arg00, alt1 = arg11;
+  
+!   /* No identical multiplicands; see if we can find a common
+!      power-of-two factor in non-power-of-two multiplies.  This
+!      can help in multi-dimensional array access.  */
+!   else if (host_integerp (arg01, 0)
+! 	   && host_integerp (arg11, 0))
+!     {
+!       HOST_WIDE_INT int01, int11, tmp;
+!       bool swap = false;
+!       tree maybe_same;
+!       int01 = TREE_INT_CST_LOW (arg01);
+!       int11 = TREE_INT_CST_LOW (arg11);
+  
+        /* Move min of absolute values to int11.  */
+!       if ((int01 >= 0 ? int01 : -int01)
+! 	  < (int11 >= 0 ? int11 : -int11))
+!         {
+  	  tmp = int01, int01 = int11, int11 = tmp;
+! 	  alt0 = arg00, arg00 = arg10, arg10 = alt0;
+! 	  maybe_same = arg01;
+  	  swap = true;
+  	}
+        else
+! 	maybe_same = arg11;
+  
+!       if (exact_log2 (abs (int11)) > 0 && int01 % int11 == 0)
+!         {
+  	  alt0 = fold_build2 (MULT_EXPR, TREE_TYPE (arg00), arg00,
+  			      build_int_cst (TREE_TYPE (arg00),
+! 					     int01 / int11));
+! 	  alt1 = arg10;
+! 	  same = maybe_same;
+  	  if (swap)
+! 	    maybe_same = alt0, alt0 = alt1, alt1 = maybe_same;
+  	}
+      }
+  
+--- 7455,7497 ----
+    else if (operand_equal_p (arg01, arg10, 0))
+      same = arg01, alt0 = arg00, alt1 = arg11;
+  
+!   /* No identical multiplicands; see if we can find a common positive
+!      power-of-two factor.  This can help in multi-dim array accesses.  */
+!   else if (host_integerp (arg01, 0) && host_integerp (arg11, 0))
+!     {
+!       HOST_WIDE_INT int01 = TREE_INT_CST_LOW (arg01);
+!       HOST_WIDE_INT int11 = TREE_INT_CST_LOW (arg11);
+!       HOST_WIDE_INT factor, tmp;
+!       tree tmp_tree;
+!       bool swap;
+  
+        /* Move min of absolute values to int11.  */
+!       if ((int01 >= 0 ? int01 : -int01) < (int11 >= 0 ? int11 : -int11))
+! 	{
+  	  tmp = int01, int01 = int11, int11 = tmp;
+! 	  tmp_tree = arg00, arg00 = arg10, arg10 = tmp_tree;
+  	  swap = true;
+  	}
+        else
+! 	swap = false;
+  
+!       if (int11 < 0)
+! 	factor = -int11;
+!       else
+! 	factor = int11;
+! 
+!       if (exact_log2 (factor) > 0 && (int01 % factor) == 0)
+! 	{
+  	  alt0 = fold_build2 (MULT_EXPR, TREE_TYPE (arg00), arg00,
+  			      build_int_cst (TREE_TYPE (arg00),
+! 					     int01 / factor));
+! 	  if (int11 < 0)
+! 	    alt1 = fold_build1 (NEGATE_EXPR, TREE_TYPE (arg10), arg10);
+! 	  else
+! 	    alt1 = arg10;
+  	  if (swap)
+! 	    tmp_tree = alt0, alt0 = alt1, alt1 = tmp_tree;
+! 	  same = build_int_cst (TREE_TYPE (arg10), factor);
+  	}
+      }
+  
+--- gcc/expr.c.orig	2008-08-12 12:36:28.000000000 -0600
++++ gcc/expr.c	2008-12-30 14:38:06.520649600 -0700
+@@ -6027,6 +6027,25 @@ get_inner_reference (tree exp, HOST_WIDE
+   *pbitpos = tree_low_cst (bit_offset, 0);
+   *poffset = offset;
+ 
++      /* The middle-end used to canonicalize (X + 7) * 4 into X * 4 + 28 at
++	 the tree level, but that is no longer the case.  However the latter
++	 form is still the preferred one in addressing calculations.  */
++      if (TREE_CODE (offset) == MULT_EXPR
++	  && TREE_CODE (TREE_OPERAND (offset, 1)) == INTEGER_CST)
++	{
++	  tree op0 = TREE_OPERAND (offset, 0), disp;
++	  enum tree_code code = TREE_CODE (op0);
++	  if ((code == PLUS_EXPR || code == MINUS_EXPR)
++	      && TREE_CODE (TREE_OPERAND (op0, 1)) == INTEGER_CST
++	      && (disp = int_const_binop (MULT_EXPR, TREE_OPERAND (op0, 1),
++					  TREE_OPERAND (offset, 1), 0))
++	      && !TREE_OVERFLOW (disp))
++	    *poffset = build2 (code, TREE_TYPE (offset),
++			       size_binop (MULT_EXPR, TREE_OPERAND (op0, 0),
++					   TREE_OPERAND (offset, 1)),
++			       disp);
++	}
++
+   return exp;
+ }
+ 

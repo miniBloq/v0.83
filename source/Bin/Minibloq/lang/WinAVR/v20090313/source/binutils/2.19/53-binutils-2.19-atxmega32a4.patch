@@ -1,0 +1,30 @@
+--- gas/config/tc-avr.c.old	2009-01-23 22:21:36.928795100 -0700
++++ gas/config/tc-avr.c	2009-01-23 21:53:31.332183000 -0700
+@@ -194,6 +194,7 @@ static struct mcu_type_s mcu_types[] =
+   {"at90usb1287",AVR_ISA_AVR51,   bfd_mach_avr51},
+   {"atmega2560", AVR_ISA_AVR6,    bfd_mach_avr6},
+   {"atmega2561", AVR_ISA_AVR6,    bfd_mach_avr6},
++  {"atxmega32a4", AVR_ISA_XMEGA,  bfd_mach_avrxmega3},
+   {"atxmega64a3", AVR_ISA_XMEGA,  bfd_mach_avrxmega4},
+   {"atxmega64a1", AVR_ISA_XMEGA,  bfd_mach_avrxmega5},
+   {"atxmega128a3", AVR_ISA_XMEGA, bfd_mach_avrxmega6},
+@@ -377,6 +378,7 @@ md_show_usage (FILE *stream)
+ 	"                   avr5  - enhanced AVR core with up to 64K program memory\n"
+ 	"                   avr51 - enhanced AVR core with up to 128K program memory\n"
+ 	"                   avr6  - enhanced AVR core with up to 256K program memory\n"
++	"                   avrxmega3 - XMEGA, > 8K, <= 64K FLASH, > 64K RAM\n"
+ 	"                   avrxmega4 - XMEGA, > 64K, <= 128K FLASH, <= 64K RAM\n"
+ 	"                   avrxmega5 - XMEGA, > 64K, <= 128K FLASH, > 64K RAM\n"
+ 	"                   avrxmega6 - XMEGA, > 128K, <= 256K FLASH, <= 64K RAM\n"
+--- gas/doc/c-avr.texi.old	2009-01-23 22:21:53.971444700 -0700
++++ gas/doc/c-avr.texi	2009-01-23 22:23:52.314378200 -0700
+@@ -76,6 +76,9 @@ at90can128, at90usb1286, at90usb1287).
+ Instruction set avr6 is for the enhanced AVR core with a 3-byte PC (MCU types:
+ atmega2560, atmega2561).
+ 
++Instruction set avrxmega3 is for the XMEGA AVR core with 8K to 64K program
++memory space and greater than 64K data space (MCU types: atxmega32a4).
++
+ Instruction set avrxmega4 is for the XMEGA AVR core with up to 64K program
+ memory space and less than 64K data space (MCU types: atxmega64a3).
+ 

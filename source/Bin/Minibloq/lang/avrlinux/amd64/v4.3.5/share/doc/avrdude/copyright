@@ -1,0 +1,24 @@
+This package was debianized by Michael Biebl <biebl@teco.edu> on
+Mon,  6 Jun 2005 20:28:53 +0200.
+
+It was downloaded from http://savannah.nongnu.org/projects/avrdude/
+
+AVRDUDE was written by:
+  Brian S. Dean  <bsd@bsdhome.com>.
+
+Contributors:
+  Joerg Wunsch <j@uriah.heep.sax.de>
+  Eric Weddington <ericw@evcohs.com>
+  Jan-Hinnerk Reichert <hinni@despammed.com>
+  Alex Shepherd <maillists@ajsystems.co.nz>
+  Martin Thomas <mthomas@rhrk.uni-kl.de>
+  Theodore A. Roth <troth@openavr.org>
+
+Copyright:
+  2000, 2001, 2002, 2003  Brian S. Dean <bsd@bsdhome.com>
+
+License:
+  The program is distributed under the GPL Version 2.
+  See /usr/share/common-licenses/GPL-2 or http://www.gnu.org/licenses/gpl.html
+  for details.
+

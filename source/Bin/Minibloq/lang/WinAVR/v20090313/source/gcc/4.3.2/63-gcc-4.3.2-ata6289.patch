@@ -1,0 +1,46 @@
+--- gcc/config/avr/avr.c.old	2008-06-03 17:42:53.859375000 -0600
++++ gcc/config/avr/avr.c	2008-06-03 17:44:04.875000000 -0600
+@@ -197,6 +197,7 @@ static const struct mcu_type_s avr_mcu_t
+   { "at90s8535",    ARCH_AVR2, "__AVR_AT90S8535__" },
+     /* Classic + MOVW, <= 8K.  */
+   { "avr25",        ARCH_AVR25, NULL },
++  { "ata6289",      ARCH_AVR25, "__AVR_ATA6289__" },
+   { "attiny13",     ARCH_AVR25, "__AVR_ATtiny13__" },
+   { "attiny2313",   ARCH_AVR25, "__AVR_ATtiny2313__" },
+   { "attiny24",     ARCH_AVR25, "__AVR_ATtiny24__" },
+--- gcc/config/avr/avr.h.orig	2009-02-23 11:22:21.360086700 -0700
++++ gcc/config/avr/avr.h	2009-02-23 11:37:39.850054700 -0700
+@@ -833,6 +833,7 @@ mmcu=*:-mmcu=%*}"
+   mmcu=at90s8*|\
+   mmcu=at90c8*|\
+   mmcu=at86rf401|\
++  mmcu=ata6289|\
+   mmcu=attiny13*|\
+   mmcu=attiny2313|\
+   mmcu=attiny24|\
+@@ -917,6 +918,7 @@ mmcu=*:-mmcu=%*}"
+   mmcu=atmega16u4|\
+   mmcu=atmega32u*|\
+   mmcu=at90scr100|\
++  mmcu=ata6289|\
+   mmcu=at90usb*: -Tdata 0x800100}\
+ %{mmcu=atmega640|\
+   mmcu=atmega1280|\
+@@ -975,6 +977,7 @@ mmcu=*:-mmcu=%*}"
+ %{mmcu=attiny87:crttn87.o%s} \
+ %{mmcu=attiny167:crttn167.o%s} \
+ %{mmcu=attiny327:crttn327.o%s} \
++%{mmcu=ata6289:crta6289.o%s} \
+ %{mmcu=at43usb320|mmcu=avr3:crt43320.o%s} \
+ %{mmcu=at43usb355:crt43355.o%s} \
+ %{mmcu=at76c711:crt76711.o%s} \
+--- gcc/config/avr/t-avr.orig	2009-02-23 11:22:21.360086700 -0700
++++ gcc/config/avr/t-avr	2009-02-23 11:35:54.306022700 -0700
+@@ -42,6 +42,7 @@ MULTILIB_DIRNAMES = avr2 avr25 avr3 avr3
+ 
+ # The many avr2 matches are not listed here - this is the default.
+ MULTILIB_MATCHES = \
++	mmcu?avr25=mmcu?ata6289 \
+ 	mmcu?avr25=mmcu?attiny13 \
+ 	mmcu?avr25=mmcu?attiny13a \
+ 	mmcu?avr25=mmcu?attiny2313 \

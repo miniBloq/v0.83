@@ -1,0 +1,8 @@
+AVRDUDE for Debian
+------------------
+
+If you have a chip that is not directly supported by avrdude you can add it
+to the configuration file /etc/avrdude.conf. For more information please take
+a look at section 4 of the avrdude documentation.
+
+ -- Michael Biebl <biebl@teco.edu>, Mon,  6 Jun 2005 20:28:53 +0200

@@ -1,0 +1,124 @@
+--- gcc/config/avr/avr.c.orig	2009-02-21 11:20:29.529362600 -0700
++++ gcc/config/avr/avr.c	2009-02-21 12:30:22.711688800 -0700
+@@ -243,6 +243,8 @@ static const struct mcu_type_s avr_mcu_t
+   { "atmega8515",   ARCH_AVR4, "__AVR_ATmega8515__" },
+   { "atmega8535",   ARCH_AVR4, "__AVR_ATmega8535__" },
+   { "atmega8hva",   ARCH_AVR4, "__AVR_ATmega8HVA__" },
++  { "atmega4hvd",   ARCH_AVR4, "__AVR_ATmega4HVD__" },
++  { "atmega8hvd",   ARCH_AVR4, "__AVR_ATmega8HVD__" },
+   { "at90pwm1",     ARCH_AVR4, "__AVR_AT90PWM1__" },
+   { "at90pwm2",     ARCH_AVR4, "__AVR_AT90PWM2__" },
+   { "at90pwm2b",    ARCH_AVR4, "__AVR_AT90PWM2B__" },
+@@ -284,14 +286,20 @@ static const struct mcu_type_s avr_mcu_t
+   { "atmega649",    ARCH_AVR5, "__AVR_ATmega649__" },
+   { "atmega6490",   ARCH_AVR5, "__AVR_ATmega6490__" },
+   { "atmega16hva",  ARCH_AVR5, "__AVR_ATmega16HVA__" },
++  { "atmega16hvb",  ARCH_AVR5, "__AVR_ATmega16HVB__" },
++  { "atmega32hvb",  ARCH_AVR5, "__AVR_ATmega32HVB__" },
+   { "at90can32",    ARCH_AVR5, "__AVR_AT90CAN32__" },
+   { "at90can64",    ARCH_AVR5, "__AVR_AT90CAN64__" },
+   { "at90pwm216",   ARCH_AVR5, "__AVR_AT90PWM216__" },
+   { "at90pwm316",   ARCH_AVR5, "__AVR_AT90PWM316__" },
+   { "atmega16m1",   ARCH_AVR5, "__AVR_ATmega16M1__" },
+-  { "atmega32m1",   ARCH_AVR5, "__AVR_ATmega32M1__" },
++  { "atmega16u4",   ARCH_AVR5, "__AVR_ATmega16U4__" },
+   { "atmega32c1",   ARCH_AVR5, "__AVR_ATmega32C1__" },
++  { "atmega32m1",   ARCH_AVR5, "__AVR_ATmega32M1__" },
+   { "atmega32u4",   ARCH_AVR5, "__AVR_ATmega32U4__" },
++  { "atmega32u6",   ARCH_AVR5, "__AVR_ATmega32U6__" },
++  { "atmega64c1",   ARCH_AVR5, "__AVR_ATmega64C1__" },
++  { "atmega64m1",   ARCH_AVR5, "__AVR_ATmega64M1__" },
+   { "at90scr100",   ARCH_AVR5, "__AVR_AT90SCR100__" },
+   { "at90usb646",   ARCH_AVR5, "__AVR_AT90USB646__" },
+   { "at90usb647",   ARCH_AVR5, "__AVR_AT90USB647__" },
+--- gcc/config/avr/avr.h.orig	2009-02-21 11:20:29.529362600 -0700
++++ gcc/config/avr/avr.h	2009-02-21 12:28:19.536660600 -0700
+@@ -848,7 +848,7 @@ mmcu=*:-mmcu=%*}"
+   mmcu=attiny16*|\
+   mmcu=attiny32*: -m avr3}\
+ %{mmcu=atmega8*|\
+-  mmcu=atmega48*|\
++  mmcu=atmega4*|\
+   mmcu=at90pwm1|\
+   mmcu=at90pwm2|\
+   mmcu=at90pwm2b|\
+@@ -898,8 +898,10 @@ mmcu=*:-mmcu=%*}"
+   mmcu=atmega165*|\
+   mmcu=atmega168*|\
+   mmcu=atmega169*|\
+-  mmcu=atmega8hva|\
+-  mmcu=atmega16hva|\
++  mmcu=atmega4hv*|\
++  mmcu=atmega8hv*|\
++  mmcu=atmega16hv*|\
++  mmcu=atmega32hv*|\
+   mmcu=attiny48|\
+   mmcu=attiny88|\
+   mmcu=attiny87|\
+@@ -910,7 +912,10 @@ mmcu=*:-mmcu=%*}"
+   mmcu=atmega16m1|\
+   mmcu=atmega32c1|\
+   mmcu=atmega32m1|\
+-  mmcu=atmega32u4|\
++  mmcu=atmega64c1|\
++  mmcu=atmega64m1|\
++  mmcu=atmega16u4|\
++  mmcu=atmega32u*|\
+   mmcu=at90scr100|\
+   mmcu=at90usb*: -Tdata 0x800100}\
+ %{mmcu=atmega640|\
+@@ -1023,14 +1028,22 @@ mmcu=*:-mmcu=%*}"
+ %{mmcu=atmega6490:crtm6490.o%s} \
+ %{mmcu=atmega8hva:crtm8hva.o%s} \
+ %{mmcu=atmega16hva:crtm16hva.o%s} \
++%{mmcu=atmega16hvb:crtm16hvb.o%s} \
++%{mmcu=atmega32hvb:crtm32hvb.o%s} \
++%{mmcu=atmega4hvd:crtm4hvd.o%s} \
++%{mmcu=atmega8hvd:crtm8hvd.o%s} \
+ %{mmcu=at90can32:crtcan32.o%s} \
+ %{mmcu=at90can64:crtcan64.o%s} \
+ %{mmcu=at90pwm216:crt90pwm216.o%s} \
+ %{mmcu=at90pwm316:crt90pwm316.o%s} \
+ %{mmcu=atmega16m1:crtm16m1.o%s} \
++%{mmcu=atmega16u4:crtm16u4.o%s} \
+ %{mmcu=atmega32c1:crtm32c1.o%s} \
+ %{mmcu=atmega32m1:crtm32m1.o%s} \
+ %{mmcu=atmega32u4:crtm32u4.o%s} \
++%{mmcu=atmega32u6:crtm32u6.o%s} \
++%{mmcu=atmega64c1:crtm64c1.o%s} \
++%{mmcu=atmega64m1:crtm64m1.o%s} \
+ %{mmcu=at90scr100:crt90scr100.o%s} \
+ %{mmcu=at90usb646:crtusb646.o%s} \
+ %{mmcu=at90usb647:crtusb647.o%s} \
+--- gcc/config/avr/t-avr.orig	2009-02-21 11:20:29.529362600 -0700
++++ gcc/config/avr/t-avr	2009-02-21 12:25:34.127400200 -0700
+@@ -75,6 +75,8 @@ MULTILIB_MATCHES = \
+ 	mmcu?avr4=mmcu?atmega88 \
+ 	mmcu?avr4=mmcu?atmega88p \
+ 	mmcu?avr4=mmcu?atmega8hva \
++	mmcu?avr4=mmcu?atmega4hvd \
++	mmcu?avr4=mmcu?atmega8hvd \
+ 	mmcu?avr4=mmcu?at90pwm1 \
+ 	mmcu?avr4=mmcu?at90pwm2 \
+ 	mmcu?avr4=mmcu?at90pwm2b \
+@@ -114,14 +116,20 @@ MULTILIB_MATCHES = \
+ 	mmcu?avr5=mmcu?atmega649 \
+ 	mmcu?avr5=mmcu?atmega6490 \
+ 	mmcu?avr5=mmcu?atmega16hva \
++	mmcu?avr5=mmcu?atmega16hvb \
++	mmcu?avr5=mmcu?atmega32hvb \
+ 	mmcu?avr5=mmcu?at90can32 \
+ 	mmcu?avr5=mmcu?at90can64 \
+ 	mmcu?avr5=mmcu?at90pwm216 \
+ 	mmcu?avr5=mmcu?at90pwm316 \
+ 	mmcu?avr5=mmcu?atmega16m1 \
++	mmcu?avr5=mmcu?atmega16u4 \
+ 	mmcu?avr5=mmcu?atmega32c1 \
+ 	mmcu?avr5=mmcu?atmega32m1 \
+ 	mmcu?avr5=mmcu?atmega32u4 \
++	mmcu?avr5=mmcu?atmega32u6 \
++	mmcu?avr5=mmcu?atmega64c1 \
++	mmcu?avr5=mmcu?atmega64m1 \
+ 	mmcu?avr5=mmcu?at90scr100 \
+ 	mmcu?avr5=mmcu?at90usb646 \
+ 	mmcu?avr5=mmcu?at90usb647 \

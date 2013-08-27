@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<block xmlns="http://block.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.8.Beta">
+    <properties>
+		<name>spriteFaceAngry</name>
+		<function>Constant</function>
+		<loadAction>load</loadAction>
+    </properties>
+    <code>
+		<dataType>sprite</dataType>
+		<initialCode>
+			<line0>angry</line0>
+		</initialCode>
+	</code>
+    <interface>
+		<originalSize>
+			<width>smallGettersDefaultWidth::</width>
+			<height>blockDefaultHeight::</height>
+		</originalSize>
+        <childFactor>0.9</childFactor>
+        <defaultBackgroundColour0>
+			<R>constantBlockColour0R::</R>
+			<G>constantBlockColour0G::</G>
+			<B>constantBlockColour0B::</B>
+		</defaultBackgroundColour0>
+        <defaultBackgroundColour1>
+			<R>constantBlockColour1R::</R>
+			<G>constantBlockColour1G::</G>
+			<B>constantBlockColour1B::</B>
+		</defaultBackgroundColour1>
+		<picker>
+			<imagesBasePath>thisBlockPath::</imagesBasePath>
+			<default>Images/SpriteAngryDefault.png</default>
+			<hover>Images/SpriteAngryHover.png</hover>
+			<pressed>Images/SpriteAngryPressed.png</pressed>
+			<disabled>Images/SpriteAngryDisabled.png</disabled>
+		</picker>
+		<blockButton>
+			<has>true</has>
+			<imagesBasePath>thisBlockPath::</imagesBasePath>
+			<default>Images/SpriteAngryBlockDefault.png</default>
+			<disabled>Images/SpriteAngryBlockDisabled.png</disabled>
+		</blockButton>
+	</interface>
+</block>

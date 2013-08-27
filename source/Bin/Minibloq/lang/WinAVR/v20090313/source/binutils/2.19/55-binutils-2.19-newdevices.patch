@@ -1,0 +1,132 @@
+/gas:
+2008-12-18  Anatoly Sokolov  <aesok@post.ru>
+
+        * config/tc-avr.c (mcu_types): Add attiny87, attiny327, atmega4hvd,
+        atmega8hvd, atmega16hvb, atmega32hvb, atmega64c1, atmega16m1, 
+        atmega64m1, atmega32u6, atmega128rfa1,  at90pwm81, at90scr100, 
+        m3000f, m3000s and m3001b devices.
+        * doc/c-avr.texi: Likewise.
+
+Patch for 2.19.
+================================================================================
+--- gas/config/tc-avr.c.orig	2009-02-05 14:21:18.268911100 -0700
++++ gas/config/tc-avr.c	2009-02-05 15:47:02.648384700 -0700
+@@ -116,6 +116,7 @@ static struct mcu_type_s mcu_types[] =
+   {"attiny261",  AVR_ISA_AVR25,   bfd_mach_avr25},
+   {"attiny461",  AVR_ISA_AVR25,   bfd_mach_avr25},
+   {"attiny861",  AVR_ISA_AVR25,   bfd_mach_avr25},
++  {"attiny87",   AVR_ISA_AVR25,   bfd_mach_avr25},
+   {"attiny43u",  AVR_ISA_AVR25,   bfd_mach_avr25},
+   {"attiny48",   AVR_ISA_AVR25,   bfd_mach_avr25},
+   {"attiny88",   AVR_ISA_AVR25,   bfd_mach_avr25},
+@@ -125,6 +126,7 @@ static struct mcu_type_s mcu_types[] =
+   {"atmega103",  AVR_ISA_AVR31,   bfd_mach_avr31},
+   {"at43usb320", AVR_ISA_AVR31,   bfd_mach_avr31},
+   {"attiny167",  AVR_ISA_AVR35,   bfd_mach_avr35},
++  {"attiny327",  AVR_ISA_AVR35,   bfd_mach_avr35},
+   {"at90usb82",  AVR_ISA_AVR35,   bfd_mach_avr35},
+   {"at90usb162", AVR_ISA_AVR35,   bfd_mach_avr35},
+   {"atmega8",    AVR_ISA_M8,      bfd_mach_avr4},
+@@ -135,11 +137,14 @@ static struct mcu_type_s mcu_types[] =
+   {"atmega8515", AVR_ISA_M8,      bfd_mach_avr4},
+   {"atmega8535", AVR_ISA_M8,      bfd_mach_avr4},
+   {"atmega8hva", AVR_ISA_AVR4,    bfd_mach_avr4},
++  {"atmega4hvd", AVR_ISA_AVR4,    bfd_mach_avr4},
++  {"atmega8hvd", AVR_ISA_AVR4,    bfd_mach_avr4},
+   {"at90pwm1",   AVR_ISA_AVR4,    bfd_mach_avr4},
+   {"at90pwm2",   AVR_ISA_AVR4,    bfd_mach_avr4},
+   {"at90pwm2b",  AVR_ISA_AVR4,    bfd_mach_avr4},
+   {"at90pwm3",   AVR_ISA_AVR4,    bfd_mach_avr4},
+   {"at90pwm3b",  AVR_ISA_AVR4,    bfd_mach_avr4},
++  {"at90pwm81",  AVR_ISA_AVR4,    bfd_mach_avr4},
+   {"atmega16",   AVR_ISA_AVR5,    bfd_mach_avr5},
+   {"atmega161",  AVR_ISA_M161,    bfd_mach_avr5},
+   {"atmega162",  AVR_ISA_AVR5,    bfd_mach_avr5},
+@@ -151,6 +156,7 @@ static struct mcu_type_s mcu_types[] =
+   {"atmega168p", AVR_ISA_AVR5,    bfd_mach_avr5},
+   {"atmega169",  AVR_ISA_AVR5,    bfd_mach_avr5},
+   {"atmega169p", AVR_ISA_AVR5,    bfd_mach_avr5},
++  {"atmega16hvb",AVR_ISA_AVR5,    bfd_mach_avr5},
+   {"atmega32",   AVR_ISA_AVR5,    bfd_mach_avr5},
+   {"atmega323",  AVR_ISA_AVR5,    bfd_mach_avr5},
+   {"atmega324p", AVR_ISA_AVR5,    bfd_mach_avr5},
+@@ -163,6 +169,7 @@ static struct mcu_type_s mcu_types[] =
+   {"atmega329p", AVR_ISA_AVR5,    bfd_mach_avr5},
+   {"atmega3290", AVR_ISA_AVR5,    bfd_mach_avr5},
+   {"atmega3290p",AVR_ISA_AVR5,    bfd_mach_avr5},
++  {"atmega32hvb",AVR_ISA_AVR5,    bfd_mach_avr5},
+   {"atmega406",  AVR_ISA_AVR5,    bfd_mach_avr5},
+   {"atmega64",   AVR_ISA_AVR5,    bfd_mach_avr5},
+   {"atmega640",  AVR_ISA_AVR5,    bfd_mach_avr5},
+@@ -177,21 +184,29 @@ static struct mcu_type_s mcu_types[] =
+   {"at90can64" , AVR_ISA_AVR5,    bfd_mach_avr5},
+   {"at90pwm216", AVR_ISA_AVR5,    bfd_mach_avr5},
+   {"at90pwm316", AVR_ISA_AVR5,    bfd_mach_avr5},
++  {"atmega16m1", AVR_ISA_AVR5,    bfd_mach_avr5},
+   {"atmega16u4", AVR_ISA_AVR5,    bfd_mach_avr5},
+   {"atmega32c1", AVR_ISA_AVR5,    bfd_mach_avr5},
+   {"atmega32m1", AVR_ISA_AVR5,    bfd_mach_avr5},
+   {"atmega32u4", AVR_ISA_AVR5,    bfd_mach_avr5},
+   {"atmega32u6", AVR_ISA_AVR5,    bfd_mach_avr5},
++  {"atmega64c1", AVR_ISA_AVR5,    bfd_mach_avr5},
++  {"atmega64m1", AVR_ISA_AVR5,    bfd_mach_avr5},
+   {"at90usb646", AVR_ISA_AVR5,    bfd_mach_avr5},
+   {"at90usb647", AVR_ISA_AVR5,    bfd_mach_avr5},
++  {"at90scr100", AVR_ISA_AVR5,    bfd_mach_avr5},
+   {"at94k",      AVR_ISA_94K,     bfd_mach_avr5},
+   {"atmega128",  AVR_ISA_AVR51,   bfd_mach_avr51},
+   {"atmega1280", AVR_ISA_AVR51,   bfd_mach_avr51},
+   {"atmega1281", AVR_ISA_AVR51,   bfd_mach_avr51},
+   {"atmega1284p",AVR_ISA_AVR51,   bfd_mach_avr51},
++  {"atmega128rfa1",AVR_ISA_AVR51, bfd_mach_avr51},
+   {"at90can128", AVR_ISA_AVR51,   bfd_mach_avr51},
+   {"at90usb1286",AVR_ISA_AVR51,   bfd_mach_avr51},
+   {"at90usb1287",AVR_ISA_AVR51,   bfd_mach_avr51},
++  {"m3000f",     AVR_ISA_AVR51,   bfd_mach_avr51},
++  {"m3000s",     AVR_ISA_AVR51,   bfd_mach_avr51},
++  {"m3001b",     AVR_ISA_AVR51,   bfd_mach_avr51},
+   {"atmega2560", AVR_ISA_AVR6,    bfd_mach_avr6},
+   {"atmega2561", AVR_ISA_AVR6,    bfd_mach_avr6},
+   {"atxmega32a4", AVR_ISA_XMEGA,  bfd_mach_avrxmega3},
+--- gas/doc/c-avr.texi.orig	2009-02-05 14:21:18.268911100 -0700
++++ gas/doc/c-avr.texi	2009-02-05 15:53:09.061807600 -0700
+@@ -44,7 +44,7 @@ at90s8535).
+ Instruction set avr25 is for the classic AVR core with up to 8K program memory
+ space plus the MOVW instruction (MCU types: attiny13, attiny13a, attiny2313,
+ attiny24, attiny44, attiny84, attiny25, attiny45, attiny85, attiny261,
+-attiny461, attiny861, attiny43u, attiny48, attiny88, at86rf401).
++attiny461, attiny861, attiny87, attiny43u, attiny48, attiny88, at86rf401).
+ 
+ Instruction set avr3 is for the classic AVR core with up to 128K program
+ memory space (MCU types: at43usb355, at76c711).
+@@ -53,12 +53,12 @@ Instruction set avr31 is for the classic
+ memory space (MCU types: atmega103, at43usb320).
+ 
+ Instruction set avr35 is for classic AVR core plus MOVW, CALL, and JMP
+-instructions (MCU types: attiny167, at90usb82, at90usb162).
++instructions (MCU types: attiny167, attiny327, at90usb82, at90usb162).
+ 
+ Instruction set avr4 is for the enhanced AVR core with up to 8K program
+ memory space (MCU types: atmega48, atmega48p,atmega8, atmega88, atmega88p,
+-atmega8515, atmega8535, atmega8hva, at90pwm1, at90pwm2, at90pwm2b,
+-at90pwm3, at90pwm3b).
++atmega8515, atmega8535, atmega8hva, atmega4hvd, atmega8hvd, at90pwm1,
++at90pwm2, at90pwm2b, at90pwm3, at90pwm3b, at90pwm81).
+ 
+ Instruction set avr5 is for the enhanced AVR core with up to 128K program
+ memory space (MCU types: atmega16, atmega161, atmega162, atmega163, atmega164p,
+@@ -67,11 +67,12 @@ atmega323, atmega324p, atmega325, atmega
+ atmega328p, atmega329, atmega329p, atmega3290, atmega3290p, atmega406, atmega64,
+ atmega640, atmega644, atmega644p, atmega645, atmega6450, atmega649, atmega6490,
+ atmega16hva, at90can32, at90can64, at90pwm216, at90pwm316, atmega16u4,
+-atmega32c1, atmega32m1, atmega32u4, atmega32u6, at90usb646, at90usb647, at94k).
++atmega32c1, atmega32m1, atmega32u4, atmega32u6, at90usb646, at90usb647, at94k,
++atmega16hvb, atmega32hvb, atmega64c1, atmega16m1, atmega64m1, at90scr100).
+ 
+ Instruction set avr51 is for the enhanced AVR core with exactly 128K program
+ memory space (MCU types: atmega128, atmega1280, atmega1281, atmega1284p,
+-at90can128, at90usb1286, at90usb1287).
++at90can128, at90usb1286, at90usb1287, m3000f, m3000s, m3001b).
+ 
+ Instruction set avr6 is for the enhanced AVR core with a 3-byte PC (MCU types:
+ atmega2560, atmega2561).

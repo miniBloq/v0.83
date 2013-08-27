@@ -1,0 +1,16 @@
+Index: include/avr/power.h
+===================================================================
+RCS file: /sources/avr-libc/avr-libc/include/avr/power.h,v
+retrieving revision 1.11.2.20
+diff -u -p -r1.11.2.20 power.h
+--- include/avr/power.h	19 Feb 2009 21:10:54 -0000	1.11.2.20
++++ include/avr/power.h	13 Mar 2009 16:53:26 -0000
+@@ -625,7 +625,7 @@ do{ \
+ 
+ 
+ #elif defined(__AVR_ATmega32U4__) \
+-defined(__AVR_ATmega16U4__)
++|| defined(__AVR_ATmega16U4__)
+ 
+ 
+ #define power_adc_enable()      (PRR0 &= (uint8_t)~(1 << PRADC))

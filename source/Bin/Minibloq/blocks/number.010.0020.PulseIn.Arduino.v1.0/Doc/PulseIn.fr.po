@@ -1,0 +1,21 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Minibloq.v0.81.Beta\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-02-03 01:34-0300\n"
+"PO-Revision-Date: 2012-06-29 13:21-0300\n"
+"Last-Translator: Julián da Silva Gillig <julian.dasilva.gillig@gmail.com>\n"
+"Language-Team: Minibloq\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "PulseIn.tooltip"
+msgstr "Ce bloc renvoie la durée (en microsecondes) d'une impulsion de l'entrée numérique sélectionnée. Par exemple, si le premier paramètre est vrai, le bloc va attendre jusqu'à ce que l'entrée prenne cette valeur, puis permettra de mesurer le temps jusqu'à ce que l'entrée passe à faux à nouveau. Le deuxième paramètre définit la durée maximale du bloc qu'il doit attendre pour prendre la mesure."
+
+msgid "PulseIn.label"
+msgstr "Pulse in"
+

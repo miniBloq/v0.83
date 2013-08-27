@@ -1,0 +1,815 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Minibloq.v0.81.Beta\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-04-30 17:41-0300\n"
+"PO-Revision-Date: 2012-07-05 12:43+0100\n"
+"Last-Translator: \n"
+"Language-Team: Minibloq\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: C:\\Projects\\Multiplo\\Soft\\Minibloq\\v1.0\\Soft\\Source\n"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/main.cpp:25
+msgid "Error #1: This language is not supported by the system."
+msgstr "Errore #1: Questa lingua non è supportata dal sistema."
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/main.cpp:37
+msgid ""
+"Error #1: The installation path\n"
+"\n"
+"\""
+msgstr ""
+"Errore #1: Installazione in\n"
+"\n"
+"\""
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/main.cpp:38
+msgid ""
+"\"\n"
+"\n"
+"contains non-English chars.\n"
+msgstr ""
+"\"\n"
+"\n"
+"contiene caratteri non inglesi.\n"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/main.cpp:39
+msgid "Please try to install Minibloq on a location without this kind of chars. "
+msgstr "Prova ad installare Minibloq in una locazione senza caratteri strani. "
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/main.cpp:40
+msgid "Otherwise, the program will run, but the translation system will not work properly."
+msgstr "In caso contrario, il programma si avvierà, ma senza la traduzione."
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:309
+msgid ""
+"The installation path\n"
+"\n"
+"\""
+msgstr ""
+"Installazione in\n"
+"\n"
+"\""
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:309
+msgid ""
+"\"\n"
+"\n"
+"is too long. "
+msgstr ""
+"\"\n"
+"\n"
+"è troppo lungo. "
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:310
+msgid "Please try to install Minibloq on a location with a shorter path."
+msgstr "Prova a installare Minibloq in una posizione più corta."
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:311
+msgid "Error #0"
+msgstr "Errore #0"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:427
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:689
+msgid "Messages"
+msgstr "Messaggi"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:440
+msgid "Components"
+msgstr "Componenti"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:644
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1456
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1828
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2054
+msgid "Help and Resource Center"
+msgstr "Help and Resource Center"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:649
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2079
+msgid "Help"
+msgstr "Aiuto"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:652
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2102
+msgid "About Minibloq"
+msgstr "About Minibloq"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:655
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2119
+msgid "License"
+msgstr "Licenza"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:662
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2161
+msgid "Properties"
+msgstr "Proprietà"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:668
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1452
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1827
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2237
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2280
+msgid "Terminal"
+msgstr "Terminale"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:673
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2316
+msgid "Single"
+msgstr "Singolo"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:676
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2337
+msgid "Split"
+msgstr "Dividi"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:684
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1448
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1826
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1929
+msgid "Hardware"
+msgstr "Hardware"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:745
+msgid "File"
+msgstr "File"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:746
+msgid "Edit"
+msgstr "Modifica"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:747
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2195
+msgid "Component"
+msgstr "Componente"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:748
+msgid "View"
+msgstr "Visualizza"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:800
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1529
+msgid "Main menu"
+msgstr "Menù principale"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:833
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:835
+msgid "Create"
+msgstr "Crea"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:847
+msgid "Add\tCtrl+D"
+msgstr "Aggiungi\tCtrl+D"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:849
+msgid "Remove\tCtrl+R"
+msgstr "Rimuovi\tCtrl+R"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:856
+msgid "Open\tCtrl+O"
+msgstr "Apri\tCtrl+O"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:864
+msgid "Examples"
+msgstr "Esempi"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:872
+msgid "Save\tCtrl+S"
+msgstr "Salva\tCtrl+S"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:881
+msgid "Save as"
+msgstr "Salva con nome"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:890
+msgid "Save all\tCtrl+Shift+S"
+msgstr "Salva tutto\tCtrl+Shift+S"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:896
+msgid "Close\tCtrl+W"
+msgstr "Chiudi\tCtrl+W"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:898
+msgid "Close all\tCtrl + Shift+W"
+msgstr "Chiudi tuttol\tCtrl + Shift+W"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:903
+msgid "Print"
+msgstr "Stampa"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:905
+msgid "Export as image to clipboard"
+msgstr "Esporta come immagine nel clipboard"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:914
+msgid "Exit\tAlt+F4"
+msgstr "Esci\tAlt+F4"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:989
+msgid "Component\tCtrl+N"
+msgstr "Componente\tCtrl+N"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:997
+msgid "Block\tCtrl+B"
+msgstr "Blocco\tCtrl+B"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1020
+msgid "Undo\tCtrl+Z"
+msgstr "Annulla\tCtrl+Z"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1027
+msgid "Redo\tCtrl+Y"
+msgstr "Rifai\tCtrl+Y"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1042
+msgid "Select all\tCtrl+A"
+msgstr "Seleziona tutto\tCtrl+A"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1049
+msgid "Copy\tCtrl+C"
+msgstr "Copia\tCtrl+C"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1058
+msgid "Cut\tCtrl+X"
+msgstr "Taglia\tCtrl+X"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1072
+msgid "Paste\tCtrl+V"
+msgstr "Incolla\tCtrl+V"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1080
+msgid "Delete\tAlt+Del"
+msgstr "Elimina\tAlt+Del"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1094
+msgid "Comment/Uncomment"
+msgstr "Commenta/Togli commento"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1103
+msgid "Find\tCtrl+F"
+msgstr "Cerca\tCtrl+F"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1107
+msgid "Find next\tF3"
+msgstr "Cerca prossimo\tF3"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1130
+msgid "Run\tCtrl+U"
+msgstr "Vai\tCtrl+U"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1138
+msgid "Deploy\tCtrl+P"
+msgstr "Schiera\tCtrl+P"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1146
+msgid "Build\tCtrl+R"
+msgstr "Costriusci\tCtrl+R"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1160
+msgid "Make portable\tF8"
+msgstr "Renti portabile\tF8"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1164
+msgid "Open folder\tAlt+D"
+msgstr "Apri cartella\tAlt+D"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1218
+msgid "Help and Resource Center\tCtrl+H"
+msgstr "Help and Resource Center\tCtrl+H"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1223
+msgid "Labels\tCtrl+L"
+msgstr "Etichette\tCtrl+L"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1237
+msgid "Quick toolbar\tAlt+Q"
+msgstr "Quick toolbar\tAlt+Q"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1250
+msgid "Components\tAlt+N"
+msgstr "Componenti\tAlt+N"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1253
+msgid "Generated code\tAlt+G"
+msgstr "Codice generato\tAlt+G"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1256
+msgid "Hardware\tAlt+H"
+msgstr "Hardware\tAlt+H"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1268
+msgid "Properties\tAlt+P"
+msgstr "Proprietà\tAlt+P"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1271
+msgid "Local variables\tAlt++L"
+msgstr "Variabili locali\tAlt++L"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1274
+msgid "Messages\tAlt+M"
+msgstr "Messaggi\tAlt+M"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1276
+msgid "Terminal\tAlt+T"
+msgstr "Terminale\tAlt+T"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1299
+msgid "Prev view\tAlt+Left"
+msgstr "Visualizza precedente\tAlt+Left"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1301
+msgid "Next view\tAlt+Right"
+msgstr "Visualizza successivo\tAlt+Right"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1401
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1816
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2869
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Terminal.cpp:628
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Terminal.cpp:690
+msgid "Open"
+msgstr "Apri"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1409
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1817
+msgid "Save"
+msgstr "Salva"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1416
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1819
+msgid "Create block"
+msgstr "Crea blocco"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1428
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1821
+msgid "Run"
+msgstr "Vai"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1432
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1823
+msgid "Deploy"
+msgstr "Deploy"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1444
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1825
+msgid "Generated code"
+msgstr "Genera codice"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1464
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1502
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:3933
+msgid "100 %"
+msgstr "100 %"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1464
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1829
+msgid "Zoom"
+msgstr "Zoom"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1474
+msgid "Quick toolbar"
+msgstr "Quick toolbar"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1494
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:3901
+msgid "10 %"
+msgstr "10 %"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1496
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:3909
+msgid "25 %"
+msgstr "25 %"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1498
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:3917
+msgid "50 %"
+msgstr "50 %"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1500
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:3925
+msgid "75 %"
+msgstr "75 %"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1505
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:3941
+msgid "125 %"
+msgstr "125 %"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1507
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:3949
+msgid "150 %"
+msgstr "150 %"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1509
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:3957
+msgid "175 %"
+msgstr "175 %"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1511
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:3965
+msgid "200 %"
+msgstr "200 %"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:1947
+msgid "Local variables"
+msgstr "Variabili locali"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2181
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:4221
+msgid "Minibloq"
+msgstr "Minibloq"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2208
+msgid "Block editor"
+msgstr "Editor di blocchi"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2221
+msgid "Text editor"
+msgstr "Editor di testi"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2441
+msgid "View All"
+msgstr "Visualizza tutto"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2508
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2650
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2810
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:4285
+msgid "The component "
+msgstr "Il componente"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2508
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2650
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2810
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:4285
+msgid " was not saved. Do You want to save it?"
+msgstr "non salvato. Vuoi salvarlo?"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2509
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2651
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2811
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:4286
+msgid "Question"
+msgstr "Domanda"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2742
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2937
+msgid "Block files (*.mbqc)|*.mbqc"
+msgstr "File di blocchi (*.mbqc)|*.mbqc"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2745
+msgid "Add a Block file to the Component"
+msgstr "Aggiungi un blocco al componente"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2772
+#, c-format
+msgid "File %d: %s (%s)\n"
+msgstr "File %d: %s (%s)\n"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2777
+#, c-format
+msgid "Filter index: %d"
+msgstr "Indice filtro: %d"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2781
+msgid "Selected files"
+msgstr "File selezionati"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2850
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:3389
+msgid "Can't find folder "
+msgstr "Non posso trovare la cartella"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2866
+msgid "Component files (*.mbqc)|*.mbqc|C++ files (*.cpp;*.h)|*.cpp;*.h|All files (*.*)|*.*"
+msgstr "File componenti (*.mbqc)|*.mbqc|C++ files (*.cpp;*.h)|*.cpp;*.h|All files (*.*)|*.*"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:2932
+msgid "Save file as"
+msgstr "Salva con nome..."
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:3021
+msgid "Capturing..."
+msgstr "Sto catturando..."
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:3029
+msgid ""
+"\n"
+"Ready."
+msgstr ""
+"\n"
+"Pronto."
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:3886
+msgid "Can't load "
+msgstr "Non posso caricare"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MainFrame.cpp:4220
+msgid "Are you sure you want to close this page?"
+msgstr "Sei sicuro di voler chiudere la pagina?"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MinibloqProperties.cpp:37
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MinibloqProperties.cpp:198
+msgid "Language:"
+msgstr "Lingue:"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MinibloqProperties.cpp:79
+msgid "Reload blocks"
+msgstr "Ricarica blocchi"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MinibloqProperties.cpp:153
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MinibloqProperties.cpp:186
+msgid "Error #2: Can't load "
+msgstr "Errore #2: Non posso caricare"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/MinibloqProperties.cpp:201
+msgid "Reload languages"
+msgstr "Ricarica lingue"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Terminal.cpp:638
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Terminal.cpp:692
+msgid "Close"
+msgstr "Chiudi"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Terminal.cpp:650
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Terminal.cpp:694
+msgid "Clear all"
+msgstr "Cancella tutto"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Terminal.cpp:662
+msgid "Show emoticons"
+msgstr "Visualizza emoticons"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/Bubble.cpp:552
+msgid "HID"
+msgstr "HID"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/Bubble.cpp:786
+msgid "Internal error: There is no \"currentCanvas\"."
+msgstr "Errore interno: non c'è \"currentCanvas\"."
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/Bubble.cpp:1271
+msgid ""
+"\n"
+"There are errors."
+msgstr ""
+"\n"
+"Sono presenti errori."
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/Bubble.cpp:1314
+msgid "Reseting the board...\n"
+msgstr "Reset in corso...\n"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/Bubble.cpp:1337
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/Bubble.cpp:1349
+msgid ">"
+msgstr ">"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/Bubble.cpp:1343
+msgid ""
+"\n"
+"Verifiying port "
+msgstr ""
+"\n"
+"Verifica porta"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/Bubble.cpp:1352
+msgid ""
+"\n"
+"\n"
+msgstr ""
+"\n"
+"\n"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/Bubble.cpp:1365
+msgid ""
+"\n"
+"Verifiying DFU device\n"
+msgstr ""
+"\n"
+"Verifica dispositivo in DFU\n"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/Bubble.cpp:1404
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/Bubble.cpp:1430
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/Bubble.cpp:1604
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/Bubble.cpp:1618
+msgid ""
+"\n"
+"Board Ok >> Programming...\n"
+"\n"
+msgstr ""
+"\n"
+"Scheda Ok >> Sto programmando...\n"
+"\n"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/Bubble.cpp:1414
+msgid ""
+"\n"
+"Output:\n"
+msgstr ""
+"\n"
+"Uscita:\n"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/Bubble.cpp:1421
+msgid ""
+"\n"
+"Error: Device not found\n"
+msgstr ""
+"\n"
+"Errore: Dispositivo non trovato\n"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/Bubble.cpp:1594
+msgid "Verifiying the board "
+msgstr "Sto verificando la scheda"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/Bubble.cpp:1629
+msgid ""
+"\n"
+"Error: Can't communicate with the board.\n"
+"Try reset it manually."
+msgstr ""
+"\n"
+"Errore: Non riesco a comunicare con la scheda.\n"
+"Prova a resettarla manualmente."
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/Bubble.cpp:1637
+msgid ""
+"\n"
+"Can't open port "
+msgstr ""
+"\n"
+"Non posso aprire la porta"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/Bubble.cpp:1837
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/Bubble.cpp:2021
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/Bubble.cpp:2199
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/Bubble.cpp:2389
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/Bubble.cpp:2578
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/Bubble.cpp:2765
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/Bubble.cpp:2952
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/Bubble.cpp:3117
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/Bubble.cpp:3283
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/Bubble.cpp:3428
+msgid "milliseconds: "
+msgstr "millisecondi: "
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/Bubble.cpp:4102
+msgid "Actions"
+msgstr "Azione"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/BubbleCanvas.cpp:335
+msgid "Cut"
+msgstr "Taglia"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/BubbleCanvas.cpp:343
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/BubbleCanvas.cpp:409
+msgid "Paste"
+msgstr "Incolla"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/BubbleCanvas.cpp:351
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/BubbleCanvas.cpp:449
+msgid "Delete"
+msgstr "Cancella "
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/BubbleHardwareManager.cpp:56
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/BubbleHardwareManager.cpp:227
+msgid "Hardware (Alt+W):"
+msgstr "Hardware (Alt+W):"
+
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/BubbleHardwareManager.cpp:148
+#: C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Source/Bubble/wxBubble/v1.0/Source/BubbleHardwareManager.cpp:229
+msgid "Port (Alt+R):"
+msgstr "Porta (Alt+R):"
+
+#~ msgid "Blocks"
+#~ msgstr "Blocks"
+
+#~ msgid "toolMainMenu"
+#~ msgstr "toolMainMenu"
+
+#~ msgid "QuickToolBar"
+#~ msgstr "QuickToolBar"
+
+#~ msgid "LocalVariables"
+#~ msgstr "LocalVariables"
+
+#~ msgid "HelpAndResourceCenter"
+#~ msgstr "HelpAndResourceCenter"
+
+#~ msgid "Help & Resource Center"
+#~ msgstr "Help & Resource Center"
+
+#~ msgid "return for while break continue if else true false"
+#~ msgstr "return for while break continue if else true false"
+
+#~ msgid "unsigned volatile const int float void char double"
+#~ msgstr "unsigned volatile const int float void char double"
+
+#~ msgid "main.pde"
+#~ msgstr "main.pde"
+
+#~ msgid "GeneratedCode"
+#~ msgstr "GeneratedCode"
+
+#~ msgid "Deploy finished"
+#~ msgstr "Deploy finished"
+
+#~ msgid "Info"
+#~ msgstr "Info"
+
+#~ msgid "txtMsg"
+#~ msgstr "txtMsg"
+
+#~ msgid "progress"
+#~ msgstr "progress"
+
+#~ msgid "Abrir"
+#~ msgstr "Abrir"
+
+#~ msgid "Cerrar"
+#~ msgstr "Cerrar"
+
+#~ msgid "Limpiar todo"
+#~ msgstr "Limpiar todo"
+
+#~ msgid "splitRxTx"
+#~ msgstr "splitRxTx"
+
+#~ msgid "Error interno: No hay \"currentCanvas\"."
+#~ msgstr "Error interno: No hay \"currentCanvas\"."
+
+#~ msgid ""
+#~ "\n"
+#~ "\n"
+#~ "Hay errores en el programa."
+#~ msgstr ""
+#~ "\n"
+#~ "\n"
+#~ "Hay errores en el programa."
+
+#~ msgid "Reseteando la placa...\n"
+#~ msgstr "Reseteando la placa...\n"
+
+#~ msgid ""
+#~ "\n"
+#~ "Verificando el puerto "
+#~ msgstr ""
+#~ "\n"
+#~ "Verificando el puerto "
+
+#~ msgid ""
+#~ "\n"
+#~ "Verificando el dispositivo DFU "
+#~ msgstr ""
+#~ "\n"
+#~ "Verificando el dispositivo DFU "
+
+#~ msgid "\n"
+#~ msgstr "\n"
+
+#~ msgid ""
+#~ "\n"
+#~ "Placa Ok >> Programando...\n"
+#~ "\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Placa Ok >> Programando...\n"
+#~ "\n"
+
+#~ msgid "Verificando la placa "
+#~ msgstr "Verificando la placa "
+
+#~ msgid ""
+#~ "\n"
+#~ "Error: No es posible comunicarse con la placa.\n"
+#~ "Intenta resetearla manualmente."
+#~ msgstr ""
+#~ "\n"
+#~ "Error: No es posible comunicarse con la placa.\n"
+#~ "Intenta resetearla manualmente."
+
+#~ msgid ""
+#~ "\n"
+#~ "No se puede abrir el puerto "
+#~ msgstr ""
+#~ "\n"
+#~ "No se puede abrir el puerto "
+
+#~ msgid "Acciones"
+#~ msgstr "Acciones"
+
+#~ msgid "Cortar"
+#~ msgstr "Cortar"
+
+#~ msgid "Pegar"
+#~ msgstr "Pegar"
+
+#~ msgid "Eliminar"
+#~ msgstr "Eliminar"
+
+#~ msgid "Comentar/Descomentar"
+#~ msgstr "Comentar/Descomentar"

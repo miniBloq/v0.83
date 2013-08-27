@@ -1,0 +1,32 @@
+.TH "<avr/signature.h>: Signature Support" 3 "30 Jul 2010" "Version 1.6.8" "avr-libc" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+<avr/signature.h>: Signature Support \- \fBIntroduction\fP.RS 4
+
+.RE
+.PP
+The <\fBavr/signature.h\fP> header file allows the user to automatically and easily include the device's signature data in a special section of the final linked ELF file.
+.PP
+This value can then be used by programming software to compare the on-device signature with the signature recorded in the ELF file to look for a match before programming the device.
+.PP
+\fBAPI Usage Example\fP.RS 4
+
+.RE
+.PP
+Usage is very simple; just include the header file:
+.PP
+.PP
+.nf
+    #include <avr/signature.h>
+.fi
+.PP
+.PP
+This will declare a constant unsigned char array and it is initialized with the three signature bytes, MSB first, that are defined in the device I/O header file. This array is then placed in the .signature section in the resulting linked ELF file.
+.PP
+The three signature bytes that are used to initialize the array are these defined macros in the device I/O header file, from MSB to LSB: SIGNATURE_2, SIGNATURE_1, SIGNATURE_0.
+.PP
+This header file should only be included once in an application. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for avr-libc from the source code.

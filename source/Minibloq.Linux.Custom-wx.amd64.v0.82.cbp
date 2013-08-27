@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Minibloq.v1.0" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output=".\Bin\Minibloq\Components\Minibloq\v1.0\Minibloq-amd64" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Obj\Debug-amd64\" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="-g" />
+					<!--<Add directory="$(#wx)\lib\gcc_dll\mswud" />-->
+				</Compiler>
+				<ResourceCompiler>
+					<!--<Add directory="$(#wx)\lib\gcc_dll\mswud" />-->
+				</ResourceCompiler>
+				<Linker>
+                    <Add option="-lwx_gtk2u_minibloq_dbg-2.9"/>
+					<!--<Add library="libwxmsw29ud_richtext.a" />
+					<Add library="libwxmsw29ud_xrc.a" />
+					<Add library="libwxmsw29ud_aui.a" />
+					<Add library="libwxmsw29ud_media.a" />
+					<Add library="libwxbase29ud_net.a" />
+					<Add library="libwxmsw29ud_gl.a" />
+					<Add library="libwxbase29ud_xml.a" />
+					<Add library="libwxmsw29ud_adv.a" />
+					<Add library="libwxmsw29ud_html.a" />
+					<Add library="libwxmsw29ud_core.a" />
+					<Add library="libwxbase29ud.a" />
+					<Add library="libwxpngd.a" />
+					<Add library="libwxjpegd.a" />
+					<Add library="libwxtiffd.a" />
+					<Add library="libwxzlibd.a" />
+					<Add library="libwxregexud.a" />
+					<Add library="libwxexpatd.a" />
+					<Add directory="$(#wx)\lib\gcc_dll" />-->
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output=".\Bin\Minibloq\Components\Minibloq\v1.0\Minibloq-amd64" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Obj\Release-amd64\" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="-O2" />
+                    <Add option="-DwxDEBUG_LEVEL=0" />
+					<!--<Add directory="$(#wx)\lib\gcc_dll\mswu" />-->
+				</Compiler>
+				<ResourceCompiler>
+					<!--<Add directory="$(#wx)\lib\gcc_dll\mswu" />-->
+				</ResourceCompiler>
+				<Linker>
+					<Add option="-s" />
+                    <Add option="-lwx_gtk2u_minibloq-2.9"/>
+					<!--<Add library="libwxmsw29u_richtext.a" />
+					<Add library="libwxmsw29u_xrc.a" />
+					<Add library="libwxmsw29u_aui.a" />
+					<Add library="libwxmsw29u_media.a" />
+					<Add library="libwxbase29u_net.a" />
+					<Add library="libwxmsw29u_gl.a" />
+					<Add library="libwxbase29u_xml.a" />
+					<Add library="libwxmsw29u_adv.a" />
+					<Add library="libwxmsw29u_html.a" />
+					<Add library="libwxmsw29u_core.a" />
+					<Add library="libwxbase29u.a" />
+					<Add library="libwxpng.a" />
+					<Add library="libwxjpeg.a" />
+					<Add library="libwxtiff.a" />
+					<Add library="libwxzlib.a" />
+					<Add library="libwxregexu.a" />
+					<Add library="libwxexpat.a" />
+					<Add directory="$(#wx)\lib\gcc_dll" />-->
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<!--<Add option="-Wall" />-->
+			<!--<Add option="-pipe" />-->
+            <!--<Add option="-Wno-attributes" />-->
+			<Add option="-fpermissive" />
+			<!--<Add option="`wx-config --cflags`" />-->
+            <Add option="-I../wx/amd64/usr/lib/wx/include/gtk2-unicode-2.9-minibloq -I../wx/amd64/usr/include/wx-2.9-minibloq -D_FILE_OFFSET_BITS=64 -D_LARGE_FILES -D__WXGTK__ -pthread" />
+			<!--<Add option="-mthreads" />
+			<Add option='[[if (PLATFORM == PLATFORM_MSW &amp;&amp; (GetCompilerFactory().GetCompilerVersionString(_T(&quot;gcc&quot;)) &gt;= _T(&quot;4.0.0&quot;))) print(_T(&quot;-Wno-attributes&quot;));]]' />
+			<Add option="-D__GNUWIN32__" />
+			<Add option="-D__WXMSW__" />
+			<Add option="-DWXUSINGDLL" />-->
+			<Add option="-DwxUSE_UNICODE" />
+            <!--
+			<Add directory="$(#wx)\include" />
+			<Add directory="$(#wx)\contrib\include" />-->           
+            
+			<Add directory="Source\CTB\v0.13" />
+			<Add directory="Source\CTB\v0.13\include" />
+            <Add directory="Source\CTB\v0.13\include\linux" />
+			<!--<Add directory="Source\CTB\v0.13\include\win32" />-->
+			<Add directory="Source\Bubble\wxBubble\v1.0\Source" />
+			<Add directory="Resources" />
+			<Add directory="Source" />
+                        <Add directory="Source\HID\v0.10" />
+		</Compiler>
+		<ResourceCompiler>
+			<!--<Add directory="$(#wx)\include" />-->
+		</ResourceCompiler>
+		<Linker>
+            <!--<Add option="`wx-config --libs`" />-->
+            <!--<Add option="-lwx_gtk2u_stc-2.9" />
+            <Add option="-lwx_gtk2u_aui-2.9" />-->
+            
+            <Add directory="../wx/amd64/usr/lib" />
+            <Add option="-pthread"/>
+<!--
+            <Add option="-lwx_gtk2u_minibloq_xrc-2.9 -lwx_gtk2u_minibloq_html-2.9 -lwx_gtk2u_minibloq_qa-2.9 -lwx_gtk2u_minibloq_adv-2.9 -lwx_gtk2u_minibloq_core-2.9 -lwx_baseu_minibloq_xml-2.9 -lwx_baseu_minibloq_net-2.9 -lwx_baseu_minibloq-2.9" />
+            <Add option="-lwx_gtk2u_minibloq_aui-2.9" />
+            <Add option="-lwx_gtk2u_minibloq_stc-2.9" />
+-->
+            
+            <!--<Add option="-lauidll_auibook" />-->
+			<!--<Add option="-lkernel32" />
+			<Add option="-luser32" />
+			<Add option="-lgdi32" />
+			<Add option="-lcomdlg32" />
+			<Add option="-lwinspool" />
+			<Add option="-lwinmm" />
+			<Add option="-lshell32" />
+			<Add option="-lcomctl32" />
+			<Add option="-lole32" />
+			<Add option="-loleaut32" />
+			<Add option="-luuid" />
+			<Add option="-lrpcrt4" />
+			<Add option="-ladvapi32" />
+			<Add option="-lwsock32" />
+			<Add option="-lodbc32" />
+			<Add option="-lopengl32" />
+			<Add library="wxmsw29u_stc" />-->
+                        <Add option="-lusb" />
+		</Linker>
+		<Unit filename="Source\BlockEditorProperties.cpp" />
+		<Unit filename="Source\BlockEditorProperties.h" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\Bubble.cpp" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\Bubble.h" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubbleBlock.cpp" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubbleBlockInfo.cpp" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubbleButton.cpp" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubbleButton.h" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubbleCanvas.cpp" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubbleCanvas.h" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubbleCanvasInfo.cpp" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubbleCombo.cpp" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubbleCombo.h" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubbleComponentsManager.cpp" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubbleComponentsManager.h" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubbleEditor.cpp" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubbleEditor.h" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubbleHardwareManager.cpp" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubbleHardwareManager.h" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubbleInstance.cpp" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubbleInstanceManager.cpp" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubblePanel.cpp" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubblePanel.h" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubbleParam.cpp" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubbleParamInfo.cpp" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubblePicker.cpp" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubblePicker.h" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubblePrintout.cpp" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubblePrintout.h" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubbleProcess.cpp" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubbleProcess.h" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubbleVariablesManager.cpp" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubbleVariablesManager.h" />
+        <Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubbleXML.cpp" />
+		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\IBubbleFileIO.h" />
+		<Unit filename="Source\CTB\v0.13\src\fifo.cpp" />
+		<Unit filename="Source\CTB\v0.13\src\iobase.cpp" />
+		<Unit filename="Source\CTB\v0.13\src\kbhit.cpp" />
+		<!--<Unit filename="Source\CTB\v0.13\src\win32\getopt.cpp" />
+		<Unit filename="Source\CTB\v0.13\src\win32\serport.cpp" />
+		<Unit filename="Source\CTB\v0.13\src\win32\timer.cpp" />-->
+		<!--<Unit filename="Source\CTB\v0.13\src\linux\getopt.cpp" />-->
+		<Unit filename="Source\CTB\v0.13\src\linux\serport.cpp" />
+		<Unit filename="Source\CTB\v0.13\src\linux\timer.cpp" />
+        <Unit filename="Source\CTB\v0.13\src\portscan.cpp" />
+		<Unit filename="Source\ComponentProperties.cpp" />
+		<Unit filename="Source\ComponentProperties.h" />
+                <Unit filename="Source\HID\v0.10\hid.h" />
+		<Unit filename="Source\HID\v0.10\hid_LINUX.cpp">
+<!--
+			<Option compilerVar="CC" />
+-->
+		</Unit>
+		<Unit filename="Source\MainFrame.cpp" />
+		<Unit filename="Source\MainFrame.h" />
+		<Unit filename="Source\Messages.cpp" />
+		<Unit filename="Source\Messages.h" />
+		<Unit filename="Source\MinibloqProperties.cpp" />
+		<Unit filename="Source\MinibloqProperties.h" />
+		<Unit filename="Source\Terminal.cpp" />
+		<Unit filename="Source\Terminal.h" />
+		<Unit filename="Source\TerminalProperties.cpp" />
+		<Unit filename="Source\TerminalProperties.h" />
+		<Unit filename="Source\TextEditorProperties.cpp" />
+		<Unit filename="Source\TextEditorProperties.h" />
+		<Unit filename="Source\main.cpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+			<envvars />
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
+			<wxsmith version="1">
+				<resources>
+					<wxPanel wxs="wxsmith/TerminalProperties.wxs" src="TerminalProperties.cpp" hdr="TerminalProperties.h" name="TerminalProperties" language="CPP" />
+				</resources>
+			</wxsmith>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,25 @@
+--- gas/config/tc-avr.c.old	2009-02-23 13:55:45.291646600 -0700
++++ gas/config/tc-avr.c	2009-02-23 13:58:48.715949800 -0700
+@@ -210,6 +210,9 @@ static struct mcu_type_s mcu_types[] =
+   {"m3001b",     AVR_ISA_AVR51,   bfd_mach_avr51},
+   {"atmega2560", AVR_ISA_AVR6,    bfd_mach_avr6},
+   {"atmega2561", AVR_ISA_AVR6,    bfd_mach_avr6},
++  {"atxmega16a4", AVR_ISA_XMEGA,  bfd_mach_avrxmega2},
++  {"atxmega16d4", AVR_ISA_XMEGA,  bfd_mach_avrxmega2},
++  {"atxmega32d4", AVR_ISA_XMEGA,  bfd_mach_avrxmega2},
+   {"atxmega32a4", AVR_ISA_XMEGA,  bfd_mach_avrxmega3},
+   {"atxmega64a3", AVR_ISA_XMEGA,  bfd_mach_avrxmega4},
+   {"atxmega64a1", AVR_ISA_XMEGA,  bfd_mach_avrxmega5},
+--- gas/doc/c-avr.texi.old	2009-02-23 13:59:08.882789900 -0700
++++ gas/doc/c-avr.texi	2009-02-23 14:00:09.680111100 -0700
+@@ -78,6 +78,10 @@ at90can128, at90usb1286, at90usb1287, m3
+ Instruction set avr6 is for the enhanced AVR core with a 3-byte PC (MCU types:
+ atmega2560, atmega2561).
+ 
++Instruction set avrxmega2 is for the XMEGA AVR core with 8K to 64K program
++memory space and less than 64K data space (MCU types: atxmega16a4, atxmega16d4,
++atxmega32d4).
++
+ Instruction set avrxmega3 is for the XMEGA AVR core with 8K to 64K program
+ memory space and greater than 64K data space (MCU types: atxmega32a4).
+ 

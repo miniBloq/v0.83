@@ -1,0 +1,27 @@
+.TH "lock.h" 3 "30 Jul 2010" "Version 1.6.8" "avr-libc" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+lock.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLOCKMEM\fP   __attribute__((section ('.lock')))"
+.br
+.ti -1c
+.RI "#define \fBLOCKBITS\fP   unsigned char __lock LOCKMEM"
+.br
+.ti -1c
+.RI "#define \fBLOCKBITS_DEFAULT\fP   (0xFF)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for avr-libc from the source code.

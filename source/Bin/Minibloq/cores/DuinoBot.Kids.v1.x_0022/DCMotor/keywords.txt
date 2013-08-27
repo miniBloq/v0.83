@@ -1,0 +1,29 @@
+#######################################
+# Syntax Coloring Map For DCMotor class
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+DCMotor	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+setClockwise	KEYWORD2
+getClockwise	KEYWORD2
+setSpeed	KEYWORD2
+getSpeed	KEYWORD2
+getPrevSpeed	KEYWORD2
+brake	KEYWORD2
+isBraked	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+dcMotMaxSpeed	LITERAL1
+dcMotMinSpeed	LITERAL1
+

@@ -1,0 +1,50 @@
+--- gcc/config/avr/avr.c.old	2009-01-23 23:06:00.608125000 -0700
++++ gcc/config/avr/avr.c	2009-01-23 23:10:37.451875000 -0700
+@@ -303,6 +303,8 @@ static const struct mcu_type_s avr_mcu_t
+     /* Xmega, <= 8K FLASH.  */
+     /* Xmega, > 8K, <= 64K FLASH, <= 64K RAM.  */
+     /* Xmega, > 8K, <= 64K FLASH, > 64K RAM.  */
++  { "avrxmega3",    ARCH_AVRXMEGA3, NULL },
++  { "atxmega32a4",  ARCH_AVRXMEGA3, "__AVR_ATxmega32A4__" },
+     /* Xmega, > 64K, <= 128K FLASH, <= 64K RAM.  */
+   { "avrxmega4",    ARCH_AVRXMEGA4, NULL },
+   { "atxmega64a3",  ARCH_AVRXMEGA4, "__AVR_ATxmega64A3__" },
+--- gcc/config/avr/avr.h.old	2009-01-23 23:06:05.342500000 -0700
++++ gcc/config/avr/avr.h	2009-01-23 23:13:48.295625000 -0700
+@@ -876,6 +876,7 @@ mmcu=*:-mmcu=%*}"
+   mmcu=at90usb128*|\
+   mmcu=at94k: -m avr5}\
+ %{mmcu=atmega256*:-m avr6}\
++%{mmcu=atxmega32a4:-m avrxmega3} \
+ %{mmcu=atxmega64a3:-m avrxmega4} \
+ %{mmcu=atxmega64a1:-m avrxmega5} \
+ %{mmcu=atxmega128a3| \
+@@ -1035,6 +1036,7 @@ mmcu=*:-mmcu=%*}"
+ %{mmcu=at90can128:crtcan128.o%s} \
+ %{mmcu=at90usb1286:crtusb1286.o%s} \
+ %{mmcu=at90usb1287:crtusb1287.o%s} \
++%{mmcu=atxmega3|mmcu=atxmega32a4:crtx32a4.o%s} \
+ %{mmcu=atxmega4|mmcu=atxmega64a3:crtx64a3.o%s} \
+ %{mmcu=atxmega5|mmcu=atxmega64a1:crtx64a1.o%s} \
+ %{mmcu=atxmega6|mmcu=atxmega128a3:crtx128a3.o%s} \
+--- gcc/config/avr/t-avr.old	2009-01-23 23:06:11.451875000 -0700
++++ gcc/config/avr/t-avr	2009-01-23 23:14:49.061250000 -0700
+@@ -37,8 +37,8 @@ fp-bit.c: $(srcdir)/config/fp-bit.c $(sr
+ 
+ FPBIT = fp-bit.c
+ 
+-MULTILIB_OPTIONS = mmcu=avr2/mmcu=avr25/mmcu=avr3/mmcu=avr31/mmcu=avr35/mmcu=avr4/mmcu=avr5/mmcu=avr51/mmcu=avr6/mmcu=avrxmega4/mmcu=avrxmega5/mmcu=avrxmega6/mmcu=avrxmega7
+-MULTILIB_DIRNAMES = avr2 avr25 avr3 avr31 avr35 avr4 avr5 avr51 avr6 avrxmega4 avrxmega5 avrxmega6 avrxmega7
++MULTILIB_OPTIONS = mmcu=avr2/mmcu=avr25/mmcu=avr3/mmcu=avr31/mmcu=avr35/mmcu=avr4/mmcu=avr5/mmcu=avr51/mmcu=avr6/mmcu=avrxmega3/mmcu=avrxmega4/mmcu=avrxmega5/mmcu=avrxmega6/mmcu=avrxmega7
++MULTILIB_DIRNAMES = avr2 avr25 avr3 avr31 avr35 avr4 avr5 avr51 avr6 avrxmega3 avrxmega4 avrxmega5 avrxmega6 avrxmega7
+ 
+ # The many avr2 matches are not listed here - this is the default.
+ MULTILIB_MATCHES = \
+@@ -131,6 +131,7 @@ MULTILIB_MATCHES = \
+ 	mmcu?avr51=mmcu?at90usb1287 \
+ 	mmcu?avr6=mmcu?atmega2560 \
+ 	mmcu?avr6=mmcu?atmega2561 \
++	mmcu?avrxmega3=mmcu?atxmega32a4 \
+ 	mmcu?avrxmega4=mmcu?atxmega64a3 \
+ 	mmcu?avrxmega5=mmcu?atxmega64a1 \
+ 	mmcu?avrxmega6=mmcu?atxmega128a3 \

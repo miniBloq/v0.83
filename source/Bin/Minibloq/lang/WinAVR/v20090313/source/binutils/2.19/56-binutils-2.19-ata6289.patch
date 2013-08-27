@@ -1,0 +1,22 @@
+--- gas/config/tc-avr.c.orig	2009-02-23 10:25:52.737044000 -0700
++++ gas/config/tc-avr.c	2009-02-23 10:30:10.096419000 -0700
+@@ -104,6 +104,7 @@ static struct mcu_type_s mcu_types[] =
+   {"at90s8515",  AVR_ISA_AVR2,    bfd_mach_avr2},
+   {"at90c8534",  AVR_ISA_AVR2,    bfd_mach_avr2},
+   {"at90s8535",  AVR_ISA_AVR2,    bfd_mach_avr2},
++  {"ata6289",    AVR_ISA_AVR25,   bfd_mach_avr25},
+   {"attiny13",   AVR_ISA_AVR25,   bfd_mach_avr25},
+   {"attiny13a",  AVR_ISA_AVR25,   bfd_mach_avr25},
+   {"attiny2313", AVR_ISA_AVR25,   bfd_mach_avr25},
+--- gas/doc/c-avr.texi.orig	2009-02-23 10:25:52.737044000 -0700
++++ gas/doc/c-avr.texi	2009-02-23 10:46:43.621450000 -0700
+@@ -44,7 +44,8 @@ at90s8535).
+ Instruction set avr25 is for the classic AVR core with up to 8K program memory
+ space plus the MOVW instruction (MCU types: attiny13, attiny13a, attiny2313,
+ attiny24, attiny44, attiny84, attiny25, attiny45, attiny85, attiny261,
+-attiny461, attiny861, attiny87, attiny43u, attiny48, attiny88, at86rf401).
++attiny461, attiny861, attiny87, attiny43u, attiny48, attiny88, at86rf401,
++ata6289).
+ 
+ Instruction set avr3 is for the classic AVR core with up to 128K program
+ memory space (MCU types: at43usb355, at76c711).

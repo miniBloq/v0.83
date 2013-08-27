@@ -1,0 +1,35 @@
+.TH "power.h" 3 "30 Jul 2010" "Version 1.6.8" "avr-libc" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+power.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBclock_prescale_get\fP()   (clock_div_t)(CLKPR & (\fBuint8_t\fP)((1<<CLKPS0)|(1<<CLKPS1)|(1<<CLKPS2)|(1<<CLKPS3)))"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBclock_div_t\fP { \fBclock_div_1\fP =  0, \fBclock_div_2\fP =  1, \fBclock_div_4\fP =  2, \fBclock_div_8\fP =  3, \fBclock_div_16\fP =  4, \fBclock_div_32\fP =  5, \fBclock_div_64\fP =  6, \fBclock_div_128\fP =  7, \fBclock_div_256\fP =  8 }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "static __inline__ void \fBclock_prescale_set\fP (clock_div_t) __attribute__((__always_inline__))"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for avr-libc from the source code.

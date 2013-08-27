@@ -1,0 +1,21 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Minibloq.v0.81.Beta\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-02-03 01:34-0300\n"
+"PO-Revision-Date: 2012-07-20 10:25-0300\n"
+"Last-Translator: Julián da Silva Gillig <julian.dasilva.gillig@gmail.com>\n"
+"Language-Team: Minibloq\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "PulseIn.tooltip"
+msgstr "该模块返回所选数值输入口的脉冲时间长度（单位：微秒）。例如：将第一个参数设定为1，该模块进入等待状态，从输入口数值为1时开始计时，直到输入口数值为0时，计时结束。第二个参数设定的是模块等待时间的最大值。"
+
+msgid "PulseIn.label"
+msgstr "输入脉冲"
+
