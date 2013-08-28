@@ -1376,8 +1376,6 @@ int BubbleXML::loadBlocksInfo(wxWindow *pickersParent, bool showPickers) //##Hac
     bool result = dir.GetFirst(&fileName, wxEmptyString, wxDIR_DIRS); //Only enumerate directories.
 
     wxArrayString fileNames;
-
-
     while (result)
     {
         fileNames.Add( fileName );
@@ -1506,9 +1504,84 @@ bool BubbleXML::blockIsValid(const wxString& name, const wxString& type) const
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 //
-//Canvas structure functions:
+//Hardware functions:
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
+BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardFileName)
+{
+    //##Future: Try to disable the error messages that the wxXmlDocument class fires when encounters errors:
+    wxXmlDocument boardFile;
+    if ( !boardFile.Load(fullBoardFileName, wxString("UTF-8")) )
+        return NULL;
+    wxXmlNode *root = boardFile.GetRoot();
+    if (root == NULL)
+        return NULL;
+    if (root->GetName() != wxString("board"))
+        return NULL;
+
+    BubbleBoardProperties *boardInfo = new BubbleBoardProperties();
+    wxString tempName("");
+    wxXmlNode *rootChild = root->GetChildren();
+    while (rootChild)
+    {
+        tempName = rootChild->GetName();
+        if (tempName == wxString("properties"))
+        {
+            wxXmlNode *child = rootChild->GetChildren();
+            while (child)
+            {
+                if (child->GetName() == "name")
+                {
+                    boardInfo->setName(child->GetNodeContent());
+                    //##getNotifier()->showMessage(wxString("name = ") + child->GetNodeContent() + wxString("%%\n"), false, true, *wxBLUE); //##Debug.
+                }
+                else if (child->GetName() == "imgMain")
+                {
+                    boardInfo->setImgMain(child->GetNodeContent());
+                }
+                else if (child->GetName() == "imgThumb")
+                {
+                    boardInfo->setImgThumb(child->GetNodeContent());
+                }
+                child = child->GetNext();
+            }
+        }
+        rootChild = rootChild->GetNext();
+    }
+    return boardInfo;
+}
+
+
+int BubbleXML::loadHardwareTargets(BubbleHardwareManager *hardwareManager)
+{
+    if (hardwareManager == NULL)
+        return -1;
+
+    wxDir dir(bubble->getTargetsPath());
+    if ( !dir.IsOpened() )
+        return -3; //##Futuro: standarize errors.
+
+    int counter = 0;
+    wxString fileName;
+    bool result = dir.GetFirst(&fileName, wxEmptyString, wxDIR_DIRS); //Only enumerate directories.
+    while (result)
+    {
+        wxString fullBoardFileName = bubble->getTargetsPath() + wxString("/") + fileName + wxString("/main.board");
+        if (wxFile::Exists(fullBoardFileName))
+        {
+            BubbleBoardProperties *boardProperties = loadBoardProperties(fullBoardFileName);
+            hardwareManager->addBoard(  boardProperties->getName(),
+                                        bubble->getTargetsPath() + wxString("/") + fileName + wxString("/img/") +
+                                        boardProperties->getImgThumb()
+                                     );
+            counter++;
+        }
+        result = dir.GetNext(&fileName);
+    }
+    return counter; //##
+}
+
+
 bool BubbleXML::loadBoardInstancesFromXML(wxXmlNode *node, BubbleCanvasInfo *canvasInfo)
 {
     if (node == NULL)
@@ -1532,6 +1605,11 @@ bool BubbleXML::loadBoardInstancesFromXML(wxXmlNode *node, BubbleCanvasInfo *can
 }
 
 
+////////////////////////////////////////////////////////////////////////////////////////////
+//
+//Canvas structure functions:
+//
+////////////////////////////////////////////////////////////////////////////////////////////
 BubbleCanvasInfo BubbleXML::getCanvasInfo(bool mainCanvas)
 {
     BubbleCanvasInfo info(  mainCanvas,

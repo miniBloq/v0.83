@@ -80,6 +80,35 @@ class IBubbleNotifier
 };
 
 
+class BubbleBoardProperties
+{
+    private:
+        wxString name;
+        wxString imgMain;
+        wxString imgThumb;
+
+    public:
+        BubbleBoardProperties():    name(wxString("")),
+                                    imgMain(wxString("")),
+                                    imgThumb(wxString(""))
+
+        {
+        }
+        //##Ver si se necesita constructor de copia por las dudas, al menos que no haga gran cosa...
+
+        virtual ~BubbleBoardProperties()
+        {
+        }
+
+        inline void setName(const wxString& value) { name = value; }
+        inline const wxString &getName() const { return name; }
+
+        inline void setImgMain(const wxString& value) { imgMain = value; }
+        inline const wxString &getImgMain() const { return imgMain; }
+        inline void setImgThumb(const wxString& value) { imgThumb = value; }
+        inline const wxString &getImgThumb() const { return imgThumb; }
+};
+
 //The BubbleXML class manages the language structure (blocks info, canvases info, etc.). It DOES NOT deals
 //with the load/save of programs, only with the structural things:
 class Bubble; //##
@@ -147,6 +176,10 @@ class BubbleXML
         const BubbleBlockInfo& getBlockInfo(const wxString& name, const wxString& function); //##Off for debug: const;
         bool blockIsValid(const wxString& name, const wxString& type) const;
 
+
+        //Hardware:
+        BubbleBoardProperties *loadBoardProperties(const wxString &fullBoardFileName);
+        int loadHardwareTargets(BubbleHardwareManager *hardwareManager);
         bool loadBoardInstancesFromXML(wxXmlNode *node, BubbleCanvasInfo *canvasInfo);
         BubbleCanvasInfo getCanvasInfo(bool mainCanvas);
 };
@@ -187,6 +220,7 @@ class Bubble : public IBubbleFileIO
 
         //Minibloq components:
         wxString boardPath;
+        wxString targetsPath;
         wxString corePath;
         wxString matrixPath;
         wxString libPath;
@@ -255,6 +289,7 @@ class Bubble : public IBubbleFileIO
         int loadBlocksInfo(wxWindow *pickersParent, bool showPickers);
 
         //Hardware:
+        int loadHardwareTargets(BubbleHardwareManager *hardwareManager);
         void changeBoardHardwareConfig();
         void changeBoardPaths();
 
@@ -281,9 +316,10 @@ class Bubble : public IBubbleFileIO
         inline void setToolsPath(const wxString& value) { toolsPath = value; }
         inline const wxString &getToolsPath() const { return toolsPath; }
 
-        //##This may change for "targetPath" instead of "boardPath":
         inline void setBoardPath(const wxString& value) { boardPath = value; }
         inline const wxString &getBoardPath() const { return boardPath; }
+        inline void setTargetsPath(const wxString& value) { targetsPath = value; }
+        inline const wxString &getTargetsPath() const { return targetsPath; }
 
         inline void setCorePath(const wxString& value) { corePath = value; }
         inline const wxString &getCorePath() const { return corePath; }

@@ -5,6 +5,8 @@
 		<name>DuinoBot.Kids.v1.x</name>
 		<url0>http://robotgroup.com.ar</url0>
 		<url1>http://multiplo.org</url1>
+		<imgMain>main.png</imgMain>
+		<imgThumb>thumb.png</imgThumb>
     </properties>
 	<instances>
 		<serial0 instanceType="Serial"/>

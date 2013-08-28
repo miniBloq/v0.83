@@ -2,8 +2,10 @@
 <board xmlns="http://board.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.81.Beta">
     <properties>
 		<manufacturer>Atmel</manufacturer>
-		<name>ATTiny25/45/85</name>
+		<name>ATTiny45 (with Doper)</name>
 		<url0>http://www2.atmel.com</url0>
+		<imgMain>main.png</imgMain>
+		<imgThumb>thumb.png</imgThumb>
     </properties>
 	<instances>
 		<sensor1 instanceType="analogRead"/>

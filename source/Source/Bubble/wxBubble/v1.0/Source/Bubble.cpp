@@ -388,6 +388,12 @@ int Bubble::loadBlocksInfo(wxWindow *pickersParent, bool showPickers)
 }
 
 
+int Bubble::loadHardwareTargets(BubbleHardwareManager *hardwareManager)
+{
+    return bubbleXML.loadHardwareTargets(hardwareManager);
+}
+
+
 void Bubble::changeBoardPaths()
 {
     //wxMessageDialog dialog0(parent, getBoardName(), T("0")); //##Debug

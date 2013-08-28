@@ -51,6 +51,8 @@ class BubbleHardwareManager : public BubblePanel
                               );
         virtual ~BubbleHardwareManager();
 
+        void addBoard(const wxString& name, const wxString& path);
+
         void updateGUI();
         void changeImage();
 

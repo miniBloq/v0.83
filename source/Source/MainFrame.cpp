@@ -355,6 +355,8 @@ MainFrame::MainFrame(   wxWindow* parent,
 
     bubble.setBlocksPath(bubble.getComponentsRepositoryPath() + wxString("/blocks"));
 
+    bubble.setTargetsPath(bubble.getComponentsRepositoryPath() + wxString("/hard"));
+
     //##Horrible! un hardcode this once the real Multi-board system becomes ready:
     bubble.setMatrixPath(bubble.getComponentsRepositoryPath() + wxString("/hard/DuinoBot.v1.x.HID/rel"));
 

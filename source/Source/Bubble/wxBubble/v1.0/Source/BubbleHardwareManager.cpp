@@ -60,10 +60,6 @@ BubbleHardwareManager::BubbleHardwareManager(   wxWindow* parent,
                                         wxString("lblBoardName")
                                    );
 
-    //##Esto no es el target completo, sino el "target hardware". Los targets tienen 2 partes:
-    //1. Hardware.
-    //2. API/Lenguaje.
-    //En el futuro cercano, ambos se podrán seleccionar en Minibloq.
     comboBoardName = new BubbleCombo(   this,
                                         wxNewId(),
                                         wxImage(bubble->getThemePath() + wxString("/ComboSelectDefault.png")),
@@ -85,41 +81,8 @@ BubbleHardwareManager::BubbleHardwareManager(   wxWindow* parent,
                                     );
     if (comboBoardName)
     {
-        //##Un-hardcode everything (images, strings...):
         comboBoardName->setSorted(false);
-        comboBoardName->append("DuinoBot.v1.x.HID",
-                                new wxImage(bubble->getLibPath() + wxString("/CPP/Targets/DuinoBot.v1.x.HID_Arduino.v1.0/Images/DuinoBot.v1.x.HID.Thumb.20120113a.png")));
-        comboBoardName->append("DuinoBot.v1.x",
-                                new wxImage(bubble->getLibPath() + wxString("/CPP/Targets/DuinoBot.v1.x_Arduino.v1.0/Images/DuinoBot.v1.x.Thumb.20110920a.png")));
-        comboBoardName->append("DuinoBot.Kids.v1.x",
-                                new wxImage(bubble->getLibPath() + wxString("/CPP/Targets/DuinoBot.Kids.v1.x_Arduino.v1.0/Images/DuinoBot.Kids.v1.1.Thumb.20110920a.png")));
-        comboBoardName->append("Seeeduino v2.2x Mega328",
-                                new wxImage(bubble->getLibPath() + wxString("/CPP/Targets/Seeeduino.v2.2x.Mega328_Arduino.v1.0/Images/Seeeduino.v2.2x.Mega328.Thumb.20110920a.png")));
-        comboBoardName->append("Seeeduino Mega 1280",
-                                new wxImage(bubble->getLibPath() + wxString("/CPP/Targets/SeeeduinoMega1280_Arduino.v1.0/Images/SeeeduinoMega1280.Thumb.20110920a.png")));
-        comboBoardName->append("Arduino Uno",
-                                new wxImage(bubble->getLibPath() + wxString("/CPP/Targets/ArduinoUNO_Arduino.v1.0/Images/ArduinoUNO.Thumb.20110920a.png")));
-        comboBoardName->append( "Arduino Duemilanove Mega328",
-                                new wxImage(bubble->getLibPath() + wxString("/CPP/Targets/ArduinoDuemilanove328_Arduino.v1.0/Images/ArduinoDuemilanove328.Thumb.20110920a.png")));
-        comboBoardName->append( "Arduino Duemilanove Mega168",
-                                new wxImage(bubble->getLibPath() + wxString("/CPP/Targets/ArduinoDuemilanove168_Arduino.v1.0/Images/ArduinoDuemilanove168.Thumb.20110920a.png")));
-        comboBoardName->append( "Arduino Mega 2560",
-                                new wxImage(bubble->getLibPath() + wxString("/CPP/Targets/ArduinoMega2560_Arduino.v1.0/Images/ArduinoMega2560.Thumb.20110920a.png")));
-        comboBoardName->append( "Arduino Mega 1280",
-                                new wxImage(bubble->getLibPath() + wxString("/CPP/Targets/ArduinoMega1280_Arduino.v1.0/Images/ArduinoMega1280.Thumb.20110920a.png")));
-        comboBoardName->append("ATTiny25 (with ArduinoISP)",
-                                new wxImage(bubble->getLibPath() + wxString("/CPP/Targets/Tiny25.45.85_Arduino.v1.0/Images/Tiny25.Thumb.20110930a.png")));
-        comboBoardName->append("ATTiny45 (with ArduinoISP)",
-                                new wxImage(bubble->getLibPath() + wxString("/CPP/Targets/Tiny25.45.85_Arduino.v1.0/Images/Tiny45.Thumb.20110930a.png")));
-        comboBoardName->append("ATTiny85 (with ArduinoISP)",
-                                new wxImage(bubble->getLibPath() + wxString("/CPP/Targets/Tiny25.45.85_Arduino.v1.0/Images/Tiny85.Thumb.20110930a.png")));
-        comboBoardName->append("ATTiny25 (with Doper)",
-                                new wxImage(bubble->getLibPath() + wxString("/CPP/Targets/Tiny25.45.85_Arduino.v1.0/Images/Tiny25.Thumb.20110930a.png")));
-        comboBoardName->append("ATTiny45 (with Doper)",
-                                new wxImage(bubble->getLibPath() + wxString("/CPP/Targets/Tiny25.45.85_Arduino.v1.0/Images/Tiny45.Thumb.20110930a.png")));
-        comboBoardName->append("ATTiny85 (with Doper)",
-                                new wxImage(bubble->getLibPath() + wxString("/CPP/Targets/Tiny25.45.85_Arduino.v1.0/Images/Tiny85.Thumb.20110930a.png")));
-
+        bubble->loadHardwareTargets(this);
         comboBoardName->Connect(wxEVT_COMMAND_TEXT_UPDATED,
                                 wxCommandEventHandler(BubbleHardwareManager::onComboBoardNameChanged),
                                 NULL,
@@ -217,6 +180,15 @@ BubbleHardwareManager::~BubbleHardwareManager()
 }
 
 
+void BubbleHardwareManager::addBoard(const wxString& name, const wxString& path)
+{
+    if (comboBoardName)
+    {
+        comboBoardName->append(name, new wxImage(path));
+    }
+}
+
+
 void BubbleHardwareManager::updateGUI()
 {
     if (lblBoardName)
@@ -235,6 +207,8 @@ void BubbleHardwareManager::changeImage()
         return;
     if (buttonMainImage == NULL)
         return;
+
+    buttonMainImage->setImageDefault(wxImage(bubble->getLibPath() + wxString("/CPP/Targets/DuinoBot.v1.x.HID_Arduino.v1.0/Images/DuinoBot.v1.x.HID.20120113a.png")));
 
     //##Un-hardcode ALL OF THIS (both conditions and image paths)!
     if (bubble->getBoardName() == wxString("DuinoBot.v1.x.HID"))

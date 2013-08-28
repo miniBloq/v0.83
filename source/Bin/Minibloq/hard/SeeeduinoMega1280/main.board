@@ -4,6 +4,8 @@
 		<manufacturer>Seeed Studio</manufacturer>
 		<name>Seeeduino Mega 1280</name>
 		<url0>http://seeedstudio.com</url0>
+		<imgMain>main.png</imgMain>
+		<imgThumb>thumb.png</imgThumb>
     </properties>
 	<instances>
 		<serial0 instanceType="Serial"/>

@@ -5,6 +5,8 @@
 		<name>Arduino Uno</name>
 		<url0>http://arduino.cc</url0>
 		<url1>http://arduino.cc/en/Main/ArduinoBoardUno</url1>
+		<imgMain>main.png</imgMain>
+		<imgThumb>thumb.png</imgThumb>
     </properties>
 	<instances>
 		<serial0 instanceType="Serial"/>

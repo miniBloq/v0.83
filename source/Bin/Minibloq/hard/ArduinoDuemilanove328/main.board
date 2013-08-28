@@ -4,6 +4,8 @@
 		<manufacturer>Arduino</manufacturer>
 		<name>Arduino Duemilanove Mega328</name>
 		<url0>http://arduino.cc</url0>
+		<imgMain>main.png</imgMain>
+		<imgThumb>thumb.png</imgThumb>
     </properties>
 	<instances>
 		<serial0 instanceType="Serial"/>
