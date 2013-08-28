@@ -11,6 +11,7 @@
 
 
 class Bubble; //##horrible...
+class BubbleBoardProperties;
 class BubbleHardwareManager : public BubblePanel
 {
     private:
@@ -51,7 +52,7 @@ class BubbleHardwareManager : public BubblePanel
                               );
         virtual ~BubbleHardwareManager();
 
-        void addBoard(const wxString& name, const wxString& path);
+        void addBoard(BubbleBoardProperties *boardProperties);
 
         void updateGUI();
         void changeImage();

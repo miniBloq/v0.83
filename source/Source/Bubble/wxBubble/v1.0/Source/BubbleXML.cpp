@@ -1570,10 +1570,8 @@ int BubbleXML::loadHardwareTargets(BubbleHardwareManager *hardwareManager)
         if (wxFile::Exists(fullBoardFileName))
         {
             BubbleBoardProperties *boardProperties = loadBoardProperties(fullBoardFileName);
-            hardwareManager->addBoard(  boardProperties->getName(),
-                                        bubble->getTargetsPath() + wxString("/") + fileName + wxString("/img/") +
-                                        boardProperties->getImgThumb()
-                                     );
+            boardProperties->setPath(bubble->getTargetsPath() + wxString("/") + fileName);
+            hardwareManager->addBoard(boardProperties);
             counter++;
         }
         result = dir.GetNext(&fileName);

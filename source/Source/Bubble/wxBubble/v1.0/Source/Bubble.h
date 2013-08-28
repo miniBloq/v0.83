@@ -84,11 +84,13 @@ class BubbleBoardProperties
 {
     private:
         wxString name;
+        wxString path;
         wxString imgMain;
         wxString imgThumb;
 
     public:
         BubbleBoardProperties():    name(wxString("")),
+                                    path(wxString("")),
                                     imgMain(wxString("")),
                                     imgThumb(wxString(""))
 
@@ -102,6 +104,9 @@ class BubbleBoardProperties
 
         inline void setName(const wxString& value) { name = value; }
         inline const wxString &getName() const { return name; }
+
+        inline void setPath(const wxString& value) { path = value; }
+        inline const wxString &getPath() const { return path; }
 
         inline void setImgMain(const wxString& value) { imgMain = value; }
         inline const wxString &getImgMain() const { return imgMain; }

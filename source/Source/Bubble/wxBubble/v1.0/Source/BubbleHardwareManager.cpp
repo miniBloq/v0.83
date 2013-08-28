@@ -180,11 +180,17 @@ BubbleHardwareManager::~BubbleHardwareManager()
 }
 
 
-void BubbleHardwareManager::addBoard(const wxString& name, const wxString& path)
+void BubbleHardwareManager::addBoard(BubbleBoardProperties *boardProperties)
 {
     if (comboBoardName)
     {
-        comboBoardName->append(name, new wxImage(path));
+        if (boardProperties)
+        {
+            comboBoardName->append( boardProperties->getName(),
+                                    new wxImage(boardProperties->getPath() + wxString("/img/") +
+                                                boardProperties->getImgThumb())
+                                  );
+        }
     }
 }
 

@@ -2945,7 +2945,7 @@
 	<wx/bitmap.h>
 	<wx/image.h>
 
-1377710515 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblehardwaremanager.h
+1377717498 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblehardwaremanager.h
 	"BubblePanel.h"
 	"BubbleButton.h"
 	"BubbleCombo.h"
@@ -2962,7 +2962,7 @@
 
 1252039912 c:\apps\codeblocks-rg.v0.1\sdk\wxwidgets\wxwidgets-2.9.0\include\wx\arrimpl.cpp
 
-1377715365 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubble.h
+1377717428 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubble.h
 	"IBubbleFileIO.h"
 	"BubbleCanvas.h"
 	"BubbleProcess.h"
