@@ -16,10 +16,10 @@
 	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleCanvas.h" open="1" top="0" tabpos="7">
 		<Cursor position="28269" topLine="726" />
 	</File>
-	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleHardwareManager.cpp" open="1" top="0" tabpos="4">
+	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleHardwareManager.cpp" open="1" top="1" tabpos="4">
 		<Cursor position="9990" topLine="167" />
 	</File>
-	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleHardwareManager.h" open="1" top="1" tabpos="5">
+	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleHardwareManager.h" open="1" top="0" tabpos="5">
 		<Cursor position="775" topLine="3" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleXML.cpp" open="1" top="0" tabpos="2">

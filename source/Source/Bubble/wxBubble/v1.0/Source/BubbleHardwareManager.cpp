@@ -193,14 +193,11 @@ void BubbleHardwareManager::addBoard(BubbleBoardProperties *boardProperties)
     {
         if (boardProperties)
         {
-            if (currentBoardProperties)
-            {
-                boardsProperties.Add(boardProperties);
-                comboBoardName->append( boardProperties->getName(),
-                                        new wxImage(boardProperties->getPath() + wxString("/img/") +
-                                                    boardProperties->getImgThumb())
-                                      );
-            }
+            boardsProperties.Add(boardProperties);
+            comboBoardName->append( boardProperties->getName(),
+                                    new wxImage(boardProperties->getPath() + wxString("/img/") +
+                                                boardProperties->getImgThumb())
+                                  );
         }
     }
 }
@@ -225,7 +222,9 @@ void BubbleHardwareManager::changeImage()
     if (currentBoardProperties == NULL)
         return;
 
-    buttonMainImage->setImageDefault(wxImage(currentBoardProperties->getPath() + wxString("/img/") + currentBoardProperties->getImgMain()));
+    buttonMainImage->setImageDefault(wxImage(currentBoardProperties->getPath() +
+                                             wxString("/img/") + currentBoardProperties->getImgMain())
+                                    );
     fit(GetSize());
 
     //This works better, because just refreshing the buttonMainImage sometimes redraws the combos without
@@ -446,6 +445,20 @@ void BubbleHardwareManager::onComboBoardNameChanged(wxCommandEvent &event)
         if (bubble)
         {
             bubble->setBoardName(event.GetString(), parent);
+
+            //Find new seleted board's properties:
+            BubbleBoardProperties *iterator = NULL;
+            for (unsigned int i = 0; i<boardsProperties.GetCount(); i++)
+            {
+                iterator = &(boardsProperties.Item(i)); //##In theory, this is faster than the other index based form, but I'm not sure yet...
+                if (iterator)
+                {
+                    if (iterator->getName() == bubble->getBoardName())
+                    {
+                        currentBoardProperties->set(iterator);
+                    }
+                }
+            }
             changeImage();
         }
     }

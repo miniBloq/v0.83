@@ -60,6 +60,10 @@ class BubbleHardwareManager : public BubblePanel
                               );
         virtual ~BubbleHardwareManager();
 
+        void clearBoardProperties()
+        {
+            boardsProperties.Clear();
+        }
         void addBoard(BubbleBoardProperties *boardProperties);
 
         void updateGUI();
