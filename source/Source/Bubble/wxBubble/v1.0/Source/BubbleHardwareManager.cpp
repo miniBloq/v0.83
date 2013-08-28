@@ -9,6 +9,10 @@
 #include "include/portscan.h"
 #endif
 
+
+WX_DEFINE_OBJARRAY(arrayOfBoardProperties);
+
+
 BEGIN_EVENT_TABLE(BubbleHardwareManager, BubblePanel)
     EVT_SIZE(BubbleHardwareManager::onSize)
 END_EVENT_TABLE()
@@ -32,6 +36,7 @@ BubbleHardwareManager::BubbleHardwareManager(   wxWindow* parent,
                                                                                    ),
                                                                         parent(parent),
                                                                         bubble(bubble),
+                                                                        currentBoardProperties(NULL),
                                                                         lblBootPortName(NULL),
                                                                         comboBootPortName(NULL),
                                                                         lblBoardName(NULL),
@@ -42,6 +47,8 @@ BubbleHardwareManager::BubbleHardwareManager(   wxWindow* parent,
 {
     if (bubble == NULL)
         return; //Nothing to do.
+
+    currentBoardProperties = new BubbleBoardProperties();
 
     //Hide();
 
@@ -186,10 +193,14 @@ void BubbleHardwareManager::addBoard(BubbleBoardProperties *boardProperties)
     {
         if (boardProperties)
         {
-            comboBoardName->append( boardProperties->getName(),
-                                    new wxImage(boardProperties->getPath() + wxString("/img/") +
-                                                boardProperties->getImgThumb())
-                                  );
+            if (currentBoardProperties)
+            {
+                boardsProperties.Add(boardProperties);
+                comboBoardName->append( boardProperties->getName(),
+                                        new wxImage(boardProperties->getPath() + wxString("/img/") +
+                                                    boardProperties->getImgThumb())
+                                      );
+            }
         }
     }
 }
@@ -209,84 +220,12 @@ void BubbleHardwareManager::updateGUI()
 
 void BubbleHardwareManager::changeImage()
 {
-    if (bubble == NULL)
-        return;
     if (buttonMainImage == NULL)
         return;
+    if (currentBoardProperties == NULL)
+        return;
 
-    buttonMainImage->setImageDefault(wxImage(bubble->getLibPath() + wxString("/CPP/Targets/DuinoBot.v1.x.HID_Arduino.v1.0/Images/DuinoBot.v1.x.HID.20120113a.png")));
-
-    //##Un-hardcode ALL OF THIS (both conditions and image paths)!
-    if (bubble->getBoardName() == wxString("DuinoBot.v1.x.HID"))
-    {
-        buttonMainImage->setImageDefault(wxImage(bubble->getLibPath() + wxString("/CPP/Targets/DuinoBot.v1.x.HID_Arduino.v1.0/Images/DuinoBot.v1.x.HID.20120113a.png")));
-    }
-    else if (bubble->getBoardName() == wxString("DuinoBot.v1.x"))
-    {
-        buttonMainImage->setImageDefault(wxImage(bubble->getLibPath() + wxString("/CPP/Targets/DuinoBot.v1.x_Arduino.v1.0/Images/DuinoBot.v1.x.20110724a.png")));
-    }
-    else if (bubble->getBoardName() == wxString("DuinoBot.Kids.v1.x"))
-    {
-        buttonMainImage->setImageDefault(wxImage(bubble->getLibPath() + wxString("/CPP/Targets/DuinoBot.Kids.v1.x_Arduino.v1.0/Images/DuinoBot.Kids.v1.1.20110327a.png")));
-    }
-
-    else if (bubble->getBoardName() == wxString("Seeeduino v2.2x Mega328"))
-    {
-        buttonMainImage->setImageDefault(wxImage(bubble->getLibPath() + wxString("/CPP/Targets/Seeeduino.v2.2x.Mega328_Arduino.v1.0/Images/Seeeduino.v2.2x.Mega328.20110508b.png")));
-    }
-    else if (bubble->getBoardName() == wxString("Seeeduino Mega 1280"))
-    {
-        buttonMainImage->setImageDefault(wxImage(bubble->getLibPath() + wxString("/CPP/Targets/SeeeduinoMega1280_Arduino.v1.0/Images/SeeeduinoMega1280.20110916a.png")));
-    }
-
-    else if (bubble->getBoardName() == wxString("Arduino Uno"))
-    {
-        buttonMainImage->setImageDefault(wxImage(bubble->getLibPath() + wxString("/CPP/Targets/ArduinoUNO_Arduino.v1.0/Images/ArduinoUNO.20110325a.png")));
-    }
-    else if (bubble->getBoardName() == wxString("Arduino Duemilanove Mega168"))
-    {
-        buttonMainImage->setImageDefault(wxImage(bubble->getLibPath() + wxString("/CPP/Targets/ArduinoDuemilanove168_Arduino.v1.0/Images/ArduinoDuemilanove168.20110724a.png")));
-    }
-    else if (bubble->getBoardName() == wxString("Arduino Duemilanove Mega328"))
-    {
-        buttonMainImage->setImageDefault(wxImage(bubble->getLibPath() + wxString("/CPP/Targets/ArduinoDuemilanove328_Arduino.v1.0/Images/ArduinoDuemilanove328.20110724a.png")));
-    }
-
-    else if (bubble->getBoardName() == wxString("Arduino Mega 2560"))
-    {
-        buttonMainImage->setImageDefault(wxImage(bubble->getLibPath() + wxString("/CPP/Targets/ArduinoMega2560_Arduino.v1.0/Images/ArduinoMega2560.20110916a.png")));
-    }
-    else if (bubble->getBoardName() == wxString("Arduino Mega 1280"))
-    {
-        buttonMainImage->setImageDefault(wxImage(bubble->getLibPath() + wxString("/CPP/Targets/ArduinoMega1280_Arduino.v1.0/Images/ArduinoMega1280.20110916a.png")));
-    }
-
-    else if (bubble->getBoardName() == wxString("ATTiny25 (with ArduinoISP)"))
-    {
-        buttonMainImage->setImageDefault(wxImage(bubble->getLibPath() + wxString("/CPP/Targets/Tiny25.45.85_Arduino.v1.0/Images/Tiny25.ArduinoISP.20110930a.png")));
-    }
-    else if (bubble->getBoardName() == wxString("ATTiny45 (with ArduinoISP)"))
-    {
-        buttonMainImage->setImageDefault(wxImage(bubble->getLibPath() + wxString("/CPP/Targets/Tiny25.45.85_Arduino.v1.0/Images/Tiny45.ArduinoISP.20110930a.png")));
-    }
-    else if (bubble->getBoardName() == wxString("ATTiny85 (with ArduinoISP)"))
-    {
-        buttonMainImage->setImageDefault(wxImage(bubble->getLibPath() + wxString("/CPP/Targets/Tiny25.45.85_Arduino.v1.0/Images/Tiny85.ArduinoISP.20110930a.png")));
-    }
-
-    else if (bubble->getBoardName() == wxString("ATTiny25 (with Doper)"))
-    {
-        buttonMainImage->setImageDefault(wxImage(bubble->getLibPath() + wxString("/CPP/Targets/Tiny25.45.85_Arduino.v1.0/Images/Tiny25.Doper.20110930a.png")));
-    }
-    else if (bubble->getBoardName() == wxString("ATTiny45 (with Doper)"))
-    {
-        buttonMainImage->setImageDefault(wxImage(bubble->getLibPath() + wxString("/CPP/Targets/Tiny25.45.85_Arduino.v1.0/Images/Tiny45.Doper.20110930a.png")));
-    }
-    else if (bubble->getBoardName() == wxString("ATTiny85 (with Doper)"))
-    {
-        buttonMainImage->setImageDefault(wxImage(bubble->getLibPath() + wxString("/CPP/Targets/Tiny25.45.85_Arduino.v1.0/Images/Tiny85.Doper.20110930a.png")));
-    }
-
+    buttonMainImage->setImageDefault(wxImage(currentBoardProperties->getPath() + wxString("/img/") + currentBoardProperties->getImgMain()));
     fit(GetSize());
 
     //This works better, because just refreshing the buttonMainImage sometimes redraws the combos without

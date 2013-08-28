@@ -10,6 +10,11 @@
 #include <wx/button.h>
 
 
+#include <wx/arrimpl.cpp> //This is a magic incantation which must be done!
+class BubbleBoardProperties;
+WX_DECLARE_OBJARRAY(BubbleBoardProperties, arrayOfBoardProperties);
+
+
 class Bubble; //##horrible...
 class BubbleBoardProperties;
 class BubbleHardwareManager : public BubblePanel
@@ -17,6 +22,7 @@ class BubbleHardwareManager : public BubblePanel
     private:
         wxWindow* parent;
         Bubble *bubble;
+        BubbleBoardProperties *currentBoardProperties;
         wxStaticText *lblBootPortName;
         BubbleCombo *comboBootPortName;
         wxStaticText *lblBoardName;
@@ -26,6 +32,8 @@ class BubbleHardwareManager : public BubblePanel
 
         //##Horrible, but works nice!
         wxString emptyDummyString;
+
+        arrayOfBoardProperties boardsProperties;
 
         //##Add private copy constructor to avoid accidental copy?
 

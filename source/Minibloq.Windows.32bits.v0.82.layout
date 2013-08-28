@@ -2,27 +2,33 @@
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Release" />
 	<File name="Source\Bubble\wxBubble\v1.0\Source\Bubble.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="14592" topLine="366" />
+		<Cursor position="26182" topLine="610" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\Bubble.h" open="1" top="0" tabpos="3">
-		<Cursor position="57" topLine="0" />
+		<Cursor position="2897" topLine="78" />
 	</File>
-	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleCanvas.h" open="1" top="0" tabpos="0">
-		<Cursor position="0" topLine="0" />
+	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleBlock.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="11579" topLine="150" />
 	</File>
-	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleHardwareManager.cpp" open="1" top="1" tabpos="4">
-		<Cursor position="3432" topLine="59" />
+	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleBlockInfo.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="5806" topLine="313" />
 	</File>
-	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleHardwareManager.h" open="1" top="0" tabpos="5">
-		<Cursor position="1193" topLine="33" />
+	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleCanvas.h" open="1" top="0" tabpos="7">
+		<Cursor position="28269" topLine="726" />
+	</File>
+	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleHardwareManager.cpp" open="1" top="0" tabpos="4">
+		<Cursor position="9990" topLine="167" />
+	</File>
+	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleHardwareManager.h" open="1" top="1" tabpos="5">
+		<Cursor position="775" topLine="3" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleXML.cpp" open="1" top="0" tabpos="2">
-		<Cursor position="65378" topLine="1500" />
+		<Cursor position="67809" topLine="1550" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\IBubbleFileIO.h" open="0" top="0" tabpos="6">
 		<Cursor position="529" topLine="0" />
 	</File>
-	<File name="Source\MainFrame.cpp" open="1" top="0" tabpos="5">
-		<Cursor position="17447" topLine="309" />
+	<File name="Source\MainFrame.cpp" open="1" top="0" tabpos="6">
+		<Cursor position="19087" topLine="343" />
 	</File>
 </CodeBlocks_layout_file>

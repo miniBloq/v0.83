@@ -102,6 +102,17 @@ class BubbleBoardProperties
         {
         }
 
+        void set(BubbleBoardProperties *boardProperties)
+        {
+            if (boardProperties)
+            {
+                setName(boardProperties->getName());
+                setPath(boardProperties->getPath());
+                setImgMain(boardProperties->getImgMain());
+                setImgThumb(boardProperties->getImgThumb());
+            }
+        }
+
         inline void setName(const wxString& value) { name = value; }
         inline const wxString &getName() const { return name; }
 
@@ -110,6 +121,7 @@ class BubbleBoardProperties
 
         inline void setImgMain(const wxString& value) { imgMain = value; }
         inline const wxString &getImgMain() const { return imgMain; }
+
         inline void setImgThumb(const wxString& value) { imgThumb = value; }
         inline const wxString &getImgThumb() const { return imgThumb; }
 };
