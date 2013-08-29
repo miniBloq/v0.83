@@ -8,6 +8,15 @@
 		<imgMain>main.png</imgMain>
 		<imgThumb>thumb.png</imgThumb>
 		<portType>HID</portType>
+		<win.i386.lang>WinAVR/v20090313/bin</win.i386.lang>
+		<win.i386.corePath>DuinoBot.v1.x.HID_0022</win.i386.corePath>
+		<win.i386.core>mega32U4.a</win.i386.core>
+		<linux.i386.lang>avrlinux/i386/v4.3.5/bin</linux.i386.lang>
+		<linux.i386.corePath>DuinoBot.v1.x.HID_0022</linux.i386.corePath>
+		<linux.i386.core>mega32U4.a</linux.i386.core>
+		<linux.amd64.lang>avrlinux/i386/v4.3.5/bin</linux.amd64.lang>
+		<linux.amd64.corePath>DuinoBot.v1.x.HID_0022</linux.amd64.corePath>
+		<linux.amd64.core>mega32U4.a</linux.amd64.core>
     </properties>
 	<instances>
 		<serial0 instanceType="Serial"/>

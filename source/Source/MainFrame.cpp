@@ -286,10 +286,7 @@ MainFrame::MainFrame(   wxWindow* parent,
     //Sets the frame icon:
     SetIcon(wxIcon(Minibloq_xpm));
 
-    //##Un-hardcode this:
-
-    //##Uniformizar todo esto, con respecto a la barra final:
-
+    //##Un-hardcode this:=
     //Init all the important paths:
     //##Revisar bien el manejo de wxString, para que sea todo correcto, sobre todo en cuanto a memoria:
     //##El último string, osea el número de Theme, hay que sacarlo del archivo de XML configuración:
@@ -297,6 +294,14 @@ MainFrame::MainFrame(   wxWindow* parent,
     //este asunto de los path y pasarlos como parámetros a Bubble:
     bubble.setLanguageCode(initialCatalogName.BeforeLast('.'));
     bubble.setAppPath(wxString(wxStandardPaths::Get().GetExecutablePath().BeforeLast(wxFileName::GetPathSeparator()) ));
+    bubble.setHost(wxString("win.386"));
+#if defined (linux) && defined(__i386__)
+    bubble.setHost(wxString("lunux.386"));
+#endif
+#if defined (linux) && defined(__x86_64__)
+    bubble.setHost(wxString("lunux.amd64"));
+#endif
+
 
     //##2011.10.02: This threshold (of 152 characters) has been determined experimantally, as a WinAVR
     //limitation. But this is just a small patch until we found a better solution (which will be proabley
@@ -4229,7 +4234,7 @@ void MainFrame::onNotebookPageClose(wxAuiNotebookEvent& evt)
         {
             //##Verificar el isSaved:
             int res = wxMessageBox( _("Are you sure you want to close this page?"), //##
-                                    _("Minibloq"), //##
+                                    _("miniBloq"), //##
                                     wxYES_NO,
                                     this);
             if (res != wxYES)
@@ -4349,302 +4354,3 @@ void MainFrame::onNotebookPageChanged(wxAuiNotebookEvent& evt)
     }
     evt.Skip(); //##
 }
-
-//////////////////////////////////////////////////////////////////////////////////////////
-//##Ver qué pasa con todo lo que hay de acá para abajo, si se queda o se va:
-//////////////////////////////////////////////////////////////////////////////////////////
-/*
-void MainFrame::onUpdateUI(wxUpdateUIEvent& event)
-{
-    unsigned int flags = auiManager.GetFlags();
-
-    switch (event.GetId())
-    {
-        case ID_NoGradient:
-            event.Check(auiManager.GetArtProvider()->GetMetric(wxAUI_DOCKART_GRADIENT_TYPE) == wxAUI_GRADIENT_NONE);
-            break;
-        case ID_VerticalGradient:
-            event.Check(auiManager.GetArtProvider()->GetMetric(wxAUI_DOCKART_GRADIENT_TYPE) == wxAUI_GRADIENT_VERTICAL);
-            break;
-        case ID_HorizontalGradient:
-            event.Check(auiManager.GetArtProvider()->GetMetric(wxAUI_DOCKART_GRADIENT_TYPE) == wxAUI_GRADIENT_HORIZONTAL);
-            break;
-        case ID_AllowFloating:
-            event.Check((flags & wxAUI_MGR_ALLOW_FLOATING) != 0);
-            break;
-        case ID_TransparentDrag:
-            event.Check((flags & wxAUI_MGR_TRANSPARENT_DRAG) != 0);
-            break;
-        case ID_TransparentHint:
-            event.Check((flags & wxAUI_MGR_TRANSPARENT_HINT) != 0);
-            break;
-        case ID_VenetianBlindsHint:
-            event.Check((flags & wxAUI_MGR_VENETIAN_BLINDS_HINT) != 0);
-            break;
-        case ID_RectangleHint:
-            event.Check((flags & wxAUI_MGR_RECTANGLE_HINT) != 0);
-            break;
-        case ID_NoHint:
-            event.Check(((wxAUI_MGR_TRANSPARENT_HINT |
-                          wxAUI_MGR_VENETIAN_BLINDS_HINT |
-                          wxAUI_MGR_RECTANGLE_HINT) & flags) == 0);
-            break;
-        case ID_HintFade:
-            event.Check((flags & wxAUI_MGR_HINT_FADE) != 0);
-            break;
-        case ID_NoVenetianFade:
-            event.Check((flags & wxAUI_MGR_NO_VENETIAN_BLINDS_FADE) != 0);
-            break;
-
-
-        //##Ver si esto se queda::
-        case ID_NotebookNoCloseButton:
-            event.Check((m_notebook_style & (wxAUI_NB_CLOSE_BUTTON|wxAUI_NB_CLOSE_ON_ALL_TABS|wxAUI_NB_CLOSE_ON_ACTIVE_TAB)) != 0);
-            break;
-        case ID_NotebookCloseButton:
-            event.Check((m_notebook_style & wxAUI_NB_CLOSE_BUTTON) != 0);
-            break;
-        case ID_NotebookCloseButtonAll:
-            event.Check((m_notebook_style & wxAUI_NB_CLOSE_ON_ALL_TABS) != 0);
-            break;
-        case ID_NotebookCloseButtonActive:
-            event.Check((m_notebook_style & wxAUI_NB_CLOSE_ON_ACTIVE_TAB) != 0);
-            break;
-        case ID_NotebookAllowTabSplit:
-            event.Check((m_notebook_style & wxAUI_NB_TAB_SPLIT) != 0);
-            break;
-        case ID_NotebookAllowTabMove:
-            event.Check((m_notebook_style & wxAUI_NB_TAB_MOVE) != 0);
-            break;
-        case ID_NotebookAllowTabExternalMove:
-            event.Check((m_notebook_style & wxAUI_NB_TAB_EXTERNAL_MOVE) != 0);
-            break;
-        case ID_NotebookScrollButtons:
-            event.Check((m_notebook_style & wxAUI_NB_SCROLL_BUTTONS) != 0);
-            break;
-        case ID_NotebookWindowList:
-            event.Check((m_notebook_style & wxAUI_NB_WINDOWLIST_BUTTON) != 0);
-            break;
-        case ID_NotebookTabFixedWidth:
-            event.Check((m_notebook_style & wxAUI_NB_TAB_FIXED_WIDTH) != 0);
-            break;
-        case ID_NotebookArtGloss:
-            event.Check(m_notebook_style == 0);
-            break;
-        case ID_NotebookArtSimple:
-            event.Check(m_notebook_style == 1);
-            break;
-    }
-}
-
-
-void MainFrame::OnGradient(wxCommandEvent& event)
-{
-    int gradient = 0;
-
-    switch (event.GetId())
-    {
-        case ID_NoGradient:         gradient = wxAUI_GRADIENT_NONE; break;
-        case ID_VerticalGradient:   gradient = wxAUI_GRADIENT_VERTICAL; break;
-        case ID_HorizontalGradient: gradient = wxAUI_GRADIENT_HORIZONTAL; break;
-    }
-
-    auiManager.GetArtProvider()->SetMetric(wxAUI_DOCKART_GRADIENT_TYPE, gradient);
-    auiManager.Update();
-}
-
-
-void MainFrame::OnManagerFlag(wxCommandEvent& event)
-{
-    unsigned int flag = 0;
-
-#if !defined(__WXMSW__) && !defined(__WXMAC__) && !defined(__WXGTK__)
-    if (event.GetId() == ID_TransparentDrag ||
-        event.GetId() == ID_TransparentHint ||
-        event.GetId() == ID_HintFade)
-    {
-        wxMessageBox(_("This option is presently only available on wxGTK, wxMSW and wxMac"));
-        return;
-    }
-#endif
-
-    int id = event.GetId();
-
-    if (id == ID_TransparentHint ||
-        id == ID_VenetianBlindsHint ||
-        id == ID_RectangleHint ||
-        id == ID_NoHint)
-    {
-        unsigned int flags = auiManager.GetFlags();
-        flags &= ~wxAUI_MGR_TRANSPARENT_HINT;
-        flags &= ~wxAUI_MGR_VENETIAN_BLINDS_HINT;
-        flags &= ~wxAUI_MGR_RECTANGLE_HINT;
-        auiManager.SetFlags(flags);
-    }
-
-    switch (id)
-    {
-        case ID_AllowFloating: flag = wxAUI_MGR_ALLOW_FLOATING; break;
-        case ID_TransparentDrag: flag = wxAUI_MGR_TRANSPARENT_DRAG; break;
-        case ID_HintFade: flag = wxAUI_MGR_HINT_FADE; break;
-        case ID_NoVenetianFade: flag = wxAUI_MGR_NO_VENETIAN_BLINDS_FADE; break;
-        case ID_AllowActivePane: flag = wxAUI_MGR_ALLOW_ACTIVE_PANE; break;
-        case ID_TransparentHint: flag = wxAUI_MGR_TRANSPARENT_HINT; break;
-        case ID_VenetianBlindsHint: flag = wxAUI_MGR_VENETIAN_BLINDS_HINT; break;
-        case ID_RectangleHint: flag = wxAUI_MGR_RECTANGLE_HINT; break;
-    }
-
-    if (flag)
-    {
-        auiManager.SetFlags(auiManager.GetFlags() ^ flag);
-    }
-
-    auiManager.Update();
-}
-
-
-//##Future: For project tree...
-
-wxTreeCtrl* MainFrame::CreateTreeCtrl()
-{
-    int iconW = 16; //##
-    int iconH = 16; //##
-
-    wxTreeCtrl* tree = new wxTreeCtrl(this, wxID_ANY,
-                                      wxPoint(0,0), wxSize(160,250),
-                                      wxTR_DEFAULT_STYLE | wxNO_BORDER);
-
-    wxImageList* imglist = new wxImageList(16, 16, true, 2);
-    imglist->Add(wxArtProvider::GetBitmap(wxART_FOLDER, wxART_OTHER, wxSize(iconW, iconH)));
-    imglist->Add(wxArtProvider::GetBitmap(wxART_NORMAL_FILE, wxART_OTHER, wxSize(iconW, iconH)));
-    tree->AssignImageList(imglist);
-
-    wxTreeItemId root = tree->AddRoot(_("N10 Mobile Robot"), 0);
-    wxArrayTreeItemIds items;
-
-    items.Add(tree->AppendItem(root, _("ARM Robot Brain"), 0));
-    items.Add(tree->AppendItem(root, _("AVR SpeedControl"), 0));
-    items.Add(tree->AppendItem(root, _("AVR Adquisition"), 0));
-    items.Add(tree->AppendItem(root, _("AVR SensorFusion"), 0));
-
-    int i, count;
-    for (i = 0, count = items.Count(); i < count; ++i)
-    {
-        wxTreeItemId id = items.Item(i);
-        tree->AppendItem(id, _("main.cpp"), 1);
-        tree->AppendItem(id, _("HardwareMap.cpp"), 1);
-    }
-
-    tree->Expand(root);
-    return tree;
-}
-*/
-
-/*##
-void MainFrame::OnNotebookFlag(wxCommandEvent& event)
-{
-    int id = event.GetId();
-
-    if (id == ID_NotebookNoCloseButton ||
-        id == ID_NotebookCloseButton ||
-        id == ID_NotebookCloseButtonAll ||
-        id == ID_NotebookCloseButtonActive)
-    {
-        m_notebook_style &= ~(wxAUI_NB_CLOSE_BUTTON |
-                              wxAUI_NB_CLOSE_ON_ACTIVE_TAB |
-                              wxAUI_NB_CLOSE_ON_ALL_TABS);
-
-        switch (id)
-        {
-            case ID_NotebookNoCloseButton: break;
-            case ID_NotebookCloseButton: m_notebook_style |= wxAUI_NB_CLOSE_BUTTON; break;
-            case ID_NotebookCloseButtonAll: m_notebook_style |= wxAUI_NB_CLOSE_ON_ALL_TABS; break;
-            case ID_NotebookCloseButtonActive: m_notebook_style |= wxAUI_NB_CLOSE_ON_ACTIVE_TAB; break;
-        }
-    }
-
-    if (id == ID_NotebookAllowTabMove)
-    {
-        m_notebook_style ^= wxAUI_NB_TAB_MOVE;
-    }
-
-    if (id == ID_NotebookAllowTabExternalMove)
-    {
-        m_notebook_style ^= wxAUI_NB_TAB_EXTERNAL_MOVE;
-    }
-    else if (id == ID_NotebookAllowTabSplit)
-    {
-        m_notebook_style ^= wxAUI_NB_TAB_SPLIT;
-    }
-    else if (id == ID_NotebookWindowList)
-    {
-        m_notebook_style ^= wxAUI_NB_WINDOWLIST_BUTTON;
-    }
-    else if (id == ID_NotebookScrollButtons)
-    {
-        m_notebook_style ^= wxAUI_NB_SCROLL_BUTTONS;
-    }
-    else if (id == ID_NotebookTabFixedWidth)
-    {
-        m_notebook_style ^= wxAUI_NB_TAB_FIXED_WIDTH;
-    }
-
-
-    size_t i, count;
-    wxAuiPaneInfoArray& all_panes = auiManager.GetAllPanes();
-    for (i = 0, count = all_panes.GetCount(); i < count; ++i)
-    {
-        wxAuiPaneInfo& pane = all_panes.Item(i);
-        if (pane.window->IsKindOf(CLASSINFO(wxAuiNotebook)))
-        {
-            wxAuiNotebook* nb = (wxAuiNotebook*)pane.window;
-
-            if (id == ID_NotebookArtGloss)
-            {
-                nb->SetArtProvider(new wxAuiDefaultTabArt);
-                m_notebook_theme = 0;
-            }
-             else if (id == ID_NotebookArtSimple)
-            {
-                nb->SetArtProvider(new wxAuiSimpleTabArt);
-                m_notebook_theme = 1;
-            }
-
-
-            nb->SetWindowStyleFlag(m_notebook_style);
-            nb->Refresh();
-        }
-    }
-}
-
-
-void MainFrame::OnCreateTree(wxCommandEvent& WXUNUSED(event))
-{
-    auiManager.AddPane(CreateTreeCtrl(), wxAuiPaneInfo().
-                  Caption(_("Tree Control")).
-                  Float().FloatingPosition(GetStartPosition()).
-                  FloatingSize(wxSize(150,300)));
-    auiManager.Update();
-}
-
-
-void MainFrame::OnTabAlignment(wxCommandEvent &evt)
-{
-    size_t i, count;
-    wxAuiPaneInfoArray& all_panes = auiManager.GetAllPanes();
-    for (i = 0, count = all_panes.GetCount(); i < count; ++i)
-    {
-        wxAuiPaneInfo& pane = all_panes.Item(i);
-        if (pane.window->IsKindOf(CLASSINFO(wxAuiNotebook)))
-        {
-            wxAuiNotebook* nb = (wxAuiNotebook*)pane.window;
-
-            if (evt.GetId() == ID_NotebookAlignTop)
-                nb->SetWindowStyleFlag(nb->GetWindowStyleFlag()^wxAUI_NB_BOTTOM|wxAUI_NB_TOP);
-            else if (evt.GetId() == ID_NotebookAlignBottom)
-                nb->SetWindowStyleFlag(nb->GetWindowStyleFlag()^wxAUI_NB_TOP|wxAUI_NB_BOTTOM);
-            nb->Refresh();
-        }
-    }
-}
-*/

@@ -85,16 +85,22 @@ class BubbleBoardProperties
     private:
         wxString name;
         wxString path;
-        wxString portType;
         wxString imgMain;
         wxString imgThumb;
+        wxString portType;
+        wxString lang;
+        wxString corePath;
+        wxString core;
 
     public:
         BubbleBoardProperties():    name(wxString("")),
                                     path(wxString("")),
-                                    portType(wxString("serial")),
                                     imgMain(wxString("")),
-                                    imgThumb(wxString(""))
+                                    imgThumb(wxString("")),
+                                    portType(wxString("serial")),
+                                    lang(wxString("")),
+                                    corePath(wxString("")),
+                                    core(wxString(""))
 
         {
         }
@@ -113,6 +119,9 @@ class BubbleBoardProperties
                 setPortType(boardProperties->getPortType());
                 setImgMain(boardProperties->getImgMain());
                 setImgThumb(boardProperties->getImgThumb());
+                setLang(boardProperties->getLang());
+                setCorePath(boardProperties->getCorePath());
+                setCore(boardProperties->getCore());
             }
         }
 
@@ -122,14 +131,23 @@ class BubbleBoardProperties
         inline void setPath(const wxString& value) { path = value; }
         inline const wxString &getPath() const { return path; }
 
-        inline void setPortType(const wxString& value) { portType = value; }
-        inline const wxString &getPortType() const { return portType; }
-
         inline void setImgMain(const wxString& value) { imgMain = value; }
         inline const wxString &getImgMain() const { return imgMain; }
 
         inline void setImgThumb(const wxString& value) { imgThumb = value; }
         inline const wxString &getImgThumb() const { return imgThumb; }
+
+        inline void setPortType(const wxString& value) { portType = value; }
+        inline const wxString &getPortType() const { return portType; }
+
+        inline void setLang(const wxString& value) { lang = value; }
+        inline const wxString &getLang() const { return lang; }
+
+        inline void setCorePath(const wxString& value) { corePath = value; }
+        inline const wxString &getCorePath() const { return corePath; }
+
+        inline void setCore(const wxString& value) { core = value; }
+        inline const wxString &getCore() const { return core; }
 };
 
 //The BubbleXML class manages the language structure (blocks info, canvases info, etc.). It DOES NOT deals
@@ -250,6 +268,7 @@ class Bubble : public IBubbleFileIO
         wxString blocksPath;
 
         //Application (Minibloq itself):
+        wxString host;
         wxString appPath;
         wxString themePath;
         //##Will be necessary?:
@@ -352,6 +371,9 @@ class Bubble : public IBubbleFileIO
         inline const wxString &getLibPath() const { return libPath; }
         inline void setBlocksPath(const wxString& value) { blocksPath = value; }
         inline const wxString &getBlocksPath() const { return blocksPath; }
+
+        inline void setHost(const wxString& value) { host = value; }
+        inline const wxString &getHost() const { return host; }
 
         inline void setAppPath(const wxString& value) { appPath = value; }
         inline const wxString &getAppPath() const { return appPath; }

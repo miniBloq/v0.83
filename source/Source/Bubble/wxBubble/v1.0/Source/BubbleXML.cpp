@@ -1493,6 +1493,9 @@ bool BubbleXML::blockIsValid(const wxString& name, const wxString& type) const
 ////////////////////////////////////////////////////////////////////////////////////////////
 BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardFileName)
 {
+    if (bubble == NULL)
+        return NULL;
+
     //##Future: Try to disable the error messages that the wxXmlDocument class fires when encounters errors:
     wxXmlDocument boardFile;
     if ( !boardFile.Load(fullBoardFileName, wxString("UTF-8")) )
@@ -1533,6 +1536,21 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
                 {
                     boardInfo->setImgThumb(child->GetNodeContent());
                 }
+                //The lang, corePath and core fields are filled with the host compatible language and core,
+                //where the host is detected by miniBloq at startup.
+                else if (child->GetName() == bubble->getHost() + ".lang")
+                {
+                    boardInfo->setLang(child->GetNodeContent());
+                }
+                else if (child->GetName() == bubble->getHost() + ".corePath")
+                {
+                    boardInfo->setCorePath(child->GetNodeContent());
+                }
+                else if (child->GetName() == bubble->getHost() + ".core")
+                {
+                    boardInfo->setCore(child->GetNodeContent());
+                }
+
                 child = child->GetNext();
             }
         }

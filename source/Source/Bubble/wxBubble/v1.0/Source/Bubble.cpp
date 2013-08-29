@@ -69,6 +69,7 @@ Bubble::Bubble(wxLocale& locale) :  parent(NULL),
                                     libPath(wxString("")),
                                     blocksPath(wxString("")),
 
+                                    host(wxString("win.i386")), //Default OS
                                     appPath(wxString("")),
                                     themePath(wxString("")),
 
@@ -401,19 +402,13 @@ void Bubble::changeBoardPaths()
 
     setBoardPath(hardwareManager->getCurrentBoardProperties()->getPath());
     setMatrixPath(hardwareManager->getCurrentBoardProperties()->getPath() + wxString("/rel"));
-    setCorePath(hardwareManager->getCurrentBoardProperties()->getPath() + wxString("/core"));
+    setCorePath(hardwareManager->getCurrentBoardProperties()->getCorePath());
+    setToolsPath(getComponentsRepositoryPath() + wxString("/lang/") +
+                 hardwareManager->getCurrentBoardProperties()->getLang());
 
     setBlocksPath(getComponentsRepositoryPath() + wxString("/blocks"));
 
-    setToolsPath(getComponentsRepositoryPath() + wxString("/lang/WinAVR/v20090313/bin")); //##Un-hardcode...
-#if defined (linux) && defined(__i386__)
-    setToolsPath(getComponentsRepositoryPath() + wxString("/lang/avrlinux/i386/v4.3.5/bin")); //##Un-hardcode...
-#endif
-#if defined (linux) && defined(__x86_64__)
-    setToolsPath(getComponentsRepositoryPath() + wxString("/lang/avrlinux/amd64/v4.3.5/bin")); //##Un-hardcode...
-#endif
-
-    //##DELETE THIS (AND ALL OCCURRENCES OF LibPath!:
+    //##DELETE THIS AND ALL OCCURRENCES OF LibPath!:
     setLibPath((getAppPath().BeforeLast(wxFileName::GetPathSeparator())) + wxString("/Lib"));
 }
 

@@ -61,7 +61,7 @@ class Minibloq : public wxApp
                                             locale,
                                             lanPath,
                                             initialCatalogName,
-                                            wxString("Minibloq v0.82.Beta"),
+                                            wxString("miniBloq v0.82.Beta"),
                                             wxDefaultPosition,
                                             //wxDefaultSize,
                                             wxSize(1280, 800), //##Load from XML config file...
@@ -72,7 +72,7 @@ class Minibloq : public wxApp
             /*
             wxFrame* frame = new MainFrame(NULL,
                                          wxID_ANY,
-                                         wxString("Minibloq v1.0"),
+                                         wxString("miniBloq v0.82"),
                                          wxPoint(100, 100),
                                          wxSize(500, 500));
             */
