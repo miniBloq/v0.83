@@ -3200,7 +3200,7 @@
 	"BubbleEditor.h"
 	<wx/stc/stc.h>
 
-1377744666 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblehardwaremanager.cpp
+1377746988 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblehardwaremanager.cpp
 	"BubbleHardwareManager.h"
 	"Bubble.h"
 	<windows.h>
@@ -3776,7 +3776,7 @@
 1309266992 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\texteditorproperties.cpp
 	"TextEditorProperties.h"
 
-1377743835 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubble.cpp
+1377747137 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubble.cpp
 	"Bubble.h"
 	<wx/msgdlg.h>
 	<wx/dir.h>

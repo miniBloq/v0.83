@@ -396,136 +396,25 @@ int Bubble::loadHardwareTargets(BubbleHardwareManager *hardwareManager)
 
 void Bubble::changeBoardPaths()
 {
-    //wxMessageDialog dialog0(parent, getBoardName(), T("0")); //##Debug
-    //dialog0.ShowModal(); //##Debug
+    if (hardwareManager == NULL)
+        return;
 
-    //##Horrible! Un-hardcode all of this:
-    if (getBoardName() == wxString("DuinoBot.v1.x.HID"))
-    {
-        setToolsPath(getComponentsRepositoryPath() + wxString("/lang/WinAVR/v20090313/bin")); //##Un-hardcode...
-        setLibPath((getAppPath().BeforeLast(wxFileName::GetPathSeparator())) + wxString("/Lib"));
-        setBlocksPath(getComponentsRepositoryPath() + wxString("/blocks"));
+    setBoardPath(hardwareManager->getCurrentBoardProperties()->getPath());
+    setMatrixPath(hardwareManager->getCurrentBoardProperties()->getPath() + wxString("/rel"));
+    setCorePath(hardwareManager->getCurrentBoardProperties()->getPath() + wxString("/core"));
 
-        setMatrixPath(getComponentsRepositoryPath() + wxString("/hard/DuinoBot.v1.x.HID/rel"));
-        setCorePath(getComponentsRepositoryPath() + wxString("/hard/DuinoBot.v1.x.HID/core"));
-        setBoardPath(getComponentsRepositoryPath() + wxString("/hard/DuinoBot.v1.x.HID"));
-    }
-    else if (getBoardName() == wxString("DuinoBot.v1.x"))
-    {
-        setToolsPath(getComponentsRepositoryPath() + wxString("/lang/WinAVR/v20090313/bin")); //##Un-hardcode...
-        setLibPath((getAppPath().BeforeLast(wxFileName::GetPathSeparator())) + wxString("/Lib"));
-        setBlocksPath(getLibPath() + wxString("/CPP/Blocks"));
+    setBlocksPath(getComponentsRepositoryPath() + wxString("/blocks"));
 
-        setMatrixPath(getLibPath() + wxString("/CPP/Targets/DuinoBot.v1.x_Arduino.v1.0/Matrix"));
-        setCorePath(getLibPath() + wxString("/CPP/Targets/DuinoBot.v1.x_Arduino.v1.0/Core"));
-        setBoardPath(getLibPath() + wxString("/CPP/Targets/DuinoBot.v1.x_Arduino.v1.0"));
-    }
-    else if (getBoardName() == wxString("DuinoBot.Kids.v1.x"))
-    {
-        setToolsPath(getComponentsRepositoryPath() + wxString("/lang/WinAVR/v20090313/bin")); //##Un-hardcode...
-        setLibPath((getAppPath().BeforeLast(wxFileName::GetPathSeparator())) + wxString("/Lib"));
-        setBlocksPath(getLibPath() + wxString("/CPP/Blocks"));
-
-        setMatrixPath(getLibPath() + wxString("/CPP/Targets/DuinoBot.Kids.v1.x_Arduino.v1.0/Matrix"));
-        setCorePath(getLibPath() + wxString("/CPP/Targets/DuinoBot.Kids.v1.x_Arduino.v1.0/Core"));
-        setBoardPath(getLibPath() + wxString("/CPP/Targets/DuinoBot.Kids.v1.x_Arduino.v1.0"));
-    }
-    else if (getBoardName() == wxString("Seeeduino v2.2x Mega328"))
-    {
-        setToolsPath(getComponentsRepositoryPath() + wxString("/lang/WinAVR/v20090313/bin")); //##Un-hardcode...
-        setLibPath((getAppPath().BeforeLast(wxFileName::GetPathSeparator())) + wxString("/Lib"));
-        setBlocksPath(getLibPath() + wxString("/CPP/Blocks"));
-
-        setMatrixPath(getLibPath() + wxString("/CPP/Targets/ArduinoUNO_Arduino.v1.0/Matrix"));
-        setCorePath(getLibPath() + wxString("/CPP/Targets/ArduinoUNO_Arduino.v1.0/Core"));
-        setBoardPath(getLibPath() + wxString("/CPP/Targets/ArduinoUNO_Arduino.v1.0"));
-    }
-    else if (getBoardName() == wxString("Seeeduino Mega 1280"))
-    {
-        setToolsPath(getComponentsRepositoryPath() + wxString("/lang/WinAVR/v20090313/bin")); //##Un-hardcode...
-        setLibPath((getAppPath().BeforeLast(wxFileName::GetPathSeparator())) + wxString("/Lib"));
-        setBlocksPath(getLibPath() + wxString("/CPP/Blocks"));
-
-        setMatrixPath(getLibPath() + wxString("/CPP/Targets/ArduinoMega1280_Arduino.v1.0/Matrix"));
-        setCorePath(getLibPath() + wxString("/CPP/Targets/ArduinoMega1280_Arduino.v1.0/Core"));
-        setBoardPath(getLibPath() + wxString("/CPP/Targets/ArduinoMega1280_Arduino.v1.0"));
-    }
-    else if (getBoardName() == wxString("Arduino Uno"))
-    {
-        setToolsPath(getComponentsRepositoryPath() + wxString("/lang/WinAVR/v20090313/bin")); //##Un-hardcode...
-        setLibPath((getAppPath().BeforeLast(wxFileName::GetPathSeparator())) + wxString("/Lib"));
-        setBlocksPath(getLibPath() + wxString("/CPP/Blocks"));
-
-        setMatrixPath(getLibPath() + wxString("/CPP/Targets/ArduinoUNO_Arduino.v1.0/Matrix"));
-        setCorePath(getLibPath() + wxString("/CPP/Targets/ArduinoUNO_Arduino.v1.0/Core"));
-        setBoardPath(getLibPath() + wxString("/CPP/Targets/ArduinoUNO_Arduino.v1.0"));
-    }
-    else if (getBoardName() == wxString("Arduino Duemilanove Mega168"))
-    {
-        setToolsPath(getComponentsRepositoryPath() + wxString("/lang/WinAVR/v20090313/bin")); //##Un-hardcode...
-        setLibPath((getAppPath().BeforeLast(wxFileName::GetPathSeparator())) + wxString("/Lib"));
-        setBlocksPath(getLibPath() + wxString("/CPP/Blocks"));
-
-        setMatrixPath(getLibPath() + wxString("/CPP/Targets/ArduinoDuemilanove168_Arduino.v1.0/Matrix"));
-        setCorePath(getLibPath() + wxString("/CPP/Targets/ArduinoDuemilanove168_Arduino.v1.0/Core"));
-        setBoardPath(getLibPath() + wxString("/CPP/Targets/ArduinoDuemilanove168_Arduino.v1.0"));
-    }
-    else if (getBoardName() == wxString("Arduino Duemilanove Mega328"))
-    {
-        setToolsPath(getComponentsRepositoryPath() + wxString("/lang/WinAVR/v20090313/bin")); //##Un-hardcode...
-        setLibPath((getAppPath().BeforeLast(wxFileName::GetPathSeparator())) + wxString("/Lib"));
-        setBlocksPath(getLibPath() + wxString("/CPP/Blocks"));
-
-        setMatrixPath(getLibPath() + wxString("/CPP/Targets/ArduinoUNO_Arduino.v1.0/Matrix"));
-        setCorePath(getLibPath() + wxString("/CPP/Targets/ArduinoUNO_Arduino.v1.0/Core"));
-        setBoardPath(getLibPath() + wxString("/CPP/Targets/ArduinoUNO_Arduino.v1.0"));
-    }
-    else if (getBoardName() == wxString("Arduino Mega 2560"))
-    {
-        setToolsPath(getComponentsRepositoryPath() + wxString("/lang/WinAVR/v20090313/bin")); //##Un-hardcode...
-        setLibPath((getAppPath().BeforeLast(wxFileName::GetPathSeparator())) + wxString("/Lib"));
-        setBlocksPath(getLibPath() + wxString("/CPP/Blocks"));
-
-        setMatrixPath(getLibPath() + wxString("/CPP/Targets/ArduinoMega2560_Arduino.v1.0/Matrix"));
-        setCorePath(getLibPath() + wxString("/CPP/Targets/ArduinoMega2560_Arduino.v1.0/Core"));
-        setBoardPath(getLibPath() + wxString("/CPP/Targets/ArduinoMega2560_Arduino.v1.0"));
-    }
-    else if (getBoardName() == wxString("Arduino Mega 1280"))
-    {
-        setToolsPath(getComponentsRepositoryPath() + wxString("/lang/WinAVR/v20090313/bin")); //##Un-hardcode...
-        setLibPath((getAppPath().BeforeLast(wxFileName::GetPathSeparator())) + wxString("/Lib"));
-        setBlocksPath(getLibPath() + wxString("/CPP/Blocks"));
-
-        setMatrixPath(getLibPath() + wxString("/CPP/Targets/ArduinoMega1280_Arduino.v1.0/Matrix"));
-        setCorePath(getLibPath() + wxString("/CPP/Targets/ArduinoMega1280_Arduino.v1.0/Core"));
-        setBoardPath(getLibPath() + wxString("/CPP/Targets/ArduinoMega1280_Arduino.v1.0"));
-    }
-    else if (   getBoardName() == wxString("ATTiny25 (with ArduinoISP)") ||
-                getBoardName() == wxString("ATTiny45 (with ArduinoISP)") ||
-                getBoardName() == wxString("ATTiny85 (with ArduinoISP)") ||
-                getBoardName() == wxString("ATTiny25 (with Doper)") ||
-                getBoardName() == wxString("ATTiny45 (with Doper)") ||
-                getBoardName() == wxString("ATTiny85 (with Doper)")
-            )
-    {
-        setToolsPath(getComponentsRepositoryPath() + wxString("/lang/WinAVR/v20090313/bin")); //##Un-hardcode...
-        setLibPath((getAppPath().BeforeLast(wxFileName::GetPathSeparator())) + wxString("/Lib"));
-        setBlocksPath(getLibPath() + wxString("/CPP/Blocks"));
-
-        setMatrixPath(getLibPath() + wxString("/CPP/Targets/Tiny25.45.85_Arduino.v1.0/Matrix"));
-        setCorePath(getLibPath() + wxString("/CPP/Targets/Tiny25.45.85_Arduino.v1.0/Core"));
-        setBoardPath(getLibPath() + wxString("/CPP/Targets/Tiny25.45.85_Arduino.v1.0"));
-    }
-
+    setToolsPath(getComponentsRepositoryPath() + wxString("/lang/WinAVR/v20090313/bin")); //##Un-hardcode...
 #if defined (linux) && defined(__i386__)
-//    setToolsPath(wxString("/usr/bin")); //##Un-hardcode...
     setToolsPath(getComponentsRepositoryPath() + wxString("/lang/avrlinux/i386/v4.3.5/bin")); //##Un-hardcode...
 #endif
 #if defined (linux) && defined(__x86_64__)
-//    setToolsPath(wxString("/usr/bin")); //##Un-hardcode...
     setToolsPath(getComponentsRepositoryPath() + wxString("/lang/avrlinux/amd64/v4.3.5/bin")); //##Un-hardcode...
 #endif
 
+    //##DELETE THIS (AND ALL OCCURRENCES OF LibPath!:
+    setLibPath((getAppPath().BeforeLast(wxFileName::GetPathSeparator())) + wxString("/Lib"));
 }
 
 

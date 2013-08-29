@@ -452,8 +452,6 @@ void BubbleHardwareManager::onComboBoardNameChanged(wxCommandEvent &event)
     {
         if (bubble)
         {
-            bubble->setBoardName(event.GetString(), parent);
-
             //Find new seleted board's properties:
             BubbleBoardProperties *iterator = NULL;
             for (unsigned int i = 0; i<boardsProperties.GetCount(); i++)
@@ -461,12 +459,13 @@ void BubbleHardwareManager::onComboBoardNameChanged(wxCommandEvent &event)
                 iterator = &(boardsProperties.Item(i)); //##In theory, this is faster than the other index based form, but I'm not sure yet...
                 if (iterator)
                 {
-                    if (iterator->getName() == bubble->getBoardName())
+                    if (iterator->getName() == event.GetString())
                     {
                         currentBoardProperties->set(iterator);
                     }
                 }
             }
+            bubble->setBoardName(event.GetString(), parent);
             changeImage();
             //##Debug:
             //wxMessageDialog dialog0(bubble->getParent(), getCurrentBoardProperties()->getPortType(),
