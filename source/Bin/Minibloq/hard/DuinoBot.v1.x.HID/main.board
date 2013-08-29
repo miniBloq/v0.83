@@ -7,6 +7,7 @@
 		<url1>http://multiplo.org</url1>
 		<imgMain>main.png</imgMain>
 		<imgThumb>thumb.png</imgThumb>
+		<portType>HID</portType>
     </properties>
 	<instances>
 		<serial0 instanceType="Serial"/>

@@ -41,6 +41,8 @@ class BubbleHardwareManager : public BubblePanel
         void onKillFocus(wxFocusEvent& event);
 
     protected:
+        void setPortType();
+
         void onSize(wxSizeEvent& event);
         void onUpdatePorts(wxCommandEvent &event);
         void onComboBootPortNameChanged(wxCommandEvent &event);
@@ -65,6 +67,7 @@ class BubbleHardwareManager : public BubblePanel
             boardsProperties.Clear();
         }
         void addBoard(BubbleBoardProperties *boardProperties);
+        inline BubbleBoardProperties *getCurrentBoardProperties() { return currentBoardProperties; };
 
         void updateGUI();
         void changeImage();

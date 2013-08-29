@@ -529,24 +529,33 @@ void Bubble::changeBoardPaths()
 }
 
 
-void Bubble::changeBoardHardwareConfig()
-{
-    if (hardwareManager == NULL)
-        return;
-
-    //##Future: See if this methond will remain. But now, it's hardcoded:
-    if (getBoardName() == wxString("DuinoBot.v1.x.HID"))
-    {
-        hardwareManager->setPortSelectorEnabled(false);
-        hardwareManager->setPortNameString(_("HID"));
-    }
-    else
-    {
-        hardwareManager->setPortSelectorEnabled(true);
-        hardwareManager->setPortNameString(wxString(""));
-        hardwareManager->updatePorts();
-    }
-}
+//##Delete this:
+//void Bubble::changeBoardHardwareConfig()
+//{
+//    if (hardwareManager == NULL)
+//        return;
+//
+//    //##Future: See if this methond will remain. By now, the system only supports HID and serial communications:
+//
+//    //wxMessageDialog dialog0(parent, (hardwareManager->getCurrentBoardProperties())->getName(),
+//    //                                (hardwareManager->getCurrentBoardProperties())->getPortType()
+//    //                       ); //##Debug
+//    //dialog0.ShowModal(); //##Debug
+//
+//    if ((hardwareManager->getCurrentBoardProperties())->getPortType() == wxString("HID"))
+//    //if (getBoardName() == wxString("DuinoBot.v1.x.HID"))
+//    {
+//        hardwareManager->setPortSelectorEnabled(false);
+//        hardwareManager->setPortNameString((hardwareManager->getCurrentBoardProperties())->getPortType()); //##
+//        //hardwareManager->setPortNameString(wxString("HID"));
+//    }
+//    else
+//    {
+//        hardwareManager->setPortSelectorEnabled(true);
+//        hardwareManager->setPortNameString(wxString(""));
+//        hardwareManager->updatePorts();
+//    }
+//}
 
 
 void Bubble::setCurrentCanvas(BubbleCanvas *value)
@@ -629,7 +638,7 @@ bool Bubble::setBoardName(const wxString& value, wxWindow *pickersParent)
     boardName = value;
 
     changeBoardPaths();
-    changeBoardHardwareConfig();
+    //##Delete this: changeBoardHardwareConfig();
 
     if (getNotifier())
     {

@@ -144,9 +144,10 @@ BubbleHardwareManager::BubbleHardwareManager(   wxWindow* parent,
                                     this
                                   );
         updatePorts();
-        comboBootPortName->setSelection(0); //##Un-hardcode and get the port from the config file...
-        wxString strCommRealName = wxString("//./") + comboBootPortName->getText();
-        bubble->setBootPortName(strCommRealName);
+        setPortType();
+//        comboBootPortName->setSelection(0); //##Un-hardcode and get the port from the config file...
+//        wxString strCommRealName = wxString("//./") + comboBootPortName->getText();
+//        bubble->setBootPortName(strCommRealName);
     }
 
     buttonReloadBlocks = new wxButton(  this,
@@ -418,15 +419,15 @@ void BubbleHardwareManager::onUpdatePorts(wxCommandEvent &event)
 }
 
 
-void BubbleHardwareManager::onComboBootPortNameChanged(wxCommandEvent &event)
+void BubbleHardwareManager::setPortType()
 {
     if (comboBootPortName)
     {
         if (bubble)
         {
-            if (comboBootPortName->getText() == "HID") //##Unhardcode
+            if (comboBootPortName->getText() == wxString("HID"))
             {
-                bubble->setBootPortName("HID");
+                bubble->setBootPortName(wxString("HID"));
             }
             else
             {
@@ -435,6 +436,12 @@ void BubbleHardwareManager::onComboBootPortNameChanged(wxCommandEvent &event)
             }
         }
     }
+}
+
+
+void BubbleHardwareManager::onComboBootPortNameChanged(wxCommandEvent &event)
+{
+    setPortType();
 }
 
 

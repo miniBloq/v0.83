@@ -6,6 +6,7 @@
 		<url0>http://arduino.cc</url0>
 		<imgMain>main.png</imgMain>
 		<imgThumb>thumb.png</imgThumb>
+		<portType>HID</portType>
     </properties>
 	<instances>
 		<serial0 instanceType="Serial"/>

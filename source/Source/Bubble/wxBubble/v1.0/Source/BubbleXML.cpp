@@ -342,16 +342,11 @@ bool BubbleXML::loadVariablesFromXML(const wxString& fileName, bool clearVariabl
             if (root == NULL)
                 return false;
 
-            //##:Debug:
-            //getNotifier()->showMessage(fileName + wxString("\n"), false, true, *wxBLUE); //##Debug.
 
             //Root's Name doesn't matter...
             wxXmlNode *rootChild = root->GetChildren();
             if (rootChild == NULL)
                 return false;
-
-            //##:Debug:
-            //getNotifier()->showMessage(rootChild->GetName() + wxString("\n"), false, true, *wxBLUE); //##Debug.
 
             while (rootChild)
             {
@@ -374,8 +369,6 @@ bool BubbleXML::loadVariablesFromXML(const wxString& fileName, bool clearVariabl
                             {
                                 BubbleInstance *variable = new BubbleInstance(varName, child->GetNodeContent());
                                 XMLVariables.setInstance(variable);
-                                //##:Debug:
-                                //getNotifier()->showMessage(wxString("var name=") + varName + wxString(", value=") + child->GetNodeContent() + wxString("\n"), false, true, *wxBLUE); //##Debug.
                             }
                         }
                         child = child->GetNext();
@@ -405,16 +398,10 @@ bool BubbleXML::loadBlocksPropertiesFromXML(const wxString& fileName, bool clear
             if (root == NULL)
                 return false;
 
-            //##:Debug:
-            //getNotifier()->showMessage(fileName + wxString("\n"), false, true, *wxBLUE); //##Debug.
-
             //Root's Name doesn't matter...
             wxXmlNode *rootChild = root->GetChildren();
             if (rootChild == NULL)
                 return false;
-
-            //##:Debug:
-            //getNotifier()->showMessage(rootChild->GetName() + wxString("\n"), false, true, *wxBLUE); //##Debug.
 
             while (rootChild)
             {
@@ -429,7 +416,6 @@ bool BubbleXML::loadBlocksPropertiesFromXML(const wxString& fileName, bool clear
                         if (child->GetName() == "actionDataType")
                         {
                             bubble->setActionDataType(child->GetNodeContent());
-                            //getNotifier()->showMessage(wxString("actionDataType = ") + child->GetNodeContent() + wxString("\n"), false, true, *wxGREEN); //##Debug.
                         }
 //                        else if (child->GetName() == "##")
 //                        {
@@ -558,8 +544,6 @@ bool BubbleXML::loadBlockInfoPropertiesFromXML(wxXmlNode *node, BubbleBlockInfo 
         return false;
 //    if (node->GetName() == "properties")
 //    {
-        //##Debug:
-        //getNotifier()->showMessage(wxString("properties:\n"), false, true, *wxBLUE); //##Debug.
 
         wxXmlNode *child = node->GetChildren();
         while (child)
@@ -568,7 +552,7 @@ bool BubbleXML::loadBlockInfoPropertiesFromXML(wxXmlNode *node, BubbleBlockInfo 
             if (child->GetName() == "name")
             {
                 blockInfo->setName(child->GetNodeContent());
-                //##getNotifier()->showMessage(wxString("name = ") + child->GetNodeContent() + wxString("%%\n"), false, true, *wxBLUE); //##Debug.
+                //##bubble->getNotifier()->showMessage(wxString("name = ") + child->GetNodeContent() + wxString("%%\n"), false, true, *wxBLUE); //##Debug.
             }
             else if (child->GetName() == "function")
             {
@@ -1533,7 +1517,14 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
                 if (child->GetName() == "name")
                 {
                     boardInfo->setName(child->GetNodeContent());
-                    //##getNotifier()->showMessage(wxString("name = ") + child->GetNodeContent() + wxString("%%\n"), false, true, *wxBLUE); //##Debug.
+                }
+                if (child->GetName() == "portType")
+                {
+                    boardInfo->setPortType(child->GetNodeContent());
+                    //##Debug:
+                    //wxMessageDialog dialog0(bubble->getParent(), wxString("portType = ") + child->GetNodeContent(), boardInfo->getName()); //##Debug.
+                    //dialog0.ShowModal(); //##Debug.
+
                 }
                 else if (child->GetName() == "imgMain")
                 {
@@ -1570,7 +1561,7 @@ int BubbleXML::loadHardwareTargets(BubbleHardwareManager *hardwareManager)
         if (wxFile::Exists(fullBoardFileName))
         {
             BubbleBoardProperties *boardProperties = loadBoardProperties(fullBoardFileName);
-            boardProperties->setPath(bubble->getTargetsPath() + wxString("/") + fileName);
+            boardProperties->setPath(bubble->getTargetsPath() + wxString("/") + fileName); //##This should be done in loadBoardProperties().
             hardwareManager->addBoard(boardProperties);
             counter++;
         }

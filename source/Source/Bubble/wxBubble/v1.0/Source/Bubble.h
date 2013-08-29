@@ -85,12 +85,14 @@ class BubbleBoardProperties
     private:
         wxString name;
         wxString path;
+        wxString portType;
         wxString imgMain;
         wxString imgThumb;
 
     public:
         BubbleBoardProperties():    name(wxString("")),
                                     path(wxString("")),
+                                    portType(wxString("serial")),
                                     imgMain(wxString("")),
                                     imgThumb(wxString(""))
 
@@ -118,6 +120,9 @@ class BubbleBoardProperties
 
         inline void setPath(const wxString& value) { path = value; }
         inline const wxString &getPath() const { return path; }
+
+        inline void setPortType(const wxString& value) { portType = value; }
+        inline const wxString &getPortType() const { return portType; }
 
         inline void setImgMain(const wxString& value) { imgMain = value; }
         inline const wxString &getImgMain() const { return imgMain; }
@@ -280,6 +285,7 @@ class Bubble : public IBubbleFileIO
         virtual ~Bubble();
 
         //Utils:
+        wxWindow *getParent() { return parent; };
 #if defined (WIN32)
         static LPWSTR cstrToWChar(LPCSTR value);
 #endif
@@ -307,7 +313,7 @@ class Bubble : public IBubbleFileIO
 
         //Hardware:
         int loadHardwareTargets(BubbleHardwareManager *hardwareManager);
-        void changeBoardHardwareConfig();
+        //##Delete this: void changeBoardHardwareConfig();
         void changeBoardPaths();
 
         //Canvases:
@@ -370,7 +376,7 @@ class Bubble : public IBubbleFileIO
         inline void setHardwareManager(BubbleHardwareManager *value) //##Hacer const el puntero del parámetro.
         {
             hardwareManager = value;
-            changeBoardHardwareConfig();
+            //##Delete this: changeBoardHardwareConfig();
         }
         inline BubbleHardwareManager *getHardwareManager() const { return hardwareManager; }
         bool setBoardName(const wxString& value, wxWindow *pickersParent);
