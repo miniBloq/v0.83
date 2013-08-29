@@ -1524,7 +1524,6 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
                     //##Debug:
                     //wxMessageDialog dialog0(bubble->getParent(), wxString("portType = ") + child->GetNodeContent(), boardInfo->getName()); //##Debug.
                     //dialog0.ShowModal(); //##Debug.
-
                 }
                 else if (child->GetName() == "imgMain")
                 {

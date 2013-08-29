@@ -425,6 +425,7 @@ void BubbleHardwareManager::setPortType()
     {
         if (bubble)
         {
+            //##In the future this will be more flexible, allowing for TCP communications, among other:
             if (comboBootPortName->getText() == wxString("HID"))
             {
                 bubble->setBootPortName(wxString("HID"));
@@ -467,6 +468,22 @@ void BubbleHardwareManager::onComboBoardNameChanged(wxCommandEvent &event)
                 }
             }
             changeImage();
+            //##Debug:
+            //wxMessageDialog dialog0(bubble->getParent(), getCurrentBoardProperties()->getPortType(),
+            //                                             getCurrentBoardProperties()->getName()); //##Debug.
+            //dialog0.ShowModal(); //##Debug.
+
+            if ((getCurrentBoardProperties())->getPortType() == wxString("HID"))
+            {
+                setPortSelectorEnabled(false);
+                setPortNameString((getCurrentBoardProperties())->getPortType());
+            }
+            else
+            {
+                setPortSelectorEnabled(true);
+                setPortNameString(wxString(""));
+                updatePorts();
+            }
         }
     }
 }

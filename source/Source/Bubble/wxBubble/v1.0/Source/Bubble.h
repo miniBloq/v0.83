@@ -110,6 +110,7 @@ class BubbleBoardProperties
             {
                 setName(boardProperties->getName());
                 setPath(boardProperties->getPath());
+                setPortType(boardProperties->getPortType());
                 setImgMain(boardProperties->getImgMain());
                 setImgThumb(boardProperties->getImgThumb());
             }
@@ -313,7 +314,6 @@ class Bubble : public IBubbleFileIO
 
         //Hardware:
         int loadHardwareTargets(BubbleHardwareManager *hardwareManager);
-        //##Delete this: void changeBoardHardwareConfig();
         void changeBoardPaths();
 
         //Canvases:
@@ -376,7 +376,6 @@ class Bubble : public IBubbleFileIO
         inline void setHardwareManager(BubbleHardwareManager *value) //##Hacer const el puntero del parámetro.
         {
             hardwareManager = value;
-            //##Delete this: changeBoardHardwareConfig();
         }
         inline BubbleHardwareManager *getHardwareManager() const { return hardwareManager; }
         bool setBoardName(const wxString& value, wxWindow *pickersParent);

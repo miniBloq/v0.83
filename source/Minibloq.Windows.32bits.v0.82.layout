@@ -31,7 +31,7 @@
 	<File name="Source\MainFrame.cpp" open="1" top="0" tabpos="1">
 		<Cursor position="19087" topLine="343" />
 	</File>
-	<File name="Source\Terminal.cpp" open="1" top="0" tabpos="0">
-		<Cursor position="11651" topLine="334" />
+	<File name="Source\Terminal.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="11594" topLine="330" />
 	</File>
 </CodeBlocks_layout_file>
