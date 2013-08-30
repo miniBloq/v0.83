@@ -330,6 +330,7 @@ MainFrame::MainFrame(   wxWindow* parent,
     //lo que debería generar independencia del sistema operativo:
 
     bubble.setComponentsRepositoryPath((bubble.getAppPath().BeforeLast(wxFileName::GetPathSeparator())).BeforeLast(wxFileName::GetPathSeparator()));
+    bubble.setBlocksPath(bubble.getComponentsRepositoryPath() + wxString("/blocks"));
 
     //##Debug:
 //    wxMessageDialog dialog0(this, bubble.getComponentsRepositoryPath(), _("componentsRepositoryPath")); //##Debug
@@ -352,28 +353,16 @@ MainFrame::MainFrame(   wxWindow* parent,
     bubble.setComponentPath(bubble.getTempPath());
     wxFileName aux(tempComponentName);
     bubble.setOutputPath(bubble.getComponentPath() + wxString("/") + aux.GetName() + wxString("_Files/Output"));
-
-    //##Un-hardcode!
-    //bubble.setLibPath(bubble.getAppPath() + wxString("/Lib"));
-    bubble.setLibPath((bubble.getAppPath().BeforeLast(wxFileName::GetPathSeparator())) + wxString("/Lib"));
-
-    bubble.setBlocksPath(bubble.getComponentsRepositoryPath() + wxString("/blocks"));
-
     bubble.setTargetsPath(bubble.getComponentsRepositoryPath() + wxString("/hard"));
-
-    //##Horrible! un hardcode this once the real Multi-board system becomes ready:
-    bubble.setMatrixPath(bubble.getComponentsRepositoryPath() + wxString("/hard/DuinoBot.v1.x.HID/rel"));
-
     bubble.setDocPath(bubble.getAppPath() + wxString("/Doc"));
 
     //##Debug:
-    //wxMessageDialog dialog0(this, toolsPath, _("toolsPath")); //##Debug
+    //wxMessageDialog dialog0(this, _("0"), _("0")); //##Debug
     //dialog0.ShowModal(); //##Debug
 
     //##Levantar estas cosas de archivo de configuración, y enviarlas a la función CreateNotebook:
     m_notebook_style = wxAUI_NB_DEFAULT_STYLE | wxAUI_NB_TAB_EXTERNAL_MOVE | wxNO_BORDER; //##Esto se va...
     //m_notebook_theme = 0; //##Ver si esto se queda...
-
     SetMinSize(wxSize(400, 300)); //##
 
     //This is very important, to be able to load any image supported by the wxImage class:
@@ -406,13 +395,13 @@ MainFrame::MainFrame(   wxWindow* parent,
 
     //##Ver si esto queda acá finalmente:
     bubble.setNotifier(this);
+
     //bubble.loadBlocksInfo(this, false); //Must be called BEFORE the adding of a canvas ( which is done in CreateNotebook() ).
+    //##Debug:
+    //wxMessageDialog dialog0(this, _("0"), _("0")); //##Debug
+    //dialog0.ShowModal(); //##Debug
     createHardwareManager(); //Now This is loading the blocks info (and this must be done BEFORE adding a canvas!).
     bubble.setHardwareManager(hardware);
-
-    //Calling this here will make the application doing this twice at startup, because the creation of the
-    //hardware manager will make a call to setBoardName() wich will call changeBoardPaths() too:
-    //bubble.changeBoardPaths();
 
     //##Esto va a cambiar, porque no me parece seguro el sistema de createNobebook donde devuelve
     //un control que podría ser NULL. Así que el AddPane se hará en el CreateNotebook:
@@ -421,7 +410,9 @@ MainFrame::MainFrame(   wxWindow* parent,
     //else
     //  ##Reportar error y salir?
 
+#if UNDER_DEVELOPMENT
     createLocalVariablesManager(); //##
+#endif
 
     createHelpAndResourceCenter();
     createProperties();
@@ -436,9 +427,9 @@ MainFrame::MainFrame(   wxWindow* parent,
                         .MinSize(wxSize(200, 30))
                       );
 
-
     createTerminal();
 
+#if UNDER_DEVELOPMENT
     components = new BubbleComponentsManager(this, ID_Components, wxColour(255, 255, 255));
     auiManager.AddPane( components, wxAuiPaneInfo()
                         .Name(wxString("Components"))
@@ -448,7 +439,7 @@ MainFrame::MainFrame(   wxWindow* parent,
                         .BestSize(wxSize(400, 450))
                         .MinSize(wxSize(200, 275))
                       );
-
+#endif
 
     //##Ver todo este código:
     int i, count;
@@ -499,6 +490,9 @@ MainFrame::MainFrame(   wxWindow* parent,
 
     //##Ver si esto queda acá finalmente:
     //bubble.loadBlocks(); //Must be called BEFORE add a canvas ( which is done in CreateNotebook() ).
+
+    //This creates the first component:
+    changeBoardNotify();
 }
 
 

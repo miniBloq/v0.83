@@ -260,11 +260,7 @@ class Bubble : public IBubbleFileIO
         wxString toolsPath;
 
         //Minibloq components:
-        wxString boardPath;
         wxString targetsPath;
-        wxString corePath;
-        wxString matrixPath;
-        wxString libPath;
         wxString blocksPath;
 
         //Application (Minibloq itself):
@@ -333,7 +329,6 @@ class Bubble : public IBubbleFileIO
 
         //Hardware:
         int loadHardwareTargets(BubbleHardwareManager *hardwareManager);
-        void changeBoardPaths();
 
         //Canvases:
         //##Es necesario asignar NULL a currentCanvas cuando no haya ninguno:
@@ -358,17 +353,9 @@ class Bubble : public IBubbleFileIO
         inline void setToolsPath(const wxString& value) { toolsPath = value; }
         inline const wxString &getToolsPath() const { return toolsPath; }
 
-        inline void setBoardPath(const wxString& value) { boardPath = value; }
-        inline const wxString &getBoardPath() const { return boardPath; }
         inline void setTargetsPath(const wxString& value) { targetsPath = value; }
         inline const wxString &getTargetsPath() const { return targetsPath; }
 
-        inline void setCorePath(const wxString& value) { corePath = value; }
-        inline const wxString &getCorePath() const { return corePath; }
-        inline void setMatrixPath(const wxString& value) { matrixPath = value; }
-        inline const wxString &getMatrixPath() const { return matrixPath; }
-        inline void setLibPath(const wxString& value) { libPath = value; }
-        inline const wxString &getLibPath() const { return libPath; }
         inline void setBlocksPath(const wxString& value) { blocksPath = value; }
         inline const wxString &getBlocksPath() const { return blocksPath; }
 

@@ -62,13 +62,7 @@ Bubble::Bubble(wxLocale& locale) :  parent(NULL),
 
                                     componentsRepositoryPath(wxString("")),
                                     toolsPath(wxString("")),
-
-                                    boardPath(wxString("")),
-                                    corePath(wxString("")),
-                                    matrixPath(wxString("")),
-                                    libPath(wxString("")),
                                     blocksPath(wxString("")),
-
                                     host(wxString("win.i386")), //Default OS
                                     appPath(wxString("")),
                                     themePath(wxString("")),
@@ -395,24 +389,6 @@ int Bubble::loadHardwareTargets(BubbleHardwareManager *hardwareManager)
 }
 
 
-void Bubble::changeBoardPaths()
-{
-    if (hardwareManager == NULL)
-        return;
-
-    setBoardPath(hardwareManager->getCurrentBoardProperties()->getPath());
-    setMatrixPath(hardwareManager->getCurrentBoardProperties()->getPath() + wxString("/rel"));
-    setCorePath(hardwareManager->getCurrentBoardProperties()->getCorePath());
-    setToolsPath(getComponentsRepositoryPath() + wxString("/lang/") +
-                 hardwareManager->getCurrentBoardProperties()->getLang());
-
-    setBlocksPath(getComponentsRepositoryPath() + wxString("/blocks"));
-
-    //##DELETE THIS AND ALL OCCURRENCES OF LibPath!:
-    setLibPath((getAppPath().BeforeLast(wxFileName::GetPathSeparator())) + wxString("/Lib"));
-}
-
-
 void Bubble::setCurrentCanvas(BubbleCanvas *value)
 {
     currentCanvas = value;
@@ -491,8 +467,6 @@ bool Bubble::setBoardName(const wxString& value, wxWindow *pickersParent)
         return false;
 
     boardName = value;
-
-    changeBoardPaths();
     if (getNotifier())
     {
         //VERY IMPORTANT: The notifier MUST destroy the current canvas, and create a new one:
@@ -504,6 +478,7 @@ bool Bubble::setBoardName(const wxString& value, wxWindow *pickersParent)
         return false;
     }
     enableAllBlocks(false);
+
     bubbleXML.loadBlocksInfo(pickersParent, getCurrentCanvas() != NULL);  //Only shows the Actions picker if there is
                                                                 //already a canvas.
     enableAllBlocks(true);
@@ -1462,6 +1437,22 @@ bool Bubble::deploy()
 }
 
 
+bool Bubble::build()
+{
+    //##Profiling:
+    wxLongLong millis = wxGetLocalTimeMillis();
+
+    //First, reset the progress bar:
+    if (getNotifier())
+    {
+        //##getNotifier()->setProgressPosition(0, false, false);
+        getNotifier()->clearMessage();
+    }
+}
+
+
+//##DELETE THIS!:
+#if 0
 bool Bubble::build()
 {
     //##Profiling:
@@ -2922,6 +2913,7 @@ bool Bubble::build()
 
     return false;
 }
+#endif
 
 
 //##Esto será también configurable para cada target (porque el reset podría ocurrir de muchas formas

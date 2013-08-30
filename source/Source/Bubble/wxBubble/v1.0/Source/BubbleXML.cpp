@@ -278,18 +278,20 @@ wxString BubbleXML::getInternalVariableValue(const wxString& variableName, const
 {
     if (bubble == NULL)
         return wxString("");
+    if (bubble->getHardwareManager() == NULL)
+        return wxString("");
 
     //Bubble and application paths:
     if (variableName == "componentsRepositoryPath::")
         return bubble->getComponentsRepositoryPath();
     if (variableName == "toolsPath::")
-        return bubble->getToolsPath();
+        return bubble->getComponentsRepositoryPath() + wxString("/lang/") + bubble->getHardwareManager()->getCurrentBoardProperties()->getLang();
     if (variableName == "corePath::")
-        return bubble->getCorePath();
+        return bubble->getHardwareManager()->getCurrentBoardProperties()->getCorePath();
     if (variableName == "matrixPath::")
-        return bubble->getMatrixPath();
-    if (variableName == "libPath::")
-        return bubble->getLibPath();
+        return bubble->getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/rel");
+    if (variableName == "boardPath::")
+        return bubble->getHardwareManager()->getCurrentBoardProperties()->getPath();
     if (variableName == "blocksPath::")
         return bubble->getBlocksPath();
     if (variableName == "appPath::")
@@ -1318,6 +1320,10 @@ int BubbleXML::loadBlocksInfo(wxWindow *pickersParent, bool showPickers) //##Hac
     //dialog0.ShowModal(); //##Debug.
     if (bubble == NULL)
         return -1;
+    if (bubble->getHardwareManager() == NULL)
+        return -1;
+    if (bubble->getHardwareManager()->getCurrentBoardProperties() == NULL)
+        return -1;
 
     if (bubble->getNotifier() == NULL) //##Debug, no sé si esto quedará acá.
         return -2; //##Future: standarize errors.
@@ -1365,6 +1371,7 @@ int BubbleXML::loadBlocksInfo(wxWindow *pickersParent, bool showPickers) //##Hac
         fileNames.Add( fileName );
         result = dir.GetNext(&fileName);
     }
+
     fileNames.Sort();
     for (size_t i = 0; i < fileNames.size() ; i++)
     {
@@ -1378,7 +1385,7 @@ int BubbleXML::loadBlocksInfo(wxWindow *pickersParent, bool showPickers) //##Hac
         //Blocks must have an XML file, with ".bloq" extension, and with exactly the same name as their containing dir:
         //##wxString fullBlockFileName = blocksPath + wxString("/") + fileName + wxString("/") + fileName + wxString(".block");
         wxString fullBlockFileName = bubble->getBlocksPath() + wxString("/") + fileName + wxString("/main.block");
-        wxString fullRelFileName = bubble->getMatrixPath() + wxString("/") + fileName + wxString(".rel");
+        wxString fullRelFileName = bubble->getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/rel") + wxString("/") + fileName + wxString(".rel");
         //getNotifier()->showMessage(fullRelFileName + wxString("\n"), false, true, *wxBLUE); //##Debug.
 
         if (    wxFile::Exists(fullBlockFileName) &&
@@ -1645,7 +1652,7 @@ BubbleCanvasInfo BubbleXML::getCanvasInfo(bool mainCanvas)
     //Canvas preinstatiated ojects:
     if (mainCanvas) //##¡Ver si esto cambia por currentCanvas!
     {
-        wxString fullBoardFileName = bubble->getBoardPath() + wxString("/main.board");
+        wxString fullBoardFileName = bubble->getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/main.board");
         if ( !wxFile::Exists(fullBoardFileName) )
             return info; //##Add error control.
 
