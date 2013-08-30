@@ -1086,10 +1086,12 @@ bool Bubble::isSubstringInArrayString(const wxArrayString &value, const wxString
 //detecta el string de error, devuelve false, y las funciones que la llaman deberían detener el proceso:
 bool Bubble::findErrorStringAndShow(const wxArrayString &value)
 {
+    //##unhardcode
     //##Hacer que el substring "error:" sea configurable en el target (e incluso más adelante, puedo usar
     //expresiones regulares):
     if (    isSubstringInArrayString(value, wxString("error:")) ||
-            isSubstringInArrayString(value, wxString("Unable"))
+            isSubstringInArrayString(value, wxString("Unable")) ||
+            isSubstringInArrayString(value, wxString("undefined"))
        )
     {
         showStream(value, *wxRED); //##Hacer los colores configurables
@@ -1476,10 +1478,11 @@ bool Bubble::build()
                 return false;
             i++;
         }
+        showStream(output, *wxWHITE);
 
         long millisResult = 0;
         millisResult = wxGetLocalTimeMillis().ToLong() - millis.ToLong();
-        getNotifier()->showMessage((_("\nmilliseconds: ") + (wxString("") << millisResult)) + wxString("\n\n"), false, false, *wxWHITE); //##Debug
+        getNotifier()->showMessage((_("milliseconds: ") + (wxString("") << millisResult)) + wxString("\n\n"), false, false, *wxWHITE); //##Debug
         return true;
     }
     return false;

@@ -3143,7 +3143,7 @@
 	<wx/dcclient.h>
 	<wx/validate.h>
 
-1340580058 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblecanvas.cpp
+1377879424 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblecanvas.cpp
 	"BubbleCanvas.h"
 	"Bubble.h"
 	<wx/dcclient.h>
@@ -3776,7 +3776,7 @@
 1309266992 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\texteditorproperties.cpp
 	"TextEditorProperties.h"
 
-1377877864 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubble.cpp
+1377878768 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubble.cpp
 	"Bubble.h"
 	<wx/msgdlg.h>
 	<wx/dir.h>

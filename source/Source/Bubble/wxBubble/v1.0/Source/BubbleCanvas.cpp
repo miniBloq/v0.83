@@ -172,8 +172,8 @@ BubbleCanvas::BubbleCanvas( wxWindow* parent,
 
                                                             //##cursor(wxSTANDARD_CURSOR),
 
-                                                            zoomIndex(4), //##Ver cómo conviene inicializar esto, por ahora es en el 100%
-                                                            //zoomIndex(3), //##Ver cómo conviene inicializar esto, por ahora es en el 75%
+                                                            //zoomIndex(4), //##Ver cómo conviene inicializar esto, por ahora es en el 100%
+                                                            zoomIndex(3), //##Ver cómo conviene inicializar esto, por ahora es en el 75%
                                                             //activeWindow(false),
                                                             startCanvasDrag(false),
                                                             downX(0),

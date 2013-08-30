@@ -2,10 +2,10 @@
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Release" />
 	<File name="Source\Bubble\wxBubble\v1.0\Source\Bubble.cpp" open="1" top="1" tabpos="2">
-		<Cursor position="61861" topLine="1437" />
+		<Cursor position="63419" topLine="1454" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\Bubble.h" open="1" top="0" tabpos="4">
-		<Cursor position="9359" topLine="212" />
+		<Cursor position="11380" topLine="272" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleBlock.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="11579" topLine="150" />
@@ -13,37 +13,37 @@
 	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleBlockInfo.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="5806" topLine="313" />
 	</File>
-	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleCanvas.cpp" open="1" top="0" tabpos="11">
-		<Cursor position="0" topLine="0" />
+	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleCanvas.cpp" open="0" top="0" tabpos="11">
+		<Cursor position="8270" topLine="155" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleCanvas.h" open="0" top="0" tabpos="7">
-		<Cursor position="1350" topLine="28" />
+		<Cursor position="21541" topLine="561" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleCombo.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="14307" topLine="450" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleHardwareManager.cpp" open="1" top="0" tabpos="5">
-		<Cursor position="9908" topLine="162" />
+		<Cursor position="0" topLine="0" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleHardwareManager.h" open="1" top="0" tabpos="6">
-		<Cursor position="2213" topLine="48" />
+		<Cursor position="1806" topLine="48" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleXML.cpp" open="1" top="0" tabpos="3">
-		<Cursor position="68256" topLine="1570" />
+		<Cursor position="70023" topLine="1620" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\IBubbleFileIO.h" open="0" top="0" tabpos="6">
 		<Cursor position="529" topLine="0" />
 	</File>
 	<File name="Source\MainFrame.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="25658" topLine="477" />
+		<Cursor position="106892" topLine="2562" />
 	</File>
 	<File name="Source\MainFrame.h" open="1" top="0" tabpos="8">
-		<Cursor position="582" topLine="15" />
+		<Cursor position="974" topLine="15" />
 	</File>
-	<File name="Source\MinibloqProperties.cpp" open="1" top="0" tabpos="9">
+	<File name="Source\MinibloqProperties.cpp" open="0" top="0" tabpos="9">
 		<Cursor position="0" topLine="0" />
 	</File>
-	<File name="Source\MinibloqProperties.h" open="1" top="0" tabpos="10">
+	<File name="Source\MinibloqProperties.h" open="0" top="0" tabpos="10">
 		<Cursor position="1062" topLine="21" />
 	</File>
 	<File name="Source\Terminal.cpp" open="0" top="0" tabpos="0">
