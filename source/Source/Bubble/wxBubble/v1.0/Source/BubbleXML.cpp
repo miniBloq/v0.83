@@ -287,7 +287,7 @@ wxString BubbleXML::getInternalVariableValue(const wxString& variableName, const
     if (variableName == "toolsPath::")
         return bubble->getComponentsRepositoryPath() + wxString("/lang/") + bubble->getHardwareManager()->getCurrentBoardProperties()->getLang();
     if (variableName == "corePath::")
-        return bubble->getHardwareManager()->getCurrentBoardProperties()->getCorePath();
+        return bubble->getComponentsRepositoryPath() + wxString("/hard/") + bubble->getHardwareManager()->getCurrentBoardProperties()->getCorePath();
     if (variableName == "matrixPath::")
         return bubble->getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/rel");
     if (variableName == "boardPath::")
@@ -305,14 +305,16 @@ wxString BubbleXML::getInternalVariableValue(const wxString& variableName, const
     if (variableName == "outputPath::")
         return bubble->getOutputPath();
 
-    //Current block path (the current block is that to which the XML file -XMLFileName param- is beign read):
-    if (variableName == "thisBlockPath::")
+    if (fileName != wxString(""))
     {
-//        wxMessageDialog dialog0(parent, fileName, _("fileName")); //##Debug
-//        dialog0.ShowModal(); //##Debug
-        return fileName.BeforeLast('/'); //##Future: Use OS specific separator for this kind of thing.
+        //Current block path (the current block is that to which the XML file -XMLFileName param- is beign read):
+        if (variableName == "thisBlockPath::")
+        {
+    //        wxMessageDialog dialog0(parent, fileName, _("fileName")); //##Debug
+    //        dialog0.ShowModal(); //##Debug
+            return fileName.BeforeLast('/'); //##Future: Use OS specific separator for this kind of thing.
+        }
     }
-
     //Variable name does not exists:
     return wxString("");
 }
@@ -364,7 +366,6 @@ bool BubbleXML::loadVariablesFromXML(const wxString& fileName, bool clearVariabl
                         wxString varName = child->GetName();
                         if (isXMLVariable(varName))
                         {
-
                             //Internal variables has priority over XML loaded variables, so if there is an
                             //external variable with the same name as an internal, it's not loaded:
                             if (getInternalVariableValue(varName, fileName) == "") //There is no internal variable with this name.
@@ -1573,6 +1574,61 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
     //dialog0.ShowModal(); //##Debug.
 
     return boardInfo;
+}
+
+
+wxString BubbleXML::parseCmd(const wxString &cmd)
+{
+    wxString result(cmd);
+    wxString variableName = wxString("");
+    wxString variableValue = wxString("");
+
+    result.Replace(wxString("\t"), wxString(""), true); //Eliminates tabs.
+
+    //Replace miniBloq's internal variables:
+    //##variableValue = getInternalVariableValue(variableName, wxString(""));
+
+    return result;
+}
+
+
+const wxString BubbleXML::loadBoardBuildCommands(const wxString &fullBoardFileName)
+{
+    wxString result("");
+
+    if (bubble == NULL)
+        return wxString("");
+
+    //##Future: Try to disable the error messages that the wxXmlDocument class fires when encounters errors:
+    wxXmlDocument boardFile;
+    if ( !boardFile.Load(fullBoardFileName, wxString("UTF-8")) )
+        return wxString("");
+    wxXmlNode *root = boardFile.GetRoot();
+    if (root == NULL)
+        return wxString("");
+    if (root->GetName() != wxString("board"))
+        return wxString("");
+
+    wxString tempName("");
+    wxXmlNode *rootChild = root->GetChildren();
+    while (rootChild)
+    {
+        tempName = rootChild->GetName();
+        if (tempName == wxString("build"))
+        {
+            wxXmlNode *child = rootChild->GetChildren();
+            if (child)
+            {
+                if (child->GetName() == "cmd")
+                {
+                    result = child->GetNodeContent();
+                }
+            }
+        }
+        rootChild = rootChild->GetNext();
+    }
+
+    return result;
 }
 
 

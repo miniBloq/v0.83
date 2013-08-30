@@ -16,6 +16,14 @@
 		<linux_amd64_corePath>Arduino.v0022</linux_amd64_corePath>
 		<linux_amd64_core>mega168.a</linux_amd64_core>
     </properties>
+	<build>
+		<cmd>
+			toolsPath::/avr-g++ -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega168 -DF_CPU=16000000L -DARDUINO=22 
+			-I\"toolsPath::"
+			-I\"corePath::"
+			"corePath::/main.cpp" -o "outputPath::/main.cpp.o"			
+		</cmd>
+	</build>
 	<instances>
 		<serial0 instanceType="Serial"/>
 

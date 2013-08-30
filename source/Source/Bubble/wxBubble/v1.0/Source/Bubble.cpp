@@ -1439,6 +1439,9 @@ bool Bubble::deploy()
 
 bool Bubble::build()
 {
+    if (getHardwareManager() == NULL)
+        return false;
+
     //##Profiling:
     wxLongLong millis = wxGetLocalTimeMillis();
 
@@ -1448,6 +1451,20 @@ bool Bubble::build()
         //##getNotifier()->setProgressPosition(0, false, false);
         getNotifier()->clearMessage();
     }
+
+    wxArrayString output, errors;
+    wxString cmd("");
+
+    //Generates the main.cpp.o file:
+    cmd = bubbleXML.loadBoardBuildCommands(getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/main.board"));
+    cmd = bubbleXML.parseCmd(cmd);
+    wxArrayString temp;
+    temp.Add(cmd);
+    showStream(temp);
+    wxExecute(cmd, output, errors);
+    if (findErrorStringAndShow(errors))
+        return false;
+    return true;
 }
 
 

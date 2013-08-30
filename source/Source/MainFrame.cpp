@@ -493,6 +493,8 @@ MainFrame::MainFrame(   wxWindow* parent,
 
     //This creates the first component:
     changeBoardNotify();
+    if (bubble.getCurrentCanvas())
+        bubble.getCurrentCanvas()->setZoomIndex(3); //##Read this from the config file.
 }
 
 
@@ -1888,8 +1890,6 @@ void MainFrame::updateMenuZoomGUI()
 #endif
 
     createMenuZoom();
-/////////////////////////////////////
-/////////////////////////////////////
 }
 
 
@@ -2698,6 +2698,8 @@ void MainFrame::createComponent(bool canCancel)
                 componentAlreadySaved = false;
             }
         }
+        if (bubble.getCurrentCanvas())
+            bubble.getCurrentCanvas()->setZoomIndex(3);
     }
     else
     {
