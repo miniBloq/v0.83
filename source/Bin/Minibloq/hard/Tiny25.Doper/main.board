@@ -6,6 +6,15 @@
 		<url0>http://www2.atmel.com</url0>
 		<imgMain>main.png</imgMain>
 		<imgThumb>thumb.png</imgThumb>
+		<win_i386_lang>WinAVR/v20090313/bin</win_i386_lang>
+		<win_i386_corePath>Tiny25.45.85_0018</win_i386_corePath>
+		<win_i386_core>tiny25.45.85.a</win_i386_core>
+		<linux_i386_lang>avrlinux/i386/v4.3.5/bin</linux_i386_lang>
+		<linux_i386_corePath>Tiny25.45.85_0018</linux_i386_corePath>
+		<linux_i386_core>tiny25.45.85.a</linux_i386_core>
+		<linux_amd64_lang>avrlinux/i386/v4.3.5/bin</linux_amd64_lang>
+		<linux_amd64_corePath>Tiny25.45.85_0018</linux_amd64_corePath>
+		<linux_amd64_core>tiny25.45.85.a</linux_amd64_core>
     </properties>
 	<instances>
 		<sensor1 instanceType="analogRead"/>
