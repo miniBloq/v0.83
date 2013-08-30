@@ -1442,29 +1442,47 @@ bool Bubble::build()
     if (getHardwareManager() == NULL)
         return false;
 
-    //##Profiling:
-    wxLongLong millis = wxGetLocalTimeMillis();
+    if (getNotifier() == NULL)
+        return false;
 
-    //First, reset the progress bar:
-    if (getNotifier())
+    if (generateCodeAndSaveToFile())
     {
+        //Profiling:
+        wxLongLong millis = wxGetLocalTimeMillis();
+
+        //First, reset the progress bar:
         //##getNotifier()->setProgressPosition(0, false, false);
         getNotifier()->clearMessage();
+
+        wxArrayString output, errors, commands;
+        wxString cmd("");
+
+        //Generates the main.cpp.o file:
+        commands.Clear();
+        commands = bubbleXML.loadBoardBuildCommands(getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/main.board"));
+        //cmd = bubbleXML.parseCmd(cmd);
+
+        int i = 0, count = commands.GetCount();
+        //wxMessageDialog dialog0(parent, wxString("") << count, _("commands:"));
+        //dialog0.ShowModal();
+        while (i < count)
+        {
+            cmd = commands[i];
+            getNotifier()->showMessage(/*(wxString("") << i) + wxString(": ") + */cmd + wxString("\n"), false, true, *wxGREEN);
+            wxExecute(cmd, output, errors);
+
+            //Build process ends when a command finds an error:
+            if (findErrorStringAndShow(errors))
+                return false;
+            i++;
+        }
+
+        long millisResult = 0;
+        millisResult = wxGetLocalTimeMillis().ToLong() - millis.ToLong();
+        getNotifier()->showMessage((_("\nmilliseconds: ") + (wxString("") << millisResult)) + wxString("\n\n"), false, false, *wxWHITE); //##Debug
+        return true;
     }
-
-    wxArrayString output, errors cmds;
-    wxString cmd("");
-
-    //Generates the main.cpp.o file:
-    cmd = bubbleXML.loadBoardBuildCommands(getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/main.board"));
-    //cmd = bubbleXML.parseCmd(cmd);
-    wxArrayString temp;
-    temp.Add(cmd);
-    showStream(temp);
-    wxExecute(cmd, output, errors);
-    if (findErrorStringAndShow(errors))
-        return false;
-    return true;
+    return false;
 }
 
 

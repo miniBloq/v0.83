@@ -286,6 +286,8 @@ wxString BubbleXML::getInternalVariableValue(const wxString& variableName, const
         return bubble->getComponentsRepositoryPath();
     if (variableName == "toolsPath::")
         return bubble->getComponentsRepositoryPath() + wxString("/lang/") + bubble->getHardwareManager()->getCurrentBoardProperties()->getLang();
+    if (variableName == "libsPath::")
+        return bubble->getComponentsRepositoryPath() + wxString("/libs/");
     if (variableName == "corePath::")
         return bubble->getComponentsRepositoryPath() + wxString("/cores/") + bubble->getHardwareManager()->getCurrentBoardProperties()->getCorePath();
     if (variableName == "core::")
@@ -1597,22 +1599,24 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
 }
 
 
-const wxString BubbleXML::loadBoardBuildCommands(const wxString &fullBoardFileName)
+const wxArrayString BubbleXML::loadBoardBuildCommands(const wxString &fullBoardFileName)
 {
-    wxString result("");
+    wxString resultStr("");
+    wxArrayString result;
+    result.Clear();
 
     if (bubble == NULL)
-        return wxString("");
+        return result;
 
     //##Future: Try to disable the error messages that the wxXmlDocument class fires when encounters errors:
     wxXmlDocument boardFile;
     if ( !boardFile.Load(fullBoardFileName, wxString("UTF-8")) )
-        return wxString("");
+        return result;
     wxXmlNode *root = boardFile.GetRoot();
     if (root == NULL)
-        return wxString("");
+        return result;
     if (root->GetName() != wxString("board"))
-        return wxString("");
+        return result;
 
     wxString tempName("");
     wxXmlNode *rootChild = root->GetChildren();
@@ -1625,6 +1629,7 @@ const wxString BubbleXML::loadBoardBuildCommands(const wxString &fullBoardFileNa
             //unsigned int cmdCounter = 0;
             while (cmd)
             {
+                resultStr = wxString("");
                 //if (cmd->GetName() == (wxString("cmd") << cmdCounter))
                 if (cmd->GetName() == wxString("cmd"))
                 {
@@ -1641,13 +1646,14 @@ const wxString BubbleXML::loadBoardBuildCommands(const wxString &fullBoardFileNa
                             if (isXMLVariable(stringLine))
                                 stringLine = getVariableValue(stringLine, wxString(""));
 
-                            result = result + stringLine;
+                            resultStr = resultStr + stringLine;
                         }
                         //stringCounter++;
                         stringNode = stringNode->GetNext();
                     }
                 }
                 //cmdCounter++;
+                result.Add(resultStr);
                 cmd = cmd->GetNext();
             }
         }

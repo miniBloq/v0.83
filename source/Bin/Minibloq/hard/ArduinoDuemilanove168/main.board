@@ -24,12 +24,12 @@
 			<s>" -I"</s><s>corePath::</s>
 			<s>" -I"</s><s>componentPath::</s>
 			<s>" -I"</s><s>outputPath::</s>
-			<s>" "</s><s>corePath::</s><s>/main.cpp" -o "</s><s>outputPath::</s><s>/main.cpp.o"</s>
+			<s>" "</s><s>corePath::</s><s>/minibloq.cpp" -o "</s><s>outputPath::</s><s>/minibloq.cpp.o"</s>
 		</cmd>
 		<cmd>
 			<s>toolsPath::</s>
 			<s>/avr-gcc -Os -Wl,--gc-sections -mmcu=atmega168 -o</s>
-			<s>"</s> <s>outputPath::</s><s>/main.cpp.elf" "</s><s>outputPath::</s><s>/main.cpp.o" "</s>
+			<s>"</s> <s>outputPath::</s><s>/main.cpp.elf" "</s><s>outputPath::</s><s>/minibloq.cpp.o" "</s>
 			<s>corePath::</s><s>/obj/</s><s>core::</s><s>"</s>
 			<s> -L ./ -lm</s>
 		</cmd>
