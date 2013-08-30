@@ -18,10 +18,20 @@
     </properties>
 	<build>
 		<cmd>
-			toolsPath::/avr-g++ -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega168 -DF_CPU=16000000L -DARDUINO=22 
-			-I\"toolsPath::"
-			-I\"corePath::"
-			"corePath::/main.cpp" -o "outputPath::/main.cpp.o"			
+			<s>toolsPath::</s>
+			<s>/avr-g++ -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega168 -DF_CPU=16000000L -DARDUINO=22 </s>
+			<s>-I"</s> <s>toolsPath::</s>
+			<s>" -I"</s><s>corePath::</s>
+			<s>" -I"</s><s>componentPath::</s>
+			<s>" -I"</s><s>outputPath::</s>
+			<s>" "</s><s>corePath::</s><s>/main.cpp" -o "</s><s>outputPath::</s><s>/main.cpp.o"</s>
+		</cmd>
+		<cmd>
+			<s>toolsPath::</s>
+			<s>/avr-gcc -Os -Wl,--gc-sections -mmcu=atmega168 -o</s>
+			<s>"</s> <s>outputPath::</s><s>/main.cpp.elf" "</s><s>outputPath::</s><s>/main.cpp.o" "</s>
+			<s>corePath::</s><s>/obj/</s><s>core::</s><s>"</s>
+			<s> -L ./ -lm</s>
 		</cmd>
 	</build>
 	<instances>

@@ -287,7 +287,9 @@ wxString BubbleXML::getInternalVariableValue(const wxString& variableName, const
     if (variableName == "toolsPath::")
         return bubble->getComponentsRepositoryPath() + wxString("/lang/") + bubble->getHardwareManager()->getCurrentBoardProperties()->getLang();
     if (variableName == "corePath::")
-        return bubble->getComponentsRepositoryPath() + wxString("/hard/") + bubble->getHardwareManager()->getCurrentBoardProperties()->getCorePath();
+        return bubble->getComponentsRepositoryPath() + wxString("/cores/") + bubble->getHardwareManager()->getCurrentBoardProperties()->getCorePath();
+    if (variableName == "core::")
+        return bubble->getHardwareManager()->getCurrentBoardProperties()->getCore();
     if (variableName == "matrixPath::")
         return bubble->getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/rel");
     if (variableName == "boardPath::")
@@ -1499,6 +1501,24 @@ bool BubbleXML::blockIsValid(const wxString& name, const wxString& type) const
 //Hardware functions:
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
+
+//wxString BubbleXML::parseCmd(const wxString &cmd)
+//{
+//    //##Not used by now (and not finished: This was made with the idea of having single XML element build commands):
+//
+//    wxString result(cmd);
+//    wxString variableName = wxString("");
+//    wxString variableValue = wxString("");
+//
+//    result.Replace(wxString("\t"), wxString(""), true); //Eliminates tabs.
+//
+//    //Replace miniBloq's internal variables:
+//    //##variableValue = getInternalVariableValue(variableName, wxString(""));
+//
+//    return result;
+//}
+
+
 BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardFileName)
 {
     if (bubble == NULL)
@@ -1577,21 +1597,6 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
 }
 
 
-wxString BubbleXML::parseCmd(const wxString &cmd)
-{
-    wxString result(cmd);
-    wxString variableName = wxString("");
-    wxString variableValue = wxString("");
-
-    result.Replace(wxString("\t"), wxString(""), true); //Eliminates tabs.
-
-    //Replace miniBloq's internal variables:
-    //##variableValue = getInternalVariableValue(variableName, wxString(""));
-
-    return result;
-}
-
-
 const wxString BubbleXML::loadBoardBuildCommands(const wxString &fullBoardFileName)
 {
     wxString result("");
@@ -1616,13 +1621,34 @@ const wxString BubbleXML::loadBoardBuildCommands(const wxString &fullBoardFileNa
         tempName = rootChild->GetName();
         if (tempName == wxString("build"))
         {
-            wxXmlNode *child = rootChild->GetChildren();
-            if (child)
+            wxXmlNode *cmd = rootChild->GetChildren();
+            //unsigned int cmdCounter = 0;
+            while (cmd)
             {
-                if (child->GetName() == "cmd")
+                //if (cmd->GetName() == (wxString("cmd") << cmdCounter))
+                if (cmd->GetName() == wxString("cmd"))
                 {
-                    result = child->GetNodeContent();
+                    wxXmlNode *stringNode = cmd->GetChildren();
+                    //unsigned int stringCounter = 0;
+                    while (stringNode)
+                    {
+                        //if (stringNode->GetName() == (wxString("s") << stringCounter))
+                        if (stringNode->GetName() == wxString("s"))
+                        {
+                            wxString stringLine = stringNode->GetNodeContent();
+
+                            //Is the value a variable?
+                            if (isXMLVariable(stringLine))
+                                stringLine = getVariableValue(stringLine, wxString(""));
+
+                            result = result + stringLine;
+                        }
+                        //stringCounter++;
+                        stringNode = stringNode->GetNext();
+                    }
                 }
+                //cmdCounter++;
+                cmd = cmd->GetNext();
             }
         }
         rootChild = rootChild->GetNext();

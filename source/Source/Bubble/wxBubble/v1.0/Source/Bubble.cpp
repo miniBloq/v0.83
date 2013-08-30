@@ -1452,12 +1452,12 @@ bool Bubble::build()
         getNotifier()->clearMessage();
     }
 
-    wxArrayString output, errors;
+    wxArrayString output, errors cmds;
     wxString cmd("");
 
     //Generates the main.cpp.o file:
     cmd = bubbleXML.loadBoardBuildCommands(getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/main.board"));
-    cmd = bubbleXML.parseCmd(cmd);
+    //cmd = bubbleXML.parseCmd(cmd);
     wxArrayString temp;
     temp.Add(cmd);
     showStream(temp);
