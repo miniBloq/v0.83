@@ -1517,6 +1517,10 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
             wxXmlNode *child = rootChild->GetChildren();
             while (child)
             {
+                //##Debug:
+                //wxMessageDialog dialog0(bubble->getParent(), wxString("child = ") + child->GetNodeContent(), boardInfo->getName()); //##Debug.
+                //dialog0.ShowModal(); //##Debug.
+
                 if (child->GetName() == "name")
                 {
                     boardInfo->setName(child->GetNodeContent());
@@ -1538,15 +1542,15 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
                 }
                 //The lang, corePath and core fields are filled with the host compatible language and core,
                 //where the host is detected by miniBloq at startup.
-                else if (child->GetName() == bubble->getHost() + ".lang")
+                else if (child->GetName() == bubble->getHost() + wxString("_lang"))
                 {
                     boardInfo->setLang(child->GetNodeContent());
                 }
-                else if (child->GetName() == bubble->getHost() + ".corePath")
+                else if (child->GetName() == bubble->getHost() + wxString("_corePath"))
                 {
                     boardInfo->setCorePath(child->GetNodeContent());
                 }
-                else if (child->GetName() == bubble->getHost() + ".core")
+                else if (child->GetName() == bubble->getHost() + wxString("_core"))
                 {
                     boardInfo->setCore(child->GetNodeContent());
                 }
@@ -1554,8 +1558,13 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
                 child = child->GetNext();
             }
         }
+
         rootChild = rootChild->GetNext();
     }
+    //wxMessageDialog dialog0(bubble->getParent(), boardInfo->getLang(), boardInfo->getName()); //##Debug.
+    //wxMessageDialog dialog0(bubble->getParent(), bubble->getHost() + wxString("_lang"), boardInfo->getName()); //##Debug.
+    //dialog0.ShowModal(); //##Debug.
+
     return boardInfo;
 }
 

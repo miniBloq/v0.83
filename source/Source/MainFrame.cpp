@@ -294,14 +294,13 @@ MainFrame::MainFrame(   wxWindow* parent,
     //este asunto de los path y pasarlos como parámetros a Bubble:
     bubble.setLanguageCode(initialCatalogName.BeforeLast('.'));
     bubble.setAppPath(wxString(wxStandardPaths::Get().GetExecutablePath().BeforeLast(wxFileName::GetPathSeparator()) ));
-    bubble.setHost(wxString("win.386"));
+    bubble.setHost(wxString("win_i386"));
 #if defined (linux) && defined(__i386__)
-    bubble.setHost(wxString("lunux.386"));
+    bubble.setHost(wxString("linux_i386"));
 #endif
 #if defined (linux) && defined(__x86_64__)
-    bubble.setHost(wxString("lunux.amd64"));
+    bubble.setHost(wxString("linux_amd64"));
 #endif
-
 
     //##2011.10.02: This threshold (of 152 characters) has been determined experimantally, as a WinAVR
     //limitation. But this is just a small patch until we found a better solution (which will be proabley
