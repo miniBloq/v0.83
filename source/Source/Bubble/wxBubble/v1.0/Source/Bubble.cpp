@@ -3058,11 +3058,27 @@ bool Bubble::runInternalCommand(const wxString& cmd)
     if (getNotifier() == NULL)
         return false;
 
-    //Currently, runInternalCommand only supports one param:
-
-//    wxMessageDialog dialog0(parent, cmd, _("runInternalCommand:")); //##Debug.
-//    dialog0.ShowModal(); //##Debug.
-
+    //Currently, runInternalCommand only supports one param, but loadBoardInternalCommands already
+    //supports up to 10 params:
+    wxString command = cmd.BeforeFirst(';');
+    wxString param0 = cmd.AfterFirst(';');
+    if (command = wxString("delay"))
+    {
+        //##Implementar parámetro de tiempo:
+        wxMilliSleep(param0.ToLong ##);
+    }
+    else if (command = wxString("setSerialLine"))
+    {
+        //##Implementar parámetro de línea a setear:
+        if (bootSerialPort.IsOpen())
+            bootSerialPort.SetLineState(wxSERIAL_LINESTATE_DTR);
+    }
+    else if (command = wxString("clearSerialLine"))
+    {
+        //##Implementar parámetro de línea a hacerle el clear:
+        if (bootSerialPort.IsOpen())
+            bootSerialPort.ClrLineState(wxSERIAL_LINESTATE_DTR);
+    }
 
     return true;
 }
