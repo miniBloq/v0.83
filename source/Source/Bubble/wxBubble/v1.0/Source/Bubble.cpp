@@ -3044,6 +3044,34 @@ bool Bubble::build()
 #endif
 
 
+bool Bubble::resetBoard()
+{
+    //##Esto debe ir en el BubbleXML y la idea es que quede un property sobre si se debe resetear o no, en
+    //base a la existencia de la sección de reset:
+
+//    if not <reset> section
+//        return true;
+
+    if (!bootSerialPort.IsOpen())
+		bootSerialPort.Open(bootPortName.char_str());
+    if (bootSerialPort.IsOpen()) //This is NOT the same as en "else"!
+    {
+        //##Acá se deben ejecutar los comandos ya previamente cargados por BubbleXML, pero no sé aún
+        //qué formato tendrán dichos comandos una vez cargados.
+
+//            bootSerialPort.SetLineState(wxSERIAL_LINESTATE_DTR);
+//            wxMilliSleep(100); //##Make this configurable.
+//            bootSerialPort.ClrLineState(wxSERIAL_LINESTATE_DTR);
+
+        bootSerialPort.Close();
+        return true;
+    }
+	return false;
+}
+
+
+//##DELETE THIS!:
+#if 0
 //##Esto será también configurable para cada target (porque el reset podría ocurrir de muchas formas
 //diferentes, o sobre señales distintas de los ports):
 bool Bubble::resetBoard()
@@ -3084,6 +3112,7 @@ bool Bubble::resetBoard()
     }
 	return false;
 }
+#endif
 
 
 bool Bubble::verifyBoard()

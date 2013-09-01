@@ -108,7 +108,9 @@
 	</build>
 	<reset>
 		<cmd>
-			<s></s>
+			<i><setSerialLine line="DTR"/></i>
+			<i><delay ms="10"/></i>
+			<i><clearSerialLine line="DTR"/></i>
 		</cmd>
 	</reset>
 	<deploy>
