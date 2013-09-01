@@ -16,7 +16,7 @@
 		<linux_amd64_corePath>Arduino.v0022</linux_amd64_corePath>
 		<linux_amd64_core>mega168.a</linux_amd64_core>
 		<outputMainFile>main.ino</outputMainFile>
-		<resetBeforeBuild>true</resetBeforeBuild>
+		<resetBeforeBuild>false</resetBeforeBuild>
 		<bootBaudRate>19200</bootBaudRate>
 		<bootFindPortTries>15</bootFindPortTries>
 		<bootTimeOut>200</bootTimeOut>
@@ -107,12 +107,12 @@
 		</cmd>
 	</build>
 	<resetInternal>
-		<cmd>
-			<s><setSerialLine line="DTR"/></s>
-			<s><delay ms="10"/></s>
-			<s><clearSerialLine line="DTR"/></s>
-			<s><delay ms="10"/></s>
-		</cmd>
+		<icmd>
+			<setSerialLine param0="DTR"/>
+			<delay param0="10"/>
+			<clearSerialLine param0="DTR"/>
+			<delay param0="10"/>
+		</icmd>
 	</resetInternal>
 	<deploy>
 		<cmd>

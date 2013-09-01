@@ -1055,19 +1055,20 @@ void Bubble::createDirs(const wxString& path)
 }
 
 
-bool Bubble::executeCmd(const wxString& cmd)
-{
-    //##Implementar...
-    BubbleProcess *const process = new BubbleProcess(notifier); //##Ver si esto es correcto, porque me parece más seguro que dejar al notifier
-                                                                //que libere la memoria, tal como sugiere el ejemplo de wxWidgets...
-    //##Ver qué se hace conel resultado de wxExecute:
-    //long pidLast = wxExecute(cmd, wxEXEC_ASYNC, process);
-    //wxExecute(cmd, wxEXEC_ASYNC, process);
-    wxExecute(cmd, wxEXEC_SYNC, process);
-
-    //##Ver si se hace más algo con esto:
-    return true;
-}
+//##:
+//bool Bubble::executeCmd(const wxString& cmd)
+//{
+//    //##Implementar...
+//    BubbleProcess *const process = new BubbleProcess(notifier); //##Ver si esto es correcto, porque me parece más seguro que dejar al notifier
+//                                                                //que libere la memoria, tal como sugiere el ejemplo de wxWidgets...
+//    //##Ver qué se hace conel resultado de wxExecute:
+//    //long pidLast = wxExecute(cmd, wxEXEC_ASYNC, process);
+//    //wxExecute(cmd, wxEXEC_ASYNC, process);
+//    wxExecute(cmd, wxEXEC_SYNC, process);
+//
+//    //##Ver si se hace más algo con esto:
+//    return true;
+//}
 
 
 bool Bubble::isSubstringInArrayString(const wxArrayString &value, const wxString& substring)
@@ -1108,7 +1109,6 @@ bool Bubble::findErrorStringAndShow(const wxArrayString &value)
 }
 
 
-//##Debug:
 void Bubble::showStream(const wxArrayString &value, const wxColour& colour)
 {
     size_t count = value.GetCount();
@@ -1133,26 +1133,37 @@ void Bubble::showStream(const wxArrayString &value, const wxColour& colour)
 }
 
 
-bool Bubble::deploy()
+bool Bubble::verifyPortExistance()
 {
     if (getHardwareManager() == NULL)
         return false;
     if (getNotifier() == NULL)
         return false;
 
-//    //HID or CDC board?
-//    if (getBootPortName() != wxString("HID"); //##Future: unhardcode.
-//    {
-//        times = 0;
-//        while ( (BubbleHardwareManager::serialPortExists(bootPortName)) &&
-//                (times < getHardwareManager()->getCurrentBoardProperties()->getBootFindPortTries())
-//              )
-//        {
-//            times++;
-//            getNotifier()->showMessage(_(">"), false, false, *wxBLUE);
-//            wxMilliSleep(100);
-//        }
-//    }
+    getNotifier()->showMessage(_("Verifiying port ") + bootPortName, false, false, *wxBLUE);
+
+    if (getBootPortName() != wxString("HID")) ////HID or CDC board? ##Future: unhardcode.
+    {
+        unsigned int times = 0;
+        while ( (BubbleHardwareManager::serialPortExists(bootPortName)) &&
+                (times < getHardwareManager()->getCurrentBoardProperties()->getBootFindPortTries())
+              )
+        {
+            times++;
+            getNotifier()->showMessage(_(">"), false, false, *wxBLUE);
+            wxMilliSleep(100);
+        }
+        //##As this value was never used, if it's used check if the following return value is correct:
+        return BubbleHardwareManager::serialPortExists(bootPortName);
+    }
+    return true; //HID port.
+}
+
+
+bool Bubble::deploy()
+{
+    if (getNotifier() == NULL)
+        return false;
 
     //If the board does not uses timeouts in its bootloader, this will compile and buil in parallel with the
     //reset process. For exmaple, like the Multiplo DuinoBot board, which uses a run button, so once
@@ -1160,6 +1171,11 @@ bool Bubble::deploy()
     //to the flash and then run it from the comm port.
     if (getHardwareManager()->getCurrentBoardProperties()->getResetBeforeBuild())
     {
+        //First, reset the progress bar:
+        //##getNotifier()->setProgressPosition(0, false, false);
+        getNotifier()->clearMessage();
+
+        verifyPortExistance(); //##Return value not used by now.
         getNotifier()->showMessage(_("Reseting the board...\n"), false, false, *wxBLUE);
         getNotifier()->deployStartedNotify();
         resetBoard();
@@ -1169,25 +1185,13 @@ bool Bubble::deploy()
     {
         if ( !(getHardwareManager()->getCurrentBoardProperties()->getResetBeforeBuild()) )
         {
+            verifyPortExistance(); //##Return value not used by now.
             getNotifier()->showMessage(_("Reseting the board...\n"), false, false, *wxBLUE);
             getNotifier()->deployStartedNotify();
             resetBoard();
         }
 
-        //Waits until the port does exist, but with a timeout:
-        getNotifier()->showMessage(_("\nVerifiying port ") + bootPortName, false, false, *wxBLUE);
-        if ( getBootPortName() != wxString("HID") ) //HID or CDC board? ##Future: unhardcode the string "HID" (and add more communication options...)
-        {
-            unsigned int times = 0;
-            while ( (BubbleHardwareManager::serialPortExists(bootPortName)) &&
-                    (times < getHardwareManager()->getCurrentBoardProperties()->getBootFindPortTries())
-                  )
-            {
-                times++;
-                getNotifier()->showMessage(_(">"), false, false, *wxBLUE);
-                wxMilliSleep(100);
-            }
-        }
+        verifyPortExistance(); //##Return value not used by now.
         getNotifier()->showMessage(_("\n"), false, false, *wxBLUE);
 
         wxArrayString output, errors, commands;
@@ -3049,6 +3053,21 @@ bool Bubble::build()
 #endif
 
 
+bool Bubble::runInternalCommand(const wxString& cmd)
+{
+    if (getNotifier() == NULL)
+        return false;
+
+    //Currently, runInternalCommand only supports one param:
+
+//    wxMessageDialog dialog0(parent, cmd, _("runInternalCommand:")); //##Debug.
+//    dialog0.ShowModal(); //##Debug.
+
+
+    return true;
+}
+
+
 bool Bubble::resetBoard()
 {
     //##Esto debe ir en el BubbleXML y la idea es que quede un property sobre si se debe resetear o no, en
@@ -3074,7 +3093,8 @@ bool Bubble::resetBoard()
         while (i < count)
         {
             cmd = commands[i];
-            //##runInternalSerialPortCommand(cmd);
+            getNotifier()->showMessage((wxString("") << i) + wxString(": ") + cmd + wxString("\n"), false, true, *wxGREEN);
+            runInternalCommand(cmd);
             i++;
         }
 
@@ -3094,18 +3114,8 @@ bool Bubble::resetBoard()
             }
             i++;
         }
+
         showStream(output, *wxWHITE);
-
-        //##Ver si va algún otro mensaje para el usuario...
-
-        //##Acá se deben ejecutar los comandos ya previamente cargados por BubbleXML:
-        //En esta primera versión, habrá un parámetro para cada comando, y será del tipo string, de modo
-        //que la conversión se hará acá, quizá con una función llamada resetCommandFetch()...
-
-//            bootSerialPort.SetLineState(wxSERIAL_LINESTATE_DTR);
-//            wxMilliSleep(100); //##Make this configurable.
-//            bootSerialPort.ClrLineState(wxSERIAL_LINESTATE_DTR);
-
         bootSerialPort.Close();
         return true;
     }

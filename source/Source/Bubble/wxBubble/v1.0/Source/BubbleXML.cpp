@@ -1636,7 +1636,6 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
 
 const wxArrayString BubbleXML::loadBoardInternalCommands(const wxString &section, const wxString &fullBoardFileName)
 {
-    wxString resultStr("");
     wxArrayString result;
     result.Clear();
 
@@ -1660,36 +1659,36 @@ const wxArrayString BubbleXML::loadBoardInternalCommands(const wxString &section
         tempName = rootChild->GetName();
         if (tempName == section)
         {
-            wxXmlNode *cmd = rootChild->GetChildren();
+            wxXmlNode *iCmdSection = rootChild->GetChildren();
             //unsigned int cmdCounter = 0;
-            while (cmd)
+            while (iCmdSection)
             {
-                resultStr = wxString("");
-                //if (cmd->GetName() == (wxString("cmd") << cmdCounter))
-                if (cmd->GetName() == wxString("cmd"))
+                if (iCmdSection->GetName() == wxString("icmd"))
                 {
-                    wxXmlNode *stringNode = cmd->GetChildren();
-                    //unsigned int stringCounter = 0;
-                    while (stringNode)
+                    wxXmlNode *cmd = iCmdSection->GetChildren();
+                    while (cmd)
                     {
-                        //if (stringNode->GetName() == (wxString("s") << stringCounter))
-                        if (stringNode->GetName() == wxString("s"))
+                        wxString resultStr("");
+                        //Internal commands final format: "cmdName;param0;param1;...;paramN"
+                        resultStr = cmd->GetName() + wxString(";");
+
+                        //Up to 10 params (in the future if more are needed just increase this number):
+                        unsigned int i = 0;
+                        while ( cmd->HasAttribute(wxString("param") << i) && (i <= 9) )
                         {
-                            wxString stringLine = stringNode->GetNodeContent();
+                            wxString param = cmd->GetAttribute(wxString("param") << i, wxString(""));
 
-                            //Is the value a variable?
-                            if (isXMLVariable(stringLine))
-                                stringLine = getVariableValue(stringLine, wxString(""));
-
-                            resultStr = resultStr + stringLine;
+                            //Params can also be XML miniBloq variables:
+                            if (isXMLVariable(param))
+                                param = getVariableValue(param, wxString(""));
+                            resultStr = resultStr + param + wxString(";");
+                            i++;
                         }
-                        //stringCounter++;
-                        stringNode = stringNode->GetNext();
+                        result.Add(resultStr);
+                        cmd = cmd->GetNext();
                     }
                 }
-                //cmdCounter++;
-                result.Add(resultStr);
-                cmd = cmd->GetNext();
+                iCmdSection = iCmdSection->GetNext();
             }
         }
         rootChild = rootChild->GetNext();

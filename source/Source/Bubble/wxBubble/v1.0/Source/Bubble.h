@@ -247,7 +247,6 @@ class BubbleXML
         const BubbleBlockInfo& getBlockInfo(const wxString& name, const wxString& function); //##Off for debug: const;
         bool blockIsValid(const wxString& name, const wxString& type) const;
 
-
         //Hardware:
         BubbleBoardProperties *loadBoardProperties(const wxString &fullBoardFileName);
         //wxString parseCmd(const wxString &cmd);
@@ -437,10 +436,12 @@ class Bubble : public IBubbleFileIO
         bool formatComponentFile(const wxString& name);
 
         void createDirs(const wxString& path);
-        bool executeCmd(const wxString& cmd);
-        bool run(); //##Ver si faltan parámetros
-        bool deploy(); //##Ver si faltan parámetros
-        bool build(); //##Ver si faltan parámetros
+        //##bool executeCmd(const wxString& cmd);
+        bool run();
+        bool verifyPortExistance();
+        bool deploy();
+        bool build();
+        bool runInternalCommand(const wxString& cmd);
         bool resetBoard();
         bool verifyBoard();
 
