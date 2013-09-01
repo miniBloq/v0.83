@@ -92,6 +92,10 @@ class BubbleBoardProperties
         wxString corePath;
         wxString core;
         wxString outputMainFile;
+        bool resetBeforeBuild;
+        unsigned int bootBaudRate;
+        unsigned int bootFindPortTries;
+        unsigned int bootTimeOut;
 
     public:
         BubbleBoardProperties():    name(wxString("")),
@@ -102,8 +106,11 @@ class BubbleBoardProperties
                                     lang(wxString("")),
                                     corePath(wxString("")),
                                     core(wxString("")),
-                                    outputMainFile(wxString("main.ino")) //##Arduino compatible file by default?
-
+                                    outputMainFile(wxString("main.ino")), //##Arduino compatible file by default?
+                                    resetBeforeBuild(false),
+                                    bootBaudRate(115200),
+                                    bootFindPortTries(5),
+                                    bootTimeOut(200)
         {
         }
         //##Ver si se necesita constructor de copia por las dudas, al menos que no haga gran cosa...
@@ -125,6 +132,10 @@ class BubbleBoardProperties
                 setCorePath(boardProperties->getCorePath());
                 setCore(boardProperties->getCore());
                 setOutputMainFile(boardProperties->getOutputMainFile());
+                setResetBeforeBuild(boardProperties->getResetBeforeBuild());
+                setBootBaudRate(boardProperties->getBootBaudRate());
+                setBootFindPortTries(boardProperties->getBootFindPortTries());
+                setBootTimeOut(boardProperties->getBootTimeOut());
             }
         }
 
@@ -154,7 +165,20 @@ class BubbleBoardProperties
 
         inline void setOutputMainFile(const wxString& value) { outputMainFile = value; }
         inline const wxString &getOutputMainFile() const { return outputMainFile; }
+
+        inline void setResetBeforeBuild(const bool value) { resetBeforeBuild = value; }
+        inline const bool getResetBeforeBuild() const { return resetBeforeBuild; }
+
+        inline void setBootBaudRate(const unsigned int value) { bootBaudRate = value; }
+        inline const unsigned int getBootBaudRate() const { return bootBaudRate; }
+
+        inline void setBootFindPortTries(const unsigned int value) { bootFindPortTries = value; }
+        inline const unsigned int getBootFindPortTries() const { return bootFindPortTries; }
+
+        inline void setBootTimeOut(const unsigned int value) { bootTimeOut = value; }
+        inline const unsigned int getBootTimeOut() const { return bootTimeOut; }
 };
+
 
 //The BubbleXML class manages the language structure (blocks info, canvases info, etc.). It DOES NOT deals
 //with the load/save of programs, only with the structural things:
@@ -227,7 +251,7 @@ class BubbleXML
         //Hardware:
         BubbleBoardProperties *loadBoardProperties(const wxString &fullBoardFileName);
         //wxString parseCmd(const wxString &cmd);
-        const wxArrayString loadBoardBuildCommands(const wxString &fullBoardFileName);
+        const wxArrayString loadBoardCommands(const wxString &section, const wxString &fullBoardFileName);
         int loadHardwareTargets(BubbleHardwareManager *hardwareManager);
         bool loadBoardInstancesFromXML(wxXmlNode *node, BubbleCanvasInfo *canvasInfo);
         BubbleCanvasInfo getCanvasInfo(bool mainCanvas);
@@ -386,6 +410,7 @@ class Bubble : public IBubbleFileIO
         inline const wxString &getOutputPath() const { return outputPath; }
 
         //Communications:
+        //##In the future there will be two port names: bootPortName and commPortName:
         inline void setBootPortName(const wxString& value) { bootPortName = value; }
         inline const wxString &getBootPortName() const { return bootPortName; }
 

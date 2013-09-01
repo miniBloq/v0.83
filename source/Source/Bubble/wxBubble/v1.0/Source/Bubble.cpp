@@ -1044,8 +1044,6 @@ bool Bubble::winInstallINF()
 
 void Bubble::createDirs(const wxString& path)
 {
-    //##Futuro: Robustecer mucho esto
-
     //Try to create the output dir structure:
     wxFileName aux(path);
     if (!wxDir::Exists(getTempPath()))
@@ -1094,6 +1092,9 @@ bool Bubble::findErrorStringAndShow(const wxArrayString &value)
     //expresiones regulares):
     if (    isSubstringInArrayString(value, wxString("error:")) ||
             isSubstringInArrayString(value, wxString("Unable")) ||
+            isSubstringInArrayString(value, wxString("can't")) ||
+            isSubstringInArrayString(value, wxString("cannot")) ||
+            isSubstringInArrayString(value, wxString("incorrect")) ||
             isSubstringInArrayString(value, wxString("undefined"))
        )
     {
@@ -1132,6 +1133,90 @@ void Bubble::showStream(const wxArrayString &value, const wxColour& colour)
 }
 
 
+bool Bubble::deploy()
+{
+    if (getHardwareManager() == NULL)
+        return false;
+    if (getNotifier() == NULL)
+        return false;
+
+//    //HID or CDC board?
+//    if (getBootPortName() != wxString("HID"); //##Future: unhardcode.
+//    {
+//        times = 0;
+//        while ( (BubbleHardwareManager::serialPortExists(bootPortName)) &&
+//                (times < getHardwareManager()->getCurrentBoardProperties()->getBootFindPortTries())
+//              )
+//        {
+//            times++;
+//            getNotifier()->showMessage(_(">"), false, false, *wxBLUE);
+//            wxMilliSleep(100);
+//        }
+//    }
+
+    //If the board does not uses timeouts in its bootloader, this will compile and buil in parallel with the
+    //reset process. For exmaple, like the Multiplo DuinoBot board, which uses a run button, so once
+    //it's reset, it will wait until the run button is pressed, or until the software sends a new program and
+    //to the flash and then run it from the comm port.
+    if (getHardwareManager()->getCurrentBoardProperties()->getResetBeforeBuild())
+        resetBoard();
+
+    if (build())
+    {
+        getNotifier()->showMessage(_("Reseting the board...\n"), false, false, *wxBLUE);
+        getNotifier()->deployStartedNotify();
+
+        if ( !(getHardwareManager()->getCurrentBoardProperties()->getResetBeforeBuild()) )
+            resetBoard();
+
+        //Waits until the port does exist, but with a timeout:
+        getNotifier()->showMessage(_("\nVerifiying port ") + bootPortName, false, false, *wxBLUE);
+        if ( getBootPortName() != wxString("HID") ) //HID or CDC board? ##Future: unhardcode the string "HID" (and add more communication options...)
+        {
+            unsigned int times = 0;
+            while ( (BubbleHardwareManager::serialPortExists(bootPortName)) &&
+                    (times < getHardwareManager()->getCurrentBoardProperties()->getBootFindPortTries())
+                  )
+            {
+                times++;
+                getNotifier()->showMessage(_(">"), false, false, *wxBLUE);
+                wxMilliSleep(100);
+            }
+        }
+        getNotifier()->showMessage(_("\n"), false, false, *wxBLUE);
+
+        wxArrayString output, errors, commands;
+        wxString cmd("");
+
+        //Load the commands from the .board XML file:
+        commands.Clear();
+        commands = bubbleXML.loadBoardCommands(wxString("deploy"), getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/main.board"));
+        //cmd = bubbleXML.parseCmd(cmd);
+
+        //Executes the loaded commands:
+        int i = 0, count = commands.GetCount();
+        //wxMessageDialog dialog0(parent, wxString("") << count, _("commands:"));
+        //dialog0.ShowModal();
+        while (i < count)
+        {
+            cmd = commands[i];
+            getNotifier()->showMessage(/*(wxString("") << i) + wxString(": ") + */cmd + wxString("\n"), false, true, *wxGREEN);
+            wxExecute(cmd, output, errors);
+
+            //Deploy process ends when a command finds an error:
+            if (findErrorStringAndShow(errors))
+                return false;
+            i++;
+        }
+        showStream(output, *wxWHITE);
+        return true;
+    }
+    return false;
+}
+
+
+//##DELETE THIS!:
+#if 0
 bool Bubble::deploy()
 {
     if (getNotifier() == NULL) //##Ver si esto se dejará así, o si se mejorará en el futuro...
@@ -1440,6 +1525,7 @@ bool Bubble::deploy()
 
     return false;
 }
+#endif
 
 
 bool Bubble::build()
@@ -1464,7 +1550,7 @@ bool Bubble::build()
 
         //Load the commands from the .board XML file:
         commands.Clear();
-        commands = bubbleXML.loadBoardBuildCommands(getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/main.board"));
+        commands = bubbleXML.loadBoardCommands(wxString("build"), getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/main.board"));
         //cmd = bubbleXML.parseCmd(cmd);
 
         //Executes the loaded commands:

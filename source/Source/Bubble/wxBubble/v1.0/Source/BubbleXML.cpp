@@ -310,6 +310,10 @@ wxString BubbleXML::getInternalVariableValue(const wxString& variableName, const
         return bubble->getOutputPath();
     if (variableName == "outputMainFile::")
         return bubble->getHardwareManager()->getCurrentBoardProperties()->getOutputMainFile();
+    if (variableName == "bootPortName::")
+        return bubble->getBootPortName();
+    if (variableName == "bootBaudRate::")
+        return (wxString("") << bubble->getHardwareManager()->getCurrentBoardProperties()->getBootBaudRate());
 
     if (fileName != wxString(""))
     {
@@ -1590,6 +1594,31 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
                 {
                     boardInfo->setOutputMainFile(child->GetNodeContent());
                 }
+                else if (child->GetName() == "resetBeforeBuild")
+                {
+                    boardInfo->setResetBeforeBuild(Bubble::string2bool(child->GetNodeContent()));
+                }
+                else if (child->GetName() == "bootBaudRate")
+                {
+                    wxString returnStringValue = child->GetNodeContent();
+                    double returnNumericValue = 115200;
+                    if (returnStringValue.ToDouble(&returnNumericValue))
+                        boardInfo->setBootBaudRate((unsigned int)returnNumericValue);
+                }
+                else if (child->GetName() == "bootFindPortTries")
+                {
+                    wxString returnStringValue = child->GetNodeContent();
+                    double returnNumericValue = 5;
+                    if (returnStringValue.ToDouble(&returnNumericValue))
+                        boardInfo->setBootFindPortTries((unsigned int)returnNumericValue);
+                }
+                else if (child->GetName() == "bootTimeOut")
+                {
+                    wxString returnStringValue = child->GetNodeContent();
+                    double returnNumericValue = 200;
+                    if (returnStringValue.ToDouble(&returnNumericValue))
+                        boardInfo->setBootTimeOut((unsigned int)returnNumericValue);
+                }
 
                 child = child->GetNext();
             }
@@ -1605,7 +1634,7 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
 }
 
 
-const wxArrayString BubbleXML::loadBoardBuildCommands(const wxString &fullBoardFileName)
+const wxArrayString BubbleXML::loadBoardCommands(const wxString &section, const wxString &fullBoardFileName)
 {
     wxString resultStr("");
     wxArrayString result;
@@ -1629,7 +1658,7 @@ const wxArrayString BubbleXML::loadBoardBuildCommands(const wxString &fullBoardF
     while (rootChild)
     {
         tempName = rootChild->GetName();
-        if (tempName == wxString("build"))
+        if (tempName == section)
         {
             wxXmlNode *cmd = rootChild->GetChildren();
             //unsigned int cmdCounter = 0;

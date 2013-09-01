@@ -4057,6 +4057,7 @@ void MainFrame::showMessage(const wxString &msg, bool clear, bool showWindow,
             //txtMsg->AppendText(msg);
             messages->setTextColour(colour);
             txtMsg->WriteText(msg);
+            txtMsg->Update();
             txtMsg->Refresh();
             //txtMsg->Update();
             //txtMsg->AppendText(""); //##Why clears everything?

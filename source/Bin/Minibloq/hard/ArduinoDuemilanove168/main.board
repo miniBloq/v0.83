@@ -16,6 +16,10 @@
 		<linux_amd64_corePath>Arduino.v0022</linux_amd64_corePath>
 		<linux_amd64_core>mega168.a</linux_amd64_core>
 		<outputMainFile>main.ino</outputMainFile>
+		<resetBeforeBuild>true</resetBeforeBuild>
+		<bootBaudRate>19200</bootBaudRate>
+		<bootFindPortTries>15</bootFindPortTries>
+		<bootTimeOut>200</bootTimeOut>
     </properties>
 	<build>
 		<cmd>
@@ -98,11 +102,22 @@
 			<s>"</s> <s>outputPath::</s><s>/main.cpp.hex"</s>
 		</cmd>
 		<cmd>
-			<s>toolsPath::</s>
-			<s>/avr-size --mcu=atmega168 --format=avr </s>
+			<s>toolsPath::</s><s>/avr-size --mcu=atmega168 --format=avr </s>
 			<s>"</s> <s>outputPath::</s><s>/main.cpp.elf"</s>
 		</cmd>
 	</build>
+	<reset>
+		<cmd>
+			<s></s>
+		</cmd>
+	</reset>
+	<deploy>
+		<cmd>
+			<s>toolsPath::</s><s>/avrdude.20071012.exe -C"</s>
+			<s>toolsPath::</s><s>/avrdude.conf" -patmega328p -cstk500v1 -P</s><s>bootPortName::</s>
+			<s> -b</s><s>bootBaudRate::</s><s> -Uflash:w:"</s><s>outputPath::</s>/main.cpp.hex<s></s><s>":i</s>
+		</cmd>
+	</deploy>
 	<instances>
 		<serial0 instanceType="Serial"/>
 
