@@ -339,7 +339,7 @@ MainFrame::MainFrame(   wxWindow* parent,
     bubble.setToolsPath(bubble.getComponentsRepositoryPath() + wxString("/lang/WinAVR/v20090313/bin")); //##Un-hardcode...
 
     //##Horrible, súper temporal:
-    wxFileName _tempPath(bubble.getComponentsRepositoryPath() + wxString("/work/_Temp")); //##Un-hardcode...
+    wxFileName _tempPath(bubble.getComponentsRepositoryPath() + wxString("/work/_temp")); //##Un-hardcode...
     if (!wxDir::Exists(_tempPath.GetFullPath()))
     {
         //wxMessageDialog dialog0(this, _tempPath.GetFullPath(), _("1")); //##Debug
@@ -347,12 +347,12 @@ MainFrame::MainFrame(   wxWindow* parent,
         wxMkdir(_tempPath.GetFullPath());
     }
     //##bubble.setTempPath(_tempPath.GetPath());
-    bubble.setTempPath(bubble.getComponentsRepositoryPath() + wxString("/work/_Temp")); //##Un-hardcode...
+    bubble.setTempPath(bubble.getComponentsRepositoryPath() + wxString("/work/_temp")); //##Un-hardcode...
 
     //At first, the component path is the Temp path:
     bubble.setComponentPath(bubble.getTempPath());
     wxFileName aux(tempComponentName);
-    bubble.setOutputPath(bubble.getComponentPath() + wxString("/") + aux.GetName() + wxString("_Files/Output"));
+    bubble.setOutputPath(bubble.getComponentPath() + wxString("/") + aux.GetName() + wxString("_files/output"));
     bubble.setTargetsPath(bubble.getComponentsRepositoryPath() + wxString("/hard"));
     bubble.setDocPath(bubble.getAppPath() + wxString("/Doc"));
 
@@ -2721,7 +2721,7 @@ void MainFrame::createComponent(bool canCancel)
     wxFileName aux(tempComponentName);
     //bubble.setComponentPath(bubble.getComponentsRepositoryPath() + wxString("/work"));
     bubble.setComponentPath(bubble.getTempPath());
-    bubble.setOutputPath(bubble.getComponentPath() + wxString("/") + aux.GetName() + wxString("_Files/Output"));
+    bubble.setOutputPath(bubble.getComponentPath() + wxString("/") + aux.GetName() + wxString("_files/output"));
 }
 
 
@@ -2900,7 +2900,7 @@ bool MainFrame::openFileComponent(const wxString &defaultDir)
             wxFileName aux(dialog.GetPath());
             bubble.setComponentPath(aux.GetPath());
             tempComponentName = aux.GetFullName();
-            bubble.setOutputPath(bubble.getComponentPath() + wxString("/") + aux.GetName() + wxString("_Files/Output"));
+            bubble.setOutputPath(bubble.getComponentPath() + wxString("/") + aux.GetName() + wxString("_files/output"));
             componentAlreadySaved = true;
         }
         if (tempCurrentCanvas)
@@ -2947,7 +2947,7 @@ void MainFrame::saveComponentAs()
                 wxFileName aux(dialog.GetPath());
                 bubble.setComponentPath(aux.GetPath());
                 tempComponentName = aux.GetFullName();
-                bubble.setOutputPath(bubble.getComponentPath() + wxString("/") + aux.GetName() + wxString("_Files/Output"));
+                bubble.setOutputPath(bubble.getComponentPath() + wxString("/") + aux.GetName() + wxString("_files/output"));
 
                 componentAlreadySaved = true;
                 if (bubble.getCurrentCanvas())

@@ -3776,7 +3776,7 @@
 1309266992 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\texteditorproperties.cpp
 	"TextEditorProperties.h"
 
-1378001559 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubble.cpp
+1378003771 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubble.cpp
 	"Bubble.h"
 	<wx/msgdlg.h>
 	<wx/dir.h>
@@ -3786,7 +3786,7 @@
 
 1252039916 c:\apps\codeblocks-rg.v0.1\sdk\wxwidgets\wxwidgets-2.9.0\include\wx\listimpl.cpp
 
-1377836417 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\mainframe.cpp
+1378003971 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\mainframe.cpp
 	"MainFrame.h"
 	"Minibloq.xpm"
 	<wx/menu.h>

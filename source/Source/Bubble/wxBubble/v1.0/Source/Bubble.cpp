@@ -1041,12 +1041,15 @@ bool Bubble::winInstallINF()
 }
 #endif
 
+
 void Bubble::createDirs(const wxString& path)
 {
     //##Futuro: Robustecer mucho esto
 
     //Try to create the output dir structure:
     wxFileName aux(path);
+    if (!wxDir::Exists(getTempPath()))
+        wxMkdir(getTempPath());
     if (!wxDir::Exists(aux.GetPath()))
         wxMkdir(aux.GetPath());
     if (!wxDir::Exists(path))
@@ -3483,22 +3486,15 @@ bool Bubble::generateCodeAndSaveToFile()
         //sistema operativo, lo cual dará más uniformidad, pero no estoy seguro...
 
         //##Luego avisar de errores, etc.:
-        if (!clean())
-            return false;
+        clean();
 
         //Try to create the output dir structure:
         createDirs(outputPath);
-
-        wxMessageDialog dialog0(parent, wxString("0"), _("generateCodeAndSaveToFile:"));
-        dialog0.ShowModal();
 
         //Try to create the file:
         wxTextFile mainOutput;
         if ( !mainOutput.Create(outputPath + wxString("/") + getHardwareManager()->getCurrentBoardProperties()->getOutputMainFile() ) )
             return false;
-
-        wxMessageDialog dialog1(parent, wxString("1"), _("generateCodeAndSaveToFile:"));
-        dialog1.ShowModal();
 
         //Refresh the generated code, and obtains it:
         if (!updateCode())

@@ -17,14 +17,6 @@
 		<linux_amd64_core>mega168.a</linux_amd64_core>
 		<outputMainFile>main.ino</outputMainFile>
     </properties>
-	<clean>
-		<extensions>
-			<e>.o</e>
-			<e>.ino</e>
-			<e>.hex</e>
-			<e>.epp</e>
-		</extensions>
-	</clean>
 	<build>
 		<cmd>
 			<s>toolsPath::</s>
