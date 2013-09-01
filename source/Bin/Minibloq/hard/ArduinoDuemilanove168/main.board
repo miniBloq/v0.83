@@ -106,13 +106,14 @@
 			<s>"</s> <s>outputPath::</s><s>/main.cpp.elf"</s>
 		</cmd>
 	</build>
-	<reset>
+	<resetInternal>
 		<cmd>
-			<i><setSerialLine line="DTR"/></i>
-			<i><delay ms="10"/></i>
-			<i><clearSerialLine line="DTR"/></i>
+			<s><setSerialLine line="DTR"/></s>
+			<s><delay ms="10"/></s>
+			<s><clearSerialLine line="DTR"/></s>
+			<s><delay ms="10"/></s>
 		</cmd>
-	</reset>
+	</resetInternal>
 	<deploy>
 		<cmd>
 			<s>toolsPath::</s><s>/avrdude.20071012.exe -C"</s>

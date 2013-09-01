@@ -1159,15 +1159,20 @@ bool Bubble::deploy()
     //it's reset, it will wait until the run button is pressed, or until the software sends a new program and
     //to the flash and then run it from the comm port.
     if (getHardwareManager()->getCurrentBoardProperties()->getResetBeforeBuild())
-        resetBoard();
-
-    if (build())
     {
         getNotifier()->showMessage(_("Reseting the board...\n"), false, false, *wxBLUE);
         getNotifier()->deployStartedNotify();
+        resetBoard();
+    }
 
+    if (build())
+    {
         if ( !(getHardwareManager()->getCurrentBoardProperties()->getResetBeforeBuild()) )
+        {
+            getNotifier()->showMessage(_("Reseting the board...\n"), false, false, *wxBLUE);
+            getNotifier()->deployStartedNotify();
             resetBoard();
+        }
 
         //Waits until the port does exist, but with a timeout:
         getNotifier()->showMessage(_("\nVerifiying port ") + bootPortName, false, false, *wxBLUE);
@@ -1190,7 +1195,7 @@ bool Bubble::deploy()
 
         //Load the commands from the .board XML file:
         commands.Clear();
-        commands = bubbleXML.loadBoardCommands(wxString("deploy"), getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/main.board"));
+        commands = bubbleXML.loadBoardExternalCommands(wxString("deploy"), getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/main.board"));
         //cmd = bubbleXML.parseCmd(cmd);
 
         //Executes the loaded commands:
@@ -1550,7 +1555,7 @@ bool Bubble::build()
 
         //Load the commands from the .board XML file:
         commands.Clear();
-        commands = bubbleXML.loadBoardCommands(wxString("build"), getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/main.board"));
+        commands = bubbleXML.loadBoardExternalCommands(wxString("build"), getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/main.board"));
         //cmd = bubbleXML.parseCmd(cmd);
 
         //Executes the loaded commands:
@@ -3052,12 +3057,50 @@ bool Bubble::resetBoard()
 //    if not <reset> section
 //        return true;
 
+    if (getNotifier() == NULL)
+        return false;
+
     if (!bootSerialPort.IsOpen())
 		bootSerialPort.Open(bootPortName.char_str());
     if (bootSerialPort.IsOpen()) //This is NOT the same as en "else"!
     {
-        //##Acá se deben ejecutar los comandos ya previamente cargados por BubbleXML, pero no sé aún
-        //qué formato tendrán dichos comandos una vez cargados.
+        wxArrayString output, errors, commands;
+        wxString cmd("");
+
+        //Executes the internal commands, if any:
+        commands.Clear();
+        commands = bubbleXML.loadBoardInternalCommands(wxString("resetInternal"), getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/main.board"));
+        int i = 0, count = commands.GetCount();
+        while (i < count)
+        {
+            cmd = commands[i];
+            //##runInternalSerialPortCommand(cmd);
+            i++;
+        }
+
+        //Executes the external commands, if any:
+        commands.Clear();
+        commands = bubbleXML.loadBoardExternalCommands(wxString("resetExternal"), getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/main.board"));
+        i = 0, count = commands.GetCount();
+        while (i < count)
+        {
+            cmd = commands[i];
+            getNotifier()->showMessage(/*(wxString("") << i) + wxString(": ") + */cmd + wxString("\n"), false, true, *wxGREEN);
+            wxExecute(cmd, output, errors);
+            if (findErrorStringAndShow(errors))
+            {
+                bootSerialPort.Close();
+                return false;
+            }
+            i++;
+        }
+        showStream(output, *wxWHITE);
+
+        //##Ver si va algún otro mensaje para el usuario...
+
+        //##Acá se deben ejecutar los comandos ya previamente cargados por BubbleXML:
+        //En esta primera versión, habrá un parámetro para cada comando, y será del tipo string, de modo
+        //que la conversión se hará acá, quizá con una función llamada resetCommandFetch()...
 
 //            bootSerialPort.SetLineState(wxSERIAL_LINESTATE_DTR);
 //            wxMilliSleep(100); //##Make this configurable.

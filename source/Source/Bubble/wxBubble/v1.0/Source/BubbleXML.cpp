@@ -1634,7 +1634,72 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
 }
 
 
-const wxArrayString BubbleXML::loadBoardCommands(const wxString &section, const wxString &fullBoardFileName)
+const wxArrayString BubbleXML::loadBoardInternalCommands(const wxString &section, const wxString &fullBoardFileName)
+{
+    wxString resultStr("");
+    wxArrayString result;
+    result.Clear();
+
+    if (bubble == NULL)
+        return result;
+
+    //##Future: Try to disable the error messages that the wxXmlDocument class fires when encounters errors:
+    wxXmlDocument boardFile;
+    if ( !boardFile.Load(fullBoardFileName, wxString("UTF-8")) )
+        return result;
+    wxXmlNode *root = boardFile.GetRoot();
+    if (root == NULL)
+        return result;
+    if (root->GetName() != wxString("board"))
+        return result;
+
+    wxString tempName("");
+    wxXmlNode *rootChild = root->GetChildren();
+    while (rootChild)
+    {
+        tempName = rootChild->GetName();
+        if (tempName == section)
+        {
+            wxXmlNode *cmd = rootChild->GetChildren();
+            //unsigned int cmdCounter = 0;
+            while (cmd)
+            {
+                resultStr = wxString("");
+                //if (cmd->GetName() == (wxString("cmd") << cmdCounter))
+                if (cmd->GetName() == wxString("cmd"))
+                {
+                    wxXmlNode *stringNode = cmd->GetChildren();
+                    //unsigned int stringCounter = 0;
+                    while (stringNode)
+                    {
+                        //if (stringNode->GetName() == (wxString("s") << stringCounter))
+                        if (stringNode->GetName() == wxString("s"))
+                        {
+                            wxString stringLine = stringNode->GetNodeContent();
+
+                            //Is the value a variable?
+                            if (isXMLVariable(stringLine))
+                                stringLine = getVariableValue(stringLine, wxString(""));
+
+                            resultStr = resultStr + stringLine;
+                        }
+                        //stringCounter++;
+                        stringNode = stringNode->GetNext();
+                    }
+                }
+                //cmdCounter++;
+                result.Add(resultStr);
+                cmd = cmd->GetNext();
+            }
+        }
+        rootChild = rootChild->GetNext();
+    }
+
+    return result;
+}
+
+
+const wxArrayString BubbleXML::loadBoardExternalCommands(const wxString &section, const wxString &fullBoardFileName)
 {
     wxString resultStr("");
     wxArrayString result;

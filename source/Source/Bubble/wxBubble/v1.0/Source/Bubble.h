@@ -251,7 +251,8 @@ class BubbleXML
         //Hardware:
         BubbleBoardProperties *loadBoardProperties(const wxString &fullBoardFileName);
         //wxString parseCmd(const wxString &cmd);
-        const wxArrayString loadBoardCommands(const wxString &section, const wxString &fullBoardFileName);
+        const wxArrayString loadBoardExternalCommands(const wxString &section, const wxString &fullBoardFileName);
+        const wxArrayString loadBoardInternalCommands(const wxString &section, const wxString &fullBoardFileName);
         int loadHardwareTargets(BubbleHardwareManager *hardwareManager);
         bool loadBoardInstancesFromXML(wxXmlNode *node, BubbleCanvasInfo *canvasInfo);
         BubbleCanvasInfo getCanvasInfo(bool mainCanvas);
