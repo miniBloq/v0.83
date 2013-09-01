@@ -1459,11 +1459,12 @@ bool Bubble::build()
         wxArrayString output, errors, commands;
         wxString cmd("");
 
-        //Generates the main.cpp.o file:
+        //Load the commands from the .board XML file:
         commands.Clear();
         commands = bubbleXML.loadBoardBuildCommands(getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/main.board"));
         //cmd = bubbleXML.parseCmd(cmd);
 
+        //Executes the loaded commands:
         int i = 0, count = commands.GetCount();
         //wxMessageDialog dialog0(parent, wxString("") << count, _("commands:"));
         //dialog0.ShowModal();
@@ -3471,6 +3472,8 @@ bool Bubble::generateCodeAndSaveToFile()
 {
     try
     {
+        if (getHardwareManager() == NULL)
+            return false;
         //##Nota acerca del tipo de archivo: Por ahora usa el typeDefault, que en teoría debería generar archivos
         //con terminación de línea "DOS". Pero más adelante ser verá, y quizá se pase todo a Unix. De todos modos
         //la edición con scintilla en el mismo entorno debería funcionar bien igual. Si esto se cambia, ver
@@ -3486,21 +3489,27 @@ bool Bubble::generateCodeAndSaveToFile()
         //Try to create the output dir structure:
         createDirs(outputPath);
 
+        wxMessageDialog dialog0(parent, wxString("0"), _("generateCodeAndSaveToFile:"));
+        dialog0.ShowModal();
+
         //Try to create the file:
-        wxTextFile main_pde;
-        if ( !main_pde.Create(outputPath + wxString("/main.pde")) ) //##Un-hardcode!
+        wxTextFile mainOutput;
+        if ( !mainOutput.Create(outputPath + wxString("/") + getHardwareManager()->getCurrentBoardProperties()->getOutputMainFile() ) )
             return false;
+
+        wxMessageDialog dialog1(parent, wxString("1"), _("generateCodeAndSaveToFile:"));
+        dialog1.ShowModal();
 
         //Refresh the generated code, and obtains it:
         if (!updateCode())
             return false;
-        linesFromArrayToFile(getGeneratedCode(), &main_pde);
+        linesFromArrayToFile(getGeneratedCode(), &mainOutput);
 
         //##Save the changes and closes the file:
         //##Si hay errores con el archivo, reportarlo en Messages:
-        if ( !main_pde.Write() )
+        if ( !mainOutput.Write() )
             return false;
-        if ( main_pde.Close() )
+        if ( mainOutput.Close() )
         {
 //##:¿Esto se queda?
             if ( getNotifier() )
@@ -3522,17 +3531,24 @@ bool Bubble::generateCodeAndSaveToFile()
 
 bool Bubble::clean()
 {
-    //##This will be made by searching all the ".cpp", ".o", etc. in the project dir, but not now. ##And the
-    //target's XML file could specify more files to be deleted:
-    //if (wxfileExsist) //Not necessary
-    wxRemoveFile(outputPath + wxString("/main.pde"));
-    wxRemoveFile(outputPath + wxString("/main.cpp.o"));
-    wxRemoveFile(outputPath + wxString("/main.cpp.elf"));
-    wxRemoveFile(outputPath + wxString("/main.cpp.hex"));
-    wxRemoveFile(outputPath + wxString("/main.cpp.epp"));
+    //##Does not work:
+    //return wxRmDir(outputPath);
 
-    //##Not used by now:
-    return true;
+    //##Perhaps in the future it can be specified which file to delete (or to ignore) in the relation files
+    //between boards and langauges:
+
+    wxDir dir(outputPath);
+    if ( !dir.IsOpened() )
+        return false;
+
+    wxString fileName;
+    bool result = dir.GetFirst(&fileName, wxEmptyString, wxDIR_DEFAULT);
+    while (result)
+    {
+        wxRemoveFile(outputPath + wxString("/") + fileName);
+        result = dir.GetNext(&fileName);
+    }
+    return true; //##Not used by now.
 }
 
 

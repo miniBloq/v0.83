@@ -91,6 +91,7 @@ class BubbleBoardProperties
         wxString lang;
         wxString corePath;
         wxString core;
+        wxString outputMainFile;
 
     public:
         BubbleBoardProperties():    name(wxString("")),
@@ -100,7 +101,8 @@ class BubbleBoardProperties
                                     portType(wxString("serial")),
                                     lang(wxString("")),
                                     corePath(wxString("")),
-                                    core(wxString(""))
+                                    core(wxString("")),
+                                    outputMainFile(wxString("main.ino")) //##Arduino compatible file by default?
 
         {
         }
@@ -122,6 +124,7 @@ class BubbleBoardProperties
                 setLang(boardProperties->getLang());
                 setCorePath(boardProperties->getCorePath());
                 setCore(boardProperties->getCore());
+                setOutputMainFile(boardProperties->getOutputMainFile());
             }
         }
 
@@ -148,6 +151,9 @@ class BubbleBoardProperties
 
         inline void setCore(const wxString& value) { core = value; }
         inline const wxString &getCore() const { return core; }
+
+        inline void setOutputMainFile(const wxString& value) { outputMainFile = value; }
+        inline const wxString &getOutputMainFile() const { return outputMainFile; }
 };
 
 //The BubbleXML class manages the language structure (blocks info, canvases info, etc.). It DOES NOT deals

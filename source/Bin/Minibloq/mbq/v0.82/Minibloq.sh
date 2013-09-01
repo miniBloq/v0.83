@@ -15,8 +15,8 @@ function set_execute_permission {
 
 #echo set_execute_permission
 
-chmod +x ./Minibloq-amd64
-chmod +x ./Minibloq-i386
+chmod +x ./miniBloq-amd64
+chmod +x ./miniBloq-i386
 chmod +x ../../avrlinux/i386/v1.0/bin/avr-gprof
 chmod +x .././avrlinux/i386/v1.0/bin/avr-gcc-4.3.5
 chmod +x ../../avrlinux/i386/v1.0/bin/avr-readelf
@@ -124,12 +124,12 @@ if [ "${OS}" = "Linux" ] ; then
     echo $KERNEL
     echo $MACH
     if [ "${MACH}" = "x86_64" ] ; then
-        export LD_LIBRARY_PATH=$PWD/Components/Minibloq/v0.82/linuxRuntime/amd64
-        $PWD/Components/Minibloq/v1.0/Minibloq-amd64
+        export LD_LIBRARY_PATH=$PWD/mbq/v0.82/linuxRuntime/amd64
+        $PWD/mbq/v0.82/miniBloq-amd64
     else
 #    if [ "${MACH}" = "i386" ] || [ "${MACH}" = "i486" ] || [ "${MACH}" = "i586" ] || [ "${MACH}" = "i686" ] ; then
-        export LD_LIBRARY_PATH=$PWD/Components/Minibloq/v0.82/linuxRuntime/i386
-        $PWD/Components/Minibloq/v1.0/Minibloq-i386
+        export LD_LIBRARY_PATH=$PWD/mbq/v0.82/linuxRuntime/i386
+        $PWD/mbq/v0.82/miniBloq-i386
     fi
 else
     xmessage "Unsupported operating system"

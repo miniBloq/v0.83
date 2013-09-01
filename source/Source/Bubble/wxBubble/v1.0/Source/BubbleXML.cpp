@@ -308,6 +308,8 @@ wxString BubbleXML::getInternalVariableValue(const wxString& variableName, const
         return bubble->getComponentPath();
     if (variableName == "outputPath::")
         return bubble->getOutputPath();
+    if (variableName == "outputMainFile::")
+        return bubble->getHardwareManager()->getCurrentBoardProperties()->getOutputMainFile();
 
     if (fileName != wxString(""))
     {
@@ -1583,6 +1585,10 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
                 else if (child->GetName() == bubble->getHost() + wxString("_core"))
                 {
                     boardInfo->setCore(child->GetNodeContent());
+                }
+                else if (child->GetName() == "outputMainFile")
+                {
+                    boardInfo->setOutputMainFile(child->GetNodeContent());
                 }
 
                 child = child->GetNext();

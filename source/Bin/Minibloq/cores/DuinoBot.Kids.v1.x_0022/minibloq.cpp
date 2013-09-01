@@ -1,4 +1,4 @@
 #include "WProgram.h"
 
 //Scketch files:
-#include "main.pde"
+#include "main.ino"
