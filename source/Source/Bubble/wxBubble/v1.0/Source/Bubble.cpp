@@ -3062,22 +3062,43 @@ bool Bubble::runInternalCommand(const wxString& cmd)
     //supports up to 10 params:
     wxString command = cmd.BeforeFirst(';');
     wxString param0 = cmd.AfterFirst(';');
-    if (command = wxString("delay"))
+    if (command == wxString("delay"))
     {
-        //##Implementar parámetro de tiempo:
-        wxMilliSleep(param0.ToLong ##);
+        long ms = 0;
+        if (param0.ToLong(&ms))
+            wxMilliSleep((unsigned int)(ms));
     }
-    else if (command = wxString("setSerialLine"))
+    else if (command == wxString("setSerialLine"))
     {
-        //##Implementar parámetro de línea a setear:
         if (bootSerialPort.IsOpen())
-            bootSerialPort.SetLineState(wxSERIAL_LINESTATE_DTR);
+        {
+            if (param0 == wxString("DTR"))
+                bootSerialPort.SetLineState(wxSERIAL_LINESTATE_DTR);
+            if (param0 == wxString("RTS"))
+                bootSerialPort.SetLineState(wxSERIAL_LINESTATE_RTS);
+            if (param0 == wxString("DCD"))
+                bootSerialPort.SetLineState(wxSERIAL_LINESTATE_DCD);
+            if (param0 == wxString("CTS"))
+                bootSerialPort.SetLineState(wxSERIAL_LINESTATE_CTS);
+            if (param0 == wxString("RING"))
+                bootSerialPort.SetLineState(wxSERIAL_LINESTATE_RING);
+        }
     }
-    else if (command = wxString("clearSerialLine"))
+    else if (command == wxString("clearSerialLine"))
     {
-        //##Implementar parámetro de línea a hacerle el clear:
         if (bootSerialPort.IsOpen())
-            bootSerialPort.ClrLineState(wxSERIAL_LINESTATE_DTR);
+        {
+            if (param0 == wxString("DTR"))
+                bootSerialPort.ClrLineState(wxSERIAL_LINESTATE_DTR);
+            if (param0 == wxString("RTS"))
+                bootSerialPort.ClrLineState(wxSERIAL_LINESTATE_RTS);
+            if (param0 == wxString("DCD"))
+                bootSerialPort.ClrLineState(wxSERIAL_LINESTATE_DCD);
+            if (param0 == wxString("CTS"))
+                bootSerialPort.ClrLineState(wxSERIAL_LINESTATE_CTS);
+            if (param0 == wxString("RING"))
+                bootSerialPort.ClrLineState(wxSERIAL_LINESTATE_RING);
+        }
     }
 
     return true;
@@ -3091,6 +3112,35 @@ bool Bubble::resetBoard()
 
 //    if not <reset> section
 //        return true;
+
+//bool sectionExists(
+//{
+//    wxXmlDocument xmlFile;
+//    if ( !xmlFile.Load(fileName, wxString("UTF-8")) )
+//        return result;
+//    wxXmlNode *root = xmlFile.GetRoot();
+//    if (root == NULL)
+//        return result;
+//    if (root->GetName() != wxString("board"))
+//        return result;
+//
+//    wxString tempName("");
+//    wxXmlNode *rootChild = root->GetChildren();
+//    while (rootChild)
+//    {
+//        tempName = rootChild->GetName();
+//        if (tempName == section)
+//            return true;
+//    }
+//    return false;
+//}
+//    bool mustReset = sectionExists();
+
+    //##Falta:
+    //Ver si existe alguna de las secciones internalReset o externalReset.
+    //Ver si el puerto es HID, para hacer o no los comandos de open del serial.
+    //Si el puerto no es HID: ver si el serial existe.
+
 
     if (getNotifier() == NULL)
         return false;
