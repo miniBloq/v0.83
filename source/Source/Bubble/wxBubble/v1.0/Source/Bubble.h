@@ -24,6 +24,9 @@
 //Used to optimize image loading:
 WX_DECLARE_STRING_HASH_MAP(wxImage, ImagesHash);
 
+//"BlockInfos" are also searched with a hash table:
+WX_DECLARE_STRING_HASH_MAP(BubbleBlockInfo*, BlocksHash);
+
 //##Puede que a esta clase le cambie el nombre, porque es más un intercambiador de información entre Bubble
 //y el frame (o quien herede de esta clase) que un verdadero Notifier. Cumple como notifier en una dirección
 //(desde Buble hacia el frame), pero del otro lado, funciona pasando los pickers, por la limitación ¿de
@@ -193,7 +196,8 @@ class BubbleXML
     protected:
         Bubble *bubble;
         BubbleInstanceManager XMLVariables;
-        arrayOfBlockInfo blocksInfo;
+        //##arrayOfBlockInfo blocksInfo;
+        BlocksHash blocksHash;
 
         //i18n/l10n:
         wxLocale& locale;
@@ -216,7 +220,8 @@ class BubbleXML
 
         virtual ~BubbleXML()
         {
-            blocksInfo.Clear();
+            //##blocksInfo.Clear();
+            blocksHash.clear();
         }
 
         //Utils:

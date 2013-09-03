@@ -44,8 +44,8 @@ WX_DEFINE_ARRAY(BubbleExpressionPicker*, arrayOfExpressionPickers);
 #include <wx/arrimpl.cpp> //This is a magic incantation which must be done!
 class BubbleBlock;
 WX_DECLARE_OBJARRAY(BubbleBlock, arrayOfBlocks);
-class BubbleBlockInfo;
-WX_DECLARE_OBJARRAY(BubbleBlockInfo, arrayOfBlockInfo);
+//##class BubbleBlockInfo;
+//##WX_DECLARE_OBJARRAY(BubbleBlockInfo, arrayOfBlockInfo);
 class BubbleParamInfo;
 WX_DECLARE_OBJARRAY(BubbleParamInfo, arrayOfParamInfo);
 class BubbleParam;
