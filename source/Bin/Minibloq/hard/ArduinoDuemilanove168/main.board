@@ -56,11 +56,11 @@
 			
 			<s>includesBuildList::</s>
 
-			<s>" -I"</s><s>libsPath::</s><s>/Arduino/Buzzer/v1.0</s>
-			<s>" -I"</s><s>libsPath::</s><s>/Arduino/IRRanger/v1.0</s>
-			<s>" -I"</s><s>libsPath::</s><s>/Arduino/IRRemote/v1.0</s>
-			<s>" -I"</s><s>libsPath::</s><s>/Arduino/Ping/v1.0</s>
-			<s>" -I"</s><s>libsPath::</s><s>/Arduino/ServoRC/v1.0</s>
+			<s>" -I"</s><s>libsPath::</s><s>Arduino/Buzzer/v1.0</s>
+			<s>" -I"</s><s>libsPath::</s><s>Arduino/IRRanger/v1.0</s>
+			<s>" -I"</s><s>libsPath::</s><s>Arduino/IRRemote/v1.0</s>
+			<s>" -I"</s><s>libsPath::</s><s>Arduino/Ping/v1.0</s>
+			<s>" -I"</s><s>libsPath::</s><s>Arduino/ServoRC/v1.0</s>
 			
 			<s>" "</s><s>corePath::</s><s>/minibloq.cpp" -o "</s><s>outputPath::</s><s>/minibloq.cpp.o"</s>
 		</cmd>

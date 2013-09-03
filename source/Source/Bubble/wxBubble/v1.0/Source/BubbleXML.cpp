@@ -322,7 +322,7 @@ wxString BubbleXML::getInternalVariableValue(const wxString& variableName, const
     if (variableName == "toolsPath::")
         return bubble->getComponentsRepositoryPath() + wxString("/lang/") + bubble->getHardwareManager()->getCurrentBoardProperties()->getLang();
     if (variableName == "libsPath::")
-        return bubble->getComponentsRepositoryPath() + wxString("/libs/");
+        return bubble->getComponentsRepositoryPath() + wxString("/libs");
     if (variableName == "corePath::")
         return bubble->getComponentsRepositoryPath() + wxString("/cores/") + bubble->getHardwareManager()->getCurrentBoardProperties()->getCorePath();
     if (variableName == "core::")
@@ -1833,11 +1833,15 @@ bool BubbleXML::loadRelData(const wxString &relFileName, BubbleBoardProperties *
     if (boardProperties == NULL)
         return false;
 
-    wxXmlDocument relFile;
-    if ( !relFile.Load(relFileName, wxString("UTF-8")) )
+    wxFile relFile(relFileName, wxFile::read);
+    if (relFile.Length() == 0) //If the file is empty, do nothing.
         return false;
 
-    wxXmlNode *root = relFile.GetRoot();
+    wxXmlDocument relFileXML;
+    if ( !relFileXML.Load(relFileName, wxString("UTF-8")) )
+        return false;
+
+    wxXmlNode *root = relFileXML.GetRoot();
     if (root == NULL)
         return false; //rel files may be empty, so this ends fast in that case.
     if (root->GetName() != wxString("rel"))
