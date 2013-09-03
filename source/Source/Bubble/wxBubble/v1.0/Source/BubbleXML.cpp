@@ -626,6 +626,10 @@ bool BubbleXML::loadBlockInfoPropertiesFromXML(wxXmlNode *node, BubbleBlockInfo 
             {
                 blockInfo->setIsDraggable(Bubble::string2bool(child->GetNodeContent()));
             }
+            else if (child->GetName() == "dontDeleteBrothers")
+            {
+                blockInfo->setDontDeleteBrothers(Bubble::string2bool(child->GetNodeContent()));
+            }
 
             child = child->GetNext();
         }
@@ -1150,10 +1154,6 @@ bool BubbleXML::loadBlockInfoBrothersFromXML(wxXmlNode *node, const wxString& bl
                         brother->setIsDraggable(false);
 
                         tempBlockInfo->setBrother(brother);
-//                        blocksInfo.Add(brother);    //##Ver si está bien: Si se cuelga, sacarlo!
-//                                                    //##Esto es para que cuando se limpie el array, libere
-//                                                    //la memoria de los brothers también, ya que no se
-//                                                    //destruyen en ninguna otra parte.
                         blocksHash[brother->getName()] = brother;
                         tempBlockInfo = brother;
                     }
@@ -1214,7 +1214,6 @@ bool BubbleXML::loadBlockInfoFriendsFromXML(wxXmlNode *node, const wxString& blo
                     friendBlock->setToolTip(_(friendBlock->getName() + wxString(".tooltip")));
                     friendBlock->setLabel(_(friendBlock->getName() + wxString(".label")));
 
-                    //##blocksInfo.Add(friendBlock);
                     blocksHash[friendBlock->getName()] = friendBlock;
                     bubble->addBlockToPicker(friendBlock, pickersParent);
                 }
@@ -1399,7 +1398,6 @@ int BubbleXML::loadBlocksInfo(wxWindow *pickersParent, bool showPickers) //##Hac
     loadBlocksPropertiesFromXML(bubble->getBlocksPath() + wxString("/blocksCommonSettings.xml"), false); //##Un-hardcode?
 
     //Deletes all previous blocks info:
-    //##blocksInfo.Clear();
     blocksHash.clear();
 
     int blocksCount = getBlockFilesCount(bubble->getBlocksPath(), wxDIR_DIRS);
@@ -1452,7 +1450,6 @@ int BubbleXML::loadBlocksInfo(wxWindow *pickersParent, bool showPickers) //##Hac
                 //##Acá hay que verificar si el target y el block están relacionados, si no, no se agrega a blocks y no se carga el
                 //block a au picker.
 
-                //##blocksInfo.Add(loadedBlockInfo);
                 blocksHash[loadedBlockInfo->getName()] = loadedBlockInfo;
 
                 //Only add the block to the picker if the action is different from "noLoad". This is important to avoid
@@ -1514,28 +1511,6 @@ const BubbleBlockInfo& BubbleXML::getBlockInfo(const wxString& name, const wxStr
                 return *iterator;
         }
     }
-
-//##:
-//    //##Optimize in the future: use a wxHashmap or at least a binary search (but the blocksInfo will have to be ordered by name):
-//    BubbleBlockInfo *iterator = NULL;
-//    for (unsigned int i = 0; i<blocksInfo.GetCount(); i++)
-//    {
-//        iterator = &(blocksInfo.Item(i)); //##In theory, this is faster than the other index based form, but I'm not sure yet...
-//        if (iterator)
-//        {
-//            if (iterator->getName() == name)
-//            {
-//                //getNotifier()->showMessage(name + wxString("\n"), false, true, *wxGREEN); //##Debug.
-//                if (iterator->getFunction() == function)
-//                {
-//                    //##:
-////                    getNotifier()->showMessage(wxString("\n") + name + wxString(" - ") + function + wxString("\n"), false, true, *wxGREEN); //##Debug.
-//                    //getNotifier()->showMessage( iterator->getDefaultBackgroundColour0().GetAsString() + wxString("\n"), false, true, *wxGREEN); //##Debug.
-//                    return *iterator;
-//                }
-//            }
-//        }
-//    }
 
     //##Horrible, but works nice! (I don't want to return a whole copy of a big BubbleBlockInfo object, so
     //this returns a const reference, and this is instead of a NULL):

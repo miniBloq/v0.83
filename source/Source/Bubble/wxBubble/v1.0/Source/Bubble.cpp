@@ -28,8 +28,6 @@
 WX_DEFINE_LIST(listOfCanvas);
 
 
-//##WX_DEFINE_OBJARRAY(arrayOfBlockInfo);
-
 //##Ver cómo agregar chequeo de que si no setean el parent y el notifier, TODO MAL!
 /*
 Bubble::Bubble(IBubbleNotifier *notifier) : parent(NULL),

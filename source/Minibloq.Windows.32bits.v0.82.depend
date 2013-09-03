@@ -1192,7 +1192,7 @@
 1252039912 c:\apps\codeblocks-rg.v0.1\sdk\wxwidgets\wxwidgets-2.9.0\include\wx\containr.h
 	"wx/defs.h"
 
-1336440644 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubbleblock.cpp
+1378182384 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubbleblock.cpp
 	"BubbleCanvas.h"
 	"Bubble.h"
 	<wx/dcclient.h>
@@ -1200,7 +1200,7 @@
 	<wx/tooltip.h>
 	<wx/msgdlg.h>
 
-1378179266 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblecanvas.h
+1378181763 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblecanvas.h
 	"wx/wxprec.h"
 	"wx/wx.h"
 	<wx/menu.h>
@@ -2963,7 +2963,7 @@
 
 1252039912 c:\apps\codeblocks-rg.v0.1\sdk\wxwidgets\wxwidgets-2.9.0\include\wx\arrimpl.cpp
 
-1378180153 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubble.h
+1378180620 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubble.h
 	"IBubbleFileIO.h"
 	"BubbleCanvas.h"
 	"BubbleProcess.h"
@@ -3144,7 +3144,7 @@
 	<wx/dcclient.h>
 	<wx/validate.h>
 
-1377879424 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblecanvas.cpp
+1378183627 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblecanvas.cpp
 	"BubbleCanvas.h"
 	"Bubble.h"
 	<wx/dcclient.h>
@@ -3247,7 +3247,7 @@
 1293989500 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblevariablesmanager.h
 	"BubblePanel.h"
 
-1378180184 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblexml.cpp
+1378181818 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblexml.cpp
 	"Bubble.h"
 	<wx/msgdlg.h>
 	<wx/dir.h>
@@ -3777,7 +3777,7 @@
 1309266992 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\texteditorproperties.cpp
 	"TextEditorProperties.h"
 
-1378179354 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubble.cpp
+1378180637 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubble.cpp
 	"Bubble.h"
 	<wx/msgdlg.h>
 	<wx/dir.h>

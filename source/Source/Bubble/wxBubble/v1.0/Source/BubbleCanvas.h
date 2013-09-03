@@ -44,8 +44,6 @@ WX_DEFINE_ARRAY(BubbleExpressionPicker*, arrayOfExpressionPickers);
 #include <wx/arrimpl.cpp> //This is a magic incantation which must be done!
 class BubbleBlock;
 WX_DECLARE_OBJARRAY(BubbleBlock, arrayOfBlocks);
-//##class BubbleBlockInfo;
-//##WX_DECLARE_OBJARRAY(BubbleBlockInfo, arrayOfBlockInfo);
 class BubbleParamInfo;
 WX_DECLARE_OBJARRAY(BubbleParamInfo, arrayOfParamInfo);
 class BubbleParam;
@@ -675,6 +673,7 @@ class BubbleBlockInfo
         bool blockStart;
         bool variableInit;
         bool blockIsDraggable;
+        bool dontDeleteBrothers;
 
         bool commented;
 
@@ -791,6 +790,7 @@ class BubbleBlockInfo
                             blockStart(false),
                             variableInit(false),
                             blockIsDraggable(true),
+                            dontDeleteBrothers(false),
                             commented(false),
                             loadAction(wxString("load")), //##descablear
 
@@ -1029,6 +1029,8 @@ class BubbleBlockInfo
         inline const bool getVariableInit() const { return variableInit; }
         inline void setIsDraggable(const bool value) { blockIsDraggable = value; }
         inline const bool getIsDraggable() const { return blockIsDraggable; }
+        inline void setDontDeleteBrothers(const bool value) { dontDeleteBrothers = value; }
+        inline const bool getDontDeleteBrothers() const { return dontDeleteBrothers; }
 
         inline void setCommented(bool value) { commented = value; }
         inline bool getCommented() const { return commented; }
@@ -1125,6 +1127,7 @@ class BubbleBlock : public BubblePanel//##wxControl//##wxWindow//##BubblePanel
         bool blockStart;
         bool variableInit;
         bool blockIsDraggable;
+        bool dontDeleteBrothers;
         wxString loadAction;
         wxArrayString code; //##Deberá ser un wxArrayString
         wxString defaultMethodName; //##Esto se va...
@@ -1340,6 +1343,8 @@ class BubbleBlock : public BubblePanel//##wxControl//##wxWindow//##BubblePanel
         inline const bool getVariableInit() const { return variableInit; }
         inline  void setIsDraggable(const bool value) { blockIsDraggable = value; }
         inline const bool getIsDraggable() const { return blockIsDraggable; }
+        inline  void setDontDeleteBrothers(const bool value) { dontDeleteBrothers = value; }
+        inline const bool getDontDeleteBrothers() const { return dontDeleteBrothers; }
 
         void setLoadAction(const wxString &value) { loadAction = value; }
         inline const wxString & getLoadAction() const { return loadAction; }

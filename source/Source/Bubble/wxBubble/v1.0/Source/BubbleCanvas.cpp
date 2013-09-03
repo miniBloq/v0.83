@@ -2199,6 +2199,15 @@ void BubbleCanvas::cutBlock(BubbleBlock *block, bool makeCopy)
 
         BubbleBlock *nextCurrentBlock = &(blocks[index - 1]); //The next current block will be the prevBlock.
         BubbleBlock *iteratorBlock = NULL;
+        BubbleBlock *lastBrother = NULL;
+//##:
+//        if (block->getDontDeleteBrothers())
+//        {
+//            lastBrother = block;
+//            nextCurrentBlock = getPrevBlock(block);
+//        }
+//        else
+//        {
         if (block->getFirstBrother())
         {
             //If there is a firstBrother, the next current block will be the prev block to the first brother:
@@ -2211,7 +2220,6 @@ void BubbleCanvas::cutBlock(BubbleBlock *block, bool makeCopy)
         {
             iteratorBlock = block;
         }
-        BubbleBlock *lastBrother = NULL;
         if (block->getLastBrother())
             lastBrother = block->getLastBrother();
         else
@@ -2226,8 +2234,8 @@ void BubbleCanvas::cutBlock(BubbleBlock *block, bool makeCopy)
             deleteOneBlock(iteratorBlock, makeCopy);
             iteratorBlock = nextBlock;
         }
+//        }
         deleteOneBlock(lastBrother, makeCopy);
-
         setCurrentBlock(nextCurrentBlock);
         zoom(); //This rearranges everything (##but has some flickering by now, which could be corrected
                 //creating the blocks in invisible state. This flickering appears with brotherBlocks, due

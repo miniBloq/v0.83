@@ -3739,22 +3739,27 @@ void MainFrame::toggleGeneratedCode()
 
         int iconW = 16; //##
         int iconH = 16; //##
-        //##Ver si va este bitmap:
+
         wxBitmap page_bmp = wxArtProvider::GetBitmap(wxART_NORMAL_FILE, wxART_OTHER, wxSize(iconW, iconH)); //##
 
-        //##Un-hardcode:
-        if (notebook->AddPage(editCode, wxString("main.pde"), false, page_bmp)) //##
+        if (bubble.getHardwareManager())
         {
-            notebook->Split(notebook->GetPageIndex(editCode), wxRIGHT);
-            editCode->Show(true);
-            bubble.updateCode();
-            refreshGeneratedCode();
+            if (bubble.getHardwareManager()->getCurrentBoardProperties())
+            {
+                if (notebook->AddPage(editCode, bubble.getHardwareManager()->getCurrentBoardProperties()->getOutputMainFile(), false, page_bmp)) //##
+                {
+                    notebook->Split(notebook->GetPageIndex(editCode), wxRIGHT);
+                    editCode->Show(true);
+                    bubble.updateCode();
+                    refreshGeneratedCode();
 
-            //##:
-//            notebook->SetSelection(notebook->GetPageIndex(editCode));
-//            editCode->SetFocus();
+                    //##:
+        //            notebook->SetSelection(notebook->GetPageIndex(editCode));
+        //            editCode->SetFocus();
 
-            menuViewGeneratedCode->Check(true);
+                    menuViewGeneratedCode->Check(true);
+                }
+            }
         }
     }
     else

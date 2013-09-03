@@ -196,7 +196,6 @@ class BubbleXML
     protected:
         Bubble *bubble;
         BubbleInstanceManager XMLVariables;
-        //##arrayOfBlockInfo blocksInfo;
         BlocksHash blocksHash;
 
         //i18n/l10n:
@@ -220,7 +219,6 @@ class BubbleXML
 
         virtual ~BubbleXML()
         {
-            //##blocksInfo.Clear();
             blocksHash.clear();
         }
 

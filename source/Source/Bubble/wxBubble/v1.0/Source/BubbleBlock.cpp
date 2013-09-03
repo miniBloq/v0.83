@@ -93,6 +93,7 @@ BubbleBlock::BubbleBlock(   BubbleCanvas *parent,
                                                         variableInit(info.getVariableInit()),
 
                                                         blockIsDraggable(info.getIsDraggable()),
+                                                        dontDeleteBrothers(info.getDontDeleteBrothers()),
 
                                                         loadAction(info.getLoadAction()),
                                                         code(info.getCode()),
