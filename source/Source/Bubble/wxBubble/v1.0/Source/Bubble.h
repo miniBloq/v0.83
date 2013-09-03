@@ -104,6 +104,10 @@ class BubbleBoardProperties
         unsigned int bootBaudRate;
         unsigned int bootFindPortTries;
         unsigned int bootTimeOut;
+        wxString includeCodePrefix;
+        wxString includeCodePostfix;
+        wxString includeBuildPrefix;
+        wxString includeBuildPostfix;
 
     public:
         BubbleBoardProperties():    name(wxString("")),
@@ -118,7 +122,11 @@ class BubbleBoardProperties
                                     resetBeforeBuild(false),
                                     bootBaudRate(115200),
                                     bootFindPortTries(5),
-                                    bootTimeOut(200)
+                                    bootTimeOut(200),
+                                    includeCodePrefix(wxString("")),
+                                    includeCodePostfix(wxString("")),
+                                    includeBuildPrefix(wxString("")),
+                                    includeBuildPostfix(wxString(""))
         {
         }
         //##Ver si se necesita constructor de copia por las dudas, al menos que no haga gran cosa...
@@ -144,6 +152,10 @@ class BubbleBoardProperties
                 setBootBaudRate(boardProperties->getBootBaudRate());
                 setBootFindPortTries(boardProperties->getBootFindPortTries());
                 setBootTimeOut(boardProperties->getBootTimeOut());
+                setIncludeCodePrefix(boardProperties->getIncludeCodePrefix());
+                setIncludeCodePostfix(boardProperties->getIncludeCodePostfix());
+                setIncludeBuildPrefix(boardProperties->getIncludeBuildPrefix());
+                setIncludeBuildPostfix(boardProperties->getIncludeBuildPostfix());
             }
         }
 
@@ -185,6 +197,18 @@ class BubbleBoardProperties
 
         inline void setBootTimeOut(const unsigned int value) { bootTimeOut = value; }
         inline const unsigned int getBootTimeOut() const { return bootTimeOut; }
+
+        inline void setIncludeCodePrefix(const wxString& value) { includeCodePrefix = value; }
+        inline const wxString &getIncludeCodePrefix() const { return includeCodePrefix; }
+
+        inline void setIncludeCodePostfix(const wxString& value) { includeCodePostfix = value; }
+        inline const wxString &getIncludeCodePostfix() const { return includeCodePostfix; }
+
+        inline void setIncludeBuildPrefix(const wxString& value) { includeBuildPrefix = value; }
+        inline const wxString &getIncludeBuildPrefix() const { return includeBuildPrefix; }
+
+        inline void setIncludeBuildPostfix(const wxString& value) { includeBuildPostfix = value; }
+        inline const wxString &getIncludeBuildPostfix() const { return includeBuildPostfix; }
 };
 
 
@@ -257,8 +281,6 @@ class BubbleXML
         bool loadBlockInfoBrothersFromXML(wxXmlNode *node, const wxString& blockName, BubbleBlockInfo *blockInfo, wxWindow *pickersParent);
         bool loadBlockInfoFriendsFromXML(wxXmlNode *node, const wxString& blockName, BubbleBlockInfo *blockInfo, wxWindow *pickersParent);
         //##Don't delete:bool loadBlockInfoDocFromXML(const wxString& fullDocFileName, BubbleBlockInfo *blockInfo);
-        bool loadBlockIncludes(const wxString& blockName, const wxString& targetName, const wxString& fileName);
-        bool loadBlockLibs(const wxString& blockName, const wxString& targetName, const wxString& fileName);
         BubbleBlockInfo *loadBlockInfo(const wxString &fileName, const wxString &fullBlockFileName, wxWindow *pickersParent);
         int loadBlocksInfo(wxWindow *pickersParent, bool showPickers);
         const BubbleBlockInfo& getBlockInfo(const wxString& name, const wxString& function); //##Off for debug: const;
@@ -271,6 +293,10 @@ class BubbleXML
         const wxArrayString loadBoardInternalCommands(const wxString &section, const wxString &fullBoardFileName);
         int loadHardwareTargets(BubbleHardwareManager *hardwareManager);
         bool loadBoardInstancesFromXML(wxXmlNode *node, BubbleCanvasInfo *canvasInfo);
+        bool loadRelData(const wxString &relFileName, BubbleBoardProperties *boardProperties);
+        bool loadIncludePathsFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties);
+
+        //Canvas:
         BubbleCanvasInfo getCanvasInfo(bool mainCanvas);
 };
 
@@ -298,6 +324,8 @@ class Bubble : public IBubbleFileIO
         wxSerialPort bootSerialPort;
         BubbleHardwareManager *hardwareManager;
         wxString boardName;
+        wxString includesCodeList;
+        wxString includesBuildList;
 
         bool blocksEnabled;
         bool visibleLabels;
@@ -436,6 +464,10 @@ class Bubble : public IBubbleFileIO
         {
             hardwareManager = value;
         }
+        inline void setIncludesCodeList(const wxString &value) { includesCodeList = value; }
+        inline wxString getIncludesCodeList() const { return includesCodeList; }
+        inline void setIncludesBuildList(const wxString &value) { includesBuildList = value; }
+        inline wxString getIncludesBuildList() const { return includesBuildList; }
         inline BubbleHardwareManager *getHardwareManager() const { return hardwareManager; }
         bool setBoardName(const wxString& value, wxWindow *pickersParent);
         inline const wxString &getBoardName() const { return boardName; }

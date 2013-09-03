@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<board xmlns="http://board.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.81.Beta">
+<board xmlns="http://board.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
     <properties>
 		<manufacturer>RobotGroup</manufacturer>
 		<name>DuinoBot.v1.x.HID</name>

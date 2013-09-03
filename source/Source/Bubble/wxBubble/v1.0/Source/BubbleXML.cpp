@@ -349,6 +349,18 @@ wxString BubbleXML::getInternalVariableValue(const wxString& variableName, const
         return bubble->getBootPortName();
     if (variableName == "bootBaudRate::")
         return (wxString("") << bubble->getHardwareManager()->getCurrentBoardProperties()->getBootBaudRate());
+    if (variableName == "includeCodePrefix::")
+        return bubble->getHardwareManager()->getCurrentBoardProperties()->getIncludeCodePrefix();
+    if (variableName == "includeCodePostfix::")
+        return bubble->getHardwareManager()->getCurrentBoardProperties()->getIncludeCodePostfix();
+    if (variableName == "includeBuildPrefix::")
+        return bubble->getHardwareManager()->getCurrentBoardProperties()->getIncludeBuildPrefix();
+    if (variableName == "includeBuildPostfix::")
+        return bubble->getHardwareManager()->getCurrentBoardProperties()->getIncludeBuildPostfix();
+    if (variableName == "includesCodeList::")
+        return bubble->getIncludesCodeList();
+    if (variableName == "includesBuildList::")
+        return bubble->getIncludesBuildList();
 
     if (fileName != wxString(""))
     {
@@ -1274,20 +1286,6 @@ bool BubbleXML::loadBlockInfoFriendsFromXML(wxXmlNode *node, const wxString& blo
 //}
 
 
-bool BubbleXML::loadBlockIncludes(const wxString& blockName, const wxString& targetName, const wxString& fileName)
-{
-    //##Implementar:
-    return true;
-}
-
-
-bool BubbleXML::loadBlockLibs(const wxString& blockName, const wxString& targetName, const wxString& fileName)
-{
-    //##Implementar:
-    return true;
-}
-
-
 //##Not necessary by now:
 //int BubbleXML::getValidBlocksCount(const wxString& path) const
 //{
@@ -1447,9 +1445,6 @@ int BubbleXML::loadBlocksInfo(wxWindow *pickersParent, bool showPickers) //##Hac
                 loadedBlockInfo->setToolTip(_(loadedBlockInfo->getName() + wxString(".tooltip")));
                 loadedBlockInfo->setLabel(_(loadedBlockInfo->getName() + wxString(".label")));
 
-                //##Acá hay que verificar si el target y el block están relacionados, si no, no se agrega a blocks y no se carga el
-                //block a au picker.
-
                 blocksHash[loadedBlockInfo->getName()] = loadedBlockInfo;
 
                 //Only add the block to the picker if the action is different from "noLoad". This is important to avoid
@@ -1460,6 +1455,10 @@ int BubbleXML::loadBlocksInfo(wxWindow *pickersParent, bool showPickers) //##Hac
                 }
                 counter++;
             }
+
+            //Now, loads the rel data into the board properties. The "rel data" belongs to the relation between
+            //the block and the hardware target).
+            loadRelData(fullRelFileName, bubble->getHardwareManager()->getCurrentBoardProperties());
         }
         //result = dir.GetNext(&fileName);
     }
@@ -1646,6 +1645,22 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
                     if (returnStringValue.ToDouble(&returnNumericValue))
                         boardInfo->setBootTimeOut((unsigned int)returnNumericValue);
                 }
+                else if (child->GetName() == "includeCodePrefix")
+                {
+                    boardInfo->setIncludeCodePrefix(child->GetNodeContent());
+                }
+                else if (child->GetName() == "includeCodePostfix")
+                {
+                    boardInfo->setIncludeCodePostfix(child->GetNodeContent());
+                }
+                else if (child->GetName() == "includeBuildPrefix")
+                {
+                    boardInfo->setIncludeBuildPrefix(child->GetNodeContent());
+                }
+                else if (child->GetName() == "includeBuildPostfix")
+                {
+                    boardInfo->setIncludeBuildPostfix(child->GetNodeContent());
+                }
 
                 child = child->GetNext();
             }
@@ -1756,14 +1771,11 @@ const wxArrayString BubbleXML::loadBoardExternalCommands(const wxString &section
             while (cmd)
             {
                 resultStr = wxString("");
-                //if (cmd->GetName() == (wxString("cmd") << cmdCounter))
                 if (cmd->GetName() == wxString("cmd"))
                 {
                     wxXmlNode *stringNode = cmd->GetChildren();
-                    //unsigned int stringCounter = 0;
                     while (stringNode)
                     {
-                        //if (stringNode->GetName() == (wxString("s") << stringCounter))
                         if (stringNode->GetName() == wxString("s"))
                         {
                             wxString stringLine = stringNode->GetNodeContent();
@@ -1774,11 +1786,9 @@ const wxArrayString BubbleXML::loadBoardExternalCommands(const wxString &section
 
                             resultStr = resultStr + stringLine;
                         }
-                        //stringCounter++;
                         stringNode = stringNode->GetNext();
                     }
                 }
-                //cmdCounter++;
                 result.Add(resultStr);
                 cmd = cmd->GetNext();
             }
@@ -1815,6 +1825,87 @@ int BubbleXML::loadHardwareTargets(BubbleHardwareManager *hardwareManager)
         result = dir.GetNext(&fileName);
     }
     return counter; //##
+}
+
+
+bool BubbleXML::loadRelData(const wxString &relFileName, BubbleBoardProperties *boardProperties)
+{
+    if (boardProperties == NULL)
+        return false;
+
+    wxXmlDocument relFile;
+    if ( !relFile.Load(relFileName, wxString("UTF-8")) )
+        return false;
+
+    wxXmlNode *root = relFile.GetRoot();
+    if (root == NULL)
+        return false; //rel files may be empty, so this ends fast in that case.
+    if (root->GetName() != wxString("rel"))
+        return false;
+
+    wxString tempName("");
+    wxXmlNode *rootChild = root->GetChildren();
+    while (rootChild)
+    {
+        tempName = rootChild->GetName();
+        if (tempName == wxString("includePaths"))
+            loadIncludePathsFromXML(rootChild, boardProperties);
+        rootChild = rootChild->GetNext();
+    }
+
+    wxArrayString commands;
+    commands.Clear();
+    commands = loadBoardExternalCommands(wxString("build"), relFileName);
+
+    //##Ver cómo se agregan los comandos del build del rel al proceso de build final del .board...
+
+    return true;
+}
+
+
+bool BubbleXML::loadIncludePathsFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties)
+{
+    if (bubble == NULL)
+        return false;
+    if (node == NULL)
+        return false;
+    if (boardProperties == NULL)
+        return false;
+
+    wxXmlNode *includeNode = node->GetChildren();
+    wxString includeStr("");
+    while (includeNode)
+    {
+        wxString resultStr("");
+        if (includeNode->GetName() == wxString("include"))
+        {
+            wxXmlNode *stringNode = includeNode->GetChildren();
+            while (stringNode)
+            {
+                if (stringNode->GetName() == wxString("s"))
+                {
+                    wxString stringLine = stringNode->GetNodeContent();
+
+                    //Is the value a variable?
+                    if (isXMLVariable(stringLine))
+                        stringLine = getVariableValue(stringLine, wxString(""));
+
+                    resultStr = resultStr + stringLine;
+                }
+                stringNode = stringNode->GetNext();
+            }
+        }
+        includeNode = includeNode->GetNext();
+        bubble->setIncludesCodeList(bubble->getIncludesCodeList() +
+                                    boardProperties->getIncludeCodePrefix() + resultStr +
+                                    boardProperties->getIncludeCodePostfix() + wxString("\r\n")
+                                   );
+        bubble->setIncludesBuildList(bubble->getIncludesBuildList() +
+                                    boardProperties->getIncludeBuildPrefix() + resultStr +
+                                    boardProperties->getIncludeBuildPostfix()
+                                    );
+    }
+    return true;
 }
 
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<board xmlns="http://board.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.81.Beta">
+<board xmlns="http://board.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
     <properties>
 		<manufacturer>Arduino</manufacturer>
 		<name>Arduino Duemilanove Mega168</name>
@@ -20,25 +20,12 @@
 		<bootBaudRate>19200</bootBaudRate>
 		<bootFindPortTries>15</bootFindPortTries>
 		<bootTimeOut>200</bootTimeOut>
+		<includeCodePrefix>#include &lt;</includeCodePrefix>
+		<includeCodePostfix>&gt;</includeCodePostfix>
+		<includeBuildPrefix> "-I"</includeBuildPrefix>
+		<includeBuildPostfix>" </includeBuildPostfix>
     </properties>
 	<build>
-		<cmd>
-			<s>toolsPath::</s>
-			<s>/avr-g++ -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega168 -DF_CPU=16000000L -DARDUINO=22 </s>
-			<s>-I"</s> <s>toolsPath::</s>
-			<s>" -I"</s><s>corePath::</s>
-			<s>" -I"</s><s>componentPath::</s>
-			<s>" -I"</s><s>outputPath::</s>
-			
-			<s>" -I"</s><s>libsPath::</s><s>/Arduino/Buzzer/v1.0</s>
-			<s>" -I"</s><s>libsPath::</s><s>/Arduino/DCMotor/v1.0</s>
-			<s>" -I"</s><s>libsPath::</s><s>/Arduino/IRRanger/v1.0</s>
-			<s>" -I"</s><s>libsPath::</s><s>/Arduino/IRRemote/v1.0</s>
-			<s>" -I"</s><s>libsPath::</s><s>/Arduino/Ping/v1.0</s>
-			<s>" -I"</s><s>libsPath::</s><s>/Arduino/ServoRC/v1.0</s>
-			
-			<s>" "</s><s>libsPath::</s><s>/Arduino/DCMotor/v1.0/DCMotor.cpp" -o "</s><s>outputPath::</s><s>/DCMotor.cpp.o"</s>
-		</cmd>
 		<cmd>
 			<s>toolsPath::</s>
 			<s>/avr-g++ -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega168 -DF_CPU=16000000L -DARDUINO=22 </s>
@@ -67,8 +54,9 @@
 			<s>" -I"</s><s>componentPath::</s>
 			<s>" -I"</s><s>outputPath::</s>
 			
+			<s>includesBuildList::</s>
+
 			<s>" -I"</s><s>libsPath::</s><s>/Arduino/Buzzer/v1.0</s>
-			<s>" -I"</s><s>libsPath::</s><s>/Arduino/DCMotor/v1.0</s>
 			<s>" -I"</s><s>libsPath::</s><s>/Arduino/IRRanger/v1.0</s>
 			<s>" -I"</s><s>libsPath::</s><s>/Arduino/IRRemote/v1.0</s>
 			<s>" -I"</s><s>libsPath::</s><s>/Arduino/Ping/v1.0</s>
