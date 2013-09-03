@@ -1091,7 +1091,8 @@ bool Bubble::findErrorStringAndShow(const wxArrayString &value)
     //##unhardcode
     //##Hacer que el substring "error:" sea configurable en el target (e incluso más adelante, puedo usar
     //expresiones regulares):
-    if (    isSubstringInArrayString(value, wxString("error:")) ||
+    if (    isSubstringInArrayString(value, wxString("error")) ||
+            //isSubstringInArrayString(value, wxString("error:")) ||
             isSubstringInArrayString(value, wxString("Unable")) ||
             isSubstringInArrayString(value, wxString("can't")) ||
             isSubstringInArrayString(value, wxString("cannot")) ||
@@ -1140,7 +1141,7 @@ bool Bubble::verifyPortExistance()
     if (getNotifier() == NULL)
         return false;
 
-    getNotifier()->showMessage(_("Verifiying port ") + bootPortName, false, false, *wxBLUE);
+    getNotifier()->showMessage(_("Verifying port ") + bootPortName, false, false, *wxBLUE);
 
     if (getBootPortName() != wxString("HID")) ////HID or CDC board? ##Future: unhardcode.
     {
@@ -1176,7 +1177,7 @@ bool Bubble::deploy()
         getNotifier()->clearMessage();
 
         verifyPortExistance(); //##Return value not used by now.
-        getNotifier()->showMessage(_("Reseting the board...\n"), false, false, *wxBLUE);
+        getNotifier()->showMessage(_("\nReseting the board...\n"), false, false, *wxBLUE);
         getNotifier()->deployStartedNotify();
         resetBoard();
     }
@@ -1186,7 +1187,7 @@ bool Bubble::deploy()
         if ( !(getHardwareManager()->getCurrentBoardProperties()->getResetBeforeBuild()) )
         {
             verifyPortExistance(); //##Return value not used by now.
-            getNotifier()->showMessage(_("Reseting the board...\n"), false, false, *wxBLUE);
+            getNotifier()->showMessage(_("\nReseting the board...\n"), false, false, *wxBLUE);
             getNotifier()->deployStartedNotify();
             resetBoard();
         }
@@ -1265,7 +1266,7 @@ bool Bubble::deploy()
             //getNotifier()->showMessage(_("\n"), false, false, *wxBLUE);
 
             //Waits until the port does exist, but with a timeout:
-            getNotifier()->showMessage(_("\nVerifiying port ") + bootPortName, false, false, *wxBLUE);
+            getNotifier()->showMessage(_("\nVerifying port ") + bootPortName, false, false, *wxBLUE);
             //##Hacer la cantidad de iteraciones configurable:
             times = 0;
             while ( (!BubbleHardwareManager::serialPortExists(bootPortName)) && (times < 10) )
@@ -3107,40 +3108,12 @@ bool Bubble::runInternalCommand(const wxString& cmd)
 
 bool Bubble::resetBoard()
 {
-    //##Esto debe ir en el BubbleXML y la idea es que quede un property sobre si se debe resetear o no, en
-    //base a la existencia de la sección de reset:
+    wxString boardFileName = getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/main.board");
+    bool mustReset =    bubbleXML.sectionExists(boardFileName, wxString("resetInternal")) ||
+                        bubbleXML.sectionExists(boardFileName, wxString("resetExternal"));
 
-//    if not <reset> section
-//        return true;
-
-//bool sectionExists(
-//{
-//    wxXmlDocument xmlFile;
-//    if ( !xmlFile.Load(fileName, wxString("UTF-8")) )
-//        return result;
-//    wxXmlNode *root = xmlFile.GetRoot();
-//    if (root == NULL)
-//        return result;
-//    if (root->GetName() != wxString("board"))
-//        return result;
-//
-//    wxString tempName("");
-//    wxXmlNode *rootChild = root->GetChildren();
-//    while (rootChild)
-//    {
-//        tempName = rootChild->GetName();
-//        if (tempName == section)
-//            return true;
-//    }
-//    return false;
-//}
-//    bool mustReset = sectionExists();
-
-    //##Falta:
-    //Ver si existe alguna de las secciones internalReset o externalReset.
-    //Ver si el puerto es HID, para hacer o no los comandos de open del serial.
-    //Si el puerto no es HID: ver si el serial existe.
-
+    if (!mustReset)
+        return false;
 
     if (getNotifier() == NULL)
         return false;
@@ -3154,7 +3127,7 @@ bool Bubble::resetBoard()
 
         //Executes the internal commands, if any:
         commands.Clear();
-        commands = bubbleXML.loadBoardInternalCommands(wxString("resetInternal"), getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/main.board"));
+        commands = bubbleXML.loadBoardInternalCommands(wxString("resetInternal"), boardFileName);
         int i = 0, count = commands.GetCount();
         while (i < count)
         {
@@ -3166,7 +3139,7 @@ bool Bubble::resetBoard()
 
         //Executes the external commands, if any:
         commands.Clear();
-        commands = bubbleXML.loadBoardExternalCommands(wxString("resetExternal"), getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/main.board"));
+        commands = bubbleXML.loadBoardExternalCommands(wxString("resetExternal"), boardFileName);
         i = 0, count = commands.GetCount();
         while (i < count)
         {

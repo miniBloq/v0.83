@@ -218,13 +218,18 @@ class BubbleXML
         inline void setLanguageCode(const wxString& value) { languageCode = value; }
         inline const wxString &getLanguageCode() const { return languageCode; }
 
-        //Language/Blocks structure:
-        //int getValidBlocksCount(const wxString& path) const; //##Not necessary by now.
-        int getBlockFilesCount(const wxString& blocksPath, int flags);
+        //XML generic functions:
+        bool sectionExists(const wxString &fileName, const wxString &section);
+
+        //Variables:
         bool isXMLVariable(const wxString& variableName) const;
         wxString getInternalVariableValue(const wxString& variableName, const wxString& fileName) const;
         wxString getVariableValue(const wxString& variableName, const wxString& fileName) const;
         bool loadVariablesFromXML(const wxString& fileName, bool clearVariableList);
+
+        //Language/Blocks structure:
+        //int getValidBlocksCount(const wxString& path) const; //##Not necessary by now.
+        int getBlockFilesCount(const wxString& blocksPath, int flags);
         bool loadBlocksPropertiesFromXML(const wxString& fileName, bool clearVariableList);
 
         wxSize loadSizeFromXML(wxXmlNode *node, const wxString& fileName) const;

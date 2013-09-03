@@ -265,6 +265,30 @@ int BubbleXML::getBlockFilesCount(const wxString& blocksPath, int flags)
 }
 
 
+bool BubbleXML::sectionExists(const wxString &fileName, const wxString &section)
+{
+    wxXmlDocument xmlFile;
+    if ( !xmlFile.Load(fileName, wxString("UTF-8")) )
+        return false;
+    wxXmlNode *root = xmlFile.GetRoot();
+    if (root == NULL)
+        return false;
+    if (root->GetName() != wxString("board"))
+        return false;
+
+    wxString tempName("");
+    wxXmlNode *rootChild = root->GetChildren();
+    while (rootChild)
+    {
+        tempName = rootChild->GetName();
+        if (tempName == section)
+            return true;
+        rootChild = rootChild->GetNext();
+    }
+    return false;
+}
+
+
 bool BubbleXML::isXMLVariable(const wxString& variableName) const
 {
     if (variableName.Last() == ':')
