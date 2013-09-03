@@ -170,12 +170,11 @@ int MinibloqProperties::loadLanguages()
 
 void MinibloqProperties::selectDefaultLanguage()
 {
-    //##Implementar: Es la función que averigua cuál es el lenguaje seleccionado por defecto en el sistema operativo...
-    //##Por ahora selecciona el primer lenguaje:
+
     wxLanguageInfo lanInfo = *wxLocale::GetLanguageInfo(wxLocale::GetSystemLanguage());
     //wxLogWarning(lanInfo.CanonicalName.BeforeLast('_'));
     if ( !comboLanguage->setSelection(languageCode2Name[lanInfo.CanonicalName]) ) //Tries to load with the complete language and country name.
-        if ( !comboLanguage->setSelection( languageCode2Name[lanInfo.CanonicalName.BeforeLast('_')]) ) //Tries to match only the lanuage code.
+        if ( !comboLanguage->setSelection( languageCode2Name[lanInfo.CanonicalName.BeforeLast('_')]) ) //Tries to match only the language code.
             if ( !comboLanguage->setSelection(wxString("en")) ) //Tries to load English.
                 comboLanguage->setSelection(0); //Just loads the first entry from the combo...
 

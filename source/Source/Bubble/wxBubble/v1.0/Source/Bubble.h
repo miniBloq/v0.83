@@ -14,10 +14,15 @@
 #include "include/serport.h"
 
 #include <stack>
+#include <wx/hashmap.h>
+
 
 //##This is temporal:
 #define UNDER_DEVELOPMENT   0
 
+
+//Used to optimize image loading:
+WX_DECLARE_STRING_HASH_MAP(wxImage, ImagesHash);
 
 //##Puede que a esta clase le cambie el nombre, porque es más un intercambiador de información entre Bubble
 //y el frame (o quien herede de esta clase) que un verdadero Notifier. Cumple como notifier en una dirección
@@ -194,6 +199,9 @@ class BubbleXML
         wxLocale& locale;
         wxString languageCode;
 
+        //Images:
+        ImagesHash imagesHash;
+
         //##Horrible, but works nice!
         BubbleBlockInfo emptyBubbleInfo;
 
@@ -220,6 +228,7 @@ class BubbleXML
 
         //XML generic functions:
         bool sectionExists(const wxString &fileName, const wxString &section);
+        wxImage getImage(const wxString &fileName);
 
         //Variables:
         bool isXMLVariable(const wxString& variableName) const;

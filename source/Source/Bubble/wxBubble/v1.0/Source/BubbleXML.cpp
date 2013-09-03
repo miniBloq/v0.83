@@ -289,6 +289,17 @@ bool BubbleXML::sectionExists(const wxString &fileName, const wxString &section)
 }
 
 
+wxImage BubbleXML::getImage(const wxString &fileName)
+{
+    if (imagesHash.find(fileName) == imagesHash.end())
+    {
+        //The image were not loaded in the hash table, so it must be loaded and added to the table:
+        imagesHash[fileName] = wxImage(fileName);
+    }
+    return imagesHash[fileName]; //The image was previously loaded in the table, so it's returned.
+}
+
+
 bool BubbleXML::isXMLVariable(const wxString& variableName) const
 {
     if (variableName.Last() == ':')
@@ -775,13 +786,14 @@ bool BubbleXML::loadBlockInfoInterfaceFromXML(wxXmlNode *node, const wxString& f
                     {
                         //Only loads images, if there is a valid base path for them:
                         if (childOfChild->GetName() == "default")
-                            blockInfo->setPickerDefaultImage(wxImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
+                            //blockInfo->setPickerDefaultImage(wxImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent())); //##
+                            blockInfo->setPickerDefaultImage(getImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
                         else if (childOfChild->GetName() == "hover")
-                            blockInfo->setPickerHoverImage(wxImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
+                            blockInfo->setPickerHoverImage(getImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
                         else if (childOfChild->GetName() == "pressed")
-                            blockInfo->setPickerPressedImage(wxImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
+                            blockInfo->setPickerPressedImage(getImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
                         else if (childOfChild->GetName() == "disabled")
-                            blockInfo->setPickerDisabledImage(wxImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
+                            blockInfo->setPickerDisabledImage(getImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
 
                         //##getNotifier()->showMessage(wxString("image: ") + imagesBasePath + wxString("/") + childOfChild->GetNodeContent() + wxString("\n"), false, true, *wxBLUE); //##Debug.
                     }
@@ -809,13 +821,13 @@ bool BubbleXML::loadBlockInfoInterfaceFromXML(wxXmlNode *node, const wxString& f
                     {
                         //Only loads images, if there is a valid base path for them:
                         if (childOfChild->GetName() == "default")
-                            blockInfo->setBlockDefaultImage(wxImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
+                            blockInfo->setBlockDefaultImage(getImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
                         else if (childOfChild->GetName() == "hover")
-                            blockInfo->setBlockHoverImage(wxImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
+                            blockInfo->setBlockHoverImage(getImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
                         else if (childOfChild->GetName() == "pressed")
-                            blockInfo->setBlockPressedImage(wxImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
+                            blockInfo->setBlockPressedImage(getImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
                         else if (childOfChild->GetName() == "disabled")
-                            blockInfo->setBlockDisabledImage(wxImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
+                            blockInfo->setBlockDisabledImage(getImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
 
                         //##getNotifier()->showMessage(wxString("image: ") + imagesBasePath + wxString("/") + childOfChild->GetNodeContent() + wxString("\n"), false, true, *wxBLUE); //##Debug.
                     }
@@ -851,13 +863,13 @@ bool BubbleXML::loadBlockInfoInterfaceFromXML(wxXmlNode *node, const wxString& f
                     {
                         //Only loads images, if there is a valid base path for them:
                         if (childOfChild->GetName() == "default")
-                            blockInfo->setMethodDefaultImage(wxImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
+                            blockInfo->setMethodDefaultImage(getImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
                         else if (childOfChild->GetName() == "hover")
-                            blockInfo->setMethodHoverImage(wxImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
+                            blockInfo->setMethodHoverImage(getImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
                         else if (childOfChild->GetName() == "pressed")
-                            blockInfo->setMethodPressedImage(wxImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
+                            blockInfo->setMethodPressedImage(getImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
                         else if (childOfChild->GetName() == "disabled")
-                            blockInfo->setMethodDisabledImage(wxImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
+                            blockInfo->setMethodDisabledImage(getImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
 
                         //##getNotifier()->showMessage(wxString("image: ") + imagesBasePath + wxString("/") + childOfChild->GetNodeContent() + wxString("\n"), false, true, *wxBLUE); //##Debug.
                     }
@@ -885,13 +897,13 @@ bool BubbleXML::loadBlockInfoInterfaceFromXML(wxXmlNode *node, const wxString& f
                     {
                         //Only loads images, if there is a valid base path for them:
                         if (childOfChild->GetName() == "default")
-                            blockInfo->setAddParamsDefaultImage(wxImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
+                            blockInfo->setAddParamsDefaultImage(getImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
                         else if (childOfChild->GetName() == "hover")
-                            blockInfo->setAddParamsHoverImage(wxImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
+                            blockInfo->setAddParamsHoverImage(getImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
                         else if (childOfChild->GetName() == "pressed")
-                            blockInfo->setAddParamsPressedImage(wxImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
+                            blockInfo->setAddParamsPressedImage(getImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
                         else if (childOfChild->GetName() == "disabled")
-                            blockInfo->setAddParamsDisabledImage(wxImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
+                            blockInfo->setAddParamsDisabledImage(getImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
 
                         //##getNotifier()->showMessage(wxString("image: ") + imagesBasePath + wxString("/") + childOfChild->GetNodeContent() + wxString("\n"), false, true, *wxBLUE); //##Debug.
                     }
@@ -916,13 +928,13 @@ bool BubbleXML::loadBlockInfoInterfaceFromXML(wxXmlNode *node, const wxString& f
                     {
                         //Only loads images, if there is a valid base path for them:
                         if (childOfChild->GetName() == "default")
-                            blockInfo->setRemoveParamsDefaultImage(wxImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
+                            blockInfo->setRemoveParamsDefaultImage(getImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
                         else if (childOfChild->GetName() == "hover")
-                            blockInfo->setRemoveParamsHoverImage(wxImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
+                            blockInfo->setRemoveParamsHoverImage(getImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
                         else if (childOfChild->GetName() == "pressed")
-                            blockInfo->setRemoveParamsPressedImage(wxImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
+                            blockInfo->setRemoveParamsPressedImage(getImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
                         else if (childOfChild->GetName() == "disabled")
-                            blockInfo->setRemoveParamsDisabledImage(wxImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
+                            blockInfo->setRemoveParamsDisabledImage(getImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent()));
 
                         //##Debug:
                         //getNotifier()->showMessage(wxString("image: ") + imagesBasePath + wxString("/") + childOfChild->GetNodeContent() + wxString("\n"), false, true, *wxBLUE); //##Debug.
@@ -1034,15 +1046,15 @@ bool BubbleXML::loadBlockInfoParamsFromXML(wxXmlNode *node, const wxString& file
                 {
                     //Only loads images, if there is a valid base path for them:
                     if (childOfChild->GetName() == "notAssigned")
-                        imageParamNotAssigned = wxImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent());
+                        imageParamNotAssigned = getImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent());
                     else if (childOfChild->GetName() == "default")
-                        imageParamDefault = wxImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent());
+                        imageParamDefault = getImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent());
                     else if (childOfChild->GetName() == "hover")
-                        imageParamHover = wxImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent());
+                        imageParamHover = getImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent());
                     else if (childOfChild->GetName() == "pressed")
-                        imageParamPressed = wxImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent());
+                        imageParamPressed = getImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent());
                     else if (childOfChild->GetName() == "disabled")
-                        imageParamDisabled = wxImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent());
+                        imageParamDisabled = getImage(imagesBasePath + wxString("/") + childOfChild->GetNodeContent());
 
                     //##getNotifier()->showMessage(wxString("image: ") + imagesBasePath + wxString("/") + childOfChild->GetNodeContent() + wxString("\n"), false, true, *wxBLUE); //##Debug.
                 }
