@@ -273,7 +273,7 @@ MainFrame::MainFrame(   wxWindow* parent,
                                         useExternalHelpCenter(false),
 
                                         tempComponentNameCounter(1),
-                                        tempComponentName(wxString("Comp-1.mbqc")), //##Ver qué se hace con esto, si se descablea,
+                                        tempComponentName(wxString("")), //##Ver qué se hace con esto, si se descablea,
                                                                                  //porque en realidad este valor no se usa nunca,
                                                                                  //sino que se lo agrega por seguridad...
 
@@ -491,10 +491,11 @@ MainFrame::MainFrame(   wxWindow* parent,
     //##Ver si esto queda acá finalmente:
     //bubble.loadBlocks(); //Must be called BEFORE add a canvas ( which is done in CreateNotebook() ).
 
-    //This creates the first component:
-    changeBoardNotify();
+    //##changeBoardNotify();
     if (bubble.getCurrentCanvas())
         bubble.getCurrentCanvas()->setZoomIndex(3); //##Read this from the config file.
+
+    //bubble.loadBoardRelations();
 }
 
 
@@ -2577,6 +2578,10 @@ void MainFrame::onMenuFile(wxCommandEvent& evt)
 
 void MainFrame::createFileBlock(bool mainCanvas, const wxString &newTabName)
 {
+    //##Debug:
+    //wxMessageDialog dialog0(this, wxString("tempComponentNameCounter = ") << tempComponentNameCounter, _("createFileBlock"));
+    //dialog0.ShowModal();
+
     //##Optimizar:
         //Llamar a bubble.getCurrentCanvas() una sóla vez, guardándolo en una variable...
     //bubble.addCanvas(ctrl); //##Funciona.
@@ -2602,7 +2607,8 @@ void MainFrame::createFileBlock(bool mainCanvas, const wxString &newTabName)
 //                            wxString(".mbqc");
         if (newTabName == wxString(""))
         {
-            tempComponentName = wxString("Comp-") << tempComponentNameCounter++;
+            tempComponentName = wxString("Comp-") << tempComponentNameCounter;
+            tempComponentNameCounter++;
             tempComponentName += wxString(".mbqc");
         }
         else
@@ -2628,6 +2634,10 @@ void MainFrame::createFileBlock(bool mainCanvas, const wxString &newTabName)
 
 void MainFrame::createComponent(bool canCancel)
 {
+    //##Debug:
+    //wxMessageDialog dialog0(this, wxString("tempComponentNameCounter = ") << tempComponentNameCounter, _("createComponent"));
+    //dialog0.ShowModal();
+
     //##Mejorar todo esto en el futuro:
 
     //##¿Qué pasa si no hay notebook en los 2 if que preguntan esto acá:?
@@ -2722,6 +2732,7 @@ void MainFrame::createComponent(bool canCancel)
     //bubble.setComponentPath(bubble.getComponentsRepositoryPath() + wxString("/work"));
     bubble.setComponentPath(bubble.getTempPath());
     bubble.setOutputPath(bubble.getComponentPath() + wxString("/") + aux.GetName() + wxString("_files/output"));
+    //bubble.loadBoardRelations();
 }
 
 

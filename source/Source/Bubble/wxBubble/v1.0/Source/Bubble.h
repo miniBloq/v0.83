@@ -158,7 +158,13 @@ class BubbleBoardProperties
                 setIncludeCodePostfix(boardProperties->getIncludeCodePostfix());
                 setIncludeBuildPrefix(boardProperties->getIncludeBuildPrefix());
                 setIncludeBuildPostfix(boardProperties->getIncludeBuildPostfix());
-                relCommands = *(boardProperties->getRelCommands());
+                //relCommands = *(boardProperties->getRelCommands());
+                unsigned int i = 0;
+                while (i < boardProperties->getRelCommandsCount())
+                {
+                    relCommands.Add(boardProperties->getRelCommand(i));
+                    i++;
+                }
             }
         }
 
@@ -213,7 +219,18 @@ class BubbleBoardProperties
         inline void setIncludeBuildPostfix(const wxString& value) { includeBuildPostfix = value; }
         inline const wxString &getIncludeBuildPostfix() const { return includeBuildPostfix; }
 
-        inline wxArrayString* getRelCommands() { return &relCommands; }
+        inline void clearRelCommands() { return relCommands.Clear(); };
+        inline unsigned int getRelCommandsCount() const { return relCommands.GetCount(); };
+        inline void addRelCommand(const wxString& value)
+        {
+            relCommands.Add(value);
+        }
+        inline const wxString getRelCommand(const unsigned int index) const
+        {
+            if (index < relCommands.GetCount())
+                return relCommands[index];
+            return wxString("");
+        }
 };
 
 
@@ -294,11 +311,12 @@ class BubbleXML
         //Hardware:
         BubbleBoardProperties *loadBoardProperties(const wxString &fullBoardFileName);
         //wxString parseCmd(const wxString &cmd);
-        const wxArrayString loadBoardExternalCommands(const wxString &section, const wxString &fullBoardFileName);
-        const wxArrayString loadBoardInternalCommands(const wxString &section, const wxString &fullBoardFileName);
+        const wxArrayString loadExternalCommands(const wxString &section, const wxString &fullBoardFileName);
+        const wxArrayString loadInternalCommands(const wxString &section, const wxString &fullBoardFileName);
         int loadHardwareTargets(BubbleHardwareManager *hardwareManager);
         bool loadBoardInstancesFromXML(wxXmlNode *node, BubbleCanvasInfo *canvasInfo);
         bool loadRelData(const wxString &relFileName, BubbleBoardProperties *boardProperties);
+        int loadBoardRelations();
         bool loadIncludePathsFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties);
 
         //Canvas:
@@ -478,6 +496,7 @@ class Bubble : public IBubbleFileIO
         inline const wxString &getBoardName() const { return boardName; }
         bool loadTargetFromFile(const wxString& name); //##See the question about name target/board.
         bool saveTargetToFile(const wxString& name); //##See the question about name target/board.
+        int loadBoardRelations();
 
         //Board drivers:
         bool winInstallINF(); //##Testing.

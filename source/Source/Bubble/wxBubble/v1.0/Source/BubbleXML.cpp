@@ -1455,10 +1455,6 @@ int BubbleXML::loadBlocksInfo(wxWindow *pickersParent, bool showPickers) //##Hac
                 }
                 counter++;
             }
-
-            //Now, loads the rel data into the board properties. The "rel data" belongs to the relation between
-            //the block and the hardware target).
-            loadRelData(fullRelFileName, bubble->getHardwareManager()->getCurrentBoardProperties());
         }
         //result = dir.GetNext(&fileName);
     }
@@ -1483,6 +1479,42 @@ int BubbleXML::loadBlocksInfo(wxWindow *pickersParent, bool showPickers) //##Hac
     bubble->getNotifier()->setProgressPosition(bubble->getNotifier()->getProgressMax(), false, false);
     bubble->getNotifier()->hideMessagesWindow();
 
+    return counter; //##
+}
+
+
+
+int BubbleXML::loadBoardRelations()
+{
+    //wxMessageDialog dialog0(parent, wxString("Loading blocks..."), _("0")); //##Debug.
+    //dialog0.ShowModal(); //##Debug.
+    if (bubble == NULL)
+        return -1;
+    if (bubble->getHardwareManager() == NULL)
+        return -1;
+    if (bubble->getHardwareManager()->getCurrentBoardProperties() == NULL)
+        return -1;
+
+    wxDir dir(bubble->getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/rel"));
+    if ( !dir.IsOpened() )
+        return -3;
+
+    bubble->getHardwareManager()->getCurrentBoardProperties()->clearRelCommands();
+    wxString fileName;
+    int counter = 0;
+    bool result = dir.GetFirst(&fileName, wxEmptyString, wxDIR_DEFAULT);
+    while (result)
+    {
+        wxString fullRelFileName = bubble->getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/rel/") + fileName;
+        //wxMessageDialog dialog2(bubble->getParent(), fullRelFileName, _("loadBoardRelations")); //##Debug
+        //dialog2.ShowModal(); //##Debug
+        if (wxFile::Exists(fullRelFileName))
+        {
+            loadRelData(fullRelFileName, bubble->getHardwareManager()->getCurrentBoardProperties());
+        }
+        counter++;
+        result = dir.GetNext(&fileName);
+    }
     return counter; //##
 }
 
@@ -1676,7 +1708,7 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
 }
 
 
-const wxArrayString BubbleXML::loadBoardInternalCommands(const wxString &section, const wxString &fullBoardFileName)
+const wxArrayString BubbleXML::loadInternalCommands(const wxString &section, const wxString &fullBoardFileName)
 {
     wxArrayString result;
     result.Clear();
@@ -1740,7 +1772,7 @@ const wxArrayString BubbleXML::loadBoardInternalCommands(const wxString &section
 }
 
 
-const wxArrayString BubbleXML::loadBoardExternalCommands(const wxString &section, const wxString &fullBoardFileName)
+const wxArrayString BubbleXML::loadExternalCommands(const wxString &section, const wxString &fullBoardFileName)
 {
     wxString resultStr("");
     wxArrayString result;
@@ -1755,8 +1787,6 @@ const wxArrayString BubbleXML::loadBoardExternalCommands(const wxString &section
         return result;
     wxXmlNode *root = boardFile.GetRoot();
     if (root == NULL)
-        return result;
-    if (root->GetName() != wxString("board"))
         return result;
 
     wxString tempName("");
@@ -1838,6 +1868,7 @@ bool BubbleXML::loadRelData(const wxString &relFileName, BubbleBoardProperties *
     {
         return false;
     }
+    relFile.Close();
 
     { //Local code block.
         wxXmlDocument relFileXML;
@@ -1863,15 +1894,13 @@ bool BubbleXML::loadRelData(const wxString &relFileName, BubbleBoardProperties *
 
     wxArrayString commands;
     commands.Clear();
-    commands = loadBoardExternalCommands(wxString("build"), relFileName);
+    commands = loadExternalCommands(wxString("build"), relFileName);
 
-    if (boardProperties->getRelCommands())
+    unsigned int i = 0;
+    while (i < commands.GetCount())
     {
-        unsigned int i = 0;
-        while (i < commands.GetCount())
-        {
-            boardProperties->getRelCommands()->Add(commands[i]);
-        }
+        boardProperties->addRelCommand(commands[i]);
+        i++;
     }
     return true;
 }

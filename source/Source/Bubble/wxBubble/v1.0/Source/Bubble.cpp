@@ -506,6 +506,12 @@ bool Bubble::saveTargetToFile(const wxString& name)
 }
 
 
+int Bubble::loadBoardRelations()
+{
+    return bubbleXML.loadBoardRelations();
+}
+
+
 BubbleBlockInfo Bubble::loadBlockFromXML(wxXmlNode *child)
 {
     wxString returnValue("");
@@ -1200,7 +1206,7 @@ bool Bubble::deploy()
 
         //Load the commands from the .board XML file:
         commands.Clear();
-        commands = bubbleXML.loadBoardExternalCommands(wxString("deploy"), getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/main.board"));
+        commands = bubbleXML.loadExternalCommands(wxString("deploy"), getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/main.board"));
         //cmd = bubbleXML.parseCmd(cmd);
 
         //Executes the loaded commands:
@@ -1556,14 +1562,15 @@ bool Bubble::build()
         //##getNotifier()->setProgressPosition(0, false, false);
         getNotifier()->clearMessage();
 
+        loadBoardRelations();
+
         //Loads and executes the commands from the .rel XML files:
         wxArrayString output, errors;
         wxString cmd("");
-        int i = 0;
-        int count = (getHardwareManager()->getCurrentBoardProperties()->getRelCommands())->GetCount();
-        while (i < count)
+        unsigned int i = 0;
+        while (i < getHardwareManager()->getCurrentBoardProperties()->getRelCommandsCount())
         {
-            cmd = (*(getHardwareManager()->getCurrentBoardProperties()->getRelCommands()))[i];
+            cmd = getHardwareManager()->getCurrentBoardProperties()->getRelCommand(i);
             getNotifier()->showMessage(/*(wxString("") << i) + wxString(": ") + */cmd + wxString("\n"), false, true, *wxGREEN);
             wxExecute(cmd, output, errors);
 
@@ -1578,7 +1585,7 @@ bool Bubble::build()
         cmd = wxString("");
         wxArrayString commands;
         commands.Clear();
-        commands = bubbleXML.loadBoardExternalCommands(wxString("build"), getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/main.board"));
+        commands = bubbleXML.loadExternalCommands(wxString("build"), getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/main.board"));
         //cmd = bubbleXML.parseCmd(cmd);
 
         //wxMessageDialog dialog0(parent, wxString("") << count, _("commands:"));
@@ -1586,8 +1593,7 @@ bool Bubble::build()
 
         //Executes the loaded commands:
         i = 0;
-        count = commands.GetCount();
-        while (i < count)
+        while (i < commands.GetCount())
         {
             cmd = commands[i];
             getNotifier()->showMessage(/*(wxString("") << i) + wxString(": ") + */cmd + wxString("\n"), false, true, *wxGREEN);
@@ -3147,7 +3153,7 @@ bool Bubble::resetBoard()
 
         //Executes the internal commands, if any:
         commands.Clear();
-        commands = bubbleXML.loadBoardInternalCommands(wxString("resetInternal"), boardFileName);
+        commands = bubbleXML.loadInternalCommands(wxString("resetInternal"), boardFileName);
         int i = 0, count = commands.GetCount();
         while (i < count)
         {
@@ -3159,7 +3165,7 @@ bool Bubble::resetBoard()
 
         //Executes the external commands, if any:
         commands.Clear();
-        commands = bubbleXML.loadBoardExternalCommands(wxString("resetExternal"), boardFileName);
+        commands = bubbleXML.loadExternalCommands(wxString("resetExternal"), boardFileName);
         i = 0, count = commands.GetCount();
         while (i < count)
         {
