@@ -513,8 +513,6 @@ class Bubble : public IBubbleFileIO
         inline BubbleHardwareManager *getHardwareManager() const { return hardwareManager; }
         bool setBoardName(const wxString& value, wxWindow *pickersParent);
         inline const wxString &getBoardName() const { return boardName; }
-        bool loadTargetFromFile(const wxString& name); //##See the question about name target/board.
-        bool saveTargetToFile(const wxString& name); //##See the question about name target/board.
         int loadBoardRelations();
 
         //Board drivers:

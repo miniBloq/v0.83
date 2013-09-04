@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rel xmlns="http://rel.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
 	<includePaths>
-		<include><s>libsPath::</s><s>/Arduino/Buzzer/v1.0</s></include>
 		<include><s>libsPath::</s><s>/Arduino/DCMotor/v1.0</s></include>
-		<include><s>libsPath::</s><s>/Arduino/IRRanger/v1.0</s></include>
-		<include><s>libsPath::</s><s>/Arduino/IRRemote/v1.0</s></include>
-		<include><s>libsPath::</s><s>/Arduino/Ping/v1.0</s></include>
-		<include><s>libsPath::</s><s>/Arduino/ServoRC/v1.0</s></include>
 	</includePaths>
 	<build>
 		<cmd>
@@ -19,7 +14,6 @@
 			<s>" -I"</s><s>corePath::</s>
 			<s>" -I"</s><s>componentPath::</s>
 			<s>" -I"</s><s>outputPath::</s><s>" </s>
-			
 			<s>-I"</s><s>libsPath::</s><s>/Arduino/DCMotor/v1.0" </s>
 			
 			<s>"</s><s>libsPath::</s><s>/Arduino/DCMotor/v1.0/DCMotor.cpp" -o "</s><s>outputPath::</s><s>/DCMotor.cpp.o"</s>

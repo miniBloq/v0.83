@@ -485,27 +485,6 @@ bool Bubble::setBoardName(const wxString& value, wxWindow *pickersParent)
 }
 
 
-bool Bubble::loadTargetFromFile(const wxString& name)
-{
-#if (!UNDER_DEVELOPMENT)
-    //##Implementar...
-    return false;
-#endif
-}
-
-
-bool Bubble::saveTargetToFile(const wxString& name)
-{
-    //##Implementar...
-    //##Ver si esto estará disponible en la primer versión, o incluso en las subsiguientes... Porque por
-    //ahora el target no puede ser editado en Minibloq, aunque en el futuro sí...
-#if (!UNDER_DEVELOPMENT)
-    //##Implementar...
-    return false;
-#endif
-}
-
-
 int Bubble::loadBoardRelations()
 {
     return bubbleXML.loadBoardRelations();
