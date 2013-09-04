@@ -273,9 +273,9 @@ MainFrame::MainFrame(   wxWindow* parent,
                                         useExternalHelpCenter(false),
 
                                         tempComponentNameCounter(1),
-                                        tempComponentName(wxString("")), //##Ver qué se hace con esto, si se descablea,
-                                                                                 //porque en realidad este valor no se usa nunca,
-                                                                                 //sino que se lo agrega por seguridad...
+                                        tempComponentName(wxString("Comp-1")),  //##Future: This should be initialized after
+                                                                                //checking that the Comp-1 does not exist
+                                                                                //in the temp directory yet...
 
                                         showingMessageArea(true),
                                         componentAlreadySaved(false)
