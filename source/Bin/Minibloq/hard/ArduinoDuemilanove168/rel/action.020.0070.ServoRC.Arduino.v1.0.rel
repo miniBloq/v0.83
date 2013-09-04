@@ -3,6 +3,9 @@
 	<includePaths>
 		<include><s>libsPath::</s><s>/Arduino/ServoRC/v1.0</s></include>
 	</includePaths>
+	<includeFiles>
+		<include><s>Servo.h</s></include>
+	</includeFiles>
 	<build>
 		<cmd>
 			<s>toolsPath::</s>

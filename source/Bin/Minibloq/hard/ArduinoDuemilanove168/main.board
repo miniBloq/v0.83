@@ -27,7 +27,11 @@
 		<includeBuildPrefix> -I"</includeBuildPrefix>
 		<includeBuildPostfix>"</includeBuildPostfix>
 		<arduinoVersion>22</arduinoVersion>
+		<objectExtension>o</objectExtension>
     </properties>
+	<includeFiles>
+		<include><s>stdlib.h</s></include>
+	</includeFiles>
 	<build>
 		<cmd>
 			<s>toolsPath::</s>
@@ -45,13 +49,9 @@
 		<cmd>
 			<s>toolsPath::</s>
 			<s>/avr-gcc -Os -Wl,--gc-sections -mmcu=atmega168 -o</s>
-			<s>"</s><s>outputPath::</s><s>/main.cpp.elf" "</s>
-			
-			<s>outputPath::</s><s>/DCMotor.cpp.o" "</s>
-			<s>outputPath::</s><s>/IRRemote.cpp.o" "</s>
-			<s>outputPath::</s><s>/Servo.cpp.o" "</s>
-			
-			<s>outputPath::</s><s>/minibloq.cpp.o" "</s>
+			<s>"</s><s>outputPath::</s><s>/main.cpp.elf" </s>
+			<s>outputObjectsList::</s>
+			<s> "</s><s>outputPath::</s><s>/minibloq.cpp.o" "</s>
 			<s>corePath::</s><s>/obj/</s><s>core::</s><s>"</s>
 			<s> -L ./ -lm</s>
 		</cmd>

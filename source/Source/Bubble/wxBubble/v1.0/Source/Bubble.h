@@ -111,6 +111,7 @@ class BubbleBoardProperties
         wxString includeBuildPrefix;
         wxString includeBuildPostfix;
         wxString arduinoVersion; //This is specific to Arduino-compatible hardware, but needed by now.
+        wxString objectExtension;
         wxArrayString relCommands;
 
     public:
@@ -133,7 +134,8 @@ class BubbleBoardProperties
                                     includeCodePostfix(wxString("")),
                                     includeBuildPrefix(wxString("")),
                                     includeBuildPostfix(wxString("")),
-                                    arduinoVersion(wxString(""))
+                                    arduinoVersion(wxString("")),
+                                    objectExtension(wxString(""))
         {
             relCommands.Clear(); //Not necessary, but just in case.
         }
@@ -167,6 +169,7 @@ class BubbleBoardProperties
                 setIncludeBuildPrefix(boardProperties->getIncludeBuildPrefix());
                 setIncludeBuildPostfix(boardProperties->getIncludeBuildPostfix());
                 setArduinoVersion(boardProperties->getArduinoVersion());
+                setObjectExtension(boardProperties->getObjectExtension());
                 //relCommands = *(boardProperties->getRelCommands());
                 unsigned int i = 0;
                 while (i < boardProperties->getRelCommandsCount())
@@ -237,6 +240,9 @@ class BubbleBoardProperties
 
         inline void setArduinoVersion(const wxString& value) { arduinoVersion = value; }
         inline const wxString &getArduinoVersion() const { return arduinoVersion; }
+
+        inline void setObjectExtension(const wxString& value) { objectExtension = value; }
+        inline const wxString &getObjectExtension() const { return objectExtension; }
 
         inline void clearRelCommands() { return relCommands.Clear(); };
         inline unsigned int getRelCommandsCount() const { return relCommands.GetCount(); };
@@ -510,6 +516,7 @@ class Bubble : public IBubbleFileIO
         inline wxString getIncludesCodeList() const { return includesCodeList; }
         inline void setIncludesBuildList(const wxString &value) { includesBuildList = value; }
         inline wxString getIncludesBuildList() const { return includesBuildList; }
+        wxString getOutputObjectsList(const wxString &fileExtension);
         inline BubbleHardwareManager *getHardwareManager() const { return hardwareManager; }
         bool setBoardName(const wxString& value, wxWindow *pickersParent);
         inline const wxString &getBoardName() const { return boardName; }

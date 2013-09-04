@@ -359,6 +359,9 @@ wxString BubbleXML::getInternalVariableValue(const wxString& variableName, const
         return bubble->getHardwareManager()->getCurrentBoardProperties()->getIncludeBuildPostfix();
     if (variableName == "arduinoVersion::")
         return bubble->getHardwareManager()->getCurrentBoardProperties()->getArduinoVersion();
+    if (variableName == "objectExtension::")
+        return bubble->getHardwareManager()->getCurrentBoardProperties()->getObjectExtension();
+
     if (variableName == "cpu::")
         return bubble->getHardwareManager()->getCurrentBoardProperties()->getCpu();
     if (variableName == "clockFreq::")
@@ -368,6 +371,12 @@ wxString BubbleXML::getInternalVariableValue(const wxString& variableName, const
         return bubble->getIncludesCodeList();
     if (variableName == "includesBuildList::")
         return bubble->getIncludesBuildList();
+
+    if (variableName == "outputObjectsList::")
+    {
+        return bubble->getOutputObjectsList(bubble->getHardwareManager()->getCurrentBoardProperties()->getObjectExtension());
+    }
+
 
     if (fileName != wxString(""))
     {
@@ -1711,6 +1720,10 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
                 else if (child->GetName() == "arduinoVersion")
                 {
                     boardInfo->setArduinoVersion(child->GetNodeContent());
+                }
+                else if (child->GetName() == "objectExtension")
+                {
+                    boardInfo->setObjectExtension(child->GetNodeContent());
                 }
 
                 child = child->GetNext();

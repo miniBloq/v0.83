@@ -3,4 +3,7 @@
 	<includePaths>
 		<include><s>libsPath::</s><s>/Arduino/Ping/v1.0</s></include>
 	</includePaths>
+	<includeFiles>
+		<include><s>Ping.h</s></include>
+	</includeFiles>
 </rel>

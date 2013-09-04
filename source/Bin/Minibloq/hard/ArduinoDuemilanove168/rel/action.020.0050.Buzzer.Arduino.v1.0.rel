@@ -3,4 +3,7 @@
 	<includePaths>
 		<include><s>libsPath::</s><s>/Arduino/Buzzer/v1.0</s></include>
 	</includePaths>
+	<includeFiles>
+		<include><s>pitches.h</s></include>
+	</includeFiles>
 </rel>

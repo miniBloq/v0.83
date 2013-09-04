@@ -3,6 +3,9 @@
 	<includePaths>
 		<include><s>libsPath::</s><s>/Arduino/DCMotor/v1.0</s></include>
 	</includePaths>
+	<includeFiles>
+		<include><s>DCMotor.h</s></include>
+	</includeFiles>
 	<build>
 		<cmd>
 			<s>toolsPath::</s>

@@ -3,6 +3,9 @@
 	<includePaths>
 		<include><s>libsPath::</s><s>/Arduino/IRremote/v1.0</s></include>
 	</includePaths>
+	<includeFiles>
+		<include><s>IRremote.h</s></include>
+	</includeFiles>
 	<build>
 		<cmd>
 			<s>toolsPath::</s>

@@ -485,6 +485,29 @@ bool Bubble::setBoardName(const wxString& value, wxWindow *pickersParent)
 }
 
 
+wxString Bubble::getOutputObjectsList(const wxString &fileExtension)
+{
+    wxString list("");
+
+    wxDir dir(outputPath);
+    if ( !dir.IsOpened() )
+        return list;
+
+    wxString fileName;
+    //##This filter is not working, apparently due to a wxDir known bug:
+    //bool result = dir.GetFirst(&fileName, wxString("*.") + fileExtension, wxDIR_DEFAULT);
+    bool result = dir.GetFirst(&fileName, wxEmptyString, wxDIR_DEFAULT);
+    while (result)
+    {
+        if (fileName.AfterLast('.') == fileExtension)
+            list += wxString("\"") + outputPath + wxString("/") + fileName + wxString("\" ");
+        result = dir.GetNext(&fileName);
+    }
+
+    return list; //##Not used by now.
+}
+
+
 int Bubble::loadBoardRelations()
 {
     return bubbleXML.loadBoardRelations();
