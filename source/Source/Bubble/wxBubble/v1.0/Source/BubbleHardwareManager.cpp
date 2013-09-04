@@ -90,17 +90,18 @@ BubbleHardwareManager::BubbleHardwareManager(   wxWindow* parent,
     {
         comboBoardName->setSorted(false);
         bubble->loadHardwareTargets(this);
-        comboBoardName->Connect(wxEVT_COMMAND_TEXT_UPDATED,
-                                wxCommandEventHandler(BubbleHardwareManager::onComboBoardNameChanged),
-                                NULL,
-                                this
-                               );
 
         BubbleBoardProperties *firstBoard = NULL;
         firstBoard = &(boardsProperties.Item(0));
         currentBoardProperties->set(firstBoard);
 
         comboBoardName->setSelection(0); //##Load this from the "last config" file.
+
+        comboBoardName->Connect(wxEVT_COMMAND_TEXT_UPDATED,
+                                wxCommandEventHandler(BubbleHardwareManager::onComboBoardNameChanged),
+                                NULL,
+                                this
+                               );
 
         //This is not necessary because the setSelection call triggers the onComboBoardNameChanged event,
         //which does set the Board Name (in fact, those lines will make the program startup slower):

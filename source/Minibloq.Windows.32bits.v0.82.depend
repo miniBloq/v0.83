@@ -3201,7 +3201,7 @@
 	"BubbleEditor.h"
 	<wx/stc/stc.h>
 
-1377833690 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblehardwaremanager.cpp
+1378332011 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblehardwaremanager.cpp
 	"BubbleHardwareManager.h"
 	"Bubble.h"
 	<windows.h>
@@ -3787,7 +3787,7 @@
 
 1252039916 c:\apps\codeblocks-rg.v0.1\sdk\wxwidgets\wxwidgets-2.9.0\include\wx\listimpl.cpp
 
-1378314932 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\mainframe.cpp
+1378332336 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\mainframe.cpp
 	"MainFrame.h"
 	"Minibloq.xpm"
 	<wx/menu.h>

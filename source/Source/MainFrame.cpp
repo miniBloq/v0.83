@@ -272,7 +272,7 @@ MainFrame::MainFrame(   wxWindow* parent,
 
                                         useExternalHelpCenter(false),
 
-                                        tempComponentNameCounter(1),
+                                        tempComponentNameCounter(0),
                                         tempComponentName(wxString("Comp-1")),  //##Future: This should be initialized after
                                                                                 //checking that the Comp-1 does not exist
                                                                                 //in the temp directory yet...
@@ -352,7 +352,7 @@ MainFrame::MainFrame(   wxWindow* parent,
     //At first, the component path is the Temp path:
     bubble.setComponentPath(bubble.getTempPath());
     wxFileName aux(tempComponentName);
-    bubble.setOutputPath(bubble.getComponentPath() + wxString("/") + aux.GetName() + wxString("_files/output"));
+    bubble.setOutputPath(bubble.getComponentPath() + wxString("/") + aux.GetName() + wxString("/output"));
     bubble.setTargetsPath(bubble.getComponentsRepositoryPath() + wxString("/hard"));
     bubble.setDocPath(bubble.getAppPath() + wxString("/Doc"));
 
@@ -491,7 +491,7 @@ MainFrame::MainFrame(   wxWindow* parent,
     //##Ver si esto queda acá finalmente:
     //bubble.loadBlocks(); //Must be called BEFORE add a canvas ( which is done in CreateNotebook() ).
 
-    //##changeBoardNotify();
+    changeBoardNotify();
     if (bubble.getCurrentCanvas())
         bubble.getCurrentCanvas()->setZoomIndex(3); //##Read this from the config file.
 
@@ -2731,7 +2731,7 @@ void MainFrame::createComponent(bool canCancel)
     wxFileName aux(tempComponentName);
     //bubble.setComponentPath(bubble.getComponentsRepositoryPath() + wxString("/work"));
     bubble.setComponentPath(bubble.getTempPath());
-    bubble.setOutputPath(bubble.getComponentPath() + wxString("/") + aux.GetName() + wxString("_files/output"));
+    bubble.setOutputPath(bubble.getComponentPath() + wxString("/") + aux.GetName() + wxString("/output"));
     //bubble.loadBoardRelations();
 }
 
@@ -2911,7 +2911,7 @@ bool MainFrame::openFileComponent(const wxString &defaultDir)
             wxFileName aux(dialog.GetPath());
             bubble.setComponentPath(aux.GetPath());
             tempComponentName = aux.GetFullName();
-            bubble.setOutputPath(bubble.getComponentPath() + wxString("/") + aux.GetName() + wxString("_files/output"));
+            bubble.setOutputPath(bubble.getComponentPath() + wxString("/") + aux.GetName() + wxString("/output"));
             componentAlreadySaved = true;
         }
         if (tempCurrentCanvas)
@@ -2958,7 +2958,7 @@ void MainFrame::saveComponentAs()
                 wxFileName aux(dialog.GetPath());
                 bubble.setComponentPath(aux.GetPath());
                 tempComponentName = aux.GetFullName();
-                bubble.setOutputPath(bubble.getComponentPath() + wxString("/") + aux.GetName() + wxString("_files/output"));
+                bubble.setOutputPath(bubble.getComponentPath() + wxString("/") + aux.GetName() + wxString("/output"));
 
                 componentAlreadySaved = true;
                 if (bubble.getCurrentCanvas())
@@ -4019,6 +4019,10 @@ void MainFrame::processTerminationNotify()
 
 void MainFrame::changeBoardNotify()
 {
+    //##Debug:
+    //wxMessageDialog dialog0(this, tempComponentName, _("changeBoardNotify"));
+    //dialog0.ShowModal();
+
     //##Destroy the current canvas (but giving to the user the chance to save his work) and creates a new
     //empty component.
 
