@@ -1092,6 +1092,8 @@ bool Bubble::findErrorStringAndShow(const wxArrayString &value)
     if (    isSubstringInArrayString(value, wxString("error")) ||
             //isSubstringInArrayString(value, wxString("error:")) ||
             isSubstringInArrayString(value, wxString("Unable")) ||
+            isSubstringInArrayString(value, wxString("no such")) ||
+            isSubstringInArrayString(value, wxString("No such")) ||
             isSubstringInArrayString(value, wxString("can't")) ||
             isSubstringInArrayString(value, wxString("cannot")) ||
             isSubstringInArrayString(value, wxString("incorrect")) ||
@@ -1540,7 +1542,8 @@ bool Bubble::build()
 {
     if (getHardwareManager() == NULL)
         return false;
-
+    if (getHardwareManager()->getCurrentBoardProperties() == NULL)
+        return false;
     if (getNotifier() == NULL)
         return false;
 
@@ -1553,18 +1556,37 @@ bool Bubble::build()
         //##getNotifier()->setProgressPosition(0, false, false);
         getNotifier()->clearMessage();
 
-        wxArrayString output, errors, commands;
+        //Loads and executes the commands from the .rel XML files:
+        wxArrayString output, errors;
         wxString cmd("");
+        int i = 0;
+        int count = (getHardwareManager()->getCurrentBoardProperties()->getRelCommands())->GetCount();
+        while (i < count)
+        {
+            cmd = (*(getHardwareManager()->getCurrentBoardProperties()->getRelCommands()))[i];
+            getNotifier()->showMessage(/*(wxString("") << i) + wxString(": ") + */cmd + wxString("\n"), false, true, *wxGREEN);
+            wxExecute(cmd, output, errors);
 
-        //Load the commands from the .board XML file:
+            //Build process ends when a command finds an error:
+            if (findErrorStringAndShow(errors))
+                return false;
+            i++;
+        }
+        showStream(output, *wxWHITE);
+
+        //Loads and executes the commands from the .board XML file:
+        cmd = wxString("");
+        wxArrayString commands;
         commands.Clear();
         commands = bubbleXML.loadBoardExternalCommands(wxString("build"), getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/main.board"));
         //cmd = bubbleXML.parseCmd(cmd);
 
-        //Executes the loaded commands:
-        int i = 0, count = commands.GetCount();
         //wxMessageDialog dialog0(parent, wxString("") << count, _("commands:"));
         //dialog0.ShowModal();
+
+        //Executes the loaded commands:
+        i = 0;
+        count = commands.GetCount();
         while (i < count)
         {
             cmd = commands[i];

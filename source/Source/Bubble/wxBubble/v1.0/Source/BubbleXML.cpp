@@ -1835,34 +1835,44 @@ bool BubbleXML::loadRelData(const wxString &relFileName, BubbleBoardProperties *
 
     wxFile relFile(relFileName, wxFile::read);
     if (relFile.Length() == 0) //If the file is empty, do nothing.
-        return false;
-
-    wxXmlDocument relFileXML;
-    if ( !relFileXML.Load(relFileName, wxString("UTF-8")) )
-        return false;
-
-    wxXmlNode *root = relFileXML.GetRoot();
-    if (root == NULL)
-        return false; //rel files may be empty, so this ends fast in that case.
-    if (root->GetName() != wxString("rel"))
-        return false;
-
-    wxString tempName("");
-    wxXmlNode *rootChild = root->GetChildren();
-    while (rootChild)
     {
-        tempName = rootChild->GetName();
-        if (tempName == wxString("includePaths"))
-            loadIncludePathsFromXML(rootChild, boardProperties);
-        rootChild = rootChild->GetNext();
+        return false;
     }
+
+    { //Local code block.
+        wxXmlDocument relFileXML;
+        if ( !relFileXML.Load(relFileName, wxString("UTF-8")) )
+            return false;
+
+        wxXmlNode *root = relFileXML.GetRoot();
+        if (root == NULL)
+            return false; //rel files may be empty, so this ends fast in that case.
+        if (root->GetName() != wxString("rel"))
+            return false;
+
+        wxString tempName("");
+        wxXmlNode *rootChild = root->GetChildren();
+        while (rootChild)
+        {
+            tempName = rootChild->GetName();
+            if (tempName == wxString("includePaths"))
+                loadIncludePathsFromXML(rootChild, boardProperties);
+            rootChild = rootChild->GetNext();
+        }
+    } //Destroys the relFileXML.
 
     wxArrayString commands;
     commands.Clear();
     commands = loadBoardExternalCommands(wxString("build"), relFileName);
 
-    //##Ver cómo se agregan los comandos del build del rel al proceso de build final del .board...
-
+    if (boardProperties->getRelCommands())
+    {
+        unsigned int i = 0;
+        while (i < commands.GetCount())
+        {
+            boardProperties->getRelCommands()->Add(commands[i]);
+        }
+    }
     return true;
 }
 

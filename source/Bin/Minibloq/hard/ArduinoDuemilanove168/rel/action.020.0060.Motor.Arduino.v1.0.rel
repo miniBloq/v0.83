@@ -15,11 +15,11 @@
 			<s>-I"</s> <s>toolsPath::</s>
 			<s>" -I"</s><s>corePath::</s>
 			<s>" -I"</s><s>componentPath::</s>
-			<s>" -I"</s><s>outputPath::</s>
+			<s>" -I"</s><s>outputPath::</s><s>" </s>
 			
-			<s>" -I"</s><s>libsPath::</s><s>/Arduino/DCMotor/v1.0</s>
+			<s>" -I"</s><s>libsPath::</s><s>/Arduino/DCMotor/v1.0" </s>
 			
-			<s>" "</s><s>libsPath::</s><s>/Arduino/DCMotor/v1.0/DCMotor.cpp" -o "</s><s>outputPath::</s><s>/DCMotor.cpp.o"</s>
+			<s>"</s><s>libsPath::</s><s>/Arduino/DCMotor/v1.0/DCMotor.cpp" -o "</s><s>outputPath::</s><s>/DCMotor.cpp.o"</s>
 		</cmd>
 	</build>
 </rel>

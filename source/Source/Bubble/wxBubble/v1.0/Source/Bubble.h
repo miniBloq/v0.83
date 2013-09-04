@@ -108,6 +108,7 @@ class BubbleBoardProperties
         wxString includeCodePostfix;
         wxString includeBuildPrefix;
         wxString includeBuildPostfix;
+        wxArrayString relCommands;
 
     public:
         BubbleBoardProperties():    name(wxString("")),
@@ -128,6 +129,7 @@ class BubbleBoardProperties
                                     includeBuildPrefix(wxString("")),
                                     includeBuildPostfix(wxString(""))
         {
+            relCommands.Clear(); //Not necessary, but just in case.
         }
         //##Ver si se necesita constructor de copia por las dudas, al menos que no haga gran cosa...
 
@@ -156,6 +158,7 @@ class BubbleBoardProperties
                 setIncludeCodePostfix(boardProperties->getIncludeCodePostfix());
                 setIncludeBuildPrefix(boardProperties->getIncludeBuildPrefix());
                 setIncludeBuildPostfix(boardProperties->getIncludeBuildPostfix());
+                relCommands = *(boardProperties->getRelCommands());
             }
         }
 
@@ -209,6 +212,8 @@ class BubbleBoardProperties
 
         inline void setIncludeBuildPostfix(const wxString& value) { includeBuildPostfix = value; }
         inline const wxString &getIncludeBuildPostfix() const { return includeBuildPostfix; }
+
+        inline wxArrayString* getRelCommands() { return &relCommands; }
 };
 
 
