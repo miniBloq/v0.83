@@ -24,12 +24,13 @@
 		<includeCodePostfix>&gt;</includeCodePostfix>
 		<includeBuildPrefix> -I"</includeBuildPrefix>
 		<includeBuildPostfix>"</includeBuildPostfix>
+		<arduinoVersion>22</arduinoVersion>
     </properties>
 	<build>
 		<cmd>
 			<s>toolsPath::</s>
-			<s>/avr-g++ -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega168 -DF_CPU=16000000L -DARDUINO=22 </s>
-			<s>-I"</s><s>toolsPath::</s>
+			<s>/avr-g++ -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega168 -DF_CPU=16000000L -DARDUINO=</s><s>arduinoVersion::</s>
+			<s> -I"</s><s>toolsPath::</s>
 			<s>" -I"</s><s>corePath::</s>
 			<s>" -I"</s><s>componentPath::</s>
 			<s>" -I"</s><s>outputPath::</s><s>" </s>

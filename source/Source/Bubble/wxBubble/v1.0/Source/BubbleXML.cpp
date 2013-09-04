@@ -357,6 +357,9 @@ wxString BubbleXML::getInternalVariableValue(const wxString& variableName, const
         return bubble->getHardwareManager()->getCurrentBoardProperties()->getIncludeBuildPrefix();
     if (variableName == "includeBuildPostfix::")
         return bubble->getHardwareManager()->getCurrentBoardProperties()->getIncludeBuildPostfix();
+    if (variableName == "arduinoVersion::")
+        return bubble->getHardwareManager()->getCurrentBoardProperties()->getArduinoVersion();
+
     if (variableName == "includesCodeList::")
         return bubble->getIncludesCodeList();
     if (variableName == "includesBuildList::")
@@ -1692,6 +1695,10 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
                 else if (child->GetName() == "includeBuildPostfix")
                 {
                     boardInfo->setIncludeBuildPostfix(child->GetNodeContent());
+                }
+                else if (child->GetName() == "arduinoVersion")
+                {
+                    boardInfo->setArduinoVersion(child->GetNodeContent());
                 }
 
                 child = child->GetNext();

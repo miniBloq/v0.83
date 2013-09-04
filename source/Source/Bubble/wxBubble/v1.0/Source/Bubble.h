@@ -108,6 +108,7 @@ class BubbleBoardProperties
         wxString includeCodePostfix;
         wxString includeBuildPrefix;
         wxString includeBuildPostfix;
+        wxString arduinoVersion; //This is specific to Arduino-compatible hardware, but needed by now.
         wxArrayString relCommands;
 
     public:
@@ -127,7 +128,8 @@ class BubbleBoardProperties
                                     includeCodePrefix(wxString("")),
                                     includeCodePostfix(wxString("")),
                                     includeBuildPrefix(wxString("")),
-                                    includeBuildPostfix(wxString(""))
+                                    includeBuildPostfix(wxString("")),
+                                    arduinoVersion(wxString(""))
         {
             relCommands.Clear(); //Not necessary, but just in case.
         }
@@ -158,6 +160,7 @@ class BubbleBoardProperties
                 setIncludeCodePostfix(boardProperties->getIncludeCodePostfix());
                 setIncludeBuildPrefix(boardProperties->getIncludeBuildPrefix());
                 setIncludeBuildPostfix(boardProperties->getIncludeBuildPostfix());
+                setArduinoVersion(boardProperties->getArduinoVersion());
                 //relCommands = *(boardProperties->getRelCommands());
                 unsigned int i = 0;
                 while (i < boardProperties->getRelCommandsCount())
@@ -218,6 +221,9 @@ class BubbleBoardProperties
 
         inline void setIncludeBuildPostfix(const wxString& value) { includeBuildPostfix = value; }
         inline const wxString &getIncludeBuildPostfix() const { return includeBuildPostfix; }
+
+        inline void setArduinoVersion(const wxString& value) { arduinoVersion = value; }
+        inline const wxString &getArduinoVersion() const { return arduinoVersion; }
 
         inline void clearRelCommands() { return relCommands.Clear(); };
         inline unsigned int getRelCommandsCount() const { return relCommands.GetCount(); };
