@@ -359,6 +359,10 @@ wxString BubbleXML::getInternalVariableValue(const wxString& variableName, const
         return bubble->getHardwareManager()->getCurrentBoardProperties()->getIncludeBuildPostfix();
     if (variableName == "arduinoVersion::")
         return bubble->getHardwareManager()->getCurrentBoardProperties()->getArduinoVersion();
+    if (variableName == "cpu::")
+        return bubble->getHardwareManager()->getCurrentBoardProperties()->getCpu();
+    if (variableName == "clockFreq::")
+        return bubble->getHardwareManager()->getCurrentBoardProperties()->getClockFreq();
 
     if (variableName == "includesCodeList::")
         return bubble->getIncludesCodeList();
@@ -1632,6 +1636,14 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
                 else if (child->GetName() == "imgMain")
                 {
                     boardInfo->setImgMain(child->GetNodeContent());
+                }
+                else if (child->GetName() == "cpu")
+                {
+                    boardInfo->setCpu(child->GetNodeContent());
+                }
+                else if (child->GetName() == "clockFreq")
+                {
+                    boardInfo->setClockFreq(child->GetNodeContent());
                 }
                 else if (child->GetName() == "imgThumb")
                 {

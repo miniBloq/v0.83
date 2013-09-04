@@ -94,6 +94,8 @@ class BubbleBoardProperties
         wxString name;
         wxString path;
         wxString imgMain;
+        wxString cpu;
+        wxString clockFreq;
         wxString imgThumb;
         wxString portType;
         wxString lang;
@@ -115,6 +117,8 @@ class BubbleBoardProperties
         BubbleBoardProperties():    name(wxString("")),
                                     path(wxString("")),
                                     imgMain(wxString("")),
+                                    cpu(wxString("")),
+                                    clockFreq(wxString("")),
                                     imgThumb(wxString("")),
                                     portType(wxString("serial")),
                                     lang(wxString("")),
@@ -147,6 +151,8 @@ class BubbleBoardProperties
                 setPath(boardProperties->getPath());
                 setPortType(boardProperties->getPortType());
                 setImgMain(boardProperties->getImgMain());
+                setCpu(boardProperties->getCpu());
+                setClockFreq(boardProperties->getClockFreq());
                 setImgThumb(boardProperties->getImgThumb());
                 setLang(boardProperties->getLang());
                 setCorePath(boardProperties->getCorePath());
@@ -179,6 +185,13 @@ class BubbleBoardProperties
 
         inline void setImgMain(const wxString& value) { imgMain = value; }
         inline const wxString &getImgMain() const { return imgMain; }
+
+        inline void setCpu(const wxString& value) { cpu = value; }
+        inline const wxString &getCpu() const { return cpu; }
+
+        inline void setClockFreq(const wxString& value) { clockFreq = value; }
+        inline const wxString &getClockFreq() const { return clockFreq; }
+
 
         inline void setImgThumb(const wxString& value) { imgThumb = value; }
         inline const wxString &getImgThumb() const { return imgThumb; }

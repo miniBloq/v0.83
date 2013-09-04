@@ -4,6 +4,8 @@
 		<manufacturer>Arduino</manufacturer>
 		<name>Arduino Duemilanove Mega168</name>
 		<url0>http://arduino.cc</url0>
+		<cpu>atmega168</cpu>
+		<clockFreq>16000000L</clockFreq>
 		<imgMain>main.png</imgMain>
 		<imgThumb>thumb.png</imgThumb>
 		<win_i386_lang>WinAVR/v20090313/bin</win_i386_lang>
@@ -29,7 +31,8 @@
 	<build>
 		<cmd>
 			<s>toolsPath::</s>
-			<s>/avr-g++ -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega168 -DF_CPU=16000000L -DARDUINO=</s><s>arduinoVersion::</s>
+			<s>/avr-g++ -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -mmcu=</s><s>cpu::</s>
+			<s> -DF_CPU=</s><s>clockFreq::</s><s> -DARDUINO=</s><s>arduinoVersion::</s>
 			<s> -I"</s><s>toolsPath::</s>
 			<s>" -I"</s><s>corePath::</s>
 			<s>" -I"</s><s>componentPath::</s>
