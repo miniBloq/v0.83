@@ -84,7 +84,7 @@
 		<cmd>
 			<s>toolsPath::</s><s>/avrdude.20071012.exe -C"</s>
 			<s>toolsPath::</s><s>/avrdude.conf" -patmega328p -cstk500v1 -P</s><s>bootPortName::</s>
-			<s> -b</s><s>bootBaudRate::</s><s> -Uflash:w:"</s><s>outputPath::</s>/main.cpp.hex<s></s><s>":i</s>
+			<s> -b</s><s>bootBaudRate::</s><s> -Uflash:w:"</s><s>outputPath::</s><s>/main.cpp.hex</s><s>":i</s>
 		</cmd>
 	</deploy>
 	<instances>
