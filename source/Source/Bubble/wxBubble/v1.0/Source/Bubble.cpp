@@ -469,6 +469,8 @@ bool Bubble::setBoardName(const wxString& value, wxWindow *pickersParent)
     {
         //VERY IMPORTANT: The notifier MUST destroy the current canvas, and create a new one:
         getNotifier()->changeBoardNotify();
+        //wxMessageDialog dialog0(parent, getHardwareManager()->getCurrentBoardProperties()->getObjectExtension(), _("setBoardName:")); //##Debug.
+        //dialog0.ShowModal(); //##Debug.
     }
     else
     {

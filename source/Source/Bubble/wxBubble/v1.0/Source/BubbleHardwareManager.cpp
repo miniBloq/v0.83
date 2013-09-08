@@ -176,6 +176,25 @@ BubbleHardwareManager::BubbleHardwareManager(   wxWindow* parent,
         //buttonReloadBlocks->Hide(); //##Testing.
     }
 
+    buttonReloadHardware = new wxButton(  this,
+                                        wxNewId(),
+                                        _("Reload hardware"),
+                                        wxPoint(175, 55), //##Un-hardcode!
+                                        //wxDefaultSize,
+                                        wxSize(160, 25), //##Future: The autosize (with the label) feature does now work. Make it work!
+                                        wxBU_EXACTFIT
+                                     ); //##
+
+    if (buttonReloadHardware)
+    {
+        buttonReloadHardware->Connect(wxEVT_LEFT_UP,
+                                    wxMouseEventHandler(BubbleHardwareManager::onButtonButtonReloadHardwareLeftUp),
+                                    NULL,
+                                    this
+                                   );
+        //buttonReloadBlocks->Hide(); //##Testing.
+    }
+
     buttonMainImage = new BubbleButton( this,
                                         wxNewId(),
                                         wxPoint(0, 0),  //##Un-hardcode!
@@ -241,6 +260,20 @@ void BubbleHardwareManager::changeImage()
     Refresh();
     //buttonMainImage->Update();
     //buttonMainImage->Refresh();
+}
+
+
+
+void BubbleHardwareManager::onButtonButtonReloadHardwareLeftUp(wxMouseEvent& event)
+{
+    if (bubble)
+    {
+        if (parent)
+        {
+            bubble->loadHardwareTargets(this);
+            comboBoardName->setSelection(0);
+        }
+    }
 }
 
 

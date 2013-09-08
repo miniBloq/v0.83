@@ -1867,6 +1867,8 @@ int BubbleXML::loadHardwareTargets(BubbleHardwareManager *hardwareManager)
     if (hardwareManager == NULL)
         return -1;
 
+    hardwareManager->clearBoardProperties();
+
     wxDir dir(bubble->getTargetsPath());
     if ( !dir.IsOpened() )
         return -3; //##Futuro: standarize errors.

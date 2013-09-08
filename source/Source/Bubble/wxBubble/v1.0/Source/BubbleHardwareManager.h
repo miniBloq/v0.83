@@ -28,6 +28,7 @@ class BubbleHardwareManager : public BubblePanel
         wxStaticText *lblBoardName;
         BubbleCombo *comboBoardName;
         wxButton *buttonReloadBlocks;
+        wxButton *buttonReloadHardware;
         BubbleButton *buttonMainImage;//##
 
         //##Horrible, but works nice!
@@ -38,6 +39,7 @@ class BubbleHardwareManager : public BubblePanel
         //##Add private copy constructor to avoid accidental copy?
 
         void onButtonReloadBlocksLeftUp(wxMouseEvent& event);
+        void onButtonButtonReloadHardwareLeftUp(wxMouseEvent& event);
         void onKillFocus(wxFocusEvent& event);
 
     protected:
@@ -65,6 +67,8 @@ class BubbleHardwareManager : public BubblePanel
         void clearBoardProperties()
         {
             boardsProperties.Clear();
+            if (comboBoardName)
+                comboBoardName->clear();
         }
         void addBoard(BubbleBoardProperties *boardProperties);
         inline BubbleBoardProperties *getCurrentBoardProperties() { return currentBoardProperties; };
