@@ -31,6 +31,7 @@
     </properties>
 	<includeFiles>
 		<include><s>stdlib.h</s></include>
+		<include><s>Minibloq.h</s></include>
 	</includeFiles>
 	<build>
 		<cmd>

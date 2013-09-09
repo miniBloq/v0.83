@@ -1518,8 +1518,8 @@ int BubbleXML::loadBoardRelations()
     bubble->getHardwareManager()->getCurrentBoardProperties()->clearRelCommands();
 
     //The include lists must be empty:
-    bubble->setIncludesBuildList(wxString(""));
     bubble->setIncludesCodeList(wxString(""));
+    bubble->setIncludesBuildList(wxString(""));
 
     wxString fileName;
     int counter = 0;
@@ -1536,6 +1536,14 @@ int BubbleXML::loadBoardRelations()
         counter++;
         result = dir.GetNext(&fileName);
     }
+
+    bubble->setIncludesCodeList(bubble->getIncludesCodeList() +
+                                bubble->getHardwareManager()->getCurrentBoardProperties()->getIncludesCodeList()
+                               );
+    bubble->setIncludesBuildList(bubble->getIncludesBuildList() +
+                                 bubble->getHardwareManager()->getCurrentBoardProperties()->getIncludesBuildList()
+                                );
+
     return counter; //##
 }
 
@@ -1730,9 +1738,18 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
                 {
                     boardInfo->setObjectExtension(child->GetNodeContent());
                 }
-
                 child = child->GetNext();
             }
+        }
+        else if (tempName == wxString("includeFiles"))
+        {
+            loadIncludeFilesFromXML(rootChild, boardInfo, true);
+            //wxMessageDialog dialog0(bubble->getParent(), bubble->getIncludesCodeList(), boardInfo->getName()); //##Debug.
+            //dialog0.ShowModal(); //##Debug.
+        }
+        else if (tempName == wxString("includePaths"))
+        {
+            loadIncludePathsFromXML(rootChild, boardInfo, true);
         }
 
         rootChild = rootChild->GetNext();
@@ -1926,7 +1943,7 @@ bool BubbleXML::loadRelData(const wxString &relFileName, BubbleBoardProperties *
         {
             tempName = rootChild->GetName();
             if (tempName == wxString("includePaths"))
-                loadIncludePathsFromXML(rootChild, boardProperties);
+                loadIncludePathsFromXML(rootChild, boardProperties, false);
             rootChild = rootChild->GetNext();
         }
 
@@ -1936,7 +1953,7 @@ bool BubbleXML::loadRelData(const wxString &relFileName, BubbleBoardProperties *
         {
             tempName = rootChild->GetName();
             if (tempName == wxString("includeFiles"))
-                loadIncludeFilesFromXML(rootChild, boardProperties);
+                loadIncludeFilesFromXML(rootChild, boardProperties, false);
             rootChild = rootChild->GetNext();
         }
     } //Destroys the relFileXML.
@@ -1955,7 +1972,7 @@ bool BubbleXML::loadRelData(const wxString &relFileName, BubbleBoardProperties *
 }
 
 
-bool BubbleXML::loadIncludePathsFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties)
+bool BubbleXML::loadIncludePathsFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties, bool onlyBoard)
 {
     if (bubble == NULL)
         return false;
@@ -1988,16 +2005,30 @@ bool BubbleXML::loadIncludePathsFromXML(wxXmlNode *node, BubbleBoardProperties *
             }
         }
         includeNode = includeNode->GetNext();
-        bubble->setIncludesBuildList(bubble->getIncludesBuildList() +
-                                     boardProperties->getIncludeBuildPrefix() + resultStr +
-                                     boardProperties->getIncludeBuildPostfix()
-                                    );
+
+
+        //Is a board include or a relation include?
+        if (onlyBoard)
+        {
+            //Board:
+            boardProperties->setIncludesBuildList(boardProperties->getIncludesBuildList() +
+                                         boardProperties->getIncludeBuildPrefix() + resultStr +
+                                         boardProperties->getIncludeBuildPostfix()
+                                        );
+        }
+        {
+            //Relation:
+            bubble->setIncludesBuildList(bubble->getIncludesBuildList() +
+                                         boardProperties->getIncludeBuildPrefix() + resultStr +
+                                         boardProperties->getIncludeBuildPostfix()
+                                        );
+        }
     }
     return true;
 }
 
 
-bool BubbleXML::loadIncludeFilesFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties)
+bool BubbleXML::loadIncludeFilesFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties, bool onlyBoard)
 {
     if (bubble == NULL)
         return false;
@@ -2030,10 +2061,23 @@ bool BubbleXML::loadIncludeFilesFromXML(wxXmlNode *node, BubbleBoardProperties *
             }
         }
         includeNode = includeNode->GetNext();
-        bubble->setIncludesCodeList(bubble->getIncludesCodeList() +
-                                    boardProperties->getIncludeCodePrefix() + resultStr +
-                                    boardProperties->getIncludeCodePostfix() + wxString("\r\n")
-                                   );
+
+        //Is a board include or a relation include?
+        if (onlyBoard)
+        {
+            //Board:
+            boardProperties->setIncludesCodeList(   boardProperties->getIncludesCodeList() +
+                                                    boardProperties->getIncludeCodePrefix() + resultStr +
+                                                    boardProperties->getIncludeCodePostfix() + wxString("\r\n")
+                                                );
+        }
+        {
+            //Relation:
+            bubble->setIncludesCodeList(bubble->getIncludesCodeList() +
+                                        boardProperties->getIncludeCodePrefix() + resultStr +
+                                        boardProperties->getIncludeCodePostfix() + wxString("\r\n")
+                                       );
+        }
     }
     return true;
 }

@@ -110,6 +110,8 @@ class BubbleBoardProperties
         wxString includeCodePostfix;
         wxString includeBuildPrefix;
         wxString includeBuildPostfix;
+        wxString includesCodeList;
+        wxString includesBuildList;
         wxString arduinoVersion; //This is specific to Arduino-compatible hardware, but needed by now.
         wxString objectExtension;
         wxArrayString relCommands;
@@ -134,6 +136,8 @@ class BubbleBoardProperties
                                     includeCodePostfix(wxString("")),
                                     includeBuildPrefix(wxString("")),
                                     includeBuildPostfix(wxString("")),
+                                    includesCodeList(wxString("")),
+                                    includesBuildList(wxString("")),
                                     arduinoVersion(wxString("")),
                                     objectExtension(wxString(""))
         {
@@ -168,6 +172,8 @@ class BubbleBoardProperties
                 setIncludeCodePostfix(boardProperties->getIncludeCodePostfix());
                 setIncludeBuildPrefix(boardProperties->getIncludeBuildPrefix());
                 setIncludeBuildPostfix(boardProperties->getIncludeBuildPostfix());
+                setIncludesCodeList(boardProperties->getIncludesCodeList());
+                setIncludesBuildList(boardProperties->getIncludesBuildList());
                 setArduinoVersion(boardProperties->getArduinoVersion());
                 setObjectExtension(boardProperties->getObjectExtension());
                 //relCommands = *(boardProperties->getRelCommands());
@@ -237,6 +243,12 @@ class BubbleBoardProperties
 
         inline void setIncludeBuildPostfix(const wxString& value) { includeBuildPostfix = value; }
         inline const wxString &getIncludeBuildPostfix() const { return includeBuildPostfix; }
+
+        inline void setIncludesCodeList(const wxString &value) { includesCodeList = value; }
+        inline wxString getIncludesCodeList() const { return includesCodeList; }
+
+        inline void setIncludesBuildList(const wxString &value) { includesBuildList = value; }
+        inline wxString getIncludesBuildList() const { return includesBuildList; }
 
         inline void setArduinoVersion(const wxString& value) { arduinoVersion = value; }
         inline const wxString &getArduinoVersion() const { return arduinoVersion; }
@@ -342,8 +354,8 @@ class BubbleXML
         bool loadBoardInstancesFromXML(wxXmlNode *node, BubbleCanvasInfo *canvasInfo);
         bool loadRelData(const wxString &relFileName, BubbleBoardProperties *boardProperties);
         int loadBoardRelations();
-        bool loadIncludePathsFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties);
-        bool loadIncludeFilesFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties);
+        bool loadIncludePathsFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties, bool onlyBoard);
+        bool loadIncludeFilesFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties, bool onlyBoard);
 
         //Canvas:
         BubbleCanvasInfo getCanvasInfo(bool mainCanvas);

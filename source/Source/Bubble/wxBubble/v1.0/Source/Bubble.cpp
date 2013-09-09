@@ -1521,79 +1521,16 @@ void Bubble::addHeaderCode()
 void Bubble::addLibrariesToCode()
 {
     generatedCode.Add(getIncludesCodeList());
-
-    generatedCode.Add("#include \"Minibloq.h\"");
-    generatedCode.Add("");
     generatedCode.Add("");
 }
 
 
 void Bubble::addInitializationCode()
 {
-    //##Implementar: Esto hay que levantarlo del target, aunque puede que haya optimizaciones del tipo "sólo
-    //instanciar motores si estos se utilizan..."
-    //##Ver también luego qué relación tendrá con la pantalla de hardware...
-
-    //##This will be generated only if necessary:
-//    tempCode.Add("MotorDC motor0(22, 20, 21);");
-//    tempCode.Add("MotorDC motor1(3, 4, 8);");
-//    tempCode.Add("");
-    //tempCode.Add("");
-
     generatedCode.Add("void setup()");
     generatedCode.Add("{");
 
-//##2011.07.31: Writing new variables subsystem:
-#if 0
-    //##Local variables declarations (this will change when the procedure calls will be added):
-    //##Preinstantiated objects:
-    if (currentCanvas)
-    {
-        //##2011.07.31: Ver si esto descripto aquí sigue vigente aún con el nuevo subsistema de variables:
-        //##Hay un caso en el cual no se genera la instancia de una variable apropiadamente: Si el usuario
-        //crea diferentes variables, les completa sus parámetros, y finalmente entra en el instanceNameField
-        //de alguna y la modifica, y SIN deseleccionar dicho bloque genera el código (o compila), el último
-        //cambio de nombre no se verá reflejado. Es por esto que se hace este primer for, agregándose las
-        //variables directamente con un setInstance, ya que dicha función elimina las repeticiones
-        //automáticamente. //##Por supuesto, esto en el futuro puede ser muy optimizado, ya que se podría
-        //hacer esto en el recorrido por los bloques, puesto que se podría generar el código de
-        //inicialización LUEGO del código principal del canvas, porque nada obliga a generar primero el
-        //código de inicialización. Luego se puede ensamblar todo. De esa forma, los bloques se recorrerían
-        //sólo una vez, ganando velocidad:
-        //Search for at least one setter block with the same variable name:
-        //currentCanvas->setAllInstances();
-        currentCanvas->clearNonDeclaredInstances();
-
-        //##Ahora que se aseguró de que las instancias estén completas, las recorre para generar las
-        //declaraciones correspondientes:
-        bool thereAreVariables = false;
-        for (int i = 0; i<currentCanvas->getInstancesCount(); i++)
-        {
-            //##Esto va a cambiar cuando se introduzca el manejo de tipos definitivo con las
-            //variables, y cuando se introduzcan clases:
-            BubbleInstance *tempInstance = currentCanvas->getInstance(i);
-            if (tempInstance)
-            {
-                if ( tempInstance->getType() == "Variable" ) //##Horrible hardcoded: Un-hardcode!!
-                {
-                    generatedCode.Add(wxString("\tfloat ") + tempInstance->getName() + wxString(" = 0.0;"));
-                    thereAreVariables = true;
-                }
-            }
-        }
-        //##Este if es sólo para no dejar la línea en blanco si no hay nada:
-        if (thereAreVariables)
-            generatedCode.Add("");
-    }
-#endif
-
     //##:Por ahora son entradas, después habrá que modificar esto bien:
-//    tempCode.Add("\tpinMode(0, INPUT);");
-//    tempCode.Add("\tpinMode(1, INPUT);");
-//    tempCode.Add("\tpinMode(2, INPUT);");
-//    tempCode.Add("\tpinMode(3, INPUT);");
-//    tempCode.Add("\tpinMode(4, INPUT);");
-//    tempCode.Add("\tpinMode(5, INPUT);");
     generatedCode.Add("\tinitBoard();");
     generatedCode.Add("");
 }
