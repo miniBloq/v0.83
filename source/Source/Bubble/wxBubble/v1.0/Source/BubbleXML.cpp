@@ -1516,10 +1516,8 @@ int BubbleXML::loadBoardRelations()
         return -3;
 
     bubble->getHardwareManager()->getCurrentBoardProperties()->clearRelCommands();
-
-    //The include lists must be empty:
-    bubble->setIncludesCodeList(wxString(""));
-    bubble->setIncludesBuildList(wxString(""));
+    bubble->setIncludesCodeList(bubble->getHardwareManager()->getCurrentBoardProperties()->getIncludesCodeList());
+    bubble->setIncludesBuildList(bubble->getHardwareManager()->getCurrentBoardProperties()->getIncludesBuildList());
 
     wxString fileName;
     int counter = 0;
@@ -1536,13 +1534,6 @@ int BubbleXML::loadBoardRelations()
         counter++;
         result = dir.GetNext(&fileName);
     }
-
-    bubble->setIncludesCodeList(bubble->getIncludesCodeList() +
-                                bubble->getHardwareManager()->getCurrentBoardProperties()->getIncludesCodeList()
-                               );
-    bubble->setIncludesBuildList(bubble->getIncludesBuildList() +
-                                 bubble->getHardwareManager()->getCurrentBoardProperties()->getIncludesBuildList()
-                                );
 
     return counter; //##
 }

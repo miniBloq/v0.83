@@ -1802,6 +1802,7 @@ bool Bubble::generateCodeAndSaveToFile()
         //Try to create the file:
         wxTextFile mainOutput;
         if ( !mainOutput.Create(outputPath + wxString("/") + getHardwareManager()->getCurrentBoardProperties()->getOutputMainFile() ) )
+        //##if ( !mainOutput.Create(componentPath + wxString("/") + getHardwareManager()->getCurrentBoardProperties()->getOutputMainFile() ) )
             return false;
 
         //Refresh the generated code, and obtains it:

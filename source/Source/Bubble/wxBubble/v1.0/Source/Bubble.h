@@ -110,6 +110,8 @@ class BubbleBoardProperties
         wxString includeCodePostfix;
         wxString includeBuildPrefix;
         wxString includeBuildPostfix;
+        wxString initBoardPrefix;
+        wxString initBoardPostfix;
         wxString includesCodeList;
         wxString includesBuildList;
         wxString arduinoVersion; //This is specific to Arduino-compatible hardware, but needed by now.
@@ -136,6 +138,8 @@ class BubbleBoardProperties
                                     includeCodePostfix(wxString("")),
                                     includeBuildPrefix(wxString("")),
                                     includeBuildPostfix(wxString("")),
+                                    initBoardPrefix(wxString("")),
+                                    initBoardPostfix(wxString("")),
                                     includesCodeList(wxString("")),
                                     includesBuildList(wxString("")),
                                     arduinoVersion(wxString("")),
@@ -172,6 +176,8 @@ class BubbleBoardProperties
                 setIncludeCodePostfix(boardProperties->getIncludeCodePostfix());
                 setIncludeBuildPrefix(boardProperties->getIncludeBuildPrefix());
                 setIncludeBuildPostfix(boardProperties->getIncludeBuildPostfix());
+                setInitBoardPrefix(boardProperties->getInitBoardPrefix());
+                setInitBoardPostfix(boardProperties->getInitBoardPostfix());
                 setIncludesCodeList(boardProperties->getIncludesCodeList());
                 setIncludesBuildList(boardProperties->getIncludesBuildList());
                 setArduinoVersion(boardProperties->getArduinoVersion());
@@ -243,6 +249,12 @@ class BubbleBoardProperties
 
         inline void setIncludeBuildPostfix(const wxString& value) { includeBuildPostfix = value; }
         inline const wxString &getIncludeBuildPostfix() const { return includeBuildPostfix; }
+
+        inline void setInitBoardPrefix(const wxString& value) { initBoardPrefix = value; }
+        inline const wxString &getInitBoardPrefix() const { return initBoardPrefix; }
+
+        inline void setInitBoardPostfix(const wxString& value) { initBoardPostfix = value; }
+        inline const wxString &getInitBoardPostfix() const { return initBoardPostfix; }
 
         inline void setIncludesCodeList(const wxString &value) { includesCodeList = value; }
         inline wxString getIncludesCodeList() const { return includesCodeList; }
