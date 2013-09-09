@@ -252,21 +252,6 @@ BubbleExpressionPicker* Bubble::getExpressionPicker(const wxString &dataType)
         }
     }
 
-//##Volar esto:
-//    arrayOfExpressionPickers::iterator iter;
-//    for (iter = expressionPickers.begin(); iter != expressionPickers.end(); ++iter)
-//    {
-//        BubbleExpressionPicker *currentPicker = *iter;
-//        if (currentPicker)
-//        {
-//            //##getNotifier()->showMessage(currentPicker->getDataType() + wxString("\n"), false, true, *wxRED); //##Debug.
-//            if (currentPicker->getDataType() == dataType)
-//            {
-//                getNotifier()->showMessage(_("Picker FOUND\n"), false, true, *wxRED); //##Debug.
-//                return currentPicker;
-//            }
-//        }
-//    }
     return NULL;
 }
 
@@ -512,7 +497,13 @@ wxString Bubble::getOutputObjectsList(const wxString &fileExtension)
 
 int Bubble::loadBoardRelations()
 {
-    return bubbleXML.loadBoardRelations();
+    int result = bubbleXML.loadBoardRelations();
+    if ( getNotifier() )
+    {
+        updateCode();
+        getNotifier()->refreshGeneratedCodeNotify();
+    }
+    return result;
 }
 
 
@@ -1237,6 +1228,7 @@ bool Bubble::build()
     if (getNotifier() == NULL)
         return false;
 
+    loadBoardRelations();
     if (generateCodeAndSaveToFile())
     {
         //Profiling:
@@ -1245,8 +1237,6 @@ bool Bubble::build()
         //First, reset the progress bar:
         //##getNotifier()->setProgressPosition(0, false, false);
         getNotifier()->clearMessage();
-
-        loadBoardRelations();
 
         //Loads and executes the commands from the .rel XML files:
         wxArrayString output, errors;
@@ -1528,36 +1518,10 @@ void Bubble::addHeaderCode()
 }
 
 
-void Bubble::addLibrariesCode()
+void Bubble::addLibrariesToCode()
 {
-    //##Implementar: Esto tiene que cargarse del array de "libs" que saldrá directamente de los bloques
-    //presetes en los canvases:
+    generatedCode.Add(getIncludesCodeList());
 
-    //##When finished, only the necessary includes will be added (from the libraries array):
-
-    //##Un-hardcode:
-    if (   (getBoardName() != wxString("ATTiny25 (with ArduinoISP)")) &&
-           (getBoardName() != wxString("ATTiny45 (with ArduinoISP)")) &&
-           (getBoardName() != wxString("ATTiny85 (with ArduinoISP)")) &&
-           (getBoardName() != wxString("ATTiny25 (with Doper)")) &&
-           (getBoardName() != wxString("ATTiny45 (with Doper)")) &&
-           (getBoardName() != wxString("ATTiny85 (with Doper)"))
-       )
-    {
-        generatedCode.Add("#include \"stdlib.h\"");
-        generatedCode.Add("#include \"IRremote.h\"");
-    }
-    //##tempCode.Add("#include \"DCMotor.h\"");
-    if (    (getBoardName() != wxString("ATTiny25 (with ArduinoISP)")) &&
-           (getBoardName() != wxString("ATTiny45 (with ArduinoISP)")) &&
-           (getBoardName() != wxString("ATTiny85 (with ArduinoISP)")) &&
-           (getBoardName() != wxString("ATTiny25 (with Doper)")) &&
-           (getBoardName() != wxString("ATTiny45 (with Doper)")) &&
-           (getBoardName() != wxString("ATTiny85 (with Doper)"))
-       )
-    {
-        generatedCode.Add("#include \"pitches.h\"");
-    }
     generatedCode.Add("#include \"Minibloq.h\"");
     generatedCode.Add("");
     generatedCode.Add("");
@@ -1779,7 +1743,7 @@ bool Bubble::updateCode()
         generatedCode.Clear();
 
         addHeaderCode();
-        addLibrariesCode();
+        addLibrariesToCode();
         addInitializationCode();
 
         //##Falta recorrer todos los canvases para agregar los Blocks de usuario...

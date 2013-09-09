@@ -523,6 +523,9 @@ void BubbleHardwareManager::onComboBoardNameChanged(wxCommandEvent &event)
                 setPortNameString(wxString(""));
                 updatePorts();
             }
+
+            //Updates the generated code (for example, with the include files):
+            bubble->loadBoardRelations();
         }
     }
 }

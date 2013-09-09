@@ -276,7 +276,6 @@ MainFrame::MainFrame(   wxWindow* parent,
                                         tempComponentName(wxString("Comp-1")),  //##Future: This should be initialized after
                                                                                 //checking that the Comp-1 does not exist
                                                                                 //in the temp directory yet...
-
                                         showingMessageArea(true),
                                         componentAlreadySaved(false)
 {
@@ -495,7 +494,8 @@ MainFrame::MainFrame(   wxWindow* parent,
     if (bubble.getCurrentCanvas())
         bubble.getCurrentCanvas()->setZoomIndex(3); //##Read this from the config file.
 
-    //bubble.loadBoardRelations();
+    //This forces to load the includes in the generated code:
+    bubble.loadBoardRelations();
 }
 
 

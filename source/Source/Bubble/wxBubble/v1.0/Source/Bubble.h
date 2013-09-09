@@ -343,6 +343,7 @@ class BubbleXML
         bool loadRelData(const wxString &relFileName, BubbleBoardProperties *boardProperties);
         int loadBoardRelations();
         bool loadIncludePathsFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties);
+        bool loadIncludeFilesFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties);
 
         //Canvas:
         BubbleCanvasInfo getCanvasInfo(bool mainCanvas);
@@ -409,7 +410,7 @@ class Bubble : public IBubbleFileIO
         void showStream(const wxArrayString &value, const wxColour& colour = *wxGREEN);
 
         void addHeaderCode();
-        void addLibrariesCode();
+        void addLibrariesToCode();
         void addInitializationCode();
         void addFinalizationCode();
         wxString generateParamsCode(BubbleBlock *block);

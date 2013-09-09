@@ -1516,6 +1516,11 @@ int BubbleXML::loadBoardRelations()
         return -3;
 
     bubble->getHardwareManager()->getCurrentBoardProperties()->clearRelCommands();
+
+    //The include lists must be empty:
+    bubble->setIncludesBuildList(wxString(""));
+    bubble->setIncludesCodeList(wxString(""));
+
     wxString fileName;
     int counter = 0;
     bool result = dir.GetFirst(&fileName, wxEmptyString, wxDIR_DEFAULT);
@@ -1924,6 +1929,16 @@ bool BubbleXML::loadRelData(const wxString &relFileName, BubbleBoardProperties *
                 loadIncludePathsFromXML(rootChild, boardProperties);
             rootChild = rootChild->GetNext();
         }
+
+        tempName = wxString("");
+        rootChild = root->GetChildren();
+        while (rootChild)
+        {
+            tempName = rootChild->GetName();
+            if (tempName == wxString("includeFiles"))
+                loadIncludeFilesFromXML(rootChild, boardProperties);
+            rootChild = rootChild->GetNext();
+        }
     } //Destroys the relFileXML.
 
     wxArrayString commands;
@@ -1973,14 +1988,52 @@ bool BubbleXML::loadIncludePathsFromXML(wxXmlNode *node, BubbleBoardProperties *
             }
         }
         includeNode = includeNode->GetNext();
+        bubble->setIncludesBuildList(bubble->getIncludesBuildList() +
+                                     boardProperties->getIncludeBuildPrefix() + resultStr +
+                                     boardProperties->getIncludeBuildPostfix()
+                                    );
+    }
+    return true;
+}
+
+
+bool BubbleXML::loadIncludeFilesFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties)
+{
+    if (bubble == NULL)
+        return false;
+    if (node == NULL)
+        return false;
+    if (boardProperties == NULL)
+        return false;
+
+    wxXmlNode *includeNode = node->GetChildren();
+    wxString includeStr("");
+    while (includeNode)
+    {
+        wxString resultStr("");
+        if (includeNode->GetName() == wxString("include"))
+        {
+            wxXmlNode *stringNode = includeNode->GetChildren();
+            while (stringNode)
+            {
+                if (stringNode->GetName() == wxString("s"))
+                {
+                    wxString stringLine = stringNode->GetNodeContent();
+
+                    //Is the value a variable?
+                    if (isXMLVariable(stringLine))
+                        stringLine = getVariableValue(stringLine, wxString(""));
+
+                    resultStr = resultStr + stringLine;
+                }
+                stringNode = stringNode->GetNext();
+            }
+        }
+        includeNode = includeNode->GetNext();
         bubble->setIncludesCodeList(bubble->getIncludesCodeList() +
                                     boardProperties->getIncludeCodePrefix() + resultStr +
                                     boardProperties->getIncludeCodePostfix() + wxString("\r\n")
                                    );
-        bubble->setIncludesBuildList(bubble->getIncludesBuildList() +
-                                    boardProperties->getIncludeBuildPrefix() + resultStr +
-                                    boardProperties->getIncludeBuildPostfix()
-                                    );
     }
     return true;
 }
