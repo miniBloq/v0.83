@@ -34,6 +34,7 @@
 	<includeFiles>
 		<include><s>WProgram.h</s></include>
 		<include><s>stdlib.h</s></include>
+		<include><s>minibloq.h</s></include>
 	</includeFiles>
 	<build>
 		<cmd>
@@ -42,19 +43,20 @@
 			<s> -DF_CPU=</s><s>clockFreq::</s><s> -DARDUINO=</s><s>arduinoVersion::</s>
 			<s> -I"</s><s>toolsPath::</s>
 			<s>" -I"</s><s>corePath::</s>
-			<s>" -I"</s><s>componentPath::</s>
-			<s>" -I"</s><s>outputPath::</s><s>" </s>
+			<s>" -I"</s><s>componentFilesPath::</s>
+			<s>" -I"</s><s>outputPath::</s>
+			<s>" -I"</s><s>libsPath::</s><s>/Arduino/miniBloq" </s>
 
 			<s>includesBuildList::</s>
 			
-			<s> "</s><s>corePath::</s><s>/minibloq.cpp" -o "</s><s>outputPath::</s><s>/minibloq.cpp.o"</s>
+			<s> "</s><s>outputPath::</s><s>/</s><s>componentName::</s><s>.cpp" -o "</s><s>outputPath::</s><s>/</s><s>componentName::</s><s>.cpp.o"</s>
 		</cmd>
 		<cmd>
 			<s>toolsPath::</s>
 			<s>/avr-gcc -Os -Wl,--gc-sections -mmcu=atmega168 -o</s>
 			<s>"</s><s>outputPath::</s><s>/main.cpp.elf" </s>
 			<s>outputObjectsList::</s>
-			<s> "</s><s>outputPath::</s><s>/minibloq.cpp.o" "</s>
+			<s> "</s><s>outputPath::</s><s>/</s><s>componentName</s><s>.cpp.o" "</s>
 			<s>corePath::</s><s>/obj/</s><s>core::</s><s>"</s>
 			<s> -L ./ -lm</s>
 		</cmd>

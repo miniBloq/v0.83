@@ -423,6 +423,7 @@ class Bubble : public IBubbleFileIO
         //Current (or active) component:
         wxString tempPath;
         wxString componentPath;
+        wxString componentFilesPath;
         wxString outputPath;
 
         bool simplifyCode;
@@ -522,8 +523,13 @@ class Bubble : public IBubbleFileIO
 
         inline void setTempPath(const wxString& value) { tempPath = value; }
         inline const wxString &getTempPath() const { return tempPath; }
+
         inline void setComponentPath(const wxString& value) { componentPath = value; }
         inline const wxString &getComponentPath() const { return componentPath; }
+
+        inline void setComponentFilesPath(const wxString& value) { componentFilesPath = value; }
+        inline const wxString &getComponentFilesPath() const { return componentFilesPath; }
+
         inline void setOutputPath(const wxString& value) { outputPath = value; }
         inline const wxString &getOutputPath() const { return outputPath; }
 

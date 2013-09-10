@@ -339,8 +339,12 @@ wxString BubbleXML::getInternalVariableValue(const wxString& variableName, const
         return bubble->getThemePath();
     if (variableName == "docPath::")
         return bubble->getDocPath();
+    if (variableName == "componentName::")
+        return bubble->getComponentFilesPath().AfterLast('/');
     if (variableName == "componentPath::")
         return bubble->getComponentPath();
+    if (variableName == "componentFilesPath::")
+        return bubble->getComponentFilesPath();
     if (variableName == "outputPath::")
         return bubble->getOutputPath();
     if (variableName == "outputMainFile::")

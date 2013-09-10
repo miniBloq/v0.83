@@ -1801,8 +1801,19 @@ bool Bubble::generateCodeAndSaveToFile()
 
         //Try to create the file:
         wxTextFile mainOutput;
-        if ( !mainOutput.Create(outputPath + wxString("/") + getHardwareManager()->getCurrentBoardProperties()->getOutputMainFile() ) )
-        //##if ( !mainOutput.Create(componentPath + wxString("/") + getHardwareManager()->getCurrentBoardProperties()->getOutputMainFile() ) )
+        if ( !mainOutput.Create(getComponentFilesPath() + wxString("/") + getComponentFilesPath().AfterLast('/') + wxString(".ino")) )
+            return false;
+
+        //In Arduino-compatible systems, this file is used to pass a file with valid extension to the compiler, instead of, for
+        //example a .ino file. In the future it's possible that this will become configurable in the backend, specially to support
+        //other languajes different than C/C++:
+        wxTextFile wrapperOutput;
+        if ( !wrapperOutput.Create(getOutputPath() + wxString("/") + getComponentFilesPath().AfterLast('/') + wxString(".cpp")) )
+            return false;
+        wrapperOutput.AddLine(wxString("#include <") + getComponentFilesPath().AfterLast('/') + wxString(".ino>"));
+        if ( !wrapperOutput.Write() )
+            return false;
+        if ( !wrapperOutput.Close() )
             return false;
 
         //Refresh the generated code, and obtains it:
