@@ -1829,13 +1829,9 @@ bool Bubble::generateCodeAndSaveToFile()
             return false;
         if ( mainOutput.Close() )
         {
-//##:¿Esto se queda?
             if ( getNotifier() )
                 getNotifier()->refreshGeneratedCodeNotify();
 
-//##:¿Esto se queda?
-//            currentCanvas->Update();
-//            currentCanvas->Refresh();
             return true;
         }
         return false;
