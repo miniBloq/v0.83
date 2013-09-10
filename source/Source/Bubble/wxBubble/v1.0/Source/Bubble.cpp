@@ -1801,7 +1801,9 @@ bool Bubble::generateCodeAndSaveToFile()
 
         //Try to create the file:
         wxTextFile mainOutput;
-        if ( !mainOutput.Create(getComponentFilesPath() + wxString("/") + getComponentFilesPath().AfterLast('/') + wxString(".ino")) )
+        wxString mainOutputName = getComponentFilesPath() + wxString("/") + getComponentFilesPath().AfterLast('/') + wxString(".ino");
+        wxRemoveFile(mainOutputName);
+        if ( !mainOutput.Create(mainOutputName) )
             return false;
 
         //In Arduino-compatible systems, this file is used to pass a file with valid extension to the compiler, instead of, for
