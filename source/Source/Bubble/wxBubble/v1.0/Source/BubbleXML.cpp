@@ -1917,6 +1917,7 @@ bool BubbleXML::loadRelData(const wxString &relFileName, BubbleBoardProperties *
     wxFile relFile(relFileName, wxFile::read);
     if (relFile.Length() == 0) //If the file is empty, do nothing.
     {
+        relFile.Close();
         return false;
     }
     relFile.Close();
@@ -1952,15 +1953,25 @@ bool BubbleXML::loadRelData(const wxString &relFileName, BubbleBoardProperties *
             rootChild = rootChild->GetNext();
         }
 
-        tempName = wxString("");
-        rootChild = root->GetChildren();
-        while (rootChild)
-        {
-            tempName = rootChild->GetName();
-            if (tempName == wxString("definesCode"))
-                loadIncludeFilesFromXML(rootChild, boardProperties, false);
-            rootChild = rootChild->GetNext();
-        }
+//        tempName = wxString("");
+//        rootChild = root->GetChildren();
+//        while (rootChild)
+//        {
+//            tempName = rootChild->GetName();
+//            if (tempName == wxString("definesCode"))
+//                loadDefinesCodeFromXML(rootChild, boardProperties, false);
+//            rootChild = rootChild->GetNext();
+//        }
+//
+//        tempName = wxString("");
+//        rootChild = root->GetChildren();
+//        while (rootChild)
+//        {
+//            tempName = rootChild->GetName();
+//            if (tempName == wxString("instancesCode"))
+//                loadInstancesCodeFromXML(rootChild, boardProperties, false);
+//            rootChild = rootChild->GetNext();
+//        }
     } //Destroys the relFileXML.
 
     wxArrayString commands;
@@ -2132,6 +2143,10 @@ BubbleCanvasInfo BubbleXML::getCanvasInfo(bool mainCanvas)
 
     if (bubble == NULL)
         return info; //##Add error control in the future.
+    if (bubble->getHardwareManager() == NULL)
+        return info;
+    if (bubble->getHardwareManager()->getCurrentBoardProperties() == NULL)
+        return info;
 
     //Canvas preinstatiated ojects:
     if (mainCanvas) //##¡Ver si esto cambia por currentCanvas!
@@ -2150,20 +2165,53 @@ BubbleCanvasInfo BubbleXML::getCanvasInfo(bool mainCanvas)
         if (root->GetName() != wxString("board"))
             return info; //##Add error control.
 
+        //Loads the instances from the .board file:
         wxString tempName("");
         wxXmlNode *rootChild = root->GetChildren();
         while (rootChild)
         {
             tempName = rootChild->GetName();
-
-            //##Future: Configure every board aspect with XML files:
-            //if (tempName == wxString("properties"))
-            //    loadBoardInfoPropertiesFromXML(rootChild, info);
-            //else if (tempName == wxString("instances"))
-
             if (tempName == wxString("instances"))
                 loadBoardInstancesFromXML(rootChild, &info);
             rootChild = rootChild->GetNext();
+        }
+
+        //Now loads the instances from the .rel files:
+        wxDir dir(bubble->getBlocksPath());
+        if ( !dir.IsOpened() )
+            return info;
+        wxString fileName;
+        bool result = dir.GetFirst(&fileName, wxEmptyString, wxDIR_DEFAULT);
+        while (result)
+        {
+            wxString fullRelFileName =  bubble->getHardwareManager()->getCurrentBoardProperties()->getPath() +
+                                        wxString("/rel/") + fileName + wxString(".rel");
+            if (wxFile::Exists(fullRelFileName))
+            {
+                wxFile relFile(fullRelFileName, wxFile::read);
+                if (relFile.Length() != 0) //If the file is empty, do nothing.
+                {
+                    wxXmlDocument relFileXML;
+                    if ( relFileXML.Load(fullRelFileName, wxString("UTF-8")) )
+                    {
+                        wxXmlNode *root = relFileXML.GetRoot();
+                        if (root != NULL) //rel files may be empty, so this ends fast in that case.
+                        {
+                            tempName = wxString("");
+                            wxXmlNode *rootChild = root->GetChildren();
+                            while (rootChild)
+                            {
+                                tempName = rootChild->GetName();
+                                if (tempName == wxString("instances"))
+                                    loadBoardInstancesFromXML(rootChild, &info);
+                                rootChild = rootChild->GetNext();
+                            }
+                        }
+                    }
+                }
+                relFile.Close();
+            }
+            result = dir.GetNext(&fileName);
         }
     }
     return info;
