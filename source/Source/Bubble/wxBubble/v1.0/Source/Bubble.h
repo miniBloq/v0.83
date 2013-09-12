@@ -113,6 +113,10 @@ class BubbleBoardProperties
         wxString initBoardPrefix;
         wxString initBoardPostfix;
         wxString includesCodeList;
+        wxString definesCodeList;
+        wxString instancesCodeList;
+        wxString initCode;
+        wxString finalCode;
         wxString includesBuildList;
         wxString arduinoVersion; //This is specific to Arduino-compatible hardware, but needed by now.
         wxString objectExtension;
@@ -141,6 +145,10 @@ class BubbleBoardProperties
                                     initBoardPrefix(wxString("")),
                                     initBoardPostfix(wxString("")),
                                     includesCodeList(wxString("")),
+                                    definesCodeList(wxString("")),
+                                    instancesCodeList(wxString("")),
+                                    initCode(wxString("")),
+                                    finalCode(wxString("")),
                                     includesBuildList(wxString("")),
                                     arduinoVersion(wxString("")),
                                     objectExtension(wxString(""))
@@ -179,6 +187,10 @@ class BubbleBoardProperties
                 setInitBoardPrefix(boardProperties->getInitBoardPrefix());
                 setInitBoardPostfix(boardProperties->getInitBoardPostfix());
                 setIncludesCodeList(boardProperties->getIncludesCodeList());
+                setDefinesCodeList(boardProperties->getDefinesCodeList());
+                setInstancesCodeList(boardProperties->getInstancesCodeList());
+                setInitCode(boardProperties->getInitCode()),
+                setFinalCode(boardProperties->getFinalCode()),
                 setIncludesBuildList(boardProperties->getIncludesBuildList());
                 setArduinoVersion(boardProperties->getArduinoVersion());
                 setObjectExtension(boardProperties->getObjectExtension());
@@ -258,6 +270,18 @@ class BubbleBoardProperties
 
         inline void setIncludesCodeList(const wxString &value) { includesCodeList = value; }
         inline wxString getIncludesCodeList() const { return includesCodeList; }
+
+        inline void setDefinesCodeList(const wxString &value) { definesCodeList = value; }
+        inline wxString getDefinesCodeList() const { return definesCodeList; }
+
+        inline void setInstancesCodeList(const wxString &value) { instancesCodeList = value; }
+        inline wxString getInstancesCodeList() const { return instancesCodeList; }
+
+        inline void setInitCode(const wxString &value) { initCode = value; }
+        inline wxString getInitCode() const { return initCode; }
+
+        inline void setFinalCode(const wxString &value) { finalCode = value; }
+        inline wxString getFinalCode() const { return finalCode; }
 
         inline void setIncludesBuildList(const wxString &value) { includesBuildList = value; }
         inline wxString getIncludesBuildList() const { return includesBuildList; }
@@ -436,8 +460,8 @@ class Bubble : public IBubbleFileIO
 
         void addHeaderCode();
         void addLibrariesToCode();
-        void addInitializationCode();
-        void addFinalizationCode();
+        void addInitCode();
+        void addFinalCode();
         wxString generateParamsCode(BubbleBlock *block);
 
         void loadParamsFromXML(wxXmlNode *child);

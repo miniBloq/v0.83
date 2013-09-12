@@ -6,6 +6,14 @@
 	<includeFiles>
 		<include><s>DCMotor.h</s></include>
 	</includeFiles>
+	<instancesCode>
+		<s>DCMotor motor0(3, 4, 5);</s>
+		<s>DCMotor motor1(11, 10, 9);</s>
+	</instancesCode>
+	<instances>
+		<motor0 instanceType="Motor"/>
+		<motor1 instanceType="Motor"/>
+	</instances>
 	<build>
 		<cmd>
 			<s>toolsPath::</s>
@@ -22,4 +30,5 @@
 			<s>"</s><s>libsPath::</s><s>/Arduino/DCMotor/v1.0/DCMotor.cpp" -o "</s><s>outputPath::</s><s>/DCMotor.cpp.o"</s>
 		</cmd>
 	</build>
+	
 </rel>

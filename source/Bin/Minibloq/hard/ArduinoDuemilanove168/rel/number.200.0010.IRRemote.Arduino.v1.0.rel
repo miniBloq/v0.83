@@ -6,6 +6,9 @@
 	<includeFiles>
 		<include><s>IRremote.h</s></include>
 	</includeFiles>
+	<instancesCode>
+		<s>IRrecv irReceiver(2);</s>
+	</instancesCode>
 	<build>
 		<cmd>
 			<s>toolsPath::</s>

@@ -1951,6 +1951,16 @@ bool BubbleXML::loadRelData(const wxString &relFileName, BubbleBoardProperties *
                 loadIncludeFilesFromXML(rootChild, boardProperties, false);
             rootChild = rootChild->GetNext();
         }
+
+        tempName = wxString("");
+        rootChild = root->GetChildren();
+        while (rootChild)
+        {
+            tempName = rootChild->GetName();
+            if (tempName == wxString("definesCode"))
+                loadIncludeFilesFromXML(rootChild, boardProperties, false);
+            rootChild = rootChild->GetNext();
+        }
     } //Destroys the relFileXML.
 
     wxArrayString commands;

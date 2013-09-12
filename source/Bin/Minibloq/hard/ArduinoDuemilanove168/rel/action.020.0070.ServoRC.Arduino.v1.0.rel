@@ -6,6 +6,16 @@
 	<includeFiles>
 		<include><s>Servo.h</s></include>
 	</includeFiles>
+	<instancesCode>
+		<s>Servo servo0;</s>
+		<s>Servo servo1;</s>
+		<s>Servo servo2;</s>
+	</instancesCode>
+	<instances>
+		<servo0 instanceType="ServoRC"/>
+		<servo1 instanceType="ServoRC"/>
+		<servo2 instanceType="ServoRC"/>
+	</instances>
 	<build>
 		<cmd>
 			<s>toolsPath::</s>

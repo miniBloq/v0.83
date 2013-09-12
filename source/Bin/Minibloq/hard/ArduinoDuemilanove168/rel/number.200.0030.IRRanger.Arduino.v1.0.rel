@@ -6,4 +6,8 @@
 	<includeFiles>
 		<include><s>IRRanger.h</s></include>
 	</includeFiles>
+	<instancesCode>
+		<s>IRRanger irRanger20to150(1, IRRanger::range20to150cm);</s>
+		<s>IRRanger irRanger10to80(1, IRRanger::range10to80cm);</s>
+	</instancesCode>
 </rel>

@@ -1132,6 +1132,8 @@ bool Bubble::verifyPortExistance()
 {
     if (getHardwareManager() == NULL)
         return false;
+    if (getHardwareManager()->getCurrentBoardProperties() == NULL)
+        return false;
     if (getNotifier() == NULL)
         return false;
 
@@ -1158,6 +1160,10 @@ bool Bubble::verifyPortExistance()
 bool Bubble::deploy()
 {
     if (getNotifier() == NULL)
+        return false;
+    if (getHardwareManager() == NULL)
+        return false;
+    if (getHardwareManager()->getCurrentBoardProperties() == NULL)
         return false;
 
     //If the board does not uses timeouts in its bootloader, this will compile and buil in parallel with the
@@ -1343,6 +1349,11 @@ bool Bubble::runInternalCommand(const wxString& cmd)
 
 bool Bubble::resetBoard()
 {
+    if (getHardwareManager() == NULL)
+        return false;
+    if (getHardwareManager()->getCurrentBoardProperties() == NULL)
+        return false;
+
     wxString boardFileName = getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/main.board");
     bool mustReset =    bubbleXML.sectionExists(boardFileName, wxString("resetInternal")) ||
                         bubbleXML.sectionExists(boardFileName, wxString("resetExternal"));
@@ -1525,24 +1536,32 @@ void Bubble::addLibrariesToCode()
 }
 
 
-void Bubble::addInitializationCode()
+void Bubble::addInitCode()
 {
+    if (getHardwareManager() == NULL)
+        return;
+    if (getHardwareManager()->getCurrentBoardProperties() == NULL)
+        return;
+
+    generatedCode.Add(getHardwareManager()->getCurrentBoardProperties()->getDefinesCodeList());
+    generatedCode.Add(getHardwareManager()->getCurrentBoardProperties()->getInstancesCodeList());
+
+    //##Unhardcode this:
     generatedCode.Add("void setup()");
     generatedCode.Add("{");
 
-    //##:Por ahora son entradas, después habrá que modificar esto bien:
     generatedCode.Add("\tinitBoard();");
     generatedCode.Add("");
 }
 
 
-void Bubble::addFinalizationCode()
+void Bubble::addFinalCode()
 {
-    //##Implementar: Levantar esto del target:
-
+    //##Unhardcode this:
     generatedCode.Add("}");
     generatedCode.Add("");
 
+    //##Unhardcode this:
     //##By the moment, we do not use loop:
     generatedCode.Add("void loop()");
     generatedCode.Add("{");
@@ -1681,7 +1700,7 @@ bool Bubble::updateCode()
 
         addHeaderCode();
         addLibrariesToCode();
-        addInitializationCode();
+        addInitCode();
 
         //##Falta recorrer todos los canvases para agregar los Blocks de usuario...
 
@@ -1769,7 +1788,7 @@ bool Bubble::updateCode()
             iteratorBlock = currentCanvas->getNextBlock(iteratorBlock);
         }
 
-        addFinalizationCode();
+        addFinalCode();
         return true;
     }
     catch(...)
@@ -1799,13 +1818,6 @@ bool Bubble::generateCodeAndSaveToFile()
         //Try to create the output dir structure:
         createDirs(outputPath);
 
-        //Try to create the file:
-        wxTextFile mainOutput;
-        wxString mainOutputName = getComponentFilesPath() + wxString("/") + getComponentFilesPath().AfterLast('/') + wxString(".ino");
-        wxRemoveFile(mainOutputName);
-        if ( !mainOutput.Create(mainOutputName) )
-            return false;
-
         //In Arduino-compatible systems, this file is used to pass a file with valid extension to the compiler, instead of, for
         //example a .ino file. In the future it's possible that this will become configurable in the backend, specially to support
         //other languajes different than C/C++:
@@ -1816,6 +1828,24 @@ bool Bubble::generateCodeAndSaveToFile()
         if ( !wrapperOutput.Write() )
             return false;
         if ( !wrapperOutput.Close() )
+            return false;
+
+        wxTextFile mbqGlogalsHeader;
+        wxString mbqGlogalsHeaderName = getComponentFilesPath() + wxString("/.h");
+        wxRemoveFile(mbqGlogalsHeaderName);
+        if ( !mbqGlogalsHeader.Create(mbqGlogalsHeaderName) )
+            return false;
+        //##Armar el globalsHeader.
+        if ( !wrapperOutput.Write() )
+            return false;
+        if ( !wrapperOutput.Close() )
+            return false;
+
+        //Try to create the main file:
+        wxTextFile mainOutput;
+        wxString mainOutputName = getComponentFilesPath() + wxString("/") + getComponentFilesPath().AfterLast('/') + wxString(".ino");
+        wxRemoveFile(mainOutputName);
+        if ( !mainOutput.Create(mainOutputName) )
             return false;
 
         //Refresh the generated code, and obtains it:
