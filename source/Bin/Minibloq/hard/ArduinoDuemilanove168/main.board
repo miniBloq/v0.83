@@ -17,7 +17,7 @@
 		<linux_amd64_lang>avrlinux/i386/v4.3.5/bin</linux_amd64_lang>
 		<linux_amd64_corePath>Arduino.v0022</linux_amd64_corePath>
 		<linux_amd64_core>mega168.a</linux_amd64_core>
-		<outputMainFile>main.ino</outputMainFile>
+		<outputMainFileExtension>ino</outputMainFileExtension>
 		<resetBeforeBuild>false</resetBeforeBuild>
 		<bootBaudRate>19200</bootBaudRate>
 		<bootFindPortTries>15</bootFindPortTries>
@@ -99,7 +99,7 @@
 			<s>/avr-gcc -Os -Wl,--gc-sections -mmcu=atmega168 -o</s>
 			<s>"</s><s>outputPath::</s><s>/main.cpp.elf" </s>
 			<s>outputObjectsList::</s>
-			<s> "</s><s>outputPath::</s><s>/</s><s>componentName</s><s>.cpp.o" "</s>
+			<s> "</s><s>outputPath::</s><s>/</s><s>componentName::</s><s>.cpp.o" "</s>
 			<s>corePath::</s><s>/obj/</s><s>core::</s><s>"</s>
 			<s> -L ./ -lm</s>
 		</cmd>

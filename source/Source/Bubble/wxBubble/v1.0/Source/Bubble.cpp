@@ -1804,6 +1804,8 @@ bool Bubble::generateCodeAndSaveToFile()
     {
         if (getHardwareManager() == NULL)
             return false;
+        if (getHardwareManager()->getCurrentBoardProperties() == NULL)
+            return false;
         //##Nota acerca del tipo de archivo: Por ahora usa el typeDefault, que en teoría debería generar archivos
         //con terminación de línea "DOS". Pero más adelante ser verá, y quizá se pase todo a Unix. De todos modos
         //la edición con scintilla en el mismo entorno debería funcionar bien igual. Si esto se cambia, ver
@@ -1824,7 +1826,11 @@ bool Bubble::generateCodeAndSaveToFile()
         wxTextFile wrapperOutput;
         if ( !wrapperOutput.Create(getOutputPath() + wxString("/") + getComponentFilesPath().AfterLast('/') + wxString(".cpp")) )
             return false;
-        wrapperOutput.AddLine(wxString("#include <") + getComponentFilesPath().AfterLast('/') + wxString(".ino>"));
+        wrapperOutput.AddLine(  getHardwareManager()->getCurrentBoardProperties()->getIncludeCodePrefix() +
+                                getComponentFilesPath().AfterLast('/') + wxString(".") +
+                                getHardwareManager()->getCurrentBoardProperties()->getOutputMainFileExtension() +
+                                getHardwareManager()->getCurrentBoardProperties()->getIncludeCodePostfix()
+                             );
         if ( !wrapperOutput.Write() )
             return false;
         if ( !wrapperOutput.Close() )
@@ -1836,9 +1842,9 @@ bool Bubble::generateCodeAndSaveToFile()
         if ( !mbqGlogalsHeader.Create(mbqGlogalsHeaderName) )
             return false;
         //##Armar el globalsHeader.
-        if ( !wrapperOutput.Write() )
+        if ( !mbqGlogalsHeader.Write() )
             return false;
-        if ( !wrapperOutput.Close() )
+        if ( !mbqGlogalsHeader.Close() )
             return false;
 
         //Try to create the main file:

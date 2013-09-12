@@ -2724,7 +2724,6 @@ void MainFrame::createComponent(bool canCancel)
         componentAlreadySaved = false;
     }
 
-//##: Ojo, que estas líneas estaban produciendo errores:
     if (showCode)
         toggleGeneratedCode();
 
@@ -2965,6 +2964,13 @@ void MainFrame::saveComponentAs()
                 componentAlreadySaved = true;
                 if (bubble.getCurrentCanvas())
                     notebook->SetPageText(  notebook->GetPageIndex(bubble.getCurrentCanvas()), tempComponentName);
+
+                //Updates the mainOutputFile's name:
+                if (notebook->GetPage(notebook->GetPageIndex(editCode)))
+                {
+                    toggleGeneratedCode();
+                    toggleGeneratedCode();
+                }
             }
         }
     }
@@ -3759,7 +3765,11 @@ void MainFrame::toggleGeneratedCode()
         {
             if (bubble.getHardwareManager()->getCurrentBoardProperties())
             {
-                if (notebook->AddPage(editCode, bubble.getHardwareManager()->getCurrentBoardProperties()->getOutputMainFile(), false, page_bmp)) //##
+                if (notebook->AddPage(editCode,
+                                      tempComponentName.BeforeLast('.') + wxString(".") +
+                                      bubble.getHardwareManager()->getCurrentBoardProperties()->getOutputMainFileExtension(),
+                                      false, page_bmp)
+                                      )
                 {
                     notebook->Split(notebook->GetPageIndex(editCode), wxRIGHT);
                     editCode->Show(true);

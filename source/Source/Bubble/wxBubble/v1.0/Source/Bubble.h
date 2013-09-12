@@ -101,7 +101,7 @@ class BubbleBoardProperties
         wxString lang;
         wxString corePath;
         wxString core;
-        wxString outputMainFile;
+        wxString outputMainFileExtension;
         bool resetBeforeBuild;
         unsigned int bootBaudRate;
         unsigned int bootFindPortTries;
@@ -133,7 +133,7 @@ class BubbleBoardProperties
                                     lang(wxString("")),
                                     corePath(wxString("")),
                                     core(wxString("")),
-                                    outputMainFile(wxString("main.ino")), //##Arduino compatible file by default?
+                                    outputMainFileExtension(wxString("ino")), //##Arduino compatible file by default?
                                     resetBeforeBuild(false),
                                     bootBaudRate(115200),
                                     bootFindPortTries(5),
@@ -175,7 +175,7 @@ class BubbleBoardProperties
                 setLang(boardProperties->getLang());
                 setCorePath(boardProperties->getCorePath());
                 setCore(boardProperties->getCore());
-                setOutputMainFile(boardProperties->getOutputMainFile());
+                setOutputMainFileExtension(boardProperties->getOutputMainFileExtension());
                 setResetBeforeBuild(boardProperties->getResetBeforeBuild());
                 setBootBaudRate(boardProperties->getBootBaudRate());
                 setBootFindPortTries(boardProperties->getBootFindPortTries());
@@ -235,8 +235,8 @@ class BubbleBoardProperties
         inline void setCore(const wxString& value) { core = value; }
         inline const wxString &getCore() const { return core; }
 
-        inline void setOutputMainFile(const wxString& value) { outputMainFile = value; }
-        inline const wxString &getOutputMainFile() const { return outputMainFile; }
+        inline void setOutputMainFileExtension(const wxString& value) { outputMainFileExtension = value; }
+        inline const wxString &getOutputMainFileExtension() const { return outputMainFileExtension; }
 
         inline void setResetBeforeBuild(const bool value) { resetBeforeBuild = value; }
         inline const bool getResetBeforeBuild() const { return resetBeforeBuild; }

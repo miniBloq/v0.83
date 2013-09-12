@@ -347,8 +347,8 @@ wxString BubbleXML::getInternalVariableValue(const wxString& variableName, const
         return bubble->getComponentFilesPath();
     if (variableName == "outputPath::")
         return bubble->getOutputPath();
-    if (variableName == "outputMainFile::")
-        return bubble->getHardwareManager()->getCurrentBoardProperties()->getOutputMainFile();
+    if (variableName == "outputMainFileExtension::")
+        return bubble->getHardwareManager()->getCurrentBoardProperties()->getOutputMainFileExtension();
     if (variableName == "bootPortName::")
         return bubble->getBootPortName();
     if (variableName == "bootBaudRate::")
@@ -1680,9 +1680,9 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
                 {
                     boardInfo->setCore(child->GetNodeContent());
                 }
-                else if (child->GetName() == "outputMainFile")
+                else if (child->GetName() == "outputMainFileExtension")
                 {
-                    boardInfo->setOutputMainFile(child->GetNodeContent());
+                    boardInfo->setOutputMainFileExtension(child->GetNodeContent());
                 }
                 else if (child->GetName() == "resetBeforeBuild")
                 {

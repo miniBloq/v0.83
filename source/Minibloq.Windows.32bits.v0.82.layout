@@ -40,17 +40,17 @@
 	<File name="Source\Bubble\wxBubble\v1.0\Source\BubblePicker.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="7742" topLine="144" />
 	</File>
-	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleXML.cpp" open="1" top="1" tabpos="2">
+	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleXML.cpp" open="1" top="0" tabpos="2">
 		<Cursor position="0" topLine="0" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\IBubbleFileIO.h" open="0" top="0" tabpos="6">
 		<Cursor position="529" topLine="0" />
 	</File>
-	<File name="Source\MainFrame.cpp" open="1" top="0" tabpos="1">
+	<File name="Source\MainFrame.cpp" open="1" top="1" tabpos="1">
 		<Cursor position="14575" topLine="264" />
 	</File>
 	<File name="Source\MainFrame.h" open="0" top="0" tabpos="10">
-		<Cursor position="13723" topLine="384" />
+		<Cursor position="8837" topLine="270" />
 	</File>
 	<File name="Source\MinibloqProperties.cpp" open="0" top="0" tabpos="10">
 		<Cursor position="283" topLine="0" />
