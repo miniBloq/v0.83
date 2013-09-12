@@ -392,6 +392,8 @@ class BubbleXML
         int loadBoardRelations();
         bool loadIncludePathsFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties, bool onlyBoard);
         bool loadIncludeFilesFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties, bool onlyBoard);
+        bool loadDefinesFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties);
+        bool loadInstancesFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties);
 
         //Canvas:
         BubbleCanvasInfo getCanvasInfo(bool mainCanvas);

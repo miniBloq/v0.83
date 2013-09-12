@@ -1543,7 +1543,6 @@ void Bubble::addInitCode()
     if (getHardwareManager()->getCurrentBoardProperties() == NULL)
         return;
 
-    generatedCode.Add(getHardwareManager()->getCurrentBoardProperties()->getDefinesCodeList());
     generatedCode.Add(getHardwareManager()->getCurrentBoardProperties()->getInstancesCodeList());
 
     //##Unhardcode this:
@@ -1837,11 +1836,11 @@ bool Bubble::generateCodeAndSaveToFile()
             return false;
 
         wxTextFile mbqGlogalsHeader;
-        wxString mbqGlogalsHeaderName = getComponentFilesPath() + wxString("/.h");
+        wxString mbqGlogalsHeaderName = getComponentFilesPath() + wxString("/mbqglobals.h");
         wxRemoveFile(mbqGlogalsHeaderName);
         if ( !mbqGlogalsHeader.Create(mbqGlogalsHeaderName) )
             return false;
-        //##Armar el globalsHeader.
+        mbqGlogalsHeader.AddLine(getHardwareManager()->getCurrentBoardProperties()->getDefinesCodeList());
         if ( !mbqGlogalsHeader.Write() )
             return false;
         if ( !mbqGlogalsHeader.Close() )

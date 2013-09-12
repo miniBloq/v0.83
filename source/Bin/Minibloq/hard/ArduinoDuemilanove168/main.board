@@ -35,50 +35,9 @@
 		<include><s>WProgram.h</s></include>
 		<include><s>stdlib.h</s></include>
 		<include><s>minibloq.h</s></include>
+		<include><s>mbqglobals.h</s></include>
+		<include><s>board.h</s></include>
 	</includeFiles>
-	<definesCode>
-		<s>#define BuzzerPin 12</s>
-
-		<s>#define serial0 Serial</s>
-		<s>#define serial1 Serial1</s>
-
-		<s>#define sensor0  A0</s>
-		<s>#define sensor1  A1</s>
-		<s>#define sensor2  A2</s>
-		<s>#define sensor3  A3</s>
-		<s>#define sensor4  A4</s>
-		<s>#define sensor5  A5</s>
-		
-		<s>#define PWM3   3</s>
-		<s>#define PWM5   5</s>
-		<s>#define PWM6   6</s>
-		<s>#define PWM9   9</s>
-		<s>#define PWM10   10</s>
-		<s>#define PWM11  11</s>
-		
-		<s>#define D0  0</s>
-		<s>#define D1  1</s>
-		<s>#define D2  2</s>
-		<s>#define D3  3</s>
-		<s>#define D4  4</s>
-		<s>#define D5  5</s>
-		<s>#define D6  6</s>
-		<s>#define D7  7</s>
-		<s>#define D8  8</s>
-		<s>#define D9  9</s>
-		<s>#define D10 10</s>
-		<s>#define D11 11</s>
-		<s>#define D12 12</s>
-		<s>#define D13_LED 13</s>
-		<s>#define D14 14</s>
-		<s>#define D15 15</s>
-		<s>#define D16 16</s>
-		<s>#define D17 17</s>
-		<s>#define D18 18</s>
-	</definesCode>
-	<instancesCode>
-		<s>Test test0;</s>
-	</instancesCode>
 	<build>
 		<cmd>
 			<s>toolsPath::</s>
@@ -86,6 +45,7 @@
 			<s> -DF_CPU=</s><s>clockFreq::</s><s> -DARDUINO=</s><s>arduinoVersion::</s>
 			<s> -I"</s><s>toolsPath::</s>
 			<s>" -I"</s><s>corePath::</s>
+			<s>" -I"</s><s>boardPath::</s><s>/lib</s>
 			<s>" -I"</s><s>componentFilesPath::</s>
 			<s>" -I"</s><s>outputPath::</s>
 			<s>" -I"</s><s>libsPath::</s><s>/Arduino/miniBloq" </s>

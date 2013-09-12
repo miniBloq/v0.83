@@ -6,9 +6,6 @@
 	<includeFiles>
 		<include><s>Servo.h</s></include>
 	</includeFiles>
-	<definesCode>
-	</definesCode>
-		<s>error #define test0 4</s>
 	<instancesCode>
 		<s>Servo servo0;</s>
 		<s>Servo servo1;</s>

@@ -1522,6 +1522,7 @@ int BubbleXML::loadBoardRelations()
     bubble->getHardwareManager()->getCurrentBoardProperties()->clearRelCommands();
     bubble->setIncludesCodeList(bubble->getHardwareManager()->getCurrentBoardProperties()->getIncludesCodeList());
     bubble->setIncludesBuildList(bubble->getHardwareManager()->getCurrentBoardProperties()->getIncludesBuildList());
+    bubble->getHardwareManager()->getCurrentBoardProperties()->setDefinesCodeList(wxString(""));
 
     wxString fileName;
     int counter = 0;
@@ -1950,6 +1951,9 @@ bool BubbleXML::loadRelData(const wxString &relFileName, BubbleBoardProperties *
             tempName = rootChild->GetName();
             if (tempName == wxString("includeFiles"))
                 loadIncludeFilesFromXML(rootChild, boardProperties, false);
+            else if (tempName == wxString("definesCode"))
+                loadDefinesFromXML(rootChild, boardProperties);
+
             rootChild = rootChild->GetNext();
         }
 
@@ -2096,6 +2100,36 @@ bool BubbleXML::loadIncludeFilesFromXML(wxXmlNode *node, BubbleBoardProperties *
         }
     }
     return true;
+}
+
+
+bool BubbleXML::loadDefinesFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties)
+{
+    if (bubble == NULL)
+        return false;
+    if (node == NULL)
+        return false;
+    if (boardProperties == NULL)
+        return false;
+
+    wxString resultStr("");
+    wxXmlNode *stringNode = node->GetChildren();
+    while (stringNode)
+    {
+        if (stringNode->GetName() == wxString("s"))
+        {
+            resultStr += stringNode->GetNodeContent() + wxString("\r\n") ;
+            boardProperties->setDefinesCodeList(boardProperties->getDefinesCodeList() + resultStr);
+        }
+        stringNode = stringNode->GetNext();
+    }
+    return true;
+}
+
+
+bool BubbleXML::loadInstancesFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties)
+{
+    //##Implementar
 }
 
 
