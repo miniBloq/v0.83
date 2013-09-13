@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Release" />
-	<File name="Source\Bubble\wxBubble\v1.0\Source\Bubble.cpp" open="1" top="1" tabpos="3">
+	<File name="Source\Bubble\wxBubble\v1.0\Source\Bubble.cpp" open="1" top="0" tabpos="3">
 		<Cursor position="72505" topLine="1824" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\Bubble.h" open="1" top="0" tabpos="4">
@@ -40,7 +40,7 @@
 	<File name="Source\Bubble\wxBubble\v1.0\Source\BubblePicker.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="7742" topLine="144" />
 	</File>
-	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleXML.cpp" open="1" top="0" tabpos="2">
+	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleXML.cpp" open="1" top="1" tabpos="2">
 		<Cursor position="66263" topLine="1512" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\IBubbleFileIO.h" open="0" top="0" tabpos="6">

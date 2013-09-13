@@ -375,6 +375,8 @@ wxString BubbleXML::getInternalVariableValue(const wxString& variableName, const
         return bubble->getIncludesCodeList();
     if (variableName == "includesBuildList::")
         return bubble->getIncludesBuildList();
+    if (variableName == "instancesCodeList::")
+        return bubble->getHardwareManager()->getCurrentBoardProperties()->getInstancesCodeList();
 
     if (variableName == "outputObjectsList::")
     {
@@ -2194,14 +2196,18 @@ bool BubbleXML::loadInitCodeFromXML(wxXmlNode *node, BubbleBoardProperties *boar
     if (boardProperties == NULL)
         return false;
 
-    wxString resultStr("");
     wxXmlNode *stringNode = node->GetChildren();
     while (stringNode)
     {
         if (stringNode->GetName() == wxString("s"))
         {
-            resultStr = stringNode->GetNodeContent();// + wxString("\r\n") ;
-            boardProperties->setInitCode(boardProperties->getInitCode() + resultStr);
+            wxString stringLine = stringNode->GetNodeContent();
+
+            //Is the value a variable?
+            if (isXMLVariable(stringLine))
+                stringLine = getVariableValue(stringLine, wxString(""));
+
+            boardProperties->setInitCode(boardProperties->getInitCode() + stringLine);
         }
         stringNode = stringNode->GetNext();
     }

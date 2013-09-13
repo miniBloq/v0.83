@@ -6,6 +6,10 @@
 	<includeFiles>
 		<include><s>DCMotor.h</s></include>
 	</includeFiles>
+	<instancesHeader>
+		<s>extern DCMotor motor0;</s>
+		<s>extern DCMotor motor1;</s>
+	</instancesHeader>
 	<instancesCode>
 		<s>DCMotor motor0(3, 4, 5);</s>
 		<s>DCMotor motor1(11, 10, 9);</s>

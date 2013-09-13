@@ -1679,8 +1679,6 @@ bool Bubble::updateCode()
         //addLibrariesToCode();
         addInitCode();
 
-
-
         //##Falta recorrer todos los canvases para agregar los Blocks de usuario...
 
         //##Recorre los bloques para generar el código (por ahora sólo del currentCanvas):
