@@ -1,5 +1,5 @@
-#ifndef Ping__h
-#define Ping__h
+#ifndef Ping_h
+#define Ping_h
 
 /*
    2011.12.23 (yyyy.mm.dd):

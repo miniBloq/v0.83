@@ -1,5 +1,5 @@
-#ifndef DCMotor__h
-#define DCMotor__h
+#ifndef DCMotor_h
+#define DCMotor_h
 
 /* 	DCMotor
 

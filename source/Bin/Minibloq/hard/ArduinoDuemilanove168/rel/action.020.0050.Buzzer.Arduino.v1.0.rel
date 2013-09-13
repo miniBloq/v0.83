@@ -5,6 +5,7 @@
 	</includePaths>
 	<includeFiles>
 		<include><s>pitches.h</s></include>
+		<include><s>toneDelay.h</s></include>
 	</includeFiles>
 	<instances>
 		<NOTE_B0 instanceType="BuzzerNote"/>

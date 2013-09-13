@@ -108,6 +108,9 @@ class BubbleBoardProperties
         unsigned int bootTimeOut;
         wxString includeCodePrefix;
         wxString includeCodePostfix;
+        wxString includeCodeInstancePrefix;
+        wxString includeInitCode;
+        wxString includeFinalCode;
         wxString includeBuildPrefix;
         wxString includeBuildPostfix;
         wxString initBoardPrefix;
@@ -117,6 +120,7 @@ class BubbleBoardProperties
         wxString includesCodeList;
         wxString definesCodeList;
         wxString instancesCodeList;
+        wxString instancesHeaderCodeList;
         wxString initCode;
         wxString finalCode;
         wxString includesBuildList;
@@ -142,6 +146,9 @@ class BubbleBoardProperties
                                     bootTimeOut(200),
                                     includeCodePrefix(wxString("")),
                                     includeCodePostfix(wxString("")),
+                                    includeCodeInstancePrefix(wxString("")),
+                                    includeInitCode(wxString("")),
+                                    includeFinalCode(wxString("")),
                                     includeBuildPrefix(wxString("")),
                                     includeBuildPostfix(wxString("")),
                                     initBoardPrefix(wxString("")),
@@ -151,6 +158,7 @@ class BubbleBoardProperties
                                     includesCodeList(wxString("")),
                                     definesCodeList(wxString("")),
                                     instancesCodeList(wxString("")),
+                                    instancesHeaderCodeList(wxString("")),
                                     initCode(wxString("")),
                                     finalCode(wxString("")),
                                     includesBuildList(wxString("")),
@@ -186,6 +194,9 @@ class BubbleBoardProperties
                 setBootTimeOut(boardProperties->getBootTimeOut());
                 setIncludeCodePrefix(boardProperties->getIncludeCodePrefix());
                 setIncludeCodePostfix(boardProperties->getIncludeCodePostfix());
+                setIncludeCodeInstancePrefix(boardProperties->getIncludeCodeInstancePrefix());
+                setIncludeInitCode(boardProperties->getIncludeInitCode());
+                setIncludeFinalCode(boardProperties->getIncludeFinalCode());
                 setIncludeBuildPrefix(boardProperties->getIncludeBuildPrefix());
                 setIncludeBuildPostfix(boardProperties->getIncludeBuildPostfix());
                 setInitBoardPrefix(boardProperties->getInitBoardPrefix());
@@ -195,6 +206,7 @@ class BubbleBoardProperties
                 setIncludesCodeList(boardProperties->getIncludesCodeList());
                 setDefinesCodeList(boardProperties->getDefinesCodeList());
                 setInstancesCodeList(boardProperties->getInstancesCodeList());
+                setInstancesHeaderCodeList(boardProperties->getInstancesHeaderCodeList());
                 setInitCode(boardProperties->getInitCode()),
                 setFinalCode(boardProperties->getFinalCode()),
                 setIncludesBuildList(boardProperties->getIncludesBuildList());
@@ -262,6 +274,15 @@ class BubbleBoardProperties
         inline void setIncludeCodePostfix(const wxString& value) { includeCodePostfix = value; }
         inline const wxString &getIncludeCodePostfix() const { return includeCodePostfix; }
 
+        inline void setIncludeCodeInstancePrefix(const wxString& value) { includeCodeInstancePrefix = value; }
+        inline const wxString &getIncludeCodeInstancePrefix() const { return includeCodeInstancePrefix; }
+
+        inline void setIncludeInitCode(const wxString& value) { includeInitCode = value; }
+        inline const wxString &getIncludeInitCode() const { return includeInitCode; }
+
+        inline void setIncludeFinalCode(const wxString& value) { includeFinalCode = value; }
+        inline const wxString &getIncludeFinalCode() const { return includeFinalCode; }
+
         inline void setIncludeBuildPrefix(const wxString& value) { includeBuildPrefix = value; }
         inline const wxString &getIncludeBuildPrefix() const { return includeBuildPrefix; }
 
@@ -273,7 +294,6 @@ class BubbleBoardProperties
 
         inline void setInitBoardPostfix(const wxString& value) { initBoardPostfix = value; }
         inline const wxString &getInitBoardPostfix() const { return initBoardPostfix; }
-
 
         inline void setCommentBegin(const wxString& value) { commentBegin = value; }
         inline const wxString &getCommentBegin() const { return commentBegin; }
@@ -289,6 +309,9 @@ class BubbleBoardProperties
 
         inline void setInstancesCodeList(const wxString &value) { instancesCodeList = value; }
         inline wxString getInstancesCodeList() const { return instancesCodeList; }
+
+        inline void setInstancesHeaderCodeList(const wxString &value) { instancesHeaderCodeList = value; }
+        inline wxString getInstancesHeaderCodeList() const { return instancesHeaderCodeList; }
 
         inline void setInitCode(const wxString &value) { initCode = value; }
         inline wxString getInitCode() const { return initCode; }

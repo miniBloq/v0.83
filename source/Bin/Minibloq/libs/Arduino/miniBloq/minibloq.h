@@ -1,3 +1,6 @@
+#ifndef minibloq_h
+#define minibloq_h
+
 //Copyright (C) 2010-2013 Julián U. da Silva Gillig
 //This file is  is distributed under the RobotGroup-Multiplo Pacifist License (RMPL), either version 1.0 of the licence, 
 //or (at your option) any later version. 
@@ -73,3 +76,5 @@ inline void AnalogWrite(uint8_t _pin, float value)
     pinMode(_pin, OUTPUT);
     analogWrite(_pin, (int)tempValue);
 }
+
+#endif

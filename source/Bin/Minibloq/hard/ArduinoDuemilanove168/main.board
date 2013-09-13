@@ -24,6 +24,9 @@
 		<bootTimeOut>200</bootTimeOut>
 		<includeCodePrefix>#include &lt;</includeCodePrefix>
 		<includeCodePostfix>&gt;</includeCodePostfix>
+		<includeCodeInstancePrefix>extern </includeCodeInstancePrefix>
+		<includeInitCode>#ifndef mbq_h&#10;#define mbq_h&#10;</includeInitCode>
+		<includeFinalCode>#endif</includeFinalCode>
 		<includeBuildPrefix> -I"</includeBuildPrefix>
 		<includeBuildPostfix>"</includeBuildPostfix>
 		<initBoardPrefix>void initBoard() {</initBoardPrefix>
@@ -33,11 +36,6 @@
 		<arduinoVersion>22</arduinoVersion>
 		<objectExtension>o</objectExtension>
     </properties>
-	<includeInitCode>
-		<s></s>
-	</includeInitCode>
-	<includeFinalCode>
-	</includeFinalCode>
 	<includeFiles>
 		<include><s>WProgram.h</s></include>
 		<include><s>stdlib.h</s></include>
@@ -45,7 +43,8 @@
 		<include><s>board.h</s></include>
 	</includeFiles>
 	<initCode>
-		<s>#include &lt;mbq.h&gt;&#10;&#10;</s>
+		<s>#include &lt;WProgram.h&gt;&#10;</s>
+		<s>#include &lt;board.h&gt;&#10;&#10;</s>
 		<s>void setup()&#10;</s>
 		<s>{&#10;</s>
 		<s>	//initBoard();&#10;</s>
@@ -70,6 +69,21 @@
 
 			<s>includesBuildList::</s>
 			
+			<s> "</s><s>boardPath::</s><s>/lib/board.cpp" -o "</s><s>outputPath::</s><s>/board.cpp.o"</s>
+		</cmd>
+		<cmd>
+			<s>toolsPath::</s>
+			<s>/avr-g++ -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -mmcu=</s><s>cpu::</s>
+			<s> -DF_CPU=</s><s>clockFreq::</s><s> -DARDUINO=</s><s>arduinoVersion::</s>
+			<s> -I"</s><s>toolsPath::</s>
+			<s>" -I"</s><s>corePath::</s>
+			<s>" -I"</s><s>boardPath::</s><s>/lib</s>
+			<s>" -I"</s><s>componentFilesPath::</s>
+			<s>" -I"</s><s>outputPath::</s>
+			<s>" -I"</s><s>libsPath::</s><s>/Arduino/miniBloq" </s>
+
+			<s>includesBuildList::</s>
+			
 			<s> "</s><s>outputPath::</s><s>/</s><s>componentName::</s><s>.cpp" -o "</s><s>outputPath::</s><s>/</s><s>componentName::</s><s>.cpp.o"</s>
 		</cmd>
 		<cmd>
@@ -77,6 +91,7 @@
 			<s>/avr-gcc -Os -Wl,--gc-sections -mmcu=atmega168 -o</s>
 			<s>"</s><s>outputPath::</s><s>/main.cpp.elf" </s>
 			<s>outputObjectsList::</s>
+			<s> "</s><s>outputPath::</s><s>/board.cpp.o"</s>
 			<s> "</s><s>outputPath::</s><s>/</s><s>componentName::</s><s>.cpp.o" "</s>
 			<s>corePath::</s><s>/obj/</s><s>core::</s><s>"</s>
 			<s> -L ./ -lm</s>

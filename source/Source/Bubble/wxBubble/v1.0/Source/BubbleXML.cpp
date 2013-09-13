@@ -1524,6 +1524,7 @@ int BubbleXML::loadBoardRelations()
     bubble->setIncludesBuildList(bubble->getHardwareManager()->getCurrentBoardProperties()->getIncludesBuildList());
     bubble->getHardwareManager()->getCurrentBoardProperties()->setDefinesCodeList(wxString(""));
     bubble->getHardwareManager()->getCurrentBoardProperties()->setInstancesCodeList(wxString(""));
+    bubble->getHardwareManager()->getCurrentBoardProperties()->setInstancesHeaderCodeList(wxString(""));
 
     wxString fileName;
     int counter = 0;
@@ -1718,6 +1719,18 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
                 else if (child->GetName() == "includeCodePostfix")
                 {
                     boardInfo->setIncludeCodePostfix(child->GetNodeContent());
+                }
+                else if (child->GetName() == "includeCodeInstancePrefix")
+                {
+                    boardInfo->setIncludeCodeInstancePrefix(child->GetNodeContent());
+                }
+                else if (child->GetName() == "includeInitCode")
+                {
+                    boardInfo->setIncludeInitCode(child->GetNodeContent());
+                }
+                else if (child->GetName() == "includeFinalCode")
+                {
+                    boardInfo->setIncludeFinalCode(child->GetNodeContent());
                 }
                 else if (child->GetName() == "includeBuildPrefix")
                 {
@@ -2164,6 +2177,7 @@ bool BubbleXML::loadInstancesFromXML(wxXmlNode *node, BubbleBoardProperties *boa
         {
             resultStr = stringNode->GetNodeContent() + wxString("\r\n") ;
             boardProperties->setInstancesCodeList(boardProperties->getInstancesCodeList() + resultStr);
+            boardProperties->setInstancesHeaderCodeList(boardProperties->getInstancesHeaderCodeList() + boardProperties->getIncludeCodeInstancePrefix() + resultStr);
         }
         stringNode = stringNode->GetNext();
     }

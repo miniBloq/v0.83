@@ -1089,6 +1089,7 @@ bool Bubble::findErrorStringAndShow(const wxArrayString &value)
             isSubstringInArrayString(value, wxString("can't")) ||
             isSubstringInArrayString(value, wxString("cannot")) ||
             isSubstringInArrayString(value, wxString("incorrect")) ||
+            isSubstringInArrayString(value, wxString("multiple definition")) ||
             isSubstringInArrayString(value, wxString("undefined"))
        )
     {
@@ -1678,6 +1679,8 @@ bool Bubble::updateCode()
         //addLibrariesToCode();
         addInitCode();
 
+
+
         //##Falta recorrer todos los canvases para agregar los Blocks de usuario...
 
         //##Recorre los bloques para generar el código (por ahora sólo del currentCanvas):
@@ -1816,13 +1819,15 @@ bool Bubble::generateCodeAndSaveToFile()
             return false;
 
         wxTextFile mbqGlogalsHeader;
-        wxString mbqGlogalsHeaderName = getComponentFilesPath() + wxString("/mbq.h");
+        wxString mbqGlogalsHeaderName = getComponentFilesPath() + wxString("/mbq.h"); //##Unhardcode.
         wxRemoveFile(mbqGlogalsHeaderName);
         if ( !mbqGlogalsHeader.Create(mbqGlogalsHeaderName) )
             return false;
+        mbqGlogalsHeader.AddLine(getHardwareManager()->getCurrentBoardProperties()->getIncludeInitCode());
         mbqGlogalsHeader.AddLine(getIncludesCodeList());
         mbqGlogalsHeader.AddLine(getHardwareManager()->getCurrentBoardProperties()->getDefinesCodeList());
-        mbqGlogalsHeader.AddLine(getHardwareManager()->getCurrentBoardProperties()->getInstancesCodeList());
+        mbqGlogalsHeader.AddLine(getHardwareManager()->getCurrentBoardProperties()->getInstancesHeaderCodeList());
+        mbqGlogalsHeader.AddLine(getHardwareManager()->getCurrentBoardProperties()->getIncludeFinalCode());
         if ( !mbqGlogalsHeader.Write() )
             return false;
         if ( !mbqGlogalsHeader.Close() )
