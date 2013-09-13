@@ -6,6 +6,9 @@
 	<includeFiles>
 		<include><s>Ping.h</s></include>
 	</includeFiles>
+	<instancesHeader>
+		<s>extern PingSensor ping;</s>
+	</instancesHeader>		
 	<instancesCode>
 		<s>PingSensor ping(0);</s>
 	</instancesCode>

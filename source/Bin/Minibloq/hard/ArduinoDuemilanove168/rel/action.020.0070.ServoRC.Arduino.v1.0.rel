@@ -6,6 +6,11 @@
 	<includeFiles>
 		<include><s>Servo.h</s></include>
 	</includeFiles>
+	<instancesHeader>
+		<s>extern Servo servo0;</s>
+		<s>extern Servo servo1;</s>
+		<s>extern Servo servo2;</s>
+	</instancesHeader>	
 	<instancesCode>
 		<s>Servo servo0;</s>
 		<s>Servo servo1;</s>

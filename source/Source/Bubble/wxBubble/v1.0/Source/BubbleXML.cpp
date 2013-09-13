@@ -1986,6 +1986,8 @@ bool BubbleXML::loadRelData(const wxString &relFileName, BubbleBoardProperties *
                 loadIncludeFilesFromXML(rootChild, boardProperties, false);
             else if (tempName == wxString("definesCode"))
                 loadDefinesFromXML(rootChild, boardProperties);
+            else if (tempName == wxString("instancesHeader"))
+                loadInstancesFromXML(rootChild, boardProperties);
             else if (tempName == wxString("instancesCode"))
                 loadInstancesFromXML(rootChild, boardProperties);
 
@@ -2178,8 +2180,16 @@ bool BubbleXML::loadInstancesFromXML(wxXmlNode *node, BubbleBoardProperties *boa
         if (stringNode->GetName() == wxString("s"))
         {
             resultStr = stringNode->GetNodeContent() + wxString("\r\n") ;
-            boardProperties->setInstancesCodeList(boardProperties->getInstancesCodeList() + resultStr);
-            boardProperties->setInstancesHeaderCodeList(boardProperties->getInstancesHeaderCodeList() + boardProperties->getIncludeCodeInstancePrefix() + resultStr);
+            if (node->GetName() == wxString("instancesHeader"))
+            {
+                boardProperties->setInstancesHeaderCodeList(boardProperties->getInstancesHeaderCodeList() +
+                                                            boardProperties->getIncludeCodeInstancePrefix() +
+                                                            resultStr);
+            }
+            else if (node->GetName() == wxString("instancesCode"))
+            {
+                boardProperties->setInstancesCodeList(boardProperties->getInstancesCodeList() + resultStr);
+            }
         }
         stringNode = stringNode->GetNext();
     }

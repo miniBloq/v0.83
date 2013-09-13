@@ -24,7 +24,6 @@
 		<bootTimeOut>200</bootTimeOut>
 		<includeCodePrefix>#include &lt;</includeCodePrefix>
 		<includeCodePostfix>&gt;</includeCodePostfix>
-		<includeCodeInstancePrefix></includeCodeInstancePrefix>
 		<includeInitCode>#ifndef mbq_h&#10;#define mbq_h&#10;&#10;</includeInitCode>
 		<includeFinalCode>#endif</includeFinalCode>
 		<includeBuildPrefix> -I"</includeBuildPrefix>
