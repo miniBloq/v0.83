@@ -55,6 +55,10 @@ Bubble::Bubble(wxLocale& locale) :  parent(NULL),
                                     hardwareManager(NULL),
                                     boardName(wxString("")),
 
+                                    includesCodeList(wxString("")),
+                                    includesBuildList(wxString("")),
+                                    initBoardCode(wxString("")),
+
                                     blocksEnabled(true),
                                     visibleLabels(false),
 
@@ -1843,7 +1847,9 @@ bool Bubble::generateCodeAndSaveToFile()
         initBoardFile.AddLine(getHardwareManager()->getCurrentBoardProperties()->getInstancesCodeList());
         initBoardFile.AddLine(wxString(""));
         initBoardFile.AddLine(getHardwareManager()->getCurrentBoardProperties()->getInitBoardPrefix());
-        initBoardFile.AddLine(getHardwareManager()->getCurrentBoardProperties()->getInitBoardPostfix());
+        initBoardFile.AddLine(getInitBoardCode() +
+                              getHardwareManager()->getCurrentBoardProperties()->getInitBoardPostfix()
+                             );
         if ( !initBoardFile.Write() )
             return false;
         if ( !initBoardFile.Close() )

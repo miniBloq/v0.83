@@ -123,6 +123,7 @@ class BubbleBoardProperties
         wxString instancesHeaderCodeList;
         wxString initCode;
         wxString finalCode;
+        wxString initBoardCode;
         wxString includesBuildList;
         wxString arduinoVersion; //This is specific to Arduino-compatible hardware, but needed by now.
         wxString objectExtension;
@@ -161,6 +162,7 @@ class BubbleBoardProperties
                                     instancesHeaderCodeList(wxString("")),
                                     initCode(wxString("")),
                                     finalCode(wxString("")),
+                                    initBoardCode(wxString("")),
                                     includesBuildList(wxString("")),
                                     arduinoVersion(wxString("")),
                                     objectExtension(wxString(""))
@@ -209,6 +211,7 @@ class BubbleBoardProperties
                 setInstancesHeaderCodeList(boardProperties->getInstancesHeaderCodeList());
                 setInitCode(boardProperties->getInitCode()),
                 setFinalCode(boardProperties->getFinalCode()),
+                setInitBoardCode(boardProperties->getInitBoardCode()),
                 setIncludesBuildList(boardProperties->getIncludesBuildList());
                 setArduinoVersion(boardProperties->getArduinoVersion());
                 setObjectExtension(boardProperties->getObjectExtension());
@@ -318,6 +321,9 @@ class BubbleBoardProperties
 
         inline void setFinalCode(const wxString &value) { finalCode = value; }
         inline wxString getFinalCode() const { return finalCode; }
+
+        inline void setInitBoardCode(const wxString &value) { initBoardCode = value; }
+        inline wxString getInitBoardCode() const { return initBoardCode; }
 
         inline void setIncludesBuildList(const wxString &value) { includesBuildList = value; }
         inline wxString getIncludesBuildList() const { return includesBuildList; }
@@ -430,6 +436,7 @@ class BubbleXML
         bool loadIncludeFilesFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties, bool onlyBoard);
         bool loadDefinesFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties);
         bool loadInstancesFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties);
+        bool loadInitBoardCodeFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties, bool onlyBoard);
         bool loadInitCodeFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties);
         bool loadFinalCodeFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties);
 
@@ -463,6 +470,7 @@ class Bubble : public IBubbleFileIO
         wxString boardName;
         wxString includesCodeList;
         wxString includesBuildList;
+        wxString initBoardCode;
 
         bool blocksEnabled;
         bool visibleLabels;
@@ -610,6 +618,10 @@ class Bubble : public IBubbleFileIO
         inline wxString getIncludesCodeList() const { return includesCodeList; }
         inline void setIncludesBuildList(const wxString &value) { includesBuildList = value; }
         inline wxString getIncludesBuildList() const { return includesBuildList; }
+
+        inline void setInitBoardCode(const wxString &value) { initBoardCode = value; }
+        inline wxString getInitBoardCode() const { return initBoardCode; }
+
         wxString getOutputObjectsList(const wxString &fileExtension);
         inline BubbleHardwareManager *getHardwareManager() const { return hardwareManager; }
         bool setBoardName(const wxString& value, wxWindow *pickersParent);

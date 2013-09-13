@@ -1524,6 +1524,8 @@ int BubbleXML::loadBoardRelations()
     bubble->getHardwareManager()->getCurrentBoardProperties()->clearRelCommands();
     bubble->setIncludesCodeList(bubble->getHardwareManager()->getCurrentBoardProperties()->getIncludesCodeList());
     bubble->setIncludesBuildList(bubble->getHardwareManager()->getCurrentBoardProperties()->getIncludesBuildList());
+    bubble->setInitBoardCode(bubble->getHardwareManager()->getCurrentBoardProperties()->getInitBoardCode());
+
     bubble->getHardwareManager()->getCurrentBoardProperties()->setDefinesCodeList(wxString(""));
     bubble->getHardwareManager()->getCurrentBoardProperties()->setInstancesCodeList(wxString(""));
     bubble->getHardwareManager()->getCurrentBoardProperties()->setInstancesHeaderCodeList(wxString(""));
@@ -1779,6 +1781,10 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
         {
             loadIncludePathsFromXML(rootChild, boardInfo, true);
         }
+        else if (tempName == wxString("initBoardCode"))
+        {
+            loadInitBoardCodeFromXML(rootChild, boardInfo, true);
+        }
         else if (tempName == wxString("initCode"))
         {
             loadInitCodeFromXML(rootChild, boardInfo);
@@ -1787,7 +1793,6 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
         {
             loadFinalCodeFromXML(rootChild, boardInfo);
         }
-
 
         rootChild = rootChild->GetNext();
     }
@@ -1975,23 +1980,17 @@ bool BubbleXML::loadRelData(const wxString &relFileName, BubbleBoardProperties *
         if (root->GetName() != wxString("rel"))
             return false;
 
-        wxString tempName("");
+        wxString tempName = wxString("");
         wxXmlNode *rootChild = root->GetChildren();
         while (rootChild)
         {
             tempName = rootChild->GetName();
             if (tempName == wxString("includePaths"))
                 loadIncludePathsFromXML(rootChild, boardProperties, false);
-            rootChild = rootChild->GetNext();
-        }
-
-        tempName = wxString("");
-        rootChild = root->GetChildren();
-        while (rootChild)
-        {
-            tempName = rootChild->GetName();
-            if (tempName == wxString("includeFiles"))
+            else if (tempName == wxString("includeFiles"))
                 loadIncludeFilesFromXML(rootChild, boardProperties, false);
+            else if (tempName == wxString("initBoardCode"))
+                loadInitBoardCodeFromXML(rootChild, boardProperties, false);
             else if (tempName == wxString("definesCode"))
                 loadDefinesFromXML(rootChild, boardProperties);
             else if (tempName == wxString("instancesHeader"))
@@ -2001,26 +2000,6 @@ bool BubbleXML::loadRelData(const wxString &relFileName, BubbleBoardProperties *
 
             rootChild = rootChild->GetNext();
         }
-
-//        tempName = wxString("");
-//        rootChild = root->GetChildren();
-//        while (rootChild)
-//        {
-//            tempName = rootChild->GetName();
-//            if (tempName == wxString("definesCode"))
-//                loadDefinesCodeFromXML(rootChild, boardProperties, false);
-//            rootChild = rootChild->GetNext();
-//        }
-//
-//        tempName = wxString("");
-//        rootChild = root->GetChildren();
-//        while (rootChild)
-//        {
-//            tempName = rootChild->GetName();
-//            if (tempName == wxString("instancesCode"))
-//                loadInstancesCodeFromXML(rootChild, boardProperties, false);
-//            rootChild = rootChild->GetNext();
-//        }
     } //Destroys the relFileXML.
 
     wxArrayString commands;
@@ -2032,6 +2011,43 @@ bool BubbleXML::loadRelData(const wxString &relFileName, BubbleBoardProperties *
     {
         boardProperties->addRelCommand(commands[i]);
         i++;
+    }
+    return true;
+}
+
+
+bool BubbleXML::loadInitBoardCodeFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties, bool onlyBoard)
+{
+    if (bubble == NULL)
+        return false;
+    if (node == NULL)
+        return false;
+    if (boardProperties == NULL)
+        return false;
+
+    wxXmlNode *stringNode = node->GetChildren();
+    while (stringNode)
+    {
+        if (stringNode->GetName() == wxString("s"))
+        {
+            wxString stringLine = stringNode->GetNodeContent();
+
+            //Is the value a variable?
+            if (isXMLVariable(stringLine))
+                stringLine = getVariableValue(stringLine, wxString(""));
+
+            //Is a board include or a relation include?
+            if (onlyBoard)
+            {
+                //Board:
+                boardProperties->setInitBoardCode(boardProperties->getInitBoardCode() + stringLine);
+            }
+            {
+                //Relation:
+                bubble->setInitBoardCode(bubble->getInitBoardCode() + stringLine);
+            }
+        }
+        stringNode = stringNode->GetNext();
     }
     return true;
 }

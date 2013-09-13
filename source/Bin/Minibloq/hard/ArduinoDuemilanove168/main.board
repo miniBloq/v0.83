@@ -41,6 +41,17 @@
 		<include><s>minibloq.h</s></include>
 		<include><s>board.h</s></include>
 	</includeFiles>
+	<initBoardCode>
+		<s>	Serial.begin(115200);&#10;&#10;</s>
+		<s>	pinMode(A0, INPUT);&#10;</s>
+		<s>	pinMode(A1, INPUT);&#10;</s>
+		<s>	pinMode(A2, INPUT);&#10;</s>
+		<s>	pinMode(A3, INPUT);&#10;</s>
+		<s>	pinMode(A4, INPUT);&#10;</s>
+		<s>	pinMode(A5, INPUT);&#10;&#10;</s>
+		<s>	//Uses the analog input 0, that may have the same value in some designs, but it's not so prabably:&#10;</s>
+		<s>	randomSeed(analogRead(0));&#10;&#10;</s>
+	</initBoardCode>
 	<initCode>
 		<s>#include &lt;mbq.h&gt;&#10;</s>
 		<s>#include &lt;PingIRReceiver.h&gt;&#10;&#10;</s>
