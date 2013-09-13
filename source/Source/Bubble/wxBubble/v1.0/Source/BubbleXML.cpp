@@ -1748,6 +1748,15 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
         {
             loadIncludePathsFromXML(rootChild, boardInfo, true);
         }
+        else if (tempName == wxString("initCode"))
+        {
+            loadInitCodeFromXML(rootChild, boardInfo);
+        }
+        else if (tempName == wxString("finalCode"))
+        {
+            loadFinalCodeFromXML(rootChild, boardInfo);
+        }
+
 
         rootChild = rootChild->GetNext();
     }
@@ -2153,6 +2162,53 @@ bool BubbleXML::loadInstancesFromXML(wxXmlNode *node, BubbleBoardProperties *boa
     return true;
 }
 
+
+bool BubbleXML::loadInitCodeFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties)
+{
+    if (bubble == NULL)
+        return false;
+    if (node == NULL)
+        return false;
+    if (boardProperties == NULL)
+        return false;
+
+    wxString resultStr("");
+    wxXmlNode *stringNode = node->GetChildren();
+    while (stringNode)
+    {
+        if (stringNode->GetName() == wxString("s"))
+        {
+            resultStr = stringNode->GetNodeContent();// + wxString("\r\n") ;
+            boardProperties->setInitCode(boardProperties->getInitCode() + resultStr);
+        }
+        stringNode = stringNode->GetNext();
+    }
+    return true;
+}
+
+
+bool BubbleXML::loadFinalCodeFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties)
+{
+    if (bubble == NULL)
+        return false;
+    if (node == NULL)
+        return false;
+    if (boardProperties == NULL)
+        return false;
+
+    wxString resultStr("");
+    wxXmlNode *stringNode = node->GetChildren();
+    while (stringNode)
+    {
+        if (stringNode->GetName() == wxString("s"))
+        {
+            resultStr = stringNode->GetNodeContent();// + wxString("\r\n") ;
+            boardProperties->setFinalCode(boardProperties->getFinalCode() + resultStr);
+        }
+        stringNode = stringNode->GetNext();
+    }
+    return true;
+}
 
 bool BubbleXML::loadBoardInstancesFromXML(wxXmlNode *node, BubbleCanvasInfo *canvasInfo)
 {

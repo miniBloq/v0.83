@@ -583,7 +583,7 @@ void Bubble::loadParamsFromXML(wxXmlNode *child)
     while (paramChild)
     {
         //##loadXMLParams
-        if (paramChild->GetName() != wxString("NULLParam")) //##Un-hardcode.
+        if (paramChild->GetName() != wxString("NULLParam"))
         {
             currentCanvas->setCurrentBlock(currentBlock);
             currentCanvas->addParam(loadBlockFromXML(paramChild),
@@ -653,12 +653,12 @@ bool Bubble::loadComponentFromFile(const wxString& name)
     while (rootChild)
     {
         //Load de properties:
-        if (rootChild->GetName() == "properties") //##Un-hardcode?
+        if (rootChild->GetName() == "properties")
         {
             child = rootChild->GetChildren();
             while (child)
             {
-                if (child->GetName() == "blocks") //##Un-hardcode?
+                if (child->GetName() == "blocks")
                 {
                     //Reset the progress bar:
                     if (getNotifier())
@@ -682,7 +682,7 @@ bool Bubble::loadComponentFromFile(const wxString& name)
             }
         }
         //Load variables:
-        else if (rootChild->GetName() == "variables") //##Un-hardcode?
+        else if (rootChild->GetName() == "variables")
         {
             child = rootChild->GetChildren();
             while (child)
@@ -693,7 +693,7 @@ bool Bubble::loadComponentFromFile(const wxString& name)
             }
         }
         //Load Blocks:
-        else if (rootChild->GetName() == "blocks") //##Un-hardcode? At least define constants...
+        else if (rootChild->GetName() == "blocks")
         {
             child = rootChild->GetChildren();
             while (child)
@@ -727,7 +727,7 @@ bool Bubble::loadComponentFromFile(const wxString& name)
                         }
                         loadParamsFromXML(child);
                     }
-                    else if ( returnValue == wxString("brother") ) //##Un-hardcode...
+                    else if ( returnValue == wxString("brother") )
                     {
                         if (!brothers.empty())
                         {
@@ -849,7 +849,7 @@ bool Bubble::saveComponentToFile(const wxString& name, bool format)
         //Try to create the file:
         wxTextFile componentFile;
         wxRemoveFile(name); //##Ver si en el futuro será así: Esto reemplaza el archivo, si éste existía...
-        if (!componentFile.Create(name))  //##Un-hardcode!
+        if (!componentFile.Create(name))
             return false;
 
         //##Descablear, ver si estas cosas se sacan del algún archivo en run-time:
@@ -941,9 +941,7 @@ bool Bubble::saveComponentToFile(const wxString& name, bool format)
             }
             iteratorBlock = currentCanvas->getNextBlock(iteratorBlock);
         }
-        componentFile.AddLine("\t</blocks>"); //##Ver si esto queda así, o si pasa a algo tipo "MinibloqComponent"...
-
-        //##Un-hardcode? See if these things can be loaded in runtime from a config file:
+        componentFile.AddLine("\t</blocks>");
         componentFile.AddLine("</mbqc>");
 
         //##Save the changes and closes the file:
@@ -1438,7 +1436,7 @@ bool Bubble::verifyBoard()
                 bootSerialPort.Close();
             return false;
         }
-        catch(...)//##
+        catch(...)
         {
             if (bootSerialPort.IsOpen())
                 bootSerialPort.Close();
@@ -1518,17 +1516,6 @@ unsigned int Bubble::strOcurrencesInArray(const wxString &str, const wxSortedArr
 }
 
 
-void Bubble::addHeaderCode()
-{
-//    wxArrayString tempCode;
-//
-//    //##Implementar: Levantar esto del target. Esto es por si hay que colocar código, comentarios, copyrights,
-//    //o lo que sea aún antes de los libraries.
-//
-//    return tempCode;
-}
-
-
 void Bubble::addLibrariesToCode()
 {
     generatedCode.Add(getIncludesCodeList());
@@ -1543,28 +1530,18 @@ void Bubble::addInitCode()
     if (getHardwareManager()->getCurrentBoardProperties() == NULL)
         return;
 
-    //generatedCode.Add(getHardwareManager()->getCurrentBoardProperties()->getInstancesCodeList());
-
-    //##Unhardcode this:
-    generatedCode.Add("void setup()");
-    generatedCode.Add("{");
-
-    generatedCode.Add("\tinitBoard();");
-    generatedCode.Add("");
+    generatedCode.Add(getHardwareManager()->getCurrentBoardProperties()->getInitCode());
 }
 
 
 void Bubble::addFinalCode()
 {
-    //##Unhardcode this:
-    generatedCode.Add("}");
-    generatedCode.Add("");
+    if (getHardwareManager() == NULL)
+        return;
+    if (getHardwareManager()->getCurrentBoardProperties() == NULL)
+        return;
 
-    //##Unhardcode this:
-    //##By the moment, we do not use loop:
-    generatedCode.Add("void loop()");
-    generatedCode.Add("{");
-    generatedCode.Add("}");
+    generatedCode.Add(getHardwareManager()->getCurrentBoardProperties()->getFinalCode());
 }
 
 
@@ -1697,7 +1674,7 @@ bool Bubble::updateCode()
         prevGeneratedCode = generatedCode;
         generatedCode.Clear();
 
-        addHeaderCode();
+        //addHeaderCode();
         //addLibrariesToCode();
         addInitCode();
 

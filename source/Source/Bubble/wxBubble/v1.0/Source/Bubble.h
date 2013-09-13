@@ -394,6 +394,8 @@ class BubbleXML
         bool loadIncludeFilesFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties, bool onlyBoard);
         bool loadDefinesFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties);
         bool loadInstancesFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties);
+        bool loadInitCodeFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties);
+        bool loadFinalCodeFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties);
 
         //Canvas:
         BubbleCanvasInfo getCanvasInfo(bool mainCanvas);
@@ -460,7 +462,6 @@ class Bubble : public IBubbleFileIO
         bool findErrorStringAndShow(const wxArrayString &value);
         void showStream(const wxArrayString &value, const wxColour& colour = *wxGREEN);
 
-        void addHeaderCode();
         void addLibrariesToCode();
         void addInitCode();
         void addFinalCode();
