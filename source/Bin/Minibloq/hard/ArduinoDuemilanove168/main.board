@@ -26,8 +26,10 @@
 		<includeCodePostfix>&gt;</includeCodePostfix>
 		<includeBuildPrefix> -I"</includeBuildPrefix>
 		<includeBuildPostfix>"</includeBuildPostfix>
-		<initBoardPrefix>void iniBoard() {</initBoardPrefix>
+		<initBoardPrefix>void initBoard() {</initBoardPrefix>
 		<initBoardPostfix>}</initBoardPostfix>
+		<commentBegin>//</commentBegin>
+		<commentEnd></commentEnd>
 		<arduinoVersion>22</arduinoVersion>
 		<objectExtension>o</objectExtension>
     </properties>

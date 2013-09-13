@@ -1727,6 +1727,14 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
                 {
                     boardInfo->setIncludeBuildPostfix(child->GetNodeContent());
                 }
+                else if (child->GetName() == "commentBegin")
+                {
+                    boardInfo->setCommentBegin(child->GetNodeContent());
+                }
+                else if (child->GetName() == "commentEnd")
+                {
+                    boardInfo->setCommentEnd(child->GetNodeContent());
+                }
                 else if (child->GetName() == "arduinoVersion")
                 {
                     boardInfo->setArduinoVersion(child->GetNodeContent());

@@ -112,6 +112,8 @@ class BubbleBoardProperties
         wxString includeBuildPostfix;
         wxString initBoardPrefix;
         wxString initBoardPostfix;
+        wxString commentBegin;
+        wxString commentEnd;
         wxString includesCodeList;
         wxString definesCodeList;
         wxString instancesCodeList;
@@ -144,6 +146,8 @@ class BubbleBoardProperties
                                     includeBuildPostfix(wxString("")),
                                     initBoardPrefix(wxString("")),
                                     initBoardPostfix(wxString("")),
+                                    commentBegin(wxString("")),
+                                    commentEnd(wxString("")),
                                     includesCodeList(wxString("")),
                                     definesCodeList(wxString("")),
                                     instancesCodeList(wxString("")),
@@ -186,6 +190,8 @@ class BubbleBoardProperties
                 setIncludeBuildPostfix(boardProperties->getIncludeBuildPostfix());
                 setInitBoardPrefix(boardProperties->getInitBoardPrefix());
                 setInitBoardPostfix(boardProperties->getInitBoardPostfix());
+                setCommentBegin(boardProperties->getCommentBegin());
+                setCommentEnd(boardProperties->getCommentEnd());
                 setIncludesCodeList(boardProperties->getIncludesCodeList());
                 setDefinesCodeList(boardProperties->getDefinesCodeList());
                 setInstancesCodeList(boardProperties->getInstancesCodeList());
@@ -267,6 +273,13 @@ class BubbleBoardProperties
 
         inline void setInitBoardPostfix(const wxString& value) { initBoardPostfix = value; }
         inline const wxString &getInitBoardPostfix() const { return initBoardPostfix; }
+
+
+        inline void setCommentBegin(const wxString& value) { commentBegin = value; }
+        inline const wxString &getCommentBegin() const { return commentBegin; }
+
+        inline void setCommentEnd(const wxString& value) { commentEnd = value; }
+        inline const wxString &getCommentEnd() const { return commentEnd; }
 
         inline void setIncludesCodeList(const wxString &value) { includesCodeList = value; }
         inline wxString getIncludesCodeList() const { return includesCodeList; }

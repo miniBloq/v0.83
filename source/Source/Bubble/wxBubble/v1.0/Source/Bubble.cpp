@@ -1683,6 +1683,10 @@ bool Bubble::updateCode()
         //##Recorre los bloques para generar el código (por ahora sólo del currentCanvas):
         if (!currentCanvas)
             return false;
+        if (getHardwareManager() == NULL)
+            return false;
+        if (getHardwareManager()->getCurrentBoardProperties() == NULL)
+            return false;
 
         //##En ocasiones se me colgó esto, tengo que ver si es cuando el avrdude tiene algún problema, o si persite
         //algún bug en este while: Pareciera que es el avrdude, pero pasó algo muy raro:
@@ -1702,13 +1706,12 @@ bool Bubble::updateCode()
         while (iteratorBlock)
         {
             //##Test "comments" stuff this a lot!
-            wxString commentBegin("");
-            wxString commentEnd("");
+            wxString strCommentBegin("");
+            wxString strCommentEnd("");
             if (iteratorBlock->isCommented())
             {
-                commentBegin = wxString("// "); //Un-hardcode!
-                //commentBegin = wxString("/* ");
-                //commentEnd = wxString(" */");
+                strCommentBegin = getHardwareManager()->getCurrentBoardProperties()->getCommentBegin();
+                strCommentEnd = getHardwareManager()->getCurrentBoardProperties()->getCommentEnd();
             }
 
             //##En cosas como el código G, que quizá tengan sólo un encabezado tipo "comentario",
@@ -1736,15 +1739,15 @@ bool Bubble::updateCode()
 
                 //generateParamsCode returns not only de params themselves, but the getCode[0] too, that's why
                 //the indentation string is added first:
-                wxString tempCode = indentation + commentBegin + generateParamsCode(iteratorBlock);
-                generatedCode.Add(tempCode + commentEnd);
+                wxString tempCode = indentation + strCommentBegin + generateParamsCode(iteratorBlock);
+                generatedCode.Add(tempCode + strCommentEnd);
 
                 //Params follow the first blockCode line (blockCode[0]):
                 for (unsigned int i = 1; i < blockCode.GetCount(); i++)
                 {
                     if (getSimplifyCode())
                         simplifyCodeLine(blockCode[i]);
-                    generatedCode.Add(indentation + commentBegin + blockCode[i] + commentEnd);
+                    generatedCode.Add(indentation + strCommentBegin + blockCode[i] + strCommentEnd);
                 }
             }
             else
@@ -1753,7 +1756,7 @@ bool Bubble::updateCode()
                 {
                     if (getSimplifyCode())
                         simplifyCodeLine(blockCode[i]);
-                    generatedCode.Add(indentation + commentBegin + blockCode[i] + commentEnd);
+                    generatedCode.Add(indentation + strCommentBegin + blockCode[i] + strCommentEnd);
                 }
             }
 
