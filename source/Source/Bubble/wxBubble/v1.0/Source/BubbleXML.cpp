@@ -1742,6 +1742,14 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
                 {
                     boardInfo->setIncludeBuildPostfix(child->GetNodeContent());
                 }
+                else if (child->GetName() == "initBoardPrefix")
+                {
+                    boardInfo->setInitBoardPrefix(child->GetNodeContent());
+                }
+                else if (child->GetName() == "initBoardPostfix")
+                {
+                    boardInfo->setInitBoardPostfix(child->GetNodeContent());
+                }
                 else if (child->GetName() == "commentBegin")
                 {
                     boardInfo->setCommentBegin(child->GetNodeContent());
