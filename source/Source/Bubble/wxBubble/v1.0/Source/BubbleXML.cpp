@@ -1523,6 +1523,7 @@ int BubbleXML::loadBoardRelations()
     bubble->setIncludesCodeList(bubble->getHardwareManager()->getCurrentBoardProperties()->getIncludesCodeList());
     bubble->setIncludesBuildList(bubble->getHardwareManager()->getCurrentBoardProperties()->getIncludesBuildList());
     bubble->getHardwareManager()->getCurrentBoardProperties()->setDefinesCodeList(wxString(""));
+    bubble->getHardwareManager()->getCurrentBoardProperties()->setInstancesCodeList(wxString(""));
 
     wxString fileName;
     int counter = 0;
@@ -1953,6 +1954,8 @@ bool BubbleXML::loadRelData(const wxString &relFileName, BubbleBoardProperties *
                 loadIncludeFilesFromXML(rootChild, boardProperties, false);
             else if (tempName == wxString("definesCode"))
                 loadDefinesFromXML(rootChild, boardProperties);
+            else if (tempName == wxString("instancesCode"))
+                loadInstancesFromXML(rootChild, boardProperties);
 
             rootChild = rootChild->GetNext();
         }
@@ -2118,7 +2121,7 @@ bool BubbleXML::loadDefinesFromXML(wxXmlNode *node, BubbleBoardProperties *board
     {
         if (stringNode->GetName() == wxString("s"))
         {
-            resultStr += stringNode->GetNodeContent() + wxString("\r\n") ;
+            resultStr = stringNode->GetNodeContent() + wxString("\r\n") ;
             boardProperties->setDefinesCodeList(boardProperties->getDefinesCodeList() + resultStr);
         }
         stringNode = stringNode->GetNext();
@@ -2129,7 +2132,25 @@ bool BubbleXML::loadDefinesFromXML(wxXmlNode *node, BubbleBoardProperties *board
 
 bool BubbleXML::loadInstancesFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties)
 {
-    //##Implementar
+    if (bubble == NULL)
+        return false;
+    if (node == NULL)
+        return false;
+    if (boardProperties == NULL)
+        return false;
+
+    wxString resultStr("");
+    wxXmlNode *stringNode = node->GetChildren();
+    while (stringNode)
+    {
+        if (stringNode->GetName() == wxString("s"))
+        {
+            resultStr = stringNode->GetNodeContent() + wxString("\r\n") ;
+            boardProperties->setInstancesCodeList(boardProperties->getInstancesCodeList() + resultStr);
+        }
+        stringNode = stringNode->GetNext();
+    }
+    return true;
 }
 
 

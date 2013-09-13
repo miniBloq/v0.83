@@ -35,9 +35,20 @@
 		<include><s>WProgram.h</s></include>
 		<include><s>stdlib.h</s></include>
 		<include><s>minibloq.h</s></include>
-		<include><s>mbqglobals.h</s></include>
 		<include><s>board.h</s></include>
 	</includeFiles>
+	<initCode>
+		<l>#include &lt;mbq.h&gt;</l>
+		<l>void setup()</l>
+		<l>{</l>
+	</initCode>
+	<finalCode>
+		<l>}</l>
+		<l></l>
+		<l>void loop</l>
+		<l>{</l>
+		<l>}</l>
+	</finalCode>
 	<build>
 		<cmd>
 			<s>toolsPath::</s>

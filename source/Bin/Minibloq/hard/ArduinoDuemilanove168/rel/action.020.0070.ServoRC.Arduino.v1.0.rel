@@ -6,10 +6,16 @@
 	<includeFiles>
 		<include><s>Servo.h</s></include>
 	</includeFiles>
+	<definesCode>
+		<s>#define dummy 0;</s>
+		<s>#define dummy1 4;</s>
+		<s>#define dummy2 4;</s>
+	</definesCode>
 	<instancesCode>
 		<s>Servo servo0;</s>
 		<s>Servo servo1;</s>
 		<s>Servo servo2;</s>
+		<s>Servo servo3;</s>
 	</instancesCode>
 	<instances>
 		<servo0 instanceType="ServoRC"/>
