@@ -2,8 +2,7 @@
 #define mbq_h
 
 
-#include <Arduino.h>
-#include <pins_arduino.h>
+#include <WProgram.h>
 #include <stdlib.h>
 #include <minibloq.h>
 #include <board.h>
