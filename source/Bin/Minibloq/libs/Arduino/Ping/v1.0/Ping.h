@@ -33,6 +33,8 @@
 
 */ 
  
+#include <Arduino.h>
+ 
 class PingSensor
 {
   private:

@@ -871,7 +871,7 @@ bool Bubble::saveComponentToFile(const wxString& name, bool format)
             return false;
 
         componentFile.AddLine(wxString("\t<properties>")); //##Ver si esto queda así, o si pasa a algo tipo "MinibloqComponent"...
-        componentFile.AddLine(wxString("\t\t<blocks count=\"") + //##Un-hardcode
+        componentFile.AddLine(wxString("\t\t<blocks count=\"") +
                               (wxString("") << currentCanvas->getBlocksCount()) + wxString("\"") +
                               wxString(">")); //##
         componentFile.AddLine(wxString("\t\t</blocks>"));
@@ -1411,48 +1411,49 @@ bool Bubble::resetBoard()
 }
 
 
-bool Bubble::verifyBoard()
-{
-    //##Esto debe ser diferente para cada placa:
-    if (getBoardName() == wxString("DuinoBot.v1.x") || //##Un-hardcode:
-        getBoardName() == wxString("DuinoBot.Kids.v1.x") ) //##Un-hardcode:
-    {
-        try
-        {
-            if (!bootSerialPort.IsOpen())
-                bootSerialPort.Open(bootPortName.char_str());
-            if (bootSerialPort.IsOpen()) //This is NOT the same as en "else"!
-            {
-                char c = 'S'; //##Pide el string "LUFACDC" que es el identificador del bootloader...
-                bootSerialPort.Write(&c, 1);
-
-                char buffer[12]; //##Hacer el tamaño configurable.
-                unsigned int readCount = bootSerialPort.Read(buffer, sizeof(buffer)-1);
-                if ( (readCount < sizeof(buffer)) && (readCount > 0) )
-                {
-                    if (getNotifier())
-                        getNotifier()->showMessage(wxString(buffer) + wxString("\n"), false, false, *wxGREEN);
-                    if (bootSerialPort.IsOpen())
-                        bootSerialPort.Close();
-                    return wxString(buffer).Contains(wxString("LUFACDC"));
-                }
-            }
-            if (bootSerialPort.IsOpen())
-                bootSerialPort.Close();
-            return false;
-        }
-        catch(...)
-        {
-            if (bootSerialPort.IsOpen())
-                bootSerialPort.Close();
-            return false;
-        }
-    }
-    else
-    {
-        return true;
-    }
-}
+//##Delete this!
+//bool Bubble::verifyBoard()
+//{
+//    //##Esto debe ser diferente para cada placa:
+//    if (getBoardName() == wxString("DuinoBot.v1.x") ||
+//        getBoardName() == wxString("DuinoBot.Kids.v1.x") )
+//    {
+//        try
+//        {
+//            if (!bootSerialPort.IsOpen())
+//                bootSerialPort.Open(bootPortName.char_str());
+//            if (bootSerialPort.IsOpen()) //This is NOT the same as en "else"!
+//            {
+//                char c = 'S'; //##Pide el string "LUFACDC" que es el identificador del bootloader...
+//                bootSerialPort.Write(&c, 1);
+//
+//                char buffer[12]; //##Hacer el tamaño configurable.
+//                unsigned int readCount = bootSerialPort.Read(buffer, sizeof(buffer)-1);
+//                if ( (readCount < sizeof(buffer)) && (readCount > 0) )
+//                {
+//                    if (getNotifier())
+//                        getNotifier()->showMessage(wxString(buffer) + wxString("\n"), false, false, *wxGREEN);
+//                    if (bootSerialPort.IsOpen())
+//                        bootSerialPort.Close();
+//                    return wxString(buffer).Contains(wxString("LUFACDC"));
+//                }
+//            }
+//            if (bootSerialPort.IsOpen())
+//                bootSerialPort.Close();
+//            return false;
+//        }
+//        catch(...)
+//        {
+//            if (bootSerialPort.IsOpen())
+//                bootSerialPort.Close();
+//            return false;
+//        }
+//    }
+//    else
+//    {
+//        return true;
+//    }
+//}
 
 
 void Bubble::linesFromArrayToBubbleEditor(const wxArrayString &strings, BubbleEditor *editor)

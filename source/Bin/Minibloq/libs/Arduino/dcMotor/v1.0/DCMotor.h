@@ -5,12 +5,12 @@
 
 	A small DC motor control class.
 
-	Copyright (C) 2010 Multiplo
+	Copyright (C) 2010-2013 Multiplo
 	http://robotgroup.com.ar
 	http://multiplo.org
 	Developers: Julián U. da Silva Gillig
 	Created: 2010.04.06 (yyyy.mm.dd)
-	Last modified: 2010.09.14 (yyyy.mm.dd)
+	Last modified: 2013.09.15 (yyyy.mm.dd)
 
 	IMPORTANT NOTICE: This library is based on code from the SNAPI library, which is under The RobotGroup-Multiplo
 	Pacifist License (RMPL). This license is (or may be) not compatible with the GNU Lesser General Public
@@ -38,7 +38,11 @@
     licenses, then RMPL applies here. You can contact us at: info_t1@multiplo.com.ar
 */
 
-#include "WProgram.h"
+//#if (ARDUINO < "100")
+	#include "Arduino.h"
+// #else
+	// #include "WProgram.h"
+// #endif
 
 
 const float dcMotMaxSpeed = 100.0;
@@ -49,7 +53,7 @@ class DCMotor
 {
 	private:
 		bool clockwise, braked;
-		float speed, prevSpeed;
+		float speed, prevSpeed, zeroZone;
 		int enable_pin, d0_pin, d1_pin;
 
 	public:
@@ -57,7 +61,7 @@ class DCMotor
                        const int d0_pin, const int d1_pin,
                        const bool clockwise = true) :   clockwise(clockwise),
                                                         braked(false),
-                                                        speed(0.0), prevSpeed(0.0),
+                                                        speed(0.0), prevSpeed(0.0), zeroZone(0.1),
                                                         enable_pin(enable_pin),
                                                         d0_pin(d0_pin), d1_pin(d1_pin)
 		{
@@ -73,6 +77,16 @@ class DCMotor
 		void brake();
 		void setClockwise(const bool value);
 
+		inline float getZeroZone() const
+		{
+			return zeroZone;
+		}
+
+		inline void setZeroZone(const float value)
+		{
+			zeroZone = value;
+		}
+		
 		inline bool getClockwise() const
 		{
 			return clockwise;

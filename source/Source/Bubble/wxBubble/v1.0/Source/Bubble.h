@@ -646,7 +646,7 @@ class Bubble : public IBubbleFileIO
         bool build();
         bool runInternalCommand(const wxString& cmd);
         bool resetBoard();
-        bool verifyBoard();
+        //bool verifyBoard();
 
         inline bool getSimplifyCode() const { return simplifyCode; }
         inline void setSimplifyCode(bool value) { simplifyCode =  value; }

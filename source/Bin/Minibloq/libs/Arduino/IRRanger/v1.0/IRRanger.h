@@ -1,5 +1,5 @@
-#ifndef IRRanger__h
-#define IRRanger__h
+#ifndef IRRanger_h
+#define IRRanger_h
 
 /* 	IRRanger
 
@@ -39,9 +39,8 @@
     licenses, then MPL applies here. You can contact us at: info_t1@multiplo.com.ar
 */
 
-
 #include <stdint.h>
-#include <WProgram.h>
+#include <Arduino.h>
 
 
 class IRRanger
