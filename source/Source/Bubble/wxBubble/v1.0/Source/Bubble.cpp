@@ -103,8 +103,8 @@ Bubble::~Bubble()
     clearExpressionPickers();
 }
 
+
 #if defined (WIN32)
-//##Ver si hago que MinibloqRun llame a ese header en vez de redefinir esta función:
 LPWSTR Bubble::cstrToWChar(LPCSTR value)
 {
     LPWSTR result = NULL;
@@ -118,6 +118,7 @@ LPWSTR Bubble::cstrToWChar(LPCSTR value)
     return result;
 }
 #endif
+
 
 wxString Bubble::bool2string(const bool value)
 {
@@ -1312,8 +1313,9 @@ bool Bubble::runInternalCommand(const wxString& cmd)
         long ms = 0;
         if (param0.ToLong(&ms))
             wxMilliSleep((unsigned int)(ms));
+        return true;
     }
-    else if (command == wxString("setSerialLine"))
+    if (command == wxString("setBootSerialLine"))
     {
         if (bootSerialPort.IsOpen())
         {
@@ -1328,8 +1330,9 @@ bool Bubble::runInternalCommand(const wxString& cmd)
             if (param0 == wxString("RING"))
                 bootSerialPort.SetLineState(wxSERIAL_LINESTATE_RING);
         }
+        return true;
     }
-    else if (command == wxString("clearSerialLine"))
+    if (command == wxString("clearBootSerialLine"))
     {
         if (bootSerialPort.IsOpen())
         {
@@ -1344,8 +1347,86 @@ bool Bubble::runInternalCommand(const wxString& cmd)
             if (param0 == wxString("RING"))
                 bootSerialPort.ClrLineState(wxSERIAL_LINESTATE_RING);
         }
+        return true;
     }
-
+    if (command == wxString("openBootSerialPort"))
+    {
+        bootSerialPort.Open(bootPortName.char_str());
+        return bootSerialPort.IsOpen();
+    }
+    if (command == wxString("openBootSerialPort"))
+    {
+        bootSerialPort.Close();
+        return true;
+    }
+    if (command == wxString("setBootSerialBaudrate"))
+    {
+        //Very important: It seems that with the wxSerialPort class, the baudrate must be set with the
+        //open port. Doing this with the closed port has no effect:
+        if (bootSerialPort.IsOpen())
+        {
+            if (param0 == wxString("150"))
+                bootSerialPort.SetBaudRate(wxBAUD_150);
+            if (param0 == wxString("300"))
+                bootSerialPort.SetBaudRate(wxBAUD_300);
+            if (param0 == wxString("600"))
+                bootSerialPort.SetBaudRate(wxBAUD_600);
+            if (param0 == wxString("1200"))
+                bootSerialPort.SetBaudRate(wxBAUD_1200);
+            if (param0 == wxString("2400"))
+                bootSerialPort.SetBaudRate(wxBAUD_2400);
+            if (param0 == wxString("4800"))
+                bootSerialPort.SetBaudRate(wxBAUD_4800);
+            if (param0 == wxString("9600"))
+                bootSerialPort.SetBaudRate(wxBAUD_9600);
+            if (param0 == wxString("19200"))
+                bootSerialPort.SetBaudRate(wxBAUD_19200);
+            if (param0 == wxString("38400"))
+                bootSerialPort.SetBaudRate(wxBAUD_38400);
+            if (param0 == wxString("57600"))
+                bootSerialPort.SetBaudRate(wxBAUD_57600);
+            if (param0 == wxString("115200"))
+                bootSerialPort.SetBaudRate(wxBAUD_115200);
+            if (param0 == wxString("230400"))
+                bootSerialPort.SetBaudRate(wxBAUD_230400);
+            if (param0 == wxString("460800"))
+                bootSerialPort.SetBaudRate(wxBAUD_460800);
+            if (param0 == wxString("921600"))
+                bootSerialPort.SetBaudRate(wxBAUD_921600);
+        }
+        return true;
+    }
+    if (command == wxString("stringWriteToBootSerial"))
+    {
+        if (bootSerialPort.IsOpen())
+        {
+            bootSerialPort.Write(param0.char_str(), param0.Len());
+        }
+        return true;
+    }
+    if (command == wxString("containsStringReadFromBootSerial"))
+    {
+        if (bootSerialPort.IsOpen())
+        {
+            //This command can stop the reading of internal commands in this XML section (by now, it's
+            //all that it can do) by returning "false":
+            char buffer[256]; //Max size of param0 for this command = 255.
+            unsigned int readCount = bootSerialPort.Read(buffer, sizeof(buffer)-1);
+            if ( (readCount < sizeof(buffer)) && (readCount > 0) )
+            {
+                getNotifier()->showMessage(wxString(buffer) + wxString("\n"), false, false, *wxBLUE);
+                if (bootSerialPort.IsOpen())
+                    bootSerialPort.Close();
+                return wxString(buffer).Contains(param0);
+            }
+        }
+        return false;
+    }
+    if (command == wxString("debug"))
+    {
+        getNotifier()->showMessage(param0 + wxString("\n"), false, false, *wxGREEN);
+        return true;
+    }
     return true;
 }
 
@@ -1382,7 +1463,8 @@ bool Bubble::resetBoard()
         {
             cmd = commands[i];
             getNotifier()->showMessage((wxString("") << i) + wxString(": ") + cmd + wxString("\n"), false, true, *wxGREEN);
-            runInternalCommand(cmd);
+            if (!runInternalCommand(cmd))
+                break;
             i++;
         }
 
@@ -1412,48 +1494,50 @@ bool Bubble::resetBoard()
 
 
 //##Delete this!
-//bool Bubble::verifyBoard()
-//{
-//    //##Esto debe ser diferente para cada placa:
-//    if (getBoardName() == wxString("DuinoBot.v1.x") ||
-//        getBoardName() == wxString("DuinoBot.Kids.v1.x") )
-//    {
-//        try
-//        {
-//            if (!bootSerialPort.IsOpen())
-//                bootSerialPort.Open(bootPortName.char_str());
-//            if (bootSerialPort.IsOpen()) //This is NOT the same as en "else"!
-//            {
-//                char c = 'S'; //##Pide el string "LUFACDC" que es el identificador del bootloader...
-//                bootSerialPort.Write(&c, 1);
-//
-//                char buffer[12]; //##Hacer el tamaño configurable.
-//                unsigned int readCount = bootSerialPort.Read(buffer, sizeof(buffer)-1);
-//                if ( (readCount < sizeof(buffer)) && (readCount > 0) )
-//                {
-//                    if (getNotifier())
-//                        getNotifier()->showMessage(wxString(buffer) + wxString("\n"), false, false, *wxGREEN);
-//                    if (bootSerialPort.IsOpen())
-//                        bootSerialPort.Close();
-//                    return wxString(buffer).Contains(wxString("LUFACDC"));
-//                }
-//            }
-//            if (bootSerialPort.IsOpen())
-//                bootSerialPort.Close();
-//            return false;
-//        }
-//        catch(...)
-//        {
-//            if (bootSerialPort.IsOpen())
-//                bootSerialPort.Close();
-//            return false;
-//        }
-//    }
-//    else
-//    {
-//        return true;
-//    }
-//}
+#if 0
+bool Bubble::verifyBoard()
+{
+    //##Esto debe ser diferente para cada placa:
+    if (getBoardName() == wxString("DuinoBot.v1.x") ||
+        getBoardName() == wxString("DuinoBot.Kids.v1.x") )
+    {
+        try
+        {
+            if (!bootSerialPort.IsOpen())
+                bootSerialPort.Open(bootPortName.char_str());
+            if (bootSerialPort.IsOpen()) //This is NOT the same as en "else"!
+            {
+                char c = 'S'; //##Pide el string "LUFACDC" que es el identificador del bootloader...
+                bootSerialPort.Write(&c, 1);
+
+                char buffer[12]; //##Hacer el tamaño configurable.
+                unsigned int readCount = bootSerialPort.Read(buffer, sizeof(buffer)-1);
+                if ( (readCount < sizeof(buffer)) && (readCount > 0) )
+                {
+                    if (getNotifier())
+                        getNotifier()->showMessage(wxString(buffer) + wxString("\n"), false, false, *wxGREEN);
+                    if (bootSerialPort.IsOpen())
+                        bootSerialPort.Close();
+                    return wxString(buffer).Contains(wxString("LUFACDC"));
+                }
+            }
+            if (bootSerialPort.IsOpen())
+                bootSerialPort.Close();
+            return false;
+        }
+        catch(...)
+        {
+            if (bootSerialPort.IsOpen())
+                bootSerialPort.Close();
+            return false;
+        }
+    }
+    else
+    {
+        return true;
+    }
+}
+#endif
 
 
 void Bubble::linesFromArrayToBubbleEditor(const wxArrayString &strings, BubbleEditor *editor)

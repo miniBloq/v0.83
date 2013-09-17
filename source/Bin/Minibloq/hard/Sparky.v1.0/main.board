@@ -130,9 +130,9 @@
 	</build>
 	<resetInternal>
 		<icmd>
-			<setSerialLine param0="DTR"/>
+			<setBootSerialLine param0="DTR"/>
 			<delay param0="10"/>
-			<clearSerialLine param0="DTR"/>
+			<clearBootSerialLine param0="DTR"/>
 			<delay param0="10"/>
 		</icmd>
 	</resetInternal>
