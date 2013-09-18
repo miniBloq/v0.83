@@ -127,6 +127,11 @@ class BubbleBoardProperties
         wxString includesBuildList;
         wxString arduinoVersion; //This is specific to Arduino-compatible hardware, but needed by now.
         wxString objectExtension;
+        wxString boardDefine;
+        wxString usbVid;
+        wxString usbPid;
+        wxString usbManufacturer;
+        wxString usbProduct;
         wxArrayString relCommands;
 
     public:
@@ -165,7 +170,12 @@ class BubbleBoardProperties
                                     initBoardCode(wxString("")),
                                     includesBuildList(wxString("")),
                                     arduinoVersion(wxString("")),
-                                    objectExtension(wxString(""))
+                                    objectExtension(wxString("")),
+                                    boardDefine(wxString("")),
+                                    usbVid(wxString("")),
+                                    usbPid(wxString("")),
+                                    usbManufacturer(wxString("")),
+                                    usbProduct(wxString(""))
         {
             relCommands.Clear(); //Not necessary, but just in case.
         }
@@ -215,6 +225,11 @@ class BubbleBoardProperties
                 setIncludesBuildList(boardProperties->getIncludesBuildList());
                 setArduinoVersion(boardProperties->getArduinoVersion());
                 setObjectExtension(boardProperties->getObjectExtension());
+                setBoardDefine(boardProperties->getBoardDefine());
+                setUsbVid(boardProperties->getUsbVid());
+                setUsbPid(boardProperties->getUsbPid());
+                setUsbManufacturer(boardProperties->getUsbManufacturer());
+                setUsbProduct(boardProperties->getUsbProduct());
                 //relCommands = *(boardProperties->getRelCommands());
                 unsigned int i = 0;
                 while (i < boardProperties->getRelCommandsCount())
@@ -333,6 +348,21 @@ class BubbleBoardProperties
 
         inline void setObjectExtension(const wxString& value) { objectExtension = value; }
         inline const wxString &getObjectExtension() const { return objectExtension; }
+
+        inline void setBoardDefine(const wxString& value) { boardDefine = value; }
+        inline const wxString &getBoardDefine() const { return boardDefine; }
+
+        inline void setUsbVid(const wxString& value) { usbVid = value; }
+        inline const wxString &getUsbVid() const { return usbVid; }
+
+        inline void setUsbPid(const wxString& value) { usbPid = value; }
+        inline const wxString &getUsbPid() const { return usbPid; }
+
+        inline void setUsbManufacturer(const wxString& value) { usbManufacturer = value; }
+        inline const wxString &getUsbManufacturer() const { return usbManufacturer; }
+
+        inline void setUsbProduct(const wxString& value) { usbProduct = value; }
+        inline const wxString &getUsbProduct() const { return usbProduct; }
 
         inline void clearRelCommands() { return relCommands.Clear(); };
         inline unsigned int getRelCommandsCount() const { return relCommands.GetCount(); };

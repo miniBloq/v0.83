@@ -1313,9 +1313,8 @@ bool Bubble::runInternalCommand(const wxString& cmd)
         long ms = 0;
         if (param0.ToLong(&ms))
             wxMilliSleep((unsigned int)(ms));
-        return true;
     }
-    if (command == wxString("setBootSerialLine"))
+    else if (command == wxString("setBootSerialLine"))
     {
         if (bootSerialPort.IsOpen())
         {
@@ -1330,9 +1329,8 @@ bool Bubble::runInternalCommand(const wxString& cmd)
             if (param0 == wxString("RING"))
                 bootSerialPort.SetLineState(wxSERIAL_LINESTATE_RING);
         }
-        return true;
     }
-    if (command == wxString("clearBootSerialLine"))
+    else if (command == wxString("clearBootSerialLine"))
     {
         if (bootSerialPort.IsOpen())
         {
@@ -1347,19 +1345,16 @@ bool Bubble::runInternalCommand(const wxString& cmd)
             if (param0 == wxString("RING"))
                 bootSerialPort.ClrLineState(wxSERIAL_LINESTATE_RING);
         }
-        return true;
     }
-    if (command == wxString("openBootSerialPort"))
+    else if (command == wxString("openBootSerialPort"))
     {
         bootSerialPort.Open(bootPortName.char_str());
-        return bootSerialPort.IsOpen();
     }
-    if (command == wxString("openBootSerialPort"))
+    else if (command == wxString("closeBootSerialPort"))
     {
         bootSerialPort.Close();
-        return true;
     }
-    if (command == wxString("setBootSerialBaudrate"))
+    else if (command == wxString("setBootSerialBaudrate"))
     {
         //Very important: It seems that with the wxSerialPort class, the baudrate must be set with the
         //open port. Doing this with the closed port has no effect:
@@ -1394,17 +1389,15 @@ bool Bubble::runInternalCommand(const wxString& cmd)
             if (param0 == wxString("921600"))
                 bootSerialPort.SetBaudRate(wxBAUD_921600);
         }
-        return true;
     }
-    if (command == wxString("stringWriteToBootSerial"))
+    else if (command == wxString("stringWriteToBootSerial"))
     {
         if (bootSerialPort.IsOpen())
         {
             bootSerialPort.Write(param0.char_str(), param0.Len());
         }
-        return true;
     }
-    if (command == wxString("containsStringReadFromBootSerial"))
+    else if (command == wxString("containsStringReadFromBootSerial"))
     {
         if (bootSerialPort.IsOpen())
         {
@@ -1422,10 +1415,9 @@ bool Bubble::runInternalCommand(const wxString& cmd)
         }
         return false;
     }
-    if (command == wxString("debug"))
+    else if (command == wxString("debug"))
     {
         getNotifier()->showMessage(param0 + wxString("\n"), false, false, *wxGREEN);
-        return true;
     }
     return true;
 }

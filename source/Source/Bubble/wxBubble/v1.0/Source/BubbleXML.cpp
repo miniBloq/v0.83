@@ -366,6 +366,17 @@ wxString BubbleXML::getInternalVariableValue(const wxString& variableName, const
     if (variableName == "objectExtension::")
         return bubble->getHardwareManager()->getCurrentBoardProperties()->getObjectExtension();
 
+    if (variableName == "boardDefine::")
+        return bubble->getHardwareManager()->getCurrentBoardProperties()->getBoardDefine();
+    if (variableName == "usbVid::")
+        return bubble->getHardwareManager()->getCurrentBoardProperties()->getUsbVid();
+    if (variableName == "usbPid::")
+        return bubble->getHardwareManager()->getCurrentBoardProperties()->getUsbPid();
+    if (variableName == "usbManufacturer::")
+        return bubble->getHardwareManager()->getCurrentBoardProperties()->getUsbManufacturer();
+    if (variableName == "usbProduct::")
+        return bubble->getHardwareManager()->getCurrentBoardProperties()->getUsbProduct();
+
     if (variableName == "cpu::")
         return bubble->getHardwareManager()->getCurrentBoardProperties()->getCpu();
     if (variableName == "clockFreq::")
@@ -1768,6 +1779,27 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
                 {
                     boardInfo->setObjectExtension(child->GetNodeContent());
                 }
+                else if (child->GetName() == "boardDefine")
+                {
+                    boardInfo->setBoardDefine(child->GetNodeContent());
+                }
+                else if (child->GetName() == "usbVid")
+                {
+                    boardInfo->setUsbVid(child->GetNodeContent());
+                }
+                else if (child->GetName() == "usbPid")
+                {
+                    boardInfo->setUsbPid(child->GetNodeContent());
+                }
+                else if (child->GetName() == "usbManufacturer")
+                {
+                    boardInfo->setUsbManufacturer(child->GetNodeContent());
+                }
+                else if (child->GetName() == "usbProduct")
+                {
+                    boardInfo->setUsbProduct(child->GetNodeContent());
+                }
+
                 child = child->GetNext();
             }
         }

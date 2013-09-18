@@ -7,7 +7,7 @@
 		<cpu>atmega32u4</cpu>
 		<clockFreq>16000000L</clockFreq>
 		<imgMain>main.png</imgMain>
-		<imgThumb>thumb.png</imgThumb>
+		<imgThumb>thumb.jpg</imgThumb>
 		<win_i386_lang>WinAVR/v20090313/bin</win_i386_lang>
 		<win_i386_corePath>Arduino.v1.5.4.r2/avr</win_i386_corePath>
 		<win_i386_core>mega32u4.a</win_i386_core>
@@ -34,6 +34,11 @@
 		<commentEnd></commentEnd>
 		<arduinoVersion>154</arduinoVersion>
 		<objectExtension>o</objectExtension>
+		<boardDefine>ARDUINO_AVR_LEONARDO</boardDefine>
+		<usbVid>0x2341</usbVid>
+		<usbPid>0x8036</usbPid>
+		<usbManufacturer></usbManufacturer>
+		<usbProduct>"Arduino Leonardo"</usbProduct>
     </properties>
 	<includeFiles>
 		<include><s>Arduino.h</s></include>
@@ -69,8 +74,13 @@
 	<build>
 		<cmd>
 			<s>toolsPath::</s>
-			<s>/avr-g++ -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -mmcu=</s><s>cpu::</s>
+			<s>/avr-g++ -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD -mmcu=</s><s>cpu::</s>
 			<s> -DF_CPU=</s><s>clockFreq::</s><s> -DARDUINO=</s><s>arduinoVersion::</s>
+			<s> -D=</s><s>boardDefine::</s>
+			<s> -DARDUINO_ARCH_AVR</s> 			
+			<s> -DUSB_VID=</s><s>usbVid::</s>
+			<s> -DUSB_PID=</s><s>usbPid::</s>
+			<s> -DUSB_PRODUCT=</s><s>usbProduct::</s>
 			<s> -I"</s><s>toolsPath::</s>
 			<s>" -I"</s><s>corePath::</s>
 			<s>" -I"</s><s>corePath::</s><s>/avr-libc</s>
@@ -86,8 +96,13 @@
 		</cmd>
 		<cmd>
 			<s>toolsPath::</s>
-			<s>/avr-g++ -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -mmcu=</s><s>cpu::</s>
+			<s>/avr-g++ -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD -mmcu=</s><s>cpu::</s>
 			<s> -DF_CPU=</s><s>clockFreq::</s><s> -DARDUINO=</s><s>arduinoVersion::</s>
+			<s> -D=</s><s>boardDefine::</s>
+			<s> -DARDUINO_ARCH_AVR</s> 			
+			<s> -DUSB_VID=</s><s>usbVid::</s>
+			<s> -DUSB_PID=</s><s>usbPid::</s>
+			<s> -DUSB_PRODUCT=</s><s>usbProduct::</s>
 			<s> -I"</s><s>toolsPath::</s>
 			<s>" -I"</s><s>corePath::</s>
 			<s>" -I"</s><s>corePath::</s><s>/avr-libc</s>
@@ -130,10 +145,14 @@
 	</build>
 	<resetInternal>
 		<icmd>
-			<setBootSerialLine param0="DTR"/>
-			<delay param0="10"/>
-			<clearBootSerialLine param0="DTR"/>
-			<delay param0="10"/>
+			<openBootSerialPort/>
+			<setBootSerialBaudrate param0="1200"/>
+			<closeBootSerialPort/>
+			<delay param0="5"/>
+			<openBootSerialPort/>
+			<setBootSerialBaudrate param0="1200"/>
+			<closeBootSerialPort/>
+			<delay param0="400"/>
 		</icmd>
 	</resetInternal>
 	<deploy>

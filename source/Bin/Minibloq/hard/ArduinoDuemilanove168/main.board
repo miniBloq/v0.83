@@ -34,6 +34,7 @@
 		<commentEnd></commentEnd>
 		<arduinoVersion>22</arduinoVersion>
 		<objectExtension>o</objectExtension>
+		<boardDefine>ARDUINO_AVR_DUEMILANOVE</boardDefine>
     </properties>
 	<includeFiles>
 		<include><s>WProgram.h</s></include>
@@ -68,8 +69,11 @@
 	<build>
 		<cmd>
 			<s>toolsPath::</s>
-			<s>/avr-g++ -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -mmcu=</s><s>cpu::</s>
-			<s> -DF_CPU=</s><s>clockFreq::</s><s> -DARDUINO=</s><s>arduinoVersion::</s>
+			<s>/avr-g++ -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD -mmcu=</s><s>cpu::</s>
+			<s> -DF_CPU=</s><s>clockFreq::</s>
+			<s> -DARDUINO=</s><s>arduinoVersion::</s>
+			<s> -D=</s><s>boardDefine::</s>
+			<s> -DARDUINO_ARCH_AVR</s>
 			<s> -I"</s><s>toolsPath::</s>
 			<s>" -I"</s><s>corePath::</s>
 			<s>" -I"</s><s>boardPath::</s><s>/lib</s>
@@ -83,8 +87,11 @@
 		</cmd>
 		<cmd>
 			<s>toolsPath::</s>
-			<s>/avr-g++ -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -mmcu=</s><s>cpu::</s>
-			<s> -DF_CPU=</s><s>clockFreq::</s><s> -DARDUINO=</s><s>arduinoVersion::</s>
+			<s>/avr-g++ -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD -mmcu=</s><s>cpu::</s>
+			<s> -DF_CPU=</s><s>clockFreq::</s>
+			<s> -DARDUINO=</s><s>arduinoVersion::</s>
+			<s> -D=</s><s>boardDefine::</s>
+			<s> -DARDUINO_ARCH_AVR</s>			
 			<s> -I"</s><s>toolsPath::</s>
 			<s>" -I"</s><s>corePath::</s>
 			<s>" -I"</s><s>boardPath::</s><s>/lib</s>
