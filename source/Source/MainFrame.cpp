@@ -273,8 +273,8 @@ MainFrame::MainFrame(   wxWindow* parent,
                                         useExternalHelpCenter(false),
 
                                         tempComponentNameCounter(0),
-                                        tempComponentName(wxString("comp-1")),  //##Future: This should be initialized after
-                                                                                //checking that the comp-1 does not exist
+                                        tempComponentName(wxString("comp1")),  //##Future: This should be initialized after
+                                                                                //checking that the comp1 does not exist
                                                                                 //in the temp directory yet...
                                         showingMessageArea(true),
                                         componentAlreadySaved(false)
@@ -2608,7 +2608,7 @@ void MainFrame::createFileBlock(bool mainCanvas, const wxString &newTabName)
 //                            wxString(".mbqc");
         if (newTabName == wxString(""))
         {
-            tempComponentName = wxString("comp-") << tempComponentNameCounter;
+            tempComponentName = wxString("comp") << tempComponentNameCounter;
             tempComponentNameCounter++;
             tempComponentName += wxString(".mbqc");
         }
