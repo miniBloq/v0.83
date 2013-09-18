@@ -355,6 +355,10 @@ wxString BubbleXML::getInternalVariableValue(const wxString& variableName, const
         return (wxString("") << bubble->getHardwareManager()->getCurrentBoardProperties()->getBootBaudRate());
     if (variableName == "includeCodePrefix::")
         return bubble->getHardwareManager()->getCurrentBoardProperties()->getIncludeCodePrefix();
+    if (variableName == "headerFileExtension::")
+        return bubble->getHardwareManager()->getCurrentBoardProperties()->getHeaderFileExtension();
+    if (variableName == "codeFileExtension::")
+        return bubble->getHardwareManager()->getCurrentBoardProperties()->getCodeFileExtension();
     if (variableName == "includeCodePostfix::")
         return bubble->getHardwareManager()->getCurrentBoardProperties()->getIncludeCodePostfix();
     if (variableName == "includeBuildPrefix::")
@@ -1727,6 +1731,14 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
                     if (returnStringValue.ToDouble(&returnNumericValue))
                         boardInfo->setBootTimeOut((unsigned int)returnNumericValue);
                 }
+                else if (child->GetName() == "headerFileExtension")
+                {
+                    boardInfo->setHeaderFileExtension(child->GetNodeContent());
+                }
+                else if (child->GetName() == "codeFileExtension")
+                {
+                    boardInfo->setCodeFileExtension(child->GetNodeContent());
+                }
                 else if (child->GetName() == "includeCodePrefix")
                 {
                     boardInfo->setIncludeCodePrefix(child->GetNodeContent());
@@ -1754,6 +1766,10 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
                 else if (child->GetName() == "includeBuildPostfix")
                 {
                     boardInfo->setIncludeBuildPostfix(child->GetNodeContent());
+                }
+                else if (child->GetName() == "initBoardHeader")
+                {
+                    boardInfo->setInitBoardHeader(child->GetNodeContent());
                 }
                 else if (child->GetName() == "initBoardPrefix")
                 {

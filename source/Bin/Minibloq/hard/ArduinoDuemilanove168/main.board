@@ -22,12 +22,15 @@
 		<bootBaudRate>19200</bootBaudRate>
 		<bootFindPortTries>15</bootFindPortTries>
 		<bootTimeOut>200</bootTimeOut>
+		<headerFileExtension>h</headerFileExtension>
+		<codeFileExtension>cpp</codeFileExtension>
 		<includeCodePrefix>#include &lt;</includeCodePrefix>
 		<includeCodePostfix>&gt;</includeCodePostfix>
 		<includeInitCode>#ifndef mbq_h&#10;#define mbq_h&#10;&#10;</includeInitCode>
 		<includeFinalCode>#endif</includeFinalCode>
 		<includeBuildPrefix> -I"</includeBuildPrefix>
 		<includeBuildPostfix>"</includeBuildPostfix>
+		<initBoardHeader>#include &lt;mbq.h&gt;&#10;</initBoardHeader>
 		<initBoardPrefix>void initBoard()&#10;{</initBoardPrefix>
 		<initBoardPostfix>}</initBoardPostfix>
 		<commentBegin>//</commentBegin>

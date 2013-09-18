@@ -106,6 +106,8 @@ class BubbleBoardProperties
         unsigned int bootBaudRate;
         unsigned int bootFindPortTries;
         unsigned int bootTimeOut;
+        wxString headerFileExtension;
+        wxString codeFileExtension;
         wxString includeCodePrefix;
         wxString includeCodePostfix;
         wxString includeCodeInstancePrefix;
@@ -113,6 +115,7 @@ class BubbleBoardProperties
         wxString includeFinalCode;
         wxString includeBuildPrefix;
         wxString includeBuildPostfix;
+        wxString initBoardHeader;
         wxString initBoardPrefix;
         wxString initBoardPostfix;
         wxString commentBegin;
@@ -150,6 +153,8 @@ class BubbleBoardProperties
                                     bootBaudRate(115200),
                                     bootFindPortTries(5),
                                     bootTimeOut(200),
+                                    headerFileExtension(wxString("")),
+                                    codeFileExtension(wxString("")),
                                     includeCodePrefix(wxString("")),
                                     includeCodePostfix(wxString("")),
                                     includeCodeInstancePrefix(wxString("")),
@@ -157,6 +162,7 @@ class BubbleBoardProperties
                                     includeFinalCode(wxString("")),
                                     includeBuildPrefix(wxString("")),
                                     includeBuildPostfix(wxString("")),
+                                    initBoardHeader(wxString("")),
                                     initBoardPrefix(wxString("")),
                                     initBoardPostfix(wxString("")),
                                     commentBegin(wxString("")),
@@ -204,6 +210,8 @@ class BubbleBoardProperties
                 setBootBaudRate(boardProperties->getBootBaudRate());
                 setBootFindPortTries(boardProperties->getBootFindPortTries());
                 setBootTimeOut(boardProperties->getBootTimeOut());
+                setHeaderFileExtension(boardProperties->getHeaderFileExtension()),
+                setCodeFileExtension(boardProperties->getCodeFileExtension()),
                 setIncludeCodePrefix(boardProperties->getIncludeCodePrefix());
                 setIncludeCodePostfix(boardProperties->getIncludeCodePostfix());
                 setIncludeCodeInstancePrefix(boardProperties->getIncludeCodeInstancePrefix());
@@ -211,6 +219,7 @@ class BubbleBoardProperties
                 setIncludeFinalCode(boardProperties->getIncludeFinalCode());
                 setIncludeBuildPrefix(boardProperties->getIncludeBuildPrefix());
                 setIncludeBuildPostfix(boardProperties->getIncludeBuildPostfix());
+                setInitBoardHeader(boardProperties->getInitBoardHeader());
                 setInitBoardPrefix(boardProperties->getInitBoardPrefix());
                 setInitBoardPostfix(boardProperties->getInitBoardPostfix());
                 setCommentBegin(boardProperties->getCommentBegin());
@@ -286,6 +295,12 @@ class BubbleBoardProperties
         inline void setBootTimeOut(const unsigned int value) { bootTimeOut = value; }
         inline const unsigned int getBootTimeOut() const { return bootTimeOut; }
 
+        inline void setHeaderFileExtension(const wxString& value) { headerFileExtension = value; }
+        inline const wxString & getHeaderFileExtension() const { return headerFileExtension; }
+
+        inline void setCodeFileExtension(const wxString& value) { codeFileExtension = value; }
+        inline const wxString & getCodeFileExtension() const { return codeFileExtension; }
+
         inline void setIncludeCodePrefix(const wxString& value) { includeCodePrefix = value; }
         inline const wxString &getIncludeCodePrefix() const { return includeCodePrefix; }
 
@@ -306,6 +321,9 @@ class BubbleBoardProperties
 
         inline void setIncludeBuildPostfix(const wxString& value) { includeBuildPostfix = value; }
         inline const wxString &getIncludeBuildPostfix() const { return includeBuildPostfix; }
+
+        inline void setInitBoardHeader(const wxString& value) { initBoardHeader = value; }
+        inline const wxString &getInitBoardHeader() const { return initBoardHeader; }
 
         inline void setInitBoardPrefix(const wxString& value) { initBoardPrefix = value; }
         inline const wxString &getInitBoardPrefix() const { return initBoardPrefix; }

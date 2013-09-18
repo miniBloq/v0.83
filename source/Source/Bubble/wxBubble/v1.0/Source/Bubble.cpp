@@ -1885,7 +1885,9 @@ bool Bubble::generateCodeAndSaveToFile()
         //example a .ino file. In the future it's possible that this will become configurable in the backend, specially to support
         //other languajes different than C/C++:
         wxTextFile wrapperOutput;
-        if ( !wrapperOutput.Create(getOutputPath() + wxString("/") + getComponentFilesPath().AfterLast('/') + wxString(".cpp")) ) //Un-hardcode the file extension.
+        if ( !wrapperOutput.Create( getOutputPath() + wxString("/") + getComponentFilesPath().AfterLast('/') + wxString(".") +
+                                    getHardwareManager()->getCurrentBoardProperties()->getCodeFileExtension() )
+           )
             return false;
         wrapperOutput.AddLine(  getHardwareManager()->getCurrentBoardProperties()->getIncludeCodePrefix() +
                                 getComponentFilesPath().AfterLast('/') + wxString(".") +
@@ -1899,7 +1901,8 @@ bool Bubble::generateCodeAndSaveToFile()
 
         //This is the global header, to be included by other code files that need to access the board's instances and constants:
         wxTextFile mbqGlogalsHeader;
-        wxString mbqGlogalsHeaderName = getComponentFilesPath() + wxString("/mbq.h"); //##Unhardcode file extenstion.
+        wxString mbqGlogalsHeaderName = getComponentFilesPath() + wxString("/mbq.") +
+                                        getHardwareManager()->getCurrentBoardProperties()->getHeaderFileExtension();
         wxRemoveFile(mbqGlogalsHeaderName);
         if ( !mbqGlogalsHeader.Create(mbqGlogalsHeaderName) )
             return false;
@@ -1915,11 +1918,12 @@ bool Bubble::generateCodeAndSaveToFile()
 
         //Creates the initBoard file:
         wxTextFile initBoardFile;
-        wxString initBoardFileName = getComponentFilesPath() + wxString("/initBoard.cpp"); //##Unhardcode file extension.
+        wxString initBoardFileName =    getComponentFilesPath() + wxString("/initBoard.") +
+                                        getHardwareManager()->getCurrentBoardProperties()->getCodeFileExtension();
         wxRemoveFile(initBoardFileName);
         if ( !initBoardFile.Create(initBoardFileName) )
             return false;
-        initBoardFile.AddLine(wxString("#include <mbq.h>")); //Unhardcode.
+        initBoardFile.AddLine(getHardwareManager()->getCurrentBoardProperties()->getInitBoardHeader());
         initBoardFile.AddLine(wxString(""));
         initBoardFile.AddLine(getHardwareManager()->getCurrentBoardProperties()->getInstancesCodeList());
         initBoardFile.AddLine(wxString(""));
