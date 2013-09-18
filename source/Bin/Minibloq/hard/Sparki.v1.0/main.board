@@ -2,7 +2,7 @@
 <board xmlns="http://board.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
     <properties>
 		<manufacturer>ArcBotics</manufacturer>
-		<name>Sparky v1.0</name>
+		<name>Sparki v1.0</name>
 		<url0>http://arcbotics.com</url0>
 		<cpu>atmega32u4</cpu>
 		<clockFreq>16000000L</clockFreq>
