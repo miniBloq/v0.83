@@ -7,7 +7,9 @@ void setup()
 
 	while(true)
 	{
-		serial0.println(Random());
+		DigitalWrite(D13_LED, true);
+		delay(300);
+		DigitalWrite(D13_LED, false);
 		delay(300);
 	}
 }

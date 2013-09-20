@@ -1,31 +1,187 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<board xmlns="http://board.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.81.Beta">
+<board xmlns="http://board.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
     <properties>
 		<manufacturer>Arduino</manufacturer>
-		<name>Arduino Uno</name>
+		<name>Rovera Uno 2WD</name>
 		<url0>http://arduino.cc</url0>
-		<url1>http://arduino.cc/en/Main/ArduinoBoardUno</url1>
+		<cpu>atmega328p</cpu>
+		<clockFreq>16000000L</clockFreq>
 		<imgMain>main.png</imgMain>
 		<imgThumb>thumb.png</imgThumb>
 		<win_i386_lang>WinAVR/v20090313/bin</win_i386_lang>
-		<win_i386_corePath>Arduino.v0022</win_i386_corePath>
+		<win_i386_corePath>Arduino.v1.5.4.r2/avr</win_i386_corePath>
 		<win_i386_core>mega328.a</win_i386_core>
 		<linux_i386_lang>avrlinux/i386/v4.3.5/bin</linux_i386_lang>
-		<linux_i386_corePath>Arduino.v0022</linux_i386_corePath>
+		<linux_i386_corePath>Arduino.v0105</linux_i386_corePath>
 		<linux_i386_core>mega328.a</linux_i386_core>
 		<linux_amd64_lang>avrlinux/i386/v4.3.5/bin</linux_amd64_lang>
-		<linux_amd64_corePath>Arduino.v0022</linux_amd64_corePath>
+		<linux_amd64_corePath>Arduino.v0105</linux_amd64_corePath>
 		<linux_amd64_core>mega328.a</linux_amd64_core>
+		<outputMainFileExtension>ino</outputMainFileExtension>
+		<resetBeforeBuild>false</resetBeforeBuild>
+		<bootBaudRate>115200</bootBaudRate>
+		<bootFindPortTries>15</bootFindPortTries>
+		<bootTimeOut>200</bootTimeOut>
+		<headerFileExtension>h</headerFileExtension>
+		<codeFileExtension>cpp</codeFileExtension>		
+		<includeCodePrefix>#include &lt;</includeCodePrefix>
+		<includeCodePostfix>&gt;</includeCodePostfix>
+		<includeInitCode>#ifndef mbq_h&#10;#define mbq_h&#10;&#10;</includeInitCode>
+		<includeFinalCode>#endif</includeFinalCode>
+		<includeBuildPrefix> -I"</includeBuildPrefix>
+		<includeBuildPostfix>"</includeBuildPostfix>
+		<initBoardHeader>#include &lt;mbq.h&gt;&#10;</initBoardHeader>
+		<initBoardPrefix>void initBoard()&#10;{</initBoardPrefix>
+		<initBoardPostfix>}</initBoardPostfix>
+		<commentBegin>//</commentBegin>
+		<commentEnd></commentEnd>
+		<arduinoVersion>154</arduinoVersion>
+		<objectExtension>o</objectExtension>
+		<boardDefine>ARDUINO_AVR_UNO</boardDefine>
     </properties>
+	<includeFiles>
+		<include><s>Arduino.h</s></include>
+		<include><s>pins_arduino.h</s></include>
+		<include><s>stdlib.h</s></include>
+		<include><s>minibloq.h</s></include>
+		<include><s>board.h</s></include>
+	</includeFiles>
+	<initBoardCode>
+		<s>	Serial.begin(115200);&#10;&#10;</s>
+		<s>	pinMode(A0, INPUT);&#10;</s>
+		<s>	pinMode(A1, INPUT);&#10;</s>
+		<s>	pinMode(A2, INPUT);&#10;</s>
+		<s>	pinMode(A3, INPUT);&#10;</s>
+		<s>	pinMode(A4, INPUT);&#10;</s>
+		<s>	pinMode(A5, INPUT);&#10;&#10;</s>
+		<s>	//Uses the analog input 0, that may have the same value in some designs, but it's not so prabably:&#10;</s>
+		<s>	randomSeed(analogRead(0));&#10;&#10;</s>
+	</initBoardCode>
+	<initCode>
+		<s>#include &lt;mbq.h&gt;&#10;</s>
+		<s>#include &lt;PingIRReceiver.h&gt;&#10;&#10;</s>
+		<s>void setup()&#10;</s>
+		<s>{&#10;</s>
+		<s>	initBoard();&#10;</s>
+	</initCode>
+	<finalCode>
+		<s>}&#10;&#10;</s>
+		<s>void loop()&#10;</s>
+		<s>{&#10;</s>
+		<s>}</s>
+	</finalCode>
+	<build>
+		<cmd>
+			<s>toolsPath::</s>
+			<s>/avr-g++ -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD -mmcu=</s><s>cpu::</s>
+			<s> -DF_CPU=</s><s>clockFreq::</s><s> -DARDUINO=</s><s>arduinoVersion::</s>
+			<s> -D=</s><s>boardDefine::</s>
+			<s> -DARDUINO_ARCH_AVR</s>
+			<s> -I"</s><s>toolsPath::</s>
+			<s>" -I"</s><s>corePath::</s>
+			<s>" -I"</s><s>corePath::</s><s>/avr-libc</s>
+			<s>" -I"</s><s>corePath::</s><s>/variants/standard</s>
+			<s>" -I"</s><s>boardPath::</s><s>/lib</s>
+			<s>" -I"</s><s>componentFilesPath::</s>
+			<s>" -I"</s><s>outputPath::</s>
+			<s>" -I"</s><s>libsPath::</s><s>/Arduino/miniBloq" </s>
+
+			<s>includesBuildList::</s>
+			
+			<s> "</s><s>componentFilesPath::</s><s>/</s><s>initBoard.cpp" -o "</s><s>outputPath::</s><s>/</s><s>initBoard.cpp.o"</s>
+		</cmd>
+		<cmd>
+			<s>toolsPath::</s>
+			<s>/avr-g++ -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD -mmcu=</s><s>cpu::</s>
+			<s> -DF_CPU=</s><s>clockFreq::</s><s> -DARDUINO=</s><s>arduinoVersion::</s>
+			<s> -D=</s><s>boardDefine::</s>
+			<s> -DARDUINO_ARCH_AVR</s>			
+			<s> -I"</s><s>toolsPath::</s>
+			<s>" -I"</s><s>corePath::</s>
+			<s>" -I"</s><s>corePath::</s><s>/avr-libc</s>
+			<s>" -I"</s><s>corePath::</s><s>/variants/standard</s>
+			<s>" -I"</s><s>boardPath::</s><s>/lib</s>
+			<s>" -I"</s><s>componentFilesPath::</s>
+			<s>" -I"</s><s>outputPath::</s>
+			<s>" -I"</s><s>libsPath::</s><s>/Arduino/miniBloq" </s>
+
+			<s>includesBuildList::</s>
+
+			<s> "</s><s>outputPath::</s><s>/</s><s>componentName::</s><s>.cpp" -o "</s><s>outputPath::</s><s>/</s><s>componentName::</s><s>.cpp.o"</s>
+		</cmd>
+		<cmd>
+			<s>toolsPath::</s>
+			<s>/avr-gcc -Os -Wl,--gc-sections -mmcu=</s><s>cpu::</s><s> -o</s>
+			<s>"</s><s>outputPath::</s><s>/main.cpp.elf" </s>
+			<s>outputObjectsList::</s>
+			<s> "</s><s>outputPath::</s><s>/</s><s>initBoard.cpp.o"</s>
+			<s> "</s><s>outputPath::</s><s>/</s><s>componentName::</s><s>.cpp.o" "</s>
+			<s>corePath::</s><s>/obj/</s><s>core::</s><s>"</s>
+			<s> -L ./ -lm</s>
+		</cmd>
+		<cmd>
+			<s>toolsPath::</s>
+			<s>/avr-objcopy -O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0 </s>
+			<s>"</s><s>outputPath::</s><s>/main.cpp.elf" "</s>
+			<s>outputPath::</s><s>/main.cpp.epp"</s>
+		</cmd>
+		<cmd>
+			<s>toolsPath::</s>
+			<s>/avr-objcopy -O ihex -R .eeprom </s>
+			<s>"</s><s>outputPath::</s><s>/main.cpp.elf" "</s>
+			<s>outputPath::</s><s>/main.cpp.hex"</s>
+		</cmd>
+		<cmd>
+			<s>toolsPath::</s><s>/avr-size --mcu=</s><s>cpu::</s><s> --format=avr </s>
+			<s>"</s><s>outputPath::</s><s>/main.cpp.elf"</s>
+		</cmd>
+	</build>
+	<resetInternal>
+		<icmd>
+			<setBootSerialLine param0="DTR"/>
+			<delay param0="10"/>
+			<clearBootSerialLine param0="DTR"/>
+			<delay param0="10"/>
+		</icmd>
+	</resetInternal>
+	<deploy>
+		<cmd>
+			<s>toolsPath::</s><s>/avrdude.209130919.exe -C"</s>
+			<s>toolsPath::</s><s>/avrdude.conf" -p</s><s>cpu::</s><s> -carduino -P</s><s>bootPortName::</s>
+			<s> -b</s><s>bootBaudRate::</s><s> -D -Uflash:w:"</s><s>outputPath::</s><s>/main.cpp.hex</s><s>":i</s>
+		</cmd>
+	</deploy>
 	<instances>
+	    <RED   instanceType="LedStrip"/>
+		<GREEN instanceType="LedStrip"/>
+		<BLUE  instanceType="LedStrip"/>
+		<WHITE instanceType="LedStrip"/>	
+		<GRAY 	instanceType="LedStrip"/>
+		<MAROON instanceType="LedStrip"/>
+		<RED 	instanceType="LedStrip"/>
+		<OLIVE 	instanceType="LedStrip"/>
+		<YELLOW instanceType="LedStrip"/>
+		<GREEN 	instanceType="LedStrip"/>
+		<LIME 	instanceType="LedStrip"/>
+		<TEAL 	instanceType="LedStrip"/>
+		<AQUA 	instanceType="LedStrip"/>
+		<NAVY 	instanceType="LedStrip"/>
+		<BLUE 	instanceType="LedStrip"/>
+		<PURPLE instanceType="LedStrip"/>
+		<FUCHSIA instanceType="LedStrip"/>
+		
+        <Watchful  instanceType="WatchMode"/>
+        <Oblivious instanceType="WatchMode"/>  	
+
+        <Left_Bump  instanceType="Obstacle"/>
+        <Right_Bump instanceType="Obstacle"/>
+        <Front_Ping instanceType="Obstacle"/>	
+
+        <Look_Left instanceType="LookDir"/> 
+		<Look_Cntr instanceType="LookDir"/> 
+        <Look_Rght instanceType="LookDir"/> 		
+	
 		<serial0 instanceType="Serial"/>
-
-		<servo0 instanceType="ServoRC"/>
-		<servo1 instanceType="ServoRC"/>
-		<servo2 instanceType="ServoRC"/>
-
-		<motor0 instanceType="Motor"/>
-		<motor1 instanceType="Motor"/>
 
 		<sensor0 instanceType="analogRead"/>
 		<sensor1 instanceType="analogRead"/>
@@ -61,94 +217,5 @@
 		<D17 instanceType="IOPin"/>
 		<D18 instanceType="IOPin"/>
 		<D19 instanceType="IOPin"/>
-
-		<NOTE_B0 instanceType="BuzzerNote"/>
-		<NOTE_C1 instanceType="BuzzerNote"/>
-		<NOTE_CS1 instanceType="BuzzerNote"/>
-		<NOTE_D1 instanceType="BuzzerNote"/>
-		<NOTE_E1 instanceType="BuzzerNote"/>
-		<NOTE_F1 instanceType="BuzzerNote"/>
-		<NOTE_FS1 instanceType="BuzzerNote"/>
-		<NOTE_G1 instanceType="BuzzerNote"/>
-		<NOTE_GS1 instanceType="BuzzerNote"/>
-		<NOTE_A1 instanceType="BuzzerNote"/>
-		<NOTE_AS1 instanceType="BuzzerNote"/>
-		<NOTE_B1 instanceType="BuzzerNote"/>
-		<NOTE_C2 instanceType="BuzzerNote"/>
-		<NOTE_CS2 instanceType="BuzzerNote"/>
-		<NOTE_D2 instanceType="BuzzerNote"/>
-		<NOTE_DS2 instanceType="BuzzerNote"/>
-		<NOTE_E2 instanceType="BuzzerNote"/>
-		<NOTE_F2 instanceType="BuzzerNote"/>
-		<NOTE_FS2 instanceType="BuzzerNote"/>
-		<NOTE_G2 instanceType="BuzzerNote"/>
-		<NOTE_GS2 instanceType="BuzzerNote"/>
-		<NOTE_A2 instanceType="BuzzerNote"/>
-		<NOTE_AS2 instanceType="BuzzerNote"/>
-		<NOTE_B2 instanceType="BuzzerNote"/>
-		<NOTE_C3 instanceType="BuzzerNote"/>
-		<NOTE_CS3 instanceType="BuzzerNote"/>
-		<NOTE_D3 instanceType="BuzzerNote"/>
-		<NOTE_DS3 instanceType="BuzzerNote"/>
-		<NOTE_E3 instanceType="BuzzerNote"/>
-		<NOTE_F3 instanceType="BuzzerNote"/>
-		<NOTE_FS3 instanceType="BuzzerNote"/>
-		<NOTE_G3 instanceType="BuzzerNote"/>
-		<NOTE_GS3 instanceType="BuzzerNote"/>
-		<NOTE_A3 instanceType="BuzzerNote"/>
-		<NOTE_AS3 instanceType="BuzzerNote"/>
-		<NOTE_B3 instanceType="BuzzerNote"/>
-		<NOTE_C4 instanceType="BuzzerNote"/>
-		<NOTE_CS4 instanceType="BuzzerNote"/>
-		<NOTE_D4 instanceType="BuzzerNote"/>
-		<NOTE_DS4 instanceType="BuzzerNote"/>
-		<NOTE_E4 instanceType="BuzzerNote"/>
-		<NOTE_F4 instanceType="BuzzerNote"/>
-		<NOTE_FS4 instanceType="BuzzerNote"/>
-		<NOTE_G4 instanceType="BuzzerNote"/>
-		<NOTE_GS4 instanceType="BuzzerNote"/>
-		<NOTE_A4 instanceType="BuzzerNote"/>
-		<NOTE_AS4 instanceType="BuzzerNote"/>
-		<NOTE_B4 instanceType="BuzzerNote"/>
-		<NOTE_C5 instanceType="BuzzerNote"/>
-		<NOTE_CS5 instanceType="BuzzerNote"/>
-		<NOTE_D5 instanceType="BuzzerNote"/>
-		<NOTE_DS5 instanceType="BuzzerNote"/>
-		<NOTE_E5 instanceType="BuzzerNote"/>
-		<NOTE_F5 instanceType="BuzzerNote"/>
-		<NOTE_FS5 instanceType="BuzzerNote"/>
-		<NOTE_G5 instanceType="BuzzerNote"/>
-		<NOTE_GS5 instanceType="BuzzerNote"/>
-		<NOTE_A5 instanceType="BuzzerNote"/>
-		<NOTE_AS5 instanceType="BuzzerNote"/>
-		<NOTE_B5 instanceType="BuzzerNote"/>
-		<NOTE_C6 instanceType="BuzzerNote"/>
-		<NOTE_CS6 instanceType="BuzzerNote"/>
-		<NOTE_D6 instanceType="BuzzerNote"/>
-		<NOTE_DS6 instanceType="BuzzerNote"/>
-		<NOTE_E6 instanceType="BuzzerNote"/>
-		<NOTE_F6 instanceType="BuzzerNote"/>
-		<NOTE_FS6 instanceType="BuzzerNote"/>
-		<NOTE_G6 instanceType="BuzzerNote"/>
-		<NOTE_GS6 instanceType="BuzzerNote"/>
-		<NOTE_A6 instanceType="BuzzerNote"/>
-		<NOTE_AS6 instanceType="BuzzerNote"/>
-		<NOTE_B6 instanceType="BuzzerNote"/>
-		<NOTE_C7 instanceType="BuzzerNote"/>
-		<NOTE_CS7 instanceType="BuzzerNote"/>
-		<NOTE_D7 instanceType="BuzzerNote"/>
-		<NOTE_DS7 instanceType="BuzzerNote"/>
-		<NOTE_E7 instanceType="BuzzerNote"/>
-		<NOTE_F7 instanceType="BuzzerNote"/>
-		<NOTE_FS7 instanceType="BuzzerNote"/>
-		<NOTE_G7 instanceType="BuzzerNote"/>
-		<NOTE_GS7 instanceType="BuzzerNote"/>
-		<NOTE_A7 instanceType="BuzzerNote"/>
-		<NOTE_AS7 instanceType="BuzzerNote"/>
-		<NOTE_B7 instanceType="BuzzerNote"/>
-		<NOTE_C8 instanceType="BuzzerNote"/>
-		<NOTE_CS8 instanceType="BuzzerNote"/>
-		<NOTE_D8 instanceType="BuzzerNote"/>
-		<NOTE_DS8 instanceType="BuzzerNote"/>
 	</instances>
 </board>

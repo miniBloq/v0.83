@@ -120,13 +120,13 @@
 			<s>toolsPath::</s>
 			<s>/avr-objcopy -O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0 </s>
 			<s>"</s><s>outputPath::</s><s>/main.cpp.elf" "</s>
-			<s>"</s><s>outputPath::</s><s>/main.cpp.epp"</s>
+			<s>outputPath::</s><s>/main.cpp.epp"</s>
 		</cmd>
 		<cmd>
 			<s>toolsPath::</s>
 			<s>/avr-objcopy -O ihex -R .eeprom </s>
 			<s>"</s><s>outputPath::</s><s>/main.cpp.elf" "</s>
-			<s>"</s><s>outputPath::</s><s>/main.cpp.hex"</s>
+			<s>outputPath::</s><s>/main.cpp.hex"</s>
 		</cmd>
 		<cmd>
 			<s>toolsPath::</s><s>/avr-size --mcu=</s><s>cpu::</s><s> --format=avr </s>
