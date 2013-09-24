@@ -22,7 +22,7 @@
 			<s> -I"</s> <s>toolsPath::</s>
 			<s>" -I"</s><s>corePath::</s>
 			<s>" -I"</s><s>corePath::</s><s>/avr-libc</s>
-			<s>" -I"</s><s>corePath::</s><s>/variants/leonardo</s>
+			<s>" -I"</s><s>corePath::</s><s>/variants/</s><s>arduinoVariant::</s>
 			<s>" -I"</s><s>componentPath::</s>
 			<s>" -I"</s><s>outputPath::</s><s>" </s>
 			<s>-I"</s><s>libsPath::</s><s>/Arduino/IRremote/v1.0" </s>

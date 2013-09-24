@@ -131,6 +131,7 @@ class BubbleBoardProperties
         wxString arduinoVersion; //This is specific to Arduino-compatible hardware, but needed by now.
         wxString objectExtension;
         wxString boardDefine;
+        wxString arduinoVariant;
         wxString usbVid;
         wxString usbPid;
         wxString usbManufacturer;
@@ -178,6 +179,7 @@ class BubbleBoardProperties
                                     arduinoVersion(wxString("")),
                                     objectExtension(wxString("")),
                                     boardDefine(wxString("")),
+                                    arduinoVariant(wxString("")),
                                     usbVid(wxString("")),
                                     usbPid(wxString("")),
                                     usbManufacturer(wxString("")),
@@ -235,6 +237,7 @@ class BubbleBoardProperties
                 setArduinoVersion(boardProperties->getArduinoVersion());
                 setObjectExtension(boardProperties->getObjectExtension());
                 setBoardDefine(boardProperties->getBoardDefine());
+                setArduinoVariant(boardProperties->getArduinoVariant());
                 setUsbVid(boardProperties->getUsbVid());
                 setUsbPid(boardProperties->getUsbPid());
                 setUsbManufacturer(boardProperties->getUsbManufacturer());
@@ -369,6 +372,9 @@ class BubbleBoardProperties
 
         inline void setBoardDefine(const wxString& value) { boardDefine = value; }
         inline const wxString &getBoardDefine() const { return boardDefine; }
+
+        inline void setArduinoVariant(const wxString& value) { arduinoVariant = value; }
+        inline const wxString &getArduinoVariant() const { return arduinoVariant; }
 
         inline void setUsbVid(const wxString& value) { usbVid = value; }
         inline const wxString &getUsbVid() const { return usbVid; }

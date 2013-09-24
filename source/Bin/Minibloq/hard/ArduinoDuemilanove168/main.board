@@ -38,6 +38,7 @@
 		<arduinoVersion>22</arduinoVersion>
 		<objectExtension>o</objectExtension>
 		<boardDefine>ARDUINO_AVR_DUEMILANOVE</boardDefine>
+		<arduinoVariant>standard</arduinoVariant>
     </properties>
 	<includeFiles>
 		<include><s>WProgram.h</s></include>
@@ -79,6 +80,8 @@
 			<s> -DARDUINO_ARCH_AVR</s>
 			<s> -I"</s><s>toolsPath::</s>
 			<s>" -I"</s><s>corePath::</s>
+			<s>" -I"</s><s>corePath::</s><s>/avr-libc</s>
+			<s>" -I"</s><s>corePath::</s><s>/variants/</s><s>arduinoVariant::</s>			
 			<s>" -I"</s><s>boardPath::</s><s>/lib</s>
 			<s>" -I"</s><s>componentFilesPath::</s>
 			<s>" -I"</s><s>outputPath::</s>
@@ -97,6 +100,8 @@
 			<s> -DARDUINO_ARCH_AVR</s>			
 			<s> -I"</s><s>toolsPath::</s>
 			<s>" -I"</s><s>corePath::</s>
+			<s>" -I"</s><s>corePath::</s><s>/avr-libc</s>
+			<s>" -I"</s><s>corePath::</s><s>/variants/</s><s>arduinoVariant::</s>			
 			<s>" -I"</s><s>boardPath::</s><s>/lib</s>
 			<s>" -I"</s><s>componentFilesPath::</s>
 			<s>" -I"</s><s>outputPath::</s>

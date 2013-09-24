@@ -369,9 +369,11 @@ wxString BubbleXML::getInternalVariableValue(const wxString& variableName, const
         return bubble->getHardwareManager()->getCurrentBoardProperties()->getArduinoVersion();
     if (variableName == "objectExtension::")
         return bubble->getHardwareManager()->getCurrentBoardProperties()->getObjectExtension();
-
     if (variableName == "boardDefine::")
         return bubble->getHardwareManager()->getCurrentBoardProperties()->getBoardDefine();
+    if (variableName == "arduinoVariant::")
+        return bubble->getHardwareManager()->getCurrentBoardProperties()->getArduinoVariant();
+
     if (variableName == "usbVid::")
         return bubble->getHardwareManager()->getCurrentBoardProperties()->getUsbVid();
     if (variableName == "usbPid::")
@@ -1798,6 +1800,13 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
                 else if (child->GetName() == "boardDefine")
                 {
                     boardInfo->setBoardDefine(child->GetNodeContent());
+                }
+                else if (child->GetName() == "arduinoVariant")
+                {
+                    boardInfo->setArduinoVariant(child->GetNodeContent());
+                    //##Debug:
+//                    wxMessageDialog dialog0(bubble->getParent(), boardInfo->getArduinoVariant(), boardInfo->getName()); //##Debug.
+//                    dialog0.ShowModal(); //##Debug.
                 }
                 else if (child->GetName() == "usbVid")
                 {

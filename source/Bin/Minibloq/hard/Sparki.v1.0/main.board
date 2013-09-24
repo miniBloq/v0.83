@@ -42,6 +42,7 @@
 		<usbPid>0x8036</usbPid>
 		<usbManufacturer></usbManufacturer>
 		<usbProduct>"Arduino Leonardo"</usbProduct>
+		<arduinoVariant>leonardo</arduinoVariant>
     </properties>
 	<includeFiles>
 		<include><s>Arduino.h</s></include>
@@ -87,7 +88,7 @@
 			<s> -I"</s><s>toolsPath::</s>
 			<s>" -I"</s><s>corePath::</s>
 			<s>" -I"</s><s>corePath::</s><s>/avr-libc</s>
-			<s>" -I"</s><s>corePath::</s><s>/variants/leonardo</s>
+			<s>" -I"</s><s>corePath::</s><s>/variants/</s><s>arduinoVariant::</s>
 			<s>" -I"</s><s>boardPath::</s><s>/lib</s>
 			<s>" -I"</s><s>componentFilesPath::</s>
 			<s>" -I"</s><s>outputPath::</s>
@@ -109,7 +110,7 @@
 			<s> -I"</s><s>toolsPath::</s>
 			<s>" -I"</s><s>corePath::</s>
 			<s>" -I"</s><s>corePath::</s><s>/avr-libc</s>
-			<s>" -I"</s><s>corePath::</s><s>/variants/leonardo</s>
+			<s>" -I"</s><s>corePath::</s><s>/variants/</s><s>arduinoVariant::</s>
 			<s>" -I"</s><s>boardPath::</s><s>/lib</s>
 			<s>" -I"</s><s>componentFilesPath::</s>
 			<s>" -I"</s><s>outputPath::</s>
