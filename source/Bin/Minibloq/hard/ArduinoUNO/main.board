@@ -17,6 +17,7 @@
 		<linux_amd64_lang>avrlinux/i386/v4.3.5/bin</linux_amd64_lang>
 		<linux_amd64_corePath>Arduino.v0105</linux_amd64_corePath>
 		<linux_amd64_core>mega328.a</linux_amd64_core>
+		<win_i386_driverPath><s>componentsRepositoryPath::</s><s>/drivers/Arduino/win/uno/v1.0</s></win_i386_driverPath>
 		<outputMainFileExtension>ino</outputMainFileExtension>
 		<resetBeforeBuild>false</resetBeforeBuild>
 		<bootBaudRate>115200</bootBaudRate>
@@ -40,6 +41,10 @@
 		<boardDefine>ARDUINO_AVR_UNO</boardDefine>
 		<arduinoVariant>standard</arduinoVariant>
     </properties>
+	<examples>
+		<path><s>componentsRepositoryPath::</s><s>/work/_examples/ArduinoUno</s></path>
+		<path><s>componentsRepositoryPath::</s><s>/work/_examples/DifferentialRobot</s></path>
+	</examples>
 	<includeFiles>
 		<include><s>Arduino.h</s></include>
 		<include><s>pins_arduino.h</s></include>
