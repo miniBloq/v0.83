@@ -17,101 +17,103 @@ function set_execute_permission {
 
 chmod +x ./miniBloq-amd64
 chmod +x ./miniBloq-i386
-chmod +x ../../avrlinux/i386/v1.0/bin/avr-gprof
-chmod +x .././avrlinux/i386/v1.0/bin/avr-gcc-4.3.5
-chmod +x ../../avrlinux/i386/v1.0/bin/avr-readelf
-chmod +x ../../avrlinux/i386/v1.0/bin/avr-size
-chmod +x ../../avrlinux/i386/v1.0/bin/avr-gcc
-chmod +x ../../avrlinux/i386/v1.0/bin/avrdude
-chmod +x ../../avrlinux/i386/v1.0/bin/avr-ld
-chmod +x ../../avrlinux/i386/v1.0/bin/avr-ar
-chmod +x ../../avrlinux/i386/v1.0/bin/avr-ranlib
-chmod +x ../../avrlinux/i386/v1.0/bin/avr-objcopy
-chmod +x ../../avrlinux/i386/v1.0/bin/avr-c++filt
-chmod +x ../../avrlinux/i386/v1.0/bin/avr-gcov
-chmod +x ../../avrlinux/i386/v1.0/bin/avr-as
-chmod +x ../../avrlinux/i386/v1.0/bin/avr-cpp
-chmod +x ../../avrlinux/i386/v1.0/bin/avr-gccbug
-chmod +x ../../avrlinux/i386/v1.0/bin/avr-man
-chmod +x ../../avrlinux/i386/v1.0/bin/avr-g++
-chmod +x ../../avrlinux/i386/v1.0/bin/avr-strings
-chmod +x ../../avrlinux/i386/v1.0/bin/avr-addr2line
-chmod +x ../../avrlinux/i386/v1.0/bin/avr-nm
-chmod +x ../../avrlinux/i386/v1.0/bin/avr-objdump
-chmod +x ../../avrlinux/i386/v1.0/bin/avr-strip
-chmod +x ../../avrlinux/i386/v1.0/bin/avr-c++
-chmod +x ../../avrlinux/i386/v1.0/lib/gcc/avr/4.3.5/cc1plus
-chmod +x ../../avrlinux/i386/v1.0/lib/gcc/avr/4.3.5/collect2
-chmod +x ../../avrlinux/i386/v1.0/lib/gcc/avr/4.3.5/cc1
-chmod +x ../../avrlinux/i386/v1.0/lib/gcc/avr/4.3.5/install-tools/fixproto
-chmod +x ../../avrlinux/i386/v1.0/lib/gcc/avr/4.3.5/install-tools/mkinstalldirs
-chmod +x ../../avrlinux/i386/v1.0/lib/gcc/avr/4.3.5/install-tools/fix-header
-chmod +x ../../avrlinux/amd64/v1.0/bin/avr-gprof
-chmod +x ../../avrlinux/amd64/v1.0/bin/avr-gcc-4.3.5
-chmod +x ../../avrlinux/amd64/v1.0/bin/avr-readelf
-chmod +x ../../avrlinux/amd64/v1.0/bin/avr-size
-chmod +x ../../avrlinux/amd64/v1.0/bin/avr-gcc
-chmod +x ../../avrlinux/amd64/v1.0/bin/avrdude
-chmod +x ../../avrlinux/amd64/v1.0/bin/avr-ld
-chmod +x ../../avrlinux/amd64/v1.0/bin/avr-ar
-chmod +x ../../avrlinux/amd64/v1.0/bin/avr-ranlib
-chmod +x ../../avrlinux/amd64/v1.0/bin/avr-objcopy
-chmod +x ../../avrlinux/amd64/v1.0/bin/avr-c++filt
-chmod +x ../../avrlinux/amd64/v1.0/bin/avr-gcov
-chmod +x ../../avrlinux/amd64/v1.0/bin/avr-as
-chmod +x ../../avrlinux/amd64/v1.0/bin/avr-cpp
-chmod +x ../../avrlinux/amd64/v1.0/bin/avr-gccbug
-chmod +x ../../avrlinux/amd64/v1.0/bin/avr-man
-chmod +x ../../avrlinux/amd64/v1.0/bin/avr-g++
-chmod +x ../../avrlinux/amd64/v1.0/bin/avr-strings
-chmod +x ../../avrlinux/amd64/v1.0/bin/avr-addr2line
-chmod +x ../../avrlinux/amd64/v1.0/bin/avr-nm
-chmod +x ../../avrlinux/amd64/v1.0/bin/avr-objdump
-chmod +x ../../avrlinux/amd64/v1.0/bin/avr-strip
-chmod +x ../../avrlinux/amd64/v1.0/bin/avr-c++
-chmod +x ../../avrlinux/amd64/v1.0/lib/gcc/avr/4.3.5/cc1plus
-chmod +x ../../avrlinux/amd64/v1.0/lib/gcc/avr/4.3.5/collect2
-chmod +x ../../avrlinux/amd64/v1.0/lib/gcc/avr/4.3.5/cc1
-chmod +x ../../avrlinux/amd64/v1.0/lib/gcc/avr/4.3.5/install-tools/fixproto
-chmod +x ../../avrlinux/amd64/v1.0/lib/gcc/avr/4.3.5/install-tools/mkinstalldirs
-chmod +x ../../avrlinux/amd64/v1.0/lib/gcc/avr/4.3.5/install-tools/fix-header
+chmod +x ../../lang/avrlinux/i386/v4.3.5/bin/avr-gprof
+chmod +x ../../lang/avrlinux/i386/v4.3.5/bin/avr-gcc-4.3.5
+chmod +x ../../lang/avrlinux/i386/v4.3.5/bin/avr-readelf
+chmod +x ../../lang/avrlinux/i386/v4.3.5/bin/avr-size
+chmod +x ../../lang/avrlinux/i386/v4.3.5/bin/avr-gcc
+chmod +x ../../lang/avrlinux/i386/v4.3.5/bin/avrdude
+chmod +x ../../lang/avrlinux/i386/v4.3.5/bin/avr-ld
+chmod +x ../../lang/avrlinux/i386/v4.3.5/bin/avr-ar
+chmod +x ../../lang/avrlinux/i386/v4.3.5/bin/avr-ranlib
+chmod +x ../../lang/avrlinux/i386/v4.3.5/bin/avr-objcopy
+chmod +x ../../lang/avrlinux/i386/v4.3.5/bin/avr-c++filt
+chmod +x ../../lang/avrlinux/i386/v4.3.5/bin/avr-gcov
+chmod +x ../../lang/avrlinux/i386/v4.3.5/bin/avr-as
+chmod +x ../../lang/avrlinux/i386/v4.3.5/bin/avr-cpp
+chmod +x ../../lang/avrlinux/i386/v4.3.5/bin/avr-gccbug
+chmod +x ../../lang/avrlinux/i386/v4.3.5/bin/avr-man
+chmod +x ../../lang/avrlinux/i386/v4.3.5/bin/avr-g++
+chmod +x ../../lang/avrlinux/i386/v4.3.5/bin/avr-strings
+chmod +x ../../lang/avrlinux/i386/v4.3.5/bin/avr-addr2line
+chmod +x ../../lang/avrlinux/i386/v4.3.5/bin/avr-nm
+chmod +x ../../lang/avrlinux/i386/v4.3.5/bin/avr-objdump
+chmod +x ../../lang/avrlinux/i386/v4.3.5/bin/avr-strip
+chmod +x ../../lang/avrlinux/i386/v4.3.5/bin/avr-c++
+chmod +x ../../lang/avrlinux/i386/v4.3.5/lib/gcc/avr/4.3.5/cc1plus
+chmod +x ../../lang/avrlinux/i386/v4.3.5/lib/gcc/avr/4.3.5/collect2
+chmod +x ../../lang/avrlinux/i386/v4.3.5/lib/gcc/avr/4.3.5/cc1
+chmod +x ../../lang/avrlinux/i386/v4.3.5/lib/gcc/avr/4.3.5/install-tools/fixproto
+chmod +x ../../lang/avrlinux/i386/v4.3.5/lib/gcc/avr/4.3.5/install-tools/mkinstalldirs
+chmod +x ../../lang/avrlinux/i386/v4.3.5/lib/gcc/avr/4.3.5/install-tools/fix-header
 
-chmod +x ../../avrlinux/i386/v1.0/lib/avr/bin/objdump
-chmod +x ../../avrlinux/i386/v1.0/lib/avr/bin/ranlib
-chmod +x ../../avrlinux/i386/v1.0/lib/avr/bin/as
-chmod +x ../../avrlinux/i386/v1.0/lib/avr/bin/ld
-chmod +x ../../avrlinux/i386/v1.0/lib/avr/bin/strip
-chmod +x ../../avrlinux/i386/v1.0/lib/avr/bin/objcopy
-chmod +x ../../avrlinux/i386/v1.0/lib/avr/bin/ar
-chmod +x ../../avrlinux/i386/v1.0/lib/avr/bin/nm
-chmod +x ../../avrlinux/amd64/v1.0/lib/avr/bin/objdump
-chmod +x ../../avrlinux/amd64/v1.0/lib/avr/bin/ranlib
-chmod +x ../../avrlinux/amd64/v1.0/lib/avr/bin/as
-chmod +x ../../avrlinux/amd64/v1.0/lib/avr/bin/ld
-chmod +x ../../avrlinux/amd64/v1.0/lib/avr/bin/strip
-chmod +x ../../avrlinux/amd64/v1.0/lib/avr/bin/objcopy
-chmod +x ../../avrlinux/amd64/v1.0/lib/avr/bin/ar
-chmod +x ../../avrlinux/amd64/v1.0/lib/avr/bin/nm
-chmod +x ../../hid_bootloader_cli/v1.0/hid_bootloader_cli.Linux
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/bin/avr-gprof
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/bin/avr-gcc-4.3.5
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/bin/avr-readelf
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/bin/avr-size
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/bin/avr-gcc
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/bin/avrdude
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/bin/avr-ld
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/bin/avr-ar
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/bin/avr-ranlib
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/bin/avr-objcopy
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/bin/avr-c++filt
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/bin/avr-gcov
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/bin/avr-as
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/bin/avr-cpp
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/bin/avr-gccbug
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/bin/avr-man
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/bin/avr-g++
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/bin/avr-strings
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/bin/avr-addr2line
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/bin/avr-nm
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/bin/avr-objdump
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/bin/avr-strip
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/bin/avr-c++
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/lib/gcc/avr/4.3.5/cc1plus
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/lib/gcc/avr/4.3.5/collect2
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/lib/gcc/avr/4.3.5/cc1
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/lib/gcc/avr/4.3.5/install-tools/fixproto
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/lib/gcc/avr/4.3.5/install-tools/mkinstalldirs
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/lib/gcc/avr/4.3.5/install-tools/fix-header
 
+chmod +x ../../lang/avrlinux/i386/v4.3.5/lib/avr/bin/objdump
+chmod +x ../../lang/avrlinux/i386/v4.3.5/lib/avr/bin/ranlib
+chmod +x ../../lang/avrlinux/i386/v4.3.5/lib/avr/bin/as
+chmod +x ../../lang/avrlinux/i386/v4.3.5/lib/avr/bin/ld
+chmod +x ../../lang/avrlinux/i386/v4.3.5/lib/avr/bin/strip
+chmod +x ../../lang/avrlinux/i386/v4.3.5/lib/avr/bin/objcopy
+chmod +x ../../lang/avrlinux/i386/v4.3.5/lib/avr/bin/ar
+chmod +x ../../lang/avrlinux/i386/v4.3.5/lib/avr/bin/nm
 
-ln -sf ../../../bin/avr-objdump ../../avrlinux/i386/v1.0/lib/avr/bin/objdump
-ln -sf ../../../bin/avr-ranlib ../../avrlinux/i386/v1.0/lib/avr/bin/ranlib
-ln -sf ../../../bin/avr-as ../../avrlinux/i386/v1.0/lib/avr/bin/as
-ln -sf ../../../bin/avr-ld ../../avrlinux/i386/v1.0/lib/avr/bin/ld
-ln -sf ../../../bin/avr-strip ../../avrlinux/i386/v1.0/lib/avr/bin/strip
-ln -sf ../../../bin/avr-objdump ../../avrlinux/i386/v1.0/lib/avr/bin/objdump2
-ln -sf ../../../bin/avr-objcopy ../../avrlinux/i386/v1.0/lib/avr/bin/objcopy
-ln -sf ../../../bin/avr-ar ../../avrlinux/i386/v1.0/lib/avr/bin/ar
-ln -sf ../../../bin/avr-nm ../../avrlinux/i386/v1.0/lib/avr/bin/nm
-ln -sf ../../../bin/avr-objdump ../../avrlinux/amd64/v1.0/lib/avr/bin/objdump
-ln -sf ../../../bin/avr-ranlib ../../avrlinux/amd64/v1.0/lib/avr/bin/ranlib
-ln -sf ../../../bin/avr-as ../../avrlinux/amd64/v1.0/lib/avr/bin/as
-ln -sf ../../../bin/avr-ld ../../avrlinux/amd64/v1.0/lib/avr/bin/ld
-ln -sf ../../../bin/avr-strip ../../avrlinux/amd64/v1.0/lib/avr/bin/strip
-ln -sf ../../../bin/avr-objcopy ../../avrlinux/amd64/v1.0/lib/avr/bin/objcopy
-ln -sf ../../../bin/avr-ar ../../avrlinux/amd64/v1.0/lib/avr/bin/ar
-ln -sf ../../../bin/avr-nm ../../avrlinux/amd64/v1.0/lib/avr/bin/nm
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/lib/avr/bin/objdump
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/lib/avr/bin/ranlib
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/lib/avr/bin/as
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/lib/avr/bin/ld
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/lib/avr/bin/strip
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/lib/avr/bin/objcopy
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/lib/avr/bin/ar
+chmod +x ../../lang/avrlinux/amd64/v4.3.5/lib/avr/bin/nm
+
+chmod +x ../../tools/hidUploader/v1.0/hid_bootloader_cli.Linux
+
+ln -sf ../../../bin/avr-objdump ../../lang/avrlinux/i386/v4.3.5/lib/avr/bin/objdump
+ln -sf ../../../bin/avr-ranlib ../../lang/avrlinux/i386/v4.3.5/lib/avr/bin/ranlib
+ln -sf ../../../bin/avr-as ../../lang/avrlinux/i386/v4.3.5/lib/avr/bin/as
+ln -sf ../../../bin/avr-ld ../../lang/avrlinux/i386/v4.3.5/lib/avr/bin/ld
+ln -sf ../../../bin/avr-strip ../../lang/avrlinux/i386/v4.3.5/lib/avr/bin/strip
+ln -sf ../../../bin/avr-objdump ../../lang/avrlinux/i386/v4.3.5/lib/avr/bin/objdump2
+ln -sf ../../../bin/avr-objcopy ../../lang/avrlinux/i386/v4.3.5/lib/avr/bin/objcopy
+ln -sf ../../../bin/avr-ar ../../lang/avrlinux/i386/v4.3.5/lib/avr/bin/ar
+ln -sf ../../../bin/avr-nm ../../lang/avrlinux/i386/v4.3.5/lib/avr/bin/nm
+ln -sf ../../../bin/avr-objdump ../../lang/avrlinux/amd64/v4.3.5/lib/avr/bin/objdump
+ln -sf ../../../bin/avr-ranlib ../../lang/avrlinux/amd64/v4.3.5/lib/avr/bin/ranlib
+ln -sf ../../../bin/avr-as ../../lang/avrlinux/amd64/v4.3.5/lib/avr/bin/as
+ln -sf ../../../bin/avr-ld ../../lang/avrlinux/amd64/v4.3.5/lib/avr/bin/ld
+ln -sf ../../../bin/avr-strip ../../lang/avrlinux/amd64/v4.3.5/lib/avr/bin/strip
+ln -sf ../../../bin/avr-objcopy ../../lang/avrlinux/amd64/v4.3.5/lib/avr/bin/objcopy
+ln -sf ../../../bin/avr-ar ../../lang/avrlinux/amd64/v4.3.5/lib/avr/bin/ar
+ln -sf ../../../bin/avr-nm ../../lang/avrlinux/amd64/v4.3.5/lib/avr/bin/nm
 
 echo set_execute_permission
 
@@ -124,12 +126,12 @@ if [ "${OS}" = "Linux" ] ; then
     echo $KERNEL
     echo $MACH
     if [ "${MACH}" = "x86_64" ] ; then
-        export LD_LIBRARY_PATH=$PWD/mbq/v0.82/linuxRuntime/amd64
-        $PWD/mbq/v0.82/miniBloq-amd64
+        export LD_LIBRARY_PATH=$PWD/linuxRuntime/amd64/
+        $PWD/Minibloq-amd64
     else
 #    if [ "${MACH}" = "i386" ] || [ "${MACH}" = "i486" ] || [ "${MACH}" = "i586" ] || [ "${MACH}" = "i686" ] ; then
-        export LD_LIBRARY_PATH=$PWD/mbq/v0.82/linuxRuntime/i386
-        $PWD/mbq/v0.82/miniBloq-i386
+        export LD_LIBRARY_PATH=$PWD/linuxRuntime/i386/
+        $PWD/Minibloq-i386
     fi
 else
     xmessage "Unsupported operating system"
