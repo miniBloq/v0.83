@@ -107,13 +107,25 @@ int hard_reboot(void)
 	usb_dev_handle *rebootor;
 	int r;
 
-	rebootor = open_usb_device(0x16C0, 0x0477);
+//	rebootor = open_usb_device(0x16C0, 0x0477);
+    rebootor = open_usb_device(0x03eb, 0x204f);
 
-	if (!rebootor)
-		rebootor = open_usb_device(0x03eb, 0x2067);
+//	if (!rebootor)
+//		rebootor = open_usb_device(0x03eb, 0x2067);
 
-	if (!rebootor) return 0;
-	r = usb_control_msg(rebootor, 0x21, 9, 0x0200, 0, "reboot", 6, 100);
+	if (!rebootor){
+	    printf("Rebootor not found");
+	    fflush(stdout);
+	    return 0;
+	}
+	printf("Found Rebootor, rebooting...\n");
+
+	unsigned char buf[8];
+	buf[0] = 0xA1;
+    buf[1] = 0x01;
+    memset(buf + 2, 0, sizeof(buf) - 2);
+
+	r = usb_control_msg(rebootor, 0x21, 9, 0x0200, 0, buf, sizeof(buf), 100);
 	usb_release_interface(rebootor, 0);
 	usb_close(rebootor);
 	if (r < 0) return 0;
