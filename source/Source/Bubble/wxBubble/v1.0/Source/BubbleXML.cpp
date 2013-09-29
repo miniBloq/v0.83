@@ -321,6 +321,8 @@ wxString BubbleXML::getInternalVariableValue(const wxString& variableName, const
         return bubble->getComponentsRepositoryPath();
     if (variableName == "toolsPath::")
         return bubble->getComponentsRepositoryPath() + wxString("/lang/") + bubble->getHardwareManager()->getCurrentBoardProperties()->getLang();
+    if (variableName == "uploader::")
+        return bubble->getHardwareManager()->getCurrentBoardProperties()->getUploader();
     if (variableName == "libsPath::")
         return bubble->getComponentsRepositoryPath() + wxString("/libs");
     if (variableName == "corePath::")
@@ -1695,6 +1697,10 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
                 else if (child->GetName() == bubble->getHost() + wxString("_lang"))
                 {
                     boardInfo->setLang(child->GetNodeContent());
+                }
+                else if (child->GetName() == bubble->getHost() + wxString("_uploader"))
+                {
+                    boardInfo->setUploader(child->GetNodeContent());
                 }
                 else if (child->GetName() == bubble->getHost() + wxString("_corePath"))
                 {

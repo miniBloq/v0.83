@@ -17,7 +17,7 @@
 //##RG.Labs.20110314 begin
 #include "VirtualSerial.h"
 #include "pins.h"
-#include "DCMotor/DCMotor.h"
+//#include "DCMotor/DCMotor.h"
 //##RG.Labs.20110314 begin
 
 uint16_t makeWord(uint16_t w);

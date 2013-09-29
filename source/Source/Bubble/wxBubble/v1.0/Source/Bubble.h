@@ -99,6 +99,7 @@ class BubbleBoardProperties
         wxString imgThumb;
         wxString portType;
         wxString lang;
+        wxString uploader;
         wxString corePath;
         wxString core;
         wxString outputMainFileExtension;
@@ -147,6 +148,7 @@ class BubbleBoardProperties
                                     imgThumb(wxString("")),
                                     portType(wxString("serial")),
                                     lang(wxString("")),
+                                    uploader(wxString("")),
                                     corePath(wxString("")),
                                     core(wxString("")),
                                     outputMainFileExtension(wxString("ino")), //##Arduino compatible file by default?
@@ -205,6 +207,7 @@ class BubbleBoardProperties
                 setClockFreq(boardProperties->getClockFreq());
                 setImgThumb(boardProperties->getImgThumb());
                 setLang(boardProperties->getLang());
+                setUploader(boardProperties->getUploader());
                 setCorePath(boardProperties->getCorePath());
                 setCore(boardProperties->getCore());
                 setOutputMainFileExtension(boardProperties->getOutputMainFileExtension());
@@ -276,6 +279,9 @@ class BubbleBoardProperties
 
         inline void setLang(const wxString& value) { lang = value; }
         inline const wxString &getLang() const { return lang; }
+
+        inline void setUploader(const wxString& value) { uploader = value; }
+        inline const wxString &getUploader() const { return uploader; }
 
         inline void setCorePath(const wxString& value) { corePath = value; }
         inline const wxString &getCorePath() const { return corePath; }

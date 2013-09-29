@@ -7,14 +7,17 @@
 		<cpu>atmega32u4</cpu>
 		<clockFreq>16000000L</clockFreq>
 		<imgMain>main.png</imgMain>
-		<imgThumb>thumb.jpg</imgThumb>
+		<imgThumb>thumb.jpg</imgThumb>		
 		<win_i386_lang>WinAVR/v20090313/bin</win_i386_lang>
+		<win_i386_uploader>avrdude.209130919.exe</win_i386_uploader>
 		<win_i386_corePath>Arduino.v1.5.4.r2/avr</win_i386_corePath>
 		<win_i386_core>mega32u4.a</win_i386_core>
 		<linux_i386_lang>avrlinux/i386/v4.3.5/bin</linux_i386_lang>
+		<linux_i386_uploader>avrdude.20071012.exe</linux_i386_uploader>
 		<linux_i386_corePath>Arduino.v1.5.4.r2/avr</linux_i386_corePath>
 		<linux_i386_core>mega32u4.a</linux_i386_core>
 		<linux_amd64_lang>avrlinux/i386/v4.3.5/bin</linux_amd64_lang>
+		<linux_amd64_uploader>avrdude.20071012.exe</linux_amd64_uploader>
 		<linux_amd64_corePath>Arduino.v1.5.4.r2/avr</linux_amd64_corePath>
 		<linux_amd64_core>mega32u4.a</linux_amd64_core>
 		<outputMainFileExtension>ino</outputMainFileExtension>
@@ -161,7 +164,7 @@
 	</resetInternal>
 	<deploy>
 		<cmd>
-			<s>toolsPath::</s><s>/avrdude.20071012.exe -C"</s>
+			<s>toolsPath::</s><s>/</s><s>uploader::</s><s> -C"</s>
 			<s>toolsPath::</s><s>/avrdude.conf" -p</s><s>cpu::</s><s> -cavr109 -P</s><s>bootPortName::</s>
 			<s> -b</s><s>bootBaudRate::</s><s> -D -Uflash:w:"</s><s>outputPath::</s><s>/main.cpp.hex</s><s>":i</s>
 		</cmd>
