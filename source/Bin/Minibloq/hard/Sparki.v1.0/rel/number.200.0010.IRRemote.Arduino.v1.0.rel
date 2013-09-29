@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rel xmlns="http://rel.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
 	<includePaths>
-		<include><s>libsPath::</s><s>/Arduino/IRremote/v1.0</s></include>
+		<include><s>libsPath::</s><s>/Arduino/IRRemote/v1.0</s></include>
 	</includePaths>
 	<includeFiles>
 		<include><s>IRremote.h</s></include>
