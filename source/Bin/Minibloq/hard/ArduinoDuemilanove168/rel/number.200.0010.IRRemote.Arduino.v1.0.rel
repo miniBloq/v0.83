@@ -4,7 +4,7 @@
 		<include><s>libsPath::</s><s>/Arduino/IRRemote/v1.0</s></include>
 	</includePaths>
 	<includeFiles>
-		<include><s>IRremote.h</s></include>
+		<include><s>IRRemote.h</s></include>
 	</includeFiles>
 	<instancesHeader>
 		<s>extern IRrecv irReceiver;</s>
@@ -25,9 +25,9 @@
 			<s>" -I"</s><s>corePath::</s><s>/variants/</s><s>arduinoVariant::</s>
 			<s>" -I"</s><s>componentPath::</s>
 			<s>" -I"</s><s>outputPath::</s><s>" </s>
-			<s>-I"</s><s>libsPath::</s><s>/Arduino/IRremote/v1.0" </s>
+			<s>-I"</s><s>libsPath::</s><s>/Arduino/IRRemote/v1.0" </s>
 			
-			<s>"</s><s>libsPath::</s><s>/Arduino/IRremote/v1.0/IRremote.cpp" -o "</s><s>outputPath::</s><s>/IRremote.cpp.o"</s>
+			<s>"</s><s>libsPath::</s><s>/Arduino/IRRemote/v1.0/IRRemote.cpp" -o "</s><s>outputPath::</s><s>/IRRemote.cpp.o"</s>
 		</cmd>
 	</build>
 </rel>

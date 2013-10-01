@@ -1,5 +1,5 @@
 /*
- * IRremote
+ * IRRemote
  * Version 0.1 July, 2009
  * Copyright 2009 Ken Shirriff
  * For details, see http://arcfn.com/2009/08/multi-protocol-infrared-remote-library.htm http://arcfn.com
@@ -9,8 +9,8 @@
  * Also influenced by http://zovirl.com/2008/11/12/building-a-universal-remote-with-an-arduino/
  */
 
-#ifndef IRremote_h
-#define IRremote_h
+#ifndef IRRemote_h
+#define IRRemote_h
 
 #include <inttypes.h>
 

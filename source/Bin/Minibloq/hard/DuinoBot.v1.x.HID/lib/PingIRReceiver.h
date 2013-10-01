@@ -5,7 +5,7 @@
 
 //This is the correct way to add functions which depends on instances from other libraries for this specific board: It
 //has to see if those libraries were already included:
-#ifdef IRremote_h
+#ifdef IRRemote_h
 #ifdef Ping_h
 
 //This function does not belong to the Ping sensor, nor to the IRReceiver: It's

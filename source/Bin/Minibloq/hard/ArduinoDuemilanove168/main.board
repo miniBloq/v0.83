@@ -43,7 +43,7 @@
 	<includeFiles>
 		<include><s>WProgram.h</s></include>
 		<include><s>stdlib.h</s></include>
-		<include><s>minibloq.h</s></include>
+		<include><s>miniBloq.h</s></include>
 		<include><s>board.h</s></include>
 	</includeFiles>
 	<initBoardCode>
@@ -85,7 +85,7 @@
 			<s>" -I"</s><s>boardPath::</s><s>/lib</s>
 			<s>" -I"</s><s>componentFilesPath::</s>
 			<s>" -I"</s><s>outputPath::</s>
-			<s>" -I"</s><s>libsPath::</s><s>/Arduino/miniBloq" </s>
+			<s>" -I"</s><s>libsPath::</s><s>/Arduino/miniBloq/v1.0" </s>
 
 			<s>includesBuildList::</s>
 			
@@ -105,7 +105,7 @@
 			<s>" -I"</s><s>boardPath::</s><s>/lib</s>
 			<s>" -I"</s><s>componentFilesPath::</s>
 			<s>" -I"</s><s>outputPath::</s>
-			<s>" -I"</s><s>libsPath::</s><s>/Arduino/miniBloq" </s>
+			<s>" -I"</s><s>libsPath::</s><s>/Arduino/miniBloq/v1.0" </s>
 
 			<s>includesBuildList::</s>
 			

@@ -1,5 +1,5 @@
 /*
- * IRremote
+ * IRRemote
  * Version 0.1 July, 2009
  * Copyright 2009 Ken Shirriff
  * For details, see http://arcfn.com/2009/08/multi-protocol-infrared-remote-library.html
@@ -9,8 +9,8 @@
  * Also influenced by http://zovirl.com/2008/11/12/building-a-universal-remote-with-an-arduino/
  */
 
-#ifndef IRremoteint_h
-#define IRremoteint_h
+#ifndef IRRemoteint_h
+#define IRRemoteint_h
 
 #include <Arduino.h>
 
@@ -87,7 +87,7 @@
 #define MATCH(measured_ticks, desired_us) ((measured_ticks) >= TICKS_LOW(desired_us) && (measured_ticks) <= TICKS_HIGH(desired_us))
 #define MATCH_MARK(measured_ticks, desired_us) MATCH(measured_ticks, (desired_us) + MARK_EXCESS)
 #define MATCH_SPACE(measured_ticks, desired_us) MATCH((measured_ticks), (desired_us) - MARK_EXCESS)
-// Debugging versions are in IRremote.cpp
+// Debugging versions are in IRRemote.cpp
 #endif
 
 // receiver states
@@ -107,7 +107,7 @@ typedef struct {
 }
 irparams_t;
 
-// Defined in IRremote.cpp
+// Defined in IRRemote.cpp
 extern volatile irparams_t irparams;
 
 // IR detector output is active low
