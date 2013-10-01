@@ -62,6 +62,7 @@
 	</initBoardCode>
 	<initCode>
 		<s>#include &lt;mbq.h&gt;&#10;</s>
+		<s>#include &lt;PingIRReceiver.h&gt;&#10;&#10;</s>
 		<s>void setup()&#10;</s>
 		<s>{&#10;</s>
 		<s>	initBoard();&#10;</s>

@@ -2,10 +2,10 @@
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Release" />
 	<File name="Source\Bubble\wxBubble\v1.0\Source\Bubble.cpp" open="1" top="0" tabpos="3">
-		<Cursor position="3138" topLine="46" />
+		<Cursor position="3215" topLine="47" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\Bubble.h" open="1" top="0" tabpos="4">
-		<Cursor position="29900" topLine="615" />
+		<Cursor position="21373" topLine="437" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleBlock.cpp" open="0" top="0" tabpos="7">
 		<Cursor position="114564" topLine="2932" />
@@ -41,7 +41,7 @@
 		<Cursor position="7742" topLine="144" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleXML.cpp" open="1" top="1" tabpos="2">
-		<Cursor position="13422" topLine="340" />
+		<Cursor position="80990" topLine="1848" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\IBubbleFileIO.h" open="0" top="0" tabpos="6">
 		<Cursor position="529" topLine="0" />
@@ -53,7 +53,7 @@
 		<Cursor position="109085" topLine="2626" />
 	</File>
 	<File name="Source\MainFrame.h" open="1" top="0" tabpos="11">
-		<Cursor position="8892" topLine="280" />
+		<Cursor position="0" topLine="0" />
 	</File>
 	<File name="Source\MinibloqProperties.cpp" open="0" top="0" tabpos="10">
 		<Cursor position="283" topLine="0" />
