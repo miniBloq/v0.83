@@ -9,8 +9,8 @@
 #ifdef Ping_h
 
 //This function does not belong to the Ping sensor, nor to the IRReceiver: It's
-//a product of the relation between them and some boards. That's why it's here,
-//in the board libraries. It's a function to prevent an incompatibility between
+//a product of the relation between them and some boards. That's why it's a new
+//library itself. It's a function to prevent an incompatibility between
 //the IRReceiver and the Ping classes: 
 long pingMeasureCM(int pin)
 {
