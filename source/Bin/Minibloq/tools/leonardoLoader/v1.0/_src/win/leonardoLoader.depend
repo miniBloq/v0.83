@@ -1,0 +1,113 @@
+# depslib dependency file v1.0
+1381770363 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\src\iobase.cpp
+	<stdio.h>
+	<string.h>
+	"ctb-0.16/iobase.h"
+	"ctb-0.16/timer.h"
+
+1285508991 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\include\ctb-0.16\iobase.h
+	"ctb-0.16/fifo.h"
+	<sys/types.h>
+
+1285508991 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\include\ctb-0.16\fifo.h
+	<sys/types.h>
+
+1285508991 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\include\ctb-0.16\timer.h
+	"win32/timer.h"
+	"linux/timer.h"
+
+1285508991 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\include\ctb-0.16\win32\timer.h
+	<windows.h>
+
+1285508990 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\include\ctb-0.16\linux\timer.h
+	<pthread.h>
+
+1285508991 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\src\kbhit.cpp
+	<conio.h>
+	<stdio.h>
+	<termios.h>
+
+1285508991 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\src\portscan.cpp
+	"ctb-0.16/ctb.h"
+	"ctb-0.16/portscan.h"
+	<sstream>
+	<glob.h>
+
+1285508991 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\include\ctb-0.16\ctb.h
+	"ctb-0.16/fifo.h"
+	"ctb-0.16/gpib.h"
+	"ctb-0.16/getopt.h"
+	"ctb-0.16/iobase.h"
+	"ctb-0.16/kbhit.h"
+	"ctb-0.16/portscan.h"
+	"ctb-0.16/serport.h"
+	"ctb-0.16/serportx.h"
+	"ctb-0.16/timer.h"
+
+1285508991 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\include\ctb-0.16\gpib.h
+	"ctb-0.16/iobase.h"
+
+1285508991 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\include\ctb-0.16\getopt.h
+	"win32/getopt.h"
+	<getopt.h>
+
+1285508991 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\include\ctb-0.16\win32\getopt.h
+
+1285508991 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\include\ctb-0.16\kbhit.h
+
+1285508991 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\include\ctb-0.16\portscan.h
+	<string>
+	<vector>
+
+1285508991 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\include\ctb-0.16\serport.h
+	"ctb-0.16/win32/serport.h"
+	"ctb-0.16/linux/serport.h"
+
+1285508991 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\include\ctb-0.16\win32\serport.h
+	"../serportx.h"
+	<windows.h>
+
+1291037119 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\include\ctb-0.16\serportx.h
+	<stdio.h>
+	<string.h>
+	"ctb-0.16/iobase.h"
+
+1285508990 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\include\ctb-0.16\linux\serport.h
+	"ctb-0.16/serportx.h"
+	<linux/serial.h>
+	<termios.h>
+
+1285508991 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\src\win32\getopt.cpp
+	<stdio.h>
+	<string.h>
+
+1381770400 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\src\win32\serport.cpp
+	<string.h>
+	"ctb-0.16/serport.h"
+
+1381770411 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\src\win32\timer.cpp
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	"ctb-0.16/timer.h"
+
+1381770006 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\main.cpp
+	<stdio.h>
+	<stdlib.h>
+	<stdint.h>
+	<stdarg.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdint.h>
+	<stdarg.h>
+	<string.h>
+	<unistd.h>
+	"ihex.h"
+	"usb_XXX.h"
+	<conio.h>
+	<windows.h>
+
+1381770431 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\src\fifo.cpp
+	"ctb-0.16/fifo.h"
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Release" />
+	<File name="source\libctb-0.16\src\fifo.cpp" open="1" top="0" tabpos="0">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="source\libctb-0.16\src\iobase.cpp" open="1" top="0" tabpos="0">
+		<Cursor position="415" topLine="0" />
+	</File>
+	<File name="source\libctb-0.16\src\win32\serport.cpp" open="1" top="0" tabpos="0">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="source\libctb-0.16\src\win32\timer.cpp" open="1" top="1" tabpos="0">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="source\main.cpp" open="1" top="0" tabpos="0">
+		<Cursor position="0" topLine="0" />
+	</File>
+</CodeBlocks_layout_file>
