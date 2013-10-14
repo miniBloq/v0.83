@@ -31,7 +31,7 @@ namespace ctb {
 
 			 if( cc.dwProviderSubType == PST_RS232 ) {
 
-				ctb::SerialPort com;
+				wxSerialPort com;
 
 				if( com.Open( devname.str().c_str() ) < 0 ) {
 

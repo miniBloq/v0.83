@@ -169,6 +169,7 @@
 		<Unit filename="Source\CTB\v0.13\src\win32\getopt.cpp" />
 		<Unit filename="Source\CTB\v0.13\src\win32\serport.cpp" />
 		<Unit filename="Source\CTB\v0.13\src\win32\timer.cpp" />
+		<Unit filename="Source\CTB\v0.13\src\portscan.cpp" />
 		<Unit filename="Source\ComponentProperties.cpp" />
 		<Unit filename="Source\ComponentProperties.h" />
 		<Unit filename="Source\HID\v0.10\hid.h" />

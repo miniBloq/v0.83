@@ -55,14 +55,14 @@
 		<include><s>stdlib.h</s></include>
 		<include><s>miniBloq.h</s></include>
 		<include><s>board.h</s></include>
-		<include><s>PingIRReceiver.h</s></include>
 	</includeFiles>
 	<initBoardCode>
 		<s>	Serial.begin(115200);&#10;&#10;</s>
 		<s>	randomSeed(analogRead(0));&#10;&#10;</s>
 	</initBoardCode>
 	<initCode>
-		<s>#include &lt;mbq.h&gt;&#10;&#10;</s>
+		<s>#include &lt;mbq.h&gt;&#10;</s>
+		<s>#include &lt;PingIRReceiver.h&gt;&#10;&#10;</s>
 		<s>void setup()&#10;</s>
 		<s>{&#10;</s>
 		<s>	initBoard();&#10;</s>

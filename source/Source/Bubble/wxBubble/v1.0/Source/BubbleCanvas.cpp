@@ -240,12 +240,6 @@ BubbleCanvas::BubbleCanvas( wxWindow* parent,
         setVisibleLabels(bubble->getVisibleLabels());
     }
 
-//##Volar esto:
-//    if (bubble)
-//    {
-//        setVisibleLabels(bubble->getVisibleLabels());
-//    }
-
     //se le definen la cantidad de parámetros, etc..
     forceSaved(true); //The first block doesn't count.
     //firstBlock = &(blocks[0]);

@@ -2945,10 +2945,13 @@
 	<wx/bitmap.h>
 	<wx/image.h>
 
-1378665830 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblehardwaremanager.h
+1381696375 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblehardwaremanager.h
 	"BubblePanel.h"
 	"BubbleButton.h"
 	"BubbleCombo.h"
+	<string>
+	<vector>
+	"include/portscan.h"
 	<wx/combobox.h>
 	<wx/stattext.h>
 	<wx/button.h>
@@ -3144,7 +3147,7 @@
 	<wx/dcclient.h>
 	<wx/validate.h>
 
-1378183627 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblecanvas.cpp
+1381686811 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblecanvas.cpp
 	"BubbleCanvas.h"
 	"Bubble.h"
 	<wx/dcclient.h>
@@ -3201,13 +3204,10 @@
 	"BubbleEditor.h"
 	<wx/stc/stc.h>
 
-1378747463 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblehardwaremanager.cpp
+1381768604 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblehardwaremanager.cpp
 	"BubbleHardwareManager.h"
 	"Bubble.h"
 	<windows.h>
-	<string>
-	<vector>
-	"include/portscan.h"
 
 1321918940 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\ctb\v0.13\include\portscan.h
 	<string>
@@ -3247,7 +3247,7 @@
 1293989500 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblevariablesmanager.h
 	"BubblePanel.h"
 
-1380475972 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblexml.cpp
+1381768665 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblexml.cpp
 	"Bubble.h"
 	<wx/msgdlg.h>
 	<wx/dir.h>
@@ -3777,7 +3777,7 @@
 1309266992 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\texteditorproperties.cpp
 	"TextEditorProperties.h"
 
-1379532077 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubble.cpp
+1381768830 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubble.cpp
 	"Bubble.h"
 	<wx/msgdlg.h>
 	<wx/dir.h>
@@ -3900,4 +3900,10 @@
 	"MainFrame.h"
 
 1252039998 c:\apps\codeblocks-rg.v0.1\sdk\wxwidgets\wxwidgets-2.9.0\lib\gcc_dll\mswu\wx\setup.h
+
+1381686641 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\ctb\v0.13\src\portscan.cpp
+	"include/serport.h"
+	"portscan.h"
+	<sstream>
+	<glob.h>
 

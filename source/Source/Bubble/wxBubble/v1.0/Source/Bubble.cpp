@@ -11,6 +11,11 @@
 #include <windows.h>
 #endif
 
+//##:
+//#include <string>
+//#include <vector>
+
+
 //##2010.10.04: Ver que esto no dé error de runtime: Dejar este mensaje interno, aunque pasarlo a
 //inglés, por si se reportara un bug al respecto en el futuro. Al menos dejarlo hasta ver bien cómo
 //trabaja WX_DEFINE_OBJARRAY() y ver por qué en algunos compiladores, si se usa este macro sin tener
@@ -1415,6 +1420,23 @@ bool Bubble::runInternalCommand(const wxString& cmd)
         }
         return false;
     }
+//##Future: finish this:
+//    else if (command == wxString("findNewPort"))
+//    {
+//        if (getHardwareManager())
+//        {
+//            std::vector<std::string> ports;
+//            getHardwareManager()->getPorts(ports);
+//            getNotifier()->showMessage(_("Current ports: \n"), false, false, *wxWHITE);
+//            for (unsigned int i = 0; i < ports.size(); i++)
+//                getNotifier()->showMessage(wxString(ports[i]) + wxString("\n"), false, false, *wxWHITE);
+//            if (getHardwareManager()->findNewPort())
+//            {
+//                getNotifier()->showMessage(_("New port: "), false, false, *wxWHITE);
+//                getNotifier()->showMessage(getHardwareManager()->getNewPort() + wxString("\n"), false, false, *wxWHITE);
+//            }
+//        }
+//    }
     else if (command == wxString("debug"))
     {
         getNotifier()->showMessage(param0 + wxString("\n"), false, false, *wxGREEN);

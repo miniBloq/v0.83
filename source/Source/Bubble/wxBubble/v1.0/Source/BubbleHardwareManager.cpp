@@ -2,12 +2,13 @@
 #include "Bubble.h"
 
 #if defined (WIN32)
-#include <windows.h>
-#else
-#include <string>
-#include <vector>
-#include "include/portscan.h"
+    #include <windows.h>
 #endif
+
+
+//##Make the limit configurable, from an XML file (and see the Windows and Linux API documetation too
+//to avoid defining it smaller than possibly needed):
+const int maxPorts = 256;
 
 
 WX_DEFINE_OBJARRAY(arrayOfBoardProperties);
@@ -373,10 +374,11 @@ void BubbleHardwareManager::updatePorts()
     if (comboBootPortName == NULL)
         return;
     comboBootPortName->clear();
+    ports.clear();
+
 #if defined (WIN32)
-    //##Make the limit (by now 256) configurable, from an XML file (and see the API documetation too):
-    //##Thanks to Alan Kharsansky for this code!:
-    for (int portNumber = 1; portNumber < 256; ++portNumber)
+    //Thanks to Alan Kharsansky for this code!:
+    for (int portNumber = 1; portNumber < maxPorts; ++portNumber)
     {
         wxString strCommRealName = wxString("//./COM");
         wxString strCommScreenReal = wxString("COM");
@@ -385,11 +387,11 @@ void BubbleHardwareManager::updatePorts()
         if (serialPortExists(strCommRealName))
         {
             comboBootPortName->append(strCommScreenReal);
+            ports.push_back(std::string(strCommScreenReal.mb_str()));
         }
     }
 #else
-    //##Thanks to Juan Pizarro for this code!:
-    std::vector<std::string> ports;
+    //Thanks to Juan Pizarro for this code!:
     if( ctb::GetAvailablePorts(ports) )
     {
         for(int i=0; i < ports.size(); i++)
@@ -398,6 +400,78 @@ void BubbleHardwareManager::updatePorts()
         }
     }
 #endif
+}
+
+
+bool BubbleHardwareManager::getAvailablePorts(std::vector<std::string>& result)
+{
+#if defined (WIN32)
+    //Thanks to Alan Kharsansky for this code!:
+    for (int portNumber = 1; portNumber < maxPorts; ++portNumber)
+    {
+        wxString strCommRealName = wxString("//./COM");
+        wxString strCommScreenReal = wxString("COM");
+        strCommRealName << portNumber;
+        strCommScreenReal << portNumber;
+        if (serialPortExists(strCommRealName))
+        {
+            result.push_back(std::string(strCommScreenReal.mb_str()));
+        }
+    }
+    return true;
+#else
+    //Thanks to Juan Pizarro for this code!:
+    return ctb::GetAvailablePorts(result);
+#endif
+}
+
+
+bool BubbleHardwareManager::findNewPort()
+{
+//##Future: finish this:
+
+//    std::vector<std::string> newPortsList;
+//
+//    //##Make tries configurable from XML files?
+//    for (unsigned int tries = 0; tries <= 10; tries++)
+//    {
+//        newPortsList.clear();
+//        if (getAvailablePorts(newPortsList))
+//        {
+//            for (unsigned int i = 0; i < newPortsList.size(); i++)
+//            {
+//                bool portExists = true;
+//                for (unsigned int j = 0; j < ports.size(); j++)
+//                {
+//                    portExists = (newPortsList[i] == ports[j]);
+//                    if (portExists)
+//                        break;
+//                }
+//                //If this point is reached, it's because there is a port in newPortsList not present in ports:
+//                if (!portExists)
+//                {
+//                    newPort = newPortsList[i];
+//                    return true;
+//                }
+//            }
+//        }
+//        wxMilliSleep(1000);
+//    }
+
+    newPort = wxString("");
+    return false;
+}
+
+
+wxString BubbleHardwareManager::getNewPort()
+{
+    return newPort;
+}
+
+
+void BubbleHardwareManager::getPorts(std::vector<std::string>& result)
+{
+    result = ports;
 }
 
 
@@ -494,7 +568,7 @@ void BubbleHardwareManager::onComboBoardNameChanged(wxCommandEvent &event)
         {
             //Find new seleted board's properties:
             BubbleBoardProperties *iterator = NULL;
-            for (unsigned int i = 0; i<boardsProperties.GetCount(); i++)
+            for (unsigned int i = 0; i < boardsProperties.GetCount(); i++)
             {
                 iterator = &(boardsProperties.Item(i)); //##In theory, this is faster than the other index based form, but I'm not sure yet...
                 if (iterator)

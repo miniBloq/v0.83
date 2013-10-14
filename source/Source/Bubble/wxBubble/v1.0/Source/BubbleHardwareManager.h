@@ -5,6 +5,11 @@
 #include "BubbleButton.h"
 #include "BubbleCombo.h"
 
+#include <string>
+#include <vector>
+#include "include/portscan.h"
+
+
 #include <wx/combobox.h>
 #include <wx/stattext.h>
 #include <wx/button.h>
@@ -35,6 +40,9 @@ class BubbleHardwareManager : public BubblePanel
         wxString emptyDummyString;
 
         arrayOfBoardProperties boardsProperties;
+
+        std::vector<std::string> ports;
+        wxString newPort;
 
         //##Add private copy constructor to avoid accidental copy?
 
@@ -78,6 +86,10 @@ class BubbleHardwareManager : public BubblePanel
 
         static bool serialPortExists(const wxString& strPort);
         void updatePorts();
+        bool getAvailablePorts(std::vector<std::string>& result);
+        bool findNewPort();
+        wxString getNewPort();
+        void getPorts(std::vector<std::string>& result);
 
         void setPortSelectorEnabled(bool value);
         bool getPortSelectorEnabled();

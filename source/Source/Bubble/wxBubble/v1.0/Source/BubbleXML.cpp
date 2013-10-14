@@ -398,10 +398,11 @@ wxString BubbleXML::getInternalVariableValue(const wxString& variableName, const
         return bubble->getHardwareManager()->getCurrentBoardProperties()->getInstancesCodeList();
 
     if (variableName == "outputObjectsList::")
-    {
         return bubble->getOutputObjectsList(bubble->getHardwareManager()->getCurrentBoardProperties()->getObjectExtension());
-    }
 
+//##Future: finish this:
+//    if (variableName == "newPortName::")
+//        return bubble->getHardwareManager()->getNewPort();
 
     if (fileName != wxString(""))
     {
