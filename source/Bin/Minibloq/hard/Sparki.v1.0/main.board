@@ -157,16 +157,13 @@
 			<openBootSerialPort/>
 			<setBootSerialBaudrate param0="1200"/>
 			<closeBootSerialPort/>
-			<delay param0="200"/>
-			<openBootSerialPort/>
-			<closeBootSerialPort/>
 			<delay param0="2000"/>
 		</icmd>
 	</resetInternal>
 	<deploy>
 		<cmd>
 			<s>toolsPath::</s><s>/</s><s>uploader::</s><s> -C"</s>
-			<s>toolsPath::</s><s>/avrdude.conf" -p</s><s>cpu::</s><s> -cavr109 -P</s><s>newPortName::</s>
+			<s>toolsPath::</s><s>/avrdude.conf" -p</s><s>cpu::</s><s> -cavr109 -P</s><s>\\.\COM35</s>
 			<s> -b</s><s>bootBaudRate::</s><s> -D -Uflash:w:"</s><s>outputPath::</s><s>/main.cpp.hex</s><s>":i</s>
 		</cmd>
 	</deploy>

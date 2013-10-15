@@ -140,21 +140,13 @@
 			<s>"</s><s>outputPath::</s><s>/main.cpp.elf"</s>
 		</cmd>
 	</build>
-	<resetInternal>
-		<icmd>
-			<setBootSerialLine param0="DTR"/>
-			<delay param0="10"/>
-			<clearBootSerialLine param0="DTR"/>
-			<delay param0="10"/>
-		</icmd>
-	</resetInternal>
 	<deploy>
 		<cmd>
 			<s>toolsPath::</s><s>/avrdude.20071012.exe -C"</s>
 			<s>toolsPath::</s><s>/avrdude.conf" -p</s><s>cpu::</s><s> -cstk500v1 -P</s><s>bootPortName::</s>
 			<s> -b</s><s>bootBaudRate::</s><s> -Uflash:w:"</s><s>outputPath::</s><s>/main.cpp.hex</s><s>":i</s>
 		</cmd>
-	</deploy>
+	</deploy>	
 	<instances>
 		<serial0 instanceType="Serial"/>
 

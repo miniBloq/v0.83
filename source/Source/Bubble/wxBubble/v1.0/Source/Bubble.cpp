@@ -1151,7 +1151,7 @@ bool Bubble::verifyPortExistance()
     if (getBootPortName() != wxString("HID")) ////HID or CDC board? ##Future: unhardcode.
     {
         unsigned int times = 0;
-        while ( (BubbleHardwareManager::serialPortExists(bootPortName)) &&
+        while ( !(BubbleHardwareManager::serialPortExists(bootPortName)) &&
                 (times < getHardwareManager()->getCurrentBoardProperties()->getBootFindPortTries())
               )
         {
@@ -1159,8 +1159,13 @@ bool Bubble::verifyPortExistance()
             getNotifier()->showMessage(_(">"), false, false, *wxBLUE);
             wxMilliSleep(100);
         }
-        //##As this value was never used, if it's used check if the following return value is correct:
-        return BubbleHardwareManager::serialPortExists(bootPortName);
+        if (BubbleHardwareManager::serialPortExists(bootPortName))
+        {
+            getNotifier()->showMessage(wxString("\n") + bootPortName + _(" port found.\n"), false, false, *wxGREEN);
+            return true;
+        }
+        getNotifier()->showMessage(wxString("\n") + bootPortName + _(" port not found.\n"), false, false, *wxRED);
+        return false;
     }
     return true; //HID port.
 }
@@ -1175,17 +1180,17 @@ bool Bubble::deploy()
     if (getHardwareManager()->getCurrentBoardProperties() == NULL)
         return false;
 
-    //If the board does not uses timeouts in its bootloader, this will compile and buil in parallel with the
+    //If the board does not use timeouts in its bootloader, this will compile and build in parallel with the
     //reset process. For exmaple, like the Multiplo DuinoBot board, which uses a run button, so once
-    //it's reset, it will wait until the run button is pressed, or until the software sends a new program and
-    //to the flash and then run it from the comm port.
+    //it's reset, the board will wait until the run button is pressed, or until the software sends a new
+    //program and to the flash and then run it from the comm port.
     if (getHardwareManager()->getCurrentBoardProperties()->getResetBeforeBuild())
     {
         //First, reset the progress bar:
         //##getNotifier()->setProgressPosition(0, false, false);
         getNotifier()->clearMessage();
 
-        verifyPortExistance(); //##Return value not used by now.
+        //verifyPortExistance(); //##Return value not used by now.
         getNotifier()->showMessage(_("\nReseting the board...\n"), false, false, *wxBLUE);
         getNotifier()->deployStartedNotify();
         resetBoard();
@@ -1195,13 +1200,13 @@ bool Bubble::deploy()
     {
         if ( !(getHardwareManager()->getCurrentBoardProperties()->getResetBeforeBuild()) )
         {
-            verifyPortExistance(); //##Return value not used by now.
+            //verifyPortExistance(); //##Return value not used by now.
             getNotifier()->showMessage(_("\nReseting the board...\n"), false, false, *wxBLUE);
             getNotifier()->deployStartedNotify();
             resetBoard();
         }
 
-        verifyPortExistance(); //##Return value not used by now.
+        //verifyPortExistance(); //##Return value not used by now.
         getNotifier()->showMessage(_("\n"), false, false, *wxBLUE);
 
         wxArrayString output, errors, commands;
@@ -1313,12 +1318,27 @@ bool Bubble::runInternalCommand(const wxString& cmd)
     //supports up to 10 params:
     wxString command = cmd.BeforeFirst(';');
     wxString param0 = cmd.AfterFirst(';');
+    param0 = param0.BeforeFirst(';'); //Elimintates the last ';'.
+
+    //Shows the command in the message window:
+    getNotifier()->showMessage(wxString(">") + command + wxString(";") + param0 + wxString("\n"), false, true, *wxGREEN);
+
     if (command == wxString("delay"))
     {
         long ms = 0;
         if (param0.ToLong(&ms))
             wxMilliSleep((unsigned int)(ms));
     }
+//##Future: finish this (verifyPortExistance() seems to not be working correctly):
+//    if (command == wxString("verifyPort"))
+//    {
+//        return verifyPortExistance();
+//        //if (BubbleHardwareManager::serialPortExists(bootPortName))
+//        //    getNotifier()->showMessage(bootPortName + wxString(" port found."), false, true, *wxGREEN);
+//        //else
+//        //    getNotifier()->showMessage(bootPortName + wxString(" port not found."), false, true, *wxRED);
+//        //getNotifier()->showMessage(wxString("\n"), false, true, *wxGREEN);
+//    }
     else if (command == wxString("setBootSerialLine"))
     {
         if (bootSerialPort.IsOpen())
@@ -1420,6 +1440,10 @@ bool Bubble::runInternalCommand(const wxString& cmd)
         }
         return false;
     }
+    else if (command == wxString("debug"))
+    {
+        getNotifier()->showMessage(param0 + wxString("\n"), false, false, *wxGREEN);
+    }
 //##Future: finish this:
 //    else if (command == wxString("findNewPort"))
 //    {
@@ -1437,10 +1461,7 @@ bool Bubble::runInternalCommand(const wxString& cmd)
 //            }
 //        }
 //    }
-    else if (command == wxString("debug"))
-    {
-        getNotifier()->showMessage(param0 + wxString("\n"), false, false, *wxGREEN);
-    }
+
     return true;
 }
 
@@ -1476,7 +1497,6 @@ bool Bubble::resetBoard()
         while (i < count)
         {
             cmd = commands[i];
-            getNotifier()->showMessage((wxString("") << i) + wxString(": ") + cmd + wxString("\n"), false, true, *wxGREEN);
             if (!runInternalCommand(cmd))
                 break;
             i++;

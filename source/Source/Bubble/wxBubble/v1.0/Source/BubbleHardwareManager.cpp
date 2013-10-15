@@ -364,7 +364,7 @@ bool BubbleHardwareManager::serialPortExists(const wxString& strPort)
     CloseHandle(hFile);
     return result;
 #else
-    return TRUE;
+    return true;
 #endif
 }
 
@@ -387,7 +387,7 @@ void BubbleHardwareManager::updatePorts()
         if (serialPortExists(strCommRealName))
         {
             comboBootPortName->append(strCommScreenReal);
-            ports.push_back(std::string(strCommScreenReal.mb_str()));
+            ports.push_back(std::string(strCommRealName.mb_str()));
         }
     }
 #else
