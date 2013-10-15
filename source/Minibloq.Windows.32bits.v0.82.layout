@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Release" />
-	<File name="Source\Bubble\wxBubble\v1.0\Source\Bubble.cpp" open="1" top="1" tabpos="3">
-		<Cursor position="52073" topLine="1301" />
+	<File name="Source\Bubble\wxBubble\v1.0\Source\Bubble.cpp" open="1" top="0" tabpos="3">
+		<Cursor position="432" topLine="1" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\Bubble.h" open="1" top="0" tabpos="4">
 		<Cursor position="21373" topLine="437" />
@@ -32,7 +32,7 @@
 		<Cursor position="0" topLine="0" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleHardwareManager.cpp" open="1" top="0" tabpos="5">
-		<Cursor position="18430" topLine="429" />
+		<Cursor position="17959" topLine="428" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleHardwareManager.h" open="1" top="0" tabpos="6">
 		<Cursor position="121" topLine="0" />
@@ -41,13 +41,13 @@
 		<Cursor position="7742" topLine="144" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleXML.cpp" open="1" top="0" tabpos="2">
-		<Cursor position="0" topLine="0" />
+		<Cursor position="15212" topLine="384" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\IBubbleFileIO.h" open="0" top="0" tabpos="6">
 		<Cursor position="529" topLine="0" />
 	</File>
-	<File name="Source\CTB\v0.13\src\portscan.cpp" open="1" top="0" tabpos="13">
-		<Cursor position="573" topLine="24" />
+	<File name="Source\CTB\v0.13\src\portscan.cpp" open="1" top="1" tabpos="13">
+		<Cursor position="780" topLine="24" />
 	</File>
 	<File name="Source\CTB\v0.13\src\win32\serport.cpp" open="1" top="0" tabpos="12">
 		<Cursor position="7144" topLine="222" />
