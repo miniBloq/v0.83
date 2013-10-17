@@ -27,7 +27,7 @@
 	<stdio.h>
 	<termios.h>
 
-1285508991 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\src\portscan.cpp
+1381875872 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\src\portscan.cpp
 	"ctb-0.16/ctb.h"
 	"ctb-0.16/portscan.h"
 	<sstream>
@@ -55,7 +55,7 @@
 
 1285508991 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\include\ctb-0.16\kbhit.h
 
-1285508991 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\include\ctb-0.16\portscan.h
+1381875212 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\include\ctb-0.16\portscan.h
 	<string>
 	<vector>
 
@@ -81,7 +81,7 @@
 	<stdio.h>
 	<string.h>
 
-1381770400 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\src\win32\serport.cpp
+1381866522 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\src\win32\serport.cpp
 	<string.h>
 	"ctb-0.16/serport.h"
 
@@ -91,23 +91,17 @@
 	<windows.h>
 	"ctb-0.16/timer.h"
 
-1381770006 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\main.cpp
-	<stdio.h>
-	<stdlib.h>
-	<stdint.h>
-	<stdarg.h>
-	<string.h>
-	<stdio.h>
-	<stdlib.h>
-	<stdint.h>
-	<stdarg.h>
-	<string.h>
-	<unistd.h>
-	"ihex.h"
-	"usb_XXX.h"
-	<conio.h>
+1381973391 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\main.cpp
+	<string>
+	<vector>
+	<ctb-0.16/ctb.h>
+	<cstdlib>
 	<windows.h>
 
 1381770431 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\src\fifo.cpp
 	"ctb-0.16/fifo.h"
+
+1285508991 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\bin\minibloq\tools\leonardoloader\v1.0\_src\win\source\libctb-0.16\src\serportx.cpp
+	"ctb-0.16/serportx.h"
+	<sstream>
 

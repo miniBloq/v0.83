@@ -59,6 +59,7 @@
 		<Unit filename="source\libctb-0.16\src\iobase.cpp" />
 		<Unit filename="source\libctb-0.16\src\kbhit.cpp" />
 		<Unit filename="source\libctb-0.16\src\portscan.cpp" />
+		<Unit filename="source\libctb-0.16\src\serportx.cpp" />
 		<Unit filename="source\libctb-0.16\src\win32\getopt.cpp" />
 		<Unit filename="source\libctb-0.16\src\win32\serport.cpp" />
 		<Unit filename="source\libctb-0.16\src\win32\timer.cpp" />

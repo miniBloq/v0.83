@@ -428,35 +428,7 @@ bool BubbleHardwareManager::getAvailablePorts(std::vector<std::string>& result)
 
 bool BubbleHardwareManager::findNewPort()
 {
-//##Future: finish this:
-
-//    std::vector<std::string> newPortsList;
-//
-//    //##Make tries configurable from XML files?
-//    for (unsigned int tries = 0; tries <= 10; tries++)
-//    {
-//        newPortsList.clear();
-//        if (getAvailablePorts(newPortsList))
-//        {
-//            for (unsigned int i = 0; i < newPortsList.size(); i++)
-//            {
-//                bool portExists = true;
-//                for (unsigned int j = 0; j < ports.size(); j++)
-//                {
-//                    portExists = (newPortsList[i] == ports[j]);
-//                    if (portExists)
-//                        break;
-//                }
-//                //If this point is reached, it's because there is a port in newPortsList not present in ports:
-//                if (!portExists)
-//                {
-//                    newPort = newPortsList[i];
-//                    return true;
-//                }
-//            }
-//        }
-//        wxMilliSleep(1000);
-//    }
+    //##Future: code this:
 
     newPort = wxString("");
     return false;
@@ -469,10 +441,11 @@ wxString BubbleHardwareManager::getNewPort()
 }
 
 
-void BubbleHardwareManager::getPorts(std::vector<std::string>& result)
-{
-    result = ports;
-}
+//##
+//void BubbleHardwareManager::getPorts(std::vector<std::string>& result)
+//{
+//    result = ports;
+//}
 
 
 void BubbleHardwareManager::setPortSelectorEnabled(bool value)

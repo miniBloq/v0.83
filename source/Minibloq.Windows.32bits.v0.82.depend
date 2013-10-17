@@ -2945,7 +2945,7 @@
 	<wx/bitmap.h>
 	<wx/image.h>
 
-1381696375 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblehardwaremanager.h
+1381865557 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblehardwaremanager.h
 	"BubblePanel.h"
 	"BubbleButton.h"
 	"BubbleCombo.h"
@@ -3204,12 +3204,12 @@
 	"BubbleEditor.h"
 	<wx/stc/stc.h>
 
-1381857417 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblehardwaremanager.cpp
+1381865557 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblehardwaremanager.cpp
 	"BubbleHardwareManager.h"
 	"Bubble.h"
 	<windows.h>
 
-1321918940 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\ctb\v0.13\include\portscan.h
+1381875201 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\ctb\v0.13\include\portscan.h
 	<string>
 	<vector>
 

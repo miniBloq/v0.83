@@ -11,10 +11,10 @@
   C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq/cores/Arduino.v1.5.4.r2/avr/Print.h \
   C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq/cores/Arduino.v1.5.4.r2/avr/Printable.h \
   C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq/cores/Arduino.v1.5.4.r2/avr/new.h \
-  C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq/cores/Arduino.v1.5.4.r2/avr/variants/standard/pins_arduino.h \
+  C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq/cores/Arduino.v1.5.4.r2/avr/USBAPI.h \
+  C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq/cores/Arduino.v1.5.4.r2/avr/variants/leonardo/pins_arduino.h \
   C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq/libs/Arduino/miniBloq/v1.0/miniBloq.h \
-  C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq/hard/ArduinoUNO/lib/board.h \
-  C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq/libs/Arduino/PingIRReceiver/v1.0/PingIRReceiver.h \
+  C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq/hard/Sparki.v1.0/lib/board.h \
   C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq/libs/Arduino/Buzzer/v1.0/pitches.h \
   C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq/libs/Arduino/Buzzer/v1.0/toneDelay.h \
   C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq/libs/Arduino/DCMotor/v1.0/DCMotor.h \

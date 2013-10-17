@@ -13,11 +13,11 @@ namespace ctb {
     /*!
 	 \brief returns all available COM ports as an array of strings.
 	 \param result stores the available COM ports
-	 \param checkInUse return only ports which are available AND 
+	 \param checkInUse return only ports which are available AND
 	 unused (default)
 	 \return true if successful, false otherwise
     */
-    bool GetAvailablePorts( std::vector<std::string>& result,
+    int GetAvailablePorts( std::vector<std::string>& result,
 					   bool checkInUse = true );
 
 } // namespace ctb

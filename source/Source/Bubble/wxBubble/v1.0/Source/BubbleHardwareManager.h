@@ -9,7 +9,6 @@
 #include <vector>
 #include "include/portscan.h"
 
-
 #include <wx/combobox.h>
 #include <wx/stattext.h>
 #include <wx/button.h>
@@ -89,7 +88,7 @@ class BubbleHardwareManager : public BubblePanel
         bool getAvailablePorts(std::vector<std::string>& result);
         bool findNewPort();
         wxString getNewPort();
-        void getPorts(std::vector<std::string>& result);
+        //##void getPorts(std::vector<std::string>& result);
 
         void setPortSelectorEnabled(bool value);
         bool getPortSelectorEnabled();

@@ -1,0 +1,2 @@
+C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\lang\WinAVR\v20090313\bin\avrdude.209130919.exe "C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\lang\WinAVR\v20090313\bin\avrdude.conf" -patmega32u4 -cavr109 -P//./COM36 -D -Uflash:w:".\main.cpp.hex":i
+pause

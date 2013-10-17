@@ -122,7 +122,7 @@ namespace ctb {
 	   COMSTAT comstat;
 	   DWORD errors;
 	   int result = 0;
-	   bool brk;
+	   //bool brk;
 	   switch(cmd) {
 	   case CTB_RESET:
 		  return SendBreak(0);
