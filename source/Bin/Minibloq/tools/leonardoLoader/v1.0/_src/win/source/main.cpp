@@ -25,20 +25,19 @@ FILE *msgOutput;
 
 void help()
 {
- 	fprintf(msgOutput, "Usage: leonardoLoader <avrdude> <conf file> <hex file> <serial port> [tries]\n");
-	fprintf(msgOutput, "\tavrdude: complete path, including file name, of the avrdude uploader.\n");
-	fprintf(msgOutput, "\tconf file: complete path, including file name, of the avrdude.conf file.\n");
-	fprintf(msgOutput, "\thex file: complete path, including file name, of the hex file to upload.\n");
-	fprintf(msgOutput, "\tport: complete name of the serial port.\n");
-	fprintf(msgOutput, "\ntries: Number of tries to find the new serial port after reset (default = 10).\n\n");
+ 	fprintf(msgOutput, "\nUsage: leonardoLoader <avrdude> <conf file> <hex file> <serial port> [tries]\n\n");
+	fprintf(msgOutput, "avrdude: complete path, including file name, of the avrdude uploader.\n");
+	fprintf(msgOutput, "conf file: complete path, including file name, of the avrdude.conf file.\n");
+	fprintf(msgOutput, "hex file: complete path, including file name, of the hex file to be uploaded.\n");
+	fprintf(msgOutput, "port: complete name of the serial port.\n");
+	fprintf(msgOutput, "tries: Number of tries to find the new serial port after reset (default = 10).\n\n");
 
-	fprintf(stderr, "For more information, please visit:\n");
-	fprintf(msgOutput, "http://minibloq.org\n");
-	fprintf(msgOutput, "(c) 2013 J. U. da Silva Gillig\n\n");
+	fprintf(stderr, "(c) 2013 J. U. da Silva Gillig.\nFor more information, please visit: http://minibloq.org\n");
+	fprintf(stderr, "This program is distributed under the GPL license.\n\n");
 
-	fprintf(msgOutput, "\nBased on the Arduino Uploader (https://github.com/stanleyhuangyc/ArduinoUploader),\n");
-	fprintf(msgOutput, "\nDeveloped by Stanley Huang. Distributed under GPL license.\n");
-	fprintf(msgOutput, "\n");
+	fprintf(msgOutput, "Based on the Arduino Uploader, ");
+	fprintf(msgOutput, "developed by Stanley Huang and distributed under the GPL license: ");
+	fprintf(msgOutput, "https://github.com/stanleyhuangyc/ArduinoUploader\n\n");
 }
 
 
@@ -112,8 +111,11 @@ int main(int argc, char **argv)
     //msgOutput = stderr;
     msgOutput = stdout;
 
-    if (argc == 0)
+    if (argc == 1)
+    {
         help();
+        return 0;
+    }
 
 	//External uploader to run:
 	if (argc > 1)

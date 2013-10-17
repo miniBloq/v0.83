@@ -2,7 +2,7 @@
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Release" />
 	<File name="Source\Bubble\wxBubble\v1.0\Source\Bubble.cpp" open="0" top="0" tabpos="1">
-		<Cursor position="3922" topLine="66" />
+		<Cursor position="58253" topLine="1434" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\Bubble.h" open="0" top="0" tabpos="3">
 		<Cursor position="32345" topLine="655" />
@@ -35,7 +35,7 @@
 		<Cursor position="0" topLine="3" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleHardwareManager.cpp" open="0" top="0" tabpos="2">
-		<Cursor position="17012" topLine="378" />
+		<Cursor position="17654" topLine="425" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleHardwareManager.h" open="0" top="0" tabpos="6">
 		<Cursor position="3159" topLine="65" />
