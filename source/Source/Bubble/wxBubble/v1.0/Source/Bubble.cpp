@@ -1100,6 +1100,8 @@ bool Bubble::findErrorStringAndShow(const wxArrayString &value)
             isSubstringInArrayString(value, wxString("cannot")) ||
             isSubstringInArrayString(value, wxString("incorrect")) ||
             isSubstringInArrayString(value, wxString("multiple definition")) ||
+            isSubstringInArrayString(value, wxString("not found")) ||
+            isSubstringInArrayString(value, wxString("No new port")) ||
             isSubstringInArrayString(value, wxString("undefined"))
        )
     {

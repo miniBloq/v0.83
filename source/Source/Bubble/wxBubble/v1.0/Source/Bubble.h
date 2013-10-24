@@ -100,6 +100,7 @@ class BubbleBoardProperties
         wxString portType;
         wxString lang;
         wxString uploader;
+        wxString uploaderCmd0;
         wxString corePath;
         wxString core;
         wxString outputMainFileExtension;
@@ -149,6 +150,7 @@ class BubbleBoardProperties
                                     portType(wxString("serial")),
                                     lang(wxString("")),
                                     uploader(wxString("")),
+                                    uploaderCmd0(wxString("")),
                                     corePath(wxString("")),
                                     core(wxString("")),
                                     outputMainFileExtension(wxString("ino")), //##Arduino compatible file by default?
@@ -208,6 +210,7 @@ class BubbleBoardProperties
                 setImgThumb(boardProperties->getImgThumb());
                 setLang(boardProperties->getLang());
                 setUploader(boardProperties->getUploader());
+                setUploaderCmd0(boardProperties->getUploaderCmd0());
                 setCorePath(boardProperties->getCorePath());
                 setCore(boardProperties->getCore());
                 setOutputMainFileExtension(boardProperties->getOutputMainFileExtension());
@@ -282,6 +285,9 @@ class BubbleBoardProperties
 
         inline void setUploader(const wxString& value) { uploader = value; }
         inline const wxString &getUploader() const { return uploader; }
+
+        inline void setUploaderCmd0(const wxString& value) { uploaderCmd0 = value; }
+        inline const wxString &getUploaderCmd0() const { return uploaderCmd0; }
 
         inline void setCorePath(const wxString& value) { corePath = value; }
         inline const wxString &getCorePath() const { return corePath; }

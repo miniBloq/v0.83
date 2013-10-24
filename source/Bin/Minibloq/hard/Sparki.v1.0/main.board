@@ -10,14 +10,17 @@
 		<imgThumb>thumb.jpg</imgThumb>		
 		<win_i386_lang>WinAVR/v20090313/bin</win_i386_lang>
 		<win_i386_uploader>tools/leonardoLoader/v1.0/leonardoLoader.exe</win_i386_uploader>
+		<win_i386_uploaderCmd_0>avrdude.209130919.exe</win_i386_uploaderCmd_0>
 		<win_i386_corePath>Arduino.v1.5.4.r2/avr</win_i386_corePath>
 		<win_i386_core>mega32u4.a</win_i386_core>
 		<linux_i386_lang>avrlinux/i386/v4.3.5/bin</linux_i386_lang>
 		<linux_i386_uploader>tools/leonardoLoader/v1.0/leonardoLoader.Linux</linux_i386_uploader>
+		<linux_i386_uploaderCmd_0>avrdude.20071012.exe</linux_i386_uploaderCmd_0>
 		<linux_i386_corePath>Arduino.v1.5.4.r2/avr</linux_i386_corePath>
 		<linux_i386_core>mega32u4.a</linux_i386_core>
 		<linux_amd64_lang>avrlinux/i386/v4.3.5/bin</linux_amd64_lang>
 		<linux_amd64_uploader>tools/leonardoLoader/v1.0/leonardoLoader.Linux</linux_amd64_uploader>
+		<linux_amd64_uploaderCmd_0>avrdude.20071012.exe</linux_amd64_uploaderCmd_0>
 		<linux_amd64_corePath>Arduino.v1.5.4.r2/avr</linux_amd64_corePath>
 		<linux_amd64_core>mega32u4.a</linux_amd64_core>
 		<outputMainFileExtension>ino</outputMainFileExtension>
@@ -41,8 +44,8 @@
 		<arduinoVersion>154</arduinoVersion>
 		<objectExtension>o</objectExtension>
 		<boardDefine>ARDUINO_AVR_LEONARDO</boardDefine>
-		<usbVid>0x2341</usbVid>
-		<usbPid>0x8036</usbPid>
+		<usbVid>0x27C2</usbVid>
+		<usbPid>0x0003</usbPid>
 		<usbManufacturer></usbManufacturer>
 		<usbProduct>"Arduino Leonardo"</usbProduct>
 		<arduinoVariant>leonardo</arduinoVariant>
@@ -155,7 +158,7 @@
 	<deploy>
 		<cmd>
 			<s>"</s><s>componentsRepositoryPath::</s><s>/</s><s>uploader::</s><s>" </s>
-			<s>"C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\lang\WinAVR\v20090313\bin\avrdude.209130919.exe" </s>
+			<s>"</s><s>toolsPath::</s><s>/</s><s>uploaderCmd_0::</s><s>" </s>
 			<s>"</s><s>toolsPath::</s><s>/avrdude.conf" </s>
 			<s>"</s><s>outputPath::</s><s>/main.cpp.hex</s><s>" </s>
 			<s>bootPortName::</s>
