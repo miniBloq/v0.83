@@ -219,31 +219,13 @@ int main(int argc, char **argv)
                            &processInformation )
             )
         {
-            //Code adapted from http://stackoverflow.com/questions/11176746/redirecting-stdout-output-in-cpp:
-            HANDLE stdInput = GetStdHandle(STD_INPUT_HANDLE);
-            //HANDLE stdOutput = GetStdHandle(STD_OUTPUT_HANDLE);
-            HANDLE proc_hStdInput = startInfo.hStdInput;
-            HANDLE proc_hStdOutput = startInfo.hStdOutput;
-
-            char buffer[512];
-            DWORD chars;
-            while (!ReadConsole(stdInput, buffer, sizeof(buffer), &chars, NULL))
-            {
-                for (DWORD written = 0, writtenThisTime; written < chars; written += writtenThisTime)
-                {
-                    if (!WriteConsole(proc_hStdOutput, buffer + written, chars - written, &writtenThisTime, NULL))
-                    {
-                        //handle error - TODO
-                    }
-                }
-            }
-            CloseHandle( processInformation.hProcess );
-            CloseHandle( processInformation.hThread );
-
-            return 0; //Ok.
+            return 20; //Error.
         }
         else
-            return 20; //Error.
+        {
+            fprintf(msgOutput, "\n\nDone.\n");
+            return 0; //Ok.
+        }
     }
 #else
     //##Add Linux code here.

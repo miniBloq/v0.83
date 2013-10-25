@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Release" />
-	<File name="Source\Bubble\wxBubble\v1.0\Source\Bubble.cpp" open="1" top="0" tabpos="1">
+	<File name="Source\Bubble\wxBubble\v1.0\Source\Bubble.cpp" open="1" top="1" tabpos="1">
 		<Cursor position="43537" topLine="1075" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\Bubble.h" open="1" top="0" tabpos="3">
