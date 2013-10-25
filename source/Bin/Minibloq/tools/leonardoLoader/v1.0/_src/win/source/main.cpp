@@ -1,4 +1,14 @@
-//##Agregar licencias y menciones.
+/****************************************************************
+    leonardoLoader
+
+    (c) 2013 J. U. da Silva Gillig.
+    For more information, please visit: http://minibloq.org
+    This program is distributed under the GPL license.
+
+    Based on the Arduino Uploader, developed by Stanley Huang,
+    and distributed under the GPL license:
+    https://github.com/stanleyhuangyc/ArduinoUploader
+*****************************************************************/
 
 #include <string>
 #include <vector>
@@ -32,8 +42,8 @@ void help()
 	fprintf(msgOutput, "port: complete name of the serial port.\n");
 	fprintf(msgOutput, "tries: Number of tries to find the new serial port after reset (default = 10).\n\n");
 
-	fprintf(stderr, "(c) 2013 J. U. da Silva Gillig.\nFor more information, please visit: http://minibloq.org\n");
-	fprintf(stderr, "This program is distributed under the GPL license.\n\n");
+	fprintf(msgOutput, "(c) 2013 J. U. da Silva Gillig.\nFor more information, please visit: http://minibloq.org\n");
+	fprintf(msgOutput, "This program is distributed under the GPL license.\n\n");
 
 	fprintf(msgOutput, "Based on the Arduino Uploader, ");
 	fprintf(msgOutput, "developed by Stanley Huang and distributed under the GPL license: ");
@@ -108,8 +118,8 @@ int main(int argc, char **argv)
     string uploadPort;
     string commandLine;
 
-    //msgOutput = stderr;
-    msgOutput = stdout;
+    msgOutput = stderr;
+    //msgOutput = stdout;
 
     if (argc == 1)
     {
@@ -177,16 +187,17 @@ int main(int argc, char **argv)
         return 10; //Error.
     }
 
+#ifdef WIN32
     //Call to the external uploader:
 	STARTUPINFO startInfo;
 	PROCESS_INFORMATION processInformation;
 
-
 	ZeroMemory(&processInformation, sizeof(processInformation));
 	ZeroMemory(&startInfo, sizeof(startInfo));
 	startInfo.cb = sizeof(startInfo);
+    //startInfo.hStdError = GetStdHandle(STD_ERROR_HANDLE);
+    //startInfo.hStdOutput = GetStdHandle(STD_OUTPUT_HANDLE);
 
-#ifdef WIN32
     if (uploader && hexFileName)
     {
         commandLine.assign(string(""));
@@ -208,7 +219,28 @@ int main(int argc, char **argv)
                            &processInformation )
             )
         {
-            return 0;
+            //Code adapted from http://stackoverflow.com/questions/11176746/redirecting-stdout-output-in-cpp:
+            HANDLE stdInput = GetStdHandle(STD_INPUT_HANDLE);
+            //HANDLE stdOutput = GetStdHandle(STD_OUTPUT_HANDLE);
+            HANDLE proc_hStdInput = startInfo.hStdInput;
+            HANDLE proc_hStdOutput = startInfo.hStdOutput;
+
+            char buffer[512];
+            DWORD chars;
+            while (!ReadConsole(stdInput, buffer, sizeof(buffer), &chars, NULL))
+            {
+                for (DWORD written = 0, writtenThisTime; written < chars; written += writtenThisTime)
+                {
+                    if (!WriteConsole(proc_hStdOutput, buffer + written, chars - written, &writtenThisTime, NULL))
+                    {
+                        //handle error - TODO
+                    }
+                }
+            }
+            CloseHandle( processInformation.hProcess );
+            CloseHandle( processInformation.hThread );
+
+            return 0; //Ok.
         }
         else
             return 20; //Error.
