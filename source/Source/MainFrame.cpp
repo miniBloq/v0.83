@@ -170,7 +170,8 @@ MainFrame::MainFrame(   wxWindow* parent,
                         const wxString& title,
                         const wxPoint& pos,
                         const wxSize& size,
-                        long style):    wxFrame(parent, id, title, pos, size, style),
+                        long style):
+                                        wxFrame(parent, id, title, pos, size, style),
                                         bubble(locale),
                                         locale(locale),
                                         languagePath(languagePath),
@@ -707,6 +708,27 @@ void MainFrame::updateGUI()
         bubble.getCurrentCanvas()->updateMenuEditForStartBlocksGUI();
         bubble.getCurrentCanvas()->updateMenuEditForExpressionsGUI();
         bubble.getCurrentCanvas()->updateBlocksTextGUI();
+    }
+}
+
+
+void MainFrame::loadFileComponent(const wxString& value)
+{
+//    wxMessageDialog dialog0(this, _("loadFileComponent: ") + value, "2");
+//    dialog0.ShowModal();
+
+    //Open initial component from command line (ie: minibloq.exe C:\MyRoboticPrograms\LineFollower.mbqc):
+    if (value != wxString(""))
+    {
+        if (bubble.loadComponentFromFile(value))
+        {
+            wxFileName aux(value);
+            bubble.setComponentPath(aux.GetPath());
+            tempComponentName = aux.GetFullName();
+            bubble.setComponentFilesPath(bubble.getComponentPath() + wxString("/") + aux.GetName());
+            bubble.setOutputPath(bubble.getComponentFilesPath() + wxString("/output"));
+            componentAlreadySaved = true;
+        }
     }
 }
 

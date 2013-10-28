@@ -18,6 +18,7 @@ class Minibloq : public wxApp
 
 	public:
 		//##Constructor? It seems that right now the compiler uses the default constructor.
+
         bool OnInit()
         {
             //i18n/l10n:
@@ -55,18 +56,22 @@ class Minibloq : public wxApp
                                          wxSize(1280, 800),
                                          wxCLIP_CHILDREN);
             */
+
             //Código original, pero pasado a 1280 x 800:
-            wxFrame* frame = new MainFrame( NULL,
-                                            wxID_ANY,
-                                            locale,
-                                            lanPath,
-                                            initialCatalogName,
-                                            wxString("miniBloq v0.82.Beta"),
-                                            wxDefaultPosition,
-                                            //wxDefaultSize,
-                                            wxSize(1280, 800), //##Load from XML config file...
-                                            wxDEFAULT_FRAME_STYLE //|| wxMAXIMIZE
-                                            );
+
+            MainFrame* frame = NULL;
+            frame = new MainFrame(  NULL,
+                                    wxID_ANY,
+                                    locale,
+                                    lanPath,
+                                    initialCatalogName,
+                                    wxString("miniBloq v0.82.Beta"),
+                                    wxDefaultPosition,
+                                    //wxDefaultSize,
+                                    wxSize(1280, 800), //##Load from XML config file...
+                                    wxDEFAULT_FRAME_STYLE //|| wxMAXIMIZE
+                                  );
+
             //frame->Centre(); //##Load from XML config file...
             //##This works, and can establish from the app start the size and position of the MainFrame:
             /*
@@ -76,9 +81,21 @@ class Minibloq : public wxApp
                                          wxPoint(100, 100),
                                          wxSize(500, 500));
             */
-            SetTopWindow(frame);
-            frame->Show();
-            frame->Maximize(); //##Load from XML config file...
+
+            if (frame)
+            {
+                SetTopWindow(frame);
+                frame->Show();
+                frame->Maximize(); //##Load from XML config file...
+                if (argc > 0)
+                {
+                    wxString fileName = argv[1];
+                    if (wxFile::Exists(fileName))
+                    {
+                        frame->loadFileComponent(fileName);
+                    }
+                }
+            }
 
             return true;
         }

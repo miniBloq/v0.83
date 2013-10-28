@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Release" />
-	<File name="Source\Bubble\wxBubble\v1.0\Source\Bubble.cpp" open="1" top="1" tabpos="1">
-		<Cursor position="43537" topLine="1075" />
+	<File name="Source\Bubble\wxBubble\v1.0\Source\Bubble.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="43454" topLine="1075" />
 	</File>
-	<File name="Source\Bubble\wxBubble\v1.0\Source\Bubble.h" open="1" top="0" tabpos="3">
-		<Cursor position="13308" topLine="278" />
+	<File name="Source\Bubble\wxBubble\v1.0\Source\Bubble.h" open="0" top="0" tabpos="3">
+		<Cursor position="31451" topLine="635" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleBlock.cpp" open="0" top="0" tabpos="7">
 		<Cursor position="114564" topLine="2932" />
@@ -43,7 +43,7 @@
 	<File name="Source\Bubble\wxBubble\v1.0\Source\BubblePicker.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="7742" topLine="144" />
 	</File>
-	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleXML.cpp" open="1" top="0" tabpos="2">
+	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleXML.cpp" open="0" top="0" tabpos="2">
 		<Cursor position="11332" topLine="306" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\IBubbleFileIO.h" open="0" top="0" tabpos="6">
@@ -55,11 +55,11 @@
 	<File name="Source\CTB\v0.13\src\win32\serport.cpp" open="0" top="0" tabpos="12">
 		<Cursor position="7144" topLine="222" />
 	</File>
-	<File name="Source\MainFrame.cpp" open="0" top="0" tabpos="1">
+	<File name="Source\MainFrame.cpp" open="1" top="1" tabpos="1">
 		<Cursor position="157873" topLine="4038" />
 	</File>
-	<File name="Source\MainFrame.h" open="0" top="0" tabpos="11">
-		<Cursor position="5864" topLine="178" />
+	<File name="Source\MainFrame.h" open="1" top="0" tabpos="11">
+		<Cursor position="5663" topLine="169" />
 	</File>
 	<File name="Source\MinibloqProperties.cpp" open="0" top="0" tabpos="10">
 		<Cursor position="283" topLine="0" />
@@ -73,7 +73,7 @@
 	<File name="Source\Terminal.h" open="0" top="0" tabpos="0">
 		<Cursor position="7057" topLine="147" />
 	</File>
-	<File name="Source\main.cpp" open="0" top="0" tabpos="7">
-		<Cursor position="3729" topLine="51" />
+	<File name="Source\main.cpp" open="1" top="0" tabpos="7">
+		<Cursor position="129" topLine="39" />
 	</File>
 </CodeBlocks_layout_file>

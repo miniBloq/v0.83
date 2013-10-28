@@ -3333,7 +3333,7 @@
 	"BubbleCombo.h"
 	<wx/hashmap.h>
 
-1335798712 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\mainframe.h
+1382928302 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\mainframe.h
 	<wx/frame.h>
 	<wx/aui/aui.h>
 	<wx/treectrl.h>
@@ -3787,7 +3787,7 @@
 
 1252039916 c:\apps\codeblocks-rg.v0.1\sdk\wxwidgets\wxwidgets-2.9.0\include\wx\listimpl.cpp
 
-1379451862 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\mainframe.cpp
+1382928507 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\mainframe.cpp
 	"MainFrame.h"
 	"Minibloq.xpm"
 	<wx/menu.h>
@@ -3893,7 +3893,7 @@
 	"wx/module.h"
 	"wx/dataobj.h"
 
-1377788734 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\main.cpp
+1382928372 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\main.cpp
 	<wx/wx.h>
 	<wx/app.h>
 	<wx/stdpaths.h>

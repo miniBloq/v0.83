@@ -185,7 +185,7 @@ class MainFrame : public wxFrame, public IBubbleNotifier
         long m_notebook_style;
         //long m_notebook_theme;
 
-        ////##Definitivas:////
+        //wxString initialFile;
 
         //##Bubble related:
         Bubble bubble;
@@ -494,5 +494,10 @@ class MainFrame : public wxFrame, public IBubbleNotifier
 
         wxAuiDockArt* getDockArt();
         void doUpdate();
+
+//        inline const void setInitialFile(const wxString& value) { initialFile = value; }
+//        inline wxString getInitialFile() { return initialFile; }
+
+        void loadFileComponent(const wxString &value);
 };
 #endif
