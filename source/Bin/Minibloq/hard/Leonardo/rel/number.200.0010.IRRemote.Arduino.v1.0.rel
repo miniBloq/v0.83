@@ -14,8 +14,8 @@
 	</instancesCode>
 	<build>
 		<cmd>
-			<s>toolsPath::</s>
-			<s>/avr-g++ -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD</s>
+			<s>"</s><s>toolsPath::</s>
+			<s>/avr-g++" -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD</s>
 			<s> -mmcu=</s><s>cpu::</s>
 			<s> -DF_CPU=</s><s>clockFreq::</s>
 			<s> -DARDUINO=</s><s>arduinoVersion::</s>

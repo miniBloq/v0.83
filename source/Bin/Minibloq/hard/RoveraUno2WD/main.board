@@ -2,7 +2,7 @@
 <board xmlns="http://board.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
     <properties>
 		<manufacturer>Arduino</manufacturer>
-		<name>Arduino Uno</name>
+		<name>Rovera Uno 2WD</name>
 		<url0>http://arduino.cc</url0>
 		<cpu>atmega328p</cpu>
 		<clockFreq>16000000L</clockFreq>
@@ -54,6 +54,8 @@
 		<include><s>stdlib.h</s></include>
 		<include><s>miniBloq.h</s></include>
 		<include><s>board.h</s></include>
+		<include><s>LedStripConfig.h</s></include>
+		<include><s>LedStrip.h</s></include>
 	</includeFiles>
 	<initBoardCode>
 		<s>	Serial.begin(115200);&#10;&#10;</s>
@@ -93,7 +95,24 @@
 			<s>" -I"</s><s>boardPath::</s><s>/lib</s>
 			<s>" -I"</s><s>componentFilesPath::</s>
 			<s>" -I"</s><s>outputPath::</s>
+			<s>" -I"</s><s>libsPath::</s><s>/Arduino/LedStrip/v1.0"</s>
+			<s> "</s><s>libsPath::</s><s>/Arduino/LedStrip/v1.0/LedStrip.cpp" -o "</s><s>outputPath::</s><s>/</s><s>LedStrip.cpp.o"</s>
+		</cmd>
+		<cmd>
+			<s>"</s><s>toolsPath::</s>
+			<s>/avr-g++" -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD -mmcu=</s><s>cpu::</s>
+			<s> -DF_CPU=</s><s>clockFreq::</s><s> -DARDUINO=</s><s>arduinoVersion::</s>
+			<s> -D=</s><s>boardDefine::</s>
+			<s> -DARDUINO_ARCH_AVR</s>
+			<s> -I"</s><s>toolsPath::</s>
+			<s>" -I"</s><s>corePath::</s>
+			<s>" -I"</s><s>corePath::</s><s>/avr-libc</s>
+			<s>" -I"</s><s>corePath::</s><s>/variants/</s><s>arduinoVariant::</s>
+			<s>" -I"</s><s>boardPath::</s><s>/lib</s>
+			<s>" -I"</s><s>componentFilesPath::</s>
+			<s>" -I"</s><s>outputPath::</s>
 			<s>" -I"</s><s>libsPath::</s><s>/Arduino/miniBloq/v1.0</s>
+			<s>" -I"</s><s>libsPath::</s><s>/Arduino/LedStrip/v1.0</s>
 			<s>" -I"</s><s>libsPath::</s><s>/Arduino/PingIRReceiver/v1.0" </s>
 
 			<s>includesBuildList::</s>
@@ -114,6 +133,7 @@
 			<s>" -I"</s><s>componentFilesPath::</s>
 			<s>" -I"</s><s>outputPath::</s>
 			<s>" -I"</s><s>libsPath::</s><s>/Arduino/miniBloq/v1.0</s>
+			<s>" -I"</s><s>libsPath::</s><s>/Arduino/LedStrip/v1.0</s>
 			<s>" -I"</s><s>libsPath::</s><s>/Arduino/PingIRReceiver/v1.0" </s>
 
 			<s>includesBuildList::</s>
@@ -126,6 +146,7 @@
 			<s>"</s><s>outputPath::</s><s>/main.cpp.elf" </s>
 			<s>outputObjectsList::</s>
 			<s> "</s><s>outputPath::</s><s>/</s><s>initBoard.cpp.o"</s>
+			<s> "</s><s>outputPath::</s><s>/</s><s>LedStrip.cpp.o"</s>
 			<s> "</s><s>outputPath::</s><s>/</s><s>componentName::</s><s>.cpp.o" "</s>
 			<s>corePath::</s><s>/obj/</s><s>core::</s><s>"</s>
 			<s> -L ./ -lm</s>
@@ -163,6 +184,35 @@
 		</cmd>
 	</deploy>
 	<instances>
+	    <RED   instanceType="LedStrip"/>
+		<GREEN instanceType="LedStrip"/>
+		<BLUE  instanceType="LedStrip"/>
+		<WHITE instanceType="LedStrip"/>	
+		<GRAY 	instanceType="LedStrip"/>
+		<MAROON instanceType="LedStrip"/>
+		<RED 	instanceType="LedStrip"/>
+		<OLIVE 	instanceType="LedStrip"/>
+		<YELLOW instanceType="LedStrip"/>
+		<GREEN 	instanceType="LedStrip"/>
+		<LIME 	instanceType="LedStrip"/>
+		<TEAL 	instanceType="LedStrip"/>
+		<AQUA 	instanceType="LedStrip"/>
+		<NAVY 	instanceType="LedStrip"/>
+		<BLUE 	instanceType="LedStrip"/>
+		<PURPLE instanceType="LedStrip"/>
+		<FUCHSIA instanceType="LedStrip"/>
+		
+        <Watchful  instanceType="WatchMode"/>
+        <Oblivious instanceType="WatchMode"/>  	
+
+        <Left_Bump  instanceType="Obstacle"/>
+        <Right_Bump instanceType="Obstacle"/>
+        <Front_Ping instanceType="Obstacle"/>	
+
+        <Look_Left instanceType="LookDir"/> 
+		<Look_Cntr instanceType="LookDir"/> 
+        <Look_Rght instanceType="LookDir"/> 		
+	
 		<serial0 instanceType="Serial"/>
 
 		<sensor0 instanceType="analogRead"/>
