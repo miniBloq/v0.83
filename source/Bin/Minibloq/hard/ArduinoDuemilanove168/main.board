@@ -40,6 +40,10 @@
 		<boardDefine>ARDUINO_AVR_DUEMILANOVE</boardDefine>
 		<arduinoVariant>standard</arduinoVariant>
     </properties>
+	<examples>
+		<path><s>componentsRepositoryPath::</s><s>/work/_examples/ArduinoUno</s></path>
+		<path><s>componentsRepositoryPath::</s><s>/work/_examples/DifferentialRobot</s></path>
+	</examples>
 	<includeFiles>
 		<include><s>WProgram.h</s></include>
 		<include><s>stdlib.h</s></include>

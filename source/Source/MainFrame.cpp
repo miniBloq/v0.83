@@ -717,7 +717,7 @@ void MainFrame::loadFileComponent(const wxString& value)
 //    wxMessageDialog dialog0(this, _("loadFileComponent: ") + value, "2");
 //    dialog0.ShowModal();
 
-    //Open initial component from command line (ie: minibloq.exe C:\MyRoboticPrograms\LineFollower.mbqc):
+    //Used to open initial component from command line (ie: minibloq.exe C:\MyRoboticPrograms\LineFollower.mbqc):
     if (value != wxString(""))
     {
         if (bubble.loadComponentFromFile(value))

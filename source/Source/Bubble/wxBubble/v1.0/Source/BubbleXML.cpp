@@ -380,8 +380,10 @@ wxString BubbleXML::getInternalVariableValue(const wxString& variableName, const
 
     if (variableName == "usbVid::")
         return bubble->getHardwareManager()->getCurrentBoardProperties()->getUsbVid();
-    if (variableName == "usbPid::")
-        return bubble->getHardwareManager()->getCurrentBoardProperties()->getUsbPid();
+    if (variableName == "usbPidBoot::")
+        return bubble->getHardwareManager()->getCurrentBoardProperties()->getUsbPidBoot();
+    if (variableName == "usbPidApp::")
+        return bubble->getHardwareManager()->getCurrentBoardProperties()->getUsbPidApp();
     if (variableName == "usbManufacturer::")
         return bubble->getHardwareManager()->getCurrentBoardProperties()->getUsbManufacturer();
     if (variableName == "usbProduct::")
@@ -1825,9 +1827,13 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
                 {
                     boardInfo->setUsbVid(child->GetNodeContent());
                 }
-                else if (child->GetName() == "usbPid")
+                else if (child->GetName() == "usbPidBoot")
                 {
-                    boardInfo->setUsbPid(child->GetNodeContent());
+                    boardInfo->setUsbPidBoot(child->GetNodeContent());
+                }
+                else if (child->GetName() == "usbPidApp")
+                {
+                    boardInfo->setUsbPidApp(child->GetNodeContent());
                 }
                 else if (child->GetName() == "usbManufacturer")
                 {

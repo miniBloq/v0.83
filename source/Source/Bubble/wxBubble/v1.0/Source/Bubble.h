@@ -135,7 +135,8 @@ class BubbleBoardProperties
         wxString boardDefine;
         wxString arduinoVariant;
         wxString usbVid;
-        wxString usbPid;
+        wxString usbPidBoot;
+        wxString usbPidApp;
         wxString usbManufacturer;
         wxString usbProduct;
         wxArrayString relCommands;
@@ -185,7 +186,8 @@ class BubbleBoardProperties
                                     boardDefine(wxString("")),
                                     arduinoVariant(wxString("")),
                                     usbVid(wxString("")),
-                                    usbPid(wxString("")),
+                                    usbPidBoot(wxString("")),
+                                    usbPidApp(wxString("")),
                                     usbManufacturer(wxString("")),
                                     usbProduct(wxString(""))
         {
@@ -245,7 +247,8 @@ class BubbleBoardProperties
                 setBoardDefine(boardProperties->getBoardDefine());
                 setArduinoVariant(boardProperties->getArduinoVariant());
                 setUsbVid(boardProperties->getUsbVid());
-                setUsbPid(boardProperties->getUsbPid());
+                setUsbPidBoot(boardProperties->getUsbPidBoot());
+                setUsbPidApp(boardProperties->getUsbPidApp());
                 setUsbManufacturer(boardProperties->getUsbManufacturer());
                 setUsbProduct(boardProperties->getUsbProduct());
                 //relCommands = *(boardProperties->getRelCommands());
@@ -391,8 +394,11 @@ class BubbleBoardProperties
         inline void setUsbVid(const wxString& value) { usbVid = value; }
         inline const wxString &getUsbVid() const { return usbVid; }
 
-        inline void setUsbPid(const wxString& value) { usbPid = value; }
-        inline const wxString &getUsbPid() const { return usbPid; }
+        inline void setUsbPidBoot(const wxString& value) { usbPidBoot = value; }
+        inline const wxString &getUsbPidBoot() const { return usbPidBoot; }
+
+        inline void setUsbPidApp(const wxString& value) { usbPidApp = value; }
+        inline const wxString &getUsbPidApp() const { return usbPidApp; }
 
         inline void setUsbManufacturer(const wxString& value) { usbManufacturer = value; }
         inline const wxString &getUsbManufacturer() const { return usbManufacturer; }

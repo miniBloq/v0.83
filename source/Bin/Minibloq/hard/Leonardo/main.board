@@ -44,12 +44,17 @@
 		<arduinoVersion>154</arduinoVersion>
 		<objectExtension>o</objectExtension>
 		<boardDefine>ARDUINO_AVR_LEONARDO</boardDefine>
-		<usbVid>0x2341</usbVid>
-		<usbPid>0x8036</usbPid>
+		<usbVid>0x0036</usbVid>
+		<usbPidBoot>0x0003</usbPidBoot>
+		<usbPidApp>0x8036</usbPidApp>
 		<usbManufacturer></usbManufacturer>
 		<usbProduct>"Arduino Leonardo"</usbProduct>
 		<arduinoVariant>leonardo</arduinoVariant>
     </properties>
+	<examples>
+		<path><s>componentsRepositoryPath::</s><s>/work/_examples/ArduinoUno</s></path>
+		<path><s>componentsRepositoryPath::</s><s>/work/_examples/DifferentialRobot</s></path>
+	</examples>
 	<includeFiles>
 		<include><s>Arduino.h</s></include>
 		<include><s>pins_arduino.h</s></include>
@@ -89,7 +94,7 @@
 			<s> -D=</s><s>boardDefine::</s>
 			<s> -DARDUINO_ARCH_AVR</s> 			
 			<s> -DUSB_VID=</s><s>usbVid::</s>
-			<s> -DUSB_PID=</s><s>usbPid::</s>
+			<s> -DUSB_PID=</s><s>usbPidApp::</s>
 			<s> -DUSB_PRODUCT=</s><s>usbProduct::</s>
 			<s> -I"</s><s>toolsPath::</s>
 			<s>" -I"</s><s>corePath::</s>
@@ -106,13 +111,13 @@
 			<s> "</s><s>componentFilesPath::</s><s>/</s><s>initBoard.cpp" -o "</s><s>outputPath::</s><s>/</s><s>initBoard.cpp.o"</s>
 		</cmd>
 		<cmd>
-			<s>toolsPath::</s>
-			<s>/avr-g++ -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD -mmcu=</s><s>cpu::</s>
+			<s>"</s><s>toolsPath::</s>
+			<s>/avr-g++" -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD -mmcu=</s><s>cpu::</s>
 			<s> -DF_CPU=</s><s>clockFreq::</s><s> -DARDUINO=</s><s>arduinoVersion::</s>
 			<s> -D=</s><s>boardDefine::</s>
 			<s> -DARDUINO_ARCH_AVR</s> 			
 			<s> -DUSB_VID=</s><s>usbVid::</s>
-			<s> -DUSB_PID=</s><s>usbPid::</s>
+			<s> -DUSB_PID=</s><s>usbPidApp::</s>
 			<s> -DUSB_PRODUCT=</s><s>usbProduct::</s>
 			<s> -I"</s><s>toolsPath::</s>
 			<s>" -I"</s><s>corePath::</s>
@@ -129,8 +134,8 @@
 			<s> "</s><s>outputPath::</s><s>/</s><s>componentName::</s><s>.cpp" -o "</s><s>outputPath::</s><s>/</s><s>componentName::</s><s>.cpp.o"</s>
 		</cmd>
 		<cmd>
-			<s>toolsPath::</s>
-			<s>/avr-gcc -Os -Wl,--gc-sections -mmcu=</s><s>cpu::</s><s> -o</s>
+			<s>"</s><s>toolsPath::</s>
+			<s>/avr-gcc" -Os -Wl,--gc-sections -mmcu=</s><s>cpu::</s><s> -o</s>
 			<s>"</s><s>outputPath::</s><s>/main.cpp.elf" </s>
 			<s>outputObjectsList::</s>
 			<s> "</s><s>outputPath::</s><s>/</s><s>initBoard.cpp.o"</s>
@@ -139,19 +144,19 @@
 			<s> -L ./ -lm</s>
 		</cmd>
 		<cmd>
-			<s>toolsPath::</s>
-			<s>/avr-objcopy -O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0 </s>
+			<s>"</s><s>toolsPath::</s>
+			<s>/avr-objcopy" -O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0 </s>
 			<s>"</s><s>outputPath::</s><s>/main.cpp.elf" "</s>
 			<s>outputPath::</s><s>/main.cpp.epp"</s>
 		</cmd>
 		<cmd>
-			<s>toolsPath::</s>
-			<s>/avr-objcopy -O ihex -R .eeprom </s>
+			<s>"</s><s>toolsPath::</s>
+			<s>/avr-objcopy" -O ihex -R .eeprom </s>
 			<s>"</s><s>outputPath::</s><s>/main.cpp.elf" "</s>
 			<s>outputPath::</s><s>/main.cpp.hex"</s>
 		</cmd>
 		<cmd>
-			<s>toolsPath::</s><s>/avr-size --mcu=</s><s>cpu::</s><s> --format=avr </s>
+			<s>"</s><s>toolsPath::</s><s>/avr-size" --mcu=</s><s>cpu::</s><s> --format=avr </s>
 			<s>"</s><s>outputPath::</s><s>/main.cpp.elf"</s>
 		</cmd>
 	</build>

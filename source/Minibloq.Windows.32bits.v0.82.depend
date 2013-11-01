@@ -2966,7 +2966,7 @@
 
 1252039912 c:\apps\codeblocks-rg.v0.1\sdk\wxwidgets\wxwidgets-2.9.0\include\wx\arrimpl.cpp
 
-1382578724 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubble.h
+1383330258 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubble.h
 	"IBubbleFileIO.h"
 	"BubbleCanvas.h"
 	"BubbleProcess.h"
@@ -3247,7 +3247,7 @@
 1293989500 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblevariablesmanager.h
 	"BubblePanel.h"
 
-1382578827 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblexml.cpp
+1383330288 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\bubble\wxbubble\v1.0\source\bubblexml.cpp
 	"Bubble.h"
 	<wx/msgdlg.h>
 	<wx/dir.h>
@@ -3765,7 +3765,7 @@
 1293989448 c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\terminalproperties.h
 	"BubblePanel.h"
 
-1340395078 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\terminal.cpp
+1383330515 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\terminal.cpp
 	"Terminal.h"
 	<algorithm>
 	"hid.h"
@@ -3787,7 +3787,7 @@
 
 1252039916 c:\apps\codeblocks-rg.v0.1\sdk\wxwidgets\wxwidgets-2.9.0\include\wx\listimpl.cpp
 
-1382928507 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\mainframe.cpp
+1382929357 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\mainframe.cpp
 	"MainFrame.h"
 	"Minibloq.xpm"
 	<wx/menu.h>
@@ -3893,7 +3893,7 @@
 	"wx/module.h"
 	"wx/dataobj.h"
 
-1382928372 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\main.cpp
+1382928634 source:c:\projects\multiplo\soft\minibloq\v0.8x\v0.82\source\source\main.cpp
 	<wx/wx.h>
 	<wx/app.h>
 	<wx/stdpaths.h>
