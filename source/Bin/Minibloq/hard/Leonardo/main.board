@@ -44,8 +44,8 @@
 		<arduinoVersion>154</arduinoVersion>
 		<objectExtension>o</objectExtension>
 		<boardDefine>ARDUINO_AVR_LEONARDO</boardDefine>
-		<usbVid>0x0036</usbVid>
-		<usbPidBoot>0x0003</usbPidBoot>
+		<usbVid>0x2341</usbVid>
+		<usbPidBoot>0x0036</usbPidBoot>
 		<usbPidApp>0x8036</usbPidApp>
 		<usbManufacturer></usbManufacturer>
 		<usbProduct>"Arduino Leonardo"</usbProduct>
@@ -88,8 +88,8 @@
 	</finalCode>
 	<build>
 		<cmd>
-			<s>toolsPath::</s>
-			<s>/avr-g++ -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD -mmcu=</s><s>cpu::</s>
+			<s>"</s><s>toolsPath::</s>
+			<s>/avr-g++" -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD -mmcu=</s><s>cpu::</s>
 			<s> -DF_CPU=</s><s>clockFreq::</s><s> -DARDUINO=</s><s>arduinoVersion::</s>
 			<s> -D=</s><s>boardDefine::</s>
 			<s> -DARDUINO_ARCH_AVR</s> 			
