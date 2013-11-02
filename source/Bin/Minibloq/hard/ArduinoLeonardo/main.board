@@ -19,7 +19,7 @@
 		<linux_i386_uploaderCmd_0>avrdude.20071012.exe</linux_i386_uploaderCmd_0>
 		<linux_i386_corePath>Arduino.v1.5.4.r2/avr</linux_i386_corePath>
 		<linux_i386_core>mega32u4.a</linux_i386_core>
-		<linux_amd64_lang>avrlinux/i386/v4.3.5/bin</linux_amd64_lang>
+		<linux_amd64_lang>avrlinux/amd64/v4.3.5/bin</linux_amd64_lang>
 		<linux_amd64_uploader>tools/leonardoLoader/v1.0/leonardoLoader.Linux</linux_amd64_uploader>
 		<linux_amd64_uploaderCmd_0>avrdude.20071012.exe</linux_amd64_uploaderCmd_0>
 		<linux_amd64_corePath>Arduino.v1.5.4.r2/avr</linux_amd64_corePath>

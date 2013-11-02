@@ -25,6 +25,7 @@ extern "C"
 #else
     #define sleep(ms)  (usleep(ms<<10))
 #endif
+#include <wordexp.h>
 
 using namespace std;
 
@@ -230,6 +231,35 @@ int main(int argc, char **argv)
 #else
     //##Add Linux code here.
     //##Future: add Mac OS X code too.
+    const char *filePath;
+    char *prevPath;
+    char *env[2];
+    env[0]=NULL;
+    //filePath = (string("\"") + string(uploader) + string("\" ")).c_str();
+
+    //commandLine.assign(string(""));
+    commandLine =   string("\"") + string(uploader) + string("\" ") +
+                    string("-C \"") + string(confFileName) + string("\" ") +
+                    string("-patmega32u4 -cavr109 -P") + string(uploadPort) +
+                    string(" -D -Uflash:w:\"") + string(hexFileName) + string("\":i");
+
+    fprintf(msgOutput, "\nCalling external uploader: %s\n", commandLine.c_str());
+    wordexp_t p;
+    wordexp(commandLine.c_str(), &p, 0);
+    filePath = p.we_wordv[0];
+    prevPath = getenv("LD_LIBRARY_PATH");
+    strlen(prevPath);
+    env[0] = (char*)malloc(strlen(prevPath));
+    sprintf(env[0],"LD_LIBRARY_PATH=%s",prevPath);
+    env[1] = NULL;
+    fprintf(msgOutput, "%s\n", env[0]);
+
+    if (execve(filePath, p.we_wordv, env)<0) {
+        fprintf(msgOutput, "Error starting specified program\n");
+    }
+    //
+    wordfree(&p);
+    return 0; //Ok.
 #endif
 
     return 0;
