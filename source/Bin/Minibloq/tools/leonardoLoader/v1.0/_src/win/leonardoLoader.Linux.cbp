@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="leonardoLoader" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Release">
+				<Option output="bin/release/leonardoLoader" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-Wall" />
+					<Add directory="source/libctb-0.16/include/ctb-0.16/linux" />
+					<Add directory="source/libctb-0.16/include/ctb-0.16" />
+					<Add directory="source/libctb-0.16/include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-lkernel32" />
+					<Add option="-luser32" />
+					<Add option="-lgdi32" />
+					<Add option="-lwinspool" />
+					<Add option="-lwinmm" />
+					<Add option="-lshell32" />
+					<Add option="-lcomctl32" />
+					<Add option="-lsetupapi" />
+				</Linker>
+			</Target>
+			<Target title="Debug">
+				<Option output="bin/debug/leonardoLoader" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="source/libctb-0.16/include/ctb-0.16/linux" />
+					<Add directory="source/libctb-0.16/include/ctb-0.16" />
+					<Add directory="source/libctb-0.16/include" />
+				</Compiler>
+			</Target>
+		</Build>
+		<Compiler>
+<!--			<Add option="-pedantic" /> -->
+			<Add option="-std=c++98" />
+<!--			<Add option="-Wall" /> -->
+			<Add option="-fexceptions" />
+<!--			<Add option="-DOS_WINDOWS" /> -->
+<!--            <Add option="-I../../../../../wx/amd64/usr/lib/wx/include/gtk2-unicode-2.9-minibloq -I../../../../../wx/amd64/usr/include/wx-2.9-minibloq -D_FILE_OFFSET_BITS=64 -D_LARGE_FILES -D__WXGTK__ -pthread" />-->
+		</Compiler>
+		<Linker>
+<!--			<Add option="-lhid" /> -->
+<!--			<Add option="-lsetupapi" /> -->
+            <Add directory="../../../../../wx/amd64/usr/lib" />
+            <Add option="-pthread"/>
+		</Linker>
+		<Unit filename="source/libctb-0.16/src/fifo.cpp" />
+		<Unit filename="source/libctb-0.16/src/iobase.cpp" />
+		<Unit filename="source/libctb-0.16/src/kbhit.cpp" />
+		<Unit filename="source/libctb-0.16/src/portscan.cpp" />
+		<Unit filename="source/libctb-0.16/src/serportx.cpp" />
+<!--		<Unit filename="source/libctb-0.16/src/linux/getopt.cpp" /> -->
+		<Unit filename="source/libctb-0.16/src/linux/serport.cpp" />
+		<Unit filename="source/libctb-0.16/src/linux/timer.cpp" />
+		<Unit filename="source/main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
