@@ -1505,7 +1505,7 @@ int BubbleXML::loadBlocksInfo(wxWindow *pickersParent, bool showPickers) //##Hac
         //result = dir.GetNext(&fileName);
     }
 
-    //##Mostrar los pickers recién cuando han sido cargados todos los bloques:
+    //Shows the pickers after the blocks have been loaded:
     if (bubble->getActionPicker())
     {
         bubble->getActionPicker()->Show(showPickers);
