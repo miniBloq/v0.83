@@ -3,6 +3,7 @@ source/gmon.out
 *~
 *.layout
 *.depend
+*.res
 *.o
 Bin/Minibloq/work/_temp
 source/Bin/Minibloq/work/_temp
