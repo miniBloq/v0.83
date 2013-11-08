@@ -1,6 +1,9 @@
 source/Obj
 source/gmon.out
 *~
+*.layout
+*.depend
+*.o
 Bin/Minibloq/work/_temp
 source/Bin/Minibloq/work/_temp
 source/Minibloq.Windows.32bits.v0.82.layout
