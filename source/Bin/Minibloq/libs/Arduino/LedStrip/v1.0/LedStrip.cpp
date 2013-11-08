@@ -34,8 +34,8 @@
 #error "code only supports 16MHz CPU"
 #endif
 
-#define numbrOfPixels 8 //  <- should be defined in the hardware directory
-#define LED_STRIP_PIN 14 // <- As Above
+//#define numbrOfPixels 8 //  <- should be defined in the hardware directory
+//#define LED_STRIP_PIN 14 // <- As Above
 // defines were tried in both of the following files located in directory: hard\Rovera\lib
 #include <LedStripConfig.h> // neither of these work!
 #include <board.h>
