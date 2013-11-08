@@ -7,7 +7,7 @@
     </properties>
     <code>
 		<dataType>number</dataType>
-		<defaultMethodName>getSpeed()</defaultMethodName>
+		<defaultMethodName>getPower()</defaultMethodName>
 		<methodSeparator>.</methodSeparator>
 	</code>
     <interface>

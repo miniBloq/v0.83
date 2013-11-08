@@ -45,15 +45,15 @@
 // #endif
 
 
-const float dcMotMaxSpeed = 100.0;
-const float dcMotMinSpeed = -dcMotMaxSpeed;
+const float dcMotMaxPower = 100.0;
+const float dcMotMinPower = -dcMotMaxPower;
 
 
 class DCMotor
 {
 	private:
 		bool clockwise, braked;
-		float speed, prevSpeed, zeroZone;
+		float power, prevPower, zeroPowerZone;
 		int enable_pin, d0_pin, d1_pin;
 
 	public:
@@ -61,7 +61,7 @@ class DCMotor
                        const int d0_pin, const int d1_pin,
                        const bool clockwise = true) :   clockwise(clockwise),
                                                         braked(false),
-                                                        speed(0.0), prevSpeed(0.0), zeroZone(0.1),
+                                                        power(0.0), prevPower(0.0), zeroPowerZone(0.1),
                                                         enable_pin(enable_pin),
                                                         d0_pin(d0_pin), d1_pin(d1_pin)
 		{
@@ -73,18 +73,18 @@ class DCMotor
 			digitalWrite(d1_pin, LOW);
 		}
 
-		void setSpeed(const float value);
+		void setPower(const float value);
 		void brake();
 		void setClockwise(const bool value);
 
-		inline float getZeroZone() const
+		inline float getZeroPowerZone() const
 		{
-			return zeroZone;
+			return zeroPowerZone;
 		}
 
-		inline void setZeroZone(const float value)
+		inline void setZeroPowerZone(const float value)
 		{
-			zeroZone = value;
+			zeroPowerZone = value;
 		}
 		
 		inline bool getClockwise() const
@@ -92,14 +92,14 @@ class DCMotor
 			return clockwise;
 		}
 
-		inline float getSpeed() const
+		inline float getPower() const
 		{
-			return speed;
+			return power;
 		}
 
-		inline float getPrevSpeed() const
+		inline float getPrevPower() const
 		{
-			return prevSpeed;
+			return prevPower;
 		}
 
 		inline bool isBraked() const

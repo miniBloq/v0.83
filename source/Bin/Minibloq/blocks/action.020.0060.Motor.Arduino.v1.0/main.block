@@ -7,7 +7,7 @@
     </properties>
     <code>
 		<dataType>void</dataType>
-		<defaultMethodName>setSpeed</defaultMethodName>
+		<defaultMethodName>setPower</defaultMethodName>
 		<methodSeparator>.</methodSeparator>
 		<paramListStart>(</paramListStart>
 		<paramListEnd>);</paramListEnd>
