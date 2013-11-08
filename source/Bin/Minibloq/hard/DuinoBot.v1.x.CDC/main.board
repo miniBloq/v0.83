@@ -2,7 +2,7 @@
 <board xmlns="http://board.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.81.Beta">
     <properties>
 		<manufacturer>RobotGroup</manufacturer>
-		<name>DuinoBot.v1.x</name>
+		<name>DuinoBot.v1.x.CDC</name>
 		<url0>http://robotgroup.com.ar</url0>
 		<url1>http://multiplo.org</url1>
 		<imgMain>main.png</imgMain>
