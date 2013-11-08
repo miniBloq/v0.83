@@ -1562,7 +1562,7 @@ int BubbleXML::loadBoardRelations()
         wxString fullRelFileName = bubble->getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/rel/") + fileName;
         //wxMessageDialog dialog2(bubble->getParent(), fullRelFileName, _("loadBoardRelations")); //##Debug
         //dialog2.ShowModal(); //##Debug
-        if (wxFile::Exists(fullRelFileName))
+        if (wxFile::Exists(fullRelFileName) && (fullRelFileName.AfterLast('.') == "rel") )
         {
             loadRelData(fullRelFileName, bubble->getHardwareManager()->getCurrentBoardProperties());
         }
