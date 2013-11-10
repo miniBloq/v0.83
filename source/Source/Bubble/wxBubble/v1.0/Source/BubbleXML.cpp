@@ -1529,7 +1529,6 @@ int BubbleXML::loadBlocksInfo(wxWindow *pickersParent, bool showPickers) //##Hac
 }
 
 
-
 int BubbleXML::loadBoardRelations()
 {
     //wxMessageDialog dialog0(parent, wxString("Loading blocks..."), _("0")); //##Debug.
@@ -1740,6 +1739,10 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
                     double returnNumericValue = 5;
                     if (returnStringValue.ToDouble(&returnNumericValue))
                         boardInfo->setBootFindPortTries((unsigned int)returnNumericValue);
+                }
+                else if (child->GetName() == "useWrapper")
+                {
+                    boardInfo->setUseWrapper(Bubble::string2bool(child->GetNodeContent()));
                 }
                 else if (child->GetName() == "bootTimeOut")
                 {

@@ -11,8 +11,8 @@
 		<s>extern DCMotor motor1;</s>
 	</instancesHeader>
 	<instancesCode>
-		<s>DCMotor motor0(3, 4, 5);</s>
-		<s>DCMotor motor1(11, 10, 9);</s>
+		<s>DCMotor motor0(22, 20, 21);</s>
+		<s>DCMotor motor1(3, 4, 8);</s>
 	</instancesCode>
 	<instances>
 		<motor0 instanceType="Motor"/>

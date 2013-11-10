@@ -642,7 +642,6 @@ bool Bubble::loadComponentFromFile(const wxString& name)
     //componentFile.Save( name + wxString("_") );//##Debug.
     //componentFile.Save( name + wxString("_", wxXML_NO_INDENTATION) );//##Debug.
 
-
     wxXmlNode *root = componentFile.GetRoot();
     if (root == NULL)
     {
@@ -773,6 +772,9 @@ bool Bubble::loadComponentFromFile(const wxString& name)
         //getNotifier()->setProgressPosition(getNotifier()->getProgressMax(), true, false);
         getNotifier()->hideMessagesWindow();
     }
+
+//    wxMessageDialog dialog0(parent, _("0"), _("Debug:")); //##Debug.
+//    dialog0.ShowModal(); //##Debug.
 
     saved = true;
     return true;
@@ -1928,20 +1930,23 @@ bool Bubble::generateCodeAndSaveToFile()
         //In Arduino-compatible systems, this file is used to pass a file with valid extension to the compiler, instead of, for
         //example a .ino file. In the future it's possible that this will become configurable in the backend, specially to support
         //other languajes different than C/C++:
-        wxTextFile wrapperOutput;
-        if ( !wrapperOutput.Create( getOutputPath() + wxString("/") + getComponentFilesPath().AfterLast('/') + wxString(".") +
-                                    getHardwareManager()->getCurrentBoardProperties()->getCodeFileExtension() )
-           )
-            return false;
-        wrapperOutput.AddLine(  getHardwareManager()->getCurrentBoardProperties()->getIncludeCodePrefix() +
-                                getComponentFilesPath().AfterLast('/') + wxString(".") +
-                                getHardwareManager()->getCurrentBoardProperties()->getOutputMainFileExtension() +
-                                getHardwareManager()->getCurrentBoardProperties()->getIncludeCodePostfix()
-                             );
-        if ( !wrapperOutput.Write() )
-            return false;
-        if ( !wrapperOutput.Close() )
-            return false;
+        if (getHardwareManager()->getCurrentBoardProperties()->getUseWrapper())
+        {
+            wxTextFile wrapperOutput;
+            if ( !wrapperOutput.Create( getOutputPath() + wxString("/") + getComponentFilesPath().AfterLast('/') + wxString(".") +
+                                        getHardwareManager()->getCurrentBoardProperties()->getCodeFileExtension() )
+               )
+                return false;
+            wrapperOutput.AddLine(  getHardwareManager()->getCurrentBoardProperties()->getIncludeCodePrefix() +
+                                    getComponentFilesPath().AfterLast('/') + wxString(".") +
+                                    getHardwareManager()->getCurrentBoardProperties()->getOutputMainFileExtension() +
+                                    getHardwareManager()->getCurrentBoardProperties()->getIncludeCodePostfix()
+                                 );
+            if ( !wrapperOutput.Write() )
+                return false;
+            if ( !wrapperOutput.Close() )
+                return false;
+        }
 
         //This is the global header, to be included by other code files that need to access the board's instances and constants:
         wxTextFile mbqGlogalsHeader;
@@ -1982,7 +1987,8 @@ bool Bubble::generateCodeAndSaveToFile()
 
         //Try to create the main file:
         wxTextFile mainOutput;
-        wxString mainOutputName = getComponentFilesPath() + wxString("/") + getComponentFilesPath().AfterLast('/') + wxString(".ino");
+        wxString mainOutputName = getComponentFilesPath() + wxString("/") + getComponentFilesPath().AfterLast('/') +
+                                  wxString(".") + getHardwareManager()->getCurrentBoardProperties()->getCodeFileExtension();
         wxRemoveFile(mainOutputName);
         if ( !mainOutput.Create(mainOutputName) )
             return false;

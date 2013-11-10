@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Release" />
-	<File name="Source\Bubble\wxBubble\v1.0\Source\Bubble.cpp" open="1" top="0" tabpos="7">
+	<File name="Source\Bubble\wxBubble\v1.0\Source\Bubble.cpp" open="1" top="1" tabpos="7">
 		<Cursor position="18475" topLine="489" />
 	</File>
-	<File name="Source\Bubble\wxBubble\v1.0\Source\Bubble.h" open="0" top="0" tabpos="3">
+	<File name="Source\Bubble\wxBubble\v1.0\Source\Bubble.h" open="1" top="0" tabpos="3">
 		<Cursor position="34228" topLine="687" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleBlock.cpp" open="0" top="0" tabpos="7">
@@ -38,13 +38,13 @@
 		<Cursor position="21350" topLine="541" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleHardwareManager.h" open="0" top="0" tabpos="6">
-		<Cursor position="3159" topLine="65" />
+		<Cursor position="2589" topLine="42" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\BubblePicker.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="7742" topLine="144" />
 	</File>
-	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleXML.cpp" open="1" top="1" tabpos="4">
-		<Cursor position="101916" topLine="2430" />
+	<File name="Source\Bubble\wxBubble\v1.0\Source\BubbleXML.cpp" open="1" top="0" tabpos="4">
+		<Cursor position="68218" topLine="1547" />
 	</File>
 	<File name="Source\Bubble\wxBubble\v1.0\Source\IBubbleFileIO.h" open="0" top="0" tabpos="6">
 		<Cursor position="529" topLine="0" />
@@ -73,7 +73,7 @@
 	<File name="Source\Terminal.h" open="1" top="0" tabpos="6">
 		<Cursor position="6789" topLine="176" />
 	</File>
-	<File name="Source\main.cpp" open="1" top="0" tabpos="1">
+	<File name="Source\main.cpp" open="0" top="0" tabpos="1">
 		<Cursor position="3422" topLine="63" />
 	</File>
 </CodeBlocks_layout_file>

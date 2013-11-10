@@ -108,6 +108,7 @@ class BubbleBoardProperties
         unsigned int bootBaudRate;
         unsigned int bootFindPortTries;
         unsigned int bootTimeOut;
+        bool useWrapper;
         wxString headerFileExtension;
         wxString codeFileExtension;
         wxString includeCodePrefix;
@@ -159,6 +160,7 @@ class BubbleBoardProperties
                                     bootBaudRate(115200),
                                     bootFindPortTries(5),
                                     bootTimeOut(200),
+                                    useWrapper(false),
                                     headerFileExtension(wxString("")),
                                     codeFileExtension(wxString("")),
                                     includeCodePrefix(wxString("")),
@@ -220,6 +222,7 @@ class BubbleBoardProperties
                 setBootBaudRate(boardProperties->getBootBaudRate());
                 setBootFindPortTries(boardProperties->getBootFindPortTries());
                 setBootTimeOut(boardProperties->getBootTimeOut());
+                setUseWrapper(boardProperties->getUseWrapper());
                 setHeaderFileExtension(boardProperties->getHeaderFileExtension()),
                 setCodeFileExtension(boardProperties->getCodeFileExtension()),
                 setIncludeCodePrefix(boardProperties->getIncludeCodePrefix());
@@ -312,6 +315,9 @@ class BubbleBoardProperties
 
         inline void setBootTimeOut(const unsigned int value) { bootTimeOut = value; }
         inline const unsigned int getBootTimeOut() const { return bootTimeOut; }
+
+        inline void setUseWrapper(const bool value) { useWrapper = value; }
+        inline const bool getUseWrapper() const { return useWrapper; }
 
         inline void setHeaderFileExtension(const wxString& value) { headerFileExtension = value; }
         inline const wxString & getHeaderFileExtension() const { return headerFileExtension; }

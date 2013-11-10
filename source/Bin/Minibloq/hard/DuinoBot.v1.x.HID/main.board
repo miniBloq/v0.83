@@ -25,7 +25,7 @@
 		<linux_amd64_core>mega32U4.a</linux_amd64_core>
 		<linux_i386_driverPath><s>componentsRepositoryPath::</s><s>/drivers/DuinoBot/linux/v1.x.HID</s></linux_i386_driverPath>
 		<linux_amd64_driverPath><s>componentsRepositoryPath::</s><s>/drivers/DuinoBot/linux/v1.x.HID</s></linux_amd64_driverPath>
-		<outputMainFileExtension>ino</outputMainFileExtension>
+		<outputMainFileExtension>cpp</outputMainFileExtension>
 		<resetBeforeBuild>false</resetBeforeBuild>
 		<bootBaudRate>115200</bootBaudRate>
 		<bootFindPortTries>15</bootFindPortTries>
@@ -113,7 +113,7 @@
 
 			<s>includesBuildList::</s>
 			
-			<s> "</s><s>outputPath::</s><s>/</s><s>componentName::</s><s>.cpp" -o "</s><s>outputPath::</s><s>/</s><s>componentName::</s><s>.cpp.o"</s>
+			<s> "</s><s>componentFilesPath::</s><s>/</s><s>componentName::</s><s>.cpp" -o "</s><s>outputPath::</s><s>/</s><s>componentName::</s><s>.cpp.o"</s>
 		</cmd>
 		<cmd>
 			<s>"</s><s>toolsPath::</s>

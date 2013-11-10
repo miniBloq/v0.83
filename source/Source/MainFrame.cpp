@@ -2936,6 +2936,8 @@ bool MainFrame::openFileComponent(const wxString &defaultDir)
             bubble.setComponentFilesPath(bubble.getComponentPath() + wxString("/") + aux.GetName());
             bubble.setOutputPath(bubble.getComponentFilesPath() + wxString("/output"));
             componentAlreadySaved = true;
+//            wxMessageDialog dialog0(this, _("0"), _("Debug:")); //##Debug.
+//            dialog0.ShowModal(); //##Debug.
         }
         if (tempCurrentCanvas)
         {
