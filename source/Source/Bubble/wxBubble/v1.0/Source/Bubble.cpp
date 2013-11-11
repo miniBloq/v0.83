@@ -1988,7 +1988,7 @@ bool Bubble::generateCodeAndSaveToFile()
         //Try to create the main file:
         wxTextFile mainOutput;
         wxString mainOutputName = getComponentFilesPath() + wxString("/") + getComponentFilesPath().AfterLast('/') +
-                                  wxString(".") + getHardwareManager()->getCurrentBoardProperties()->getCodeFileExtension();
+                                  wxString(".") + getHardwareManager()->getCurrentBoardProperties()->getOutputMainFileExtension();
         wxRemoveFile(mainOutputName);
         if ( !mainOutput.Create(mainOutputName) )
             return false;
