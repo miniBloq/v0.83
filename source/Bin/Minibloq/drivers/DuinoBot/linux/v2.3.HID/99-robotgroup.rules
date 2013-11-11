@@ -1,0 +1,15 @@
+# UDEV Rules for Teensy boards, http://www.pjrc.com/teensy/
+#
+# The latest version of this file may be found at:
+#   http://www.pjrc.com/teensy/49-teensy.rules
+#
+# This file must be placed at:
+#
+# /etc/udev/rules.d/99-robotgroup.rules    (preferred location)
+#   or
+# /lib/udev/rules.d/99-robotgroup.rules    (req'd on some broken systems)
+
+
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="2842", ATTRS{idProduct}=="20[0001]?", MODE:="0666"
+KERNEL=="ttyACM*", ATTRS{idVendor}=="2842", ATTRS{idProduct}=="20[0001]?", MODE:="0666", ENV{ID_MM_DEVICE_IGNORE}="1"
+

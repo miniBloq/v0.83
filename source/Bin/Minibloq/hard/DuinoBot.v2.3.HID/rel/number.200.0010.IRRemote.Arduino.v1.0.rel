@@ -1,28 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rel xmlns="http://rel.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
 	<includePaths>
-		<include><s>libsPath::</s><s>/Arduino/ServoRC/v1.0</s></include>
+		<include><s>libsPath::</s><s>/Arduino/IRRemote/v1.0</s></include>
 	</includePaths>
 	<includeFiles>
-		<include><s>Servo.h</s></include>
+		<include><s>IRRemote.h</s></include>
 	</includeFiles>
 	<instancesHeader>
-		<s>extern Servo servo0;</s>
-		<s>extern Servo servo1;</s>
-	</instancesHeader>	
+		<s>extern IRrecv irReceiver;</s>
+	</instancesHeader>		
 	<instancesCode>
-		<s>Servo servo0;</s>
-		<s>Servo servo1;</s>
+		<s>IRrecv irReceiver(D14);</s>
 	</instancesCode>
-	<instances>
-		<servo0 instanceType="ServoRC"/>
-		<servo1 instanceType="ServoRC"/>
-	</instances>
-	<initBoardCode>
-		<s>	//setPin() does not attach the servo (so the pin can be used by other library if the servo is not used).&#10;</s>
-		<s>	servo0.setPin(16);&#10;</s>
-		<s>	servo1.setPin(17);&#10;</s>
-	</initBoardCode>
 	<build>
 		<cmd>
 			<s>"</s><s>toolsPath::</s>
@@ -36,9 +25,9 @@
 			<s>" -I"</s><s>corePath::</s><s>/variants/</s><s>arduinoVariant::</s>
 			<s>" -I"</s><s>componentPath::</s>
 			<s>" -I"</s><s>outputPath::</s><s>" </s>
-			<s>-I"</s><s>libsPath::</s><s>/Arduino/ServoRC/v1.0" </s>
+			<s>-I"</s><s>libsPath::</s><s>/Arduino/IRRemote/v1.0" </s>
 			
-			<s>"</s><s>libsPath::</s><s>/Arduino/ServoRC/v1.0/Servo.cpp" -o "</s><s>outputPath::</s><s>/Servo.cpp.o"</s>
+			<s>"</s><s>libsPath::</s><s>/Arduino/IRRemote/v1.0/IRRemote.cpp" -o "</s><s>outputPath::</s><s>/IRRemote.cpp.o"</s>
 		</cmd>
 	</build>
 </rel>

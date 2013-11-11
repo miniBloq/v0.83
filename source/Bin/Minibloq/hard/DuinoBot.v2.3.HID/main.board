@@ -2,29 +2,28 @@
 <board xmlns="http://board.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
     <properties>
 		<manufacturer>RobotGroup</manufacturer>
-		<name>DuinoBot.v1.x.HID</name>
+		<name>DuinoBot.v2.3.HID</name>
 		<portType>HID</portType>
-		<url0>http://multiplo.org/product/duinobot-v1-2-0-2/</url0>
+		<url0>http://multiplo.org</url0>
 		<url1>http://robotgroup.com.ar</url1>
-		<url2>http://multiplo.org</url2>
-		<cpu>atmega32u4</cpu>
+		<cpu>atmega1284p</cpu>
 		<clockFreq>16000000L</clockFreq>
 		<imgMain>main.png</imgMain>
 		<imgThumb>thumb.png</imgThumb>
 		<win_i386_lang>WinAVR/v20090313/bin</win_i386_lang>
-		<win_i386_uploader>tools/hidUploader/v1.0/hid_bootloader_cli.exe</win_i386_uploader>
-		<win_i386_corePath>DuinoBot.v1.x.HID.v0022</win_i386_corePath>
-		<win_i386_core>mega32U4.a</win_i386_core>
+		<win_i386_uploader>tools/hidUploader/v2.0/hiduploader.exe</win_i386_uploader>
+		<win_i386_corePath>Arduino.v1.5.4.r2/avr</win_i386_corePath>
+		<win_i386_core>mega1284.a</win_i386_core>
 		<linux_i386_lang>avrlinux/i386/v4.3.5/bin</linux_i386_lang>
-		<linux_i386_uploader>tools/hidUploader/v1.0/hid_bootloader_cli.Linux</linux_i386_uploader>
-		<linux_i386_corePath>DuinoBot.v1.x.HID.v0022</linux_i386_corePath>
-		<linux_i386_core>mega32U4.a</linux_i386_core>
+		<linux_i386_uploader>tools/hidUploader/v2.0/hiduploader.Linux</linux_i386_uploader>
+		<linux_i386_corePath>Arduino.v1.5.4.r2/avr</linux_i386_corePath>
+		<linux_i386_core>mega1284.a</linux_i386_core>
 		<linux_amd64_lang>avrlinux/amd64/v4.3.5/bin</linux_amd64_lang>
-		<linux_amd64_uploader>tools/hidUploader/v1.0/hid_bootloader_cli.Linux</linux_amd64_uploader>
-		<linux_amd64_corePath>DuinoBot.v1.x.HID.v0022</linux_amd64_corePath>
-		<linux_amd64_core>mega32U4.a</linux_amd64_core>
-		<linux_i386_driverPath><s>componentsRepositoryPath::</s><s>/drivers/DuinoBot/linux/v1.x.HID</s></linux_i386_driverPath>
-		<linux_amd64_driverPath><s>componentsRepositoryPath::</s><s>/drivers/DuinoBot/linux/v1.x.HID</s></linux_amd64_driverPath>
+		<linux_amd64_uploader>tools/hidUploader/v2.0/hiduploader.Linux</linux_amd64_uploader>
+		<linux_amd64_corePath>Arduino.v1.5.4.r2/avr</linux_amd64_corePath>
+		<linux_amd64_core>mega1284.a</linux_amd64_core>
+		<linux_i386_driverPath><s>componentsRepositoryPath::</s><s>/drivers/DuinoBot/linux/v2.3.HID</s></linux_i386_driverPath>
+		<linux_amd64_driverPath><s>componentsRepositoryPath::</s><s>/drivers/DuinoBot/linux/v2.3.HID</s></linux_amd64_driverPath>
 		<outputMainFileExtension>cpp</outputMainFileExtension>
 		<resetBeforeBuild>false</resetBeforeBuild>
 		<bootBaudRate>115200</bootBaudRate>
@@ -45,11 +44,12 @@
 		<commentEnd></commentEnd>
 		<arduinoVersion>22</arduinoVersion>
 		<objectExtension>o</objectExtension>
-		<usbVid>0x03EB</usbVid>
-		<usbPidBoot>0x2067</usbPidBoot>
-		<usbPidApp>0x204F</usbPidApp>
+		<usbVid>0x2842</usbVid>
+		<usbPidBoot>0x0001</usbPidBoot>
+		<usbPidApp>0x0001</usbPidApp>
 		<usbManufacturer></usbManufacturer>
 		<usbProduct></usbProduct>
+		<arduinoVariant>duinobot.v2.x</arduinoVariant>
     </properties>
 	<examples>
 		<path><s>componentsRepositoryPath::</s><s>/work/_examples/ArduinoUno</s></path>
@@ -57,6 +57,7 @@
 	</examples>
 	<includeFiles>
 		<include><s>Arduino.h</s></include>
+		<include><s>pins_arduino.h</s></include>
 		<include><s>stdlib.h</s></include>
 		<include><s>miniBloq.h</s></include>
 		<include><s>board.h</s></include>
@@ -87,6 +88,7 @@
 			<s> -I"</s><s>toolsPath::</s>
 			<s>" -I"</s><s>corePath::</s>
 			<s>" -I"</s><s>corePath::</s><s>/avr-libc</s>
+			<s>" -I"</s><s>corePath::</s><s>/variants/</s><s>arduinoVariant::</s>
 			<s>" -I"</s><s>boardPath::</s><s>/lib</s>
 			<s>" -I"</s><s>componentFilesPath::</s>
 			<s>" -I"</s><s>outputPath::</s>
@@ -105,6 +107,7 @@
 			<s> -I"</s><s>toolsPath::</s>
 			<s>" -I"</s><s>corePath::</s>
 			<s>" -I"</s><s>corePath::</s><s>/avr-libc</s>
+			<s>" -I"</s><s>corePath::</s><s>/variants/</s><s>arduinoVariant::</s>
 			<s>" -I"</s><s>boardPath::</s><s>/lib</s>
 			<s>" -I"</s><s>componentFilesPath::</s>
 			<s>" -I"</s><s>outputPath::</s>
@@ -161,9 +164,13 @@
 		<sensor4 instanceType="analogRead"/>
 		<sensor5 instanceType="analogRead"/>
 
-		<PWM3 instanceType="analogWrite"/>
-		<PWM22 instanceType="analogWrite"/>
-
+		<PWM9 instanceType="analogWrite"/>
+		<PWM10 instanceType="analogWrite"/>
+		<PWM12 instanceType="analogWrite"/>
+		<PWM13 instanceType="analogWrite"/>
+		<PWM27 instanceType="analogWrite"/>
+		<PWM28 instanceType="analogWrite"/>
+		
 		<D0 instanceType="IOPin"/>
 		<D1 instanceType="IOPin"/>
 		<D2 instanceType="IOPin"/>
@@ -185,9 +192,14 @@
 		<D18 instanceType="IOPin"/>
 		<D19 instanceType="IOPin"/>
 		<D20 instanceType="IOPin"/>
-		<D21 instanceType="IOPin"/>
-		<D22 instanceType="IOPin"/>
-		<D23_Buzzer instanceType="IOPin"/>
-		<D25_RunButton instanceType="IOPin"/>
+		<D21_BiLED instanceType="IOPin"/>
+		<D29_RunButton instanceType="IOPin"/>
+		<D23 instanceType="IOPin"/>
+		<D24 instanceType="IOPin"/>
+		<D25 instanceType="IOPin"/>
+		<D26 instanceType="IOPin"/>
+		<D27 instanceType="IOPin"/>
+		<D28 instanceType="IOPin"/>
+		<D29_RunButton instanceType="IOPin"/>
 	</instances>
 </board>
