@@ -7,9 +7,8 @@ void setup()
 
 	while(true)
 	{
-		toneWithDelay(BuzzerPin, (pingMeasureCM(D15)*400), 100);
-		//serial0.println(pingMeasureCM(D15));
-		//delay(200);
+		serial0.println(pingMeasureCM(D15));
+		delay(200);
 	}
 }
 

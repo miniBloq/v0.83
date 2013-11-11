@@ -18,7 +18,7 @@ void initBoard()
 	randomSeed(analogRead(0));
 
 	//This is for the Multiplo robots:
-	motor1.setClockwise(false);
+	//motor1.setClockwise(false);
 	//setPin() does not attach the servo (so the pin can be used by other library if the servo is not used).
 	servo0.setPin(16);
 	servo1.setPin(17);

@@ -153,6 +153,13 @@ BubbleHardwareManager::BubbleHardwareManager(   wxWindow* parent,
                                   );
         updatePorts();
         setPortType();
+
+        //This is necessary for the first time the system loads the boards:
+        if (currentBoardProperties->getPortType() == wxString("HID"))
+        {
+            setPortSelectorEnabled(false);
+            setPortNameString((getCurrentBoardProperties())->getPortType());
+        }
 //        comboBootPortName->setSelection(0); //##Un-hardcode and get the port from the config file...
 //        wxString strCommRealName = wxString("//./") + comboBootPortName->getText();
 //        bubble->setBootPortName(strCommRealName);
