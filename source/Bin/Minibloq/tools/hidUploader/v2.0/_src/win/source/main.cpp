@@ -287,6 +287,10 @@ int main(int argc, char **argv)
                         memset(ControlBuf + 4, 0, sizeof(ControlBuf) - 4);
                         r = teensy_write(ControlBuf, sizeof(ControlBuf), 0.25);
                         if (!r) die("Error writing to device\n");
+                        //
+                        // Wait delay for some windows systems to work
+                        delay(0.01 + ((float)DelayDataPage / 1000.0));
+                        //
                         // Start Program Page command
                         ProgramState = ST_PROGRAMPAGE;
                     }
@@ -301,6 +305,7 @@ int main(int argc, char **argv)
                 memset(ControlBuf + 4, 0, sizeof(ControlBuf) - 4);
                 r = teensy_write(ControlBuf, sizeof(ControlBuf), 1.0);
                 if (!r) die("Error writing to device\n");
+                delay(0.01);
                 printf_verbose(".");
                 // Load Data of page from hex file
                 ihex_get_data(addr, block_size, ProgramBuf);
@@ -344,6 +349,7 @@ int main(int argc, char **argv)
                 memset(ControlBuf + 2, 0, sizeof(ControlBuf) - 2);
                 r = teensy_write(ControlBuf, sizeof(ControlBuf), 0.25);
                 if (!r) die("Error writing to device\n");
+                delay(0.01);
                 ProgramState = ST_ENDOFUPLOAD;
                 break;
             case ST_ENDOFUPLOAD:

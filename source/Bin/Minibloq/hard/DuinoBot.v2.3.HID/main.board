@@ -148,7 +148,7 @@
 	<deploy>
 		<cmd>
 			<s>"</s><s>componentsRepositoryPath::</s><s>/</s><s>uploader::</s>
-			<s>" -mmcu=</s><s>cpu::</s><s> -r -v "</s>
+			<s>" -mmcu=</s><s>cpu::</s><s> -v -usb=</s><s>usbVid::</s><s>,</s><s>usbPidBoot::</s><s> "</s>
             <s>outputPath::</s><s>/main.cpp.hex"</s>
 		</cmd>
 	</deploy>
