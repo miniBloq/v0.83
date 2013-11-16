@@ -15,8 +15,8 @@ function set_execute_permission {
 
 #echo set_execute_permission
 
-chmod +x ./miniBloq-amd64
-chmod +x ./miniBloq-i386
+chmod +x ./Minibloq-amd64
+chmod +x ./Minibloq-i386
 chmod +x ../../lang/avrlinux/i386/v4.3.5/bin/avr-gprof
 chmod +x ../../lang/avrlinux/i386/v4.3.5/bin/avr-gcc-4.3.5
 chmod +x ../../lang/avrlinux/i386/v4.3.5/bin/avr-readelf
