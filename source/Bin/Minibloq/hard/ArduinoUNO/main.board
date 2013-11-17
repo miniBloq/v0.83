@@ -22,7 +22,7 @@
 		<linux_amd64_corePath>Arduino.v1.5.4.r2/avr</linux_amd64_corePath>
 		<linux_amd64_core>mega328.a</linux_amd64_core>
 		<win_i386_driverPath><s>componentsRepositoryPath::</s><s>/drivers/Arduino/win/uno/v1.0</s></win_i386_driverPath>
-		<outputMainFileExtension>ino</outputMainFileExtension>
+		<outputMainFileExtension>cpp</outputMainFileExtension>
 		<resetBeforeBuild>false</resetBeforeBuild>
 		<bootBaudRate>115200</bootBaudRate>
 		<bootFindPortTries>15</bootFindPortTries>
@@ -58,12 +58,6 @@
 	</includeFiles>
 	<initBoardCode>
 		<s>	Serial.begin(115200);&#10;&#10;</s>
-		<s>	pinMode(A0, INPUT);&#10;</s>
-		<s>	pinMode(A1, INPUT);&#10;</s>
-		<s>	pinMode(A2, INPUT);&#10;</s>
-		<s>	pinMode(A3, INPUT);&#10;</s>
-		<s>	pinMode(A4, INPUT);&#10;</s>
-		<s>	pinMode(A5, INPUT);&#10;&#10;</s>
 		<s>	//Uses the analog input 0, that may have the same value in some designs, but it's not so prabably:&#10;</s>
 		<s>	randomSeed(analogRead(0));&#10;&#10;</s>
 	</initBoardCode>
@@ -119,7 +113,7 @@
 
 			<s>includesBuildList::</s>
 
-			<s> "</s><s>outputPath::</s><s>/</s><s>componentName::</s><s>.cpp" -o "</s><s>outputPath::</s><s>/</s><s>componentName::</s><s>.cpp.o"</s>
+			<s> "</s><s>componentFilesPath::</s><s>/</s><s>componentName::</s><s>.cpp" -o "</s><s>outputPath::</s><s>/</s><s>componentName::</s><s>.cpp.o"</s>
 		</cmd>
 		<cmd>
 			<s>"</s><s>toolsPath::</s>
@@ -148,14 +142,6 @@
 			<s>"</s><s>outputPath::</s><s>/main.cpp.elf"</s>
 		</cmd>
 	</build>
-	<resetInternal>
-		<icmd>
-			<setBootSerialLine param0="DTR"/>
-			<delay param0="10"/>
-			<clearBootSerialLine param0="DTR"/>
-			<delay param0="10"/>
-		</icmd>
-	</resetInternal>
 	<deploy>
 		<cmd>
 			<s>"</s><s>toolsPath::</s><s>/</s><s>uploader::</s><s>" -C"</s>

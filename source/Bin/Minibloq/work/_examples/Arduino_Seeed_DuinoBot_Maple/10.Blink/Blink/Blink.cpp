@@ -7,9 +7,9 @@ void setup()
 
 	while(true)
 	{
-		DigitalWrite(D21_BiLED, true);
+		DigitalWrite(D13_LED, true);
 		delay(300);
-		DigitalWrite(D21_BiLED, false);
+		DigitalWrite(D13_LED, false);
 		delay(300);
 	}
 }

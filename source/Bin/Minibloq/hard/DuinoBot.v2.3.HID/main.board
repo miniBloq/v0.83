@@ -40,7 +40,7 @@
 		<initBoardPostfix>}</initBoardPostfix>
 		<commentBegin>//</commentBegin>
 		<commentEnd></commentEnd>
-		<arduinoVersion>22</arduinoVersion>
+		<arduinoVersion>154</arduinoVersion>
 		<objectExtension>o</objectExtension>
 		<usbVid>0x2842</usbVid>
 		<usbPidBoot>0x0001</usbPidBoot>
