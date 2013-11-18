@@ -26,6 +26,7 @@
 		<linux_amd64_driverPath><s>componentsRepositoryPath::</s><s>/drivers/DuinoBot/linux/v2.3.HID</s></linux_amd64_driverPath>
 		<outputMainFileExtension>cpp</outputMainFileExtension>
 		<resetBeforeBuild>false</resetBeforeBuild>
+		<bootBaudRate>57600</bootBaudRate>
 		<bootTimeOut>200</bootTimeOut>
 		<headerFileExtension>h</headerFileExtension>
 		<codeFileExtension>cpp</codeFileExtension>

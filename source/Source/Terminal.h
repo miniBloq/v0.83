@@ -185,7 +185,7 @@ class TerminalCommManager
 
         //Generic communication functions:
         inline const wxString &getPortName() const { return portName; }
-        void setPortName(const wxString& value);
+        void setPortName(const wxString& nameValue, int usbVidValue, int usbPidValue, int usbPidAppValue);
         inline CommMode getMode() const { return mode; }
         bool open();
         void close();

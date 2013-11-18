@@ -334,21 +334,21 @@ void TerminalCommManager::setMode(CommMode value)
 }
 
 
-void TerminalCommManager::setPortName(const wxString& value)
+void TerminalCommManager::setPortName(const wxString& nameValue, int usbVidValue, int usbPidBootValue, int usbPidAppValue)
 {
-    portName = value;
-
-    //##Future: :
-    if (value == wxString("HID")) //##Unhardcode...
+    portName = nameValue;
+    if (nameValue == wxString("HID")) //##Unhardcode...
     {
         setMode(commModeUsbHid);
-        setUsbVid(0x03EB); //##Unhardcode...
-        setUsbPidBoot(0x2067); //##Unhardcode...
-        setUsbPidApp(0x204F); //##Unhardcode...
+        setUsbVid(usbVidValue);
+        setUsbPidBoot(usbPidBootValue);
+        setUsbPidApp(usbPidAppValue);
         setUsbDeviceNumber(1); //##See if this is correct... ##Unhardcode...
     }
     else
+    {
         setMode(commModeSerial);
+    }
 }
 
 
@@ -706,8 +706,27 @@ void BaseTerminalGUI::onButtonOpenPort(wxCommandEvent& event)
     if (commManager)
     {
         if (bubble)
-            commManager->setPortName(bubble->getBootPortName()); //##This will be configurable...
-        commManager->setBaudRate(wxBAUD_115200); //##This will be configurable...
+        {
+            if (bubble->getHardwareManager())
+            {
+                if (bubble->getHardwareManager()->getCurrentBoardProperties())
+                {
+                    long usbVidValue = 0;
+                    bubble->getHardwareManager()->getCurrentBoardProperties()->getUsbVid().ToLong(&usbVidValue, 16);
+                    long usbPidBootValue = 0;
+                    bubble->getHardwareManager()->getCurrentBoardProperties()->getUsbPidBoot().ToLong(&usbPidBootValue, 16);
+                    long usbPidAppValue = 0;
+                    bubble->getHardwareManager()->getCurrentBoardProperties()->getUsbPidApp().ToLong(&usbPidAppValue, 16);
+
+                    //##Future: this will be configurable:
+                    commManager->setPortName(bubble->getBootPortName(), (int)usbVidValue, (int)usbPidBootValue, (int)usbPidAppValue);
+
+                    //##Future: this will be configurable:
+                    //commManager->setBaudRate(wxBAUD_115200);
+                    commManager->setBaudRate((wxBaud)bubble->getHardwareManager()->getCurrentBoardProperties()->getBootBaudRate());
+                }
+            }
+        }
         commManager->open();
     }
 }

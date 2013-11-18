@@ -692,6 +692,8 @@ class Bubble : public IBubbleFileIO
         {
             hardwareManager = value;
         }
+        inline BubbleHardwareManager *getHardwareManager() const { return hardwareManager; }
+
         inline void setIncludesCodeList(const wxString &value) { includesCodeList = value; }
         inline wxString getIncludesCodeList() const { return includesCodeList; }
         inline void setIncludesBuildList(const wxString &value) { includesBuildList = value; }
@@ -701,7 +703,6 @@ class Bubble : public IBubbleFileIO
         inline wxString getInitBoardCode() const { return initBoardCode; }
 
         wxString getOutputObjectsList(const wxString &fileExtension);
-        inline BubbleHardwareManager *getHardwareManager() const { return hardwareManager; }
         bool setBoardName(const wxString& value, wxWindow *pickersParent);
         inline const wxString &getBoardName() const { return boardName; }
         int loadBoardRelations();
