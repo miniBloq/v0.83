@@ -138,7 +138,7 @@ void TerminalTxEditor::OnChar(wxKeyEvent& event)
             char buffer[64];
             buffer[0] = 0xB1;
             buffer[1] = *((char*)&wchr);
-            for (int i = 1; i < 64; i++)
+            for (int i = 2; i < 64; i++)
                 buffer[i] = 0;
             rawhid_send(0, buffer, sizeof(buffer), 100);
         }

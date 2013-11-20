@@ -4,7 +4,10 @@
 	<File name="source\ihex.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="2312" topLine="74" />
 	</File>
-	<File name="source\main.cpp" open="0" top="0" tabpos="1">
-		<Cursor position="5288" topLine="163" />
+	<File name="source\main.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="11825" topLine="333" />
+	</File>
+	<File name="source\usb_WINDOWS.cpp" open="1" top="0" tabpos="2">
+		<Cursor position="3581" topLine="111" />
 	</File>
 </CodeBlocks_layout_file>
