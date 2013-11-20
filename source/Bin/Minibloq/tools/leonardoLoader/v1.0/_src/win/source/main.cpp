@@ -185,7 +185,9 @@ int main(int argc, char **argv)
     else
     {
         fprintf(msgOutput, "\nNo new port found.\n");
+#ifdef WIN32
         return 10; //Error.
+#endif
     }
 
 #ifdef WIN32
@@ -231,6 +233,10 @@ int main(int argc, char **argv)
 #else
     //##Add Linux code here.
     //##Future: add Mac OS X code too.
+
+    // wait for board reset
+    sleep(2000);
+
     const char *filePath;
     char *prevPath;
     char *env[2];
@@ -240,10 +246,11 @@ int main(int argc, char **argv)
     //commandLine.assign(string(""));
     commandLine =   string("\"") + string(uploader) + string("\" ") +
                     string("-C \"") + string(confFileName) + string("\" ") +
-                    string("-patmega32u4 -cavr109 -P") + string(uploadPort) +
+                    string("-patmega32u4 -cavr109 -P") + string(serial) +
                     string(" -D -Uflash:w:\"") + string(hexFileName) + string("\":i");
 
     fprintf(msgOutput, "\nCalling external uploader: %s\n", commandLine.c_str());
+
     wordexp_t p;
     wordexp(commandLine.c_str(), &p, 0);
     filePath = p.we_wordv[0];
