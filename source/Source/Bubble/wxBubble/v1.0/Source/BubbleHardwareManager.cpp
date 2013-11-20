@@ -155,7 +155,9 @@ BubbleHardwareManager::BubbleHardwareManager(   wxWindow* parent,
         setPortType();
 
         //This is necessary for the first time the system loads the boards:
-        if (currentBoardProperties->getPortType() == wxString("HID"))
+        if ( (currentBoardProperties->getPortType() == wxString("HID")) ||
+             (currentBoardProperties->getPortType() == wxString("HID2"))
+           )
         {
             setPortSelectorEnabled(false);
             setPortNameString((getCurrentBoardProperties())->getPortType());
@@ -524,6 +526,10 @@ void BubbleHardwareManager::setPortType()
             {
                 bubble->setBootPortName(wxString("HID"));
             }
+            else if (comboBootPortName->getText() == wxString("HID2"))
+            {
+                bubble->setBootPortName(wxString("HID2"));
+            }
             else
             {
                 wxString strCommRealName = wxString("//./") + comboBootPortName->getText();
@@ -566,7 +572,9 @@ void BubbleHardwareManager::onComboBoardNameChanged(wxCommandEvent &event)
             //                                             getCurrentBoardProperties()->getName()); //##Debug.
             //dialog0.ShowModal(); //##Debug.
 
-            if ((getCurrentBoardProperties())->getPortType() == wxString("HID"))
+            if ( ((getCurrentBoardProperties())->getPortType() == wxString("HID")) ||
+                 ((getCurrentBoardProperties())->getPortType() == wxString("HID2"))
+               )
             {
                 setPortSelectorEnabled(false);
                 setPortNameString((getCurrentBoardProperties())->getPortType());

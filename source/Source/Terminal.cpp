@@ -133,6 +133,15 @@ void TerminalTxEditor::OnChar(wxKeyEvent& event)
                 buffer[i] = 0;
             rawhid_send(0, buffer, sizeof(buffer), 100);
         }
+        else if (mode == commModeUsbHid2)
+        {
+            char buffer[64];
+            buffer[0] = 0xB1;
+            buffer[1] = *((char*)&wchr);
+            for (int i = 1; i < 64; i++)
+                buffer[i] = 0;
+            rawhid_send(0, buffer, sizeof(buffer), 100);
+        }
 
         //AppendText('j'); //##Debug
 
@@ -207,76 +216,102 @@ wxThread::ExitCode TerminalRXThread::Entry()
     //Buffer for received data:
     //char buffer[20] //##Future: Make buffer size configurable...
     char buffer[8];
+    char buffer2[64];
+    char *buff = buffer;
 
     unsigned int readCount = 0;
 
     while(!TestDestroy())
     {
         if (mode == commModeUsbHid)
-            readCount = readUsbHid(buffer, sizeof(buffer));
-        else if (mode == commModeSerial)
-            readCount = readSerial(buffer, sizeof(buffer));
-        else
-            readCount = 0;
-
-        if ( (readCount < sizeof(buffer)) && (readCount > 0) )
         {
-            buffer[readCount] = '\0';
+            readCount = readUsbHid(buffer, sizeof(buffer));
+            if ( (readCount >= sizeof(buffer)) || (readCount <= 0) )
+                continue;
+            buff = buffer;
+        }
+        else if (mode == commModeUsbHid2)
+        {
+            readCount = readUsbHid(buffer2, sizeof(buffer2));
+            if ( (readCount >= sizeof(buffer2)) || (readCount <= 0) )
+                continue;
+            buff = buffer2;
+        }
+        else if (mode == commModeSerial)
+        {
+            readCount = readSerial(buffer, sizeof(buffer));
+            if ( (readCount >= sizeof(buffer)) || (readCount <= 0) )
+                continue;
+            buff = buffer;
+        }
+        else
+        {
+            continue;
+        }
+
+        buff[readCount] = '\0';
+        wxString strOutput(buff);
+//        int index = strOutput.Find("\r\n");
+//        if (index < (int)(strOutput.Len() - 1))
+//        {
+//            buff[index] = '\n';
+//            buff[index + 1] = '\0';
+//        }
 
 #if defined (linux)
-            wxMutexGuiEnter(); //##Test this a lot under Windows.
+        wxMutexGuiEnter(); //##Test this a lot under Windows.
 #endif
-            //Editor belonging to split editor terminals:
-            if (rxEditor)
+        //Editor belonging to split editor terminals:
+        if (rxEditor)
+        {
+            (*rxEditor) << strOutput;
+        }
+
+        //Editor belonging to single editor terminals:
+        if (rxTxEditor)
+        {
+            //Changes the color to the "rx color":
+            rxTxEditor->SetDefaultStyle(wxTextAttr(rxTxEditor->getRxColour(), rxTxEditor->GetBackgroundColour()));
+
+            //Adds the text:
+            //rxTxEditor->AppendText(wxConvLocal.cMB2WC(buff));
+            (*rxTxEditor) << strOutput;
+
+            //Restores the color to the "tx color":
+            rxTxEditor->SetDefaultStyle(wxTextAttr(rxTxEditor->getTxColour(), rxTxEditor->GetBackgroundColour()));
+        }
+
+        //Emoticons support (with separated emoticons window):
+        if (emoticonScreen)
+        {
+            //As this is for separated emotincon windows, shows only the last received emoticon:
+            //(##in future implementations, it will be possible to insert the emoticons inside the
+            //rxEditor itself, between the text):
+
+            //First: Find the last emoticon:
+            //wxString strToParse(buff);
+            int index =             strOutput.Find(":)");  //##Future: unhardcode these
+            index = std::max(index, strOutput.Find(":(")); //comparisons... Create a method
+            index = std::max(index, strOutput.Find(":|")); //to send to this class the list of
+            index = std::max(index, strOutput.Find("<-")); //valid emoticons.
+            index = std::max(index, strOutput.Find("->"));
+            index = std::max(index, strOutput.Find("<>"));
+
+            //Only sets the last emoticon, nochange otherwise:
+            if (index != wxNOT_FOUND)
             {
-                rxEditor->AppendText(wxConvLocal.cMB2WC(buffer));
-            }
-
-            //Editor belonging to single editor terminals:
-            if (rxTxEditor)
-            {
-                //Changes the color to the "rx color":
-                rxTxEditor->SetDefaultStyle(wxTextAttr(rxTxEditor->getRxColour(), rxTxEditor->GetBackgroundColour()));
-
-                //Adds the text:
-                rxTxEditor->AppendText(wxConvLocal.cMB2WC(buffer));
-
-                //Restores the color to the "tx color":
-                rxTxEditor->SetDefaultStyle(wxTextAttr(rxTxEditor->getTxColour(), rxTxEditor->GetBackgroundColour()));
-            }
-
-            //Emoticons support (with separated emoticons window):
-            if (emoticonScreen)
-            {
-                //As this is for separated emotincon windows, shows only the last received emoticon:
-                //(##in future implementations, it will be possible to insert the emoticons inside the
-                //rxEditor itself, between the text):
-
-                //First: Find the last emoticon:
-                wxString strToParse(buffer);
-                int index =             strToParse.Find(":)");  //##Future: unhardcode these
-                index = std::max(index, strToParse.Find(":(")); //comparisons... Create a method
-                index = std::max(index, strToParse.Find(":|")); //to send to this class the list of
-                index = std::max(index, strToParse.Find("<-")); //valid emoticons.
-                index = std::max(index, strToParse.Find("->"));
-                index = std::max(index, strToParse.Find("<>"));
-
-                //Only sets the last emoticon, nochange otherwise:
-                if (index != wxNOT_FOUND)
+                if (index < (int)(strOutput.Len() - 1))
                 {
-                    if (index < (int)(strToParse.Len() - 1))
-                    {
-                        emoticonScreen->setEmoticonStr( wxString(strToParse[index]) +
-                                                        wxString(strToParse[index + 1]));
-                    }
+                    emoticonScreen->setEmoticonStr( wxString(strOutput[index]) +
+                                                    wxString(strOutput[index + 1]));
                 }
             }
+        }
 
 #if defined (linux)
-            wxMutexGuiLeave(); //##Test this a lot under Windows.
+        wxMutexGuiLeave(); //##Test this a lot under Windows.
 #endif
-            //wxThread::Sleep(10); //Is this necessary? Not by now, but have to do more testing.
-        }
+        //wxThread::Sleep(10); //Is this necessary? Not by now, but have to do more testing.
     }
 
     return NULL;
@@ -345,7 +380,15 @@ void TerminalCommManager::setPortName(const wxString& nameValue, int usbVidValue
         setUsbPidApp(usbPidAppValue);
         setUsbDeviceNumber(1); //##See if this is correct... ##Unhardcode...
     }
-    else
+    else if (nameValue == wxString("HID2")) //##Unhardcode...
+    {
+        setMode(commModeUsbHid2);
+        setUsbVid(usbVidValue);
+        setUsbPidBoot(usbPidBootValue);
+        setUsbPidApp(usbPidAppValue);
+        setUsbDeviceNumber(1); //##See if this is correct... ##Unhardcode...
+    }
+    else //Serial / CDC USB.
     {
         setMode(commModeSerial);
     }
@@ -353,6 +396,59 @@ void TerminalCommManager::setPortName(const wxString& nameValue, int usbVidValue
 
 
 bool TerminalCommManager::openUsbHid()
+{
+    int r;
+    unsigned char bootPacket[130];
+
+    bootPacket[0] = 0xFF;
+    bootPacket[1] = 0xFF;
+    memset(bootPacket + 2, 0, sizeof(bootPacket) - 2);
+
+    //First, try to open in console mode:
+    //##r = rawhid_open(1, 0x03EB, 0x204F, 0xFF00, 0x01);
+    r = rawhid_open(getUsbDeviceNumber(), getUsbVid(), getUsbPidApp(), 0xFF00, 0x01);
+    if (r <= 0)
+    {
+        //Could not open:
+        //## printf("No DuinoBot HID device found\n"); //##Future: Pass all this to the notifier (messages Window)...
+
+        //Try to open the bootloader:
+        //##r = rawhid_open(1, 0x03EB, 0x2067, 0xFFDC, 0xFB);
+        r = rawhid_open(getUsbDeviceNumber(), getUsbVid(), getUsbPidBoot(), 0xFFDC, 0xFB);
+        if (r <= 0)
+        {
+            //Dit not found console, nor bootloader:
+            //## printf("No DuinoBot HID Hardware found");
+            return false;
+        }
+        else
+        {
+            //If bootloader found, sends the reset command, so it starts the application:
+            //## printf("Bootloader found. Jumping to application\n");
+            rawhid_send(0, bootPacket, sizeof(bootPacket), 25);
+            rawhid_close(0);
+
+            //##while ( (r = rawhid_open(1, 0x03EB, 0x204F, 0xFF00, 0x01)) <= 0 )
+            while ( rawhid_open(getUsbDeviceNumber(), getUsbVid(), getUsbPidApp(), 0xFF00, 0x01) <= 0 )
+            {
+                //## printf(".");
+#if defined (WIN32)
+                Sleep(1000);
+#else
+                wxMilliSleep(1000);
+#endif
+                rawhid_send(0, bootPacket, sizeof(bootPacket), 25);
+                rawhid_close(0);
+            }
+            //## printf("\n");
+        }
+    }
+    //## printf("DuinoBot 1.x HID found\n");
+    return true;
+}
+
+
+bool TerminalCommManager::openUsbHid2()
 {
     int r;
     unsigned char bootPacket[130];
@@ -440,6 +536,10 @@ bool TerminalCommManager::open()
     if (getMode() == commModeUsbHid)
     {
         channelOpen = openUsbHid();
+    }
+    if (getMode() == commModeUsbHid2)
+    {
+        channelOpen = openUsbHid2();
     }
     else if (getMode() == commModeSerial)
     {

@@ -1152,7 +1152,7 @@ bool Bubble::verifyPortExistance()
 
     getNotifier()->showMessage(_("Verifying port ") + bootPortName, false, false, *wxBLUE);
 
-    if (getBootPortName() != wxString("HID")) ////HID or CDC board? ##Future: unhardcode.
+    if ( (getBootPortName() != wxString("HID")) && (getBootPortName() != wxString("HID2")) ) ////HID or CDC board? ##Future: unhardcode.
     {
         unsigned int times = 0;
         while ( !(BubbleHardwareManager::serialPortExists(bootPortName)) &&

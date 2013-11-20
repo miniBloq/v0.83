@@ -3,7 +3,7 @@
     <properties>
 		<manufacturer>RobotGroup</manufacturer>
 		<name>DuinoBot.v2.3.HID</name>
-		<portType>HID</portType>
+		<portType>HID2</portType>
 		<url0>http://multiplo.org</url0>
 		<url1>http://robotgroup.com.ar</url1>
 		<cpu>atmega1284p</cpu>

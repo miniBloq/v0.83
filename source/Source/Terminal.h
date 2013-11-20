@@ -20,7 +20,8 @@
 enum CommMode
 {
     commModeSerial = 0,
-    commModeUsbHid
+    commModeUsbHid,
+    commModeUsbHid2
     //commModeTcp
     //commModeUdp
 };
@@ -209,6 +210,7 @@ class TerminalCommManager
         inline int getUsbDeviceNumber() const { return usbDeviceNumber; }
         void setUsbDeviceNumber(int value);
         bool openUsbHid();
+        bool openUsbHid2();
 
         //Specific functions for Serial communications:
         bool openSerial();
