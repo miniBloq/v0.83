@@ -20,6 +20,7 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+<!--
 					<Add option="-lkernel32" />
 					<Add option="-luser32" />
 					<Add option="-lgdi32" />
@@ -27,7 +28,7 @@
 					<Add option="-lwinmm" />
 					<Add option="-lshell32" />
 					<Add option="-lcomctl32" />
-					<Add option="-lsetupapi" />
+					<Add option="-lsetupapi" />-->
 				</Linker>
 			</Target>
 			<Target title="Debug">

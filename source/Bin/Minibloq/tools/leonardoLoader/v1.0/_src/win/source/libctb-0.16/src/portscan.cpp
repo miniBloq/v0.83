@@ -87,6 +87,34 @@ namespace ctb {
 	   }
 
 	   globfree( &globbuf );
+
+	   // search for USB to ? converters
+	   res = glob( "/dev/ttyACM*", GLOB_ERR, NULL, &globbuf );
+
+	   if( res == 0 ) {
+
+		  // no error, glob was successful
+		  for( int i = 0; i < globbuf.gl_pathc; i++ ) {
+
+			 if( checkInUse ) {
+
+				ctb::SerialPort com;
+
+				if( com.Open( globbuf.gl_pathv[ i ] ) < 0 ) {
+
+				    continue;
+
+				}
+
+
+				result.push_back( std::string( globbuf.gl_pathv[ i ] ) );
+
+			 }
+		  }
+
+	   }
+
+	   globfree( &globbuf );
 #endif
 
     return result.size();
