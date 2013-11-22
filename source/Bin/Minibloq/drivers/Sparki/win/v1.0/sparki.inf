@@ -1,0 +1,62 @@
+; Copyright 2012 Blacklabel Development, Inc.
+
+[Strings]
+DriverPackageDisplayName="Sparki USB Driver"
+ManufacturerName="ArcBotics LLC (www.arcbotics.com)"
+ServiceName="USB RS-232 Emulation Driver"
+sparki.bootloader.name="Sparki Robot bootloader"
+sparki.sketch.name="Sparki v1.0"
+
+[DefaultInstall]
+CopyINF=sparki.inf
+
+[Version]
+Class=Ports
+ClassGuid={4D36E978-E325-11CE-BFC1-08002BE10318}
+Signature="$Windows NT$"
+Provider=%ManufacturerName%
+DriverPackageDisplayName=%DriverPackageDisplayName%
+CatalogFile=sparki.cat
+DriverVer=01/01/2013,1.0.0.0
+
+[Manufacturer]
+%ManufacturerName%=DeviceList, NTamd64, NTia64
+
+[DestinationDirs]
+FakeModemCopyFileSection=12
+DefaultDestDir=12
+
+[DeviceList]
+%sparki.bootloader.name%=DriverInstall, USB\VID_27C2&PID_0003
+%sparki.sketch.name%=DriverInstall, USB\VID_27C2&PID_0004&MI_00
+
+[DeviceList.NTamd64]
+%sparki.bootloader.name%=DriverInstall, USB\VID_27C2&PID_0003
+%sparki.sketch.name%=DriverInstall, USB\VID_27C2&PID_0004&MI_00
+
+[DeviceList.NTia64]
+%sparki.bootloader.name%=DriverInstall, USB\VID_27C2&PID_0003
+%sparki.sketch.name%=DriverInstall, USB\VID_27C2&PID_0004&MI_00
+
+[DriverInstall]
+include=mdmcpq.inf,usb.inf
+CopyFiles = FakeModemCopyFileSection
+AddReg=DriverAddReg
+
+[DriverAddReg]
+HKR,,DevLoader,,*ntkern 
+HKR,,NTMPDriver,,usbser.sys 
+HKR,,EnumPropPages32,,"MsPorts.dll,SerialPortPropPageProvider"
+
+[DriverInstall.Services]
+include=mdmcpq.inf
+AddService=usbser, 0x00000002, DriverService
+
+[DriverService]
+DisplayName=%ServiceName%
+ServiceType=1
+StartType=3
+ErrorControl=1
+ServiceBinary=%12%\usbser.sys
+LoadOrderGroup=Base
+

@@ -5,9 +5,12 @@ void setup()
 {
 	initBoard();
 
+	float count = 0;
 	while(true)
 	{
-		toneWithDelay(BuzzerPin, (irReceiver.getIRRemoteCode()*440), 250);
+		serial0.println(count);
+		count = (count+1);
+		delay(300);
 	}
 }
 

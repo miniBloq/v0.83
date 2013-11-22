@@ -7,7 +7,7 @@ void setup()
 
 	while(true)
 	{
-		toneWithDelay(BuzzerPin, (irReceiver.getIRRemoteCode()*440), 250);
+		toneWithDelay(BuzzerPin, (pingMeasureCM(D15)*400), 250);
 	}
 }
 
