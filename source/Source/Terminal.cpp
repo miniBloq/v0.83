@@ -251,12 +251,15 @@ wxThread::ExitCode TerminalRXThread::Entry()
 
         buff[readCount] = '\0';
         wxString strOutput(buff);
-//        int index = strOutput.Find("\r\n");
-//        if (index < (int)(strOutput.Len() - 1))
-//        {
-//            buff[index] = '\n';
-//            buff[index + 1] = '\0';
-//        }
+
+        //This is necessary, at least under Windows:
+        //##Test under Linux!
+        strOutput.Replace("\r", "", true);
+
+        //##Debug:
+        //int index = strOutput.Find("\r");
+        //strOutput << ": " << index << "\n";
+
 
 #if defined (linux)
         wxMutexGuiEnter(); //##Test this a lot under Windows.
@@ -290,6 +293,8 @@ wxThread::ExitCode TerminalRXThread::Entry()
 
             //First: Find the last emoticon:
             //wxString strToParse(buff);
+
+            //##Future improvement: This does not work with HID2 mode, since it's sending just one charecter at a time:
             int index =             strOutput.Find(":)");  //##Future: unhardcode these
             index = std::max(index, strOutput.Find(":(")); //comparisons... Create a method
             index = std::max(index, strOutput.Find(":|")); //to send to this class the list of
@@ -298,13 +303,11 @@ wxThread::ExitCode TerminalRXThread::Entry()
             index = std::max(index, strOutput.Find("<>"));
 
             //Only sets the last emoticon, nochange otherwise:
-            if (index != wxNOT_FOUND)
+            //if (index != wxNOT_FOUND)
+            if ( (index >= 0) && (index < (int)(strOutput.Len() - 1)) ) //The "-1" is because the found string has 2 chars len.
             {
-                if (index < (int)(strOutput.Len() - 1))
-                {
-                    emoticonScreen->setEmoticonStr( wxString(strOutput[index]) +
-                                                    wxString(strOutput[index + 1]));
-                }
+                emoticonScreen->setEmoticonStr( wxString(strOutput[index]) +
+                                                wxString(strOutput[index + 1]));
             }
         }
 
