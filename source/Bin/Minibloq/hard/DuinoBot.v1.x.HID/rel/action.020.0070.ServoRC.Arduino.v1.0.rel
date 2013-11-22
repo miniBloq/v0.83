@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rel xmlns="http://rel.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
 	<includePaths>
-		<include><s>libsPath::</s><s>/Arduino/ServoRC/v1.0</s></include>
+		<include><s>libsPath::</s><s>/Arduino/Servo/v1.0</s></include>
 	</includePaths>
 	<includeFiles>
 		<include><s>Servo.h</s></include>
@@ -36,9 +36,9 @@
 			<s>" -I"</s><s>corePath::</s><s>/variants/</s><s>arduinoVariant::</s>
 			<s>" -I"</s><s>componentPath::</s>
 			<s>" -I"</s><s>outputPath::</s><s>" </s>
-			<s>-I"</s><s>libsPath::</s><s>/Arduino/ServoRC/v1.0" </s>
+			<s>-I"</s><s>libsPath::</s><s>/Arduino/Servo/v1.0" </s>
 			
-			<s>"</s><s>libsPath::</s><s>/Arduino/ServoRC/v1.0/Servo.cpp" -o "</s><s>outputPath::</s><s>/Servo.cpp.o"</s>
+			<s>"</s><s>libsPath::</s><s>/Arduino/Servo/v1.0/Servo.cpp" -o "</s><s>outputPath::</s><s>/Servo.cpp.o"</s>
 		</cmd>
 	</build>
 </rel>
