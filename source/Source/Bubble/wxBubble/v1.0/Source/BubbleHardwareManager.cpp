@@ -43,6 +43,7 @@ BubbleHardwareManager::BubbleHardwareManager(   wxWindow* parent,
                                                                         lblBoardName(NULL),
                                                                         comboBoardName(NULL),
                                                                         buttonReloadBlocks(NULL),
+                                                                        buttonReloadHardware(NULL),
                                                                         buttonMainImage(NULL),
                                                                         emptyDummyString(wxString(""))
 {
@@ -280,8 +281,14 @@ void BubbleHardwareManager::onButtonButtonReloadHardwareLeftUp(wxMouseEvent& eve
     {
         if (parent)
         {
-            bubble->loadHardwareTargets(this);
-            comboBoardName->setSelection(0);
+            if (comboBoardName && comboBootPortName)
+            {
+                wxString selectedHardware = comboBoardName->getText();
+                wxString selectedPort = comboBootPortName->getText();
+                bubble->loadHardwareTargets(this);
+                comboBoardName->setSelection(selectedHardware);
+                comboBootPortName->setSelection(selectedPort);
+            }
         }
     }
 }
@@ -572,7 +579,7 @@ void BubbleHardwareManager::onComboBoardNameChanged(wxCommandEvent &event)
             //                                             getCurrentBoardProperties()->getName()); //##Debug.
             //dialog0.ShowModal(); //##Debug.
 
-            if ( ((getCurrentBoardProperties())->getPortType() == wxString("HID")) ||
+            if ( ((getCurrentBoardProperties())->getPortType() == wxString("HID")) || //##Unhardcode
                  ((getCurrentBoardProperties())->getPortType() == wxString("HID2"))
                )
             {
@@ -581,9 +588,14 @@ void BubbleHardwareManager::onComboBoardNameChanged(wxCommandEvent &event)
             }
             else
             {
-                setPortSelectorEnabled(true);
-                setPortNameString(wxString(""));
-                updatePorts();
+                if (comboBootPortName)
+                {
+                    wxString selectedPort = comboBootPortName->getText();
+                    setPortSelectorEnabled(true);
+                    //setPortNameString(wxString(""));
+                    updatePorts();
+                    comboBootPortName->setSelection(selectedPort);
+                }
             }
 
             //Updates the generated code (for example, with the include files):
