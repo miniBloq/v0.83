@@ -77,6 +77,7 @@ class BubbleCombo : public wxPanel
         bool setSelection(unsigned int index);
         bool setSelection(const wxString &value);
         bool popUpList();
+        bool textExists(const wxString &value);
 
         wxFont getFont();
         void setFont(const wxFont& font);

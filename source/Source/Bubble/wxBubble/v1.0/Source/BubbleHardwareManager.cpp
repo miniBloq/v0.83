@@ -592,9 +592,20 @@ void BubbleHardwareManager::onComboBoardNameChanged(wxCommandEvent &event)
                 {
                     wxString selectedPort = comboBootPortName->getText();
                     setPortSelectorEnabled(true);
-                    //setPortNameString(wxString(""));
                     updatePorts();
-                    comboBootPortName->setSelection(selectedPort);
+                    if ( (comboBootPortName->getText() == wxString("HID")) || //##Unhardcode
+                         (comboBootPortName->getText() == wxString("HID2"))
+                       )
+                    {
+                        setPortNameString(wxString(""));
+                    }
+                    else
+                    {
+                        if (comboBootPortName->textExists(selectedPort))
+                            comboBootPortName->setSelection(selectedPort);
+                        else
+                            setPortNameString(wxString(""));
+                    }
                 }
             }
 

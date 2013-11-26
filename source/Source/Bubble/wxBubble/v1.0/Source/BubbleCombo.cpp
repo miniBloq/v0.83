@@ -217,6 +217,18 @@ bool BubbleCombo::popUpList()
 }
 
 
+bool BubbleCombo::textExists(const wxString &value)
+{
+    if (popList)
+    {
+        //Finds the wxMenuItem's ID with this string (the string must be unique):
+        int id = popList->FindItem(value);
+        return id != wxNOT_FOUND;
+    }
+    return false;
+}
+
+
 wxFont BubbleCombo::getFont()
 {
     wxFont dummyFont;
