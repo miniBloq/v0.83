@@ -4,7 +4,7 @@
 #define serial0 Serial
 #define serial1 Serial1
 
-#define BuzzerPin 12
+#define BuzzerPin 11
 
 #define sensor0  A0
 #define sensor1  A1
