@@ -39,14 +39,6 @@
 			<default>Images/Block.png</default>
 			<disabled>Images/Block.png</disabled>
 		</blockButton>
-		<methodButton>
-			<has>true</has>
-			<imagesBasePath>thisBlockPath::</imagesBasePath>
-			<default>Images/WriteDefault.png</default>
-			<hover>Images/WriteHover.png</hover>
-			<pressed>Images/WritePressed.png</pressed>
-			<disabled>Images/WriteDisabled.png</disabled>
-		</methodButton>
 		<hasInstanceNameField>true</hasInstanceNameField>
 		<instanceNameFieldDefaultValue>serial0</instanceNameFieldDefaultValue>
 		<instanceNameFieldSorted>true</instanceNameFieldSorted>

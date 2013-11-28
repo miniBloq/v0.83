@@ -37,19 +37,11 @@
 			<disabled>Images/ToneDisabled.png</disabled>
 		</picker>
 		<blockButton>
-			<has>false</has>
-			<imagesBasePath>thisBlockPath::</imagesBasePath>
-			<default>Images/Tone.png</default>
-			<disabled>Images/Tone.png</disabled>
-		</blockButton>
-		<methodButton>
 			<has>true</has>
 			<imagesBasePath>thisBlockPath::</imagesBasePath>
-			<default>Images/GetterDefault.png</default>
-			<hover>Images/ToneHover.png</hover>
-			<pressed>Images/GetterPressed.png</pressed>
+			<default>Images/Tone.png</default>
 			<disabled>Images/ToneDisabled.png</disabled>
-		</methodButton>
+		</blockButton>
 		<hasInstanceNameField>true</hasInstanceNameField>
 		<instanceNameFieldSorted>true</instanceNameFieldSorted>
 		<instanceType>BuzzerNote</instanceType>

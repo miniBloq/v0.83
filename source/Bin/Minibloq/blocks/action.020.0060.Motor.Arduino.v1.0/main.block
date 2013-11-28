@@ -41,14 +41,6 @@
 			<default>Images/Block.png</default>
 			<disabled>Images/Block.png</disabled>
 		</blockButton>
-		<methodButton>
-			<has>true</has>
-			<imagesBasePath>thisBlockPath::</imagesBasePath>
-			<default>Images/SpeedDefault.png</default>
-			<hover>Images/SpeedHover.png</hover>
-			<pressed>Images/SpeedPressed.png</pressed>
-			<disabled>Images/SpeedDisabled.png</disabled>
-		</methodButton>
 		<hasInstanceNameField>true</hasInstanceNameField>
 		<instanceNameFieldSorted>true</instanceNameFieldSorted>
 		<instanceType>Motor</instanceType>

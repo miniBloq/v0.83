@@ -43,14 +43,6 @@
 			<default>Images/Block.png</default>
 			<disabled>Images/Block.png</disabled>
 		</blockButton>
-		<methodButton>
-			<has>true</has>
-			<imagesBasePath>thisBlockPath::</imagesBasePath>
-			<default>Images/ToneDefault.png</default>
-			<hover>Images/ToneHover.png</hover>
-			<pressed>Images/TonePressed.png</pressed>
-			<disabled>Images/ToneDisabled.png</disabled>
-		</methodButton>
 	</interface>
 	<params>
 		<note>
