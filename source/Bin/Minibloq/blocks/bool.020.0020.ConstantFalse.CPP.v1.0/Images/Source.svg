@@ -14,7 +14,7 @@
    height="297mm"
    id="svg2996"
    version="1.1"
-   inkscape:version="0.48.0 r9654"
+   inkscape:version="0.48.4 r9939"
    sodipodi:docname="Source.svg"
    inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq-RG\v1.0\Soft\Bin\Minibloq-RG.v1.0\Components\Minibloq\v1.0\Libs\CPP\Bloqs\CPP_if.v1.0\Images\BlockDisabled.png"
    inkscape:export-xdpi="90"
@@ -1026,6 +1026,172 @@
          result="result1"
          in="fbSourceGraphic" />
     </filter>
+    <filter
+       id="filter3095-1-1-1"
+       inkscape:label="Invert hue"
+       inkscape:menu="Color"
+       inkscape:menu-tooltip="Invert hue, or rotate it"
+       y="0"
+       x="0"
+       height="1"
+       width="1"
+       color-interpolation-filters="sRGB">
+      <feColorMatrix
+         id="feColorMatrix3097-7-7-7"
+         type="hueRotate"
+         values="180"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix3099-3-4" />
+      <feColorMatrix
+         id="feColorMatrix3101-5-0"
+         values="1"
+         in="fbSourceGraphic"
+         type="saturate"
+         result="result2" />
+      <feFlood
+         id="feFlood3103-6-9"
+         flood-color="rgb(254,102,0)"
+         flood-opacity="1"
+         result="result1" />
+      <feBlend
+         id="feBlend3105-95-4"
+         in2="result2"
+         mode="multiply"
+         in="result1"
+         result="result3" />
+      <feComposite
+         id="feComposite3107-0-8"
+         in2="fbSourceGraphic"
+         operator="in"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix3362-8" />
+      <feColorMatrix
+         id="feColorMatrix3364-2"
+         type="hueRotate"
+         values="180"
+         result="result1"
+         in="fbSourceGraphic" />
+    </filter>
+    <filter
+       id="filter3095-1-7-1-7"
+       inkscape:label="Invert"
+       inkscape:menu="Color"
+       inkscape:menu-tooltip="Invert colors"
+       y="0"
+       x="0"
+       height="1"
+       width="1"
+       color-interpolation-filters="sRGB">
+      <feColorMatrix
+         id="feColorMatrix3097-7-6-1-1"
+         type="hueRotate"
+         values="180"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix3099-4-1-38-1" />
+      <feColorMatrix
+         id="feColorMatrix3101-0-8-7-5"
+         values="1"
+         in="fbSourceGraphic"
+         type="saturate"
+         result="result2" />
+      <feFlood
+         id="feFlood3103-9-9-4-2"
+         flood-color="rgb(254,102,0)"
+         flood-opacity="1"
+         result="result1" />
+      <feBlend
+         id="feBlend3105-4-2-2-7"
+         in2="result2"
+         mode="multiply"
+         in="result1"
+         result="result3" />
+      <feComposite
+         id="feComposite3107-8-7-7-6"
+         in2="fbSourceGraphic"
+         operator="in"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix3324-1" />
+      <feColorMatrix
+         id="feColorMatrix3326-4"
+         type="luminanceToAlpha"
+         result="result2"
+         in="fbSourceGraphic" />
+      <feComposite
+         k4="0"
+         k2="0"
+         k1="0"
+         id="feComposite3328-2"
+         in2="fbSourceGraphic"
+         operator="arithmetic"
+         in="result2"
+         k3="2"
+         result="result4" />
+      <feBlend
+         id="feBlend3330-3"
+         in2="result2"
+         in="result4"
+         mode="multiply"
+         result="result3" />
+      <feComposite
+         id="feComposite3332-2"
+         in2="fbSourceGraphic"
+         operator="in"
+         in="result3"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix3334-2" />
+      <feColorMatrix
+         id="feColorMatrix3336-1"
+         type="saturate"
+         values="0"
+         in="fbSourceGraphic"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix3338-6" />
+      <feColorMatrix
+         id="feColorMatrix3340-8"
+         type="hueRotate"
+         values="180"
+         result="fbSourceGraphic"
+         in="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix3342-5" />
+      <feColorMatrix
+         id="feColorMatrix3344-7"
+         type="saturate"
+         values="1"
+         result="fbSourceGraphic"
+         in="fbSourceGraphic" />
+      <feColorMatrix
+         id="feColorMatrix3346-6"
+         in="fbSourceGraphic"
+         values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0 " />
+    </filter>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -1035,13 +1201,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.59406896"
-     inkscape:cx="311.76794"
+     inkscape:cx="103.87962"
      inkscape:cy="576.96278"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1280"
-     inkscape:window-height="720"
+     inkscape:window-width="1600"
+     inkscape:window-height="838"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1" />
@@ -1222,5 +1388,38 @@
        inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Bin\Minibloq-RG.v1.0\Components\Minibloq\v1.0\Lib\CPP\Bloqs\CPP_if.v1.0\Images\FalseDefault.png"
        inkscape:export-xdpi="156.45"
        inkscape:export-ydpi="156.45" />
+    <rect
+       ry="21.26066"
+       rx="17.077295"
+       y="308.27209"
+       x="417.3912"
+       height="256"
+       width="256"
+       id="rect3073-1-4"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq-RG\v1.0\Soft\Bin\Minibloq-RG.v1.0\Components\Minibloq\v1.0\Libs\CPP\Bloqs\CPP_if.v1.0\Images\Block.png"
+       inkscape:export-xdpi="89.870003"
+       inkscape:export-ydpi="89.870003" />
+    <rect
+       rx="25.944025"
+       style="opacity:0.98000004;fill:none;stroke:none"
+       id="rect3109-5"
+       width="147.26535"
+       height="147.265"
+       x="471.75851"
+       y="362.63962"
+       ry="25.944025"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\blocks\bool.020.0020.ConstantFalse.CPP.v1.0\Images\BlockDisabled.png"
+       inkscape:export-xdpi="156.45"
+       inkscape:export-ydpi="156.45" />
+    <image
+       y="417.39774"
+       x="137.40196"
+       id="image3074-8-9-7-1"
+       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABHNCSVQICAgIfAhkiAAACutJREFU eJztnc2PI0cZh5+3um2PZ2Z387EhHKIQpEQRkcJfwIVIiBsSEie4gFguXJCQuHPMhRNHggIHbvwH SIMiIXFBIgIJgcSHAomUBAI7m+zsjN1VL4eqbre99rjbH21NV/1GPXZ/ldv9PvVW1dtVZVFVkuKV OfQFJB1WCYDIlQCIXAmAyJUAiFwJgMiVAIhcCYDIlQCIXAmAyJUAiFwJgMiVAIhcCYDIlQCIXAmA yJUAiFwJgMiVAIhcCYDIlQCIXAmAyJUAiFwJgMiVH/oCXntD9pX0y8BXgc9ukcYj4LfALwG7i4ta 1Nm9ww7MOTgAe9IrwO+OnxiOR8MRAzMkkwGZ5MB1wCkOh9WCwk2YFI+YXtnvXX5S/Az4VidX3rH6 CsAPbt0dje8+dZfTwZOM81sMs2NyGWCkLPUWQfA50WrBxF5yaR9yUZzz8fQjPnjn/Jt26l4H/tLl l+hCfQXgxfHRCaeDp7g1fJrj/Daj7JjcDDHXVHsUsDplai8Z2jGZ5Dh1mOwBdsozJABujkbZmOP8 Nif5HY4HdzjKTshliMh19V7FqmViHmEkR9UxcZcBmr1UAQ6u3gIwMCNG2TGj7ISj7JSj7ISBGSJr Gj5WCzLJUBxTd8UoG6+B5martwBkkpObEYOFRa6pBCpgNMPhwvFD8jXn3HT1FgARgxGZW0TkWmMK oAgGwWB8GpjrGw43XP31bYC3nNTetzmvfkZ/Ceg5AKX6a8BtFQkASavU2zqAly5Z2pxT39ZPJQ8Q uXruAbbL//3N9zP1F4DSeqrzy9rzaubX/mPQXwDm8vAmPiAO9RiAUhr++7/1R2vt6Gbn3GT1GgAF VGhlzPlj+2186DkAu2kG9huCvgJwmmUm1ON0blmn6jgNfqDf9u8tAFk9/DvLy22KgPLMfhPQVwAQ kcCAAg4Ny/rnAiUADi3T6bF6DIABpKrTO3WIurXP9p06nLrK9QsGdQB8st8rPox6C4CRHCMGqUHQ xAP4YxQRMGIwkpW7etknrLcA5GS17l/BpatbW6L73O9QFEEwkqUeQTdRmRmQSeZ7+ajDqW1kSBeM D979Z5InAHat196QU/zInX1pPMxHiGQg4od7aDMPXsKCKiJCbgacjG9xcXnxCjDc9YXWRkb99+ye /mPX6a+TdPmbQcHwvxAjX8kG4nvfremnt04Sun2V6YgYnvvUZ3jh2ZeqjqCZDDCS1QaFrJavMFqs Kyh0wtRd8cH99/jnB3/n4vJhaB3M4gTbqJ6Os4ot3HvAN87u6VtbJdxCXQPwo+Mnht9/4q7vqj3M xmHYVh6aW+1BMPiKmjE5uQzIzbDqzZsbPxzMp28agqZVS8DqtBomNnVXTN0E6yZYLbBqq7pCe/kA k8NSOD8Q5cpecP/8nAcfXv4beO7snk42SLi1ui4CvnB8OmKc3+IoO2WUHTMwQ0wFQDsJs1zvy+ss 1P59ua3qx/qpFi08jVbNRh8RLOsCAzBSjRZStds9LKoAmDAJQ9b0jnJxf/JMMXGvAG9vlnA7dQ3A eJiNGJoxo2zMMDtiYEa+pr1RwKU0qYQu3AEGkVDvt2goy0X9cU1Ud82KAwkQ4JuWWrn/7YoBp9Y3 M0M9pdApxgjA6caJtlTnlUAjObnJyUxGJhlZaGtvF3Gr520NudN5o7c0fi0V/1rvIIL6VGQG3uby aak4cskoxBdhdDwM7QAAGPyX9Devyke6ze0M5hKZC90L8+tbpl7bsH2i808ZxEMlhq4jzweKAzgU i8PiKNjZA5cb9txG1eEocFgIEciu1TkAfgIGS+EKRKao03q4NSqplvdiilWLCw8dulTnAPgvXVDo FHGCE9eofd5HKYpzlkKnWDcNnqBbdQ+Ar+/iNKNQwY/FjRgArI8rUOBC07JLHcADWKyzlft3kmE2 DALddPk4hcU5H3n0Iehur6FzAGyIsOGo3H8Zzt1Ksvh2l0At5Mud1Vm1evbgo4vFbhJuoQMUAf7L 4hQVgwuBm+00a+5VxpddgBAMrwvrzG3cPPWq36HDOhtHEeBUsa5AjfMPg1R2AkCVQhmk0RKCLaML Wr2DsD7rL7iltO4FXBStgPdtYV91Q4M6RSR00ZpZr3WCc2eUUb8y7q+EwMomENR7BJfvS4+wCz+g 1Yv3BM7XiawCvL9xsi3VNQA/vfx4+iV1SjaYzde3m+iXVMYejGah5c0BKMPAAMr0yoYu49Xera52 8TPUKVcXFjt1Z2f39K87SbyBOn0cDPDaG/J14GvA83v8mFeffen2UMoiYDMHUDn+i/sTHnx4+Sf8 1LH70iPgN8DrZ/f0fI+fM6fOAVjUnuYKfufuCyfPZ4OQ9oYAlPronQuKifs88MddXFxdh54rOM4I TBvdsOcLbdVbAHZpt+AkO+mh07V6CwCwq5ZaScA+y/+Dqd8AlOq5G99G/QVgF0aPAJz+ApDUSAmA yJUAiFwJgMjV28Gh8tj/9lLKGQb6q94CEHpazx4Jt6FAy6fJimq/eyr1FwCgHDxWvmsnDR4Ayp+S 6KN6C4DU/sr1pionhyjf91m9BWD2ayFh6HirTgezcTtpmrgbqmB63+2s5gmaaTb4U+i+m1aX6isA YzFh8glhAw/ArC9gv+uAvQWg6g0Ufv+rVdfzcli4a+05bp76CgCzEbd+1G3VUbSRHIrxyPS8EtBr AEoPQKt6gIbjXRjBnzzAjVRVCZTa0sKY1dH9tn9/AZhrBtZaA+s0q/0DDaaWvena6mHQXO7acNmn fBkuiApG66Gh1X9GZ6jsaoaRa69xB/dwm3t7SA8gAL/+zm7SqeuLP4F6W760o9SCu6ukwtJJoNwU eeu7e3UHB6ltdgXAshvX5GY2OW+xpua9tzqchkCOC/GAJjH9MLWcU63mDQZl8jEZsGoqk1WJtjFq +R2WnbM3OHYJwHUGfcxAS45fdkx9vX5evegyi/tUubLOYZxFTPksQBFdV6sP+T4M2a5PHf/wXWD1 VLGL4cJlvzSxbn1xe1ujbwTJtgBsmkNXbbtuv1l4Xy552Fbm0Ly44PcXD66+fOtJAQcqppo/cJ3K gZpOHc5ZHp5fYif6tz/8mEvgNrPZnMpXZTav26LhlxlT12xf5gmWAbX4Gcu+3Foo9lUEXGfwputm IY2ceYMP8AYf1JYhMPzzm/z8c9+evPzowfQFk20WzVMUtTB95N7916/4IfAsMA2LAwq84Yuwbnkc jLqhl8Gxbj80MGLDY5Zqq7GBsjxLrcvxbQCob8uYh2CIN/oIOAqv49r68M6L3D3+NE+rIyOUApQP 92V2w0VwCE7E52QxFBiKq/9x/p+3eQ+4wo8Muqy9n+CNX77WISiXsmjYFoB1HmDpPm1g3H0AAKvd e329bRFQd/UlBBkehDoQg9q28phsIW3lcUMt5uIyd5fLFG9sG5a6JyjPX+UB2HB91T5WHDe3rYlt ty0Cmrqn64Bgzb5yW30CndKghhkQprZerxMsS3sRgHKbW1gvZ3CEmZEXDQ2Pz+26ymCrDLzsmCbH rtu3VvuqA6y74KaF8qqWQrGwvgqwxUDXsnbgOre87LhFres00MZIN7YZeJ2W3fQmEDT54k2bn03U 1OD7VKefe8hI4K6+6HXpbANAFDr4DCFJh1UaGRS5EgCRKwEQuRIAkSsBELkSAJErARC5EgCRKwEQ uRIAkSsBELkSAJErARC5EgCRKwEQuRIAkSsBELkSAJErARC5EgCRKwEQuRIAkSsBELkSAJHr/47+ 0UHNSGHwAAAAAElFTkSuQmCC "
+       height="181.55104"
+       width="181.55104"
+       transform="matrix(0.64516364,-0.76404442,0.76404442,0.64516364,9.912469,282.75493)"
+       style="filter:url(#filter3095-1-7-1-7)" />
   </g>
 </svg>

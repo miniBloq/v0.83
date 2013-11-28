@@ -2007,14 +2007,24 @@ const wxArrayString BubbleXML::loadExternalCommands(const wxString &section, con
 
 int BubbleXML::loadHardwareTargets(BubbleHardwareManager *hardwareManager)
 {
-    if (hardwareManager == NULL)
+    if (bubble == NULL)
         return -1;
+
+    if (hardwareManager == NULL)
+        return -2;
+
+//    if (bubble->getActionPicker())
+//        bubble->getActionPicker()->Show(false);
 
     hardwareManager->clearBoardProperties();
 
     wxDir dir(bubble->getTargetsPath());
     if ( !dir.IsOpened() )
+    {
+//        if (bubble->getActionPicker())
+//            bubble->getActionPicker()->Show(true);
         return -3; //##Futuro: standarize errors.
+    }
 
     int counter = 0;
     wxString fileName;
@@ -2031,6 +2041,9 @@ int BubbleXML::loadHardwareTargets(BubbleHardwareManager *hardwareManager)
         }
         result = dir.GetNext(&fileName);
     }
+
+//    if (bubble->getActionPicker())
+//        bubble->getActionPicker()->Show(true);
     return counter; //##
 }
 

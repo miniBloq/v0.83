@@ -47,10 +47,8 @@
 		<methodButton>
 			<has>true</has>
 			<imagesBasePath>thisBlockPath::</imagesBasePath>
-			<default>Images/RepeatsDefault.png</default>
-			<hover>Images/RepeatsHover.png</hover>
-			<pressed>Images/RepeatsPressed.png</pressed>
-			<disabled>Images/RepeatsDisabled.png</disabled>
+			<default>Images/condition.png</default>
+			<disabled>Images/conditionDisabled.png</disabled>
 		</methodButton>
 	</interface>
 	<params>

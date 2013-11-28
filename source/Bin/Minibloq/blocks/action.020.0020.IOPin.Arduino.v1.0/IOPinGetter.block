@@ -42,14 +42,6 @@
 			<default>Images/Block.png</default>
 			<disabled>Images/BlockDisabled.png</disabled>
 		</blockButton>
-		<methodButton>
-			<has>true</has>
-			<imagesBasePath>thisBlockPath::</imagesBasePath>
-			<default>Images/WriteDefault.png</default>
-			<hover>Images/WriteHover.png</hover>
-			<pressed>Images/WritePressed.png</pressed>
-			<disabled>Images/WriteDisabled.png</disabled>
-		</methodButton>
 		<hasInstanceNameField>true</hasInstanceNameField>
 		<instanceNameFieldSorted>false</instanceNameFieldSorted>
 		<instanceType>IOPin</instanceType>

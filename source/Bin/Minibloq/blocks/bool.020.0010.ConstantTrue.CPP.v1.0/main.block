@@ -40,10 +40,8 @@
 			<has>true</has>
 			<centered>true</centered>
 			<imagesBasePath>thisBlockPath::</imagesBasePath>
-			<default>Images/BlockDefault.png</default>
-			<hover>Images/BlockHover.png</hover>
-			<pressed>Images/BlockPressed.png</pressed>
-			<disabled>Images/BlockDisabled.png</disabled>
+			<default>Images/Block.png</default>
+			<disabled>Images/Disabled.png</disabled>
 		</methodButton>
 	</interface>
 </block>

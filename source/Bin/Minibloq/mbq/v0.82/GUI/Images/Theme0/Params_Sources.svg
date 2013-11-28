@@ -14,7 +14,7 @@
    height="297mm"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.0 r9654"
+   inkscape:version="0.48.4 r9939"
    sodipodi:docname="Params_Sources.svg">
   <defs
      id="defs4">
@@ -263,13 +263,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.39366589"
-     inkscape:cx="-267.01902"
+     inkscape:cx="-580.73683"
      inkscape:cy="528.30584"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1280"
-     inkscape:window-height="720"
+     inkscape:window-width="1600"
+     inkscape:window-height="838"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1" />
@@ -545,5 +545,35 @@
          inkscape:export-xdpi="85.720001"
          inkscape:export-ydpi="85.720001" />
     </g>
+    <g
+       style="fill:#b3b3b3;stroke:#000000;stroke-width:6.91409159;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
+       id="g3121-0"
+       transform="matrix(0,0.75305466,-0.58352101,0,392.61766,2625.8937)"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\mbq\v0.82\GUI\Images\Theme0\ParamDisabled.png"
+       inkscape:export-xdpi="85.720001"
+       inkscape:export-ydpi="85.720001">
+      <path
+         inkscape:export-ydpi="85.720001"
+         inkscape:export-xdpi="85.720001"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq-RG\v1.0\Soft\Bin\Minibloq-RG.v1.0\Components\Minibloq\v1.0\GUI\Images\Theme0\ParamDefault.png"
+         sodipodi:nodetypes="cccc"
+         id="path3123-9"
+         d="m -2972.9912,-12.907385 269.2059,0 -134.6028,130.040625 -134.6031,-130.040625 z"
+         style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:6.91409159;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         inkscape:connector-curvature="0" />
+    </g>
+    <rect
+       ry="25"
+       rx="6.9229755"
+       y="337.91946"
+       x="-402.44107"
+       height="301.02545"
+       width="103.78"
+       id="rect3151-9-4"
+       style="fill:none;stroke:none"
+       transform="scale(-1,1)"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\mbq\v0.82\GUI\Images\Theme0\ParamDisabled.png"
+       inkscape:export-xdpi="85.720001"
+       inkscape:export-ydpi="85.720001" />
   </g>
 </svg>

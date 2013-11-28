@@ -14,7 +14,7 @@
    height="297mm"
    id="svg2996"
    version="1.1"
-   inkscape:version="0.48.0 r9654"
+   inkscape:version="0.48.4 r9939"
    sodipodi:docname="SourceCondition.svg"
    inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq-RG\v1.0\Soft\Bin\Minibloq-RG.v1.0\Components\Minibloq\v1.0\Libs\CPP\Bloqs\CPP_if.v1.0\Images\BlockDisabled.png"
    inkscape:export-xdpi="90"
@@ -603,8 +603,8 @@
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1280"
-     inkscape:window-height="720"
+     inkscape:window-width="1600"
+     inkscape:window-height="838"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1" />
@@ -663,9 +663,9 @@
        width="256"
        id="rect3073-1"
        style="fill:none;fill-opacity:1;stroke:none"
-       inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq-RG\v1.0\Soft\Bin\Minibloq-RG.v1.0\Components\Minibloq\v1.0\Libs\CPP\Bloqs\CPP_if.v1.0\Images\Block.png"
-       inkscape:export-xdpi="89.870003"
-       inkscape:export-ydpi="89.870003" />
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\blocks\action.010.0010.while.CPP.v1.0\Images\condition.png"
+       inkscape:export-xdpi="45"
+       inkscape:export-ydpi="45" />
     <text
        transform="scale(0.9277023,1.077932)"
        sodipodi:linespacing="125%"
@@ -674,9 +674,9 @@
        x="514.83276"
        style="font-size:202.61367798000001000px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;display:inline;font-family:Helvetica;-inkscape-font-specification:Helvetica;stroke-opacity:1"
        xml:space="preserve"
-       inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq-RG\v1.0\Soft\Bin\Minibloq-RG.v1.0\Components\Minibloq\v1.0\Libs\CPP\Bloqs\CPP_if.v1.0\Images\Block.png"
-       inkscape:export-xdpi="89.870003"
-       inkscape:export-ydpi="89.870003"><tspan
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\blocks\action.010.0010.while.CPP.v1.0\Images\condition.png"
+       inkscape:export-xdpi="45"
+       inkscape:export-ydpi="45"><tspan
          y="216.37024"
          x="514.83276"
          id="tspan6392"
@@ -863,9 +863,9 @@
        width="256"
        id="rect3073-1-9"
        style="fill:none;stroke:none"
-       inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq-RG\v1.0\Soft\Bin\Minibloq-RG.v1.0\Components\Minibloq\v1.0\Libs\CPP\Bloqs\CPP_if.v1.0\Images\Block.png"
-       inkscape:export-xdpi="89.870003"
-       inkscape:export-ydpi="89.870003" />
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\blocks\action.010.0020.repeat.CPP.v1.0\Images\condition.png"
+       inkscape:export-xdpi="45"
+       inkscape:export-ydpi="45" />
     <text
        transform="scale(0.9277023,1.077932)"
        sodipodi:linespacing="125%"
@@ -874,9 +874,9 @@
        x="-282.97293"
        style="font-size:202.61367798000001000px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#00ff00;fill-opacity:1;stroke:none;display:inline;font-family:Helvetica;-inkscape-font-specification:Helvetica"
        xml:space="preserve"
-       inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq-RG\v1.0\Soft\Bin\Minibloq-RG.v1.0\Components\Minibloq\v1.0\Libs\CPP\Bloqs\CPP_if.v1.0\Images\Block.png"
-       inkscape:export-xdpi="89.870003"
-       inkscape:export-ydpi="89.870003"><tspan
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\blocks\action.010.0020.repeat.CPP.v1.0\Images\condition.png"
+       inkscape:export-xdpi="45"
+       inkscape:export-ydpi="45"><tspan
          y="207.0658"
          x="-282.97293"
          id="tspan6392-7"
@@ -1027,5 +1027,59 @@
          id="tspan3084-3"
          x="-282.97293"
          y="800.44867">#</tspan></text>
+    <rect
+       ry="21.26066"
+       rx="17.077295"
+       y="341.22116"
+       x="-319.22479"
+       height="256"
+       width="256"
+       id="rect3073-1-9-1"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\blocks\action.010.0020.repeat.CPP.v1.0\Images\conditionDisabled.png"
+       inkscape:export-xdpi="45"
+       inkscape:export-ydpi="45" />
+    <text
+       transform="scale(0.9277023,1.077932)"
+       sodipodi:linespacing="125%"
+       id="text6390-2-7"
+       y="509.24954"
+       x="-262.41992"
+       style="font-size:202.61367798000001000px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+       xml:space="preserve"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\blocks\action.010.0020.repeat.CPP.v1.0\Images\conditionDisabled.png"
+       inkscape:export-xdpi="45"
+       inkscape:export-ydpi="45"><tspan
+         y="509.24954"
+         x="-262.41992"
+         id="tspan6392-7-4"
+         sodipodi:role="line">#</tspan></text>
+    <rect
+       ry="21.26066"
+       rx="17.077295"
+       y="322.28802"
+       x="413.4881"
+       height="256"
+       width="256"
+       id="rect3073-1-0"
+       style="fill:none;stroke:none"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\blocks\action.010.0010.while.CPP.v1.0\Images\conditionDisabled.png"
+       inkscape:export-xdpi="45"
+       inkscape:export-ydpi="45" />
+    <text
+       transform="scale(0.9277023,1.077932)"
+       sodipodi:linespacing="125%"
+       id="text6390-9"
+       y="491.68524"
+       x="521.31042"
+       style="font-size:202.61367798000001000px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+       xml:space="preserve"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\blocks\action.010.0010.while.CPP.v1.0\Images\conditionDisabled.png"
+       inkscape:export-xdpi="45"
+       inkscape:export-ydpi="45"><tspan
+         y="491.68524"
+         x="521.31042"
+         id="tspan6392-4"
+         sodipodi:role="line">?</tspan></text>
   </g>
 </svg>
