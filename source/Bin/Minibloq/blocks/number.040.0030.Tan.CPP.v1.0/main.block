@@ -42,8 +42,6 @@
 			<has>true</has>
 			<imagesBasePath>thisBlockPath::</imagesBasePath>
 			<default>Images/BlockDefault.png</default>
-			<hover>Images/BlockHover.png</hover>
-			<pressed>Images/BlockPressed.png</pressed>
 			<disabled>Images/BlockDisabled.png</disabled>
 		</methodButton>
 	</interface>
