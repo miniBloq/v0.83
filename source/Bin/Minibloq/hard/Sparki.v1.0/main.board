@@ -161,6 +161,7 @@
 	</deploy>
 	<instances>
 		<serial0 instanceType="Serial"/>
+		<serial1 instanceType="Serial"/>
 
 		<sensor0 instanceType="analogRead"/>
 		<sensor1 instanceType="analogRead"/>
