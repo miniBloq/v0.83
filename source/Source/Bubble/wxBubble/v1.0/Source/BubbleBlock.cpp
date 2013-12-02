@@ -257,7 +257,7 @@ BubbleBlock::BubbleBlock(   BubbleCanvas *parent,
             //##Va el nombre del método, ya se verá cómo se hace esa parte:
             //methodButton->SetToolTip(name);
 
-            methodButton->setName(getDefaultMethodName()); //##Esto va a cambiar cuando se agrege el soporte completo para métodos...
+            setDefaultMethodName(getDefaultMethodName()); //##Esto va a cambiar cuando se agrege el soporte completo para métodos...
 
             if (getAllowDragOnMethodButton())
             {
@@ -2897,10 +2897,10 @@ wxArrayString BubbleBlock::getCode() const
             tempCode.Clear();
             if (getUpdateVariables())
             {
-                if (methodButton)
-                    tempCode.Add(firstCodeLine + constantField->GetValue() + getMethodSeparator() + methodButton->getName());
-                else
-                    tempCode.Add(firstCodeLine + constantField->GetValue() + getMethodSeparator());
+//                if (methodButton)
+                    tempCode.Add(firstCodeLine + constantField->GetValue() + getMethodSeparator() + getDefaultMethodName());
+//                else
+//                    tempCode.Add(firstCodeLine + constantField->GetValue() + getMethodSeparator());
                 return tempCode;
             }
             else
@@ -2938,10 +2938,10 @@ wxArrayString BubbleBlock::getCode() const
 
             tempCode.Clear();
 
-            if (methodButton)
-                tempCode.Add(firstCodeLine + instanceNameField->getText() + getMethodSeparator() + methodButton->getName());
-            else
-                tempCode.Add(firstCodeLine + instanceNameField->getText() + getMethodSeparator());
+//            if (methodButton)
+                tempCode.Add(firstCodeLine + instanceNameField->getText() + getMethodSeparator() + getDefaultMethodName());
+//            else
+//                tempCode.Add(firstCodeLine + instanceNameField->getText() + getMethodSeparator());
 
             return tempCode;
         //}

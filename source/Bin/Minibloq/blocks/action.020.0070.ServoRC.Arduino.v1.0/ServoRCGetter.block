@@ -7,8 +7,7 @@
     </properties>
     <code>
 		<dataType>number</dataType>
-		<defaultMethodName>read()</defaultMethodName>
-		<methodSeparator>.</methodSeparator>
+		<methodSeparator>.read()</methodSeparator>
 	</code>
     <interface>
 		<originalSize>
