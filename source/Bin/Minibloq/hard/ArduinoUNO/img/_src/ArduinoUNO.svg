@@ -14,7 +14,7 @@
    height="297mm"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.0 r9654"
+   inkscape:version="0.48.4 r9939"
    sodipodi:docname="ArduinoUNO.svg">
   <defs
      id="defs4">
@@ -5115,14 +5115,14 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7416208"
-     inkscape:cx="509.76397"
-     inkscape:cy="634.51783"
+     inkscape:cx="512.4626"
+     inkscape:cy="606.00275"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      showguides="false"
-     inkscape:window-width="1280"
-     inkscape:window-height="720"
+     inkscape:window-width="1600"
+     inkscape:window-height="838"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1" />
@@ -5848,1583 +5848,1742 @@
        inkscape:export-xdpi="3.46"
        inkscape:export-ydpi="3.46" />
     <g
-       id="g4644">
+       id="g4506"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\ArduinoUNO\img\main.png"
+       inkscape:export-xdpi="75.239998"
+       inkscape:export-ydpi="75.239998"
+       transform="translate(673.0318,-27.625924)">
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         transform="matrix(0.97601619,0,0,0.98514587,-573.13753,167.48973)"
+         sodipodi:nodetypes="cccccccccc"
+         id="rect2996-3-4-3"
+         d="m 71.579226,53.931085 0,493.000005 17.34375,0 17.000004,18.125 247.875,0.75 15.1875,-18.875 86.62495,0 10.6563,-12.03125 0,-480.968755 z"
+         style="fill:none;stroke:#000000;stroke-width:10.19814587;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;filter:url(#filter4706)"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         transform="matrix(1.1534363,0,0,1.1534363,-767.98836,509.70348)"
+         d="m 462.02579,172.08858 c 0,7.06738 -5.72925,12.79663 -12.79663,12.79663 -7.06739,0 -12.79664,-5.72925 -12.79664,-12.79663 0,-7.06739 5.72925,-12.79664 12.79664,-12.79664 7.06738,0 12.79663,5.72925 12.79663,12.79664 z"
+         sodipodi:ry="12.796633"
+         sodipodi:rx="12.796633"
+         sodipodi:cy="172.08858"
+         sodipodi:cx="449.22916"
+         id="path4468-4-9-7"
+         style="opacity:0.91999996;fill:#cccccc;fill-opacity:1;stroke:#000000;stroke-width:5.20184755;stroke-miterlimit:4;stroke-dasharray:none;filter:url(#filter4564-6)"
+         sodipodi:type="arc" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         transform="matrix(1.1534363,0,0,1.1534363,-975.30736,509.70348)"
+         d="m 462.02579,172.08858 c 0,7.06738 -5.72925,12.79663 -12.79663,12.79663 -7.06739,0 -12.79664,-5.72925 -12.79664,-12.79663 0,-7.06739 5.72925,-12.79664 12.79664,-12.79664 7.06738,0 12.79663,5.72925 12.79663,12.79664 z"
+         sodipodi:ry="12.796633"
+         sodipodi:rx="12.796633"
+         sodipodi:cy="172.08858"
+         sodipodi:cx="449.22916"
+         id="path4468-4-9"
+         style="opacity:0.91999996;fill:#cccccc;fill-opacity:1;stroke:#000000;stroke-width:5.20184755;stroke-miterlimit:4;stroke-dasharray:none;filter:url(#filter4564)"
+         sodipodi:type="arc" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         transform="matrix(1.1534363,0,0,1.1534363,-655.15542,132.46174)"
+         d="m 462.02579,172.08858 c 0,7.06738 -5.72925,12.79663 -12.79663,12.79663 -7.06739,0 -12.79664,-5.72925 -12.79664,-12.79663 0,-7.06739 5.72925,-12.79664 12.79664,-12.79664 7.06738,0 12.79663,5.72925 12.79663,12.79664 z"
+         sodipodi:ry="12.796633"
+         sodipodi:rx="12.796633"
+         sodipodi:cy="172.08858"
+         sodipodi:cx="449.22916"
+         id="path4468-4-9-7-9"
+         style="opacity:0.91999996;fill:#cccccc;fill-opacity:1;stroke:#000000;stroke-width:5.20184755;stroke-miterlimit:4;stroke-dasharray:none;filter:url(#filter4564-6-2)"
+         sodipodi:type="arc" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         transform="matrix(1.1534363,0,0,1.1534363,-1013.2722,124.37966)"
+         d="m 462.02579,172.08858 c 0,7.06738 -5.72925,12.79663 -12.79663,12.79663 -7.06739,0 -12.79664,-5.72925 -12.79664,-12.79663 0,-7.06739 5.72925,-12.79664 12.79664,-12.79664 7.06738,0 12.79663,5.72925 12.79663,12.79664 z"
+         sodipodi:ry="12.796633"
+         sodipodi:rx="12.796633"
+         sodipodi:cy="172.08858"
+         sodipodi:cx="449.22916"
+         id="path4468-4-9-7-6"
+         style="opacity:0.91999996;fill:#cccccc;fill-opacity:1;stroke:#000000;stroke-width:5.20184755;stroke-miterlimit:4;stroke-dasharray:none;filter:url(#filter4564-6-3)"
+         sodipodi:type="arc" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         inkscape:connector-curvature="0"
+         id="rect2996"
+         d="m -514.14854,212.41815 0,493 17.34375,0 17,18.125 247.875,0.75 15.1875,-18.875 86.625,0 10.65625,-12.03125 0,-480.96875 -394.6875,0 z m 17.84375,96.65625 c 7.06738,0 12.8125,5.71386 12.8125,12.78125 0,7.06739 -5.74512,12.8125 -12.8125,12.8125 -7.06739,0 -12.78125,-5.74511 -12.78125,-12.8125 0,-7.06739 5.71386,-12.78125 12.78125,-12.78125 z m 357.96875,7.75 c 7.06739,0 12.8125,5.71386 12.8125,12.78125 0,7.06739 -5.74511,12.8125 -12.8125,12.8125 -7.06739,0 -12.78125,-5.74511 -12.78125,-12.8125 0,-7.06739 5.71386,-12.78125 12.78125,-12.78125 z m -319.875,377.15625 c 7.06739,0 12.78125,5.71386 12.78125,12.78125 0,7.06739 -5.71386,12.8125 -12.78125,12.8125 -7.06739,0 -12.8125,-5.74511 -12.8125,-12.8125 0,-7.06739 5.74511,-12.78125 12.8125,-12.78125 z m 206.75,0 c 7.06739,0 12.78125,5.71386 12.78125,12.78125 0,7.06739 -5.71386,12.8125 -12.78125,12.8125 -7.06739,0 -12.8125,-5.74511 -12.8125,-12.8125 0,-7.06739 5.74511,-12.78125 12.8125,-12.78125 z"
+         style="fill:#0055d4;fill-opacity:1;stroke:#000000;stroke-opacity:1" />
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         y="429.66788"
+         x="-432.11386"
+         height="260.55887"
+         width="68.977966"
+         id="rect3000-7-1"
+         style="fill:#1a1a1a;fill-opacity:1;stroke:#1a1a1a;stroke-width:3.54785872;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
       <g
-         transform="translate(673.0318,-27.625924)"
-         inkscape:export-ydpi="3.46"
-         inkscape:export-xdpi="3.46"
-         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Bin\Minibloq\Components\Minibloq\Lib\CPP\Targets\ArduinoUNO_Arduino.v1.0\Images\ArduinoUNO.Thumb.20110920a.png"
-         id="g4506">
-        <path
-           inkscape:connector-curvature="0"
-           style="fill:none;stroke:#000000;stroke-width:10.19814587;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;filter:url(#filter4706)"
-           d="m 71.579226,53.931085 0,493.000005 17.34375,0 17.000004,18.125 247.875,0.75 15.1875,-18.875 86.62495,0 10.6563,-12.03125 0,-480.968755 z"
-           id="rect2996-3-4-3"
-           sodipodi:nodetypes="cccccccccc"
-           transform="matrix(0.97601619,0,0,0.98514587,-573.13753,167.48973)"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90" />
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         transform="translate(-640.92614,160.8869)"
+         id="g5559-2">
+        <rect
+           style="fill:url(#linearGradient4253);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-4-1-5-42"
+           width="13.857929"
+           height="8.9372463"
+           x="210.23711"
+           y="272.75278" />
+        <rect
+           style="fill:url(#linearGradient4255);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-4-1-5-4-3"
+           width="13.857929"
+           height="8.9372463"
+           x="210.23711"
+           y="310.24167" />
+        <rect
+           style="fill:url(#linearGradient4257);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-4-1-5-7-1"
+           width="13.857929"
+           height="8.9372463"
+           x="210.23711"
+           y="328.98618" />
+        <rect
+           style="fill:url(#linearGradient4259);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-4-1-5-9-3"
+           width="13.857929"
+           height="8.9372463"
+           x="210.23711"
+           y="291.49725" />
+        <rect
+           style="fill:url(#linearGradient4261);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-4-1-5-6-9"
+           width="13.857929"
+           height="8.9372463"
+           x="210.23711"
+           y="347.73059" />
+        <rect
+           style="fill:url(#linearGradient4263);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-4-1-5-79-6"
+           width="13.857929"
+           height="8.9372463"
+           x="210.23711"
+           y="403.96399" />
+        <rect
+           style="fill:url(#linearGradient4265);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-4-1-5-96-1"
+           width="13.857929"
+           height="8.9372463"
+           x="210.23711"
+           y="441.45294" />
+        <rect
+           style="fill:url(#linearGradient4267);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-4-1-5-5-8"
+           width="13.857929"
+           height="8.9372463"
+           x="210.23711"
+           y="422.70847" />
+        <rect
+           style="fill:url(#linearGradient4269);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-4-1-5-51-3"
+           width="13.857929"
+           height="8.9372463"
+           x="210.23711"
+           y="385.21954" />
+        <rect
+           style="fill:url(#linearGradient4271);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-4-1-5-50-6"
+           width="13.857929"
+           height="8.9372463"
+           x="210.23711"
+           y="366.47507" />
+        <rect
+           style="fill:url(#linearGradient4273);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-4-1-5-69-8"
+           width="13.857929"
+           height="8.9372463"
+           x="210.23711"
+           y="460.19742" />
+        <rect
+           style="fill:url(#linearGradient4275);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-4-1-5-59-2"
+           width="13.857929"
+           height="8.9372463"
+           x="210.23711"
+           y="478.94189" />
+        <rect
+           style="fill:url(#linearGradient4277);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-4-1-5-48-2"
+           width="13.857929"
+           height="8.9372463"
+           x="210.23711"
+           y="497.68634" />
+        <rect
+           style="fill:url(#linearGradient4279);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-4-1-5-8-1"
+           width="13.857929"
+           height="8.9372463"
+           x="210.23711"
+           y="516.43079" />
+      </g>
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         y="161.93607"
+         x="-278.759"
+         height="119.4123"
+         width="88.078163"
+         id="rect3000"
+         style="fill:url(#linearGradient4281);fill-opacity:1;stroke:#000000;stroke-width:2.71404409;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <g
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         transform="translate(-576.14528,160.21339)"
+         id="g4138">
+        <rect
+           style="opacity:0.91999996;fill:url(#linearGradient4283);fill-opacity:1;stroke:#000000;stroke-width:1.28192842;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-2"
+           width="15.041597"
+           height="155.99734"
+           x="432.57434"
+           y="216.46626" />
+        <g
+           id="g4128"
+           transform="translate(0,-0.03291035)">
+          <rect
+             y="223.98653"
+             x="436.0874"
+             height="8.0037632"
+             width="8.0154552"
+             id="rect3000-7-2-7"
+             style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <rect
+             y="242.98921"
+             x="436.0874"
+             height="8.0037632"
+             width="8.0154552"
+             id="rect3000-7-2-7-4"
+             style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <rect
+             y="261.99188"
+             x="436.0874"
+             height="8.0037632"
+             width="8.0154552"
+             id="rect3000-7-2-7-1"
+             style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <rect
+             y="280.9946"
+             x="436.0874"
+             height="8.0037632"
+             width="8.0154552"
+             id="rect3000-7-2-7-3"
+             style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <rect
+             y="299.99728"
+             x="436.0874"
+             height="8.0037632"
+             width="8.0154552"
+             id="rect3000-7-2-7-32"
+             style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <rect
+             y="318.99997"
+             x="436.0874"
+             height="8.0037632"
+             width="8.0154552"
+             id="rect3000-7-2-7-5"
+             style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <rect
+             y="338.00269"
+             x="436.0874"
+             height="8.0037632"
+             width="8.0154552"
+             id="rect3000-7-2-7-59"
+             style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <rect
+             y="357.0054"
+             x="436.0874"
+             height="8.0037632"
+             width="8.0154552"
+             id="rect3000-7-2-7-40"
+             style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+        </g>
+      </g>
+      <g
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         id="g4138-5"
+         transform="translate(-576.14528,323.28519)">
+        <rect
+           style="opacity:0.91999996;fill:url(#linearGradient4285);fill-opacity:1;stroke:#000000;stroke-width:1.28192842;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-2-8"
+           width="15.041597"
+           height="155.99734"
+           x="432.57434"
+           y="216.46626" />
+        <g
+           id="g4128-5"
+           transform="translate(0,-0.03291035)">
+          <rect
+             y="223.98653"
+             x="436.0874"
+             height="8.0037632"
+             width="8.0154552"
+             id="rect3000-7-2-7-23"
+             style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <rect
+             y="242.98921"
+             x="436.0874"
+             height="8.0037632"
+             width="8.0154552"
+             id="rect3000-7-2-7-4-4"
+             style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <rect
+             y="261.99188"
+             x="436.0874"
+             height="8.0037632"
+             width="8.0154552"
+             id="rect3000-7-2-7-1-8"
+             style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <rect
+             y="280.9946"
+             x="436.0874"
+             height="8.0037632"
+             width="8.0154552"
+             id="rect3000-7-2-7-3-7"
+             style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <rect
+             y="299.99728"
+             x="436.0874"
+             height="8.0037632"
+             width="8.0154552"
+             id="rect3000-7-2-7-32-1"
+             style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <rect
+             y="318.99997"
+             x="436.0874"
+             height="8.0037632"
+             width="8.0154552"
+             id="rect3000-7-2-7-5-3"
+             style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <rect
+             y="338.00269"
+             x="436.0874"
+             height="8.0037632"
+             width="8.0154552"
+             id="rect3000-7-2-7-59-5"
+             style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <rect
+             y="357.0054"
+             x="436.0874"
+             height="8.0037632"
+             width="8.0154552"
+             id="rect3000-7-2-7-40-6"
+             style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+        </g>
+      </g>
+      <g
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         transform="translate(-513.67325,169.10437)"
+         id="g4354">
+        <rect
+           style="opacity:0.91999996;fill:url(#linearGradient4287);fill-opacity:1;stroke:#000000;stroke-width:1.11674404;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-2-6"
+           width="15.206781"
+           height="117.09914"
+           x="8.5888186"
+           y="277.59256" />
+        <g
+           id="g4346">
+          <rect
+             y="284.63354"
+             x="12.184472"
+             height="8.0037632"
+             width="8.0154552"
+             id="rect3000-7-2-7-52"
+             style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <rect
+             y="303.63623"
+             x="12.184472"
+             height="8.0037632"
+             width="8.0154552"
+             id="rect3000-7-2-7-4-2"
+             style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <rect
+             y="322.63889"
+             x="12.184472"
+             height="8.0037632"
+             width="8.0154552"
+             id="rect3000-7-2-7-1-7"
+             style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <rect
+             y="341.6416"
+             x="12.184472"
+             height="8.0037632"
+             width="8.0154552"
+             id="rect3000-7-2-7-3-5"
+             style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <rect
+             y="360.64429"
+             x="12.184472"
+             height="8.0037632"
+             width="8.0154552"
+             id="rect3000-7-2-7-32-7"
+             style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <rect
+             y="379.64697"
+             x="12.184472"
+             height="8.0037632"
+             width="8.0154552"
+             id="rect3000-7-2-7-5-6"
+             style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+        </g>
+      </g>
+      <g
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         id="g4354-1"
+         transform="translate(-513.67325,301.13969)">
+        <rect
+           style="opacity:0.91999996;fill:url(#linearGradient4289);fill-opacity:1;stroke:#000000;stroke-width:1.11674404;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-2-6-9"
+           width="15.206781"
+           height="117.09914"
+           x="8.5888186"
+           y="277.59256" />
+        <g
+           id="g4346-5">
+          <rect
+             y="284.63354"
+             x="12.184472"
+             height="8.0037632"
+             width="8.0154552"
+             id="rect3000-7-2-7-52-7"
+             style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <rect
+             y="303.63623"
+             x="12.184472"
+             height="8.0037632"
+             width="8.0154552"
+             id="rect3000-7-2-7-4-2-8"
+             style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <rect
+             y="322.63889"
+             x="12.184472"
+             height="8.0037632"
+             width="8.0154552"
+             id="rect3000-7-2-7-1-7-0"
+             style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <rect
+             y="341.6416"
+             x="12.184472"
+             height="8.0037632"
+             width="8.0154552"
+             id="rect3000-7-2-7-3-5-6"
+             style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <rect
+             y="360.64429"
+             x="12.184472"
+             height="8.0037632"
+             width="8.0154552"
+             id="rect3000-7-2-7-32-7-5"
+             style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <rect
+             y="379.64697"
+             x="12.184472"
+             height="8.0037632"
+             width="8.0154552"
+             id="rect3000-7-2-7-5-6-3"
+             style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+        </g>
+      </g>
+      <g
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         transform="translate(-103.30234,187.82718)"
+         id="g5083">
+        <g
+           id="g5020">
+          <rect
+             rx="7"
+             ry="7"
+             y="488.5491"
+             x="-231.59776"
+             height="39.575665"
+             width="18.680902"
+             id="rect3000-7-5"
+             style="fill:url(#linearGradient4291);fill-opacity:1;stroke:#000000;stroke-width:0.719567;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <g
+             transform="translate(-3.8146973e-6,0.91101551)"
+             id="g4939">
+            <rect
+               style="fill:url(#linearGradient4293);fill-opacity:1;stroke:#000000;stroke-width:0.85409492;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+               id="rect3000-7-5-0"
+               width="5.981905"
+               height="5.981905"
+               x="-225.24826"
+               y="495.27356" />
+            <rect
+               style="fill:url(#linearGradient4295);fill-opacity:1;stroke:#000000;stroke-width:0.85409492;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+               id="rect3000-7-5-0-8"
+               width="5.981905"
+               height="5.981905"
+               x="-225.24826"
+               y="513.59637" />
+          </g>
+        </g>
+        <g
+           id="g5014"
+           transform="translate(-8.8868383,7.9137268)">
+          <rect
+             rx="7"
+             ry="7"
+             y="480.63538"
+             x="-203.31046"
+             height="39.575665"
+             width="18.680902"
+             id="rect3000-7-5-5"
+             style="fill:url(#linearGradient4299);fill-opacity:1;stroke:#000000;stroke-width:0.719567;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <g
+             transform="translate(28.287297,-7.0026972)"
+             id="g4939-7">
+            <rect
+               style="fill:url(#linearGradient4301);fill-opacity:1;stroke:#000000;stroke-width:0.85409492;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+               id="rect3000-7-5-0-4"
+               width="5.981905"
+               height="5.981905"
+               x="-225.24826"
+               y="495.27356" />
+            <rect
+               style="fill:url(#linearGradient4303);fill-opacity:1;stroke:#000000;stroke-width:0.85409492;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+               id="rect3000-7-5-0-8-7"
+               width="5.981905"
+               height="5.981905"
+               x="-225.24826"
+               y="513.59637" />
+          </g>
+        </g>
+        <g
+           id="g5065"
+           transform="translate(15.228185,-47.313873)">
+          <rect
+             rx="7"
+             ry="7"
+             y="535.86298"
+             x="-208.02501"
+             height="39.575665"
+             width="18.680902"
+             id="rect3000-7-5-4"
+             style="fill:url(#linearGradient4305);fill-opacity:1;stroke:#000000;stroke-width:0.719567;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <g
+             transform="translate(23.572748,48.224875)"
+             id="g4939-1">
+            <rect
+               style="fill:url(#linearGradient4307);fill-opacity:1;stroke:#000000;stroke-width:0.85409492;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+               id="rect3000-7-5-0-1"
+               width="5.981905"
+               height="5.981905"
+               x="-225.24826"
+               y="495.27356" />
+            <rect
+               style="fill:url(#linearGradient4309);fill-opacity:1;stroke:#000000;stroke-width:0.85409492;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+               id="rect3000-7-5-0-8-72"
+               width="5.981905"
+               height="5.981905"
+               x="-225.24826"
+               y="513.59637" />
+          </g>
+        </g>
+      </g>
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         ry="18"
+         rx="18"
+         y="298.46411"
+         x="-304.49866"
+         height="79.548347"
+         width="31.54493"
+         id="rect3000-7-4"
+         style="fill:url(#linearGradient4313);fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <g
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         transform="translate(-581.49229,160.8869)"
+         id="g5188">
+        <rect
+           style="fill:url(#linearGradient4315);fill-opacity:1;stroke:#000000;stroke-width:1.27123284;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-4-1"
+           width="47.170589"
+           height="48.917286"
+           x="244.36786"
+           y="441.93195" />
         <path
            sodipodi:type="arc"
-           style="opacity:0.91999996;fill:#cccccc;fill-opacity:1;stroke:#000000;stroke-width:5.20184755;stroke-miterlimit:4;stroke-dasharray:none;filter:url(#filter4564-6)"
-           id="path4468-4-9-7"
-           sodipodi:cx="449.22916"
-           sodipodi:cy="172.08858"
-           sodipodi:rx="12.796633"
-           sodipodi:ry="12.796633"
-           d="m 462.02579,172.08858 c 0,7.06738 -5.72925,12.79663 -12.79663,12.79663 -7.06739,0 -12.79664,-5.72925 -12.79664,-12.79663 0,-7.06739 5.72925,-12.79664 12.79664,-12.79664 7.06738,0 12.79663,5.72925 12.79663,12.79664 z"
-           transform="matrix(1.1534363,0,0,1.1534363,-767.98836,509.70348)"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90" />
-        <path
-           sodipodi:type="arc"
-           style="opacity:0.91999996;fill:#cccccc;fill-opacity:1;stroke:#000000;stroke-width:5.20184755;stroke-miterlimit:4;stroke-dasharray:none;filter:url(#filter4564)"
-           id="path4468-4-9"
-           sodipodi:cx="449.22916"
-           sodipodi:cy="172.08858"
-           sodipodi:rx="12.796633"
-           sodipodi:ry="12.796633"
-           d="m 462.02579,172.08858 c 0,7.06738 -5.72925,12.79663 -12.79663,12.79663 -7.06739,0 -12.79664,-5.72925 -12.79664,-12.79663 0,-7.06739 5.72925,-12.79664 12.79664,-12.79664 7.06738,0 12.79663,5.72925 12.79663,12.79664 z"
-           transform="matrix(1.1534363,0,0,1.1534363,-975.30736,509.70348)"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90" />
-        <path
-           sodipodi:type="arc"
-           style="opacity:0.91999996;fill:#cccccc;fill-opacity:1;stroke:#000000;stroke-width:5.20184755;stroke-miterlimit:4;stroke-dasharray:none;filter:url(#filter4564-6-2)"
-           id="path4468-4-9-7-9"
-           sodipodi:cx="449.22916"
-           sodipodi:cy="172.08858"
-           sodipodi:rx="12.796633"
-           sodipodi:ry="12.796633"
-           d="m 462.02579,172.08858 c 0,7.06738 -5.72925,12.79663 -12.79663,12.79663 -7.06739,0 -12.79664,-5.72925 -12.79664,-12.79663 0,-7.06739 5.72925,-12.79664 12.79664,-12.79664 7.06738,0 12.79663,5.72925 12.79663,12.79664 z"
-           transform="matrix(1.1534363,0,0,1.1534363,-655.15542,132.46174)"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90" />
-        <path
-           sodipodi:type="arc"
-           style="opacity:0.91999996;fill:#cccccc;fill-opacity:1;stroke:#000000;stroke-width:5.20184755;stroke-miterlimit:4;stroke-dasharray:none;filter:url(#filter4564-6-3)"
-           id="path4468-4-9-7-6"
-           sodipodi:cx="449.22916"
-           sodipodi:cy="172.08858"
-           sodipodi:rx="12.796633"
-           sodipodi:ry="12.796633"
-           d="m 462.02579,172.08858 c 0,7.06738 -5.72925,12.79663 -12.79663,12.79663 -7.06739,0 -12.79664,-5.72925 -12.79664,-12.79663 0,-7.06739 5.72925,-12.79664 12.79664,-12.79664 7.06738,0 12.79663,5.72925 12.79663,12.79664 z"
-           transform="matrix(1.1534363,0,0,1.1534363,-1013.2722,124.37966)"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90" />
-        <path
-           style="fill:#0055d4;fill-opacity:1;stroke:#000000;stroke-opacity:1"
-           d="m -514.14854,212.41815 0,493 17.34375,0 17,18.125 247.875,0.75 15.1875,-18.875 86.625,0 10.65625,-12.03125 0,-480.96875 -394.6875,0 z m 17.84375,96.65625 c 7.06738,0 12.8125,5.71386 12.8125,12.78125 0,7.06739 -5.74512,12.8125 -12.8125,12.8125 -7.06739,0 -12.78125,-5.74511 -12.78125,-12.8125 0,-7.06739 5.71386,-12.78125 12.78125,-12.78125 z m 357.96875,7.75 c 7.06739,0 12.8125,5.71386 12.8125,12.78125 0,7.06739 -5.74511,12.8125 -12.8125,12.8125 -7.06739,0 -12.78125,-5.74511 -12.78125,-12.8125 0,-7.06739 5.71386,-12.78125 12.78125,-12.78125 z m -319.875,377.15625 c 7.06739,0 12.78125,5.71386 12.78125,12.78125 0,7.06739 -5.71386,12.8125 -12.78125,12.8125 -7.06739,0 -12.8125,-5.74511 -12.8125,-12.8125 0,-7.06739 5.74511,-12.78125 12.8125,-12.78125 z m 206.75,0 c 7.06739,0 12.78125,5.71386 12.78125,12.78125 0,7.06739 -5.71386,12.8125 -12.78125,12.8125 -7.06739,0 -12.8125,-5.74511 -12.8125,-12.8125 0,-7.06739 5.74511,-12.78125 12.8125,-12.78125 z"
-           id="rect2996"
-           inkscape:connector-curvature="0"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90" />
+           style="fill:#ff6600;fill-opacity:1;stroke:#aa4400;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="path5152"
+           sodipodi:cx="-303.75165"
+           sodipodi:cy="151.88336"
+           sodipodi:rx="14.143646"
+           sodipodi:ry="14.143646"
+           d="m -289.608,151.88336 c 0,7.81132 -6.33233,14.14365 -14.14365,14.14365 -7.81132,0 -14.14364,-6.33233 -14.14364,-14.14365 0,-7.81132 6.33232,-14.14364 14.14364,-14.14364 7.81132,0 14.14365,6.33232 14.14365,14.14364 z"
+           transform="matrix(0.85488036,0,0,0.85488036,527.62448,336.54849)" />
+      </g>
+      <g
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         transform="translate(-581.49229,160.8869)"
+         id="g5260">
         <rect
-           style="fill:#1a1a1a;fill-opacity:1;stroke:#1a1a1a;stroke-width:3.54785872;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-           id="rect3000-7-1"
-           width="68.977966"
-           height="260.55887"
-           x="-432.11386"
-           y="429.66788"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90" />
-        <g
-           id="g5559-2"
-           transform="translate(-640.92614,160.8869)"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90">
-          <rect
-             y="272.75278"
-             x="210.23711"
-             height="8.9372463"
-             width="13.857929"
-             id="rect3000-7-4-1-5-42"
-             style="fill:url(#linearGradient4253);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <rect
-             y="310.24167"
-             x="210.23711"
-             height="8.9372463"
-             width="13.857929"
-             id="rect3000-7-4-1-5-4-3"
-             style="fill:url(#linearGradient4255);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <rect
-             y="328.98618"
-             x="210.23711"
-             height="8.9372463"
-             width="13.857929"
-             id="rect3000-7-4-1-5-7-1"
-             style="fill:url(#linearGradient4257);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <rect
-             y="291.49725"
-             x="210.23711"
-             height="8.9372463"
-             width="13.857929"
-             id="rect3000-7-4-1-5-9-3"
-             style="fill:url(#linearGradient4259);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <rect
-             y="347.73059"
-             x="210.23711"
-             height="8.9372463"
-             width="13.857929"
-             id="rect3000-7-4-1-5-6-9"
-             style="fill:url(#linearGradient4261);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <rect
-             y="403.96399"
-             x="210.23711"
-             height="8.9372463"
-             width="13.857929"
-             id="rect3000-7-4-1-5-79-6"
-             style="fill:url(#linearGradient4263);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <rect
-             y="441.45294"
-             x="210.23711"
-             height="8.9372463"
-             width="13.857929"
-             id="rect3000-7-4-1-5-96-1"
-             style="fill:url(#linearGradient4265);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <rect
-             y="422.70847"
-             x="210.23711"
-             height="8.9372463"
-             width="13.857929"
-             id="rect3000-7-4-1-5-5-8"
-             style="fill:url(#linearGradient4267);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <rect
-             y="385.21954"
-             x="210.23711"
-             height="8.9372463"
-             width="13.857929"
-             id="rect3000-7-4-1-5-51-3"
-             style="fill:url(#linearGradient4269);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <rect
-             y="366.47507"
-             x="210.23711"
-             height="8.9372463"
-             width="13.857929"
-             id="rect3000-7-4-1-5-50-6"
-             style="fill:url(#linearGradient4271);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <rect
-             y="460.19742"
-             x="210.23711"
-             height="8.9372463"
-             width="13.857929"
-             id="rect3000-7-4-1-5-69-8"
-             style="fill:url(#linearGradient4273);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <rect
-             y="478.94189"
-             x="210.23711"
-             height="8.9372463"
-             width="13.857929"
-             id="rect3000-7-4-1-5-59-2"
-             style="fill:url(#linearGradient4275);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <rect
-             y="497.68634"
-             x="210.23711"
-             height="8.9372463"
-             width="13.857929"
-             id="rect3000-7-4-1-5-48-2"
-             style="fill:url(#linearGradient4277);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <rect
-             y="516.43079"
-             x="210.23711"
-             height="8.9372463"
-             width="13.857929"
-             id="rect3000-7-4-1-5-8-1"
-             style="fill:url(#linearGradient4279);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-        </g>
+           style="fill:url(#linearGradient4317);fill-opacity:1;stroke:#000000;stroke-width:2.04041505;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-8"
+           width="55.414894"
+           height="107.27389"
+           x="98.496521"
+           y="31.002815" />
         <rect
-           style="fill:url(#linearGradient4281);fill-opacity:1;stroke:#000000;stroke-width:2.71404409;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-           id="rect3000"
-           width="88.078163"
-           height="119.4123"
-           x="-278.759"
-           y="161.93607"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90" />
-        <g
-           id="g4138"
-           transform="translate(-576.14528,160.21339)"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90">
-          <rect
-             y="216.46626"
-             x="432.57434"
-             height="155.99734"
-             width="15.041597"
-             id="rect3000-7-2"
-             style="opacity:0.91999996;fill:url(#linearGradient4283);fill-opacity:1;stroke:#000000;stroke-width:1.28192842;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <g
-             transform="translate(0,-0.03291035)"
-             id="g4128">
-            <rect
-               style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-2-7"
-               width="8.0154552"
-               height="8.0037632"
-               x="436.0874"
-               y="223.98653" />
-            <rect
-               style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-2-7-4"
-               width="8.0154552"
-               height="8.0037632"
-               x="436.0874"
-               y="242.98921" />
-            <rect
-               style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-2-7-1"
-               width="8.0154552"
-               height="8.0037632"
-               x="436.0874"
-               y="261.99188" />
-            <rect
-               style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-2-7-3"
-               width="8.0154552"
-               height="8.0037632"
-               x="436.0874"
-               y="280.9946" />
-            <rect
-               style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-2-7-32"
-               width="8.0154552"
-               height="8.0037632"
-               x="436.0874"
-               y="299.99728" />
-            <rect
-               style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-2-7-5"
-               width="8.0154552"
-               height="8.0037632"
-               x="436.0874"
-               y="318.99997" />
-            <rect
-               style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-2-7-59"
-               width="8.0154552"
-               height="8.0037632"
-               x="436.0874"
-               y="338.00269" />
-            <rect
-               style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-2-7-40"
-               width="8.0154552"
-               height="8.0037632"
-               x="436.0874"
-               y="357.0054" />
-          </g>
-        </g>
-        <g
-           transform="translate(-576.14528,323.28519)"
-           id="g4138-5"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90">
-          <rect
-             y="216.46626"
-             x="432.57434"
-             height="155.99734"
-             width="15.041597"
-             id="rect3000-7-2-8"
-             style="opacity:0.91999996;fill:url(#linearGradient4285);fill-opacity:1;stroke:#000000;stroke-width:1.28192842;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <g
-             transform="translate(0,-0.03291035)"
-             id="g4128-5">
-            <rect
-               style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-2-7-23"
-               width="8.0154552"
-               height="8.0037632"
-               x="436.0874"
-               y="223.98653" />
-            <rect
-               style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-2-7-4-4"
-               width="8.0154552"
-               height="8.0037632"
-               x="436.0874"
-               y="242.98921" />
-            <rect
-               style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-2-7-1-8"
-               width="8.0154552"
-               height="8.0037632"
-               x="436.0874"
-               y="261.99188" />
-            <rect
-               style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-2-7-3-7"
-               width="8.0154552"
-               height="8.0037632"
-               x="436.0874"
-               y="280.9946" />
-            <rect
-               style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-2-7-32-1"
-               width="8.0154552"
-               height="8.0037632"
-               x="436.0874"
-               y="299.99728" />
-            <rect
-               style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-2-7-5-3"
-               width="8.0154552"
-               height="8.0037632"
-               x="436.0874"
-               y="318.99997" />
-            <rect
-               style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-2-7-59-5"
-               width="8.0154552"
-               height="8.0037632"
-               x="436.0874"
-               y="338.00269" />
-            <rect
-               style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-2-7-40-6"
-               width="8.0154552"
-               height="8.0037632"
-               x="436.0874"
-               y="357.0054" />
-          </g>
-        </g>
-        <g
-           id="g4354"
-           transform="translate(-513.67325,169.10437)"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90">
-          <rect
-             y="277.59256"
-             x="8.5888186"
-             height="117.09914"
-             width="15.206781"
-             id="rect3000-7-2-6"
-             style="opacity:0.91999996;fill:url(#linearGradient4287);fill-opacity:1;stroke:#000000;stroke-width:1.11674404;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <g
-             id="g4346">
-            <rect
-               style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-2-7-52"
-               width="8.0154552"
-               height="8.0037632"
-               x="12.184472"
-               y="284.63354" />
-            <rect
-               style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-2-7-4-2"
-               width="8.0154552"
-               height="8.0037632"
-               x="12.184472"
-               y="303.63623" />
-            <rect
-               style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-2-7-1-7"
-               width="8.0154552"
-               height="8.0037632"
-               x="12.184472"
-               y="322.63889" />
-            <rect
-               style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-2-7-3-5"
-               width="8.0154552"
-               height="8.0037632"
-               x="12.184472"
-               y="341.6416" />
-            <rect
-               style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-2-7-32-7"
-               width="8.0154552"
-               height="8.0037632"
-               x="12.184472"
-               y="360.64429" />
-            <rect
-               style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-2-7-5-6"
-               width="8.0154552"
-               height="8.0037632"
-               x="12.184472"
-               y="379.64697" />
-          </g>
-        </g>
-        <g
-           transform="translate(-513.67325,301.13969)"
-           id="g4354-1"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90">
-          <rect
-             y="277.59256"
-             x="8.5888186"
-             height="117.09914"
-             width="15.206781"
-             id="rect3000-7-2-6-9"
-             style="opacity:0.91999996;fill:url(#linearGradient4289);fill-opacity:1;stroke:#000000;stroke-width:1.11674404;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <g
-             id="g4346-5">
-            <rect
-               style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-2-7-52-7"
-               width="8.0154552"
-               height="8.0037632"
-               x="12.184472"
-               y="284.63354" />
-            <rect
-               style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-2-7-4-2-8"
-               width="8.0154552"
-               height="8.0037632"
-               x="12.184472"
-               y="303.63623" />
-            <rect
-               style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-2-7-1-7-0"
-               width="8.0154552"
-               height="8.0037632"
-               x="12.184472"
-               y="322.63889" />
-            <rect
-               style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-2-7-3-5-6"
-               width="8.0154552"
-               height="8.0037632"
-               x="12.184472"
-               y="341.6416" />
-            <rect
-               style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-2-7-32-7-5"
-               width="8.0154552"
-               height="8.0037632"
-               x="12.184472"
-               y="360.64429" />
-            <rect
-               style="opacity:0.91999996;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.21196759;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-2-7-5-6-3"
-               width="8.0154552"
-               height="8.0037632"
-               x="12.184472"
-               y="379.64697" />
-          </g>
-        </g>
-        <g
-           id="g5083"
-           transform="translate(-103.30234,187.82718)"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90">
-          <g
-             id="g5020">
-            <rect
-               style="fill:url(#linearGradient4291);fill-opacity:1;stroke:#000000;stroke-width:0.719567;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-5"
-               width="18.680902"
-               height="39.575665"
-               x="-231.59776"
-               y="488.5491"
-               ry="7"
-               rx="7" />
-            <g
-               id="g4939"
-               transform="translate(-3.8146973e-6,0.91101551)">
-              <rect
-                 y="495.27356"
-                 x="-225.24826"
-                 height="5.981905"
-                 width="5.981905"
-                 id="rect3000-7-5-0"
-                 style="fill:url(#linearGradient4293);fill-opacity:1;stroke:#000000;stroke-width:0.85409492;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-              <rect
-                 y="513.59637"
-                 x="-225.24826"
-                 height="5.981905"
-                 width="5.981905"
-                 id="rect3000-7-5-0-8"
-                 style="fill:url(#linearGradient4295);fill-opacity:1;stroke:#000000;stroke-width:0.85409492;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-            </g>
-          </g>
-          <g
-             transform="translate(-8.8868383,7.9137268)"
-             id="g5014">
-            <rect
-               style="fill:url(#linearGradient4299);fill-opacity:1;stroke:#000000;stroke-width:0.719567;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-5-5"
-               width="18.680902"
-               height="39.575665"
-               x="-203.31046"
-               y="480.63538"
-               ry="7"
-               rx="7" />
-            <g
-               id="g4939-7"
-               transform="translate(28.287297,-7.0026972)">
-              <rect
-                 y="495.27356"
-                 x="-225.24826"
-                 height="5.981905"
-                 width="5.981905"
-                 id="rect3000-7-5-0-4"
-                 style="fill:url(#linearGradient4301);fill-opacity:1;stroke:#000000;stroke-width:0.85409492;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-              <rect
-                 y="513.59637"
-                 x="-225.24826"
-                 height="5.981905"
-                 width="5.981905"
-                 id="rect3000-7-5-0-8-7"
-                 style="fill:url(#linearGradient4303);fill-opacity:1;stroke:#000000;stroke-width:0.85409492;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-            </g>
-          </g>
-          <g
-             transform="translate(15.228185,-47.313873)"
-             id="g5065">
-            <rect
-               style="fill:url(#linearGradient4305);fill-opacity:1;stroke:#000000;stroke-width:0.719567;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-               id="rect3000-7-5-4"
-               width="18.680902"
-               height="39.575665"
-               x="-208.02501"
-               y="535.86298"
-               ry="7"
-               rx="7" />
-            <g
-               id="g4939-1"
-               transform="translate(23.572748,48.224875)">
-              <rect
-                 y="495.27356"
-                 x="-225.24826"
-                 height="5.981905"
-                 width="5.981905"
-                 id="rect3000-7-5-0-1"
-                 style="fill:url(#linearGradient4307);fill-opacity:1;stroke:#000000;stroke-width:0.85409492;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-              <rect
-                 y="513.59637"
-                 x="-225.24826"
-                 height="5.981905"
-                 width="5.981905"
-                 id="rect3000-7-5-0-8-72"
-                 style="fill:url(#linearGradient4309);fill-opacity:1;stroke:#000000;stroke-width:0.85409492;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-            </g>
-          </g>
-        </g>
+           style="fill:url(#linearGradient4319);fill-opacity:1;stroke:#000000;stroke-width:1.29465508;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-8-6"
+           width="75.210304"
+           height="31.821032"
+           x="88.598816"
+           y="29.67746" />
+      </g>
+      <g
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         transform="translate(-587.49229,160.8869)"
+         id="g5559">
         <rect
-           style="fill:url(#linearGradient4313);fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-           id="rect3000-7-4"
-           width="31.54493"
-           height="79.548347"
-           x="-304.49866"
-           y="298.46411"
-           rx="18"
-           ry="18"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90" />
-        <g
-           id="g5188"
-           transform="translate(-581.49229,160.8869)"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90">
-          <rect
-             y="441.93195"
-             x="244.36786"
-             height="48.917286"
-             width="47.170589"
-             id="rect3000-7-4-1"
-             style="fill:url(#linearGradient4315);fill-opacity:1;stroke:#000000;stroke-width:1.27123284;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <path
-             transform="matrix(0.85488036,0,0,0.85488036,527.62448,336.54849)"
-             d="m -289.608,151.88336 c 0,7.81132 -6.33233,14.14365 -14.14365,14.14365 -7.81132,0 -14.14364,-6.33233 -14.14364,-14.14365 0,-7.81132 6.33232,-14.14364 14.14364,-14.14364 7.81132,0 14.14365,6.33232 14.14365,14.14364 z"
-             sodipodi:ry="14.143646"
-             sodipodi:rx="14.143646"
-             sodipodi:cy="151.88336"
-             sodipodi:cx="-303.75165"
-             id="path5152"
-             style="fill:#ff6600;fill-opacity:1;stroke:#aa4400;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-             sodipodi:type="arc" />
-        </g>
-        <g
-           id="g5260"
-           transform="translate(-581.49229,160.8869)"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90">
-          <rect
-             y="31.002815"
-             x="98.496521"
-             height="107.27389"
-             width="55.414894"
-             id="rect3000-8"
-             style="fill:url(#linearGradient4317);fill-opacity:1;stroke:#000000;stroke-width:2.04041505;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <rect
-             y="29.67746"
-             x="88.598816"
-             height="31.821032"
-             width="75.210304"
-             id="rect3000-8-6"
-             style="fill:url(#linearGradient4319);fill-opacity:1;stroke:#000000;stroke-width:1.29465508;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-        </g>
-        <g
-           id="g5559"
-           transform="translate(-587.49229,160.8869)"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90">
-          <rect
-             y="272.75278"
-             x="210.23711"
-             height="8.9372463"
-             width="13.857929"
-             id="rect3000-7-4-1-5"
-             style="fill:url(#linearGradient4321);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <rect
-             y="310.24167"
-             x="210.23711"
-             height="8.9372463"
-             width="13.857929"
-             id="rect3000-7-4-1-5-4"
-             style="fill:url(#linearGradient4323);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <rect
-             y="328.98618"
-             x="210.23711"
-             height="8.9372463"
-             width="13.857929"
-             id="rect3000-7-4-1-5-7"
-             style="fill:url(#linearGradient4326);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <rect
-             y="291.49725"
-             x="210.23711"
-             height="8.9372463"
-             width="13.857929"
-             id="rect3000-7-4-1-5-9"
-             style="fill:url(#linearGradient4328);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <rect
-             y="347.73059"
-             x="210.23711"
-             height="8.9372463"
-             width="13.857929"
-             id="rect3000-7-4-1-5-6"
-             style="fill:url(#linearGradient4330);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <rect
-             y="403.96399"
-             x="210.23711"
-             height="8.9372463"
-             width="13.857929"
-             id="rect3000-7-4-1-5-79"
-             style="fill:url(#linearGradient4332);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <rect
-             y="441.45294"
-             x="210.23711"
-             height="8.9372463"
-             width="13.857929"
-             id="rect3000-7-4-1-5-96"
-             style="fill:url(#linearGradient4334);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <rect
-             y="422.70847"
-             x="210.23711"
-             height="8.9372463"
-             width="13.857929"
-             id="rect3000-7-4-1-5-5"
-             style="fill:url(#linearGradient4338);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <rect
-             y="385.21954"
-             x="210.23711"
-             height="8.9372463"
-             width="13.857929"
-             id="rect3000-7-4-1-5-51"
-             style="fill:url(#linearGradient4340);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <rect
-             y="366.47507"
-             x="210.23711"
-             height="8.9372463"
-             width="13.857929"
-             id="rect3000-7-4-1-5-50"
-             style="fill:url(#linearGradient4342);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <rect
-             y="460.19742"
-             x="210.23711"
-             height="8.9372463"
-             width="13.857929"
-             id="rect3000-7-4-1-5-69"
-             style="fill:url(#linearGradient4344);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <rect
-             y="478.94189"
-             x="210.23711"
-             height="8.9372463"
-             width="13.857929"
-             id="rect3000-7-4-1-5-59"
-             style="fill:url(#linearGradient4346);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <rect
-             y="497.68634"
-             x="210.23711"
-             height="8.9372463"
-             width="13.857929"
-             id="rect3000-7-4-1-5-48"
-             style="fill:url(#linearGradient4348);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-          <rect
-             y="516.43079"
-             x="210.23711"
-             height="8.9372463"
-             width="13.857929"
-             id="rect3000-7-4-1-5-8"
-             style="fill:url(#linearGradient4350);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-        </g>
+           style="fill:url(#linearGradient4321);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-4-1-5"
+           width="13.857929"
+           height="8.9372463"
+           x="210.23711"
+           y="272.75278" />
         <rect
-           style="fill:url(#linearGradient4352);fill-opacity:1;stroke:#000000;stroke-width:3.06877112;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-           id="rect3000-7"
-           width="51.354061"
-           height="261.84103"
-           x="-423.30191"
-           y="429.02679"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90" />
-        <path
-           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-           d="m -397.62488,682.12096 c -5.45047,0 -9.88386,4.35863 -10,9.78125 l 20,0 c -0.11613,-5.42262 -4.54952,-9.78125 -10,-9.78125 z"
-           id="path5939"
-           inkscape:connector-curvature="0"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90" />
-        <text
-           xml:space="preserve"
-           style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-           x="-197.9894"
+           style="fill:url(#linearGradient4323);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-4-1-5-4"
+           width="13.857929"
+           height="8.9372463"
+           x="210.23711"
+           y="310.24167" />
+        <rect
+           style="fill:url(#linearGradient4326);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-4-1-5-7"
+           width="13.857929"
+           height="8.9372463"
+           x="210.23711"
+           y="328.98618" />
+        <rect
+           style="fill:url(#linearGradient4328);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-4-1-5-9"
+           width="13.857929"
+           height="8.9372463"
+           x="210.23711"
+           y="291.49725" />
+        <rect
+           style="fill:url(#linearGradient4330);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-4-1-5-6"
+           width="13.857929"
+           height="8.9372463"
+           x="210.23711"
+           y="347.73059" />
+        <rect
+           style="fill:url(#linearGradient4332);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-4-1-5-79"
+           width="13.857929"
+           height="8.9372463"
+           x="210.23711"
+           y="403.96399" />
+        <rect
+           style="fill:url(#linearGradient4334);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-4-1-5-96"
+           width="13.857929"
+           height="8.9372463"
+           x="210.23711"
+           y="441.45294" />
+        <rect
+           style="fill:url(#linearGradient4338);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-4-1-5-5"
+           width="13.857929"
+           height="8.9372463"
+           x="210.23711"
+           y="422.70847" />
+        <rect
+           style="fill:url(#linearGradient4340);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-4-1-5-51"
+           width="13.857929"
+           height="8.9372463"
+           x="210.23711"
+           y="385.21954" />
+        <rect
+           style="fill:url(#linearGradient4342);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-4-1-5-50"
+           width="13.857929"
+           height="8.9372463"
+           x="210.23711"
+           y="366.47507" />
+        <rect
+           style="fill:url(#linearGradient4344);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-4-1-5-69"
+           width="13.857929"
+           height="8.9372463"
+           x="210.23711"
+           y="460.19742" />
+        <rect
+           style="fill:url(#linearGradient4346);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-4-1-5-59"
+           width="13.857929"
+           height="8.9372463"
+           x="210.23711"
+           y="478.94189" />
+        <rect
+           style="fill:url(#linearGradient4348);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-4-1-5-48"
+           width="13.857929"
+           height="8.9372463"
+           x="210.23711"
+           y="497.68634" />
+        <rect
+           style="fill:url(#linearGradient4350);fill-opacity:1;stroke:#000000;stroke-width:0.2945163;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3000-7-4-1-5-8"
+           width="13.857929"
+           height="8.9372463"
+           x="210.23711"
+           y="516.43079" />
+      </g>
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         y="429.02679"
+         x="-423.30191"
+         height="261.84103"
+         width="51.354061"
+         id="rect3000-7"
+         style="fill:url(#linearGradient4352);fill-opacity:1;stroke:#000000;stroke-width:3.06877112;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         inkscape:connector-curvature="0"
+         id="path5939"
+         d="m -397.62488,682.12096 c -5.45047,0 -9.88386,4.35863 -10,9.78125 l 20,0 c -0.11613,-5.42262 -4.54952,-9.78125 -10,-9.78125 z"
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         sodipodi:linespacing="125%"
+         id="text6967"
+         y="671.45074"
+         x="-197.9894"
+         style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold"
            y="671.45074"
-           id="text6967"
-           sodipodi:linespacing="125%"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90"><tspan
-             sodipodi:role="line"
-             id="tspan6969"
-             x="-197.9894"
-             y="671.45074"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">TX &gt; 1</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-           x="-199.68077"
+           x="-197.9894"
+           id="tspan6969"
+           sodipodi:role="line">TX &gt; 1</tspan></text>
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         sodipodi:linespacing="125%"
+         id="text6967-7"
+         y="690.43237"
+         x="-199.68077"
+         style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold"
            y="690.43237"
-           id="text6967-7"
-           sodipodi:linespacing="125%"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90"><tspan
-             sodipodi:role="line"
-             id="tspan6969-5"
-             x="-199.68077"
-             y="690.43237"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">RX &lt; 0</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-           x="-158.11259"
+           x="-199.68077"
+           id="tspan6969-5"
+           sodipodi:role="line">RX &lt; 0</tspan></text>
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         sodipodi:linespacing="125%"
+         id="text6967-8"
+         y="652.46918"
+         x="-158.11259"
+         style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold"
            y="652.46918"
-           id="text6967-8"
-           sodipodi:linespacing="125%"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90"><tspan
-             sodipodi:role="line"
-             id="tspan6969-0"
-             x="-158.11259"
-             y="652.46918"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">2</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-           x="-167.8145"
+           x="-158.11259"
+           id="tspan6969-0"
+           sodipodi:role="line">2</tspan></text>
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         sodipodi:linespacing="125%"
+         id="text6967-1"
+         y="633.48755"
+         x="-167.8145"
+         style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold"
            y="633.48755"
-           id="text6967-1"
-           sodipodi:linespacing="125%"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90"><tspan
-             sodipodi:role="line"
-             id="tspan6969-8"
-             x="-167.8145"
-             y="633.48755"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">~3</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-           x="-158.54591"
+           x="-167.8145"
+           id="tspan6969-8"
+           sodipodi:role="line">~3</tspan></text>
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         sodipodi:linespacing="125%"
+         id="text6967-9"
+         y="614.50592"
+         x="-158.54591"
+         style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold"
            y="614.50592"
-           id="text6967-9"
-           sodipodi:linespacing="125%"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90"><tspan
-             sodipodi:role="line"
-             id="tspan6969-3"
-             x="-158.54591"
-             y="614.50592"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">4</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-           x="-168.02315"
+           x="-158.54591"
+           id="tspan6969-3"
+           sodipodi:role="line">4</tspan></text>
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         sodipodi:linespacing="125%"
+         id="text6967-6"
+         y="595.52435"
+         x="-168.02315"
+         style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold"
            y="595.52435"
-           id="text6967-6"
-           sodipodi:linespacing="125%"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90"><tspan
-             sodipodi:role="line"
-             id="tspan6969-4"
-             x="-168.02315"
-             y="595.52435"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">~5</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-           x="-167.93486"
+           x="-168.02315"
+           id="tspan6969-4"
+           sodipodi:role="line">~5</tspan></text>
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         sodipodi:linespacing="125%"
+         id="text6967-73"
+         y="576.54266"
+         x="-167.93486"
+         style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold"
            y="576.54266"
-           id="text6967-73"
-           sodipodi:linespacing="125%"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90"><tspan
-             sodipodi:role="line"
-             id="tspan6969-54"
-             x="-167.93486"
-             y="576.54266"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">~6</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-           x="-158.19283"
+           x="-167.93486"
+           id="tspan6969-54"
+           sodipodi:role="line">~6</tspan></text>
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         sodipodi:linespacing="125%"
+         id="text6967-16"
+         y="557.56104"
+         x="-158.19283"
+         style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold"
            y="557.56104"
-           id="text6967-16"
-           sodipodi:linespacing="125%"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90"><tspan
-             sodipodi:role="line"
-             id="tspan6969-02"
-             x="-158.19283"
-             y="557.56104"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">7</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-           x="-167.75832"
+           x="-158.19283"
+           id="tspan6969-02"
+           sodipodi:role="line">7</tspan></text>
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         sodipodi:linespacing="125%"
+         id="text6967-83"
+         y="508.60968"
+         x="-167.75832"
+         style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold"
            y="508.60968"
-           id="text6967-83"
-           sodipodi:linespacing="125%"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90"><tspan
-             sodipodi:role="line"
-             id="tspan6969-39"
-             x="-167.75832"
-             y="508.60968"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">~9</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-           x="-158.1848"
+           x="-167.75832"
+           id="tspan6969-39"
+           sodipodi:role="line">~9</tspan></text>
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         sodipodi:linespacing="125%"
+         id="text6967-7-3"
+         y="527.59131"
+         x="-158.1848"
+         style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold"
            y="527.59131"
-           id="text6967-7-3"
-           sodipodi:linespacing="125%"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90"><tspan
-             sodipodi:role="line"
-             id="tspan6969-5-4"
-             x="-158.1848"
-             y="527.59131"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">8</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-           x="-176.85838"
+           x="-158.1848"
+           id="tspan6969-5-4"
+           sodipodi:role="line">8</tspan></text>
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         sodipodi:linespacing="125%"
+         id="text6967-8-6"
+         y="489.62811"
+         x="-176.85838"
+         style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold"
            y="489.62811"
-           id="text6967-8-6"
-           sodipodi:linespacing="125%"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90"><tspan
-             sodipodi:role="line"
-             id="tspan6969-0-1"
-             x="-176.85838"
-             y="489.62811"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">~10</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-           x="-174.99666"
+           x="-176.85838"
+           id="tspan6969-0-1"
+           sodipodi:role="line">~10</tspan></text>
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         sodipodi:linespacing="125%"
+         id="text6967-1-4"
+         y="470.64648"
+         x="-174.99666"
+         style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold"
            y="470.64648"
-           id="text6967-1-4"
-           sodipodi:linespacing="125%"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90"><tspan
-             sodipodi:role="line"
-             id="tspan6969-8-8"
-             x="-174.99666"
-             y="470.64648"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">~11</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-           x="-167.24474"
+           x="-174.99666"
+           id="tspan6969-8-8"
+           sodipodi:role="line">~11</tspan></text>
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         sodipodi:linespacing="125%"
+         id="text6967-9-3"
+         y="451.66483"
+         x="-167.24474"
+         style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold"
            y="451.66483"
-           id="text6967-9-3"
-           sodipodi:linespacing="125%"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90"><tspan
-             sodipodi:role="line"
-             id="tspan6969-3-2"
-             x="-167.24474"
-             y="451.66483"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">12</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-           x="-167.3651"
+           x="-167.24474"
+           id="tspan6969-3-2"
+           sodipodi:role="line">12</tspan></text>
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         sodipodi:linespacing="125%"
+         id="text6967-6-4"
+         y="432.68326"
+         x="-167.3651"
+         style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold"
            y="432.68326"
-           id="text6967-6-4"
-           sodipodi:linespacing="125%"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90"><tspan
-             sodipodi:role="line"
-             id="tspan6969-4-7"
-             x="-167.3651"
-             y="432.68326"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">13</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-           x="-185.485"
+           x="-167.3651"
+           id="tspan6969-4-7"
+           sodipodi:role="line">13</tspan></text>
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         sodipodi:linespacing="125%"
+         id="text6967-73-5"
+         y="413.70157"
+         x="-185.485"
+         style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold"
            y="413.70157"
-           id="text6967-73-5"
-           sodipodi:linespacing="125%"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90"><tspan
-             sodipodi:role="line"
-             id="tspan6969-54-3"
-             x="-185.485"
-             y="413.70157"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">GND</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-           x="-193.7906"
+           x="-185.485"
+           id="tspan6969-54-3"
+           sodipodi:role="line">GND</tspan></text>
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         sodipodi:linespacing="125%"
+         id="text6967-16-1"
+         y="394.71997"
+         x="-193.7906"
+         style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold"
            y="394.71997"
-           id="text6967-16-1"
-           sodipodi:linespacing="125%"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90"><tspan
-             sodipodi:role="line"
-             id="tspan6969-02-7"
-             x="-193.7906"
-             y="394.71997"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">AREF</tspan></text>
-        <g
-           id="g7308"
-           transform="translate(-581.49229,160.8869)"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90">
-          <text
-             sodipodi:linespacing="125%"
-             id="text6967-8-7"
-             y="529.54547"
-             x="97.853973"
-             style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-             xml:space="preserve"><tspan
-               style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold"
-               y="529.54547"
-               x="97.853973"
-               id="tspan6969-0-8"
-               sodipodi:role="line">A5</tspan></text>
-          <text
-             sodipodi:linespacing="125%"
-             id="text6967-1-0"
-             y="510.56378"
-             x="97.950272"
-             style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-             xml:space="preserve"><tspan
-               style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold"
-               y="510.56378"
-               x="97.950272"
-               id="tspan6969-8-9"
-               sodipodi:role="line">A4</tspan></text>
-          <text
-             sodipodi:linespacing="125%"
-             id="text6967-9-7"
-             y="491.58218"
-             x="98.114777"
-             style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-             xml:space="preserve"><tspan
-               style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold"
-               y="491.58218"
-               x="98.114777"
-               id="tspan6969-3-1"
-               sodipodi:role="line">A3</tspan></text>
-          <text
-             sodipodi:linespacing="125%"
-             id="text6967-6-45"
-             y="472.60062"
-             x="98.174965"
-             style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-             xml:space="preserve"><tspan
-               style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold"
-               y="472.60062"
-               x="98.174965"
-               id="tspan6969-4-3"
-               sodipodi:role="line">A2</tspan></text>
-          <text
-             sodipodi:linespacing="125%"
-             id="text6967-73-54"
-             y="453.61896"
-             x="99.097809"
-             style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-             xml:space="preserve"><tspan
-               style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold"
-               y="453.61896"
-               x="99.097809"
-               id="tspan6969-54-6"
-               sodipodi:role="line">A1</tspan></text>
-          <text
-             sodipodi:linespacing="125%"
-             id="text6967-16-7"
-             y="434.63733"
-             x="98.166939"
-             style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-             xml:space="preserve"><tspan
-               style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold"
-               y="434.63733"
-               x="98.166939"
-               id="tspan6969-02-2"
-               sodipodi:role="line">A0</tspan></text>
-        </g>
-        <text
-           xml:space="preserve"
-           style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-           x="-483.63831"
-           y="558.50647"
-           id="text6967-8-7-1"
-           sodipodi:linespacing="125%"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90"><tspan
-             sodipodi:role="line"
-             id="tspan6969-0-8-7"
-             x="-483.63831"
-             y="558.50647"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">Vin</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-           x="-483.54202"
-           y="539.52478"
-           id="text6967-1-0-8"
-           sodipodi:linespacing="125%"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90"><tspan
-             sodipodi:role="line"
-             id="tspan6969-8-9-5"
-             x="-483.54202"
-             y="539.52478"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">GND</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-           x="-483.3775"
-           y="520.54321"
-           id="text6967-9-7-8"
-           sodipodi:linespacing="125%"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90"><tspan
-             sodipodi:role="line"
-             id="tspan6969-3-1-7"
-             x="-483.3775"
-             y="520.54321"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">GND</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-           x="-483.31732"
-           y="501.56161"
-           id="text6967-6-45-6"
-           sodipodi:linespacing="125%"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90"><tspan
-             sodipodi:role="line"
-             id="tspan6969-4-3-7"
-             x="-483.31732"
-             y="501.56161"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">5V</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-           x="-482.39447"
-           y="482.57996"
-           id="text6967-73-54-7"
-           sodipodi:linespacing="125%"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90"><tspan
-             sodipodi:role="line"
-             id="tspan6969-54-6-9"
-             x="-482.39447"
-             y="482.57996"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">3.3V</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-           x="-483.32535"
-           y="463.59833"
-           id="text6967-16-7-2"
-           sodipodi:linespacing="125%"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90"><tspan
-             sodipodi:role="line"
-             id="tspan6969-02-2-0"
-             x="-483.32535"
-             y="463.59833"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">Reset</tspan></text>
-        <rect
-           style="fill:url(#linearGradient4354);fill-opacity:1;stroke:#000000;stroke-width:1.91359091;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-           id="rect3000-7-4-9"
-           width="23.094004"
-           height="70.026344"
-           x="-300.27316"
-           y="303.2251"
-           rx="13.177778"
-           ry="15.845385"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90" />
-        <text
-           xml:space="preserve"
-           style="font-size:43.92460632px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-           x="508.31265"
-           y="245.02921"
-           id="text6967-16-1-1"
-           sodipodi:linespacing="125%"
-           inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
-           inkscape:export-xdpi="90"
-           inkscape:export-ydpi="90"
-           transform="matrix(0,1,-1,0,0,0)"><tspan
-             sodipodi:role="line"
-             id="tspan6969-02-7-7"
-             x="508.31265"
-             y="245.02921"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">UNO</tspan></text>
-      </g>
+           x="-193.7906"
+           id="tspan6969-02-7"
+           sodipodi:role="line">AREF</tspan></text>
       <g
-         inkscape:export-ydpi="85.720001"
-         inkscape:export-xdpi="85.720001"
-         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Bin\Minibloq\Components\Minibloq\Lib\CPP\Targets\ArduinoDuemilanove328_Arduino.v1.0\Images\ArduinoDuemilanove328.20110724a.png"
-         id="g7392"
-         transform="translate(1018.6695,-1200.5393)">
-        <g
-           id="g7354">
-          <rect
-             ry="3.5135548"
-             rx="4.3490987"
-             y="1628.5531"
-             x="-492.32315"
-             height="18.5"
-             width="86"
-             id="rect6098-50-7-3"
-             style="fill:#ffd000;fill-opacity:1;stroke:none" />
-          <rect
-             ry="3.5135548"
-             rx="4.3490987"
-             y="1685.0237"
-             x="-492.32315"
-             height="18.5"
-             width="86"
-             id="rect6098-50-1-7"
-             style="fill:#ffd000;fill-opacity:1;stroke:none" />
-          <rect
-             ry="3.5135548"
-             rx="4.3490987"
-             y="1609.7296"
-             x="-492.32315"
-             height="18.5"
-             width="86"
-             id="rect6098-50-6-5"
-             style="fill:#ffd000;fill-opacity:1;stroke:none" />
-          <rect
-             ry="3.5135548"
-             rx="4.3490987"
-             y="1647.3766"
-             x="-492.32315"
-             height="18.5"
-             width="86"
-             id="rect6098-50-3-3"
-             style="fill:#ffd000;fill-opacity:1;stroke:none" />
-          <text
-             sodipodi:linespacing="125%"
-             id="text5794-1-7-8-1-4-3-2-0"
-             y="1625.2783"
-             x="-490.55075"
-             style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
-             xml:space="preserve"><tspan
-               style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Arial;-inkscape-font-specification:Arial Bold"
-               y="1625.2783"
-               x="-490.55075"
-               id="tspan5796-7-9-8-5-8-9-3-3"
-               sodipodi:role="line">buzzer</tspan></text>
-          <rect
-             ry="3.5135548"
-             rx="4.3490987"
-             y="1809.0706"
-             x="-492.32315"
-             height="18.5"
-             width="86"
-             id="rect6098-50-1-3-0-9"
-             style="fill:#000080;fill-opacity:1;stroke:none" />
-          <text
-             sodipodi:linespacing="125%"
-             id="text5794-1-7-8-2-0-6-4-2-7"
-             y="1823.7065"
-             x="-488.89072"
-             style="font-size:15.29876328px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
-             xml:space="preserve"><tspan
-               style="font-size:15.29876328px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Arial;-inkscape-font-specification:Arial Bold"
-               y="1823.7065"
-               x="-488.89072"
-               id="tspan5796-7-9-8-3-4-0-1-1-2"
-               sodipodi:role="line">irReceiver</tspan></text>
-          <rect
-             ry="3.5135548"
-             rx="4.3490987"
-             y="1733.9329"
-             x="-492.32315"
-             height="18.5"
-             width="86"
-             id="rect6098-50-7-6-2"
-             style="fill:#ffd000;fill-opacity:1;stroke:none" />
-          <rect
-             ry="3.5135548"
-             rx="4.3490987"
-             y="1790.7528"
-             x="-492.32315"
-             height="18.5"
-             width="86"
-             id="rect6098-50-1-3-5"
-             style="fill:#ffd000;fill-opacity:1;stroke:none" />
-          <rect
-             ry="3.5135548"
-             rx="4.3490987"
-             y="1714.9928"
-             x="-492.32315"
-             height="18.5"
-             width="86"
-             id="rect6098-50-6-8-5"
-             style="fill:#ffd000;fill-opacity:1;stroke:none" />
-          <rect
-             ry="3.5135548"
-             rx="4.3490987"
-             y="1752.8728"
-             x="-492.32315"
-             height="18.5"
-             width="86"
-             id="rect6098-50-3-5-5"
-             style="fill:#ffd000;fill-opacity:1;stroke:none" />
-          <text
-             sodipodi:linespacing="125%"
-             id="text5794-1-7-8-8-3-5-2-8-8"
-             y="1749.6312"
-             x="-490.41245"
-             style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
-             xml:space="preserve"><tspan
-               style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Arial;-inkscape-font-specification:Arial Bold"
-               y="1749.6312"
-               x="-490.41245"
-               id="tspan5796-7-9-8-7-33-7-2-5-5"
-               sodipodi:role="line">servo0</tspan></text>
-          <rect
-             ry="3.5135548"
-             rx="4.3490987"
-             y="1771.8127"
-             x="-492.32315"
-             height="18.5"
-             width="86"
-             id="rect6098-50-8-4-5"
-             style="fill:#ffd000;fill-opacity:1;stroke:none" />
-          <text
-             sodipodi:linespacing="125%"
-             id="text5794-1-7-8-8-9-9-6-6-6-1"
-             y="1730.7241"
-             x="-490.41245"
-             style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
-             xml:space="preserve"><tspan
-               style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Arial;-inkscape-font-specification:Arial Bold"
-               y="1730.7241"
-               x="-490.41245"
-               id="tspan5796-7-9-8-7-2-04-9-4-1-3"
-               sodipodi:role="line">servo1</tspan></text>
-          <rect
-             ry="3.5135548"
-             rx="4.3490987"
-             y="1666.2002"
-             x="-492.32315"
-             height="18.5"
-             width="86"
-             id="rect6098-50-8-0"
-             style="fill:#ffd000;fill-opacity:1;stroke:none" />
-          <text
-             sodipodi:linespacing="125%"
-             id="text5794-1-7-8-8-9-4-8-1-6-9-6"
-             y="1700.755"
-             x="-490.41245"
-             style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
-             xml:space="preserve"><tspan
-               style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Arial;-inkscape-font-specification:Arial Bold"
-               y="1700.755"
-               x="-490.41245"
-               id="tspan5796-7-9-8-7-2-6-4-3-5-2-1"
-               sodipodi:role="line">servo2</tspan></text>
-          <text
-             sodipodi:linespacing="125%"
-             id="text5794-1-7-8-8-8-34-3-4-9-5"
-             y="1804.7787"
-             x="-491.11069"
-             style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
-             xml:space="preserve"><tspan
-               style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Arial;-inkscape-font-specification:Arial Bold"
-               y="1804.7787"
-               x="-491.11069"
-               id="tspan5796-7-9-8-7-0-30-6-6-5-6"
-               sodipodi:role="line">m0_pwm</tspan></text>
-          <text
-             sodipodi:linespacing="125%"
-             id="text5794-1-7-8-8-9-47-1-5-6-3-0"
-             y="1786.9637"
-             x="-491.11069"
-             style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
-             xml:space="preserve"><tspan
-               style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Arial;-inkscape-font-specification:Arial Bold"
-               y="1786.9637"
-               x="-491.11069"
-               id="tspan5796-7-9-8-7-2-0-3-5-4-1-5"
-               sodipodi:role="line">m0_dir0</tspan></text>
-          <text
-             sodipodi:linespacing="125%"
-             id="text5794-1-7-8-8-9-4-2-4-8-6-3-2"
-             y="1768.1869"
-             x="-491.11069"
-             style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
-             xml:space="preserve"><tspan
-               style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Arial;-inkscape-font-specification:Arial Bold"
-               y="1768.1869"
-               x="-491.11069"
-               id="tspan5796-7-9-8-7-2-6-7-4-6-4-3-7"
-               sodipodi:role="line">m0_dir1</tspan></text>
-          <text
-             sodipodi:linespacing="125%"
-             id="text5794-1-7-8-8-8-3-1-2-5-1-3"
-             y="1641.8373"
-             x="-490.46237"
-             style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
-             xml:space="preserve"><tspan
-               style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Arial;-inkscape-font-specification:Arial Bold"
-               y="1641.8373"
-               x="-490.46237"
-               id="tspan5796-7-9-8-7-0-3-7-1-2-1-7"
-               sodipodi:role="line">m1_pwm</tspan></text>
-          <text
-             sodipodi:linespacing="125%"
-             id="text5794-1-7-8-8-9-47-0-0-8-7-8-3"
-             y="1662.1863"
-             x="-490.55319"
-             style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
-             xml:space="preserve"><tspan
-               style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Arial;-inkscape-font-specification:Arial Bold"
-               y="1662.1863"
-               x="-490.55319"
-               id="tspan5796-7-9-8-7-2-0-6-9-3-8-7-7"
-               sodipodi:role="line">m1_dir0</tspan></text>
-          <text
-             sodipodi:linespacing="125%"
-             id="text5794-1-7-8-8-9-4-2-5-9-7-7-2-1"
-             y="1681.1719"
-             x="-490.55331"
-             style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
-             xml:space="preserve"><tspan
-               style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Arial;-inkscape-font-specification:Arial Bold"
-               y="1681.1719"
-               x="-490.55331"
-               id="tspan5796-7-9-8-7-2-6-7-7-4-0-9-7-9"
-               sodipodi:role="line">m1_dir1</tspan></text>
-          <rect
-             ry="3.5135548"
-             rx="4.3490987"
-             y="1590.906"
-             x="-492.32315"
-             height="18.5"
-             width="86"
-             id="rect6098-50-74"
-             style="fill:#ffd000;fill-opacity:1;stroke:none" />
-          <text
-             sodipodi:linespacing="125%"
-             id="text5794-1-7-8-8-9-4-7-6-8-9-9-2"
-             y="1606.7179"
-             x="-491.72861"
-             style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
-             xml:space="preserve"><tspan
-               style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Arial;-inkscape-font-specification:Arial Bold"
-               y="1606.7179"
-               x="-491.72861"
-               id="tspan5796-7-9-8-7-2-6-3-3-0-2-3-0"
-               sodipodi:role="line">LED</tspan></text>
-        </g>
-        <g
-           id="g7334"
-           transform="translate(-2,0)">
-          <rect
-             ry="3.5135548"
-             rx="4.3490987"
-             y="1847.9618"
-             x="-914.29218"
-             height="18.5"
-             width="86"
-             id="rect6098-3-0"
-             style="fill:#800080;fill-opacity:1;stroke:none" />
-          <text
-             sodipodi:linespacing="125%"
-             id="text5794-1-7-8-8-0-2-0-4-2-8-0"
-             y="1863.4916"
-             x="-913.53375"
-             style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
-             xml:space="preserve"><tspan
-               style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Arial;-inkscape-font-specification:Arial Bold"
-               y="1863.4916"
-               x="-913.53375"
-               id="tspan5796-7-9-8-7-3-5-3-3-3-8-1"
-               sodipodi:role="line">sensor5</tspan></text>
-          <rect
-             ry="3.5135548"
-             rx="4.3490987"
-             y="1772.0364"
-             x="-914.29218"
-             height="18.5"
-             width="86"
-             id="rect6098-5-2"
-             style="fill:#800080;fill-opacity:1;stroke:none" />
-          <rect
-             ry="3.5135548"
-             rx="4.3490987"
-             y="1791.0177"
-             x="-914.29218"
-             height="18.5"
-             width="86"
-             id="rect6098-9-2"
-             style="fill:#800080;fill-opacity:1;stroke:none" />
-          <rect
-             ry="3.5135548"
-             rx="4.3490987"
-             y="1809.999"
-             x="-914.29218"
-             height="18.5"
-             width="86"
-             id="rect6098-55-2"
-             style="fill:#800080;fill-opacity:1;stroke:none" />
-          <rect
-             ry="3.5135548"
-             rx="4.3490987"
-             y="1828.9803"
-             x="-914.29218"
-             height="18.5"
-             width="86"
-             id="rect6098-1-2"
-             style="fill:#800080;fill-opacity:1;stroke:none" />
-          <text
-             sodipodi:linespacing="125%"
-             id="text5794-1-7-8-8-0-9-4-0-7-4-5"
-             y="1844.629"
-             x="-913.52692"
-             style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
-             xml:space="preserve"><tspan
-               style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Arial;-inkscape-font-specification:Arial Bold"
-               y="1844.629"
-               x="-913.52692"
-               id="tspan5796-7-9-8-7-3-4-9-0-7-5-9"
-               sodipodi:role="line">sensor4</tspan></text>
-          <text
-             sodipodi:linespacing="125%"
-             id="text5794-1-7-8-8-0-90-8-1-0-1-2"
-             y="1806.6569"
-             x="-913.52557"
-             style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
-             xml:space="preserve"><tspan
-               style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Arial;-inkscape-font-specification:Arial Bold"
-               y="1806.6569"
-               x="-913.52557"
-               id="tspan5796-7-9-8-7-3-8-8-1-7-7-1"
-               sodipodi:role="line">sensor2</tspan></text>
-          <text
-             sodipodi:linespacing="125%"
-             id="text5794-1-7-8-8-0-26-2-2-2-1-9"
-             y="1825.5721"
-             x="-913.52374"
-             style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
-             xml:space="preserve"><tspan
-               style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Arial;-inkscape-font-specification:Arial Bold"
-               y="1825.5721"
-               x="-913.52374"
-               id="tspan5796-7-9-8-7-3-0-5-9-4-5-5"
-               sodipodi:role="line">sensor3</tspan></text>
-          <text
-             sodipodi:linespacing="125%"
-             id="text5794-1-7-8-8-0-6-4-1-7-7-7"
-             y="1787.6698"
-             x="-913.52692"
-             style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
-             xml:space="preserve"><tspan
-               style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Arial;-inkscape-font-specification:Arial Bold"
-               y="1787.6698"
-               x="-913.52692"
-               id="tspan5796-7-9-8-7-3-16-2-4-3-6-5"
-               sodipodi:role="line">sensor1</tspan></text>
-          <rect
-             ry="3.5135548"
-             rx="4.3490987"
-             y="1753.0549"
-             x="-914.29218"
-             height="18.5"
-             width="86"
-             id="rect6098-7"
-             style="fill:#800080;fill-opacity:1;stroke:none" />
-          <text
-             sodipodi:linespacing="125%"
-             id="text5794-1-7-8-8-0-8-3-4-0-2"
-             y="1768.6128"
-             x="-912.71643"
-             style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
-             xml:space="preserve"><tspan
-               style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Arial;-inkscape-font-specification:Arial Bold"
-               y="1768.6128"
-               x="-912.71643"
-               id="tspan5796-7-9-8-7-3-48-5-4-9-5"
-               sodipodi:role="line">sensor0</tspan></text>
-        </g>
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         transform="translate(-581.49229,160.8869)"
+         id="g7308">
+        <text
+           xml:space="preserve"
+           style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+           x="97.853973"
+           y="529.54547"
+           id="text6967-8-7"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan6969-0-8"
+             x="97.853973"
+             y="529.54547"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">A5</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+           x="97.950272"
+           y="510.56378"
+           id="text6967-1-0"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan6969-8-9"
+             x="97.950272"
+             y="510.56378"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">A4</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+           x="98.114777"
+           y="491.58218"
+           id="text6967-9-7"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan6969-3-1"
+             x="98.114777"
+             y="491.58218"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">A3</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+           x="98.174965"
+           y="472.60062"
+           id="text6967-6-45"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan6969-4-3"
+             x="98.174965"
+             y="472.60062"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">A2</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+           x="99.097809"
+           y="453.61896"
+           id="text6967-73-54"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan6969-54-6"
+             x="99.097809"
+             y="453.61896"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">A1</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+           x="98.166939"
+           y="434.63733"
+           id="text6967-16-7"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan6969-02-2"
+             x="98.166939"
+             y="434.63733"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold">A0</tspan></text>
       </g>
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         sodipodi:linespacing="125%"
+         id="text6967-8-7-1"
+         y="558.50647"
+         x="-483.63831"
+         style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold"
+           y="558.50647"
+           x="-483.63831"
+           id="tspan6969-0-8-7"
+           sodipodi:role="line">Vin</tspan></text>
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         sodipodi:linespacing="125%"
+         id="text6967-1-0-8"
+         y="539.52478"
+         x="-483.54202"
+         style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold"
+           y="539.52478"
+           x="-483.54202"
+           id="tspan6969-8-9-5"
+           sodipodi:role="line">GND</tspan></text>
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         sodipodi:linespacing="125%"
+         id="text6967-9-7-8"
+         y="520.54321"
+         x="-483.3775"
+         style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold"
+           y="520.54321"
+           x="-483.3775"
+           id="tspan6969-3-1-7"
+           sodipodi:role="line">GND</tspan></text>
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         sodipodi:linespacing="125%"
+         id="text6967-6-45-6"
+         y="501.56161"
+         x="-483.31732"
+         style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold"
+           y="501.56161"
+           x="-483.31732"
+           id="tspan6969-4-3-7"
+           sodipodi:role="line">5V</tspan></text>
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         sodipodi:linespacing="125%"
+         id="text6967-73-54-7"
+         y="482.57996"
+         x="-482.39447"
+         style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold"
+           y="482.57996"
+           x="-482.39447"
+           id="tspan6969-54-6-9"
+           sodipodi:role="line">3.3V</tspan></text>
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         sodipodi:linespacing="125%"
+         id="text6967-16-7-2"
+         y="463.59833"
+         x="-483.32535"
+         style="font-size:16.43468285px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold"
+           y="463.59833"
+           x="-483.32535"
+           id="tspan6969-02-2-0"
+           sodipodi:role="line">Reset</tspan></text>
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         ry="15.845385"
+         rx="13.177778"
+         y="303.2251"
+         x="-300.27316"
+         height="70.026344"
+         width="23.094004"
+         id="rect3000-7-4-9"
+         style="fill:url(#linearGradient4354);fill-opacity:1;stroke:#000000;stroke-width:1.91359091;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         transform="matrix(0,1,-1,0,0,0)"
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Images\_Preselected\Julian_da_Silva\Arduino\ArduinoUNO.20110325a.png"
+         sodipodi:linespacing="125%"
+         id="text6967-16-1-1"
+         y="245.02921"
+         x="508.31265"
+         style="font-size:43.92460632px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial Bold"
+           y="245.02921"
+           x="508.31265"
+           id="tspan6969-02-7-7"
+           sodipodi:role="line">UNO</tspan></text>
+    </g>
+    <g
+       id="g7354"
+       transform="translate(1042.6695,-1200.5393)"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\ArduinoUNO\img\main.png"
+       inkscape:export-xdpi="75.239998"
+       inkscape:export-ydpi="75.239998">
+      <rect
+         ry="3.5135548"
+         rx="4.3490987"
+         y="1628.5531"
+         x="-492.32315"
+         height="18.5"
+         width="86"
+         id="rect6098-50-7-3"
+         style="fill:#ffd000;fill-opacity:1;stroke:none" />
+      <rect
+         ry="3.5135548"
+         rx="4.3490987"
+         y="1685.0237"
+         x="-492.32315"
+         height="18.5"
+         width="86"
+         id="rect6098-50-1-7"
+         style="fill:#ffd000;fill-opacity:1;stroke:none" />
+      <rect
+         ry="3.5135548"
+         rx="4.3490987"
+         y="1609.7296"
+         x="-492.32315"
+         height="18.5"
+         width="86"
+         id="rect6098-50-6-5"
+         style="fill:#ffd000;fill-opacity:1;stroke:none" />
+      <rect
+         ry="3.5135548"
+         rx="4.3490987"
+         y="1647.3766"
+         x="-492.32315"
+         height="18.5"
+         width="86"
+         id="rect6098-50-3-3"
+         style="fill:#ffd000;fill-opacity:1;stroke:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text5794-1-7-8-1-4-3-2-0"
+         y="1625.2783"
+         x="-490.55075"
+         style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+         xml:space="preserve"><tspan
+           style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Arial;-inkscape-font-specification:Arial Bold"
+           y="1625.2783"
+           x="-490.55075"
+           id="tspan5796-7-9-8-5-8-9-3-3"
+           sodipodi:role="line">buzzer</tspan></text>
+      <rect
+         ry="3.5135548"
+         rx="4.3490987"
+         y="1809.0706"
+         x="-492.32315"
+         height="18.5"
+         width="86"
+         id="rect6098-50-1-3-0-9"
+         style="fill:#000080;fill-opacity:1;stroke:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text5794-1-7-8-2-0-6-4-2-7"
+         y="1823.7065"
+         x="-488.89072"
+         style="font-size:15.29876328px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+         xml:space="preserve"><tspan
+           style="font-size:15.29876328px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Arial;-inkscape-font-specification:Arial Bold"
+           y="1823.7065"
+           x="-488.89072"
+           id="tspan5796-7-9-8-3-4-0-1-1-2"
+           sodipodi:role="line">irReceiver</tspan></text>
+      <rect
+         ry="3.5135548"
+         rx="4.3490987"
+         y="1733.9329"
+         x="-492.32315"
+         height="18.5"
+         width="86"
+         id="rect6098-50-7-6-2"
+         style="fill:#ffd000;fill-opacity:1;stroke:none" />
+      <rect
+         ry="3.5135548"
+         rx="4.3490987"
+         y="1790.7528"
+         x="-492.32315"
+         height="18.5"
+         width="86"
+         id="rect6098-50-1-3-5"
+         style="fill:#ffd000;fill-opacity:1;stroke:none" />
+      <rect
+         ry="3.5135548"
+         rx="4.3490987"
+         y="1714.9928"
+         x="-492.32315"
+         height="18.5"
+         width="86"
+         id="rect6098-50-6-8-5"
+         style="fill:#ffd000;fill-opacity:1;stroke:none" />
+      <rect
+         ry="3.5135548"
+         rx="4.3490987"
+         y="1752.8728"
+         x="-492.32315"
+         height="18.5"
+         width="86"
+         id="rect6098-50-3-5-5"
+         style="fill:#ffd000;fill-opacity:1;stroke:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text5794-1-7-8-8-3-5-2-8-8"
+         y="1749.6312"
+         x="-490.41245"
+         style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+         xml:space="preserve"><tspan
+           style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Arial;-inkscape-font-specification:Arial Bold"
+           y="1749.6312"
+           x="-490.41245"
+           id="tspan5796-7-9-8-7-33-7-2-5-5"
+           sodipodi:role="line">servo0</tspan></text>
+      <rect
+         ry="3.5135548"
+         rx="4.3490987"
+         y="1771.8127"
+         x="-492.32315"
+         height="18.5"
+         width="86"
+         id="rect6098-50-8-4-5"
+         style="fill:#ffd000;fill-opacity:1;stroke:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text5794-1-7-8-8-9-9-6-6-6-1"
+         y="1730.7241"
+         x="-490.41245"
+         style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+         xml:space="preserve"><tspan
+           style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Arial;-inkscape-font-specification:Arial Bold"
+           y="1730.7241"
+           x="-490.41245"
+           id="tspan5796-7-9-8-7-2-04-9-4-1-3"
+           sodipodi:role="line">servo1</tspan></text>
+      <rect
+         ry="3.5135548"
+         rx="4.3490987"
+         y="1666.2002"
+         x="-492.32315"
+         height="18.5"
+         width="86"
+         id="rect6098-50-8-0"
+         style="fill:#ffd000;fill-opacity:1;stroke:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text5794-1-7-8-8-9-4-8-1-6-9-6"
+         y="1700.755"
+         x="-490.41245"
+         style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+         xml:space="preserve"><tspan
+           style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Arial;-inkscape-font-specification:Arial Bold"
+           y="1700.755"
+           x="-490.41245"
+           id="tspan5796-7-9-8-7-2-6-4-3-5-2-1"
+           sodipodi:role="line">servo2</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text5794-1-7-8-8-8-34-3-4-9-5"
+         y="1804.7787"
+         x="-491.11069"
+         style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+         xml:space="preserve"><tspan
+           style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Arial;-inkscape-font-specification:Arial Bold"
+           y="1804.7787"
+           x="-491.11069"
+           id="tspan5796-7-9-8-7-0-30-6-6-5-6"
+           sodipodi:role="line">m0_pwm</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text5794-1-7-8-8-9-47-1-5-6-3-0"
+         y="1786.9637"
+         x="-491.11069"
+         style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+         xml:space="preserve"><tspan
+           style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Arial;-inkscape-font-specification:Arial Bold"
+           y="1786.9637"
+           x="-491.11069"
+           id="tspan5796-7-9-8-7-2-0-3-5-4-1-5"
+           sodipodi:role="line">m0_dir0</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text5794-1-7-8-8-9-4-2-4-8-6-3-2"
+         y="1768.1869"
+         x="-491.11069"
+         style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+         xml:space="preserve"><tspan
+           style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Arial;-inkscape-font-specification:Arial Bold"
+           y="1768.1869"
+           x="-491.11069"
+           id="tspan5796-7-9-8-7-2-6-7-4-6-4-3-7"
+           sodipodi:role="line">m0_dir1</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text5794-1-7-8-8-8-3-1-2-5-1-3"
+         y="1641.8373"
+         x="-490.46237"
+         style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+         xml:space="preserve"><tspan
+           style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Arial;-inkscape-font-specification:Arial Bold"
+           y="1641.8373"
+           x="-490.46237"
+           id="tspan5796-7-9-8-7-0-3-7-1-2-1-7"
+           sodipodi:role="line">m1_pwm</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text5794-1-7-8-8-9-47-0-0-8-7-8-3"
+         y="1662.1863"
+         x="-490.55319"
+         style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+         xml:space="preserve"><tspan
+           style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Arial;-inkscape-font-specification:Arial Bold"
+           y="1662.1863"
+           x="-490.55319"
+           id="tspan5796-7-9-8-7-2-0-6-9-3-8-7-7"
+           sodipodi:role="line">m1_dir0</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text5794-1-7-8-8-9-4-2-5-9-7-7-2-1"
+         y="1681.1719"
+         x="-490.55331"
+         style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+         xml:space="preserve"><tspan
+           style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Arial;-inkscape-font-specification:Arial Bold"
+           y="1681.1719"
+           x="-490.55331"
+           id="tspan5796-7-9-8-7-2-6-7-7-4-0-9-7-9"
+           sodipodi:role="line">m1_dir1</tspan></text>
+      <rect
+         ry="3.5135548"
+         rx="4.3490987"
+         y="1590.906"
+         x="-492.32315"
+         height="18.5"
+         width="86"
+         id="rect6098-50-74"
+         style="fill:#ffd000;fill-opacity:1;stroke:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text5794-1-7-8-8-9-4-7-6-8-9-9-2"
+         y="1606.7179"
+         x="-491.72861"
+         style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+         xml:space="preserve"><tspan
+           style="font-size:18.33367729px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Arial;-inkscape-font-specification:Arial Bold"
+           y="1606.7179"
+           x="-491.72861"
+           id="tspan5796-7-9-8-7-2-6-3-3-0-2-3-0"
+           sodipodi:role="line">LED</tspan></text>
+    </g>
+    <rect
+       style="fill:#800080;fill-opacity:1;stroke:none"
+       id="rect6098-3-0"
+       width="72.516022"
+       height="18.5"
+       x="92.377327"
+       y="647.42249"
+       rx="4.3490987"
+       ry="3.5135548"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\ArduinoUNO\img\main.png"
+       inkscape:export-xdpi="75.239998"
+       inkscape:export-ydpi="75.239998" />
+    <text
+       xml:space="preserve"
+       style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+       x="93.13575"
+       y="662.95227"
+       id="text5794-1-7-8-8-0-2-0-4-2-8-0"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\ArduinoUNO\img\main.png"
+       inkscape:export-xdpi="75.239998"
+       inkscape:export-ydpi="75.239998"><tspan
+         sodipodi:role="line"
+         id="tspan5796-7-9-8-7-3-5-3-3-3-8-1"
+         x="93.13575"
+         y="662.95227"
+         style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Arial;-inkscape-font-specification:Arial Bold">sensor5</tspan></text>
+    <rect
+       style="fill:#800080;fill-opacity:1;stroke:none"
+       id="rect6098-5-2"
+       width="72.516022"
+       height="18.5"
+       x="92.377327"
+       y="571.49707"
+       rx="4.3490987"
+       ry="3.5135548"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\ArduinoUNO\img\main.png"
+       inkscape:export-xdpi="75.239998"
+       inkscape:export-ydpi="75.239998" />
+    <rect
+       style="fill:#800080;fill-opacity:1;stroke:none"
+       id="rect6098-9-2"
+       width="72.516022"
+       height="18.5"
+       x="92.377327"
+       y="590.47839"
+       rx="4.3490987"
+       ry="3.5135548"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\ArduinoUNO\img\main.png"
+       inkscape:export-xdpi="75.239998"
+       inkscape:export-ydpi="75.239998" />
+    <rect
+       style="fill:#800080;fill-opacity:1;stroke:none"
+       id="rect6098-55-2"
+       width="72.516022"
+       height="18.5"
+       x="92.377327"
+       y="609.45972"
+       rx="4.3490987"
+       ry="3.5135548"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\ArduinoUNO\img\main.png"
+       inkscape:export-xdpi="75.239998"
+       inkscape:export-ydpi="75.239998" />
+    <rect
+       style="fill:#800080;fill-opacity:1;stroke:none"
+       id="rect6098-1-2"
+       width="72.516022"
+       height="18.5"
+       x="92.377327"
+       y="628.44104"
+       rx="4.3490987"
+       ry="3.5135548"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\ArduinoUNO\img\main.png"
+       inkscape:export-xdpi="75.239998"
+       inkscape:export-ydpi="75.239998" />
+    <text
+       xml:space="preserve"
+       style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+       x="93.142593"
+       y="644.08972"
+       id="text5794-1-7-8-8-0-9-4-0-7-4-5"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\ArduinoUNO\img\main.png"
+       inkscape:export-xdpi="75.239998"
+       inkscape:export-ydpi="75.239998"><tspan
+         sodipodi:role="line"
+         id="tspan5796-7-9-8-7-3-4-9-0-7-5-9"
+         x="93.142593"
+         y="644.08972"
+         style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Arial;-inkscape-font-specification:Arial Bold">sensor4</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+       x="93.143929"
+       y="606.11755"
+       id="text5794-1-7-8-8-0-90-8-1-0-1-2"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\ArduinoUNO\img\main.png"
+       inkscape:export-xdpi="75.239998"
+       inkscape:export-ydpi="75.239998"><tspan
+         sodipodi:role="line"
+         id="tspan5796-7-9-8-7-3-8-8-1-7-7-1"
+         x="93.143929"
+         y="606.11755"
+         style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Arial;-inkscape-font-specification:Arial Bold">sensor2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+       x="93.14576"
+       y="625.03284"
+       id="text5794-1-7-8-8-0-26-2-2-2-1-9"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\ArduinoUNO\img\main.png"
+       inkscape:export-xdpi="75.239998"
+       inkscape:export-ydpi="75.239998"><tspan
+         sodipodi:role="line"
+         id="tspan5796-7-9-8-7-3-0-5-9-4-5-5"
+         x="93.14576"
+         y="625.03284"
+         style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Arial;-inkscape-font-specification:Arial Bold">sensor3</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+       x="93.142593"
+       y="587.13049"
+       id="text5794-1-7-8-8-0-6-4-1-7-7-7"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\ArduinoUNO\img\main.png"
+       inkscape:export-xdpi="75.239998"
+       inkscape:export-ydpi="75.239998"><tspan
+         sodipodi:role="line"
+         id="tspan5796-7-9-8-7-3-16-2-4-3-6-5"
+         x="93.142593"
+         y="587.13049"
+         style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Arial;-inkscape-font-specification:Arial Bold">sensor1</tspan></text>
+    <rect
+       style="fill:#800080;fill-opacity:1;stroke:none"
+       id="rect6098-7"
+       width="72.516022"
+       height="18.5"
+       x="92.377327"
+       y="552.51562"
+       rx="4.3490987"
+       ry="3.5135548"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\ArduinoUNO\img\main.png"
+       inkscape:export-xdpi="75.239998"
+       inkscape:export-ydpi="75.239998" />
+    <text
+       xml:space="preserve"
+       style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+       x="93.953072"
+       y="568.07349"
+       id="text5794-1-7-8-8-0-8-3-4-0-2"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\ArduinoUNO\img\main.png"
+       inkscape:export-xdpi="75.239998"
+       inkscape:export-ydpi="75.239998"><tspan
+         sodipodi:role="line"
+         id="tspan5796-7-9-8-7-3-48-5-4-9-5"
+         x="93.953072"
+         y="568.07349"
+         style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;font-family:Arial;-inkscape-font-specification:Arial Bold">sensor0</tspan></text>
+    <g
+       id="g4389"
+       transform="translate(139.95616,33.847879)"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\ArduinoUNO\img\main.png"
+       inkscape:export-xdpi="75.239998"
+       inkscape:export-ydpi="75.239998">
+      <rect
+         ry="3.5135548"
+         rx="4.3490987"
+         y="613.8349"
+         x="-84.952301"
+         height="18.5"
+         width="37.37347"
+         id="rect6098-3-0-1"
+         style="fill:#66ff00;fill-opacity:1;stroke:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text5794-1-7-8-8-0-2-0-4-2-8-0-7"
+         y="629.36475"
+         x="-84.193878"
+         style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+         xml:space="preserve"><tspan
+           style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Arial;-inkscape-font-specification:Arial Bold"
+           y="629.36475"
+           x="-84.193878"
+           id="tspan5796-7-9-8-7-3-5-3-3-3-8-1-4"
+           sodipodi:role="line">D19</tspan></text>
+      <rect
+         ry="3.5135548"
+         rx="4.3490987"
+         y="537.90948"
+         x="-84.952301"
+         height="18.5"
+         width="37.37347"
+         id="rect6098-5-2-0"
+         style="fill:#66ff00;fill-opacity:1;stroke:none" />
+      <rect
+         ry="3.5135548"
+         rx="4.3490987"
+         y="556.89081"
+         x="-84.952301"
+         height="18.5"
+         width="37.37347"
+         id="rect6098-9-2-9"
+         style="fill:#66ff00;fill-opacity:1;stroke:none" />
+      <rect
+         ry="3.5135548"
+         rx="4.3490987"
+         y="575.87213"
+         x="-84.952301"
+         height="18.5"
+         width="37.37347"
+         id="rect6098-55-2-4"
+         style="fill:#66ff00;fill-opacity:1;stroke:none" />
+      <rect
+         ry="3.5135548"
+         rx="4.3490987"
+         y="594.85345"
+         x="-84.952301"
+         height="18.5"
+         width="37.37347"
+         id="rect6098-1-2-8"
+         style="fill:#66ff00;fill-opacity:1;stroke:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text5794-1-7-8-8-0-9-4-0-7-4-5-8"
+         y="610.50214"
+         x="-84.187035"
+         style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+         xml:space="preserve"><tspan
+           style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Arial;-inkscape-font-specification:Arial Bold"
+           y="610.50214"
+           x="-84.187035"
+           id="tspan5796-7-9-8-7-3-4-9-0-7-5-9-2"
+           sodipodi:role="line">D18</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text5794-1-7-8-8-0-90-8-1-0-1-2-4"
+         y="572.52997"
+         x="-84.185699"
+         style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+         xml:space="preserve"><tspan
+           style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Arial;-inkscape-font-specification:Arial Bold"
+           y="572.52997"
+           x="-84.185699"
+           id="tspan5796-7-9-8-7-3-8-8-1-7-7-1-5"
+           sodipodi:role="line">D16</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text5794-1-7-8-8-0-26-2-2-2-1-9-5"
+         y="591.44525"
+         x="-84.183868"
+         style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+         xml:space="preserve"><tspan
+           style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Arial;-inkscape-font-specification:Arial Bold"
+           y="591.44525"
+           x="-84.183868"
+           id="tspan5796-7-9-8-7-3-0-5-9-4-5-5-1"
+           sodipodi:role="line">D17</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text5794-1-7-8-8-0-6-4-1-7-7-7-7"
+         y="553.54291"
+         x="-84.187035"
+         style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+         xml:space="preserve"><tspan
+           style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Arial;-inkscape-font-specification:Arial Bold"
+           y="553.54291"
+           x="-84.187035"
+           id="tspan5796-7-9-8-7-3-16-2-4-3-6-5-1"
+           sodipodi:role="line">D15</tspan></text>
+      <rect
+         ry="3.5135548"
+         rx="4.3490987"
+         y="518.92804"
+         x="-84.952301"
+         height="18.5"
+         width="37.37347"
+         id="rect6098-7-1"
+         style="fill:#66ff00;fill-opacity:1;stroke:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text5794-1-7-8-8-0-8-3-4-0-2-5"
+         y="534.4859"
+         x="-83.376556"
+         style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+         xml:space="preserve"><tspan
+           style="font-size:18.10128975px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;font-family:Arial;-inkscape-font-specification:Arial Bold"
+           y="534.4859"
+           x="-83.376556"
+           id="tspan5796-7-9-8-7-3-48-5-4-9-5-2"
+           sodipodi:role="line">D14</tspan></text>
     </g>
   </g>
 </svg>
