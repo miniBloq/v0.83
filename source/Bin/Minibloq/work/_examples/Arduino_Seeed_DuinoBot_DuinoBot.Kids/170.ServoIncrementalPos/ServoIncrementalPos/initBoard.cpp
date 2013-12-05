@@ -1,8 +1,8 @@
 #include <mbq.h>
 
 
-DCMotor motor0(22, 20, 21);
-DCMotor motor1(3, 4, 8);
+DCMotor motor0(27, 23, 24);
+DCMotor motor1(28, 25, 26);
 Servo servo0;
 Servo servo1;
 IRrecv irReceiver(D14);

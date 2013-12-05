@@ -9,9 +9,11 @@
         <while function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <boolConstantTrue function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </while>
-        <SerialNumber function="Setter" commented="false" instanceName="serial0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <random function="Getter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-        </SerialNumber>
+        <SerialText function="Setter" commented="false" instanceName="serial0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <serialPrintlnNumber function="Getter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <random function="Getter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </serialPrintlnNumber>
+        </SerialText>
         <delay function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <numberConstant function="Constant" commented="false" constantValue="300" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </delay>

@@ -7,7 +7,6 @@ void setup()
 
 	float vel = 45;
 	float code = 0;
-	servo0.attachAndWrite(pingMeasureCM(D4));
 	while(true)
 	{
 		code = irReceiver.getIRRemoteCode();

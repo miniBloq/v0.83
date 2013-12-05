@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mbqc xmlns="http://mbqc.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.8.Beta">
+<mbqc xmlns="http://mbqc.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
     <properties>
         <blocks count="7"/>
     </properties>
@@ -26,9 +26,11 @@
                 <numberConstant function="Constant" commented="false" constantValue="100" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
             </numberMul>
         </VariableSetter>
-        <SerialNumber function="Setter" commented="false" instanceName="serial0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <VariableGetter function="Getter" commented="false" instanceName="temperature" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-        </SerialNumber>
+        <SerialText function="Setter" commented="false" instanceName="serial0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <serialPrintlnNumber function="Getter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <VariableGetter function="Getter" commented="false" instanceName="temperature" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </serialPrintlnNumber>
+        </SerialText>
         <delay function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <numberConstant function="Constant" commented="false" constantValue="1000" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </delay>

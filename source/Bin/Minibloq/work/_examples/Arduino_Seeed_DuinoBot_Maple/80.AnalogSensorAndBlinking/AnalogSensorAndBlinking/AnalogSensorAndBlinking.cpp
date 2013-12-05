@@ -9,9 +9,9 @@ void setup()
 	while(true)
 	{
 		s0 = AnalogRead(sensor0);
-		DigitalWrite(D15, true);
+		DigitalWrite(D13_LED, true);
 		delay((s0*5));
-		DigitalWrite(D15, false);
+		DigitalWrite(D13_LED, false);
 		delay((s0*5));
 	}
 }

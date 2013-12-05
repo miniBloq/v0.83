@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mbqc xmlns="http://mbqc.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.8.Beta">
+<mbqc xmlns="http://mbqc.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
     <properties>
         <blocks count="7"/>
     </properties>
@@ -17,9 +17,6 @@
         <VariableSetter function="Setter" commented="false" instanceName="code" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <IRRemote function="Sensor" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </VariableSetter>
-        <SerialNumber function="Setter" commented="false" instanceName="serial0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <VariableGetter function="Getter" commented="false" instanceName="code" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-        </SerialNumber>
         <Buzzer function="Setter" commented="false" paramsCount="2" hasAddParamsButton="false" loadAction="load">
             <numberMul function="Operation" commented="false" paramsCount="2" hasAddParamsButton="true" loadAction="load">
                 <VariableGetter function="Getter" commented="false" instanceName="code" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
@@ -27,6 +24,11 @@
             </numberMul>
             <numberConstant function="Constant" commented="false" constantValue="250" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </Buzzer>
+        <SerialText function="Setter" commented="false" instanceName="serial0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <serialPrintlnNumber function="Getter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <IRRemote function="Sensor" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </serialPrintlnNumber>
+        </SerialText>
         <whileEnd function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
     </blocks>
 </mbqc>

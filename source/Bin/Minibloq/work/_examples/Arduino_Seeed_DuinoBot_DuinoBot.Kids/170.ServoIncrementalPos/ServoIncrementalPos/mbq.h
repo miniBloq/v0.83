@@ -3,6 +3,7 @@
 
 
 #include <Arduino.h>
+#include <pins_arduino.h>
 #include <stdlib.h>
 #include <miniBloq.h>
 #include <board.h>

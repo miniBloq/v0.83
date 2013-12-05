@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mbqc xmlns="http://mbqc.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.8.Beta">
+<mbqc xmlns="http://mbqc.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
     <properties>
         <blocks count="7"/>
     </properties>
@@ -20,7 +20,7 @@
                 <numberConstant function="Constant" commented="false" constantValue="1" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
             </numberAdd>
         </VariableSetter>
-        <analogWrite function="Setter" commented="false" instanceName="PWM3" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+        <analogWrite function="Setter" commented="false" instanceName="PWM9" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <VariableGetter function="Getter" commented="false" instanceName="pwm" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </analogWrite>
         <delay function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">

@@ -7,7 +7,7 @@ void setup()
 
 	while(true)
 	{
-		serial0.println(irRanger20to150.measureCM(sensor0));
+		serial0.println(irRanger20to150.measureCM(sensor1));
 		delay(200);
 	}
 }

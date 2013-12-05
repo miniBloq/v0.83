@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mbqc xmlns="http://mbqc.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.81.Beta">
+<mbqc xmlns="http://mbqc.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
     <properties>
         <blocks count="10"/>
     </properties>
@@ -10,22 +10,30 @@
             <boolConstantTrue function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </while>
         <SerialText function="Setter" commented="false" instanceName="serial0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <textConstant function="Constant" commented="false" constantValue="This are serial emoticons:" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            <serialPrintlnText function="Getter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <textConstant function="Constant" commented="false" constantValue="These are serial emoticons:" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </serialPrintlnText>
         </SerialText>
         <SerialText function="Setter" commented="false" instanceName="serial0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <emoticonSmile function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-        </SerialText>
-        <delay function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <numberConstant function="Constant" commented="false" constantValue="300" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-        </delay>
-        <SerialText function="Setter" commented="false" instanceName="serial0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <emoticonWhatever function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            <serialPrintlnText function="Getter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <emoticonSmile function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </serialPrintlnText>
         </SerialText>
         <delay function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <numberConstant function="Constant" commented="false" constantValue="300" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </delay>
         <SerialText function="Setter" commented="false" instanceName="serial0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <emoticonAngry function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            <serialPrintlnText function="Getter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <emoticonWhatever function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </serialPrintlnText>
+        </SerialText>
+        <delay function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="300" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </delay>
+        <SerialText function="Setter" commented="false" instanceName="serial0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <serialPrintlnText function="Getter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <emoticonAngry function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </serialPrintlnText>
         </SerialText>
         <delay function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <numberConstant function="Constant" commented="false" constantValue="300" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
