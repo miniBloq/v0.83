@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rel xmlns="http://rel.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
+	<includePaths>
+		<include><s>libsPath::</s><s>/Arduino/IRRemote/v1.0</s></include>
+	</includePaths>
+	<includeFiles>
+		<include><s>IRRemote.h</s></include>
+	</includeFiles>
+	<instancesHeader>
+		<s>extern IRrecv irReceiver;</s>
+	</instancesHeader>		
+	<instancesCode>
+		<s>IRrecv irReceiver(D14);</s>
+	</instancesCode>
+	<build>
+		<cmd>
+			<s>"</s><s>toolsPath::</s>
+			<s>/avr-g++" -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD</s>
+			<s> -mmcu=</s><s>cpu::</s>
+			<s> -DF_CPU=</s><s>clockFreq::</s>
+			<s> -DARDUINO=</s><s>arduinoVersion::</s>
+			<s> -I"</s> <s>toolsPath::</s>
+			<s>" -I"</s><s>corePath::</s>
+			<s>" -I"</s><s>corePath::</s><s>/avr-libc</s>
+			<s>" -I"</s><s>corePath::</s><s>/variants/</s><s>arduinoVariant::</s>
+			<s>" -I"</s><s>componentPath::</s>
+			<s>" -I"</s><s>outputPath::</s><s>" </s>
+			<s>-I"</s><s>libsPath::</s><s>/Arduino/IRRemote/v1.0" </s>
+			
+			<s>"</s><s>libsPath::</s><s>/Arduino/IRRemote/v1.0/IRRemote.cpp" -o "</s><s>outputPath::</s><s>/IRRemote.cpp.o"</s>
+		</cmd>
+	</build>
+</rel>

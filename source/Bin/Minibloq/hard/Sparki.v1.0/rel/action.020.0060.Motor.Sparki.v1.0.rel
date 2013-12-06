@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rel xmlns="http://rel.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
+	<instances>
+		<MOTOR_LEFT instanceType="Motor"/>
+		<MOTOR_RIGHT instanceType="Motor"/>
+		<MOTOR_GRIPPER instanceType="Motor"/>
+	</instances>
+</rel>

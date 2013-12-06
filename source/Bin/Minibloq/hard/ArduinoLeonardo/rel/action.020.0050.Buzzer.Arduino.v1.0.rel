@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rel xmlns="http://rel.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
+	<includePaths>
+		<include><s>libsPath::</s><s>/Arduino/Buzzer/v1.0</s></include>
+	</includePaths>
+	<includeFiles>
+		<include><s>pitches.h</s></include>
+		<include><s>toneDelay.h</s></include>
+	</includeFiles>
+	<instances>
+		<NOTE_B0 instanceType="BuzzerNote"/>
+		<NOTE_C1 instanceType="BuzzerNote"/>
+		<NOTE_CS1 instanceType="BuzzerNote"/>
+		<NOTE_D1 instanceType="BuzzerNote"/>
+		<NOTE_E1 instanceType="BuzzerNote"/>
+		<NOTE_F1 instanceType="BuzzerNote"/>
+		<NOTE_FS1 instanceType="BuzzerNote"/>
+		<NOTE_G1 instanceType="BuzzerNote"/>
+		<NOTE_GS1 instanceType="BuzzerNote"/>
+		<NOTE_A1 instanceType="BuzzerNote"/>
+		<NOTE_AS1 instanceType="BuzzerNote"/>
+		<NOTE_B1 instanceType="BuzzerNote"/>
+		<NOTE_C2 instanceType="BuzzerNote"/>
+		<NOTE_CS2 instanceType="BuzzerNote"/>
+		<NOTE_D2 instanceType="BuzzerNote"/>
+		<NOTE_DS2 instanceType="BuzzerNote"/>
+		<NOTE_E2 instanceType="BuzzerNote"/>
+		<NOTE_F2 instanceType="BuzzerNote"/>
+		<NOTE_FS2 instanceType="BuzzerNote"/>
+		<NOTE_G2 instanceType="BuzzerNote"/>
+		<NOTE_GS2 instanceType="BuzzerNote"/>
+		<NOTE_A2 instanceType="BuzzerNote"/>
+		<NOTE_AS2 instanceType="BuzzerNote"/>
+		<NOTE_B2 instanceType="BuzzerNote"/>
+		<NOTE_C3 instanceType="BuzzerNote"/>
+		<NOTE_CS3 instanceType="BuzzerNote"/>
+		<NOTE_D3 instanceType="BuzzerNote"/>
+		<NOTE_DS3 instanceType="BuzzerNote"/>
+		<NOTE_E3 instanceType="BuzzerNote"/>
+		<NOTE_F3 instanceType="BuzzerNote"/>
+		<NOTE_FS3 instanceType="BuzzerNote"/>
+		<NOTE_G3 instanceType="BuzzerNote"/>
+		<NOTE_GS3 instanceType="BuzzerNote"/>
+		<NOTE_A3 instanceType="BuzzerNote"/>
+		<NOTE_AS3 instanceType="BuzzerNote"/>
+		<NOTE_B3 instanceType="BuzzerNote"/>
+		<NOTE_C4 instanceType="BuzzerNote"/>
+		<NOTE_CS4 instanceType="BuzzerNote"/>
+		<NOTE_D4 instanceType="BuzzerNote"/>
+		<NOTE_DS4 instanceType="BuzzerNote"/>
+		<NOTE_E4 instanceType="BuzzerNote"/>
+		<NOTE_F4 instanceType="BuzzerNote"/>
+		<NOTE_FS4 instanceType="BuzzerNote"/>
+		<NOTE_G4 instanceType="BuzzerNote"/>
+		<NOTE_GS4 instanceType="BuzzerNote"/>
+		<NOTE_A4 instanceType="BuzzerNote"/>
+		<NOTE_AS4 instanceType="BuzzerNote"/>
+		<NOTE_B4 instanceType="BuzzerNote"/>
+		<NOTE_C5 instanceType="BuzzerNote"/>
+		<NOTE_CS5 instanceType="BuzzerNote"/>
+		<NOTE_D5 instanceType="BuzzerNote"/>
+		<NOTE_DS5 instanceType="BuzzerNote"/>
+		<NOTE_E5 instanceType="BuzzerNote"/>
+		<NOTE_F5 instanceType="BuzzerNote"/>
+		<NOTE_FS5 instanceType="BuzzerNote"/>
+		<NOTE_G5 instanceType="BuzzerNote"/>
+		<NOTE_GS5 instanceType="BuzzerNote"/>
+		<NOTE_A5 instanceType="BuzzerNote"/>
+		<NOTE_AS5 instanceType="BuzzerNote"/>
+		<NOTE_B5 instanceType="BuzzerNote"/>
+		<NOTE_C6 instanceType="BuzzerNote"/>
+		<NOTE_CS6 instanceType="BuzzerNote"/>
+		<NOTE_D6 instanceType="BuzzerNote"/>
+		<NOTE_DS6 instanceType="BuzzerNote"/>
+		<NOTE_E6 instanceType="BuzzerNote"/>
+		<NOTE_F6 instanceType="BuzzerNote"/>
+		<NOTE_FS6 instanceType="BuzzerNote"/>
+		<NOTE_G6 instanceType="BuzzerNote"/>
+		<NOTE_GS6 instanceType="BuzzerNote"/>
+		<NOTE_A6 instanceType="BuzzerNote"/>
+		<NOTE_AS6 instanceType="BuzzerNote"/>
+		<NOTE_B6 instanceType="BuzzerNote"/>
+		<NOTE_C7 instanceType="BuzzerNote"/>
+		<NOTE_CS7 instanceType="BuzzerNote"/>
+		<NOTE_D7 instanceType="BuzzerNote"/>
+		<NOTE_DS7 instanceType="BuzzerNote"/>
+		<NOTE_E7 instanceType="BuzzerNote"/>
+		<NOTE_F7 instanceType="BuzzerNote"/>
+		<NOTE_FS7 instanceType="BuzzerNote"/>
+		<NOTE_G7 instanceType="BuzzerNote"/>
+		<NOTE_GS7 instanceType="BuzzerNote"/>
+		<NOTE_A7 instanceType="BuzzerNote"/>
+		<NOTE_AS7 instanceType="BuzzerNote"/>
+		<NOTE_B7 instanceType="BuzzerNote"/>
+		<NOTE_C8 instanceType="BuzzerNote"/>
+		<NOTE_CS8 instanceType="BuzzerNote"/>
+		<NOTE_D8 instanceType="BuzzerNote"/>
+		<NOTE_DS8 instanceType="BuzzerNote"/>
+	</instances>
+</rel>
