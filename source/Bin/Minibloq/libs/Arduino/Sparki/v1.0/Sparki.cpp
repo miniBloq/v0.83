@@ -334,10 +334,12 @@ void SparkiClass::motorRotate(int motor, int direction, int speed)
 
 void SparkiClass::motorRotate(int motor, int speed)
 {
-	if (speed >= 0)
+	if (speed > 0)
 		motorRotate(motor, DIR_CW, speed);
-	else
+	else if (speed < 0)
 		motorRotate(motor, DIR_CCW, -speed);
+	else //speed == 0
+		motorStop(motor);
 }
 
 void SparkiClass::motorStop(int motor)
