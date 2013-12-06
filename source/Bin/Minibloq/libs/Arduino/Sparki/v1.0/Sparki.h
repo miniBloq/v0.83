@@ -233,6 +233,7 @@ void writeServo(int);
  * speed range is percent 0-100
 */ 
   void motorRotate( int motor, int direction,  int speed);
+  void motorRotate( int motor, int speed); //miniBloq.
   void motorStop(int motor);
 
 
