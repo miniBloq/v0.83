@@ -2026,10 +2026,12 @@ wxSize BubbleBlock::getInstanceNameFieldSize() const
     if (getCanvas())
     {
         return wxSize(
+                        GetClientSize().GetWidth() - 2*(int)(GetClientSize().GetWidth()*(1-childFactor)),
+//                        getMethodButtonSize().GetWidth()*2 -
+//                        (int)( (GetClientSize().GetWidth()/120)*getCanvas()->getZoomFactor() ),
+
 //                        (int)(getRealSize().GetWidth()*childFactor*(getCanvas()->getZoomFactor()) -
 //                        (int)(getParamSize().GetWidth()),
-                        getMethodButtonSize().GetWidth()*2 -
-                        (int)( (GetClientSize().GetWidth()/120)*getCanvas()->getZoomFactor() ),
                         //(int)( getRealSize().GetHeight()*childFactor*(getCanvas()->getZoomFactor()/3 )
                         //This has still some problems, specially when zooming very small:
 
