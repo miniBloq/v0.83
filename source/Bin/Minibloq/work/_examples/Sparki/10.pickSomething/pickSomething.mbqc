@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mbqc xmlns="http://mbqc.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
+    <properties>
+        <blocks count="26"/>
+    </properties>
+    <variables>
+        <speed/>
+    </variables>
+    <blocks>
+        <ComponentStart function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="noLoad"/>
+        <VariableInit function="Setter" commented="false" constantValue="speed" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="50" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </VariableInit>
+        <Comment function="Comment" commented="false" constantValue="Open the gripper:" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        <Motor function="Setter" commented="false" instanceName="MOTOR_GRIPPER" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="100" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </Motor>
+        <delay function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="500" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </delay>
+        <Motor function="Setter" commented="false" instanceName="MOTOR_GRIPPER" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="0" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </Motor>
+        <Comment function="Comment" commented="false" constantValue="Forward:" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        <Motor function="Setter" commented="false" instanceName="MOTOR_LEFT" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <VariableGetter function="Getter" commented="false" instanceName="speed" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </Motor>
+        <Motor function="Setter" commented="false" instanceName="MOTOR_RIGHT" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberNegative function="Operation" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <VariableGetter function="Getter" commented="false" instanceName="speed" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </numberNegative>
+        </Motor>
+        <delay function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="2000" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </delay>
+        <Comment function="Comment" commented="false" constantValue="Stop:" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        <Motor function="Setter" commented="false" instanceName="MOTOR_LEFT" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="0" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </Motor>
+        <Motor function="Setter" commented="false" instanceName="MOTOR_RIGHT" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="0" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </Motor>
+        <Comment function="Comment" commented="false" constantValue="Pick something:" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        <Motor function="Setter" commented="false" instanceName="MOTOR_GRIPPER" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberNegative function="Operation" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <numberConstant function="Constant" commented="false" constantValue="100" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </numberNegative>
+        </Motor>
+        <delay function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="400" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </delay>
+        <Motor function="Setter" commented="false" instanceName="MOTOR_GRIPPER" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="0" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </Motor>
+        <Comment function="Comment" commented="false" constantValue="Turn left:" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        <Motor function="Setter" commented="false" instanceName="MOTOR_RIGHT" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <VariableGetter function="Getter" commented="false" instanceName="speed" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </Motor>
+        <delay function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="500" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </delay>
+        <Comment function="Comment" commented="false" constantValue="Forward again:" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        <Motor function="Setter" commented="false" instanceName="MOTOR_RIGHT" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberNegative function="Operation" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <VariableGetter function="Getter" commented="false" instanceName="speed" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </numberNegative>
+        </Motor>
+        <delay function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="2000" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </delay>
+        <Comment function="Comment" commented="false" constantValue="Stop everything:" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        <Motor function="Setter" commented="false" instanceName="MOTOR_LEFT" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="0" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </Motor>
+        <Motor function="Setter" commented="false" instanceName="MOTOR_RIGHT" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="0" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </Motor>
+    </blocks>
+</mbqc>
