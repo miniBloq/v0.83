@@ -232,6 +232,8 @@ void writeServo(int);
  * individual motor control (non-blocking)
  * speed range is percent 0-100
 */ 
+  inline void setMotorInvertedSpeedSign(bool value) { motorInvertedSpeedSign = value; } //miniBloq.
+  inline bool getMotorInvertedSpeedSign() const { return motorInvertedSpeedSign; } //miniBloq.
   void motorRotate( int motor, int direction,  int speed);
   void motorRotate( int motor, int speed); //miniBloq.
   void motorStop(int motor);
@@ -289,7 +291,8 @@ void writeServo(int);
 
 private:   
   
-  byte stepIndex[2];   
+  byte stepIndex[2];
+  bool motorInvertedSpeedSign; //miniBloq.
   
   
   void setSteps(uint8_t motor, uint32_t steps);  // sets the number of remaining steps, motor stops when this is 0

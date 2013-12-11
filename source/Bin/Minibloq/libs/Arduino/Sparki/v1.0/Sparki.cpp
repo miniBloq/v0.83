@@ -47,7 +47,7 @@ volatile uint8_t haltIRRead = 0;
 
 //static volatile int speedCounter;
 
-SparkiClass::SparkiClass()
+SparkiClass::SparkiClass(): motorInvertedSpeedSign(true) //miniBloq.
 {
  //begin();
 }
@@ -323,7 +323,9 @@ void SparkiClass::motorRotate(int motor, int direction, int speed)
    uint8_t oldSREG = SREG;
    cli();
    motor_speed[motor] = speed;  
-   step_dir[motor] = direction;  
+   if (getMotorInvertedSpeedSign() && (motor == MOTOR_LEFT)) //miniBloq: Only inverts the LEFT motor.
+      direction = -direction;
+   step_dir[motor] = direction;
    remainingSteps[motor] = ULONG_MAX; // motor stops after this many steps, almost 50 days of stepping if motor not stopped
    isRunning[motor] = true;
    speedCount[motor] = int(100.0/float(motor_speed[motor])*10.0);
@@ -332,7 +334,7 @@ void SparkiClass::motorRotate(int motor, int direction, int speed)
    delay(10);
 }
 
-void SparkiClass::motorRotate(int motor, int speed)
+void SparkiClass::motorRotate(int motor, int speed) //miniBloq.
 {
 	if (speed > 0)
 		motorRotate(motor, DIR_CW, speed);
@@ -354,6 +356,8 @@ void SparkiClass::motorsRotateSteps( int leftDir, int rightDir,  int speed, uint
   uint8_t oldSREG = SREG;
   cli();
   motor_speed[MOTOR_LEFT] = motor_speed[MOTOR_RIGHT] = speed;  
+  if (getMotorInvertedSpeedSign()) //miniBloq: Only inverts the LEFT motor.
+    leftDir = -leftDir;  
   step_dir[MOTOR_LEFT] = leftDir;   
   step_dir[MOTOR_RIGHT] = rightDir; 
   remainingSteps[MOTOR_LEFT] = remainingSteps[MOTOR_RIGHT] = steps;
