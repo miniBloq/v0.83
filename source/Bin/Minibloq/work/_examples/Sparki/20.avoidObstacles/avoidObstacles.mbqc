@@ -10,7 +10,7 @@
     <blocks>
         <ComponentStart function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="noLoad"/>
         <VariableInit function="Setter" commented="false" constantValue="distance" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <numberConstant function="Constant" commented="false" constantValue="12" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            <numberConstant function="Constant" commented="false" constantValue="15" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </VariableInit>
         <VariableInit function="Setter" commented="false" constantValue="speed" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <numberConstant function="Constant" commented="false" constantValue="100" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>

@@ -47,7 +47,7 @@ volatile uint8_t haltIRRead = 0;
 
 //static volatile int speedCounter;
 
-SparkiClass::SparkiClass(): motorInvertedSpeedSign(true) //miniBloq.
+SparkiClass::SparkiClass(): motorInvertedSpeedSign(false) //miniBloq.
 {
  //begin();
 }
