@@ -160,13 +160,16 @@ BubbleHardwareManager::BubbleHardwareManager(   wxWindow* parent,
         updatePorts();
         setPortType();
 
-        //This is necessary for the first time the system loads the boards:
-        if ( (currentBoardProperties->getPortType() == wxString("HID")) ||
-             (currentBoardProperties->getPortType() == wxString("HID2"))
-           )
+        if (getCurrentBoardProperties())
         {
-            setPortSelectorEnabled(false);
-            setPortNameString((getCurrentBoardProperties())->getPortType());
+            //This is necessary for the first time the system loads the boards:
+            if ( (getCurrentBoardProperties()->getPortType() == wxString("HID")) ||
+                 (getCurrentBoardProperties()->getPortType() == wxString("HID2"))
+               )
+            {
+                setPortSelectorEnabled(false);
+                setPortNameString((getCurrentBoardProperties())->getPortType());
+            }
         }
 //        comboBootPortName->setSelection(0); //##Un-hardcode and get the port from the config file...
 //        wxString strCommRealName = wxString("//./") + comboBootPortName->getText();
@@ -229,9 +232,7 @@ BubbleHardwareManager::BubbleHardwareManager(   wxWindow* parent,
                                         NULL,
                                         this
                                      );
-        //buttonReloadBlocks->Hide(); //##Testing.
     }
-
 
 
     buttonMainImage = new BubbleButton( this,
@@ -332,10 +333,11 @@ void BubbleHardwareManager::onButtonGoToDriversDirLeftUp(wxMouseEvent& event)
             {
                 if (getCurrentBoardProperties())
                 {
-                    wxString folderPath =  bubble->getComponentsRepositoryPath() + wxString("/") + getCurrentBoardProperties()->getDriverPath();
+                    wxString folderPath =   bubble->getComponentsRepositoryPath() + wxString("/") +
+                                            getCurrentBoardProperties()->getDriverPath();
 //                    //##Debug:
 //                    wxMessageDialog dialog0(bubble->getParent(), folderPath,
-//                                                                 getCurrentBoardProperties()->getName()); //##Debug.
+//                                            getCurrentBoardProperties()->getName()); //##Debug.
 //                    dialog0.ShowModal(); //##Debug.
                     if (wxDir::Exists(folderPath))
                     {
@@ -628,58 +630,74 @@ void BubbleHardwareManager::onComboBoardNameChanged(wxCommandEvent &event)
     {
         if (bubble)
         {
-            //Find new seleted board's properties:
-            BubbleBoardProperties *iterator = NULL;
-            for (unsigned int i = 0; i < boardsProperties.GetCount(); i++)
+            if (getCurrentBoardProperties())
             {
-                iterator = &(boardsProperties.Item(i)); //##In theory, this is faster than the other index based form, but I'm not sure yet...
-                if (iterator)
+                //Find new seleted board's properties:
+                BubbleBoardProperties *iterator = NULL;
+                for (unsigned int i = 0; i < boardsProperties.GetCount(); i++)
                 {
-                    if (iterator->getName() == event.GetString())
+                    iterator = &(boardsProperties.Item(i)); //##In theory, this is faster than the other index based form, but I'm not sure yet...
+                    if (iterator)
                     {
-                        currentBoardProperties->set(iterator);
+                        if (iterator->getName() == event.GetString())
+                        {
+                            currentBoardProperties->set(iterator);
+                        }
                     }
                 }
-            }
-            bubble->setBoardName(event.GetString(), parent);
-            changeImage();
-            //##Debug:
-            //wxMessageDialog dialog0(bubble->getParent(), getCurrentBoardProperties()->getPortType(),
-            //                                             getCurrentBoardProperties()->getName()); //##Debug.
-            //dialog0.ShowModal(); //##Debug.
+                bubble->setBoardName(event.GetString(), parent);
+                changeImage();
+                //##Debug:
+                //wxMessageDialog dialog0(bubble->getParent(), getCurrentBoardProperties()->getPortType(),
+                //                                             getCurrentBoardProperties()->getName()); //##Debug.
+                //dialog0.ShowModal(); //##Debug.
 
-            if ( ((getCurrentBoardProperties())->getPortType() == wxString("HID")) || //##Unhardcode
-                 ((getCurrentBoardProperties())->getPortType() == wxString("HID2"))
-               )
-            {
-                setPortSelectorEnabled(false);
-                setPortNameString((getCurrentBoardProperties())->getPortType());
-            }
-            else
-            {
-                if (comboBootPortName)
+                if ( ((getCurrentBoardProperties())->getPortType() == wxString("HID")) || //##Unhardcode
+                     ((getCurrentBoardProperties())->getPortType() == wxString("HID2"))
+                   )
                 {
-                    wxString selectedPort = comboBootPortName->getText();
-                    setPortSelectorEnabled(true);
-                    updatePorts();
-                    if ( (comboBootPortName->getText() == wxString("HID")) || //##Unhardcode
-                         (comboBootPortName->getText() == wxString("HID2"))
-                       )
+                    setPortSelectorEnabled(false);
+                    setPortNameString((getCurrentBoardProperties())->getPortType());
+                }
+                else
+                {
+                    if (comboBootPortName)
                     {
-                        setPortNameString(wxString(""));
-                    }
-                    else
-                    {
-                        if (comboBootPortName->textExists(selectedPort))
-                            comboBootPortName->setSelection(selectedPort);
-                        else
+                        wxString selectedPort = comboBootPortName->getText();
+                        setPortSelectorEnabled(true);
+                        updatePorts();
+                        if ( (comboBootPortName->getText() == wxString("HID")) || //##Unhardcode
+                             (comboBootPortName->getText() == wxString("HID2"))
+                           )
+                        {
                             setPortNameString(wxString(""));
+                        }
+                        else
+                        {
+                            if (comboBootPortName->textExists(selectedPort))
+                                comboBootPortName->setSelection(selectedPort);
+                            else
+                                setPortNameString(wxString(""));
+                        }
+                    }
+                }
+
+                //Updates the generated code (for example, with the include files):
+                bubble->loadBoardRelations();
+
+                //Are there device drivers for this board?
+                if (getCurrentBoardProperties())
+                {
+                    if (buttonGoToDriversDir)
+                    {
+                        buttonGoToDriversDir->Enable(getCurrentBoardProperties()->getDriverPath() != wxString(""));
+//                        //##Debug:
+//                        wxMessageDialog dialog0(bubble->getParent(), getCurrentBoardProperties()->getDriverPath(),
+//                                                getCurrentBoardProperties()->getName()); //##Debug.
+//                        dialog0.ShowModal(); //##Debug.
                     }
                 }
             }
-
-            //Updates the generated code (for example, with the include files):
-            bubble->loadBoardRelations();
         }
     }
 }
