@@ -5,6 +5,8 @@
     #include <windows.h>
 #endif
 
+#include <wx/dir.h>
+
 
 //##Make the limit configurable, from an XML file (and see the Windows and Linux API documetation too
 //to avoid defining it smaller than possibly needed):
@@ -44,6 +46,9 @@ BubbleHardwareManager::BubbleHardwareManager(   wxWindow* parent,
                                                                         comboBoardName(NULL),
                                                                         buttonReloadBlocks(NULL),
                                                                         buttonReloadHardware(NULL),
+                                                                        lblURL0(NULL),
+                                                                        lblURL1(NULL),
+                                                                        buttonGoToDriversDir(NULL),
                                                                         buttonMainImage(NULL),
                                                                         emptyDummyString(wxString(""))
 {
@@ -206,6 +211,29 @@ BubbleHardwareManager::BubbleHardwareManager(   wxWindow* parent,
         //buttonReloadBlocks->Hide(); //##Testing.
     }
 
+//    lblURL0;
+//    lblURL1;
+
+    buttonGoToDriversDir = new wxButton(  this,
+                                        wxNewId(),
+                                        _("Open folder with drivers"),
+                                        wxPoint(10, 85), //##Un-hardcode!
+                                        //wxDefaultSize,
+                                        wxSize(160, 25), //##Future: autosize.
+                                        wxBU_EXACTFIT
+                                     );
+    if (buttonGoToDriversDir)
+    {
+        buttonGoToDriversDir->Connect(  wxEVT_LEFT_UP,
+                                        wxMouseEventHandler(BubbleHardwareManager::onButtonGoToDriversDirLeftUp),
+                                        NULL,
+                                        this
+                                     );
+        //buttonReloadBlocks->Hide(); //##Testing.
+    }
+
+
+
     buttonMainImage = new BubbleButton( this,
                                         wxNewId(),
                                         wxPoint(0, 0),  //##Un-hardcode!
@@ -294,6 +322,39 @@ void BubbleHardwareManager::onButtonButtonReloadHardwareLeftUp(wxMouseEvent& eve
 }
 
 
+void BubbleHardwareManager::onButtonGoToDriversDirLeftUp(wxMouseEvent& event)
+{
+    if (bubble)
+    {
+        if (parent)
+        {
+            if (buttonGoToDriversDir)
+            {
+                if (getCurrentBoardProperties())
+                {
+                    wxString folderPath =  bubble->getComponentsRepositoryPath() + wxString("/") + getCurrentBoardProperties()->getDriverPath();
+//                    //##Debug:
+//                    wxMessageDialog dialog0(bubble->getParent(), folderPath,
+//                                                                 getCurrentBoardProperties()->getName()); //##Debug.
+//                    dialog0.ShowModal(); //##Debug.
+                    if (wxDir::Exists(folderPath))
+                    {
+                        if (wxLaunchDefaultApplication(folderPath))
+                            return;
+                    }
+                    //##
+                    //((MainFrame*)parent)->showMessage(  _("Can't find folder ") + folderPath,
+                    //                                    true,
+                    //                                    true,
+                    //                                    *wxRED
+                    //                                 );
+                }
+            }
+        }
+    }
+}
+
+
 void BubbleHardwareManager::onButtonReloadBlocksLeftUp(wxMouseEvent& event)
 {
     if (bubble)
@@ -361,7 +422,15 @@ void BubbleHardwareManager::fit(const wxSize& size)
 
         //Finally, centers and scales the image:
         iconX = (size.GetWidth() / 2) - (iconW / 2);
-        iconY = (size.GetHeight() / 2) - (iconH / 2);
+        if (buttonGoToDriversDir)
+        {
+            //20 is a hardcoded small margin:
+            iconY = buttonGoToDriversDir->GetPosition().y + buttonGoToDriversDir->GetSize().GetHeight() + 20;
+        }
+        else
+        {
+            iconY = (size.GetHeight() / 2) - (iconH / 2);
+        }
         buttonMainImage->Move(iconX, iconY); //First moves the buttonMethod.
         buttonMainImage->SetSize(iconW, iconH);
         //buttonMainImage->Lower();

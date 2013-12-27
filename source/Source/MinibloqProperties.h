@@ -10,7 +10,7 @@
 WX_DECLARE_STRING_HASH_MAP(wxString, LanguagesHash);
 
 
-class Bubble; //##horrible...
+class Bubble;
 class MinibloqProperties : public BubblePanel
 {
     private:

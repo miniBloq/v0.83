@@ -19,7 +19,7 @@ class BubbleBoardProperties;
 WX_DECLARE_OBJARRAY(BubbleBoardProperties, arrayOfBoardProperties);
 
 
-class Bubble; //##horrible...
+class Bubble;
 class BubbleBoardProperties;
 class BubbleHardwareManager : public BubblePanel
 {
@@ -33,6 +33,9 @@ class BubbleHardwareManager : public BubblePanel
         BubbleCombo *comboBoardName;
         wxButton *buttonReloadBlocks;
         wxButton *buttonReloadHardware;
+        wxStaticText *lblURL0;
+        wxStaticText *lblURL1;
+        wxButton *buttonGoToDriversDir;
         BubbleButton *buttonMainImage;//##
 
         //##Horrible, but works nice!
@@ -47,6 +50,7 @@ class BubbleHardwareManager : public BubblePanel
 
         void onButtonReloadBlocksLeftUp(wxMouseEvent& event);
         void onButtonButtonReloadHardwareLeftUp(wxMouseEvent& event);
+        void onButtonGoToDriversDirLeftUp(wxMouseEvent& event);
         void onKillFocus(wxFocusEvent& event);
 
     protected:

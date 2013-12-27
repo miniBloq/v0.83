@@ -338,7 +338,7 @@ MainFrame::MainFrame(   wxWindow* parent,
 
     bubble.setToolsPath(bubble.getComponentsRepositoryPath() + wxString("/lang/WinAVR/v20090313/bin")); //##Un-hardcode...
 
-    //##Horrible, súper temporal:
+    //##Horrible, super temporal:
     wxFileName _tempPath(bubble.getComponentsRepositoryPath() + wxString("/work/_temp")); //##Un-hardcode...
     if (!wxDir::Exists(_tempPath.GetFullPath()))
     {
@@ -2749,7 +2749,7 @@ void MainFrame::createComponent(bool canCancel)
     if (showCode)
         toggleGeneratedCode();
 
-    //##Horrible, súper temporal:
+    //##Horrible, super temporal:
     wxFileName aux(tempComponentName);
     bubble.setComponentPath(bubble.getTempPath());
     bubble.setComponentFilesPath(bubble.getComponentPath() + wxString("/") + aux.GetName());
@@ -3062,7 +3062,7 @@ void MainFrame::onMenuFileExportAsImageToClipboard(wxCommandEvent& evt)
             {
                 SetCursor(wxCursor(wxCURSOR_WAIT));
 
-                showMessage(_("Capturing..."), //##Ver si se queda, y ##Traducir.
+                showMessage(_("Capturing..."),
                             true,
                             true,
                             *wxGREEN);
@@ -3070,7 +3070,7 @@ void MainFrame::onMenuFileExportAsImageToClipboard(wxCommandEvent& evt)
                 wxBitmap bmp( bubble.getCurrentCanvas()->getCanvasCapture() );
                 wxTheClipboard->SetData( new wxBitmapDataObject(bmp) );
                 wxTheClipboard->Close();
-                showMessage(_("\nReady."), //##Ver si se queda, y ##Traducir.
+                showMessage(_("\nReady."),
                             false,
                             true,
                             *wxGREEN);

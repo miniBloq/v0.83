@@ -1692,6 +1692,15 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
                 {
                     boardInfo->setClockFreq(child->GetNodeContent());
                 }
+
+                else if (child->GetName() == "url0")
+                {
+                    boardInfo->setUrl0(child->GetNodeContent());
+                }
+                else if (child->GetName() == "url1")
+                {
+                    boardInfo->setUrl1(child->GetNodeContent());
+                }
                 else if (child->GetName() == "imgThumb")
                 {
                     boardInfo->setImgThumb(child->GetNodeContent());
@@ -1713,10 +1722,25 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
                 else if (child->GetName() == bubble->getHost() + wxString("_corePath"))
                 {
                     boardInfo->setCorePath(child->GetNodeContent());
+
+                    //##Debug:
+//                    wxMessageDialog dialog0(bubble->getParent(), bubble->getHost() + wxString("_corePath"), boardInfo->getName() +
+//                                            wxString(": ") + boardInfo->getCorePath());
+//                    dialog0.ShowModal(); //##Debug.
                 }
                 else if (child->GetName() == bubble->getHost() + wxString("_core"))
                 {
                     boardInfo->setCore(child->GetNodeContent());
+                }
+                else if (child->GetName() == bubble->getHost() + wxString("_driverPath"))
+                {
+                    boardInfo->setDriverPath(child->GetNodeContent());
+                    //##Debug:
+//                    wxMessageDialog dialog0(bubble->getParent(),
+//                                            boardInfo->getName() + wxString(": ") + child->GetNodeContent(), //boardInfo->getDriverPath(),
+//                                            bubble->getHost() + wxString("_driverPath")
+//                                           );
+//                    dialog0.ShowModal(); //##Debug.
                 }
                 else if (child->GetName() == "outputMainFileExtension")
                 {

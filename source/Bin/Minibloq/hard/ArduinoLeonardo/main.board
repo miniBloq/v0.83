@@ -23,6 +23,7 @@
 		<linux_amd64_uploaderCmd_0>avrdude.20071012.exe</linux_amd64_uploaderCmd_0>
 		<linux_amd64_corePath>Arduino.v1.5.4.r2/avr</linux_amd64_corePath>
 		<linux_amd64_core>mega32u4.a</linux_amd64_core>
+		<win_i386_driverPath>drivers/Arduino/win</win_i386_driverPath>
 		<outputMainFileExtension>cpp</outputMainFileExtension>
 		<resetBeforeBuild>false</resetBeforeBuild>
 		<bootBaudRate>57600</bootBaudRate>

@@ -21,8 +21,9 @@
 		<linux_amd64_uploader>avrdude.20071012.exe</linux_amd64_uploader>
 		<linux_amd64_corePath>Arduino.v1.5.4.r2/avr</linux_amd64_corePath>
 		<linux_amd64_core>mega1284.a</linux_amd64_core>
-		<linux_i386_driverPath><s>componentsRepositoryPath::</s><s>/drivers/DuinoBot/linux/v2.3.CDC</s></linux_i386_driverPath>
-		<linux_amd64_driverPath><s>componentsRepositoryPath::</s><s>/drivers/DuinoBot/linux/v2.3.CDC</s></linux_amd64_driverPath>
+		<win_i386_driverPath>drivers/DuinoBot/win/v2.3.CDC</win_i386_driverPath>
+		<linux_i386_driverPath>drivers/DuinoBot/linux/v2.3.CDC</linux_i386_driverPath>
+		<linux_amd64_driverPath>drivers/DuinoBot/linux/v2.3.CDC</linux_amd64_driverPath>
 		<outputMainFileExtension>cpp</outputMainFileExtension>
 		<resetBeforeBuild>false</resetBeforeBuild>
 		<bootBaudRate>115200</bootBaudRate>

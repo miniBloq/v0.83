@@ -22,8 +22,8 @@
 		<linux_amd64_uploader>tools/hidUploader/v1.0/hid_bootloader_cli.Linux</linux_amd64_uploader>
 		<linux_amd64_corePath>DuinoBot.v1.x.HID.v0022</linux_amd64_corePath>
 		<linux_amd64_core>mega32U4.a</linux_amd64_core>
-		<linux_i386_driverPath><s>componentsRepositoryPath::</s><s>/drivers/DuinoBot/linux/v1.x.HID</s></linux_i386_driverPath>
-		<linux_amd64_driverPath><s>componentsRepositoryPath::</s><s>/drivers/DuinoBot/linux/v1.x.HID</s></linux_amd64_driverPath>
+		<linux_i386_driverPath>drivers/DuinoBot/linux/v1.x.HID</linux_i386_driverPath>
+		<linux_amd64_driverPath>drivers/DuinoBot/linux/v1.x.HID</linux_amd64_driverPath>
 		<outputMainFileExtension>cpp</outputMainFileExtension>
 		<resetBeforeBuild>false</resetBeforeBuild>
 		<bootBaudRate>115200</bootBaudRate>

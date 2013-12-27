@@ -199,8 +199,8 @@ class BubbleParamInfo
 };
 
 
-class Bubble; //##horrible...
-class BubbleBlock; //##
+class Bubble;
+class BubbleBlock;
 class BubbleParam : public BubbleButton
 {
     private:
@@ -639,7 +639,7 @@ class BubbleCanvas : public BubblePanel, public IBubbleBlockNavigator, public Bu
 };
 
 
-class BubblePicker; //##Horrible
+class BubblePicker;
 class BubbleBlockInfo
 {
     //##Falta todo el "temita" de los "bloques hermanos" (2 en while, 2 ó 3 en if, N en el futuro -para switch o elseif-)...

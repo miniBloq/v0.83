@@ -96,12 +96,15 @@ class BubbleBoardProperties
         wxString imgMain;
         wxString cpu;
         wxString clockFreq;
+        wxString url0;
+        wxString url1;
         wxString imgThumb;
         wxString portType;
         wxString lang;
         wxString uploader;
         wxString uploaderCmd0;
         wxString corePath;
+        wxString driverPath;
         wxString core;
         wxString outputMainFileExtension;
         bool resetBeforeBuild;
@@ -148,12 +151,15 @@ class BubbleBoardProperties
                                     imgMain(wxString("")),
                                     cpu(wxString("")),
                                     clockFreq(wxString("")),
+                                    url0(wxString("")),
+                                    url1(wxString("")),
                                     imgThumb(wxString("")),
                                     portType(wxString("serial")),
                                     lang(wxString("")),
                                     uploader(wxString("")),
                                     uploaderCmd0(wxString("")),
                                     corePath(wxString("")),
+                                    driverPath(wxString("")),
                                     core(wxString("")),
                                     outputMainFileExtension(wxString("ino")), //##Arduino compatible file by default?
                                     resetBeforeBuild(false),
@@ -211,11 +217,14 @@ class BubbleBoardProperties
                 setImgMain(boardProperties->getImgMain());
                 setCpu(boardProperties->getCpu());
                 setClockFreq(boardProperties->getClockFreq());
+                setUrl0(boardProperties->getUrl0());
+                setUrl1(boardProperties->getUrl1());
                 setImgThumb(boardProperties->getImgThumb());
                 setLang(boardProperties->getLang());
                 setUploader(boardProperties->getUploader());
                 setUploaderCmd0(boardProperties->getUploaderCmd0());
                 setCorePath(boardProperties->getCorePath());
+                setDriverPath(boardProperties->getDriverPath());
                 setCore(boardProperties->getCore());
                 setOutputMainFileExtension(boardProperties->getOutputMainFileExtension());
                 setResetBeforeBuild(boardProperties->getResetBeforeBuild());
@@ -279,6 +288,11 @@ class BubbleBoardProperties
         inline void setClockFreq(const wxString& value) { clockFreq = value; }
         inline const wxString &getClockFreq() const { return clockFreq; }
 
+        inline void setUrl0(const wxString& value) { url0 = value; }
+        inline const wxString &getUrl0() const { return url0; }
+
+        inline void setUrl1(const wxString& value) { url1 = value; }
+        inline const wxString &getUrl1() const { return url1; }
 
         inline void setImgThumb(const wxString& value) { imgThumb = value; }
         inline const wxString &getImgThumb() const { return imgThumb; }
@@ -297,6 +311,9 @@ class BubbleBoardProperties
 
         inline void setCorePath(const wxString& value) { corePath = value; }
         inline const wxString &getCorePath() const { return corePath; }
+
+        inline void setDriverPath(const wxString& value) { driverPath = value; }
+        inline const wxString &getDriverPath() const { return driverPath; }
 
         inline void setCore(const wxString& value) { core = value; }
         inline const wxString &getCore() const { return core; }
