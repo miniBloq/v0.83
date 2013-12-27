@@ -6,7 +6,6 @@
 		<portType>HID</portType>
 		<url0>http://multiplo.org/product/duinobot-v1-2-0-2/</url0>
 		<url1>http://robotgroup.com.ar</url1>
-		<url2>http://multiplo.org</url2>
 		<cpu>atmega32u4</cpu>
 		<clockFreq>16000000L</clockFreq>
 		<imgMain>main.png</imgMain>

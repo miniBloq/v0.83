@@ -214,9 +214,6 @@ BubbleHardwareManager::BubbleHardwareManager(   wxWindow* parent,
         //buttonReloadBlocks->Hide(); //##Testing.
     }
 
-//    lblURL0;
-//    lblURL1;
-
     buttonGoToDriversDir = new wxButton(  this,
                                         wxNewId(),
                                         _("Open folder with drivers"),
@@ -232,8 +229,51 @@ BubbleHardwareManager::BubbleHardwareManager(   wxWindow* parent,
                                         NULL,
                                         this
                                      );
-    }
 
+        if (getCurrentBoardProperties())
+        {
+            lblURL0 = new wxHyperlinkCtrl(  this,
+                                            wxNewId(),
+                                            getCurrentBoardProperties()->getUrl0(),
+                                            getCurrentBoardProperties()->getUrl0(),
+                                            wxPoint(buttonGoToDriversDir->GetPosition().x,
+                                                    buttonGoToDriversDir->GetPosition().y +
+                                                    buttonGoToDriversDir->GetSize().GetHeight() + 10),
+                                            wxDefaultSize,
+                                            wxHL_ALIGN_LEFT
+                                         );
+            if (lblURL0)
+            {
+                lblURL0->SetVisitedColour(lblURL0->GetNormalColour());
+                //wxHyperlinkCtrl Bug: the first time, it should be created big.
+                if (buttonReloadHardware)
+                {
+                    lblURL0->SetSize(wxSize(buttonReloadHardware->GetPosition().x +
+                                            buttonReloadHardware->GetSize().GetWidth() -
+                                            buttonGoToDriversDir->GetPosition().x,
+                                            lblURL0->GetSize().GetHeight()
+                                           )
+                                    );
+                }
+                lblURL1 = new wxHyperlinkCtrl(  this,
+                                                wxNewId(),
+                                                getCurrentBoardProperties()->getUrl1(),
+                                                getCurrentBoardProperties()->getUrl1(),
+                                                wxPoint(lblURL0->GetPosition().x,
+                                                        lblURL0->GetPosition().y +
+                                                        lblURL0->GetSize().GetHeight() + 10),
+                                                wxDefaultSize,
+                                                wxHL_ALIGN_LEFT
+                                             );
+                if (lblURL1)
+                {
+                    lblURL1->SetVisitedColour(lblURL1->GetNormalColour());
+                    if (lblURL0)
+                        lblURL1->SetSize(lblURL0->GetSize());
+                }
+            }
+        }
+    }
 
     buttonMainImage = new BubbleButton( this,
                                         wxNewId(),
@@ -424,14 +464,21 @@ void BubbleHardwareManager::fit(const wxSize& size)
 
         //Finally, centers and scales the image:
         iconX = (size.GetWidth() / 2) - (iconW / 2);
-        if (buttonGoToDriversDir)
+//        if (buttonGoToDriversDir)
+//        {
+//            //20 is a hardcoded small margin:
+//            iconY = buttonGoToDriversDir->GetPosition().y + buttonGoToDriversDir->GetSize().GetHeight() + 20;
+//        }
+        iconY = (size.GetHeight() / 2) - (iconH / 2);
+        if (lblURL0)
         {
             //20 is a hardcoded small margin:
-            iconY = buttonGoToDriversDir->GetPosition().y + buttonGoToDriversDir->GetSize().GetHeight() + 20;
+            iconY = lblURL0->GetPosition().y + lblURL0->GetSize().GetHeight() + 20;
         }
-        else
+        if (lblURL1)
         {
-            iconY = (size.GetHeight() / 2) - (iconH / 2);
+            //20 is a hardcoded small margin:
+            iconY = lblURL1->GetPosition().y + lblURL1->GetSize().GetHeight() + 20;
         }
         buttonMainImage->Move(iconX, iconY); //First moves the buttonMethod.
         buttonMainImage->SetSize(iconW, iconH);
@@ -685,16 +732,26 @@ void BubbleHardwareManager::onComboBoardNameChanged(wxCommandEvent &event)
                 //Updates the generated code (for example, with the include files):
                 bubble->loadBoardRelations();
 
-                //Are there device drivers for this board?
                 if (getCurrentBoardProperties())
                 {
                     if (buttonGoToDriversDir)
                     {
+                        //Are there device drivers for this board?
                         buttonGoToDriversDir->Enable(getCurrentBoardProperties()->getDriverPath() != wxString(""));
-//                        //##Debug:
-//                        wxMessageDialog dialog0(bubble->getParent(), getCurrentBoardProperties()->getDriverPath(),
-//                                                getCurrentBoardProperties()->getName()); //##Debug.
-//                        dialog0.ShowModal(); //##Debug.
+
+                        //Are there links for this board?
+                        if (lblURL0)
+                        {
+                            lblURL0->SetURL(getCurrentBoardProperties()->getUrl0());
+                            lblURL0->SetLabel(getCurrentBoardProperties()->getUrl0());
+                            lblURL0->SetPosition(wxPoint(buttonGoToDriversDir->GetPosition().x, lblURL0->GetPosition().y));
+                        }
+                        if (lblURL1)
+                        {
+                            lblURL1->SetURL(getCurrentBoardProperties()->getUrl1());
+                            lblURL1->SetLabel(getCurrentBoardProperties()->getUrl1());
+                            lblURL1->SetPosition(wxPoint(buttonGoToDriversDir->GetPosition().x, lblURL1->GetPosition().y));
+                        }
                     }
                 }
             }

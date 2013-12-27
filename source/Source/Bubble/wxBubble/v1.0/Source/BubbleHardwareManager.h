@@ -12,7 +12,7 @@
 #include <wx/combobox.h>
 #include <wx/stattext.h>
 #include <wx/button.h>
-
+#include <wx/hyperlink.h>
 
 #include <wx/arrimpl.cpp> //This is a magic incantation which must be done!
 class BubbleBoardProperties;
@@ -33,8 +33,8 @@ class BubbleHardwareManager : public BubblePanel
         BubbleCombo *comboBoardName;
         wxButton *buttonReloadBlocks;
         wxButton *buttonReloadHardware;
-        wxStaticText *lblURL0;
-        wxStaticText *lblURL1;
+        wxHyperlinkCtrl *lblURL0;
+        wxHyperlinkCtrl *lblURL1;
         wxButton *buttonGoToDriversDir;
         BubbleButton *buttonMainImage;//##
 

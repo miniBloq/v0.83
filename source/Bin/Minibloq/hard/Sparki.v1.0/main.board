@@ -3,7 +3,7 @@
     <properties>
 		<manufacturer>ArcBotics</manufacturer>
 		<name>Sparki v1.0</name>
-		<url0>http://arcbotics.com</url0>
+		<url0>http://arcbotics.com/products/sparki/</url0>
 		<cpu>atmega32u4</cpu>
 		<clockFreq>16000000L</clockFreq>
 		<imgMain>main.png</imgMain>

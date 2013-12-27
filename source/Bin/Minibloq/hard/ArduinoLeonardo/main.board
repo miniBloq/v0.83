@@ -3,7 +3,8 @@
     <properties>
 		<manufacturer>Arduino</manufacturer>
 		<name>Arduino Leonardo</name>
-		<url0>http://arduino.cc</url0>
+		<url0>http://arduino.cc/en/Main/ArduinoBoardLeonardo</url0>
+		<url1>http://arduino.cc</url1>
 		<cpu>atmega32u4</cpu>
 		<clockFreq>16000000L</clockFreq>
 		<imgMain>main.png</imgMain>
