@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <miniBloq>
 	<app>
-		<x>100</x>
-		<y>100</y>
+		<x>0</x>
+		<y>0</y>
 		<width>1280</width>
 		<height>800</height>
-		<maximized>false</maximized>
+		<maximized>true</maximized>
+		<centered>true</centered>
 	</app>
 	<components>
+		<recent>
+		</recent>
 	</components>
 	<hard>
+		<board></board>
+		<port></port>
 	</hard>
 </miniBloq>

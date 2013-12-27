@@ -19,7 +19,7 @@ class Minibloq : public wxApp
             initialFrameWidth,
             initialFrameHeight;
         bool maximized;
-
+        bool centered;
 
         void readConfig()
         {
@@ -77,6 +77,10 @@ class Minibloq : public wxApp
                         {
                             maximized = Bubble::string2bool(child->GetNodeContent());
                         }
+                        else if (child->GetName() == "centered")
+                        {
+                            centered = Bubble::string2bool(child->GetNodeContent());
+                        }
 
                         child = child->GetNext();
                     }
@@ -126,15 +130,20 @@ class Minibloq : public wxApp
             wxSize frameSize = wxDefaultSize;
             long style = wxDEFAULT_FRAME_STYLE;
 
+            //Default values:
+            initialFrameX = 0;
+            initialFrameY = 0;
+            initialFrameHeight = 800;
+            initialFrameWidth = 1280;
+            maximized = true;
+            centered = true;
+
+            //Try to read the configuration file:
             readConfig();
 
-            //##debug:
-//            initialFrameX = 10;
-//            initialFrameY = 10;
-//            initialFrameHeight = 800;
-//            initialFrameWidth = 1280;
-//            maximized = false;
-
+            //Priorities:
+            //  maximized has priority over all the other pos and size settings.
+            //  centered has priority over x and y settings.
             if (maximized)
             {
                 style = style | wxMAXIMIZE;
@@ -152,7 +161,7 @@ class Minibloq : public wxApp
             else
             {
                 if ( (initialFrameX >= 0) && (initialFrameY >= 0) &&
-                     (initialFrameWidth >= 0) && (initialFrameHeight >= 0)
+                     (initialFrameWidth > 0) && (initialFrameHeight > 0)
                    )
                 {
                     framePosition = wxPoint(initialFrameX, initialFrameY);
@@ -168,9 +177,10 @@ class Minibloq : public wxApp
                                         frameSize,
                                         style
                                       );
+                if (centered)
+                    frame->Centre();
             }
 
-            //frame->Centre(); //##Load from XML config file...
             /*## Future: Full screen:
             wxFrame* frame = new MainFrame(NULL,
                                          wxID_ANY,
