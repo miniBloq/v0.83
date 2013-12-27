@@ -313,6 +313,9 @@ class MainFrame : public wxFrame, public IBubbleNotifier
         //##void onUpdateUI(wxUpdateUIEvent& evt);
         void onPaneClose(wxAuiManagerEvent& evt);
 
+        void readConfig();
+        void writeConfig();
+
         void createKeyboardAcceleratorTable();
 
         void popUpMenu(wxCommandEvent& evt, wxMenu *popMenu);

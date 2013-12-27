@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<miniBloq>
+	<app>
+		<x>100</x>
+		<y>100</y>
+		<width>1280</width>
+		<height>800</height>
+		<maximized>false</maximized>
+	</app>
+	<components>
+	</components>
+	<hard>
+	</hard>
+</miniBloq>

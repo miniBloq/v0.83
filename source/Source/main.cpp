@@ -13,6 +13,78 @@
 //////////////////////////////////////////////////////////////////////
 class Minibloq : public wxApp
 {
+    private:
+        int initialFrameX,
+            initialFrameY,
+            initialFrameWidth,
+            initialFrameHeight;
+        bool maximized;
+
+
+        void readConfig()
+        {
+            wxString fileName = wxStandardPaths::Get().GetExecutablePath().BeforeLast(wxFileName::GetPathSeparator()) +
+                                wxString("/miniBloq.xml");
+            wxXmlDocument xmlFile;
+            if ( !xmlFile.Load(fileName, wxString("UTF-8")) )
+                return;
+            wxXmlNode *root = xmlFile.GetRoot();
+            if (root == NULL)
+                return;
+            //Not really necessary:
+            //if (root->GetName() != wxString("miniBloq"))
+            //    return;
+
+            wxString tempName("");
+            wxXmlNode *rootChild = root->GetChildren();
+            while (rootChild)
+            {
+                tempName = rootChild->GetName();
+                if (tempName == wxString("app"))
+                {
+                    wxXmlNode *child = rootChild->GetChildren();
+                    while (child)
+                    {
+                        if (child->GetName() == "x")
+                        {
+                            wxString returnStringValue = child->GetNodeContent();
+                            long returnNumericValue = 0;
+                            if (returnStringValue.ToLong(&returnNumericValue))
+                                initialFrameX = (int)returnNumericValue;
+                        }
+                        else if (child->GetName() == "y")
+                        {
+                            wxString returnStringValue = child->GetNodeContent();
+                            long returnNumericValue = 0;
+                            if (returnStringValue.ToLong(&returnNumericValue))
+                                initialFrameY = (int)returnNumericValue;
+                        }
+                        else if (child->GetName() == "width")
+                        {
+                            wxString returnStringValue = child->GetNodeContent();
+                            long returnNumericValue = 1280;
+                            if (returnStringValue.ToLong(&returnNumericValue))
+                                initialFrameWidth = (int)returnNumericValue;
+                        }
+                        else if (child->GetName() == "height")
+                        {
+                            wxString returnStringValue = child->GetNodeContent();
+                            long returnNumericValue = 800;
+                            if (returnStringValue.ToLong(&returnNumericValue))
+                                initialFrameHeight = (int)returnNumericValue;
+                        }
+                        else if (child->GetName() == "maximized")
+                        {
+                            maximized = Bubble::string2bool(child->GetNodeContent());
+                        }
+
+                        child = child->GetNext();
+                    }
+                }
+                rootChild = rootChild->GetNext();
+            }
+        }
+
     protected:
         wxLocale locale;
 
@@ -48,6 +120,57 @@ class Minibloq : public wxApp
                 //wxLogWarning(_("Error #2: Can't load ") + initialCatalogName);
             }
 
+            MainFrame* frame = NULL;
+            wxString caption = wxString("miniBloq v0.82.Beta");
+            wxPoint framePosition = wxDefaultPosition;
+            wxSize frameSize = wxDefaultSize;
+            long style = wxDEFAULT_FRAME_STYLE;
+
+            readConfig();
+
+            //##debug:
+//            initialFrameX = 10;
+//            initialFrameY = 10;
+//            initialFrameHeight = 800;
+//            initialFrameWidth = 1280;
+//            maximized = false;
+
+            if (maximized)
+            {
+                style = style | wxMAXIMIZE;
+                frame = new MainFrame(  NULL,
+                                        wxID_ANY,
+                                        locale,
+                                        lanPath,
+                                        initialCatalogName,
+                                        wxString(caption),
+                                        wxDefaultPosition,
+                                        wxDefaultSize,
+                                        style
+                                      );
+            }
+            else
+            {
+                if ( (initialFrameX >= 0) && (initialFrameY >= 0) &&
+                     (initialFrameWidth >= 0) && (initialFrameHeight >= 0)
+                   )
+                {
+                    framePosition = wxPoint(initialFrameX, initialFrameY);
+                    frameSize = wxSize(initialFrameWidth, initialFrameHeight);
+                }
+                frame = new MainFrame(  NULL,
+                                        wxID_ANY,
+                                        locale,
+                                        lanPath,
+                                        initialCatalogName,
+                                        wxString(caption),
+                                        framePosition,
+                                        frameSize,
+                                        style
+                                      );
+            }
+
+            //frame->Centre(); //##Load from XML config file...
             /*## Future: Full screen:
             wxFrame* frame = new MainFrame(NULL,
                                          wxID_ANY,
@@ -57,36 +180,14 @@ class Minibloq : public wxApp
                                          wxCLIP_CHILDREN);
             */
 
-            //Código original, pero pasado a 1280 x 800:
-
-            MainFrame* frame = NULL;
-            frame = new MainFrame(  NULL,
-                                    wxID_ANY,
-                                    locale,
-                                    lanPath,
-                                    initialCatalogName,
-                                    wxString("miniBloq v0.82.Beta"),
-                                    wxDefaultPosition,
-                                    //wxDefaultSize,
-                                    wxSize(1280, 800), //##Load from XML config file...
-                                    wxDEFAULT_FRAME_STYLE //|| wxMAXIMIZE
-                                  );
-
-            //frame->Centre(); //##Load from XML config file...
-            //##This works, and can establish from the app start the size and position of the MainFrame:
-            /*
-            wxFrame* frame = new MainFrame(NULL,
-                                         wxID_ANY,
-                                         wxString("miniBloq v0.82"),
-                                         wxPoint(100, 100),
-                                         wxSize(500, 500));
-            */
-
             if (frame)
             {
                 SetTopWindow(frame);
                 frame->Show();
-                frame->Maximize(); //##Load from XML config file...
+                if (maximized)
+                {
+                    frame->Maximize();
+                }
                 if (argc > 0)
                 {
                     wxString fileName = argv[1];

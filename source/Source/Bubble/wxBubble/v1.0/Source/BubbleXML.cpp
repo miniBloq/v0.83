@@ -526,7 +526,7 @@ bool BubbleXML::loadBlocksPropertiesFromXML(const wxString& fileName, bool clear
 //                        else if (child->GetName() == "##")
 //                        {
 //                        }
-                    child = child->GetNext();
+                        child = child->GetNext();
                     }
                     return true;
                 }

@@ -1,8 +1,6 @@
 #include "MainFrame.h"
 #include "Minibloq.xpm"
 
-//##Ver si hay que sacar cosas del header para hacer los include sólo acá:
-//##Estos sé que los necesito:
 #include <wx/menu.h>
 #include <wx/aui/aui.h>
 #include <wx/stdpaths.h>
@@ -11,8 +9,6 @@
 #include <wx/msgdlg.h> //##Debug, se va en release. Agregar compilación condicional.
 #include <wx/textctrl.h>
 #include <wx/uri.h>
-
-//##Sacar las que no se usan:
 #include <wx/artprov.h>
 #include <wx/clipbrd.h>
 #include <wx/image.h>
@@ -528,6 +524,18 @@ MainFrame::~MainFrame()
 
     if (commManager)
         delete commManager;
+}
+
+
+void MainFrame::readConfig()
+{
+    //##Implementar...
+}
+
+
+void MainFrame::writeConfig()
+{
+    //##Implementar...
 }
 
 
@@ -2549,6 +2557,8 @@ void MainFrame::onClose(wxCloseEvent& event)
             }
         }
     }
+
+    writeConfig();
 
     //Closes the application (this is necessary if there is defined an OnClose event, like here):
 	Destroy();
