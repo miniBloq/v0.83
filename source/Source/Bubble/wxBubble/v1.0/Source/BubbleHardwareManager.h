@@ -99,6 +99,11 @@ class BubbleHardwareManager : public BubblePanel
         wxString getPortNameString();
         void setPortNameString(const wxString& value);
 
+        void setBoardSelection(const wxString& value);
+        wxString getBoardSelection();
+        void setPortSelection(const wxString& value);
+        wxString getPortSelection();
+
         void popUpPortList();
         void popUpBoardList();
 

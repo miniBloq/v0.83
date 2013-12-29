@@ -23,8 +23,7 @@ class Minibloq : public wxApp
 
         void readConfig()
         {
-            wxString fileName = wxStandardPaths::Get().GetExecutablePath().BeforeLast(wxFileName::GetPathSeparator()) +
-                                wxString("/miniBloq.xml");
+            wxString fileName = MainFrame::getConfigFileName();
             wxXmlDocument xmlFile;
             if ( !xmlFile.Load(fileName, wxString("UTF-8")) )
                 return;
@@ -84,6 +83,7 @@ class Minibloq : public wxApp
 
                         child = child->GetNext();
                     }
+                    break;
                 }
                 rootChild = rootChild->GetNext();
             }

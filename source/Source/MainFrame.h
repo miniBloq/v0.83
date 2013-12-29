@@ -484,6 +484,8 @@ class MainFrame : public wxFrame, public IBubbleNotifier
 
         ~MainFrame();
 
+        static wxString getConfigFileName();
+
         //##2010.10.10: This event was moved to the class BubbleCanvas, but there the event capture does
         //not work, (not even with Connect, neither with the event table). So the event is captured in the
         //frame and forwarded to the current bubbleCanvas:

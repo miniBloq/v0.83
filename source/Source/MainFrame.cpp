@@ -494,6 +494,7 @@ MainFrame::MainFrame(   wxWindow* parent,
 
     //This forces to load the includes in the generated code:
     bubble.loadBoardRelations();
+    readConfig();
 }
 
 
@@ -527,15 +528,81 @@ MainFrame::~MainFrame()
 }
 
 
+wxString MainFrame::getConfigFileName()
+{
+    return  wxStandardPaths::Get().GetExecutablePath().BeforeLast(wxFileName::GetPathSeparator()) +
+            wxString("/config/miniBloq.xml");
+}
+
+
 void MainFrame::readConfig()
 {
-    //##Implementar...
+    wxString fileName = getConfigFileName();
+    wxXmlDocument xmlFile;
+
+    if ( !xmlFile.Load(fileName, wxString("UTF-8")) )
+        return;
+    wxXmlNode *root = xmlFile.GetRoot();
+    if (root == NULL)
+        return;
+
+    wxString tempName("");
+    wxXmlNode *rootChild = root->GetChildren();
+    while (rootChild)
+    {
+        tempName = rootChild->GetName();
+        if (tempName == wxString("hard"))
+        {
+            wxXmlNode *child = rootChild->GetChildren();
+            while (child)
+            {
+                if (child->GetName() == "board")
+                {
+                    if (bubble.getHardwareManager())
+                        bubble.getHardwareManager()->setBoardSelection(child->GetNodeContent());
+                }
+                else if (child->GetName() == "port")
+                {
+                    if (bubble.getHardwareManager())
+                        bubble.getHardwareManager()->setPortSelection(child->GetNodeContent());
+                }
+
+                child = child->GetNext();
+            }
+        }
+        if (tempName == wxString("components"))
+        {
+            wxXmlNode *child = rootChild->GetChildren();
+            while (child)
+            {
+                if (child->GetName() == "recent")
+                {
+                }
+
+                child = child->GetNext();
+            }
+        }
+        rootChild = rootChild->GetNext();
+    }
 }
 
 
 void MainFrame::writeConfig()
 {
-    //##Implementar...
+    try
+    {
+        wxString fileName = getConfigFileName();
+
+
+        //Format XML file:
+        wxXmlDocument componentFile;
+        if ( !componentFile.Load(fileName, wxString("UTF-8")) )
+            return ;
+        componentFile.Save(fileName, 2);
+    }
+    catch(...)
+    {
+    }
 }
 
 

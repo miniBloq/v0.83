@@ -102,20 +102,13 @@ BubbleHardwareManager::BubbleHardwareManager(   wxWindow* parent,
         firstBoard = &(boardsProperties.Item(0));
         currentBoardProperties->set(firstBoard);
 
-        comboBoardName->setSelection(0); //##Load this from the "last config" file.
+        comboBoardName->setSelection(0); //Don't delete this!
 
         comboBoardName->Connect(wxEVT_COMMAND_TEXT_UPDATED,
                                 wxCommandEventHandler(BubbleHardwareManager::onComboBoardNameChanged),
                                 NULL,
                                 this
                                );
-
-        //This is not necessary because the setSelection call triggers the onComboBoardNameChanged event,
-        //which does set the Board Name (in fact, those lines will make the program startup slower):
-        //if (bubble)
-        //{
-        //    bubble->setBoardName(comboBoardName->getText(), parent);
-        //}
     }
 
     lblBootPortName = new wxStaticText( this,
@@ -609,6 +602,36 @@ void BubbleHardwareManager::setPortNameString(const wxString& value)
 {
     if (comboBootPortName)
         comboBootPortName->setText(value);
+}
+
+
+void BubbleHardwareManager::setBoardSelection(const wxString& value)
+{
+    if (comboBoardName)
+        comboBoardName->setSelection(value);
+}
+
+
+wxString BubbleHardwareManager::getBoardSelection()
+{
+    if (comboBoardName)
+        return comboBoardName->getText();
+    return emptyDummyString;
+}
+
+
+void BubbleHardwareManager::setPortSelection(const wxString& value)
+{
+    if (comboBootPortName)
+        comboBootPortName->setSelection(value);
+}
+
+
+wxString BubbleHardwareManager::getPortSelection()
+{
+    if (comboBootPortName)
+        return comboBootPortName->getText();
+    return wxEmptyString;
 }
 
 
