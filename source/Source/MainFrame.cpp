@@ -570,6 +570,22 @@ void MainFrame::readConfig()
                 child = child->GetNext();
             }
         }
+        if (tempName == wxString("terminal"))
+        {
+            wxXmlNode *child = rootChild->GetChildren();
+            while (child)
+            {
+                if (child->GetName() == "shown")
+                    auiManager.GetPane("Terminal").Show(Bubble::string2bool(child->GetNodeContent()));
+                if (child->GetName() == "float")
+                    if (Bubble::string2bool(child->GetNodeContent()))
+                        auiManager.GetPane("Terminal").Float();
+                    else
+                        auiManager.GetPane("Terminal").Dock();
+
+                child = child->GetNext();
+            }
+        }
         if (tempName == wxString("components"))
         {
             wxXmlNode *child = rootChild->GetChildren();
@@ -583,6 +599,8 @@ void MainFrame::readConfig()
         }
         rootChild = rootChild->GetNext();
     }
+
+    auiManager.Update();
 }
 
 
@@ -602,7 +620,7 @@ void MainFrame::writeConfig()
         configFile.AddLine("<!-- Created with Minibloq (http://minibloq.org/) -->");
         configFile.AddLine("<miniBloq>");
 
-        configFile.AddLine("<app>");
+        configFile.AddLine("<mainFrame>");
         configFile.AddLine(wxString("<x>") <<  GetPosition().x << wxString("</x>"));
         configFile.AddLine(wxString("<y>") <<  GetPosition().y << wxString("</y>"));
         configFile.AddLine(wxString("<width>") <<  GetSize().GetWidth() << wxString("</width>"));
@@ -612,7 +630,7 @@ void MainFrame::writeConfig()
         else
             configFile.AddLine(wxString("<maximized>false</maximized>"));
         configFile.AddLine(wxString("<centered>") << Bubble::bool2string(getCentered()) << wxString("</centered>")); //##Not used by now.
-        configFile.AddLine("</app>");
+        configFile.AddLine("</mainFrame>");
 
         configFile.AddLine("<hard>");
         if (bubble.getHardwareManager())
@@ -620,6 +638,11 @@ void MainFrame::writeConfig()
         if (bubble.getHardwareManager())
             configFile.AddLine(wxString("<port>") <<  bubble.getHardwareManager()->getPortSelection() << wxString("</port>"));
         configFile.AddLine("</hard>");
+
+        configFile.AddLine("<terminal>");
+        configFile.AddLine(wxString("<shown>") << Bubble::bool2string(auiManager.GetPane("Terminal").IsShown()) << wxString("</shown>"));
+        configFile.AddLine(wxString("<float>") << Bubble::bool2string(auiManager.GetPane("Terminal").IsFloating()) << wxString("</float>"));
+        configFile.AddLine("</terminal>");
 
         configFile.AddLine("<components>");
         configFile.AddLine("<recent>");
@@ -1607,11 +1630,11 @@ void MainFrame::createQuickToolbar()
         createMenuZoom();
 
         //##Futuro: La barrita rápida será personalizable:
-        auiManager.AddPane(toolQuick, wxAuiPaneInfo().
-                      Name(wxString("QuickToolBar")).Caption(_("Quick toolbar")).
-
-                      ToolbarPane().Top().Row(1).Position(2).
-                      LeftDockable(false).RightDockable(false));
+        auiManager.AddPane( toolQuick, wxAuiPaneInfo().
+                            Name(wxString("QuickToolBar")).Caption(_("Quick toolbar")).
+                            ToolbarPane().Top().Row(1).Position(2).
+                            LeftDockable(false).RightDockable(false)
+                          );
     }
 }
 

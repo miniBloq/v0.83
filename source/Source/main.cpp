@@ -39,7 +39,7 @@ class Minibloq : public wxApp
             while (rootChild)
             {
                 tempName = rootChild->GetName();
-                if (tempName == wxString("app"))
+                if (tempName == wxString("mainFrame"))
                 {
                     wxXmlNode *child = rootChild->GetChildren();
                     while (child)
