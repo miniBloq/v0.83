@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <miniBloq>
     <app>
-        <x>0</x>
-        <y>0</y>
-        <width>1280</width>
-        <height>800</height>
+        <x>-8</x>
+        <y>-8</y>
+        <width>1616</width>
+        <height>876</height>
         <maximized>true</maximized>
-        <centered>true</centered>
+        <centered>false</centered>
     </app>
     <hard>
-        <board>DuinoBot.Kids.v1.x.HID</board>
-        <port/>
+        <board>DuinoBot.v2.3.HID</board>
+        <port>HID2</port>
     </hard>
     <components>
         <recent/>

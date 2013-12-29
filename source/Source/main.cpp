@@ -133,8 +133,8 @@ class Minibloq : public wxApp
             //Default values:
             initialFrameX = 0;
             initialFrameY = 0;
-            initialFrameHeight = 800;
-            initialFrameWidth = 1280;
+            initialFrameHeight = 600;
+            initialFrameWidth = 800;
             maximized = true;
             centered = true;
 
@@ -145,42 +145,22 @@ class Minibloq : public wxApp
             //  maximized has priority over all the other pos and size settings.
             //  centered has priority over x and y settings.
             if (maximized)
-            {
                 style = style | wxMAXIMIZE;
-                frame = new MainFrame(  NULL,
-                                        wxID_ANY,
-                                        locale,
-                                        lanPath,
-                                        initialCatalogName,
-                                        wxString(caption),
-                                        wxDefaultPosition,
-                                        wxDefaultSize,
-                                        style
-                                      );
-            }
-            else
+            if ( (initialFrameWidth > 0) && (initialFrameHeight > 0) )
             {
-                if ( (initialFrameX >= 0) && (initialFrameY >= 0) &&
-                     (initialFrameWidth > 0) && (initialFrameHeight > 0)
-                   )
-                {
-                    framePosition = wxPoint(initialFrameX, initialFrameY);
-                    frameSize = wxSize(initialFrameWidth, initialFrameHeight);
-                }
-                frame = new MainFrame(  NULL,
-                                        wxID_ANY,
-                                        locale,
-                                        lanPath,
-                                        initialCatalogName,
-                                        wxString(caption),
-                                        framePosition,
-                                        frameSize,
-                                        style
-                                      );
-                if (centered)
-                    frame->Centre();
+                framePosition = wxPoint(initialFrameX, initialFrameY);
+                frameSize = wxSize(initialFrameWidth, initialFrameHeight);
             }
-
+            frame = new MainFrame(  NULL,
+                                    wxID_ANY,
+                                    locale,
+                                    lanPath,
+                                    initialCatalogName,
+                                    wxString(caption),
+                                    framePosition,
+                                    frameSize,
+                                    style
+                                  );
             /*## Future: Full screen:
             wxFrame* frame = new MainFrame(NULL,
                                          wxID_ANY,
@@ -189,9 +169,12 @@ class Minibloq : public wxApp
                                          wxSize(1280, 800),
                                          wxCLIP_CHILDREN);
             */
-
             if (frame)
             {
+                if (centered)
+                    frame->Centre();
+                frame->setCentered(centered);
+
                 SetTopWindow(frame);
                 frame->Show();
                 if (maximized)

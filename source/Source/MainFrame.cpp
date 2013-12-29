@@ -168,6 +168,7 @@ MainFrame::MainFrame(   wxWindow* parent,
                         const wxSize& size,
                         long style):
                                         wxFrame(parent, id, title, pos, size, style),
+                                        centered(true),
                                         bubble(locale),
                                         locale(locale),
                                         languagePath(languagePath),
@@ -566,7 +567,6 @@ void MainFrame::readConfig()
                     if (bubble.getHardwareManager())
                         bubble.getHardwareManager()->setPortSelection(child->GetNodeContent());
                 }
-
                 child = child->GetNext();
             }
         }
@@ -578,7 +578,6 @@ void MainFrame::readConfig()
                 if (child->GetName() == "recent")
                 {
                 }
-
                 child = child->GetNext();
             }
         }
@@ -593,6 +592,44 @@ void MainFrame::writeConfig()
     {
         wxString fileName = getConfigFileName();
 
+        //Replaces the old file by a new one:
+        wxTextFile configFile;
+        wxRemoveFile(fileName);
+        if (!configFile.Create(fileName))
+            return;
+
+        configFile.AddLine("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+        configFile.AddLine("<!-- Created with Minibloq (http://minibloq.org/) -->");
+        configFile.AddLine("<miniBloq>");
+
+        configFile.AddLine("<app>");
+        configFile.AddLine(wxString("<x>") <<  GetPosition().x << wxString("</x>"));
+        configFile.AddLine(wxString("<y>") <<  GetPosition().y << wxString("</y>"));
+        configFile.AddLine(wxString("<width>") <<  GetSize().GetWidth() << wxString("</width>"));
+        configFile.AddLine(wxString("<height>") <<  GetSize().GetHeight() << wxString("</height>"));
+        if (IsMaximized())
+            configFile.AddLine(wxString("<maximized>true</maximized>"));
+        else
+            configFile.AddLine(wxString("<maximized>false</maximized>"));
+        configFile.AddLine(wxString("<centered>") << Bubble::bool2string(getCentered()) << wxString("</centered>")); //##Not used by now.
+        configFile.AddLine("</app>");
+
+        configFile.AddLine("<hard>");
+        if (bubble.getHardwareManager())
+            configFile.AddLine(wxString("<board>") <<  bubble.getHardwareManager()->getBoardSelection() << wxString("</board>"));
+        if (bubble.getHardwareManager())
+            configFile.AddLine(wxString("<port>") <<  bubble.getHardwareManager()->getPortSelection() << wxString("</port>"));
+        configFile.AddLine("</hard>");
+
+        configFile.AddLine("<components>");
+        configFile.AddLine("<recent>");
+        configFile.AddLine("</recent>");
+        configFile.AddLine("</components>");
+
+        configFile.AddLine("</miniBloq>");
+
+        configFile.Write();
+        configFile.Close();
 
         //Format XML file:
         wxXmlDocument componentFile;

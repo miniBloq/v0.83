@@ -187,6 +187,8 @@ class MainFrame : public wxFrame, public IBubbleNotifier
 
         //wxString initialFile;
 
+        bool centered;
+
         //##Bubble related:
         Bubble bubble;
 
@@ -485,6 +487,8 @@ class MainFrame : public wxFrame, public IBubbleNotifier
         ~MainFrame();
 
         static wxString getConfigFileName();
+        inline void setCentered(bool value) { centered = value; }
+        inline bool getCentered() const { return centered; }
 
         //##2010.10.10: This event was moved to the class BubbleCanvas, but there the event capture does
         //not work, (not even with Connect, neither with the event table). So the event is captured in the
