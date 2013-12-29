@@ -486,6 +486,7 @@ class MainFrame : public wxFrame, public IBubbleNotifier
 
         ~MainFrame();
 
+        void updateMenu();
         static wxString getConfigFileName();
         inline void setCentered(bool value) { centered = value; }
         inline bool getCentered() const { return centered; }

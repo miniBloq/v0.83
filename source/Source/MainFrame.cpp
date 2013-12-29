@@ -529,6 +529,19 @@ MainFrame::~MainFrame()
 }
 
 
+void MainFrame::updateMenu()
+{
+    menuViewHelpAndResourceCenter->Check(auiManager.GetPane("HelpAndResourceCenter").IsShown());
+    menuViewQuickToolbar->Check(auiManager.GetPane("QuickToolBar").IsShown());
+
+    menuViewGeneratedCode->Check(auiManager.GetPane("GeneratedCode").IsShown());
+    menuViewHardware->Check(auiManager.GetPane("Hardware").IsShown());
+    menuViewProperties->Check(auiManager.GetPane("Properties").IsShown());
+    menuViewMessages->Check(auiManager.GetPane("Messages").IsShown());
+    menuViewTerminal->Check(auiManager.GetPane("Terminal").IsShown());
+}
+
+
 wxString MainFrame::getConfigFileName()
 {
     return  wxStandardPaths::Get().GetExecutablePath().BeforeLast(wxFileName::GetPathSeparator()) +
@@ -631,6 +644,7 @@ void MainFrame::readConfig()
         rootChild = rootChild->GetNext();
     }
 
+    updateMenu();
     auiManager.Update();
 }
 
@@ -1408,10 +1422,6 @@ void MainFrame::createMenuView()
     //menú, porque hay que mantener sus "checks" sincronizados con la visualización de las ventanas a las
     //que están asociados:
 
-    //##Unificar todo el tema de los Check() en funciones tipo ShowPane, que ya hagan todo, estando por
-    //defecto en estas funciones de creación por menúes, sin el tilde (unchecked), y luego colocando los
-    //tildes en las funciones mencionadas (o quitándolos), para UNIFICAR todo el código.
-
     //##Pasar esto a la forma del método:
     // Append(int id, const wxString& item = "", const wxString& helpString = "", wxItemKind kind = wxITEM_NORMAL):
     menuViewHelpAndResourceCenter = new wxMenuItem( popView, ID_MenuViewHelpAndResourceCenter,
@@ -1424,7 +1434,7 @@ void MainFrame::createMenuView()
                                     wxString(""), wxITEM_CHECK);
     if (menuViewLabels)
     {
-        //menuViewLabels->Check(true); //##Esto se levanta del archivo de configuración
+        //menuViewLabels->Check(true);
         popView->Append(menuViewLabels);
     }
 #endif
@@ -1438,7 +1448,7 @@ void MainFrame::createMenuView()
     if (menuViewQuickToolbar)
     {
         popView->Append(menuViewQuickToolbar);
-        menuViewQuickToolbar->Check(true); //##Esto se levanta del archivo de configuración
+        //menuViewQuickToolbar->Check(true);
     }
 
     //Separator:
@@ -1452,7 +1462,7 @@ void MainFrame::createMenuView()
 #endif
     menuViewGeneratedCode = new wxMenuItem(popView, ID_MenuViewGeneratedCode, _("Generated code\tAlt+G"), wxString(""), wxITEM_CHECK);
     popView->Append(menuViewGeneratedCode);
-    //menu->Check(true); //##Esto se levanta del archivo de configuración
+    //menu->Check(true);
     menuViewHardware = new wxMenuItem(popView, ID_MenuViewHardware, _("Hardware\tAlt+H"), wxString(""), wxITEM_CHECK);
     if (menuViewHardware)
     {
@@ -1463,7 +1473,7 @@ void MainFrame::createMenuView()
 //        bmp = wxBitmap(img.Scale(iconW, iconH));
 //        menuViewHardware->SetBitmap(bmp);
         popView->Append(menuViewHardware);
-        menuViewHardware->Check(true); //##Esto viene del XML de configuración...
+        //menuViewHardware->Check(true);
     }
     menuViewProperties = new wxMenuItem(popView, ID_MenuViewProperties, _("Properties\tAlt+P"), wxString(""), wxITEM_CHECK);
     popView->Append(menuViewProperties);
@@ -1477,7 +1487,7 @@ void MainFrame::createMenuView()
     if (menuViewTerminal)
     {
         popView->Append(menuViewTerminal);
-        //menuViewTerminal->Check(true); //##Esto se levanta del archivo de configuración.
+        //menuViewTerminal->Check(true);
     }
 
     //##$: NOTA IMPORTANTE: Ver que coloqué una "L" antes del string constant "Código generado\tAlt+G", que es la que indica
@@ -1501,49 +1511,6 @@ void MainFrame::createMenuView()
     menuViewNextView = new wxMenuItem(popView, ID_MenuViewNextView, _("Next view\tAlt+Right"));
     popView->Append(menuViewNextView);
 #endif
-/*
-    //##Future: This may be a toolbar instead of a menu:
-    wxMenuItem* menuItem;
-    popView = new wxMenu;
-
-    //##No bitmaps by now:
-    int iconW = 1;
-    int iconH = 1;
-
-    menuItem = new wxMenuItem(popView, 101, _("Help && Resource Center"));
-    menuItem->SetBitmap(wxArtProvider::GetBitmap(wxART_UNDO, wxART_OTHER, wxSize(iconW, iconH)));
-    popView->Append(menuItem);
-    menuItem = new wxMenuItem(popView); //Separator
-    popView->Append(menuItem);
-    menuItem = new wxMenuItem(popView, 101, _("Component"));
-    menuItem->SetBitmap(wxArtProvider::GetBitmap(wxART_UNDO, wxART_OTHER, wxSize(iconW, iconH)));
-    popView->Append(menuItem);
-    menuItem = new wxMenuItem(popView, 101, _("Hardware"));
-    menuItem->SetBitmap(wxArtProvider::GetBitmap(wxART_REDO, wxART_OTHER, wxSize(iconW, iconH)));
-    popView->Append(menuItem);
-    //Separator:
-    menuItem = new wxMenuItem(popView);
-    popView->Append(menuItem);
-    menuItem = new wxMenuItem(popView, 101, _("Properties"));
-    menuItem->SetBitmap(wxArtProvider::GetBitmap(wxART_REPORT_VIEW, wxART_OTHER, wxSize(iconW, iconH)));
-    popView->Append(menuItem);
-    menuItem = new wxMenuItem(popView, 101, _("Quick toolbar"));
-    menuItem->SetBitmap(wxArtProvider::GetBitmap(wxART_COPY, wxART_OTHER, wxSize(iconW, iconH)));
-    popView->Append(menuItem);
-    menuItem = new wxMenuItem(popView); //Separator
-    popView->Append(menuItem);
-    menuItem = new wxMenuItem(popView, 101, _("Terminal"));
-    menuItem->SetBitmap(wxArtProvider::GetBitmap(wxART_PASTE, wxART_OTHER, wxSize(iconW, iconH)));
-    popView->Append(menuItem);
-    menuItem = new wxMenuItem(popView); //Separator
-    popView->Append(menuItem);
-    menuItem = new wxMenuItem(popView, 101, _("Prev view"));
-    menuItem->SetBitmap(wxArtProvider::GetBitmap(wxART_DELETE, wxART_OTHER, wxSize(iconW, iconH)));
-    popView->Append(menuItem);
-    menuItem = new wxMenuItem(popView, 101, _("Next view"));
-    menuItem->SetBitmap(wxArtProvider::GetBitmap(wxART_FIND, wxART_OTHER, wxSize(iconW, iconH)));
-    popView->Append(menuItem);
-*/
 }
 
 
