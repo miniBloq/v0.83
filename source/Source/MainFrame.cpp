@@ -552,7 +552,20 @@ void MainFrame::readConfig()
     while (rootChild)
     {
         tempName = rootChild->GetName();
-        if (tempName == wxString("hard"))
+        if (tempName == wxString("mainFrame"))
+        {
+            wxXmlNode *child = rootChild->GetChildren();
+            while (child)
+            {
+                if (child->GetName() == "perspective")
+                {
+                    wxString strPerspective = child->GetNodeContent();
+                    auiManager.LoadPerspective(strPerspective, true);
+                }
+                child = child->GetNext();
+            }
+        }
+        else if (tempName == wxString("hard"))
         {
             wxXmlNode *child = rootChild->GetChildren();
             while (child)
@@ -570,23 +583,41 @@ void MainFrame::readConfig()
                 child = child->GetNext();
             }
         }
-        if (tempName == wxString("terminal"))
+        else if (tempName == wxString("terminal"))
         {
             wxXmlNode *child = rootChild->GetChildren();
             while (child)
             {
-                if (child->GetName() == "shown")
-                    auiManager.GetPane("Terminal").Show(Bubble::string2bool(child->GetNodeContent()));
-                if (child->GetName() == "float")
-                    if (Bubble::string2bool(child->GetNodeContent()))
-                        auiManager.GetPane("Terminal").Float();
-                    else
-                        auiManager.GetPane("Terminal").Dock();
-
+                if (commManager)
+                {
+                    if (child->GetName() == "tab")
+                    {
+                        if (commManager->getSingleTerminal() &&
+                            commManager->getSplitTerminal())
+                        {
+                            if (child->GetNodeContent() == wxString("single"))
+                                commManager->getSingleTerminal()->SetFocus();
+                            else if (child->GetNodeContent() == wxString("split"))
+                                commManager->getSplitTerminal()->SetFocus();
+                        }
+                    }
+                    else if (child->GetName() == "showEmoticons")
+                    {
+                        if (commManager->getSplitTerminal())
+                            commManager->getSplitTerminal()->setEmoticonsEnabled(Bubble::string2bool(child->GetNodeContent()));
+                    }
+                    else if (child->GetName() == "baudrate")
+                    {
+                        wxString returnStringValue = child->GetNodeContent();
+                        long returnNumericValue = 0;
+                        if (returnStringValue.ToLong(&returnNumericValue))
+                            commManager->setBaudRate((wxBaud)returnNumericValue);
+                    }
+                }
                 child = child->GetNext();
             }
         }
-        if (tempName == wxString("components"))
+        else if (tempName == wxString("components"))
         {
             wxXmlNode *child = rootChild->GetChildren();
             while (child)
@@ -630,6 +661,7 @@ void MainFrame::writeConfig()
         else
             configFile.AddLine(wxString("<maximized>false</maximized>"));
         configFile.AddLine(wxString("<centered>") << Bubble::bool2string(getCentered()) << wxString("</centered>")); //##Not used by now.
+        configFile.AddLine(wxString("<perspective>") <<  auiManager.SavePerspective() << wxString("</perspective>"));
         configFile.AddLine("</mainFrame>");
 
         configFile.AddLine("<hard>");
@@ -640,8 +672,16 @@ void MainFrame::writeConfig()
         configFile.AddLine("</hard>");
 
         configFile.AddLine("<terminal>");
-        configFile.AddLine(wxString("<shown>") << Bubble::bool2string(auiManager.GetPane("Terminal").IsShown()) << wxString("</shown>"));
-        configFile.AddLine(wxString("<float>") << Bubble::bool2string(auiManager.GetPane("Terminal").IsFloating()) << wxString("</float>"));
+        if (commManager)
+        {
+            if (commManager->getSingleTerminal() &&
+                commManager->getSplitTerminal())
+            {
+                configFile.AddLine(wxString("<tab>") << "single" << wxString("</tab>")); //##Not implemented yet...
+                configFile.AddLine(wxString("<showEmoticons>") << Bubble::bool2string(commManager->getSplitTerminal()->getEmoticonsEnabled()) << wxString("</showEmoticons>"));
+            }
+            configFile.AddLine(wxString("<baudrate>") << (int)commManager->getBaudRate() << wxString("</baudrate>"));
+        }
         configFile.AddLine("</terminal>");
 
         configFile.AddLine("<components>");

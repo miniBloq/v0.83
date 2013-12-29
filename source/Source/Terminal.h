@@ -192,7 +192,7 @@ class TerminalCommManager
         void close();
 
         //Specific functions for communication systems that support baudrate configuration:
-        inline int getBaudRate(wxBaud value) const { return baudRate; }
+        inline int getBaudRate() const { return baudRate; }
         void setBaudRate(wxBaud value);
 
         //Specific functions for serial communications:
