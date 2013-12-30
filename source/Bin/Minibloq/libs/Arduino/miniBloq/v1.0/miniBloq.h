@@ -44,7 +44,7 @@ inline float Random()
 
 inline uint8_t DigitalRead(uint8_t _pin)
 {
-    pinMode(_pin, INPUT);
+    pinMode(_pin, INPUT_PULLUP);
     return pinLevelToBool(digitalRead(_pin));
 }
 
