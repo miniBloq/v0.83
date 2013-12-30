@@ -26,11 +26,11 @@
                 <numberConstant function="Constant" commented="false" constantValue="100" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
             </numberMul>
         </VariableSetter>
-        <SerialText function="Setter" commented="false" instanceName="serial0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <serialPrintlnNumber function="Getter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+        <Serial function="Setter" commented="false" instanceName="serial0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <SerialNumber function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
                 <VariableGetter function="Getter" commented="false" instanceName="temperature" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-            </serialPrintlnNumber>
-        </SerialText>
+            </SerialNumber>
+        </Serial>
         <delay function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <numberConstant function="Constant" commented="false" constantValue="1000" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </delay>

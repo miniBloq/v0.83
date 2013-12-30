@@ -2,7 +2,7 @@
 <block xmlns="http://block.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.8.Beta">
     <properties>
 		<name>SerialText</name>
-		<function>Getter</function>
+		<function>Setter</function>
 		<loadAction>load</loadAction>
     </properties>
     <code>

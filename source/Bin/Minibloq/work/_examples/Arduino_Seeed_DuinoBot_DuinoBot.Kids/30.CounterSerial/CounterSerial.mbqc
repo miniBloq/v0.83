@@ -14,11 +14,11 @@
         <while function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <boolConstantTrue function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </while>
-        <SerialText function="Setter" commented="false" instanceName="serial0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <serialPrintlnNumber function="Getter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+        <Serial function="Setter" commented="false" instanceName="serial0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <SerialNumber function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
                 <VariableGetter function="Getter" commented="false" instanceName="counter" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-            </serialPrintlnNumber>
-        </SerialText>
+            </SerialNumber>
+        </Serial>
         <VariableSetter function="Setter" commented="false" instanceName="counter" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <numberAdd function="Operation" commented="false" paramsCount="2" hasAddParamsButton="true" loadAction="load">
                 <VariableGetter function="Getter" commented="false" instanceName="counter" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>

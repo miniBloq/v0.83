@@ -56,11 +56,11 @@
         <VariableSetter function="Setter" commented="false" instanceName="ultrasonic" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <Ping function="Sensor" commented="false" instanceName="D15" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </VariableSetter>
-        <SerialText function="Setter" commented="false" instanceName="serial0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <serialPrintlnNumber function="Getter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+        <Serial function="Setter" commented="false" instanceName="serial0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <SerialNumber function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
                 <VariableGetter function="Getter" commented="false" instanceName="ultrasonic" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-            </serialPrintlnNumber>
-        </SerialText>
+            </SerialNumber>
+        </Serial>
         <Motor function="Setter" commented="false" instanceName="motor0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <VariableGetter function="Getter" commented="false" instanceName="ultrasonic" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </Motor>

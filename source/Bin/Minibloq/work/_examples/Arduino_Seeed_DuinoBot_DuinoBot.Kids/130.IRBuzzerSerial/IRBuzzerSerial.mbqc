@@ -24,11 +24,11 @@
             </numberMul>
             <numberConstant function="Constant" commented="false" constantValue="250" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </Buzzer>
-        <SerialText function="Setter" commented="false" instanceName="serial0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <serialPrintlnNumber function="Getter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+        <Serial function="Setter" commented="false" instanceName="serial0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <SerialNumber function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
                 <IRRemote function="Sensor" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-            </serialPrintlnNumber>
-        </SerialText>
+            </SerialNumber>
+        </Serial>
         <whileEnd function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
     </blocks>
 </mbqc>
