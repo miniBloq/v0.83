@@ -673,6 +673,13 @@ void MainFrame::readConfig()
             wxXmlNode *child = rootChild->GetChildren();
             while (child)
             {
+//                if (child->GetName() == "shown")
+//                {
+//                    if (notebook->GetPage(notebook->GetPageIndex(editCode)) != NULL)
+//                    {
+//                        //toggleGeneratedCode();
+//                    }
+//                }
                 if (child->GetName() == "zoom")
                 {
                     wxString returnStringValue = child->GetNodeContent();
@@ -768,7 +775,26 @@ void MainFrame::writeConfig()
         configFile.AddLine("<code>");
         if (editCode)
         {
-            configFile.AddLine(wxString("<zoom>") << editCode->GetZoom() << wxString("</zoom>"));
+            if (notebook)
+            {
+                if (notebook->GetPageIndex(editCode) != wxNOT_FOUND )
+                {
+                    //configFile.AddLine(wxString("<shown>") << Bubble::bool2string(notebook->GetPage(notebook->GetPageIndex(editCode)) != NULL) << wxString("</shown>"));
+                    configFile.AddLine(wxString("<zoom>") << editCode->GetZoom() << wxString("</zoom>"));
+                }
+                else
+                {
+                    configFile.AddLine(wxString("<zoom>") << getEditCodeZoom() << wxString("</zoom>"));
+                }
+            }
+            else
+            {
+                configFile.AddLine(wxString("<zoom>") << getEditCodeZoom() << wxString("</zoom>"));
+            }
+        }
+        else
+        {
+            configFile.AddLine(wxString("<zoom>") << getEditCodeZoom() << wxString("</zoom>"));
         }
         configFile.AddLine("</code>");
 
@@ -4032,13 +4058,17 @@ void MainFrame::toggleGeneratedCode()
     }
     else
     {
-        if (editCode) //Redundant security, just in case...
+        if (editCode)
         {
-            if (notebook->GetPageIndex(editCode) != wxNOT_FOUND )
+            if (notebook)
             {
-                notebook->DeletePage(notebook->GetPageIndex(editCode));
-                editCode = NULL;
-                menuViewGeneratedCode->Check(false);
+                if (notebook->GetPageIndex(editCode) != wxNOT_FOUND )
+                {
+                    setEditCodeZoom(editCode->GetZoom());
+                    notebook->DeletePage(notebook->GetPageIndex(editCode));
+                    editCode = NULL;
+                    menuViewGeneratedCode->Check(false);
+                }
             }
         }
     }
@@ -4149,10 +4179,25 @@ void MainFrame::onPaneClose(wxAuiManagerEvent& evt)
     }
     else if (evt.pane->name == wxString("GeneratedCode"))
     {
-        menuViewGeneratedCode->Check(false);
+        //menuViewGeneratedCode->Check(false);
+
         //##Ver si tengo que hacer un delete del editCode acá, o si en realidad lo maneja wxWidgets
         //automáticamente como hace con los childs (porque editCode se crea con new() y no lo destruyo a mano
         //en ninguna parte...
+
+        if (editCode) //Redundant security, just in case...
+        {
+            if (notebook)
+            {
+                if (notebook->GetPageIndex(editCode) != wxNOT_FOUND )
+                {
+                    setEditCodeZoom(editCode->GetZoom());
+                    notebook->DeletePage(notebook->GetPageIndex(editCode));
+                    editCode = NULL;
+                    menuViewGeneratedCode->Check(false);
+                }
+            }
+        }
     }
     else if (evt.pane->name == wxString("HelpAndResourceCenter"))
     {
@@ -4474,6 +4519,16 @@ void MainFrame::onNotebookPageClose(wxAuiNotebookEvent& evt)
     else if (ctrl->GetPage(evt.GetSelection())->IsKindOf(CLASSINFO(BubbleEditor)))
     {
         menuViewGeneratedCode->Check(false);
+        if (editCode)
+        {
+            if (notebook)
+            {
+                if (notebook->GetPageIndex(editCode) != wxNOT_FOUND )
+                {
+                    setEditCodeZoom(editCode->GetZoom());
+                }
+            }
+        }
     }
 //    else    //##En este else entran los terminales, PERO ESTO, SI SE MUESTRA EL BOTÓN DE CIERRE EN LOS TABS
 //            //DEL TERMINAL SINGLE O DEL SPLIT, ¡DA ERROR!:
