@@ -94,6 +94,8 @@ class BubbleHardwareManager : public BubblePanel
         wxString getNewPort();
         //##void getPorts(std::vector<std::string>& result);
 
+        void setAllEnabled(bool value);
+
         void setPortSelectorEnabled(bool value);
         bool getPortSelectorEnabled();
         wxString getPortNameString();

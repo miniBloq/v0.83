@@ -575,6 +575,21 @@ wxString BubbleHardwareManager::getNewPort()
 //}
 
 
+void BubbleHardwareManager::setAllEnabled(bool value)
+{
+    if (comboBootPortName)
+        comboBootPortName->Enable(value);
+    if (comboBoardName)
+        comboBoardName->Enable(value);
+    if (buttonReloadBlocks)
+        buttonReloadBlocks->Enable(value);
+    if (buttonReloadHardware)
+        buttonReloadHardware->Enable(value);
+    if (buttonGoToDriversDir)
+        buttonGoToDriversDir->Enable(value);
+}
+
+
 void BubbleHardwareManager::setPortSelectorEnabled(bool value)
 {
     if (comboBootPortName)

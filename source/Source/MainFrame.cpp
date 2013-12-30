@@ -3138,6 +3138,20 @@ void MainFrame::onMenuFileExamples(wxCommandEvent& evt)
 //##Puede que luego se unifique para grabar blocks y components, pero no por ahora:
 bool MainFrame::openFileComponent(const wxString &defaultDir)
 {
+    //This is to avoid the bug (under Windows) where the second click from a double click event from the
+    //open file dialog reloads hardware, or the like:
+//    if (bubble.getHardwareManager())
+//        bubble.getHardwareManager()->setAllEnabled(false);
+//    bool showHardwareManager = false;
+//    if (bubble.getHardwareManager())
+//    {
+//        if (bubble.getHardwareManager()->IsShown())
+//        {
+//            showHardwareManager = true;
+//            toggleWindow("Hardware", menuViewHardware);
+//        }
+//    }
+
     //##Ojo que registré al menos 2 cuelgues con esto, no sé qué pasó, pero esto se colgó alguna vez, posiblemente
     //sea el delete, o algo del AUI. Intentar reproducir el bug, que no ha resultado sistemático:
 
@@ -3193,12 +3207,28 @@ bool MainFrame::openFileComponent(const wxString &defaultDir)
                 tempCurrentCanvas = NULL;
             }
             bubble.forceSaved(true);
-//##: Ojo, que estas líneas estaban produciendo errores:
+
+            //##: Ojo, que estas líneas estaban produciendo errores:
             if (showCode)
                 toggleGeneratedCode();
+
+//            wxMilliSleep(1000);
+//            if (bubble.getHardwareManager())
+//                bubble.getHardwareManager()->setAllEnabled(true);
+//            if (bubble.getHardwareManager())
+//            {
+//                if (showHardwareManager)
+//                    toggleWindow("Hardware", menuViewHardware);
+//            }
             return true;
         }
     }
+
+//    if (bubble.getHardwareManager())
+//    {
+//        if (showHardwareManager)
+//            toggleWindow("Hardware", menuViewHardware);
+//    }
     return false;
 }
 
