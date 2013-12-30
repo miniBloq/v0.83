@@ -24,7 +24,9 @@
     <canvas>
         <zoom>3</zoom>
     </canvas>
-    <code/>
+    <code>
+        <zoom>2</zoom>
+    </code>
     <components>
         <recent/>
     </components>

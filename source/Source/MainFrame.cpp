@@ -267,6 +267,7 @@ MainFrame::MainFrame(   wxWindow* parent,
                                         menuZoomViewAll(NULL),
 
                                         editCode(NULL),
+                                        editCodeZoom(2),
 
                                         useExternalHelpCenter(false),
 
@@ -490,8 +491,6 @@ MainFrame::MainFrame(   wxWindow* parent,
     //bubble.loadBlocks(); //Must be called BEFORE add a canvas ( which is done in CreateNotebook() ).
 
     changeBoardNotify();
-//    if (bubble.getCurrentCanvas())
-//        bubble.getCurrentCanvas()->setZoomIndex(3); //##Read this from the config file.
 
     //This forces to load the includes in the generated code:
     bubble.loadBoardRelations();
@@ -676,13 +675,10 @@ void MainFrame::readConfig()
             {
                 if (child->GetName() == "zoom")
                 {
-//                    if (bubble.getCurrentCanvas())
-//                    {
-//                        wxString returnStringValue = child->GetNodeContent();
-//                        long returnNumericValue = 0;
-//                        if (returnStringValue.ToLong(&returnNumericValue))
-//                            bubble.getCurrentCanvas()->setZoomIndex((int)returnNumericValue);
-//                    }
+                    wxString returnStringValue = child->GetNodeContent();
+                    long returnNumericValue = 0;
+                    if (returnStringValue.ToLong(&returnNumericValue))
+                        setEditCodeZoom((int)returnNumericValue);
                 }
                 child = child->GetNext();
             }
@@ -770,7 +766,10 @@ void MainFrame::writeConfig()
         configFile.AddLine("</canvas>");
 
         configFile.AddLine("<code>");
-        //##Implementar: configFile.AddLine(wxString("<zoom>") << ## << wxString("</zoom>"));
+        if (editCode)
+        {
+            configFile.AddLine(wxString("<zoom>") << editCode->GetZoom() << wxString("</zoom>"));
+        }
         configFile.AddLine("</code>");
 
         configFile.AddLine("<components>");
@@ -3994,7 +3993,10 @@ void MainFrame::toggleGeneratedCode()
         editCode->SetKeyWords(0, wxString("return for while break continue if else true false"));
         editCode->SetKeyWords(1, wxString("unsigned volatile const int float void char double"));
 
-        editCode->SetZoom(2);//##
+        editCode->SetZoom(getEditCodeZoom());
+        //##Debug:
+//        wxMessageDialog dialog0(this, _("zoom"), wxString("zoom = ") << getEditCodeZoom());
+//        dialog0.ShowModal();
 
         //##Obtener el título de la internacionalización (así lo comprenderán mejor los chicos) y el
         //número del último que se encuentre grabado en el directorio temporal, incrementado en 1:
@@ -4040,7 +4042,6 @@ void MainFrame::toggleGeneratedCode()
             }
         }
     }
-    //##Verificar si realmente al cerrar un page de wxAuiNotebook éste se destruye y hay que hacer este
 }
 
 

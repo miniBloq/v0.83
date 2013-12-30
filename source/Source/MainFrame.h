@@ -289,6 +289,7 @@ class MainFrame : public wxFrame, public IBubbleNotifier
         wxMenuItem *menuZoomViewAll;
 
         BubbleEditor *editCode;
+        int editCodeZoom;
 
         bool useExternalHelpCenter;
 
@@ -465,6 +466,9 @@ class MainFrame : public wxFrame, public IBubbleNotifier
         unsigned int getProgressMax() const;
         void setProgressPosition(unsigned int value, bool showWindow, bool showMessages);
         unsigned int getProgressPosition() const;
+
+        inline void setEditCodeZoom(int value) { editCodeZoom = value; }
+        inline int getEditCodeZoom() const { return editCodeZoom; }
 
         DECLARE_EVENT_TABLE()
 
