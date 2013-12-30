@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <block xmlns="http://block.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.8.Beta">
     <properties>
-		<name>SerialText</name>
+		<name>Serial</name>
 		<function>Setter</function>
 		<loadAction>load</loadAction>
     </properties>
@@ -55,7 +55,7 @@
 		</value>
 	</params>
 	<friends>
-		<serialPrintlnText>serialPrintlnText</serialPrintlnText>
-		<serialPrintlnNumber>serialPrintlnNumber</serialPrintlnNumber>
+		<serialPrintlnText>SerialText</serialPrintlnText>
+		<serialPrintlnNumber>SerialNumber</serialPrintlnNumber>
 	</friends>
 </block>
