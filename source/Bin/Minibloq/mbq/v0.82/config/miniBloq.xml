@@ -21,6 +21,10 @@
     <properties>
         <language>Español</language>
     </properties>
+    <canvas>
+        <zoom>3</zoom>
+    </canvas>
+    <code/>
     <components>
         <recent/>
     </components>

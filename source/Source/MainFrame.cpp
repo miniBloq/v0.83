@@ -490,8 +490,8 @@ MainFrame::MainFrame(   wxWindow* parent,
     //bubble.loadBlocks(); //Must be called BEFORE add a canvas ( which is done in CreateNotebook() ).
 
     changeBoardNotify();
-    if (bubble.getCurrentCanvas())
-        bubble.getCurrentCanvas()->setZoomIndex(3); //##Read this from the config file.
+//    if (bubble.getCurrentCanvas())
+//        bubble.getCurrentCanvas()->setZoomIndex(3); //##Read this from the config file.
 
     //This forces to load the includes in the generated code:
     bubble.loadBoardRelations();
@@ -651,6 +651,42 @@ void MainFrame::readConfig()
                 child = child->GetNext();
             }
         }
+        else if (tempName == wxString("canvas"))
+        {
+            wxXmlNode *child = rootChild->GetChildren();
+            while (child)
+            {
+                if (child->GetName() == "zoom")
+                {
+                    if (bubble.getCurrentCanvas())
+                    {
+                        wxString returnStringValue = child->GetNodeContent();
+                        long returnNumericValue = 0;
+                        if (returnStringValue.ToLong(&returnNumericValue))
+                            bubble.getCurrentCanvas()->setZoomIndex((int)returnNumericValue);
+                    }
+                }
+                child = child->GetNext();
+            }
+        }
+        else if (tempName == wxString("code"))
+        {
+            wxXmlNode *child = rootChild->GetChildren();
+            while (child)
+            {
+                if (child->GetName() == "zoom")
+                {
+//                    if (bubble.getCurrentCanvas())
+//                    {
+//                        wxString returnStringValue = child->GetNodeContent();
+//                        long returnNumericValue = 0;
+//                        if (returnStringValue.ToLong(&returnNumericValue))
+//                            bubble.getCurrentCanvas()->setZoomIndex((int)returnNumericValue);
+//                    }
+                }
+                child = child->GetNext();
+            }
+        }
         else if (tempName == wxString("components"))
         {
             wxXmlNode *child = rootChild->GetChildren();
@@ -725,6 +761,17 @@ void MainFrame::writeConfig()
             configFile.AddLine(wxString("<language>") << minibloqProperties->getLanguageSelection() << wxString("</language>"));
         }
         configFile.AddLine("</properties>");
+
+        configFile.AddLine("<canvas>");
+        if (bubble.getCurrentCanvas())
+        {
+            configFile.AddLine(wxString("<zoom>") << bubble.getCurrentCanvas()->getZoomIndex() << wxString("</zoom>"));
+        }
+        configFile.AddLine("</canvas>");
+
+        configFile.AddLine("<code>");
+        //##Implementar: configFile.AddLine(wxString("<zoom>") << ## << wxString("</zoom>"));
+        configFile.AddLine("</code>");
 
         configFile.AddLine("<components>");
         configFile.AddLine("<recent>");
