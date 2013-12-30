@@ -586,7 +586,11 @@ void MainFrame::readConfig()
                 if (child->GetName() == "board")
                 {
                     if (bubble.getHardwareManager())
-                        bubble.getHardwareManager()->setBoardSelection(child->GetNodeContent());
+                    {
+                        wxString strBoard = child->GetNodeContent();
+                        if (bubble.getHardwareManager()->getBoardSelection() != strBoard) //Small optimization for the first board.
+                            bubble.getHardwareManager()->setBoardSelection(strBoard);
+                    }
                 }
                 else if (child->GetName() == "port")
                 {
@@ -625,6 +629,23 @@ void MainFrame::readConfig()
                         long returnNumericValue = 0;
                         if (returnStringValue.ToLong(&returnNumericValue))
                             commManager->setBaudRate((wxBaud)returnNumericValue);
+                    }
+                }
+                child = child->GetNext();
+            }
+        }
+        else if (tempName == wxString("properties"))
+        {
+            wxXmlNode *child = rootChild->GetChildren();
+            while (child)
+            {
+                if (child->GetName() == "language")
+                {
+                    if (minibloqProperties)
+                    {
+                        wxString strLanguage = child->GetNodeContent();
+                        if (minibloqProperties->getLanguageSelection() != strLanguage) //Small optimization.
+                            minibloqProperties->setLanguageSelection(strLanguage);
                     }
                 }
                 child = child->GetNext();
@@ -697,6 +718,13 @@ void MainFrame::writeConfig()
             configFile.AddLine(wxString("<baudrate>") << (int)commManager->getBaudRate() << wxString("</baudrate>"));
         }
         configFile.AddLine("</terminal>");
+
+        configFile.AddLine("<properties>");
+        if (minibloqProperties)
+        {
+            configFile.AddLine(wxString("<language>") << minibloqProperties->getLanguageSelection() << wxString("</language>"));
+        }
+        configFile.AddLine("</properties>");
 
         configFile.AddLine("<components>");
         configFile.AddLine("<recent>");

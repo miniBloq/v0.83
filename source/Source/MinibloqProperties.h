@@ -50,6 +50,18 @@ class MinibloqProperties : public BubblePanel
         virtual ~MinibloqProperties();
 
         void updateGUI();
+        inline void setLanguageSelection(const wxString& value)
+        {
+            if (comboLanguage)
+                comboLanguage->setSelection(value);
+        }
+        inline wxString getLanguageSelection() const
+        {
+            if (comboLanguage)
+                return comboLanguage->getText();
+            return wxEmptyString;
+        }
+
 
         //##void onSize(wxSizeEvent& event);
 

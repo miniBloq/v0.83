@@ -16,8 +16,11 @@
     <terminal>
         <tab>single</tab>
         <showEmoticons>true</showEmoticons>
-        <baudrate>115200</baudrate>
+        <baudrate>57600</baudrate>
     </terminal>
+    <properties>
+        <language>Español</language>
+    </properties>
     <components>
         <recent/>
     </components>
