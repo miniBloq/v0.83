@@ -751,17 +751,14 @@ void MainFrame::writeConfig()
         if (commManager)
         {
             if (commManager->getSingleTerminal() &&
-                commManager->getSplitTerminal())
+                commManager->getSplitTerminal() &&
+                terminal)
             {
-                if (commManager->getSingleTerminal() &&
-                    commManager->getSplitTerminal() &&
-                    terminal)
-                {
-                    if (terminal->GetSelection() == terminal->GetPageIndex(singleTerminalGUI))
-                        configFile.AddLine(wxString("<tab>") << "single" << wxString("</tab>"));
-                    else if (terminal->GetSelection() == terminal->GetPageIndex(splitTerminalGUI))
-                        configFile.AddLine(wxString("<tab>") << "split" << wxString("</tab>"));
-                }
+                if (terminal->GetSelection() == terminal->GetPageIndex(singleTerminalGUI))
+                    configFile.AddLine(wxString("<tab>") << "single" << wxString("</tab>"));
+                else if (terminal->GetSelection() == terminal->GetPageIndex(splitTerminalGUI))
+                    configFile.AddLine(wxString("<tab>") << "split" << wxString("</tab>"));
+
                 configFile.AddLine(wxString("<showEmoticons>") << Bubble::bool2string(commManager->getSplitTerminal()->getEmoticonsEnabled()) << wxString("</showEmoticons>"));
             }
             configFile.AddLine(wxString("<baudrate>") << (int)commManager->getBaudRate() << wxString("</baudrate>"));
@@ -807,6 +804,9 @@ void MainFrame::writeConfig()
             configFile.AddLine(wxString("<zoom>") << getEditCodeZoom() << wxString("</zoom>"));
         }
         configFile.AddLine("</code>");
+
+        configFile.AddLine("<help>");
+        configFile.AddLine("</help>");
 
         configFile.AddLine("<components>");
         configFile.AddLine("<recent>");
