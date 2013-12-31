@@ -24,6 +24,7 @@ END_EVENT_TABLE()
 BubbleHardwareManager::BubbleHardwareManager(   wxWindow* parent,
                                                 wxWindowID id,
                                                 Bubble *const bubble,
+                                                const wxString& boardName,
                                                 const wxColour& colour,
                                                 const wxPoint& pos,
                                                 const wxSize& size,
@@ -39,6 +40,7 @@ BubbleHardwareManager::BubbleHardwareManager(   wxWindow* parent,
                                                                                    ),
                                                                         parent(parent),
                                                                         bubble(bubble),
+                                                                        boardName(boardName),
                                                                         currentBoardProperties(NULL),
                                                                         lblBootPortName(NULL),
                                                                         comboBootPortName(NULL),
@@ -98,11 +100,38 @@ BubbleHardwareManager::BubbleHardwareManager(   wxWindow* parent,
         comboBoardName->setSorted(false);
         bubble->loadHardwareTargets(this);
 
-        BubbleBoardProperties *firstBoard = NULL;
-        firstBoard = &(boardsProperties.Item(0));
-        currentBoardProperties->set(firstBoard);
 
-        comboBoardName->setSelection(0); //Don't delete this!
+        if (boardName == wxString(""))
+        {
+            selectFirstBoard();
+        }
+        else
+        {
+            BubbleBoardProperties *initialBoard = NULL;
+            initialBoard = &(boardsProperties.Item(0));
+
+            //Find board:
+            bool found = false;
+            BubbleBoardProperties *iterator = NULL;
+            for (unsigned int i = 0; i < boardsProperties.GetCount(); i++)
+            {
+                iterator = &(boardsProperties.Item(i)); //##In theory, this is faster than the other index based form, but I'm not sure yet...
+                if (iterator)
+                {
+                    if (iterator->getName() == boardName)
+                    {
+                        initialBoard = iterator;
+                        currentBoardProperties->set(iterator);
+                        comboBoardName->setSelection(boardName);
+                        found = true;
+                    }
+                }
+            }
+            if (!found)
+            {
+                selectFirstBoard();
+            }
+        }
 
         comboBoardName->Connect(wxEVT_COMMAND_TEXT_UPDATED,
                                 wxCommandEventHandler(BubbleHardwareManager::onComboBoardNameChanged),
@@ -284,6 +313,15 @@ BubbleHardwareManager::BubbleHardwareManager(   wxWindow* parent,
 
 BubbleHardwareManager::~BubbleHardwareManager()
 {
+}
+
+
+void BubbleHardwareManager::selectFirstBoard()
+{
+    BubbleBoardProperties *initialBoard = NULL;
+    initialBoard = &(boardsProperties.Item(0));
+    currentBoardProperties->set(initialBoard);
+    comboBoardName->setSelection(0); //It's very important to select a board in this constructor.
 }
 
 

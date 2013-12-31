@@ -164,11 +164,13 @@ MainFrame::MainFrame(   wxWindow* parent,
                         const wxString& languagePath,
                         const wxString& initialCatalogName,
                         const wxString& title,
+                        const wxString& boardName,
                         const wxPoint& pos,
                         const wxSize& size,
                         long style):
                                         wxFrame(parent, id, title, pos, size, style),
                                         centered(true),
+                                        boardName(boardName),
                                         bubble(locale),
                                         locale(locale),
                                         languagePath(languagePath),
@@ -582,7 +584,7 @@ void MainFrame::readConfig()
             wxXmlNode *child = rootChild->GetChildren();
             while (child)
             {
-                if (child->GetName() == "board")
+                /*if (child->GetName() == "board")
                 {
                     if (bubble.getHardwareManager())
                     {
@@ -591,7 +593,7 @@ void MainFrame::readConfig()
                             bubble.getHardwareManager()->setBoardSelection(strBoard);
                     }
                 }
-                else if (child->GetName() == "port")
+                else */if (child->GetName() == "port")
                 {
                     if (bubble.getHardwareManager())
                         bubble.getHardwareManager()->setPortSelection(child->GetNodeContent());
@@ -2187,7 +2189,10 @@ void MainFrame::createHardwareManager()
 {
     //##Error sistemático: Descomentar la creación del panel de "Hardware" cuelga a la aplicación si en el
     //constructor del BubbleHardwareManager se llama a SetSize():
-    hardware = new BubbleHardwareManager(this, ID_Hardware, &bubble, wxColour(255, 255, 255));
+
+//    wxMessageDialog dialog0(this, getBoardName(), _("board")); //##Debug
+//    dialog0.ShowModal(); //##Debug
+    hardware = new BubbleHardwareManager(this, ID_Hardware, &bubble, getBoardName(), wxColour(255, 255, 255));
     if (hardware)
     {
         auiManager.AddPane( hardware, wxAuiPaneInfo()

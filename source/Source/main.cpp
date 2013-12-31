@@ -20,6 +20,7 @@ class Minibloq : public wxApp
             initialFrameHeight;
         bool maximized;
         bool centered;
+        wxString strBoard;
 
         void readConfig()
         {
@@ -34,6 +35,8 @@ class Minibloq : public wxApp
             //if (root->GetName() != wxString("miniBloq"))
             //    return;
 
+            bool mainFrameRead = false;
+            bool hardRead = false;
             wxString tempName("");
             wxXmlNode *rootChild = root->GetChildren();
             while (rootChild)
@@ -83,8 +86,25 @@ class Minibloq : public wxApp
 
                         child = child->GetNext();
                     }
-                    break;
+                    mainFrameRead = true; //Optimization.
                 }
+                else if (tempName == wxString("hard"))
+                {
+                    wxXmlNode *child = rootChild->GetChildren();
+                    while (child)
+                    {
+                        if (child->GetName() == "board")
+                        {
+                            strBoard = child->GetNodeContent();
+                        }
+                        child = child->GetNext();
+                    }
+                    hardRead = true; //Optimization.
+                }
+
+                if (mainFrameRead && hardRead) //Optimization.
+                    break;
+
                 rootChild = rootChild->GetNext();
             }
         }
@@ -137,6 +157,7 @@ class Minibloq : public wxApp
             initialFrameWidth = 800;
             maximized = true;
             centered = true;
+            strBoard = wxString("");
 
             //Try to read the configuration file:
             readConfig();
@@ -156,7 +177,8 @@ class Minibloq : public wxApp
                                     locale,
                                     lanPath,
                                     initialCatalogName,
-                                    wxString(caption),
+                                    caption,
+                                    strBoard,
                                     framePosition,
                                     frameSize,
                                     style

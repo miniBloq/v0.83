@@ -26,6 +26,7 @@ class BubbleHardwareManager : public BubblePanel
     private:
         wxWindow* parent;
         Bubble *bubble;
+        wxString boardName;
         BubbleBoardProperties *currentBoardProperties;
         wxStaticText *lblBootPortName;
         BubbleCombo *comboBootPortName;
@@ -67,6 +68,7 @@ class BubbleHardwareManager : public BubblePanel
         BubbleHardwareManager(  wxWindow* parent,
                                 wxWindowID id,
                                 Bubble *const bubble,
+                                const wxString& boardName,
                                 const wxColour& colour,
                                 const wxPoint& pos = wxDefaultPosition,
                                 const wxSize& size = wxDefaultSize,
@@ -75,6 +77,7 @@ class BubbleHardwareManager : public BubblePanel
                               );
         virtual ~BubbleHardwareManager();
 
+        void selectFirstBoard();
         void clearBoardProperties()
         {
             boardsProperties.Clear();
