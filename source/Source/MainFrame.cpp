@@ -270,7 +270,7 @@ MainFrame::MainFrame(   wxWindow* parent,
                                         menuZoomViewAll(NULL),
 
                                         editCode(NULL),
-                                        editCodeZoom(3),
+                                        editCodeZoom(2),
 
                                         useExternalHelpCenter(false),
 
@@ -3180,6 +3180,38 @@ void MainFrame::onMenuFileOpen(wxCommandEvent& evt)
 
 void MainFrame::onMenuFileExamples(wxCommandEvent& evt)
 {
+    if (bubble.getCurrentCanvas())
+    {
+        //There is a currentCanvas, is it saved yet?
+        if (!(bubble.isSaved()))
+        {
+            if (notebook)
+            {
+                wxString tempName = notebook->GetPageText(notebook->GetPageIndex(bubble.getCurrentCanvas()));
+                wxMessageDialog question(   this,
+                                            _("The component ") + tempName + _(" was not saved. Do You want to save it?"),
+                                            _("Question"),
+                                            wxICON_QUESTION | wxYES_NO | wxCANCEL | wxYES_DEFAULT
+                                        );
+                int answer = question.ShowModal();
+                if (answer == wxID_CANCEL)
+                    return; //Does nothing.
+                else if (answer == wxID_YES)
+                    saveComponent();
+
+                openExample();
+            }
+        }
+        else
+        {
+            openExample();
+        }
+    }
+}
+
+
+void MainFrame::openExample()
+{
     //##Si if this code is portable, and if this will show some kind or error message in case the command fails:
     wxString folderPath = bubble.getComponentsRepositoryPath() + wxString("/work/_Examples");
     //folderPath.Replace("/", "\\");  //##Horrible hardcoded!
@@ -3194,7 +3226,6 @@ void MainFrame::onMenuFileExamples(wxCommandEvent& evt)
 
     openFileComponent(folderPath);
 }
-
 
 //##Puede que luego se unifique para grabar blocks y components, pero no por ahora:
 bool MainFrame::openFileComponent(const wxString &defaultDir)

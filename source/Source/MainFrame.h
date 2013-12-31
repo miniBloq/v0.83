@@ -359,6 +359,7 @@ class MainFrame : public wxFrame, public IBubbleNotifier
         void createComponent(bool canCancel);
         void saveComponent();
         void saveComponentAs();
+        void openExample();
 
         void onMenuFile(wxCommandEvent& evt);
         void onMenuFileCreateComponent(wxCommandEvent& evt);
