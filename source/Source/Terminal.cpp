@@ -1122,7 +1122,7 @@ void SplitTerminalGUI::enableEmoticons(bool value)
     {
         rxEmoticon->Show(value);
         if (rxEmoticon->IsShown())
-            sizerRx->Add(rxEmoticon, wxSizerFlags().Expand().Right());
+            sizerRx->Add(rxEmoticon, wxSizerFlags().Expand().Bottom());
         else
             sizerRx->Detach(rxEmoticon);
     }

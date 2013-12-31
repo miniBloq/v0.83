@@ -622,7 +622,13 @@ void MainFrame::readConfig()
                     else if (child->GetName() == "showEmoticons")
                     {
                         if (commManager->getSplitTerminal())
+                        {
+                            commManager->getSplitTerminal()->setEmoticonsEnabled(false);    //This line is a patch due to a possible bug in
+                                                                                            //wxWidgets: anyway, it's necessary in order to
+                                                                                            //properly show the emoticon screen in the split
+                                                                                            //terminal.
                             commManager->getSplitTerminal()->setEmoticonsEnabled(Bubble::string2bool(child->GetNodeContent()));
+                        }
                     }
                     else if (child->GetName() == "baudrate")
                     {
