@@ -1874,6 +1874,14 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
                 child = child->GetNext();
             }
         }
+        else if (tempName == wxString("syntax"))
+        {
+            loadSyntaxFromXML(rootChild, boardInfo, true);
+        }
+        else if (tempName == wxString("examples"))
+        {
+            loadExamplesFromXML(rootChild, boardInfo, true);
+        }
         else if (tempName == wxString("includeFiles"))
         {
             loadIncludeFilesFromXML(rootChild, boardInfo, true);
@@ -2221,6 +2229,40 @@ bool BubbleXML::loadIncludePathsFromXML(wxXmlNode *node, BubbleBoardProperties *
                                         );
         }
     }
+    return true;
+}
+
+
+bool BubbleXML::loadSyntaxFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties, bool onlyBoard)
+{
+    if (bubble == NULL)
+        return false;
+    if (node == NULL)
+        return false;
+    if (boardProperties == NULL)
+        return false;
+
+    wxXmlNode *stringNode = node->GetChildren();
+    while (stringNode)
+    {
+        if (stringNode->GetName() == wxString("lexer"))
+        {
+            wxString returnStringValue = stringNode->GetNodeContent();
+            long returnNumericValue = 0;
+            if (returnStringValue.ToLong(&returnNumericValue))
+                bubble->setLexer((int)returnNumericValue);
+        }
+//        else if ()
+//        {
+//        }
+        stringNode = stringNode->GetNext();
+    }
+    return true;}
+
+
+bool BubbleXML::loadExamplesFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties, bool onlyBoard)
+{
+    //##Implement
     return true;
 }
 

@@ -4020,26 +4020,6 @@ void MainFrame::refreshGeneratedCode()
 
 void MainFrame::toggleGeneratedCode()
 {
-    //##2011.04.21: Reimplementé esto para que genere el código cada vez que se hace un toggle. Esto tiene
-    //las siguientes ventajas:
-    //- No hay errores si se presiona este menú y no se generó aún nada.
-    //- Tampoco muestra código generado para otro proyecto la primera vez (si aún no se generó nada)
-    //- Permite generar código sin compilar (cuando tenga el código en real-time esto aún será mejor).
-
-    //##Reimplementar: Ver bien el ejemplo stc de wxWidgets, ya que seguramente habrá que heredar de
-    //WxStyledTextCtrl y trabajar mucho sobre ese asunto. Habrá además que parametrizarlo, por la sintaxis,
-    //para que Bubble pueda cargar el coloreo de sintaxis para el lenguaje a generar...
-    //
-    //Falta también implementar:
-    //* Zoom coordinado con el indicador de zoom del frame.
-    //* Ver si puedo hacer que el mousewheel se invierta para que el zoom quede como a mí me gusta.
-    //* Ver cuántas instancias permitiré abrir de vista del código generado (esa en realidad es una, a menos que haya varios archivos...).
-    //* Agregar el trabajo con proyectos puramente basados en texto, sin icónico.
-    //* Modernizar la versión de Scintilla.
-    //* ##...
-
-    //##Sincronizar el menú de "Ver código generado" con la visibilidad de la ventana de código.
-
     if (notebook == NULL)
         return;
 
@@ -4054,8 +4034,6 @@ void MainFrame::toggleGeneratedCode()
         editCode = new BubbleEditor(this, wxNewId());
         if (editCode == NULL)
             return;
-
-        //editCode->Hide(); //##By the moment has no effect. But it will be good to reduce the creation flickering.
 
         //##Tomado por ahora de http://wiki.wxwidgets.org/WxStyledTextCtrl#Using_wxStyledTextCtrl, luego esto
         //se levantará completamente de los archivos de configuración:
@@ -4114,7 +4092,11 @@ void MainFrame::toggleGeneratedCode()
 
         //##Agregar a mano los keywords que falten, o crear un lexer nuevo:
 
-        editCode->SetLexer(wxSTC_LEX_CPP);
+///////////////////Unhardcode work 2013.12.31: ////////////////////////
+
+        //editCode->SetLexer(wxSTC_LEX_CPP);
+        editCode->SetLexer(bubble.getLexer());
+///////////////////////////////////////////////////////////////////////
         editCode->StyleSetForeground (wxSTC_C_OPERATOR,          wxColour (18,18,18)); //##Take this from XML files
         editCode->StyleSetForeground (wxSTC_C_STRING,            wxColour(150,0,0));
         editCode->StyleSetForeground (wxSTC_C_PREPROCESSOR,      wxColour(165,105,0));

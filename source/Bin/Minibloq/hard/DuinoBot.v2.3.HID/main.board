@@ -50,6 +50,11 @@
 		<usbProduct></usbProduct>
 		<arduinoVariant>duinobot.v2.x</arduinoVariant>
     </properties>
+	<syntax>
+		<lexer>3</lexer>
+		<operatorColor>18,18,18</operatorColor>
+		<stringColor>150,0,0</stringColor>
+	</syntax>
 	<examples>
 		<path><s>componentsRepositoryPath::</s><s>/work/_examples/ArduinoUno</s></path>
 		<path><s>componentsRepositoryPath::</s><s>/work/_examples/DifferentialRobot</s></path>

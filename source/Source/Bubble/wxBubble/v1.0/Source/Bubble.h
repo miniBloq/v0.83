@@ -527,6 +527,8 @@ class BubbleXML
         bool loadBoardInstancesFromXML(wxXmlNode *node, BubbleCanvasInfo *canvasInfo);
         bool loadRelData(const wxString &relFileName, BubbleBoardProperties *boardProperties);
         int loadBoardRelations();
+        bool loadSyntaxFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties, bool onlyBoard);
+        bool loadExamplesFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties, bool onlyBoard);
         bool loadIncludePathsFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties, bool onlyBoard);
         bool loadIncludeFilesFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties, bool onlyBoard);
         bool loadDefinesFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties);
@@ -566,6 +568,7 @@ class Bubble : public IBubbleFileIO
         wxString includesCodeList;
         wxString includesBuildList;
         wxString initBoardCode;
+        int lexer;
 
         bool blocksEnabled;
         bool visibleLabels;
@@ -723,6 +726,9 @@ class Bubble : public IBubbleFileIO
         bool setBoardName(const wxString& value, wxWindow *pickersParent);
         inline const wxString &getBoardName() const { return boardName; }
         int loadBoardRelations();
+
+        inline void setLexer(int value) { lexer = value; }
+        inline int getLexer() { return lexer; }
 
         //Board drivers:
         bool winInstallINF(); //##Testing.

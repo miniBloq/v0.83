@@ -64,6 +64,8 @@ Bubble::Bubble(wxLocale& locale) :  parent(NULL),
                                     includesBuildList(wxString("")),
                                     initBoardCode(wxString("")),
 
+                                    lexer(3), //CPP syntax
+
                                     blocksEnabled(true),
                                     visibleLabels(false),
 
