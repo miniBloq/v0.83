@@ -718,17 +718,26 @@ void MainFrame::readConfig()
                 child = child->GetNext();
             }
         }
-        else if (tempName == wxString("components"))
-        {
-            wxXmlNode *child = rootChild->GetChildren();
-            while (child)
-            {
-                if (child->GetName() == "recent")
-                {
-                }
-                child = child->GetNext();
-            }
-        }
+//##Future: show recent opened components in the file menu:
+//        else if (tempName == wxString("components"))
+//        {
+//            wxXmlNode *child = rootChild->GetChildren();
+//            int i = 0;
+//            while (child)
+//            {
+//                if (child->GetName() == "recent")
+//                {
+//                    if (i < 10) //##This number could be moved to a constant or the like in the future...
+//                    {
+//                        addRecentComponent(child->GetNodeContent());
+//                    }
+//                    else
+//                        break;
+//                }
+//                i++;
+//                child = child->GetNext();
+//            }
+//        }
         rootChild = rootChild->GetNext();
     }
 
@@ -843,10 +852,11 @@ void MainFrame::writeConfig()
         }
         configFile.AddLine("</help>");
 
-        configFile.AddLine("<components>");
-        configFile.AddLine("<recent>");
-        configFile.AddLine("</recent>");
-        configFile.AddLine("</components>");
+//##Future:
+//        configFile.AddLine("<components>");
+//        configFile.AddLine("<recent>");
+//        configFile.AddLine("</recent>");
+//        configFile.AddLine("</components>");
 
         configFile.AddLine("</miniBloq>");
 
