@@ -169,6 +169,7 @@ MainFrame::MainFrame(   wxWindow* parent,
                         const wxSize& size,
                         long style):
                                         wxFrame(parent, id, title, pos, size, style),
+                                        showCodeAtStart(false),
                                         centered(true),
                                         boardName(boardName),
                                         bubble(locale),
@@ -269,7 +270,7 @@ MainFrame::MainFrame(   wxWindow* parent,
                                         menuZoomViewAll(NULL),
 
                                         editCode(NULL),
-                                        editCodeZoom(2),
+                                        editCodeZoom(3),
 
                                         useExternalHelpCenter(false),
 
@@ -496,7 +497,11 @@ MainFrame::MainFrame(   wxWindow* parent,
 
     //This forces to load the includes in the generated code:
     bubble.loadBoardRelations();
+
+    //Read configuration from the config file and initializes everything according to that:
     readConfig();
+    if (getShowCodeAtStart())
+        toggleGeneratedCode();
 }
 
 
@@ -681,13 +686,10 @@ void MainFrame::readConfig()
             wxXmlNode *child = rootChild->GetChildren();
             while (child)
             {
-//                if (child->GetName() == "shown")
-//                {
-//                    if (notebook->GetPage(notebook->GetPageIndex(editCode)) != NULL)
-//                    {
-//                        //toggleGeneratedCode();
-//                    }
-//                }
+                if (child->GetName() == "shown")
+                {
+                    setShowCodeAtStart(Bubble::string2bool(child->GetNodeContent()));
+                }
                 if (child->GetName() == "zoom")
                 {
                     wxString returnStringValue = child->GetNodeContent();
@@ -821,11 +823,12 @@ void MainFrame::writeConfig()
             {
                 if (notebook->GetPageIndex(editCode) != wxNOT_FOUND )
                 {
-                    //configFile.AddLine(wxString("<shown>") << Bubble::bool2string(notebook->GetPage(notebook->GetPageIndex(editCode)) != NULL) << wxString("</shown>"));
+                    configFile.AddLine(wxString("<shown>true</shown>"));
                     configFile.AddLine(wxString("<zoom>") << editCode->GetZoom() << wxString("</zoom>"));
                 }
                 else
                 {
+                    configFile.AddLine(wxString("<shown>false</shown>"));
                     configFile.AddLine(wxString("<zoom>") << getEditCodeZoom() << wxString("</zoom>"));
                 }
             }

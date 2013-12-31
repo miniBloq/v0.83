@@ -187,6 +187,7 @@ class MainFrame : public wxFrame, public IBubbleNotifier
 
         //wxString initialFile;
 
+        bool showCodeAtStart;
         bool centered;
         wxString boardName;
 
@@ -317,6 +318,8 @@ class MainFrame : public wxFrame, public IBubbleNotifier
         //##void onUpdateUI(wxUpdateUIEvent& evt);
         void onPaneClose(wxAuiManagerEvent& evt);
 
+        inline void setShowCodeAtStart(bool value) { showCodeAtStart = value; }
+        inline bool getShowCodeAtStart() const { return showCodeAtStart; }
         void readConfig();
         void writeConfig();
 
