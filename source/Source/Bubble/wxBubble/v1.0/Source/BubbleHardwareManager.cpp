@@ -5,6 +5,7 @@
     #include <windows.h>
 #endif
 
+#include "MainFrame.h"
 #include <wx/dir.h>
 
 
@@ -751,8 +752,10 @@ void BubbleHardwareManager::onComboBoardNameChanged(wxCommandEvent &event)
 {
     if (comboBoardName)
     {
-        if (bubble)
+        if (bubble && parent)
         {
+            bool currentComponentSaved = bubble->isSaved();
+            wxString currentComponentName = bubble->getComponentFilesPath() + wxString(".mbqc"); //##Unhardcode
             if (getCurrentBoardProperties())
             {
                 //Find new seleted board's properties:
@@ -831,6 +834,8 @@ void BubbleHardwareManager::onComboBoardNameChanged(wxCommandEvent &event)
                     }
                 }
             }
+            if (currentComponentSaved)
+                ((MainFrame*)parent)->loadFileComponent(currentComponentName);
         }
     }
 }
