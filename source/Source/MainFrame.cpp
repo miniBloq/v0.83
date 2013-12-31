@@ -425,7 +425,7 @@ MainFrame::MainFrame(   wxWindow* parent,
                         .Bottom().Layer(1).Position(1)
                         .CloseButton(true).Hide()
                         .BestSize(wxSize(200, 200)) //##
-                        .MinSize(wxSize(200, 30))
+                        .MinSize(wxSize(200, 100))
                       );
 
     createTerminal();
@@ -4479,7 +4479,7 @@ void MainFrame::showMessagesWindow()
 {
     if (auiManager.GetPane("Messages").IsShown())
         return;
-    auiManager.GetPane("Messages").Show();//##Un-hardcode
+    auiManager.GetPane("Messages").Show();
     auiManager.Update();
     if (menuViewMessages)
         menuViewMessages->Check(true);
