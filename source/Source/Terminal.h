@@ -335,6 +335,10 @@ class SplitTerminalGUI : public BaseTerminalGUI
 
         virtual void OnCheckShowEmoticonsClick(wxCommandEvent &event);
 
+    protected:
+        virtual void enableEmoticons(bool value);
+
+
     public:
         SplitTerminalGUI(   wxWindow* parent,
                             wxWindowID id,

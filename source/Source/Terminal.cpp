@@ -769,7 +769,7 @@ BaseTerminalGUI::BaseTerminalGUI(   wxWindow* parent,
                     checkShowEmoticons = new wxCheckBox(panelButtons, ID_CheckShowEmoticons, _("Show emoticons"));
                     if (checkShowEmoticons)
                     {
-                        checkShowEmoticons->SetValue(true); //##This will be taken from a config file...
+                        //checkShowEmoticons->SetValue(true); //##This will be taken from a config file...
                         sizerButtons->Add(checkShowEmoticons);
                     }
                 }
@@ -1110,6 +1110,14 @@ bool SplitTerminalGUI::getEmoticonsEnabled() const
 
 void SplitTerminalGUI::setEmoticonsEnabled(bool value)
 {
+    enableEmoticons(value);
+    if (checkShowEmoticons)
+        checkShowEmoticons->SetValue(value);
+}
+
+
+void SplitTerminalGUI::enableEmoticons(bool value)
+{
     if (rxEmoticon)
     {
         rxEmoticon->Show(value);
@@ -1134,5 +1142,5 @@ void SplitTerminalGUI::setEmoticonsEnabled(bool value)
 void SplitTerminalGUI::OnCheckShowEmoticonsClick(wxCommandEvent &event)
 {
     if (checkShowEmoticons)
-        setEmoticonsEnabled(checkShowEmoticons->GetValue());
+        enableEmoticons(checkShowEmoticons->GetValue());
 }
