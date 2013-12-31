@@ -692,6 +692,26 @@ void MainFrame::readConfig()
                 child = child->GetNext();
             }
         }
+        else if (tempName == wxString("help"))
+        {
+            wxXmlNode *child = rootChild->GetChildren();
+            while (child)
+            {
+                if (helpAndResourceCenter && help && about && license)
+                {
+                    if (child->GetName() == "tab")
+                    {
+                        if (child->GetNodeContent() == wxString("main"))
+                            helpAndResourceCenter->SetSelection(helpAndResourceCenter->GetPageIndex(help));
+                        else if (child->GetNodeContent() == wxString("about"))
+                            helpAndResourceCenter->SetSelection(helpAndResourceCenter->GetPageIndex(about));
+                        else if (child->GetNodeContent() == wxString("license"))
+                            helpAndResourceCenter->SetSelection(helpAndResourceCenter->GetPageIndex(license));
+                    }
+                }
+                child = child->GetNext();
+            }
+        }
         else if (tempName == wxString("components"))
         {
             wxXmlNode *child = rootChild->GetChildren();
@@ -806,6 +826,15 @@ void MainFrame::writeConfig()
         configFile.AddLine("</code>");
 
         configFile.AddLine("<help>");
+        if (helpAndResourceCenter && help && about && license)
+        {
+            if (helpAndResourceCenter->GetSelection() == helpAndResourceCenter->GetPageIndex(help))
+                configFile.AddLine(wxString("<tab>") << "main" << wxString("</tab>"));
+            else if (helpAndResourceCenter->GetSelection() == helpAndResourceCenter->GetPageIndex(about))
+                configFile.AddLine(wxString("<tab>") << "about" << wxString("</tab>"));
+            else if (helpAndResourceCenter->GetSelection() == helpAndResourceCenter->GetPageIndex(license))
+                configFile.AddLine(wxString("<tab>") << "license" << wxString("</tab>"));
+        }
         configFile.AddLine("</help>");
 
         configFile.AddLine("<components>");
