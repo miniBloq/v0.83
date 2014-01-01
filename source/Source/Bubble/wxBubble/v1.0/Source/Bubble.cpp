@@ -171,10 +171,23 @@ bool Bubble::string2bool(const wxString &value)
 
 
 
+//value format must be:
+//R,G,B (example: 255,0,0
+//Values are in decimal base and spaces, tabs, etc. are trimmed.
 wxColour Bubble::string2color(const wxString &value)
 {
-    wxColour result(0, 0, 255);
-    //##
+    long    R = 0,
+            G = 0,
+            B = 0;
+    wxString tail = value;
+
+    tail.BeforeFirst(',').Trim().ToLong(&R);
+    tail = tail.AfterFirst(',');
+    tail.BeforeFirst(',').Trim().ToLong(&G);
+    tail = tail.AfterFirst(',');
+    tail.BeforeFirst(',').Trim().ToLong(&B);
+
+    wxColour result((unsigned char)R, (unsigned char)G, (unsigned char)B);
 
     return result;
 }
