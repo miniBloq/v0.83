@@ -64,7 +64,33 @@ Bubble::Bubble(wxLocale& locale) :  parent(NULL),
                                     includesBuildList(wxString("")),
                                     initBoardCode(wxString("")),
 
-                                    lexer(3), //CPP syntax
+                                    codeLexer(3), //CPP syntax
+                                    codeOperatorColor(wxColour(0, 0, 0)),
+                                    codeStringColor(wxColour(0, 0, 0)),
+                                    codePreprocesorColor(wxColour(0, 0, 0)),
+                                    codeIdentifierColor(wxColour(0, 0, 0)),
+                                    codeNumberColor(wxColour(0, 0, 0)),
+                                    codeCharacterColor(wxColour(0, 0, 0)),
+                                    codeWordColor(wxColour(0, 0, 0)),
+                                    codeWord2Color(wxColour(0, 0, 0)),
+                                    codeCommentColor(wxColour(0, 0, 0)),
+                                    codeCommentLineColor(wxColour(0, 0, 0)),
+                                    codeCommentDocColor(wxColour(0, 0, 0)),
+                                    codeCommentDocKeywordColor(wxColour(0, 0, 0)),
+                                    codeCommentDocKewwordErrorColor(wxColour(0, 0, 0)),
+                                    codeOperatorBold(false),
+                                    codeStringBold(false),
+                                    codePreprocesorBold(false),
+                                    codeIdentifierBold(false),
+                                    codeNumberBold(false),
+                                    codeCharacterBold(false),
+                                    codeWordBold3(false),
+                                    codeWord2Bold(false),
+                                    codeCommentBold(false),
+                                    codeCommentLineBold(false),
+                                    codeCommentDocBold(false),
+                                    codeCommentDocKeywordBold(false),
+                                    codeCommentDocKewwordErrorBold(false),
 
                                     blocksEnabled(true),
                                     visibleLabels(false),
@@ -141,6 +167,16 @@ bool Bubble::string2bool(const wxString &value)
     if (value == wxString("true"))
         return true;
     return false;
+}
+
+
+
+wxColour Bubble::string2color(const wxString &value)
+{
+    wxColour result(0, 0, 0);
+    //##
+
+    return result;
 }
 
 

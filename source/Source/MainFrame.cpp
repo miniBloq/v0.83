@@ -4095,7 +4095,7 @@ void MainFrame::toggleGeneratedCode()
 ///////////////////Unhardcode work 2013.12.31: ////////////////////////
 
         //editCode->SetLexer(wxSTC_LEX_CPP);
-        editCode->SetLexer(bubble.getLexer());
+        editCode->SetLexer(bubble.getCodeLexer());
 ///////////////////////////////////////////////////////////////////////
         editCode->StyleSetForeground (wxSTC_C_OPERATOR,          wxColour (18,18,18)); //##Take this from XML files
         editCode->StyleSetForeground (wxSTC_C_STRING,            wxColour(150,0,0));

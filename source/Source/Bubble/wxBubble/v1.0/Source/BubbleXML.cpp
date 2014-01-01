@@ -2250,11 +2250,12 @@ bool BubbleXML::loadSyntaxFromXML(wxXmlNode *node, BubbleBoardProperties *boardP
             wxString returnStringValue = stringNode->GetNodeContent();
             long returnNumericValue = 0;
             if (returnStringValue.ToLong(&returnNumericValue))
-                bubble->setLexer((int)returnNumericValue);
+                bubble->setCodeLexer((int)returnNumericValue);
         }
-//        else if ()
-//        {
-//        }
+        else if (stringNode->GetName() == wxString("operatorColor"))
+        {
+            bubble->setCodeOperatorColor(stringNode->GetNodeContent());
+        }
         stringNode = stringNode->GetNext();
     }
     return true;}

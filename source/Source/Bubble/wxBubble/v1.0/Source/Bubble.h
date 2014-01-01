@@ -568,7 +568,33 @@ class Bubble : public IBubbleFileIO
         wxString includesCodeList;
         wxString includesBuildList;
         wxString initBoardCode;
-        int lexer;
+        int codeLexer;
+        wxColour codeOperatorColor;
+        wxColour codeStringColor;
+        wxColour codePreprocesorColor;
+        wxColour codeIdentifierColor;
+        wxColour codeNumberColor;
+        wxColour codeCharacterColor;
+        wxColour codeWordColor;
+        wxColour codeWord2Color;
+        wxColour codeCommentColor;
+        wxColour codeCommentLineColor;
+        wxColour codeCommentDocColor;
+        wxColour codeCommentDocKeywordColor;
+        wxColour codeCommentDocKewwordErrorColor;
+        bool codeOperatorBold;
+        bool codeStringBold;
+        bool codePreprocesorBold;
+        bool codeIdentifierBold;
+        bool codeNumberBold;
+        bool codeCharacterBold;
+        bool codeWordBold3;
+        bool codeWord2Bold;
+        bool codeCommentBold;
+        bool codeCommentLineBold;
+        bool codeCommentDocBold;
+        bool codeCommentDocKeywordBold;
+        bool codeCommentDocKewwordErrorBold;
 
         bool blocksEnabled;
         bool visibleLabels;
@@ -627,6 +653,7 @@ class Bubble : public IBubbleFileIO
 #endif
         static wxString bool2string(const bool value);
         static bool string2bool(const wxString &value);
+        static wxColour string2color(const wxString &value);
         static bool nonListedCharsInString(const wxString &charList, const wxString &value);
         static wxImage dc2Image(wxClientDC *dc);
         static void linesFromArrayToBubbleEditor(const wxArrayString &strings, BubbleEditor *editor);
@@ -727,8 +754,11 @@ class Bubble : public IBubbleFileIO
         inline const wxString &getBoardName() const { return boardName; }
         int loadBoardRelations();
 
-        inline void setLexer(int value) { lexer = value; }
-        inline int getLexer() { return lexer; }
+        //Syntax (code editor):
+        inline void setCodeLexer(int value) { codeLexer = value; }
+        inline int getCodeLexer() { return codeLexer; }
+        inline void setCodeOperatorColor(const wxString value) { codeOperatorColor = Bubble::string2color(value); }
+        inline wxColour getCodeOperatorColor() { return codeOperatorColor; }
 
         //Board drivers:
         bool winInstallINF(); //##Testing.
