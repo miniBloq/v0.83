@@ -91,6 +91,7 @@ Bubble::Bubble(wxLocale& locale) :  parent(NULL),
                                     codeCommentDocBold(false),
                                     codeCommentDocKeywordBold(false),
                                     codeCommentDocKeywordErrorBold(false),
+                                    codeTabWidth(4),
 
                                     blocksEnabled(true),
                                     visibleLabels(false),

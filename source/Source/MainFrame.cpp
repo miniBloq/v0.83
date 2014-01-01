@@ -4108,9 +4108,8 @@ void MainFrame::toggleGeneratedCode()
         editCode->StyleSetForeground(wxSTC_C_COMMENTDOCKEYWORD, bubble.getCodeCommentDocKeywordColor());
         editCode->StyleSetForeground(wxSTC_C_COMMENTDOCKEYWORDERROR, bubble.getCodeCommentDocKeywordErrorColor());
 
-        editCode->StyleSetBold(wxSTC_C_OPERATOR, bubble.getCodeOperatorBold());
-
         //##This is not working (although the bold font seems to be setting correctly):
+        editCode->StyleSetBold(wxSTC_C_OPERATOR, bubble.getCodeOperatorBold());
         editCode->StyleSetBold(wxSTC_C_STRING, bubble.getCodeStringBold());
         editCode->StyleSetBold(wxSTC_C_PREPROCESSOR, bubble.getCodePreprocessorBold());
         editCode->StyleSetBold(wxSTC_C_IDENTIFIER, bubble.getCodeIdentifierBold());
@@ -4124,28 +4123,8 @@ void MainFrame::toggleGeneratedCode()
         editCode->StyleSetBold(wxSTC_C_COMMENTDOCKEYWORD, bubble.getCodeCommentDocKeywordBold());
         editCode->StyleSetBold(wxSTC_C_COMMENTDOCKEYWORDERROR, bubble.getCodeCommentDocKeywordErrorBold());
 
-///////////////////////////////////////////////////////////////////////
-//        editCode->SetLexer(wxSTC_LEX_CPP);
-//        editCode->StyleSetForeground (wxSTC_C_OPERATOR,          wxColour (18,18,18)); //##Take this from XML files
-//        editCode->StyleSetForeground (wxSTC_C_STRING,            wxColour(150,0,0));
-//        editCode->StyleSetForeground (wxSTC_C_PREPROCESSOR,      wxColour(165,105,0));
-//        editCode->StyleSetForeground (wxSTC_C_IDENTIFIER,        wxColour(40,0,60));
-//        //editCode->StyleSetForeground (wxSTC_C_NUMBER,            wxColour(0,150,0));
-//        editCode->StyleSetForeground (wxSTC_C_NUMBER,            wxColour (0,255,0)); //##Take this from XML files
-//        editCode->StyleSetForeground (wxSTC_C_CHARACTER,         wxColour(150,0,0));
-//        editCode->StyleSetForeground (wxSTC_C_WORD,              wxColour(0,0,150));
-//        editCode->StyleSetForeground (wxSTC_C_WORD2,             wxColour(0,150,0));
-//        editCode->StyleSetForeground (wxSTC_C_COMMENT,           wxColour(150,150,150));
-//        editCode->StyleSetForeground (wxSTC_C_COMMENTLINE,       wxColour(150,150,150));
-//        editCode->StyleSetForeground (wxSTC_C_COMMENTDOC,        wxColour(150,150,150));
-//        editCode->StyleSetForeground (wxSTC_C_COMMENTDOCKEYWORD, wxColour(0,0,200));
-//        editCode->StyleSetForeground (wxSTC_C_COMMENTDOCKEYWORDERROR, wxColour(0,0,200));
-//        editCode->StyleSetBold(wxSTC_C_WORD, true);
-//        editCode->StyleSetBold(wxSTC_C_WORD2, true);
-//        editCode->StyleSetBold(wxSTC_C_COMMENTDOCKEYWORD, true);
-
         //##editCode->SetTabIndents(1);
-        editCode->SetTabWidth(6);
+        editCode->SetTabWidth(bubble.getCodeTabWidth());
 
         // ##Load all of these from XML files:
         editCode->SetKeyWords(0, wxString("return for while break continue if else true false"));

@@ -2362,6 +2362,14 @@ bool BubbleXML::loadSyntaxFromXML(wxXmlNode *node, BubbleBoardProperties *boardP
             bubble->setCodeCommentDocKeywordErrorBold(Bubble::string2bool(stringNode->GetNodeContent()));
         }
 
+        else if (stringNode->GetName() == wxString("tabWidth"))
+        {
+            wxString returnStringValue = stringNode->GetNodeContent();
+            long returnNumericValue = 0;
+            if (returnStringValue.ToLong(&returnNumericValue))
+                bubble->setCodeTabWidth((int)returnNumericValue);
+        }
+
         stringNode = stringNode->GetNext();
     }
     return true;

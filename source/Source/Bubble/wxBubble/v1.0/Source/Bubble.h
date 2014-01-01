@@ -595,6 +595,7 @@ class Bubble : public IBubbleFileIO
         bool codeCommentDocBold;
         bool codeCommentDocKeywordBold;
         bool codeCommentDocKeywordErrorBold;
+        unsigned int codeTabWidth;
 
         bool blocksEnabled;
         bool visibleLabels;
@@ -757,6 +758,7 @@ class Bubble : public IBubbleFileIO
         //Syntax (code editor):
         inline void setCodeLexer(int value) { codeLexer = value; }
         inline int getCodeLexer() const { return codeLexer; }
+
         inline void setCodeOperatorColor(const wxString value) { codeOperatorColor = Bubble::string2color(value); }
         inline wxColour getCodeOperatorColor() const { return codeOperatorColor; }
         inline void setCodeStringColor(const wxString value) { codeStringColor = Bubble::string2color(value); }
@@ -783,6 +785,7 @@ class Bubble : public IBubbleFileIO
         inline wxColour getCodeCommentDocKeywordColor() const { return codeCommentDocKeywordColor; }
         inline void setCodeCommentDocKeywordErrorColor(const wxString value) { codeCommentDocKeywordErrorColor = Bubble::string2color(value); }
         inline wxColour getCodeCommentDocKeywordErrorColor() const { return codeCommentDocKeywordErrorColor; }
+
         inline void setCodeOperatorBold(bool value) { codeOperatorBold = value; }
         inline bool getCodeOperatorBold() const { return codeOperatorBold; }
         inline void setCodeStringBold(bool value) { codeStringBold = value; }
@@ -809,6 +812,9 @@ class Bubble : public IBubbleFileIO
         inline bool getCodeCommentDocKeywordBold() const { return codeCommentDocKeywordBold; }
         inline void setCodeCommentDocKeywordErrorBold(bool value) { codeCommentDocKeywordErrorBold = value; }
         inline bool getCodeCommentDocKeywordErrorBold() const { return codeCommentDocKeywordErrorBold; }
+
+        inline void setCodeTabWidth(unsigned int value) { codeTabWidth = value; }
+        inline unsigned int getCodeTabWidth() const { return codeTabWidth; }
 
         //Board drivers:
         bool winInstallINF(); //##Testing.
