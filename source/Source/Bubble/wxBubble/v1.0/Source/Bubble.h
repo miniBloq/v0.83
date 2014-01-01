@@ -588,7 +588,7 @@ class Bubble : public IBubbleFileIO
         bool codeIdentifierBold;
         bool codeNumberBold;
         bool codeCharacterBold;
-        bool codeWordBold3;
+        bool codeWordBold;
         bool codeWord2Bold;
         bool codeCommentBold;
         bool codeCommentLineBold;
@@ -756,9 +756,59 @@ class Bubble : public IBubbleFileIO
 
         //Syntax (code editor):
         inline void setCodeLexer(int value) { codeLexer = value; }
-        inline int getCodeLexer() { return codeLexer; }
+        inline int getCodeLexer() const { return codeLexer; }
         inline void setCodeOperatorColor(const wxString value) { codeOperatorColor = Bubble::string2color(value); }
-        inline wxColour getCodeOperatorColor() { return codeOperatorColor; }
+        inline wxColour getCodeOperatorColor() const { return codeOperatorColor; }
+        inline void setCodeStringColor(const wxString value) { codeStringColor = Bubble::string2color(value); }
+        inline wxColour getCodeStringColor() const { return codeStringColor; }
+        inline void setCodePreprocesorColor(const wxString value) { codePreprocesorColor = Bubble::string2color(value); }
+        inline wxColour getCodePreprocesorColor() const { return codePreprocesorColor; }
+        inline void setCodeIdentifierColor(const wxString value) { codeIdentifierColor = Bubble::string2color(value); }
+        inline wxColour getCodeIdentifierColor() const { return codeIdentifierColor; }
+        inline void setCodeNumberColor(const wxString value) { codeNumberColor = Bubble::string2color(value); }
+        inline wxColour getCodeNumberColor() const { return codeNumberColor; }
+        inline void setCodeCharacterColor(const wxString value) { codeCharacterColor = Bubble::string2color(value); }
+        inline wxColour getCodeCharacterColor() const { return codeCharacterColor; }
+        inline void setCodeWordColor(const wxString value) { codeWordColor = Bubble::string2color(value); }
+        inline wxColour getCodeWordColor() const { return codeWordColor; }
+        inline void setCodeWord2Color(const wxString value) { codeWord2Color = Bubble::string2color(value); }
+        inline wxColour getCodeWord2Color() const { return codeWord2Color; }
+        inline void setCodeCommentColor(const wxString value) { codeCommentColor = Bubble::string2color(value); }
+        inline wxColour getCodeCommentColor() const { return codeCommentColor; }
+        inline void setCodeCommentLineColor(const wxString value) { codeCommentLineColor = Bubble::string2color(value); }
+        inline wxColour getCodeCommentLineColor() const { return codeCommentLineColor; }
+        inline void setCodeCommentDocColor(const wxString value) { codeCommentDocColor = Bubble::string2color(value); }
+        inline wxColour getCodeCommentDocColor() const { return codeCommentDocColor; }
+        inline void setCodeCommentDocKeywordColor(const wxString value) { codeCommentDocKeywordColor = Bubble::string2color(value); }
+        inline wxColour getCodeCommentDocKeywordColor() const { return codeCommentDocKeywordColor; }
+        inline void setCodeCommentDocKewwordErrorColor(const wxString value) { codeCommentDocKewwordErrorColor = Bubble::string2color(value); }
+        inline wxColour getCodeCommentDocKewwordErrorColor() const { return codeCommentDocKewwordErrorColor; }
+        inline void setCodeOperatorBold(bool value) { codeOperatorBold = value; }
+        inline bool getCodeOperatorBold() const { return codeOperatorBold; }
+        inline void setCodeStringBold(bool value) { codeStringBold = value; }
+        inline bool getCodeStringBold() const { return codeStringBold; }
+        inline void setCodePreprocesorBold(bool value) { codePreprocesorBold = value; }
+        inline bool getCodePreprocesorBold() const { return codePreprocesorBold; }
+        inline void setCodeIdentifierBold(bool value) { codeIdentifierBold = value; }
+        inline bool getCodeIdentifierBold() const { return codeIdentifierBold; }
+        inline void setCodeNumberBold(bool value) { codeNumberBold = value; }
+        inline bool getCodeNumberBold() const { return codeNumberBold; }
+        inline void setCodeCharacterBold(bool value) { codeCharacterBold = value; }
+        inline bool getCodeCharacterBold() const { return codeCharacterBold; }
+        inline void setCodeWordBold(bool value) { codeWordBold = value; }
+        inline bool getCodeWordBold() const { return codeWordBold; }
+        inline void setCodeWord2Bold(bool value) { codeWord2Bold = value; }
+        inline bool getCodeWord2Bold() const { return codeWord2Bold; }
+        inline void setCodeCommentBold(bool value) { codeCommentBold = value; }
+        inline bool getCodeCommentBold() const { return codeCommentBold; }
+        inline void setCodeCommentLineBold(bool value) { codeCommentLineBold = value; }
+        inline bool getCodeCommentLineBold() const { return codeCommentLineBold; }
+        inline void setCodeCommentDocBold(bool value) { codeCommentDocBold = value; }
+        inline bool getCodeCommentDocBold() const { return codeCommentDocBold; }
+        inline void setCodeCommentDocKeywordBold(bool value) { codeCommentDocKeywordBold = value; }
+        inline bool getCodeCommentDocKeywordBold() const { return codeCommentDocKeywordBold; }
+        inline void setCodeCommentDocKewwordErrorBold(bool value) { codeCommentDocKewwordErrorBold = value; }
+        inline bool getCodeCommentDocKewwordErrorBold() const { return codeCommentDocKewwordErrorBold; }
 
         //Board drivers:
         bool winInstallINF(); //##Testing.
