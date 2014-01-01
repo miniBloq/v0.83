@@ -67,7 +67,7 @@ Bubble::Bubble(wxLocale& locale) :  parent(NULL),
                                     codeLexer(3), //CPP syntax
                                     codeOperatorColor(wxColour(0, 0, 0)),
                                     codeStringColor(wxColour(0, 0, 0)),
-                                    codePreprocesorColor(wxColour(0, 0, 0)),
+                                    codePreprocessorColor(wxColour(0, 0, 0)),
                                     codeIdentifierColor(wxColour(0, 0, 0)),
                                     codeNumberColor(wxColour(0, 0, 0)),
                                     codeCharacterColor(wxColour(0, 0, 0)),
@@ -77,10 +77,10 @@ Bubble::Bubble(wxLocale& locale) :  parent(NULL),
                                     codeCommentLineColor(wxColour(0, 0, 0)),
                                     codeCommentDocColor(wxColour(0, 0, 0)),
                                     codeCommentDocKeywordColor(wxColour(0, 0, 0)),
-                                    codeCommentDocKewwordErrorColor(wxColour(0, 0, 0)),
+                                    codeCommentDocKeywordErrorColor(wxColour(0, 0, 0)),
                                     codeOperatorBold(false),
                                     codeStringBold(false),
-                                    codePreprocesorBold(false),
+                                    codePreprocessorBold(false),
                                     codeIdentifierBold(false),
                                     codeNumberBold(false),
                                     codeCharacterBold(false),
@@ -90,7 +90,7 @@ Bubble::Bubble(wxLocale& locale) :  parent(NULL),
                                     codeCommentLineBold(false),
                                     codeCommentDocBold(false),
                                     codeCommentDocKeywordBold(false),
-                                    codeCommentDocKewwordErrorBold(false),
+                                    codeCommentDocKeywordErrorBold(false),
 
                                     blocksEnabled(true),
                                     visibleLabels(false),
@@ -173,7 +173,7 @@ bool Bubble::string2bool(const wxString &value)
 
 wxColour Bubble::string2color(const wxString &value)
 {
-    wxColour result(0, 0, 0);
+    wxColour result(0, 0, 255);
     //##
 
     return result;

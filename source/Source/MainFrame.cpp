@@ -4092,31 +4092,59 @@ void MainFrame::toggleGeneratedCode()
 
         //##Agregar a mano los keywords que falten, o crear un lexer nuevo:
 
-///////////////////Unhardcode work 2013.12.31: ////////////////////////
-
-        //editCode->SetLexer(wxSTC_LEX_CPP);
         editCode->SetLexer(bubble.getCodeLexer());
-///////////////////////////////////////////////////////////////////////
-        editCode->StyleSetForeground (wxSTC_C_OPERATOR,          wxColour (18,18,18)); //##Take this from XML files
-        editCode->StyleSetForeground (wxSTC_C_STRING,            wxColour(150,0,0));
-        editCode->StyleSetForeground (wxSTC_C_PREPROCESSOR,      wxColour(165,105,0));
-        editCode->StyleSetForeground (wxSTC_C_IDENTIFIER,        wxColour(40,0,60));
-        //editCode->StyleSetForeground (wxSTC_C_NUMBER,            wxColour(0,150,0));
-        editCode->StyleSetForeground (wxSTC_C_NUMBER,            wxColour (0,255,0)); //##Take this from XML files
-        editCode->StyleSetForeground (wxSTC_C_CHARACTER,         wxColour(150,0,0));
-        editCode->StyleSetForeground (wxSTC_C_WORD,              wxColour(0,0,150));
-        editCode->StyleSetForeground (wxSTC_C_WORD2,             wxColour(0,150,0));
-        editCode->StyleSetForeground (wxSTC_C_COMMENT,           wxColour(150,150,150));
-        editCode->StyleSetForeground (wxSTC_C_COMMENTLINE,       wxColour(150,150,150));
-        editCode->StyleSetForeground (wxSTC_C_COMMENTDOC,        wxColour(150,150,150));
-        editCode->StyleSetForeground (wxSTC_C_COMMENTDOCKEYWORD, wxColour(0,0,200));
-        editCode->StyleSetForeground (wxSTC_C_COMMENTDOCKEYWORDERROR, wxColour(0,0,200));
-        editCode->StyleSetBold(wxSTC_C_WORD, true);
-        editCode->StyleSetBold(wxSTC_C_WORD2, true);
-        editCode->StyleSetBold(wxSTC_C_COMMENTDOCKEYWORD, true);
 
-        //editCode->SetTabIndents(1);
-        //editCode->SetIndent(2);
+        editCode->StyleSetForeground(wxSTC_C_OPERATOR, bubble.getCodeOperatorColor());
+        editCode->StyleSetForeground(wxSTC_C_STRING, bubble.getCodeStringColor());
+        editCode->StyleSetForeground(wxSTC_C_PREPROCESSOR, bubble.getCodePreprocessorColor());
+        editCode->StyleSetForeground(wxSTC_C_IDENTIFIER, bubble.getCodeIdentifierColor());
+        editCode->StyleSetForeground(wxSTC_C_NUMBER, bubble.getCodeNumberColor());
+        editCode->StyleSetForeground(wxSTC_C_CHARACTER, bubble.getCodeCharacterColor());
+        editCode->StyleSetForeground(wxSTC_C_WORD, bubble.getCodeWordColor());
+        editCode->StyleSetForeground(wxSTC_C_WORD2, bubble.getCodeWord2Color());
+        editCode->StyleSetForeground(wxSTC_C_COMMENT, bubble.getCodeCommentColor());
+        editCode->StyleSetForeground(wxSTC_C_COMMENTLINE, bubble.getCodeCommentLineColor());
+        editCode->StyleSetForeground(wxSTC_C_COMMENTDOC, bubble.getCodeCommentDocColor());
+        editCode->StyleSetForeground(wxSTC_C_COMMENTDOCKEYWORD, bubble.getCodeCommentDocKeywordColor());
+        editCode->StyleSetForeground(wxSTC_C_COMMENTDOCKEYWORDERROR, bubble.getCodeCommentDocKeywordErrorColor());
+
+        editCode->StyleSetBold(wxSTC_C_OPERATOR, bubble.getCodeOperatorBold());
+
+        //##This is not working (although the bold font seems to be setting correctly):
+        editCode->StyleSetBold(wxSTC_C_STRING, bubble.getCodeStringBold());
+        editCode->StyleSetBold(wxSTC_C_PREPROCESSOR, bubble.getCodePreprocessorBold());
+        editCode->StyleSetBold(wxSTC_C_IDENTIFIER, bubble.getCodeIdentifierBold());
+        editCode->StyleSetBold(wxSTC_C_NUMBER, bubble.getCodeNumberBold());
+        editCode->StyleSetBold(wxSTC_C_CHARACTER, bubble.getCodeCharacterBold());
+        editCode->StyleSetBold(wxSTC_C_WORD, bubble.getCodeWordBold());
+        editCode->StyleSetBold(wxSTC_C_WORD2, bubble.getCodeWord2Bold());
+        editCode->StyleSetBold(wxSTC_C_COMMENT, bubble.getCodeCommentBold());
+        editCode->StyleSetBold(wxSTC_C_COMMENTLINE, bubble.getCodeCommentLineBold());
+        editCode->StyleSetBold(wxSTC_C_COMMENTDOC, bubble.getCodeCommentDocBold());
+        editCode->StyleSetBold(wxSTC_C_COMMENTDOCKEYWORD, bubble.getCodeCommentDocKeywordBold());
+        editCode->StyleSetBold(wxSTC_C_COMMENTDOCKEYWORDERROR, bubble.getCodeCommentDocKeywordErrorBold());
+
+///////////////////////////////////////////////////////////////////////
+//        editCode->SetLexer(wxSTC_LEX_CPP);
+//        editCode->StyleSetForeground (wxSTC_C_OPERATOR,          wxColour (18,18,18)); //##Take this from XML files
+//        editCode->StyleSetForeground (wxSTC_C_STRING,            wxColour(150,0,0));
+//        editCode->StyleSetForeground (wxSTC_C_PREPROCESSOR,      wxColour(165,105,0));
+//        editCode->StyleSetForeground (wxSTC_C_IDENTIFIER,        wxColour(40,0,60));
+//        //editCode->StyleSetForeground (wxSTC_C_NUMBER,            wxColour(0,150,0));
+//        editCode->StyleSetForeground (wxSTC_C_NUMBER,            wxColour (0,255,0)); //##Take this from XML files
+//        editCode->StyleSetForeground (wxSTC_C_CHARACTER,         wxColour(150,0,0));
+//        editCode->StyleSetForeground (wxSTC_C_WORD,              wxColour(0,0,150));
+//        editCode->StyleSetForeground (wxSTC_C_WORD2,             wxColour(0,150,0));
+//        editCode->StyleSetForeground (wxSTC_C_COMMENT,           wxColour(150,150,150));
+//        editCode->StyleSetForeground (wxSTC_C_COMMENTLINE,       wxColour(150,150,150));
+//        editCode->StyleSetForeground (wxSTC_C_COMMENTDOC,        wxColour(150,150,150));
+//        editCode->StyleSetForeground (wxSTC_C_COMMENTDOCKEYWORD, wxColour(0,0,200));
+//        editCode->StyleSetForeground (wxSTC_C_COMMENTDOCKEYWORDERROR, wxColour(0,0,200));
+//        editCode->StyleSetBold(wxSTC_C_WORD, true);
+//        editCode->StyleSetBold(wxSTC_C_WORD2, true);
+//        editCode->StyleSetBold(wxSTC_C_COMMENTDOCKEYWORD, true);
+
+        //##editCode->SetTabIndents(1);
         editCode->SetTabWidth(6);
 
         // ##Load all of these from XML files:
@@ -4127,9 +4155,6 @@ void MainFrame::toggleGeneratedCode()
         //##Debug:
 //        wxMessageDialog dialog0(this, _("zoom"), wxString("zoom = ") << getEditCodeZoom());
 //        dialog0.ShowModal();
-
-        //##Obtener el título de la internacionalización (así lo comprenderán mejor los chicos) y el
-        //número del último que se encuentre grabado en el directorio temporal, incrementado en 1:
 
         int iconW = 16; //##
         int iconH = 16; //##
@@ -4152,8 +4177,8 @@ void MainFrame::toggleGeneratedCode()
                     refreshGeneratedCode();
 
                     //##:
-        //            notebook->SetSelection(notebook->GetPageIndex(editCode));
-        //            editCode->SetFocus();
+                    //notebook->SetSelection(notebook->GetPageIndex(editCode));
+                    //editCode->SetFocus();
 
                     menuViewGeneratedCode->Check(true);
                 }

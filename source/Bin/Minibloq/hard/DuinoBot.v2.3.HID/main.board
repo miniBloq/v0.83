@@ -54,6 +54,21 @@
 		<lexer>3</lexer>
 		<operatorColor>18,18,18</operatorColor>
 		<stringColor>150,0,0</stringColor>
+        <preprocesorColor>165,105,0</preprocesorColor>
+        <identifierColor>40,0,60</identifierColor>
+        <numberColor>0,255,0</numberColor>
+        <characterColor>150,0,0</characterColor>
+        <wordColor>0,0,150</wordColor>
+        <word2Color>0,150,0</word2Color>
+        <commentColor>0,150,0</commentColor>
+        <commentLineColor>0,150,0</commentLineColor>
+        <commentDocColor>0,150,0</commentDocColor>
+        <commentDocKeywordColor>0,0,200</commentDocKeywordColor>
+        <commentDocKeywordErrorColor>0,0,200</commentDocKeywordErrorColor>
+		<operatorBold>true</operatorBold>
+		<wordBold>true</wordBold>
+		<word2Bold>true</word2Bold>
+		<commentDocKeywordBold>true</commentDocKeywordBold>
 	</syntax>
 	<examples>
 		<path><s>componentsRepositoryPath::</s><s>/work/_examples/ArduinoUno</s></path>

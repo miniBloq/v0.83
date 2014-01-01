@@ -571,7 +571,7 @@ class Bubble : public IBubbleFileIO
         int codeLexer;
         wxColour codeOperatorColor;
         wxColour codeStringColor;
-        wxColour codePreprocesorColor;
+        wxColour codePreprocessorColor;
         wxColour codeIdentifierColor;
         wxColour codeNumberColor;
         wxColour codeCharacterColor;
@@ -581,10 +581,10 @@ class Bubble : public IBubbleFileIO
         wxColour codeCommentLineColor;
         wxColour codeCommentDocColor;
         wxColour codeCommentDocKeywordColor;
-        wxColour codeCommentDocKewwordErrorColor;
+        wxColour codeCommentDocKeywordErrorColor;
         bool codeOperatorBold;
         bool codeStringBold;
-        bool codePreprocesorBold;
+        bool codePreprocessorBold;
         bool codeIdentifierBold;
         bool codeNumberBold;
         bool codeCharacterBold;
@@ -594,7 +594,7 @@ class Bubble : public IBubbleFileIO
         bool codeCommentLineBold;
         bool codeCommentDocBold;
         bool codeCommentDocKeywordBold;
-        bool codeCommentDocKewwordErrorBold;
+        bool codeCommentDocKeywordErrorBold;
 
         bool blocksEnabled;
         bool visibleLabels;
@@ -761,8 +761,8 @@ class Bubble : public IBubbleFileIO
         inline wxColour getCodeOperatorColor() const { return codeOperatorColor; }
         inline void setCodeStringColor(const wxString value) { codeStringColor = Bubble::string2color(value); }
         inline wxColour getCodeStringColor() const { return codeStringColor; }
-        inline void setCodePreprocesorColor(const wxString value) { codePreprocesorColor = Bubble::string2color(value); }
-        inline wxColour getCodePreprocesorColor() const { return codePreprocesorColor; }
+        inline void setCodePreprocessorColor(const wxString value) { codePreprocessorColor = Bubble::string2color(value); }
+        inline wxColour getCodePreprocessorColor() const { return codePreprocessorColor; }
         inline void setCodeIdentifierColor(const wxString value) { codeIdentifierColor = Bubble::string2color(value); }
         inline wxColour getCodeIdentifierColor() const { return codeIdentifierColor; }
         inline void setCodeNumberColor(const wxString value) { codeNumberColor = Bubble::string2color(value); }
@@ -781,14 +781,14 @@ class Bubble : public IBubbleFileIO
         inline wxColour getCodeCommentDocColor() const { return codeCommentDocColor; }
         inline void setCodeCommentDocKeywordColor(const wxString value) { codeCommentDocKeywordColor = Bubble::string2color(value); }
         inline wxColour getCodeCommentDocKeywordColor() const { return codeCommentDocKeywordColor; }
-        inline void setCodeCommentDocKewwordErrorColor(const wxString value) { codeCommentDocKewwordErrorColor = Bubble::string2color(value); }
-        inline wxColour getCodeCommentDocKewwordErrorColor() const { return codeCommentDocKewwordErrorColor; }
+        inline void setCodeCommentDocKeywordErrorColor(const wxString value) { codeCommentDocKeywordErrorColor = Bubble::string2color(value); }
+        inline wxColour getCodeCommentDocKeywordErrorColor() const { return codeCommentDocKeywordErrorColor; }
         inline void setCodeOperatorBold(bool value) { codeOperatorBold = value; }
         inline bool getCodeOperatorBold() const { return codeOperatorBold; }
         inline void setCodeStringBold(bool value) { codeStringBold = value; }
         inline bool getCodeStringBold() const { return codeStringBold; }
-        inline void setCodePreprocesorBold(bool value) { codePreprocesorBold = value; }
-        inline bool getCodePreprocesorBold() const { return codePreprocesorBold; }
+        inline void setCodePreprocessorBold(bool value) { codePreprocessorBold = value; }
+        inline bool getCodePreprocessorBold() const { return codePreprocessorBold; }
         inline void setCodeIdentifierBold(bool value) { codeIdentifierBold = value; }
         inline bool getCodeIdentifierBold() const { return codeIdentifierBold; }
         inline void setCodeNumberBold(bool value) { codeNumberBold = value; }
@@ -807,8 +807,8 @@ class Bubble : public IBubbleFileIO
         inline bool getCodeCommentDocBold() const { return codeCommentDocBold; }
         inline void setCodeCommentDocKeywordBold(bool value) { codeCommentDocKeywordBold = value; }
         inline bool getCodeCommentDocKeywordBold() const { return codeCommentDocKeywordBold; }
-        inline void setCodeCommentDocKewwordErrorBold(bool value) { codeCommentDocKewwordErrorBold = value; }
-        inline bool getCodeCommentDocKewwordErrorBold() const { return codeCommentDocKewwordErrorBold; }
+        inline void setCodeCommentDocKeywordErrorBold(bool value) { codeCommentDocKeywordErrorBold = value; }
+        inline bool getCodeCommentDocKeywordErrorBold() const { return codeCommentDocKeywordErrorBold; }
 
         //Board drivers:
         bool winInstallINF(); //##Testing.
