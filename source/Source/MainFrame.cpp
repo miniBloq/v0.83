@@ -270,7 +270,7 @@ MainFrame::MainFrame(   wxWindow* parent,
                                         menuZoomViewAll(NULL),
 
                                         editCode(NULL),
-                                        editCodeZoom(2),
+                                        editCodeZoom(3),
 
                                         useExternalHelpCenter(false),
 
@@ -1075,6 +1075,24 @@ void MainFrame::loadFileComponent(const wxString& value)
             bubble.setComponentFilesPath(bubble.getComponentPath() + wxString("/") + aux.GetName());
             bubble.setOutputPath(bubble.getComponentFilesPath() + wxString("/output"));
             componentAlreadySaved = true;
+
+            //Changes the names of the canvas and the code tabs to the new (loaded) component name:
+            aux = value;
+            if (notebook)
+            {
+                if (bubble.getCurrentCanvas())
+                    notebook->SetPageText(notebook->GetPageIndex(bubble.getCurrentCanvas()), aux.GetFullName());
+                if (editCode && bubble.getHardwareManager())
+                {
+                    if (bubble.getHardwareManager()->getCurrentBoardProperties())
+                    {
+                        notebook->SetPageText(  notebook->GetPageIndex(editCode),
+                                                aux.GetFullName().BeforeLast('.') + wxString(".") +
+                                                bubble.getHardwareManager()->getCurrentBoardProperties()->getOutputMainFileExtension()
+                                             );
+                    }
+                }
+            }
         }
     }
 }
@@ -2944,13 +2962,16 @@ void MainFrame::createFileBlock(bool mainCanvas, const wxString &newTabName)
             tempComponentName = newTabName;
         }
 
-        notebook->AddPage(  bubble.getCurrentCanvas(),
-                            //_("New-1.mbqc"),
-                            tempComponentName,
-                            false,
-                            page_bmp);
+        if (notebook)
+        {
+            notebook->AddPage(  bubble.getCurrentCanvas(),
+                                //_("New-1.mbqc"),
+                                tempComponentName,
+                                false,
+                                page_bmp);
 
-        notebook->SetSelection(notebook->GetPageIndex(bubble.getCurrentCanvas()));
+            notebook->SetSelection(notebook->GetPageIndex(bubble.getCurrentCanvas()));
+        }
         bubble.forceSaved(true);
         bubble.getCurrentCanvas()->SetFocusIgnoringChildren();
 
@@ -4127,8 +4148,8 @@ void MainFrame::toggleGeneratedCode()
         editCode->SetTabWidth(bubble.getCodeTabWidth());
 
         // ##Load all of these from XML files:
-        editCode->SetKeyWords(0, wxString("return for while break continue if else true false"));
-        editCode->SetKeyWords(1, wxString("unsigned volatile const int float void char double"));
+        editCode->SetKeyWords(0, wxString("return for while break continue if else true false delay"));
+        editCode->SetKeyWords(1, wxString("unsigned volatile const int float void char double motor0 serial0 serial1 setPower"));
 
         editCode->SetZoom(getEditCodeZoom());
         //##Debug:

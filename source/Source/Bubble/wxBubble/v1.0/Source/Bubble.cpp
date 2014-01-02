@@ -685,6 +685,12 @@ bool Bubble::loadComponentFromFile(const wxString& name)
     //This reduces the flicker, specially in the start block:
     currentCanvas->showAllBlocks(false);
 
+    if (!wxFile::Exists(name))
+    {
+        currentCanvas->showAllBlocks(true);
+        return false;
+    }
+
     wxXmlDocument componentFile;
     if ( !componentFile.Load(name, wxString("UTF-8")) )
     {

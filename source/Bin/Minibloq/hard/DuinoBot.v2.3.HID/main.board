@@ -56,18 +56,18 @@
 		<operatorColor>18,18,18</operatorColor>
 		<stringColor>150,0,0</stringColor>
         <preprocesorColor>165,105,0</preprocesorColor>
-        <identifierColor>40,0,60</identifierColor>
+        <identifierColor>0,0,0</identifierColor>
         <numberColor>0,255,0</numberColor>
         <characterColor>150,0,0</characterColor>
-        <wordColor>0,0,150</wordColor>
-        <word2Color>0,150,0</word2Color>
-        <commentColor>0,150,0</commentColor>
-        <commentLineColor>0,150,0</commentLineColor>
-        <commentDocColor>0,150,0</commentDocColor>
-        <commentDocKeywordColor>0,0,200</commentDocKeywordColor>
-        <commentDocKeywordErrorColor>0,0,200</commentDocKeywordErrorColor>
-		<operatorBold>true</operatorBold>
+        <wordColor>255,128,0</wordColor>
+        <word2Color>0,0,150</word2Color>
+        <commentColor>92,92,92</commentColor>
+        <commentLineColor>92,92,92</commentLineColor>
+        <commentDocColor>92,92,92</commentDocColor>
+        <commentDocKeywordColor>92,92,92</commentDocKeywordColor>
+        <commentDocKeywordErrorColor>92,92,92</commentDocKeywordErrorColor>
 		
+		<operatorBold>true</operatorBold>
 		<wordBold>true</wordBold>
 		<word2Bold>true</word2Bold>
 		<commentDocKeywordBold>true</commentDocKeywordBold>
