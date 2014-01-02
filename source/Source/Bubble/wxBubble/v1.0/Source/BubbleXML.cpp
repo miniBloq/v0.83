@@ -753,6 +753,14 @@ bool BubbleXML::loadBlockInfoCodeFromXML(wxXmlNode *node, BubbleBlockInfo *block
             {
                 blockInfo->setParamListEnd(child->GetNodeContent());
             }
+            else if (child->GetName() == "keywords0")
+            {
+                blockInfo->setKeywords0(child->GetNodeContent());
+            }
+            else if (child->GetName() == "keywords1")
+            {
+                blockInfo->setKeywords1(child->GetNodeContent());
+            }
             child = child->GetNext();
         }
         return true;

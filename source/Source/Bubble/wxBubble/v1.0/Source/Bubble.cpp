@@ -55,6 +55,12 @@ wxColour string2color(const wxString &value)
 }
 
 
+void BubbleBoardProperties::addCodeKeyWord(wxString& keywords, const wxString& value)
+{
+    if (!keywords.Contains(value))
+        keywords += wxString(" ") + value;
+}
+
 //##Ver cómo agregar chequeo de que si no setean el parent y el notifier, TODO MAL!
 /*
 Bubble::Bubble(IBubbleNotifier *notifier) : parent(NULL),
@@ -376,6 +382,19 @@ bool Bubble::addBlockToPicker(BubbleBlockInfo *block, wxWindow *pickersParent)
                             block->getPickerDisabledImage()
                          );
     }
+
+    //Add the blocks' keywords to the current board properties:
+    if (getHardwareManager() == NULL)
+        return true;
+    if (getHardwareManager()->getCurrentBoardProperties() == NULL)
+        return true;
+
+    getHardwareManager()->getCurrentBoardProperties()->addCodeKeywords0(block->getKeywords0());
+    getHardwareManager()->getCurrentBoardProperties()->addCodeKeywords1(block->getKeywords1());
+
+//    wxMessageDialog dialog0(parent, getHardwareManager()->getCurrentBoardProperties()->getCodeKeywords0(), _("keywords0:")); //##Debug.
+//    dialog0.ShowModal(); //##Debug.
+
     return true;
 }
 

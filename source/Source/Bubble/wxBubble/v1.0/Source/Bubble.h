@@ -176,6 +176,8 @@ class BubbleBoardProperties
         bool codeCommentDocKeywordBold;
         bool codeCommentDocKeywordErrorBold;
         unsigned int codeTabWidth;
+        wxString codeKeywords0;
+        wxString codeKeywords1;
 
     public:
         BubbleBoardProperties():    name(wxString("")),
@@ -258,7 +260,9 @@ class BubbleBoardProperties
                                     codeCommentDocBold(false),
                                     codeCommentDocKeywordBold(false),
                                     codeCommentDocKeywordErrorBold(false),
-                                    codeTabWidth(4)
+                                    codeTabWidth(4),
+                                    codeKeywords0(wxString("")),
+                                    codeKeywords1(wxString(""))
         {
             relCommands.Clear(); //Not necessary, but just in case.
         }
@@ -356,6 +360,9 @@ class BubbleBoardProperties
                 setCodeCommentDocKeywordErrorBold(boardProperties->getCodeCommentDocKeywordErrorBold());
 
                 setCodeTabWidth(boardProperties->getCodeTabWidth());
+
+                setCodeKeywords0(boardProperties->getCodeKeywords0());
+                setCodeKeywords1(boardProperties->getCodeKeywords1());
 
                 //relCommands = *(boardProperties->getRelCommands());
                 unsigned int i = 0;
@@ -609,6 +616,16 @@ class BubbleBoardProperties
 
         inline void setCodeTabWidth(unsigned int value) { codeTabWidth = value; }
         inline unsigned int getCodeTabWidth() const { return codeTabWidth; }
+
+        void addCodeKeyWord(wxString& keywords, const wxString& value);
+
+        inline void setCodeKeywords0(const wxString& value) { codeKeywords0 = value; }
+        void addCodeKeywords0(const wxString& value) { addCodeKeyWord(codeKeywords0, value); }
+        inline wxString getCodeKeywords0() const { return codeKeywords0; }
+
+        inline void setCodeKeywords1(const wxString& value) { codeKeywords1 = value; }
+        void addCodeKeywords1(const wxString& value) { addCodeKeyWord(codeKeywords1, value); }
+        inline wxString getCodeKeywords1() const { return codeKeywords1; }
 };
 
 

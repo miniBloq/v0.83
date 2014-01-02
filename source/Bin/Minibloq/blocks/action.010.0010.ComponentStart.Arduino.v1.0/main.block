@@ -9,6 +9,7 @@
     </properties>
     <code>
 		<dataType>void</dataType>
+		<keywords0>setup loop</keywords0>
 	</code>
     <interface>
 		<originalSize>

@@ -4153,8 +4153,10 @@ void MainFrame::toggleGeneratedCode()
         editCode->SetTabWidth(bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeTabWidth());
 
         // ##Load all of these from XML files:
-        editCode->SetKeyWords(0, wxString("return for while break continue if else true false delay"));
-        editCode->SetKeyWords(1, wxString("unsigned volatile const int float void char double motor0 serial0 serial1 setPower"));
+        editCode->SetKeyWords(0, bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeKeywords0());
+        editCode->SetKeyWords(1, bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeKeywords1());
+        //editCode->SetKeyWords(0, wxString("return for while break continue if else true false delay"));
+        //editCode->SetKeyWords(1, wxString("unsigned volatile const int float void char double motor0 motor1 serial0 serial1 setPower"));
 
         editCode->SetZoom(getEditCodeZoom());
         //##Debug:

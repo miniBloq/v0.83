@@ -653,6 +653,8 @@ class BubbleBlockInfo
         wxString paramSeparator;
         wxString paramListStart;
         wxString paramListEnd;
+        wxString keywords0;
+        wxString keywords1;
 
         bool loading;
 
@@ -771,6 +773,8 @@ class BubbleBlockInfo
                             paramSeparator(wxString("")),
                             paramListStart(wxString("")),
                             paramListEnd(wxString("")),
+                            keywords0(wxString("")),
+                            keywords1(wxString("")),
 
                             loading(false),
 
@@ -882,6 +886,12 @@ class BubbleBlockInfo
 
         inline const wxString &getParamListEnd() const { return paramListEnd; }
         inline void setParamListEnd(const wxString &value) { paramListEnd = value; }
+
+        inline const wxString &getKeywords0() const { return keywords0; }
+        inline void setKeywords0(const wxString &value) { keywords0 = value; }
+
+        inline const wxString &getKeywords1() const { return keywords1; }
+        inline void setKeywords1(const wxString &value) { keywords1 = value; }
 
         inline const bool getLoading() const { return loading; }
         inline void setLoading(const bool value) { loading = value; }
