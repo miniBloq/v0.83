@@ -315,6 +315,8 @@ wxString BubbleXML::getInternalVariableValue(const wxString& variableName, const
         return wxString("");
     if (bubble->getHardwareManager() == NULL)
         return wxString("");
+    if (bubble->getHardwareManager()->getCurrentBoardProperties() == NULL)
+        return wxString("");
 
     //Bubble and application paths:
     if (variableName == "componentsRepositoryPath::")
@@ -2251,115 +2253,117 @@ bool BubbleXML::loadSyntaxFromXML(wxXmlNode *node, BubbleBoardProperties *boardP
             wxString returnStringValue = stringNode->GetNodeContent();
             long returnNumericValue = 0;
             if (returnStringValue.ToLong(&returnNumericValue))
-                bubble->setCodeLexer((int)returnNumericValue);
+                boardProperties->setCodeLexer((int)returnNumericValue);
         }
 
         //Font color:
         else if (stringNode->GetName() == wxString("operatorColor"))
         {
-            bubble->setCodeOperatorColor(stringNode->GetNodeContent());
+            boardProperties->setCodeOperatorColor(stringNode->GetNodeContent());
         }
         else if (stringNode->GetName() == wxString("stringColor"))
         {
-            bubble->setCodeStringColor(stringNode->GetNodeContent());
+            boardProperties->setCodeStringColor(stringNode->GetNodeContent());
         }
         else if (stringNode->GetName() == wxString("preprocesorColor"))
         {
-            bubble->setCodePreprocessorColor(stringNode->GetNodeContent());
+            boardProperties->setCodePreprocessorColor(stringNode->GetNodeContent());
         }
         else if (stringNode->GetName() == wxString("identifierColor"))
         {
-            bubble->setCodeIdentifierColor(stringNode->GetNodeContent());
+            boardProperties->setCodeIdentifierColor(stringNode->GetNodeContent());
         }
         else if (stringNode->GetName() == wxString("numberColor"))
         {
-            bubble->setCodeNumberColor(stringNode->GetNodeContent());
+            boardProperties->setCodeNumberColor(stringNode->GetNodeContent());
         }
         else if (stringNode->GetName() == wxString("characterColor"))
         {
-            bubble->setCodeCharacterColor(stringNode->GetNodeContent());
+            boardProperties->setCodeCharacterColor(stringNode->GetNodeContent());
         }
         else if (stringNode->GetName() == wxString("wordColor"))
         {
-            bubble->setCodeWordColor(stringNode->GetNodeContent());
+//            wxMessageDialog dialog0(bubble->getParent(), _(""), stringNode->GetNodeContent()); //##Debug
+//            dialog0.ShowModal(); //##Debug
+            boardProperties->setCodeWordColor(stringNode->GetNodeContent());
         }
         else if (stringNode->GetName() == wxString("word2Color"))
         {
-            bubble->setCodeWord2Color(stringNode->GetNodeContent());
+            boardProperties->setCodeWord2Color(stringNode->GetNodeContent());
         }
         else if (stringNode->GetName() == wxString("commentColor"))
         {
-            bubble->setCodeCommentColor(stringNode->GetNodeContent());
+            boardProperties->setCodeCommentColor(stringNode->GetNodeContent());
         }
         else if (stringNode->GetName() == wxString("commentLineColor"))
         {
-            bubble->setCodeCommentLineColor(stringNode->GetNodeContent());
+            boardProperties->setCodeCommentLineColor(stringNode->GetNodeContent());
         }
         else if (stringNode->GetName() == wxString("commentDocColor"))
         {
-            bubble->setCodeCommentDocColor(stringNode->GetNodeContent());
+            boardProperties->setCodeCommentDocColor(stringNode->GetNodeContent());
         }
         else if (stringNode->GetName() == wxString("commentDocKeywordColor"))
         {
-            bubble->setCodeCommentDocKeywordColor(stringNode->GetNodeContent());
+            boardProperties->setCodeCommentDocKeywordColor(stringNode->GetNodeContent());
         }
         else if (stringNode->GetName() == wxString("commentDocKeywordErrorColor"))
         {
-            bubble->setCodeCommentDocKeywordErrorColor(stringNode->GetNodeContent());
+            boardProperties->setCodeCommentDocKeywordErrorColor(stringNode->GetNodeContent());
         }
 
         //Bold fonts:
         else if (stringNode->GetName() == wxString("operatorBold"))
         {
-            bubble->setCodeOperatorBold(Bubble::string2bool(stringNode->GetNodeContent()));
+            boardProperties->setCodeOperatorBold(Bubble::string2bool(stringNode->GetNodeContent()));
         }
         else if (stringNode->GetName() == wxString("stringBold"))
         {
-            bubble->setCodeStringBold(Bubble::string2bool(stringNode->GetNodeContent()));
+            boardProperties->setCodeStringBold(Bubble::string2bool(stringNode->GetNodeContent()));
         }
         else if (stringNode->GetName() == wxString("preprocesorBold"))
         {
-            bubble->setCodePreprocessorBold(Bubble::string2bool(stringNode->GetNodeContent()));
+            boardProperties->setCodePreprocessorBold(Bubble::string2bool(stringNode->GetNodeContent()));
         }
         else if (stringNode->GetName() == wxString("identifierBold"))
         {
-            bubble->setCodeIdentifierBold(Bubble::string2bool(stringNode->GetNodeContent()));
+            boardProperties->setCodeIdentifierBold(Bubble::string2bool(stringNode->GetNodeContent()));
         }
         else if (stringNode->GetName() == wxString("numberBold"))
         {
-            bubble->setCodeNumberBold(Bubble::string2bool(stringNode->GetNodeContent()));
+            boardProperties->setCodeNumberBold(Bubble::string2bool(stringNode->GetNodeContent()));
         }
         else if (stringNode->GetName() == wxString("characterBold"))
         {
-            bubble->setCodeCharacterBold(Bubble::string2bool(stringNode->GetNodeContent()));
+            boardProperties->setCodeCharacterBold(Bubble::string2bool(stringNode->GetNodeContent()));
         }
         else if (stringNode->GetName() == wxString("wordBold"))
         {
-            bubble->setCodeWordBold(Bubble::string2bool(stringNode->GetNodeContent()));
+            boardProperties->setCodeWordBold(Bubble::string2bool(stringNode->GetNodeContent()));
         }
         else if (stringNode->GetName() == wxString("word2Bold"))
         {
-            bubble->setCodeWord2Bold(Bubble::string2bool(stringNode->GetNodeContent()));
+            boardProperties->setCodeWord2Bold(Bubble::string2bool(stringNode->GetNodeContent()));
         }
         else if (stringNode->GetName() == wxString("commentBold"))
         {
-            bubble->setCodeCommentBold(Bubble::string2bool(stringNode->GetNodeContent()));
+            boardProperties->setCodeCommentBold(Bubble::string2bool(stringNode->GetNodeContent()));
         }
         else if (stringNode->GetName() == wxString("commentLineBold"))
         {
-            bubble->setCodeCommentLineBold(Bubble::string2bool(stringNode->GetNodeContent()));
+            boardProperties->setCodeCommentLineBold(Bubble::string2bool(stringNode->GetNodeContent()));
         }
         else if (stringNode->GetName() == wxString("commentDocBold"))
         {
-            bubble->setCodeCommentDocBold(Bubble::string2bool(stringNode->GetNodeContent()));
+            boardProperties->setCodeCommentDocBold(Bubble::string2bool(stringNode->GetNodeContent()));
         }
         else if (stringNode->GetName() == wxString("commentDocKeywordBold"))
         {
-            bubble->setCodeCommentDocKeywordBold(Bubble::string2bool(stringNode->GetNodeContent()));
+            boardProperties->setCodeCommentDocKeywordBold(Bubble::string2bool(stringNode->GetNodeContent()));
         }
         else if (stringNode->GetName() == wxString("commentDocKeywordErrorBold"))
         {
-            bubble->setCodeCommentDocKeywordErrorBold(Bubble::string2bool(stringNode->GetNodeContent()));
+            boardProperties->setCodeCommentDocKeywordErrorBold(Bubble::string2bool(stringNode->GetNodeContent()));
         }
 
         else if (stringNode->GetName() == wxString("tabWidth"))
@@ -2367,7 +2371,7 @@ bool BubbleXML::loadSyntaxFromXML(wxXmlNode *node, BubbleBoardProperties *boardP
             wxString returnStringValue = stringNode->GetNodeContent();
             long returnNumericValue = 0;
             if (returnStringValue.ToLong(&returnNumericValue))
-                bubble->setCodeTabWidth((int)returnNumericValue);
+                boardProperties->setCodeTabWidth((int)returnNumericValue);
         }
 
         stringNode = stringNode->GetNext();

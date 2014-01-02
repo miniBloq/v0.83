@@ -4056,6 +4056,11 @@ void MainFrame::toggleGeneratedCode()
         if (editCode == NULL)
             return;
 
+        if (bubble.getHardwareManager() == NULL)
+            return;
+        if (bubble.getHardwareManager()->getCurrentBoardProperties() == NULL)
+            return;
+
         //##Tomado por ahora de http://wiki.wxwidgets.org/WxStyledTextCtrl#Using_wxStyledTextCtrl, luego esto
         //se levantará completamente de los archivos de configuración:
         //##edit->SetMarginWidth (MARGIN_LINE_NUMBERS, 50);
@@ -4113,39 +4118,39 @@ void MainFrame::toggleGeneratedCode()
 
         //##Agregar a mano los keywords que falten, o crear un lexer nuevo:
 
-        editCode->SetLexer(bubble.getCodeLexer());
+        editCode->SetLexer(bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeLexer());
 
-        editCode->StyleSetForeground(wxSTC_C_OPERATOR, bubble.getCodeOperatorColor());
-        editCode->StyleSetForeground(wxSTC_C_STRING, bubble.getCodeStringColor());
-        editCode->StyleSetForeground(wxSTC_C_PREPROCESSOR, bubble.getCodePreprocessorColor());
-        editCode->StyleSetForeground(wxSTC_C_IDENTIFIER, bubble.getCodeIdentifierColor());
-        editCode->StyleSetForeground(wxSTC_C_NUMBER, bubble.getCodeNumberColor());
-        editCode->StyleSetForeground(wxSTC_C_CHARACTER, bubble.getCodeCharacterColor());
-        editCode->StyleSetForeground(wxSTC_C_WORD, bubble.getCodeWordColor());
-        editCode->StyleSetForeground(wxSTC_C_WORD2, bubble.getCodeWord2Color());
-        editCode->StyleSetForeground(wxSTC_C_COMMENT, bubble.getCodeCommentColor());
-        editCode->StyleSetForeground(wxSTC_C_COMMENTLINE, bubble.getCodeCommentLineColor());
-        editCode->StyleSetForeground(wxSTC_C_COMMENTDOC, bubble.getCodeCommentDocColor());
-        editCode->StyleSetForeground(wxSTC_C_COMMENTDOCKEYWORD, bubble.getCodeCommentDocKeywordColor());
-        editCode->StyleSetForeground(wxSTC_C_COMMENTDOCKEYWORDERROR, bubble.getCodeCommentDocKeywordErrorColor());
+        editCode->StyleSetForeground(wxSTC_C_OPERATOR, bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeOperatorColor());
+        editCode->StyleSetForeground(wxSTC_C_STRING, bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeStringColor());
+        editCode->StyleSetForeground(wxSTC_C_PREPROCESSOR, bubble.getHardwareManager()->getCurrentBoardProperties()->getCodePreprocessorColor());
+        editCode->StyleSetForeground(wxSTC_C_IDENTIFIER, bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeIdentifierColor());
+        editCode->StyleSetForeground(wxSTC_C_NUMBER, bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeNumberColor());
+        editCode->StyleSetForeground(wxSTC_C_CHARACTER, bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeCharacterColor());
+        editCode->StyleSetForeground(wxSTC_C_WORD, bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeWordColor());
+        editCode->StyleSetForeground(wxSTC_C_WORD2, bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeWord2Color());
+        editCode->StyleSetForeground(wxSTC_C_COMMENT, bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeCommentColor());
+        editCode->StyleSetForeground(wxSTC_C_COMMENTLINE, bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeCommentLineColor());
+        editCode->StyleSetForeground(wxSTC_C_COMMENTDOC, bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeCommentDocColor());
+        editCode->StyleSetForeground(wxSTC_C_COMMENTDOCKEYWORD, bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeCommentDocKeywordColor());
+        editCode->StyleSetForeground(wxSTC_C_COMMENTDOCKEYWORDERROR, bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeCommentDocKeywordErrorColor());
 
         //##This is not working (although the bold font seems to be setting correctly):
-        editCode->StyleSetBold(wxSTC_C_OPERATOR, bubble.getCodeOperatorBold());
-        editCode->StyleSetBold(wxSTC_C_STRING, bubble.getCodeStringBold());
-        editCode->StyleSetBold(wxSTC_C_PREPROCESSOR, bubble.getCodePreprocessorBold());
-        editCode->StyleSetBold(wxSTC_C_IDENTIFIER, bubble.getCodeIdentifierBold());
-        editCode->StyleSetBold(wxSTC_C_NUMBER, bubble.getCodeNumberBold());
-        editCode->StyleSetBold(wxSTC_C_CHARACTER, bubble.getCodeCharacterBold());
-        editCode->StyleSetBold(wxSTC_C_WORD, bubble.getCodeWordBold());
-        editCode->StyleSetBold(wxSTC_C_WORD2, bubble.getCodeWord2Bold());
-        editCode->StyleSetBold(wxSTC_C_COMMENT, bubble.getCodeCommentBold());
-        editCode->StyleSetBold(wxSTC_C_COMMENTLINE, bubble.getCodeCommentLineBold());
-        editCode->StyleSetBold(wxSTC_C_COMMENTDOC, bubble.getCodeCommentDocBold());
-        editCode->StyleSetBold(wxSTC_C_COMMENTDOCKEYWORD, bubble.getCodeCommentDocKeywordBold());
-        editCode->StyleSetBold(wxSTC_C_COMMENTDOCKEYWORDERROR, bubble.getCodeCommentDocKeywordErrorBold());
+        editCode->StyleSetBold(wxSTC_C_OPERATOR, bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeOperatorBold());
+        editCode->StyleSetBold(wxSTC_C_STRING, bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeStringBold());
+        editCode->StyleSetBold(wxSTC_C_PREPROCESSOR, bubble.getHardwareManager()->getCurrentBoardProperties()->getCodePreprocessorBold());
+        editCode->StyleSetBold(wxSTC_C_IDENTIFIER, bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeIdentifierBold());
+        editCode->StyleSetBold(wxSTC_C_NUMBER, bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeNumberBold());
+        editCode->StyleSetBold(wxSTC_C_CHARACTER, bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeCharacterBold());
+        editCode->StyleSetBold(wxSTC_C_WORD, bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeWordBold());
+        editCode->StyleSetBold(wxSTC_C_WORD2, bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeWord2Bold());
+        editCode->StyleSetBold(wxSTC_C_COMMENT, bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeCommentBold());
+        editCode->StyleSetBold(wxSTC_C_COMMENTLINE, bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeCommentLineBold());
+        editCode->StyleSetBold(wxSTC_C_COMMENTDOC, bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeCommentDocBold());
+        editCode->StyleSetBold(wxSTC_C_COMMENTDOCKEYWORD, bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeCommentDocKeywordBold());
+        editCode->StyleSetBold(wxSTC_C_COMMENTDOCKEYWORDERROR, bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeCommentDocKeywordErrorBold());
 
         //##editCode->SetTabIndents(1);
-        editCode->SetTabWidth(bubble.getCodeTabWidth());
+        editCode->SetTabWidth(bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeTabWidth());
 
         // ##Load all of these from XML files:
         editCode->SetKeyWords(0, wxString("return for while break continue if else true false delay"));

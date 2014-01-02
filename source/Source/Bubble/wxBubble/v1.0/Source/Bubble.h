@@ -27,6 +27,8 @@ WX_DECLARE_STRING_HASH_MAP(wxImage, ImagesHash);
 //"BlockInfos" are also searched with a hash table:
 WX_DECLARE_STRING_HASH_MAP(BubbleBlockInfo*, BlocksHash);
 
+wxColour string2color(const wxString &value);
+
 //##Puede que a esta clase le cambie el nombre, porque es más un intercambiador de información entre Bubble
 //y el frame (o quien herede de esta clase) que un verdadero Notifier. Cumple como notifier en una dirección
 //(desde Buble hacia el frame), pero del otro lado, funciona pasando los pickers, por la limitación ¿de
@@ -88,6 +90,7 @@ class IBubbleNotifier
 };
 
 
+class Bubble;
 class BubbleBoardProperties
 {
     private:
@@ -145,6 +148,35 @@ class BubbleBoardProperties
         wxString usbProduct;
         wxArrayString relCommands;
 
+        int codeLexer;
+        wxColour codeOperatorColor;
+        wxColour codeStringColor;
+        wxColour codePreprocessorColor;
+        wxColour codeIdentifierColor;
+        wxColour codeNumberColor;
+        wxColour codeCharacterColor;
+        wxColour codeWordColor;
+        wxColour codeWord2Color;
+        wxColour codeCommentColor;
+        wxColour codeCommentLineColor;
+        wxColour codeCommentDocColor;
+        wxColour codeCommentDocKeywordColor;
+        wxColour codeCommentDocKeywordErrorColor;
+        bool codeOperatorBold;
+        bool codeStringBold;
+        bool codePreprocessorBold;
+        bool codeIdentifierBold;
+        bool codeNumberBold;
+        bool codeCharacterBold;
+        bool codeWordBold;
+        bool codeWord2Bold;
+        bool codeCommentBold;
+        bool codeCommentLineBold;
+        bool codeCommentDocBold;
+        bool codeCommentDocKeywordBold;
+        bool codeCommentDocKeywordErrorBold;
+        unsigned int codeTabWidth;
+
     public:
         BubbleBoardProperties():    name(wxString("")),
                                     path(wxString("")),
@@ -197,7 +229,36 @@ class BubbleBoardProperties
                                     usbPidBoot(wxString("")),
                                     usbPidApp(wxString("")),
                                     usbManufacturer(wxString("")),
-                                    usbProduct(wxString(""))
+                                    usbProduct(wxString("")),
+
+                                    codeLexer(3), //CPP syntax
+                                    codeOperatorColor(wxColour(0, 0, 0)),
+                                    codeStringColor(wxColour(0, 0, 0)),
+                                    codePreprocessorColor(wxColour(0, 0, 0)),
+                                    codeIdentifierColor(wxColour(0, 0, 0)),
+                                    codeNumberColor(wxColour(0, 0, 0)),
+                                    codeCharacterColor(wxColour(0, 0, 0)),
+                                    codeWordColor(wxColour(0, 0, 0)),
+                                    codeWord2Color(wxColour(0, 0, 0)),
+                                    codeCommentColor(wxColour(0, 0, 0)),
+                                    codeCommentLineColor(wxColour(0, 0, 0)),
+                                    codeCommentDocColor(wxColour(0, 0, 0)),
+                                    codeCommentDocKeywordColor(wxColour(0, 0, 0)),
+                                    codeCommentDocKeywordErrorColor(wxColour(0, 0, 0)),
+                                    codeOperatorBold(false),
+                                    codeStringBold(false),
+                                    codePreprocessorBold(false),
+                                    codeIdentifierBold(false),
+                                    codeNumberBold(false),
+                                    codeCharacterBold(false),
+                                    codeWordBold(false),
+                                    codeWord2Bold(false),
+                                    codeCommentBold(false),
+                                    codeCommentLineBold(false),
+                                    codeCommentDocBold(false),
+                                    codeCommentDocKeywordBold(false),
+                                    codeCommentDocKeywordErrorBold(false),
+                                    codeTabWidth(4)
         {
             relCommands.Clear(); //Not necessary, but just in case.
         }
@@ -263,6 +324,39 @@ class BubbleBoardProperties
                 setUsbPidApp(boardProperties->getUsbPidApp());
                 setUsbManufacturer(boardProperties->getUsbManufacturer());
                 setUsbProduct(boardProperties->getUsbProduct());
+
+                setCodeLexer(boardProperties->getCodeLexer());
+
+                setCodeOperatorColor(boardProperties->getCodeOperatorColor());
+                setCodeStringColor(boardProperties->getCodeStringColor());
+                setCodePreprocessorColor(boardProperties->getCodePreprocessorColor());
+                setCodeIdentifierColor(boardProperties->getCodeIdentifierColor());
+                setCodeNumberColor(boardProperties->getCodeNumberColor());
+                setCodeCharacterColor(boardProperties->getCodeCharacterColor());
+                setCodeWordColor(boardProperties->getCodeWordColor());
+                setCodeWord2Color(boardProperties->getCodeWord2Color());
+                setCodeCommentColor(boardProperties->getCodeCommentColor());
+                setCodeCommentLineColor(boardProperties->getCodeCommentLineColor());
+                setCodeCommentDocColor(boardProperties->getCodeCommentDocColor());
+                setCodeCommentDocKeywordColor(boardProperties->getCodeCommentDocKeywordColor());
+                setCodeCommentDocKeywordErrorColor(boardProperties->getCodeCommentDocKeywordErrorColor());
+
+                setCodeOperatorBold(boardProperties->getCodeOperatorBold());
+                setCodeStringBold(boardProperties->getCodeStringBold());
+                setCodePreprocessorBold(boardProperties->getCodePreprocessorBold());
+                setCodeIdentifierBold(boardProperties->getCodeIdentifierBold());
+                setCodeNumberBold(boardProperties->getCodeNumberBold());
+                setCodeCharacterBold(boardProperties->getCodeCharacterBold());
+                setCodeWordBold(boardProperties->getCodeWordBold());
+                setCodeWord2Bold(boardProperties->getCodeWord2Bold());
+                setCodeCommentBold(boardProperties->getCodeCommentBold());
+                setCodeCommentLineBold(boardProperties->getCodeCommentLineBold());
+                setCodeCommentDocBold(boardProperties->getCodeCommentDocBold());
+                setCodeCommentDocKeywordBold(boardProperties->getCodeCommentDocKeywordBold());
+                setCodeCommentDocKeywordErrorBold(boardProperties->getCodeCommentDocKeywordErrorBold());
+
+                setCodeTabWidth(boardProperties->getCodeTabWidth());
+
                 //relCommands = *(boardProperties->getRelCommands());
                 unsigned int i = 0;
                 while (i < boardProperties->getRelCommandsCount())
@@ -441,12 +535,85 @@ class BubbleBoardProperties
                 return relCommands[index];
             return wxString("");
         }
+
+        //Syntax (code editor):
+        inline void setCodeLexer(int value) { codeLexer = value; }
+        inline int getCodeLexer() const { return codeLexer; }
+
+        inline void setCodeOperatorColor(const wxString& value) { codeOperatorColor = string2color(value); }
+        inline void setCodeOperatorColor(const wxColour& value) { codeOperatorColor = value; }
+        inline wxColour getCodeOperatorColor() const { return codeOperatorColor; }
+        inline void setCodeStringColor(const wxString& value) { codeStringColor = string2color(value); }
+        inline void setCodeStringColor(const wxColour& value) { codeStringColor = value; }
+        inline wxColour getCodeStringColor() const { return codeStringColor; }
+        inline void setCodePreprocessorColor(const wxString& value) { codePreprocessorColor = string2color(value); }
+        inline void setCodePreprocessorColor(const wxColour& value) { codePreprocessorColor = value; }
+        inline wxColour getCodePreprocessorColor() const { return codePreprocessorColor; }
+        inline void setCodeIdentifierColor(const wxString& value) { codeIdentifierColor = string2color(value); }
+        inline void setCodeIdentifierColor(const wxColour& value) { codeIdentifierColor = value; }
+        inline wxColour getCodeIdentifierColor() const { return codeIdentifierColor; }
+        inline void setCodeNumberColor(const wxString& value) { codeNumberColor = string2color(value); }
+        inline void setCodeNumberColor(const wxColour& value) { codeNumberColor = value; }
+        inline wxColour getCodeNumberColor() const { return codeNumberColor; }
+        inline void setCodeCharacterColor(const wxString& value) { codeCharacterColor = string2color(value); }
+        inline void setCodeCharacterColor(const wxColour& value) { codeCharacterColor = value; }
+        inline wxColour getCodeCharacterColor() const { return codeCharacterColor; }
+        inline void setCodeWordColor(const wxString& value) { codeWordColor = string2color(value); }
+        inline void setCodeWordColor(const wxColour& value) { codeWordColor = value; }
+        inline wxColour getCodeWordColor() const { return codeWordColor; }
+        inline void setCodeWord2Color(const wxString& value) { codeWord2Color = string2color(value); }
+        inline void setCodeWord2Color(const wxColour& value) { codeWord2Color = value; }
+        inline wxColour getCodeWord2Color() const { return codeWord2Color; }
+        inline void setCodeCommentColor(const wxString& value) { codeCommentColor = string2color(value); }
+        inline void setCodeCommentColor(const wxColour& value) { codeCommentColor = value; }
+        inline wxColour getCodeCommentColor() const { return codeCommentColor; }
+        inline void setCodeCommentLineColor(const wxString& value) { codeCommentLineColor = string2color(value); }
+        inline void setCodeCommentLineColor(const wxColour& value) { codeCommentLineColor = value; }
+        inline wxColour getCodeCommentLineColor() const { return codeCommentLineColor; }
+        inline void setCodeCommentDocColor(const wxString& value) { codeCommentDocColor = string2color(value); }
+        inline void setCodeCommentDocColor(const wxColour& value) { codeCommentDocColor = value; }
+        inline wxColour getCodeCommentDocColor() const { return codeCommentDocColor; }
+        inline void setCodeCommentDocKeywordColor(const wxString& value) { codeCommentDocKeywordColor = string2color(value); }
+        inline void setCodeCommentDocKeywordColor(const wxColour& value) { codeCommentDocKeywordColor = value; }
+        inline wxColour getCodeCommentDocKeywordColor() const { return codeCommentDocKeywordColor; }
+        inline void setCodeCommentDocKeywordErrorColor(const wxString& value) { codeCommentDocKeywordErrorColor = string2color(value); }
+        inline void setCodeCommentDocKeywordErrorColor(const wxColour& value) { codeCommentDocKeywordErrorColor = value; }
+        inline wxColour getCodeCommentDocKeywordErrorColor() const { return codeCommentDocKeywordErrorColor; }
+
+        inline void setCodeOperatorBold(bool value) { codeOperatorBold = value; }
+        inline bool getCodeOperatorBold() const { return codeOperatorBold; }
+        inline void setCodeStringBold(bool value) { codeStringBold = value; }
+        inline bool getCodeStringBold() const { return codeStringBold; }
+        inline void setCodePreprocessorBold(bool value) { codePreprocessorBold = value; }
+        inline bool getCodePreprocessorBold() const { return codePreprocessorBold; }
+        inline void setCodeIdentifierBold(bool value) { codeIdentifierBold = value; }
+        inline bool getCodeIdentifierBold() const { return codeIdentifierBold; }
+        inline void setCodeNumberBold(bool value) { codeNumberBold = value; }
+        inline bool getCodeNumberBold() const { return codeNumberBold; }
+        inline void setCodeCharacterBold(bool value) { codeCharacterBold = value; }
+        inline bool getCodeCharacterBold() const { return codeCharacterBold; }
+        inline void setCodeWordBold(bool value) { codeWordBold = value; }
+        inline bool getCodeWordBold() const { return codeWordBold; }
+        inline void setCodeWord2Bold(bool value) { codeWord2Bold = value; }
+        inline bool getCodeWord2Bold() const { return codeWord2Bold; }
+        inline void setCodeCommentBold(bool value) { codeCommentBold = value; }
+        inline bool getCodeCommentBold() const { return codeCommentBold; }
+        inline void setCodeCommentLineBold(bool value) { codeCommentLineBold = value; }
+        inline bool getCodeCommentLineBold() const { return codeCommentLineBold; }
+        inline void setCodeCommentDocBold(bool value) { codeCommentDocBold = value; }
+        inline bool getCodeCommentDocBold() const { return codeCommentDocBold; }
+        inline void setCodeCommentDocKeywordBold(bool value) { codeCommentDocKeywordBold = value; }
+        inline bool getCodeCommentDocKeywordBold() const { return codeCommentDocKeywordBold; }
+        inline void setCodeCommentDocKeywordErrorBold(bool value) { codeCommentDocKeywordErrorBold = value; }
+        inline bool getCodeCommentDocKeywordErrorBold() const { return codeCommentDocKeywordErrorBold; }
+
+        inline void setCodeTabWidth(unsigned int value) { codeTabWidth = value; }
+        inline unsigned int getCodeTabWidth() const { return codeTabWidth; }
 };
 
 
 //The BubbleXML class manages the language structure (blocks info, canvases info, etc.). It DOES NOT deals
 //with the load/save of programs, only with the structural things:
-class Bubble; //##
 class BubbleXML
 {
     protected:
@@ -568,34 +735,6 @@ class Bubble : public IBubbleFileIO
         wxString includesCodeList;
         wxString includesBuildList;
         wxString initBoardCode;
-        int codeLexer;
-        wxColour codeOperatorColor;
-        wxColour codeStringColor;
-        wxColour codePreprocessorColor;
-        wxColour codeIdentifierColor;
-        wxColour codeNumberColor;
-        wxColour codeCharacterColor;
-        wxColour codeWordColor;
-        wxColour codeWord2Color;
-        wxColour codeCommentColor;
-        wxColour codeCommentLineColor;
-        wxColour codeCommentDocColor;
-        wxColour codeCommentDocKeywordColor;
-        wxColour codeCommentDocKeywordErrorColor;
-        bool codeOperatorBold;
-        bool codeStringBold;
-        bool codePreprocessorBold;
-        bool codeIdentifierBold;
-        bool codeNumberBold;
-        bool codeCharacterBold;
-        bool codeWordBold;
-        bool codeWord2Bold;
-        bool codeCommentBold;
-        bool codeCommentLineBold;
-        bool codeCommentDocBold;
-        bool codeCommentDocKeywordBold;
-        bool codeCommentDocKeywordErrorBold;
-        unsigned int codeTabWidth;
 
         bool blocksEnabled;
         bool visibleLabels;
@@ -654,7 +793,6 @@ class Bubble : public IBubbleFileIO
 #endif
         static wxString bool2string(const bool value);
         static bool string2bool(const wxString &value);
-        static wxColour string2color(const wxString &value);
         static bool nonListedCharsInString(const wxString &charList, const wxString &value);
         static wxImage dc2Image(wxClientDC *dc);
         static void linesFromArrayToBubbleEditor(const wxArrayString &strings, BubbleEditor *editor);
@@ -754,67 +892,6 @@ class Bubble : public IBubbleFileIO
         bool setBoardName(const wxString& value, wxWindow *pickersParent);
         inline const wxString &getBoardName() const { return boardName; }
         int loadBoardRelations();
-
-        //Syntax (code editor):
-        inline void setCodeLexer(int value) { codeLexer = value; }
-        inline int getCodeLexer() const { return codeLexer; }
-
-        inline void setCodeOperatorColor(const wxString value) { codeOperatorColor = Bubble::string2color(value); }
-        inline wxColour getCodeOperatorColor() const { return codeOperatorColor; }
-        inline void setCodeStringColor(const wxString value) { codeStringColor = Bubble::string2color(value); }
-        inline wxColour getCodeStringColor() const { return codeStringColor; }
-        inline void setCodePreprocessorColor(const wxString value) { codePreprocessorColor = Bubble::string2color(value); }
-        inline wxColour getCodePreprocessorColor() const { return codePreprocessorColor; }
-        inline void setCodeIdentifierColor(const wxString value) { codeIdentifierColor = Bubble::string2color(value); }
-        inline wxColour getCodeIdentifierColor() const { return codeIdentifierColor; }
-        inline void setCodeNumberColor(const wxString value) { codeNumberColor = Bubble::string2color(value); }
-        inline wxColour getCodeNumberColor() const { return codeNumberColor; }
-        inline void setCodeCharacterColor(const wxString value) { codeCharacterColor = Bubble::string2color(value); }
-        inline wxColour getCodeCharacterColor() const { return codeCharacterColor; }
-        inline void setCodeWordColor(const wxString value) { codeWordColor = Bubble::string2color(value); }
-        inline wxColour getCodeWordColor() const { return codeWordColor; }
-        inline void setCodeWord2Color(const wxString value) { codeWord2Color = Bubble::string2color(value); }
-        inline wxColour getCodeWord2Color() const { return codeWord2Color; }
-        inline void setCodeCommentColor(const wxString value) { codeCommentColor = Bubble::string2color(value); }
-        inline wxColour getCodeCommentColor() const { return codeCommentColor; }
-        inline void setCodeCommentLineColor(const wxString value) { codeCommentLineColor = Bubble::string2color(value); }
-        inline wxColour getCodeCommentLineColor() const { return codeCommentLineColor; }
-        inline void setCodeCommentDocColor(const wxString value) { codeCommentDocColor = Bubble::string2color(value); }
-        inline wxColour getCodeCommentDocColor() const { return codeCommentDocColor; }
-        inline void setCodeCommentDocKeywordColor(const wxString value) { codeCommentDocKeywordColor = Bubble::string2color(value); }
-        inline wxColour getCodeCommentDocKeywordColor() const { return codeCommentDocKeywordColor; }
-        inline void setCodeCommentDocKeywordErrorColor(const wxString value) { codeCommentDocKeywordErrorColor = Bubble::string2color(value); }
-        inline wxColour getCodeCommentDocKeywordErrorColor() const { return codeCommentDocKeywordErrorColor; }
-
-        inline void setCodeOperatorBold(bool value) { codeOperatorBold = value; }
-        inline bool getCodeOperatorBold() const { return codeOperatorBold; }
-        inline void setCodeStringBold(bool value) { codeStringBold = value; }
-        inline bool getCodeStringBold() const { return codeStringBold; }
-        inline void setCodePreprocessorBold(bool value) { codePreprocessorBold = value; }
-        inline bool getCodePreprocessorBold() const { return codePreprocessorBold; }
-        inline void setCodeIdentifierBold(bool value) { codeIdentifierBold = value; }
-        inline bool getCodeIdentifierBold() const { return codeIdentifierBold; }
-        inline void setCodeNumberBold(bool value) { codeNumberBold = value; }
-        inline bool getCodeNumberBold() const { return codeNumberBold; }
-        inline void setCodeCharacterBold(bool value) { codeCharacterBold = value; }
-        inline bool getCodeCharacterBold() const { return codeCharacterBold; }
-        inline void setCodeWordBold(bool value) { codeWordBold = value; }
-        inline bool getCodeWordBold() const { return codeWordBold; }
-        inline void setCodeWord2Bold(bool value) { codeWord2Bold = value; }
-        inline bool getCodeWord2Bold() const { return codeWord2Bold; }
-        inline void setCodeCommentBold(bool value) { codeCommentBold = value; }
-        inline bool getCodeCommentBold() const { return codeCommentBold; }
-        inline void setCodeCommentLineBold(bool value) { codeCommentLineBold = value; }
-        inline bool getCodeCommentLineBold() const { return codeCommentLineBold; }
-        inline void setCodeCommentDocBold(bool value) { codeCommentDocBold = value; }
-        inline bool getCodeCommentDocBold() const { return codeCommentDocBold; }
-        inline void setCodeCommentDocKeywordBold(bool value) { codeCommentDocKeywordBold = value; }
-        inline bool getCodeCommentDocKeywordBold() const { return codeCommentDocKeywordBold; }
-        inline void setCodeCommentDocKeywordErrorBold(bool value) { codeCommentDocKeywordErrorBold = value; }
-        inline bool getCodeCommentDocKeywordErrorBold() const { return codeCommentDocKeywordErrorBold; }
-
-        inline void setCodeTabWidth(unsigned int value) { codeTabWidth = value; }
-        inline unsigned int getCodeTabWidth() const { return codeTabWidth; }
 
         //Board drivers:
         bool winInstallINF(); //##Testing.

@@ -33,6 +33,28 @@
 WX_DEFINE_LIST(listOfCanvas);
 
 
+//value format must be:
+//R,G,B (example: 255,0,0
+//Values are in decimal base and spaces, tabs, etc. are trimmed.
+wxColour string2color(const wxString &value)
+{
+    long    R = 0,
+            G = 0,
+            B = 0;
+    wxString tail = value;
+
+    tail.BeforeFirst(',').Trim().ToLong(&R);
+    tail = tail.AfterFirst(',');
+    tail.BeforeFirst(',').Trim().ToLong(&G);
+    tail = tail.AfterFirst(',');
+    tail.BeforeFirst(',').Trim().ToLong(&B);
+
+    wxColour result((unsigned char)R, (unsigned char)G, (unsigned char)B);
+
+    return result;
+}
+
+
 //##Ver cómo agregar chequeo de que si no setean el parent y el notifier, TODO MAL!
 /*
 Bubble::Bubble(IBubbleNotifier *notifier) : parent(NULL),
@@ -63,35 +85,6 @@ Bubble::Bubble(wxLocale& locale) :  parent(NULL),
                                     includesCodeList(wxString("")),
                                     includesBuildList(wxString("")),
                                     initBoardCode(wxString("")),
-
-                                    codeLexer(3), //CPP syntax
-                                    codeOperatorColor(wxColour(0, 0, 0)),
-                                    codeStringColor(wxColour(0, 0, 0)),
-                                    codePreprocessorColor(wxColour(0, 0, 0)),
-                                    codeIdentifierColor(wxColour(0, 0, 0)),
-                                    codeNumberColor(wxColour(0, 0, 0)),
-                                    codeCharacterColor(wxColour(0, 0, 0)),
-                                    codeWordColor(wxColour(0, 0, 0)),
-                                    codeWord2Color(wxColour(0, 0, 0)),
-                                    codeCommentColor(wxColour(0, 0, 0)),
-                                    codeCommentLineColor(wxColour(0, 0, 0)),
-                                    codeCommentDocColor(wxColour(0, 0, 0)),
-                                    codeCommentDocKeywordColor(wxColour(0, 0, 0)),
-                                    codeCommentDocKeywordErrorColor(wxColour(0, 0, 0)),
-                                    codeOperatorBold(false),
-                                    codeStringBold(false),
-                                    codePreprocessorBold(false),
-                                    codeIdentifierBold(false),
-                                    codeNumberBold(false),
-                                    codeCharacterBold(false),
-                                    codeWordBold(false),
-                                    codeWord2Bold(false),
-                                    codeCommentBold(false),
-                                    codeCommentLineBold(false),
-                                    codeCommentDocBold(false),
-                                    codeCommentDocKeywordBold(false),
-                                    codeCommentDocKeywordErrorBold(false),
-                                    codeTabWidth(4),
 
                                     blocksEnabled(true),
                                     visibleLabels(false),
@@ -168,29 +161,6 @@ bool Bubble::string2bool(const wxString &value)
     if (value == wxString("true"))
         return true;
     return false;
-}
-
-
-
-//value format must be:
-//R,G,B (example: 255,0,0
-//Values are in decimal base and spaces, tabs, etc. are trimmed.
-wxColour Bubble::string2color(const wxString &value)
-{
-    long    R = 0,
-            G = 0,
-            B = 0;
-    wxString tail = value;
-
-    tail.BeforeFirst(',').Trim().ToLong(&R);
-    tail = tail.AfterFirst(',');
-    tail.BeforeFirst(',').Trim().ToLong(&G);
-    tail = tail.AfterFirst(',');
-    tail.BeforeFirst(',').Trim().ToLong(&B);
-
-    wxColour result((unsigned char)R, (unsigned char)G, (unsigned char)B);
-
-    return result;
 }
 
 
