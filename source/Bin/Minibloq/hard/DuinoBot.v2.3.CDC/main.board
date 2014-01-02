@@ -50,6 +50,30 @@
 		<usbProduct></usbProduct>
 		<arduinoVariant>duinobot.v2.x</arduinoVariant>
     </properties>
+	<syntax>
+		<lexer>3</lexer>
+		
+		<operatorColor>0,0,0</operatorColor>
+		<stringColor>150,0,0</stringColor>
+        <preprocesorColor>165,105,0</preprocesorColor>
+        <identifierColor>0,0,0</identifierColor>
+        <numberColor>0,255,0</numberColor>
+        <characterColor>150,0,0</characterColor>
+        <wordColor>255,128,0</wordColor>
+        <word2Color>0,0,150</word2Color>
+        <commentColor>92,92,92</commentColor>
+        <commentLineColor>92,92,92</commentLineColor>
+        <commentDocColor>92,92,92</commentDocColor>
+        <commentDocKeywordColor>92,92,92</commentDocKeywordColor>
+        <commentDocKeywordErrorColor>92,92,92</commentDocKeywordErrorColor>
+		
+		<operatorBold>true</operatorBold>
+		<wordBold>true</wordBold>
+		<word2Bold>true</word2Bold>
+		<commentDocKeywordBold>true</commentDocKeywordBold>
+		
+		<tabWidth>4</tabWidth>
+	</syntax>
 	<examples>
 		<path><s>componentsRepositoryPath::</s><s>/work/_examples/ArduinoUno</s></path>
 		<path><s>componentsRepositoryPath::</s><s>/work/_examples/DifferentialRobot</s></path>
