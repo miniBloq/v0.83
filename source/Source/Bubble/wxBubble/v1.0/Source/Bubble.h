@@ -708,7 +708,7 @@ class BubbleXML
         const wxArrayString loadExternalCommands(const wxString &section, const wxString &fullBoardFileName);
         const wxArrayString loadInternalCommands(const wxString &section, const wxString &fullBoardFileName);
         int loadHardwareTargets(BubbleHardwareManager *hardwareManager);
-        bool loadBoardInstancesFromXML(wxXmlNode *node, BubbleCanvasInfo *canvasInfo);
+        bool loadBoardInstancesFromXML(wxXmlNode *node, BubbleCanvasInfo *canvasInfo, BubbleBoardProperties *boardProperties);
         bool loadRelData(const wxString &relFileName, BubbleBoardProperties *boardProperties);
         int loadBoardRelations();
         bool loadSyntaxFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties, bool onlyBoard);

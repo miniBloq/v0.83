@@ -412,7 +412,6 @@ class MainFrame : public wxFrame, public IBubbleNotifier
         void onMenuViewQuickToolbar(wxCommandEvent& evt);
         void onMenuViewGeneratedCode(wxCommandEvent& evt);
         void refreshGeneratedCode();
-        void toggleGeneratedCode();
         void onMenuViewFullScreen(wxCommandEvent& evt);
         void onMenuViewPrevView(wxCommandEvent& evt);
         void onMenuViewNextView(wxCommandEvent& evt);
@@ -507,6 +506,9 @@ class MainFrame : public wxFrame, public IBubbleNotifier
         //not work, (not even with Connect, neither with the event table). So the event is captured in the
         //frame and forwarded to the current bubbleCanvas:
         //void WxPanelBlocksMouseWheel(wxMouseEvent& event);
+
+        void toggleGeneratedCode();
+        bool isShowingGeneratedCode();
 
         //i8n/i10n:
         bool addLocaleCatalog(const wxString& value);

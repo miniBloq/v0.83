@@ -836,6 +836,11 @@ void BubbleHardwareManager::onComboBoardNameChanged(wxCommandEvent &event)
             }
             if (currentComponentSaved)
                 ((MainFrame*)parent)->loadFileComponent(currentComponentName);
+            if ( ((MainFrame*)parent)->isShowingGeneratedCode() )
+            {
+                ((MainFrame*)parent)->toggleGeneratedCode();
+                ((MainFrame*)parent)->toggleGeneratedCode();
+            }
         }
     }
 }

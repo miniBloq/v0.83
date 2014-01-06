@@ -505,6 +505,12 @@ MainFrame::MainFrame(   wxWindow* parent,
 }
 
 
+bool MainFrame::isShowingGeneratedCode()
+{
+    return notebook->GetPageIndex(editCode) != wxNOT_FOUND;
+}
+
+
 MainFrame::~MainFrame()
 {
     auiManager.UnInit();
@@ -3015,7 +3021,13 @@ void MainFrame::createComponent(bool canCancel)
                 else if (answer == wxID_YES)
                     saveComponent();
 
+
+
+#if defined (WIN32)
                 if (notebook->GetPage(notebook->GetPageIndex(editCode)))
+#else
+                if (notebook->GetPageIndex(editCode) != wxNOT_FOUND )
+#endif
                 {
                     showCode = true;
                     toggleGeneratedCode();
@@ -3038,7 +3050,11 @@ void MainFrame::createComponent(bool canCancel)
         {
             if (notebook)
             {
+#if defined (WIN32)
                 if (notebook->GetPage(notebook->GetPageIndex(editCode)))
+#else
+                if (notebook->GetPageIndex(editCode) != wxNOT_FOUND )
+#endif
                 {
                     showCode = true;
                     toggleGeneratedCode();
@@ -3062,7 +3078,12 @@ void MainFrame::createComponent(bool canCancel)
     }
     else
     {
+
+#if defined (WIN32)
         if (notebook->GetPage(notebook->GetPageIndex(editCode)))
+#else
+        if (notebook->GetPageIndex(editCode) != wxNOT_FOUND )
+#endif
         {
             showCode = true;
             toggleGeneratedCode();
@@ -3292,7 +3313,11 @@ bool MainFrame::openFileComponent(const wxString &defaultDir)
         bool showCode = false;
         if (notebook)
         {
+#if defined (WIN32)
             if (notebook->GetPage(notebook->GetPageIndex(editCode)) != NULL)
+#else
+            if (notebook->GetPageIndex(editCode) != wxNOT_FOUND )
+#endif
             {
                 showCode = true;
                 toggleGeneratedCode();
@@ -3377,7 +3402,11 @@ void MainFrame::saveComponentAs()
                     notebook->SetPageText(  notebook->GetPageIndex(bubble.getCurrentCanvas()), tempComponentName);
 
                 //Updates the mainOutputFile's name:
+#if defined (WIN32)
                 if (notebook->GetPage(notebook->GetPageIndex(editCode)))
+#else
+                if (notebook->GetPageIndex(editCode) != wxNOT_FOUND )
+#endif
                 {
                     toggleGeneratedCode();
                     toggleGeneratedCode();

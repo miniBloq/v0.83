@@ -10,7 +10,6 @@
 		<methodSeparator>.setPower</methodSeparator>
 		<paramListStart>(</paramListStart>
 		<paramListEnd>);</paramListEnd>
-		<keywords1>motor0 motor1</keywords1>
 	</code>
     <interface>
 		<originalSize>

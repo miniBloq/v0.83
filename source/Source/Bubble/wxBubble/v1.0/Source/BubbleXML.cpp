@@ -2559,11 +2559,14 @@ bool BubbleXML::loadFinalCodeFromXML(wxXmlNode *node, BubbleBoardProperties *boa
     return true;
 }
 
-bool BubbleXML::loadBoardInstancesFromXML(wxXmlNode *node, BubbleCanvasInfo *canvasInfo)
+
+bool BubbleXML::loadBoardInstancesFromXML(wxXmlNode *node, BubbleCanvasInfo *canvasInfo, BubbleBoardProperties *boardProperties)
 {
     if (node == NULL)
         return false;
     if (canvasInfo == NULL)
+        return false;
+    if (boardProperties == NULL)
         return false;
 
     wxXmlNode *child = node->GetChildren();
@@ -2573,7 +2576,10 @@ bool BubbleXML::loadBoardInstancesFromXML(wxXmlNode *node, BubbleCanvasInfo *can
                                                          child->GetAttribute(wxString("instanceType"),
                                                          wxString("")));
         if (newInstance)
+        {
             canvasInfo->setInstance(newInstance);
+            boardProperties->addCodeKeywords1(child->GetName());
+        }
 
         child = child->GetNext();
     }
@@ -2632,7 +2638,9 @@ BubbleCanvasInfo BubbleXML::getCanvasInfo(bool mainCanvas)
         {
             tempName = rootChild->GetName();
             if (tempName == wxString("instances"))
-                loadBoardInstancesFromXML(rootChild, &info);
+            {
+                loadBoardInstancesFromXML(rootChild, &info, bubble->getHardwareManager()->getCurrentBoardProperties());
+            }
             rootChild = rootChild->GetNext();
         }
 
@@ -2663,7 +2671,7 @@ BubbleCanvasInfo BubbleXML::getCanvasInfo(bool mainCanvas)
                             {
                                 tempName = rootChild->GetName();
                                 if (tempName == wxString("instances"))
-                                    loadBoardInstancesFromXML(rootChild, &info);
+                                    loadBoardInstancesFromXML(rootChild, &info, bubble->getHardwareManager()->getCurrentBoardProperties());
                                 rootChild = rootChild->GetNext();
                             }
                         }
