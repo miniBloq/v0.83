@@ -12,7 +12,7 @@
 		</initialCode>
 		<paramListStart>(</paramListStart>
 		<paramListEnd>);</paramListEnd>
-		<keywords0>delay</keywords0>
+		<keywords0>delay setup loop</keywords0>
 	</code>
     <interface>
 		<originalSize>
