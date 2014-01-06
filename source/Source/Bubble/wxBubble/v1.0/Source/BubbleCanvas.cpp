@@ -3010,11 +3010,6 @@ void BubbleCanvas::addParam(const BubbleBlockInfo &info, BubbleParam *paramSlot,
                                     newParamBlock->getParamSlot(i)->setImageDefault(paramSlot->getImageAssigned());
                                 }
                                 currentOldParamBlock->Show(true);
-
-                                //##Falta implementar lo que está arriba en esta función:
-                                //- ¿Setear el backBlock?
-                                //- Que recalcule el size del currentOldParamBlock.
-                                //- Que pinte de verde los paramSlots porque figuran en rojo, como incompletos.
                             }
                         }
                     }
