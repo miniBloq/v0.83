@@ -2692,6 +2692,12 @@ wxString BubbleBlock::getInstanceNameField() const
 }
 
 
+bool BubbleBlock::getHasAddParamsButton() const
+{
+    return (addParamsButton != NULL);
+}
+
+
 unsigned int BubbleBlock::getParamsCount() const
 {
     return params.GetCount();

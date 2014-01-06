@@ -2921,19 +2921,22 @@ void BubbleCanvas::addParam(const BubbleBlockInfo &info, BubbleParam *paramSlot,
 {
     if (paramSlot)
     {
+        unsigned int firstBlockParamsCount = 0;
+        bool firstBlockHasAddParamsButton = false;
+        BubbleParam * firstBlockFirstParam = NULL;
+
         if (paramSlot->getParamFirstBlock() != NULL)
         {
 //            wxMessageDialog dialog0(parent, wxString("addParam"), _("0")); //##Debug.
 //            dialog0.ShowModal(); //##Debug
 
-            //##Param already asigned, delete it first:
+            //Saves data belonging to the first block's first param:
+            firstBlockParamsCount = paramSlot->getParamFirstBlock()->getParamsCount();
+            firstBlockHasAddParamsButton = paramSlot->getParamFirstBlock()->getHasAddParamsButton();
+            firstBlockFirstParam = paramSlot->getParamFirstBlock()->getParamSlot(0);
+
+            //##Delete the current param:
             cutBlock(paramSlot->getParamFirstBlock(), false);
-//## Debug:
-//            if (paramSlot->getParamFirstBlock())
-//            {
-//                wxMessageDialog dialog1(parent, wxString("NOT NULL"), _("1")); //##Debug.
-//                dialog1.ShowModal(); //##Debug
-//            }
         }
         if (paramSlot->GetParent())
         {
@@ -2941,9 +2944,7 @@ void BubbleCanvas::addParam(const BubbleBlockInfo &info, BubbleParam *paramSlot,
             int defHeight = info.getOriginalSize().GetHeight();
             if (info.getParamsCount() > 0)
                 defHeight = info.getOriginalSize().GetHeight()*(info.getParamsCount());
-//##2011.02.17:
-//            if (info.getHasInstanceNameField())
-//                defHeight += 24; //##Test: Parece que quiere, hay que definir mejor el size que se agrega con el label del name.
+
             BubbleBlock *newParamBlock = new BubbleBlock(   this,
                                                             wxNewId(),
                                                             wxDefaultPosition,  //##Ver si se cambia esto por una función que devuelva
@@ -2966,6 +2967,28 @@ void BubbleCanvas::addParam(const BubbleBlockInfo &info, BubbleParam *paramSlot,
                 newParamBlock->setBackParamSlot(paramSlot);
                 if (newParamBlock->getRealSize().GetHeight() > info.getOriginalSize().GetHeight())
                     newParamBlock->changeAllBackBlocksRealSize(wxSize(0, newParamBlock->getRealSize().GetHeight()-info.getOriginalSize().GetHeight()), false);
+
+                /////////////
+                //If the param's first block had addParamsButton, completes the paramSlots added to it in the newParamBlock:
+                if (newParamBlock->getHasAddParamsButton() && firstBlockHasAddParamsButton)
+                {
+                    for (unsigned int i=newParamBlock->getParamsCount(); i<firstBlockParamsCount; i++)
+                    {
+                        if (firstBlockFirstParam)
+                        {
+                            newParamBlock->addParamSlot(    firstBlockFirstParam->getName(),
+                                                            firstBlockFirstParam->getDataType(),
+                                                            firstBlockFirstParam->getImageAssigned(),
+                                                            firstBlockFirstParam->getImageNotAssigned(),
+                                                            firstBlockFirstParam->getImageDefault(),
+                                                            firstBlockFirstParam->getImageHover(),
+                                                            firstBlockFirstParam->getImagePressed(),
+                                                            firstBlockFirstParam->getImageDisabled()
+                                                        );
+                        }
+                    }
+                }
+                /////////////
 
                 zoom(); //This rearranges everything (##but has some flickering by now, which could possibly be corrected
                         //creating the blocks in it's very correct position. This flickering appears with brotherBlocks, due

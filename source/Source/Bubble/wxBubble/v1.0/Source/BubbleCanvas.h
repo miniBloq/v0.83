@@ -1466,10 +1466,10 @@ class BubbleBlock : public BubblePanel//##wxControl//##wxWindow//##BubblePanel
         BubbleBlock *getLastBrother() const;
         void showBrothers(bool value);
 
-
         inline void setNextBlockIndentationTabs(const unsigned int value) { nextBlockIndentationTabs = value; }
         inline int getNextBlockIndentationTabs() const { return nextBlockIndentationTabs; }
 
+        bool getHasAddParamsButton() const;
         unsigned int getParamsCount() const;
         inline void setMinParamsCount(const unsigned int value) { minParamsCount = value; }
         inline unsigned int getMinParamsCount() const { return minParamsCount; }

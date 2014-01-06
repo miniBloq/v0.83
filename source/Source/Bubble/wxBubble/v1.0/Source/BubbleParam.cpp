@@ -100,8 +100,6 @@ void BubbleParam::onParamLeftDown(wxMouseEvent& event)
             picker->Move(xPos, yPos);
             picker->Show();
         }
-
-        //##Borrar esto: ((BubbleCanvas *)parent)->setCurrentBlock(this);
     }
     event.Skip();
 }
