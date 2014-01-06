@@ -2924,19 +2924,22 @@ void BubbleCanvas::addParam(const BubbleBlockInfo &info, BubbleParam *paramSlot,
         unsigned int firstBlockParamsCount = 0;
         bool firstBlockHasAddParamsButton = false;
         BubbleParam * firstBlockFirstParam = NULL;
+        BubbleBlock * firstBlock = paramSlot->getParamFirstBlock();
 
-        if (paramSlot->getParamFirstBlock() != NULL)
+        if (firstBlock)
         {
 //            wxMessageDialog dialog0(parent, wxString("addParam"), _("0")); //##Debug.
 //            dialog0.ShowModal(); //##Debug
 
             //Saves data belonging to the first block's first param:
-            firstBlockParamsCount = paramSlot->getParamFirstBlock()->getParamsCount();
-            firstBlockHasAddParamsButton = paramSlot->getParamFirstBlock()->getHasAddParamsButton();
-            firstBlockFirstParam = paramSlot->getParamFirstBlock()->getParamSlot(0);
+            firstBlockParamsCount = firstBlock->getParamsCount();
+            firstBlockHasAddParamsButton = firstBlock->getHasAddParamsButton();
+            firstBlockFirstParam = firstBlock->getParamSlot(0);
 
-            //##Delete the current param:
-            cutBlock(paramSlot->getParamFirstBlock(), false);
+            //##Deletes the current param:
+            //cutBlock(firstBlock, true);
+            firstBlock->Hide();
+            //firstBlock->showParams(false);
         }
         if (paramSlot->GetParent())
         {
@@ -2985,6 +2988,34 @@ void BubbleCanvas::addParam(const BubbleBlockInfo &info, BubbleParam *paramSlot,
                                                             firstBlockFirstParam->getImagePressed(),
                                                             firstBlockFirstParam->getImageDisabled()
                                                         );
+                        }
+                    }
+                }
+                //Now points the original params from the previous block to the newParamBlock:
+                if (firstBlock)
+                {
+                    for (unsigned int i=0; i<newParamBlock->getParamsCount(); i++)
+                    {
+                        BubbleParam *currentOldParam = firstBlock->getParamSlot(i);
+                        if (currentOldParam)
+                        {
+                            BubbleBlock *currentOldParamBlock = currentOldParam->getParamFirstBlock();
+                            if (currentOldParamBlock)
+                            {
+                                if (newParamBlock->getParamSlot(i))
+                                {
+                                    newParamBlock->getParamSlot(i)->setParamFirstBlock(currentOldParamBlock);
+                                    currentOldParamBlock->setBackBlock(newParamBlock);
+                                    currentOldParamBlock->changeAllBackBlocksRealSize(wxSize(0, newParamBlock->getRealSize().GetHeight()-info.getOriginalSize().GetHeight()), false);
+                                    newParamBlock->getParamSlot(i)->setImageDefault(paramSlot->getImageAssigned());
+                                }
+                                currentOldParamBlock->Show(true);
+
+                                //##Falta implementar lo que está arriba en esta función:
+                                //- ¿Setear el backBlock?
+                                //- Que recalcule el size del currentOldParamBlock.
+                                //- Que pinte de verde los paramSlots porque figuran en rojo, como incompletos.
+                            }
                         }
                     }
                 }

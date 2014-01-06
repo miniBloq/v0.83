@@ -2800,7 +2800,6 @@ void BubbleBlock::addParamSlot( const wxString& name,
                                 this
                              );
 
-
             //If there are removable params, makes the removeParamsButton visible:
             if (getParamsCount() > getMinParamsCount())
             {
