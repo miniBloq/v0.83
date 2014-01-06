@@ -1768,12 +1768,12 @@ void BubbleBlock::onAddParamsButtonLeftDown(wxMouseEvent& event)
                 }
             }
         }
-        //If there are removable params, makes the removeParamsButton visible:
-        if (getParamsCount() > getMinParamsCount())
-        {
-            if (removeParamsButton)
-                removeParamsButton->Show(true);
-        }
+//        //If there are removable params, makes the removeParamsButton visible:
+//        if (getParamsCount() > getMinParamsCount())
+//        {
+//            if (removeParamsButton)
+//                removeParamsButton->Show(true);
+//        }
     }
     event.Skip();
 }
@@ -2799,6 +2799,15 @@ void BubbleBlock::addParamSlot( const wxString& name,
                                 NULL,
                                 this
                              );
+
+
+            //If there are removable params, makes the removeParamsButton visible:
+            if (getParamsCount() > getMinParamsCount())
+            {
+                if (removeParamsButton)
+                    removeParamsButton->Show(true);
+            }
+
             if (getCanvas())
             {
                 //##Not really necessary by now, but may be in the future:
