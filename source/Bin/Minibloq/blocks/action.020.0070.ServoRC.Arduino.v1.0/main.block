@@ -10,6 +10,7 @@
 		<methodSeparator>.attachAndWrite</methodSeparator>
 		<paramListStart>(</paramListStart>
 		<paramListEnd>);</paramListEnd>
+		<keywords1>attachAndWrite</keywords1>
 	</code>
     <interface>
 		<originalSize>

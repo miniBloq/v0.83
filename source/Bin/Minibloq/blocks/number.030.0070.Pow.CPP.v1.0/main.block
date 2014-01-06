@@ -13,6 +13,7 @@
 		<paramSeparator>, </paramSeparator>
 		<paramListStart>(</paramListStart>
 		<paramListEnd>)</paramListEnd>
+		<keywords1>pow</keywords1>
 	</code>
     <interface>
 		<originalSize>

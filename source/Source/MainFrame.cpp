@@ -4090,63 +4090,6 @@ void MainFrame::toggleGeneratedCode()
         if (bubble.getHardwareManager()->getCurrentBoardProperties() == NULL)
             return;
 
-        //##Tomado por ahora de http://wiki.wxwidgets.org/WxStyledTextCtrl#Using_wxStyledTextCtrl, luego esto
-        //se levantará completamente de los archivos de configuración:
-        //##edit->SetMarginWidth (MARGIN_LINE_NUMBERS, 50);
-//        editCode->StyleSetForeground (wxSTC_STYLE_LINENUMBER, wxColour (75, 75, 75) );
-//        editCode->StyleSetBackground (wxSTC_STYLE_LINENUMBER, wxColour (220, 220, 220));
-//        //##editCode->SetMarginType (MARGIN_LINE_NUMBERS, wxSTC_MARGIN_NUMBER);
-//
-//
-//        // ---- Enable code folding
-//        //##editCode->SetMarginType (MARGIN_FOLD, wxSTC_MARGIN_SYMBOL);
-//        //##editCode->SetMarginWidth(MARGIN_FOLD, 15);
-//        //##editCode->SetMarginMask (MARGIN_FOLD, wxSTC_MASK_FOLDERS);
-//        //##editCode->StyleSetBackground(MARGIN_FOLD, wxColor(200, 200, 200) );
-//        //##editCode->SetMarginSensitive(MARGIN_FOLD, true);
-//
-//        // Properties found from http://www.scintilla.org/SciTEDoc.html
-//        editCode->SetProperty (_("fold"),         _("1") );
-//        editCode->SetProperty (_("fold.comment"), _("1") );
-//        editCode->SetProperty (_("fold.compact"), _("1") );
-//
-//        wxColor grey( 100, 100, 100 );
-//        editCode->MarkerDefine (wxSTC_MARKNUM_FOLDER, wxSTC_MARK_ARROW );
-//        editCode->MarkerSetForeground (wxSTC_MARKNUM_FOLDER, grey);
-//        editCode->MarkerSetBackground (wxSTC_MARKNUM_FOLDER, grey);
-//
-//        editCode->MarkerDefine (wxSTC_MARKNUM_FOLDEROPEN,    wxSTC_MARK_ARROWDOWN);
-//        editCode->MarkerSetForeground (wxSTC_MARKNUM_FOLDEROPEN, grey);
-//        editCode->MarkerSetBackground (wxSTC_MARKNUM_FOLDEROPEN, grey);
-//
-//        editCode->MarkerDefine (wxSTC_MARKNUM_FOLDERSUB,     wxSTC_MARK_EMPTY);
-//        editCode->MarkerSetForeground (wxSTC_MARKNUM_FOLDERSUB, grey);
-//        editCode->MarkerSetBackground (wxSTC_MARKNUM_FOLDERSUB, grey);
-//
-//        editCode->MarkerDefine (wxSTC_MARKNUM_FOLDEREND,     wxSTC_MARK_ARROW);
-//        editCode->MarkerSetForeground (wxSTC_MARKNUM_FOLDEREND, grey);
-//        editCode->MarkerSetBackground (wxSTC_MARKNUM_FOLDEREND, _("WHITE"));
-//
-//        editCode->MarkerDefine (wxSTC_MARKNUM_FOLDEROPENMID, wxSTC_MARK_ARROWDOWN);
-//        editCode->MarkerSetForeground (wxSTC_MARKNUM_FOLDEROPENMID, grey);
-//        editCode->MarkerSetBackground (wxSTC_MARKNUM_editCodeFOLDEROPENMID, _("WHITE"));
-//
-//        editCode->MarkerDefine (wxSTC_MARKNUM_FOLDERMIDTAIL, wxSTC_MARK_EMPTY);
-//        editCode->MarkerSetForeground (wxSTC_MARKNUM_FOLDERMIDTAIL, grey);
-//        editCode->MarkerSetBackground (wxSTC_MARKNUM_FOLDERMIDTAIL, grey);
-//
-//        editCode->MarkerDefine (wxSTC_MARKNUM_FOLDERTAIL,    wxSTC_MARK_EMPTY);
-//        editCode->MarkerSetForeground (wxSTC_MARKNUM_FOLDERTAIL, grey);
-//        editCode->MarkerSetBackground (wxSTC_MARKNUM_FOLDERTAIL, grey);
-//        // ---- End of code folding part
-//
-//        editCode->SetWrapMode (wxSTC_WRAP_WORD); // other choice is wxSCI_WRAP_NONE
-
-        //##NOTA MUY IMPORTANTE: ¡El coloreo de sintaxis debería ser similar a los colores de las estructuras
-        //de bloques. Osea: Naranja para las estructuras de control, verde para las constantes numéricas, etc.:
-
-        //##Agregar a mano los keywords que falten, o crear un lexer nuevo:
-
         editCode->SetLexer(bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeLexer());
 
         editCode->StyleSetForeground(wxSTC_C_OPERATOR, bubble.getHardwareManager()->getCurrentBoardProperties()->getCodeOperatorColor());

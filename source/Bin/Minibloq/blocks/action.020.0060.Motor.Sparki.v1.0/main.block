@@ -13,6 +13,7 @@
 		<methodSeparator>, (int)(</methodSeparator>
 		<paramListStart></paramListStart>
 		<paramListEnd>));</paramListEnd>
+		<keywords1>robot motorRotate</keywords1>
 	</code>
     <interface>
 		<originalSize>

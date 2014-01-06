@@ -8,6 +8,7 @@
     <code>
 		<dataType>number</dataType>
 		<methodSeparator>.getPower()</methodSeparator>
+		<keywords1>getPower</keywords1>
 	</code>
     <interface>
 		<originalSize>

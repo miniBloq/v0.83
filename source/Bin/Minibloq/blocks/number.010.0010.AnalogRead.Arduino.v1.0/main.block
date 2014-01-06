@@ -12,6 +12,7 @@
 		</initialCode>
 		<methodSeparator></methodSeparator>
 		<defaultMethodName>)</defaultMethodName>
+		<keywords1>AnalogRead</keywords1>
 	</code>
     <interface>
 		<originalSize>

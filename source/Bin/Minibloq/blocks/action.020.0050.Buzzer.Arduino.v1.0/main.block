@@ -13,6 +13,7 @@
 		<paramSeparator>, </paramSeparator>
 		<paramListStart>(BuzzerPin, </paramListStart>
 		<paramListEnd>);</paramListEnd>
+		<keywords1>toneWithDelay</keywords1>
 	</code>
     <interface>
 		<originalSize>

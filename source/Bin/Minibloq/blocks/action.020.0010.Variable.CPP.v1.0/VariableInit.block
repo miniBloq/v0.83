@@ -14,6 +14,7 @@
 		</initialCode>
 		<methodSeparator> = </methodSeparator>
 		<paramListEnd>;</paramListEnd>
+		<keywords1>float</keywords1>
 	</code>
     <interface>
 		<originalSize>

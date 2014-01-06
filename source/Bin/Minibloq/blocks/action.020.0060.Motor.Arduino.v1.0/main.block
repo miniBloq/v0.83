@@ -10,6 +10,7 @@
 		<methodSeparator>.setPower</methodSeparator>
 		<paramListStart>(</paramListStart>
 		<paramListEnd>);</paramListEnd>
+		<keywords1>setPower</keywords1>
 	</code>
     <interface>
 		<originalSize>

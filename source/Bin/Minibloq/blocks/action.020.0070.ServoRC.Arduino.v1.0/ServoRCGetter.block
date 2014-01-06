@@ -8,6 +8,7 @@
     <code>
 		<dataType>number</dataType>
 		<methodSeparator>.read()</methodSeparator>
+		<keywords1>read</keywords1>
 	</code>
     <interface>
 		<originalSize>

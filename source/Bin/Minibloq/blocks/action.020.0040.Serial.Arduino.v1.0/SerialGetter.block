@@ -9,6 +9,7 @@
 		<dataType>text</dataType>
 		<defaultMethodName>read()</defaultMethodName>
 		<methodSeparator>.</methodSeparator>
+		<keywords1>read</keywords1>
 	</code>
     <interface>
 		<originalSize>

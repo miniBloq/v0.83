@@ -10,6 +10,7 @@
 		<initialCode>
 			<line0>irReceiver.getIRRemoteCode()</line0>
 		</initialCode>
+		<keywords1>irReceiver getIRRemoteCode</keywords1>
 	</code>
     <interface>
 		<originalSize>

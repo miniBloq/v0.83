@@ -13,6 +13,7 @@
 		<paramSeparator>, </paramSeparator>
 		<paramListStart>(</paramListStart>
 		<paramListEnd>, 0, 100);</paramListEnd>
+		<keywords1>Screen showAllBars</keywords1>
 	</code>
     <interface>
 		<originalSize>
