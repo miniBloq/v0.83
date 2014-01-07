@@ -216,6 +216,9 @@ BubbleHardwareManager::BubbleHardwareManager(   wxWindow* parent,
                                     this
                                    );
         //buttonReloadBlocks->Hide(); //##Testing.
+//        wxMessageDialog dialog0(bubble->getParent(), bubble->getProfile(), wxString("profile")); //##Debug.
+//        dialog0.ShowModal(); //##Debug.
+//        buttonReloadBlocks->Show(bubble->getProfile() == wxString("developer"));
     }
 
     buttonReloadHardware = new wxButton(  this,
@@ -234,7 +237,7 @@ BubbleHardwareManager::BubbleHardwareManager(   wxWindow* parent,
                                     NULL,
                                     this
                                    );
-        //buttonReloadBlocks->Hide(); //##Testing.
+        //buttonReloadHardware->Show(bubble->getProfile() == wxString("developer"));
     }
 
     buttonGoToDriversDir = new wxButton(  this,
@@ -626,6 +629,15 @@ void BubbleHardwareManager::setAllEnabled(bool value)
         buttonReloadHardware->Enable(value);
     if (buttonGoToDriversDir)
         buttonGoToDriversDir->Enable(value);
+}
+
+
+void BubbleHardwareManager::showDeveloperButtons(bool value)
+{
+    if (buttonReloadBlocks)
+        buttonReloadBlocks->Show(value);
+    if (buttonReloadHardware)
+        buttonReloadHardware->Show(value);
 }
 
 

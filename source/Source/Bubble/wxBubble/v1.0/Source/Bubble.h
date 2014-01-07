@@ -772,6 +772,7 @@ class Bubble : public IBubbleFileIO
         wxString themePath;
         //##Will be necessary?:
         wxString docPath;
+        wxString profile;
 
         //Current (or active) component:
         wxString tempPath;
@@ -872,6 +873,9 @@ class Bubble : public IBubbleFileIO
         //##Will be necessary, or is an application path?:
         inline void setDocPath(const wxString& value) { docPath = value; }
         inline const wxString &getDocPath() const { return docPath; }
+
+        inline void setProfile(const wxString& value) { profile = value; }
+        inline const wxString &getProfile() const { return profile; }
 
         inline void setTempPath(const wxString& value) { tempPath = value; }
         inline const wxString &getTempPath() const { return tempPath; }

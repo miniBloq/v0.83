@@ -98,6 +98,7 @@ class BubbleHardwareManager : public BubblePanel
         //##void getPorts(std::vector<std::string>& result);
 
         void setAllEnabled(bool value);
+        void showDeveloperButtons(bool value);
 
         void setPortSelectorEnabled(bool value);
         bool getPortSelectorEnabled();

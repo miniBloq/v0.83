@@ -666,6 +666,12 @@ void MainFrame::readConfig()
                             minibloqProperties->setLanguageSelection(strLanguage);
                     }
                 }
+                if (child->GetName() == "profile")
+                {
+                    bubble.setProfile(child->GetNodeContent());
+                    if (bubble.getHardwareManager())
+                        bubble.getHardwareManager()->showDeveloperButtons(bubble.getProfile() == wxString("developer"));
+                }
                 child = child->GetNext();
             }
         }
@@ -812,6 +818,7 @@ void MainFrame::writeConfig()
         if (minibloqProperties)
         {
             configFile.AddLine(wxString("<language>") << minibloqProperties->getLanguageSelection() << wxString("</language>"));
+            configFile.AddLine(wxString("<profile>") << bubble.getProfile() << wxString("</profile>"));
         }
         configFile.AddLine("</properties>");
 

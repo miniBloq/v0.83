@@ -104,6 +104,7 @@ Bubble::Bubble(wxLocale& locale) :  parent(NULL),
 
                                     //##Will be necessary?:
                                     docPath(wxString("")),
+                                    profile(wxString("user")),
 
                                     componentPath(wxString("")),
                                     outputPath(wxString("")),
