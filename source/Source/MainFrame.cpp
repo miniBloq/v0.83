@@ -4500,7 +4500,16 @@ void MainFrame::showMessage(const wxString &msg, bool clear, bool showWindow,
             txtMsg->SetInsertionPoint(txtMsg->GetLastPosition()); //##Is it ok or there is a "- 1" missing?
 
             if (showWindow)
-                showMessagesWindow();
+            {
+                //showMessagesWindow();
+
+                if (auiManager.GetPane("Messages").IsShown())
+                    return;
+                auiManager.GetPane("Messages").MinSize(wxSize(200, 150)).Show();
+                auiManager.Update();
+                if (menuViewMessages)
+                    menuViewMessages->Check(true);
+            }
         }
         if (clearProgressBar)
         {
@@ -4533,10 +4542,10 @@ void MainFrame::showMessageArea(bool value)
 {
     if (showingMessageArea == value)
         return;
-    closeWindow("Messages", menuViewMessages); //##Un-hardcode
+    closeWindow("Messages", menuViewMessages);
     showingMessageArea = value;
 
-    wxAuiPaneInfo& paneInfo = auiManager.GetPane("Messages"); //##Un-hardcode
+    wxAuiPaneInfo& paneInfo = auiManager.GetPane("Messages");
     if (paneInfo.IsOk())
     {
         if (messages)
@@ -4547,15 +4556,16 @@ void MainFrame::showMessageArea(bool value)
 
         if (value)
         {
-            paneInfo.BestSize(wxSize(200, 200)); //##Un-hardcode.
+            paneInfo.BestSize(wxSize(200, 150)).MinSize(wxSize(200, 150));
         }
         else
         {
             wxGauge* gauge = messages->getProgress();
             if (gauge)
             {
-               paneInfo.BestSize( wxSize(200, gauge->GetSize().GetHeight()) ); //##Un-hardcode.
-               //paneInfo.BestSize( wxSize(200, 30) ); //##Test.
+               paneInfo .BestSize(wxSize(200, gauge->GetSize().GetHeight()))
+                        .MinSize(wxSize(200, gauge->GetSize().GetHeight()));
+               //paneInfo.BestSize( wxSize(200, 30) ); //Test.
             }
         }
         auiManager.Update();
