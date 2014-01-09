@@ -2968,8 +2968,8 @@ void BubbleCanvas::addParam(const BubbleBlockInfo &info, BubbleParam *paramSlot,
                     paramSlot->setImageDefault(paramSlot->getImageAssigned());
                 }
                 newParamBlock->setBackParamSlot(paramSlot);
-                if (newParamBlock->getRealSize().GetHeight() > info.getOriginalSize().GetHeight())
-                    newParamBlock->changeAllBackBlocksRealSize(wxSize(0, newParamBlock->getRealSize().GetHeight()-info.getOriginalSize().GetHeight()), false);
+                //if (newParamBlock->getRealSize().GetHeight() > info.getOriginalSize().GetHeight())
+                //    newParamBlock->changeAllBackBlocksRealSize(wxSize(0, newParamBlock->getRealSize().GetHeight()-info.getOriginalSize().GetHeight()), false);
 
                 /////////////
                 //If the param's first block had addParamsButton, completes the paramSlots added to it in the newParamBlock:
@@ -2991,9 +2991,10 @@ void BubbleCanvas::addParam(const BubbleBlockInfo &info, BubbleParam *paramSlot,
                         }
                     }
                 }
-                //Now points the original params from the previous block to the newParamBlock:
+
                 if (firstBlock)
                 {
+                    //Now points the original params from the previous block to the newParamBlock:
                     for (unsigned int i=0; i<newParamBlock->getParamsCount(); i++)
                     {
                         BubbleParam *currentOldParam = firstBlock->getParamSlot(i);
@@ -3013,7 +3014,25 @@ void BubbleCanvas::addParam(const BubbleBlockInfo &info, BubbleParam *paramSlot,
                             }
                         }
                     }
+
+                    //Finally, deletes the extra params if the new block has less paramslots than the older block:
+                    for (unsigned int i = newParamBlock->getParamsCount(); i < firstBlock->getParamsCount(); i++)
+                    {
+                        BubbleParam *currentOldParam = firstBlock->getParamSlot(i);
+                        if (currentOldParam)
+                        {
+                            BubbleBlock *currentOldParamBlock = currentOldParam->getParamFirstBlock();
+                            if (currentOldParamBlock)
+                            {
+                                cutBlock(currentOldParamBlock, false);
+                            }
+                        }
+                    }
                 }
+
+                if (newParamBlock->getRealSize().GetHeight() > info.getOriginalSize().GetHeight())
+                    newParamBlock->changeAllBackBlocksRealSize(wxSize(0, newParamBlock->getRealSize().GetHeight()-info.getOriginalSize().GetHeight()), false);
+
                 /////////////
 
                 zoom(); //This rearranges everything (##but has some flickering by now, which could possibly be corrected
