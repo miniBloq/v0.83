@@ -258,6 +258,7 @@ BubbleHardwareManager::BubbleHardwareManager(   wxWindow* parent,
 
         if (getCurrentBoardProperties())
         {
+            buttonGoToDriversDir->Enable(getCurrentBoardProperties()->getDriverPath() != wxString(""));
             lblURL0 = new wxHyperlinkCtrl(  this,
                                             wxNewId(),
                                             getCurrentBoardProperties()->getUrl0(),
