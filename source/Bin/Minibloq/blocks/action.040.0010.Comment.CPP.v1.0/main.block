@@ -2,7 +2,7 @@
 <block xmlns="http://block.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.81.Beta">
     <properties>
 		<name>Comment</name>
-		<function>Comment</function>
+		<function>Code</function>
 		<variableInit>false</variableInit>
 		<loadAction>load</loadAction>
 		<isDraggable>false</isDraggable>

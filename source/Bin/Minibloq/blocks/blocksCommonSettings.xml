@@ -65,12 +65,20 @@
 		<numberConstantBlockMouseOverColourG::>255</numberConstantBlockMouseOverColourG::>
 		<numberConstantBlockMouseOverColourB::>0</numberConstantBlockMouseOverColourB::>			
 		
-		<commentBlockColour0R::>255</commentBlockColour0R::>
-		<commentBlockColour0G::>230</commentBlockColour0G::>
-		<commentBlockColour0B::>128</commentBlockColour0B::>
+		<commentBlockColour0R::>192</commentBlockColour0R::>
+		<commentBlockColour0G::>192</commentBlockColour0G::>
+		<commentBlockColour0B::>192</commentBlockColour0B::>
 
-		<commentBlockColour1R::>255</commentBlockColour1R::>
-		<commentBlockColour1G::>230</commentBlockColour1G::>
-		<commentBlockColour1B::>128</commentBlockColour1B::>
+		<commentBlockColour1R::>192</commentBlockColour1R::>
+		<commentBlockColour1G::>192</commentBlockColour1G::>
+		<commentBlockColour1B::>192</commentBlockColour1B::>
+
+		<codeBlockColour0R::>255</codeBlockColour0R::>
+		<codeBlockColour0G::>230</codeBlockColour0G::>
+		<codeBlockColour0B::>128</codeBlockColour0B::>
+
+		<codeBlockColour1R::>255</codeBlockColour1R::>
+		<codeBlockColour1G::>230</codeBlockColour1G::>
+		<codeBlockColour1B::>128</codeBlockColour1B::>
 	</variables>
 </blocksCommonSettings>
