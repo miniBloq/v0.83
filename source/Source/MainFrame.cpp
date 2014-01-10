@@ -26,9 +26,9 @@ BEGIN_EVENT_TABLE(MainFrame, wxFrame)
     EVT_MENU(ID_MenuFileCreate, MainFrame::onMenuFileCreateComponent)
     //##EVT_MENU(ID_MenuFileCreateComponent, MainFrame::onMenuFileCreateComponent)
     EVT_MENU(ID_MenuFileCreateBlock, MainFrame::onMenuFileCreateBlock)
-    EVT_MENU(ID_MenuFileAdd, MainFrame::onMenuFileAdd)
     EVT_MENU(ID_MenuFileRemove, MainFrame::onMenuFileRemove)
     EVT_MENU(ID_MenuFileOpen, MainFrame::onMenuFileOpen)
+    EVT_MENU(ID_MenuFileAdd, MainFrame::onMenuFileAdd)
     EVT_MENU(ID_MenuFileExamples, MainFrame::onMenuFileExamples)
     EVT_MENU(ID_MenuFileSave, MainFrame::onMenuFileSave)
     EVT_MENU(ID_MenuFileSaveAs, MainFrame::onMenuFileSaveAs)
@@ -215,6 +215,7 @@ MainFrame::MainFrame(   wxWindow* parent,
 
                                         menuFileCreate(NULL),
                                         menuFileOpen(NULL),
+                                        menuFileAdd(NULL),
                                         menuFileExamples(NULL),
                                         menuFileSave(NULL),
                                         menuFileSaveAs(NULL),
@@ -922,43 +923,42 @@ void MainFrame::createKeyboardAcceleratorTable()
     //File menu:
     kyboardEntries[5].Set(wxACCEL_CTRL,     (int) 'N',      ID_MenuFileCreateComponent);
 //    kyboardEntries[6].Set(wxACCEL_CTRL,     (int) 'B',      ID_MenuFileCreateBlock);
-//    kyboardEntries[7].Set(wxACCEL_CTRL,     (int) 'D',      ID_MenuFileAdd);
+    kyboardEntries[6].Set(wxACCEL_CTRL,     (int) 'D',      ID_MenuFileAdd);
 //    kyboardEntries[8].Set(wxACCEL_CTRL,     (int) 'R',      ID_MenuFileRemove);
-    kyboardEntries[6].Set(wxACCEL_CTRL,     (int) 'O',      ID_MenuFileOpen);
-    kyboardEntries[7].Set(wxACCEL_CTRL,     (int) 'S',      ID_MenuFileSave);
+    kyboardEntries[7].Set(wxACCEL_CTRL,     (int) 'O',      ID_MenuFileOpen);
+    kyboardEntries[8].Set(wxACCEL_CTRL,     (int) 'S',      ID_MenuFileSave);
 //##@@@@
 //    kyboardEntries[11].Set(wxACCEL_CTRL + wxACCEL_SHIFT,    (int) 'S', ID_MenuFileSaveAll);
 //    kyboardEntries[12].Set(wxACCEL_CTRL,    (int) 'W',         ID_MenuFileClose);
 //    kyboardEntries[13].Set(wxACCEL_CTRL + wxACCEL_SHIFT,    WXK_F4, ID_MenuFileCloseAll);
 
     //Edit menu:    //Component menu:
-    kyboardEntries[8].Set(wxACCEL_CTRL,     (int) 'U',      ID_MenuComponentRun);
+    kyboardEntries[9].Set(wxACCEL_CTRL,     (int) 'U',      ID_MenuComponentRun);
 //    kyboardEntries[24].Set(wxACCEL_CTRL,    (int) 'P',    ID_MenuComponentDeploy);
-    kyboardEntries[9].Set(wxACCEL_CTRL,     (int) 'R',      ID_MenuComponentBuild);
+    kyboardEntries[10].Set(wxACCEL_CTRL,     (int) 'R',      ID_MenuComponentBuild);
     //##Delete this: kyboardEntries[10].Set(wxACCEL_CTRL,    (int) 'G',      ID_MenuComponentGenerateCode);
                                               //F7 = Future uses.
 //    kyboardEntries[26].Set(wxACCEL_CTRL,    WXK_F8,         ID_MenuComponentMakePortable);
-    kyboardEntries[10].Set(wxACCEL_ALT,     (int) 'D',      ID_MenuComponentOpenFolder);
+    kyboardEntries[11].Set(wxACCEL_ALT,     (int) 'D',      ID_MenuComponentOpenFolder);
                                               //F9 = Stepping Debug?
 
     //View menu:
     //##Agregar otra tecla más para esto, que permita funcionar sin teclas de función:
-    kyboardEntries[11].Set(wxACCEL_NORMAL,  WXK_F1,         ID_MenuViewHelpAndResourceCenter);
-    kyboardEntries[12].Set(wxACCEL_CTRL,    (int) 'H',      ID_MenuViewHelpAndResourceCenter);
-    kyboardEntries[13].Set(wxACCEL_CTRL,    (int) 'L',      ID_MenuViewLabels);
+    kyboardEntries[12].Set(wxACCEL_NORMAL,  WXK_F1,         ID_MenuViewHelpAndResourceCenter);
+    kyboardEntries[13].Set(wxACCEL_CTRL,    (int) 'H',      ID_MenuViewHelpAndResourceCenter);
+    kyboardEntries[14].Set(wxACCEL_CTRL,    (int) 'L',      ID_MenuViewLabels);
 
 //    kyboardEntries[29].Set(wxACCEL_ALT,     (int) 'N',      ID_MenuViewComponents);
-    kyboardEntries[14].Set(wxACCEL_ALT,     (int) 'H',      ID_MenuViewHardware);
-//    kyboardEntries[31].Set(wxACCEL_ALT,     (int) 'L',      ID_MenuViewLocalVariables);
-    kyboardEntries[15].Set(wxACCEL_ALT,     (int) 'P',      ID_MenuViewProperties);
-    kyboardEntries[16].Set(wxACCEL_ALT,     (int) 'M',      ID_MenuViewMessages);
-    kyboardEntries[17].Set(wxACCEL_ALT,     (int) 'T',      ID_MenuViewTerminal);
-    kyboardEntries[18].Set(wxACCEL_ALT,     (int) 'Q',      ID_MenuViewQuickToolbar);
-    kyboardEntries[19].Set(wxACCEL_ALT,     (int) 'G',      ID_MenuViewGeneratedCode);
+    kyboardEntries[15].Set(wxACCEL_ALT,     (int) 'H',      ID_MenuViewHardware);
+//    kyboardEntries31].Set(wxACCEL_ALT,     (int) 'L',      ID_MenuViewLocalVariables);
+    kyboardEntries[16].Set(wxACCEL_ALT,     (int) 'P',      ID_MenuViewProperties);
+    kyboardEntries[17].Set(wxACCEL_ALT,     (int) 'M',      ID_MenuViewMessages);
+    kyboardEntries[18].Set(wxACCEL_ALT,     (int) 'T',      ID_MenuViewTerminal);
+    kyboardEntries[19].Set(wxACCEL_ALT,     (int) 'Q',      ID_MenuViewQuickToolbar);
+    kyboardEntries[20].Set(wxACCEL_ALT,     (int) 'G',      ID_MenuViewGeneratedCode);
 
-    kyboardEntries[20].Set(wxACCEL_ALT,     (int) 'R',      ID_HardwareManagerPopUpPort);
-    kyboardEntries[21].Set(wxACCEL_ALT,     (int) 'W',      ID_HardwareManagerPopUpBoard);
-
+    kyboardEntries[21].Set(wxACCEL_ALT,     (int) 'R',      ID_HardwareManagerPopUpPort);
+    kyboardEntries[22].Set(wxACCEL_ALT,     (int) 'W',      ID_HardwareManagerPopUpBoard);
 
 //##:
 //    kyboardEntries[37].Set(wxACCEL_ALT,     WXK_RIGHT,      ID_MenuViewPrevView);
@@ -1244,18 +1244,12 @@ void MainFrame::createMenuFile()
     }
 #endif
 
-    //##¿Pasar esto a la forma del método?:
-    // Append(int id, const wxString& item = "", const wxString& helpString = "", wxItemKind kind = wxITEM_NORMAL):
-#if UNDER_DEVELOPMENT
-        menuFileAdd = new wxMenuItem(popFile, ID_MenuFileAdd, _("Add\tCtrl+D"));
-        popFile->Append(menuFileAdd);
-        menuFileRemove = new wxMenuItem(popFile, ID_MenuFileRemove, _("Remove\tCtrl+R"));
-        popFile->Append(menuFileRemove);
-#endif
     //Separator:
     menuFileSep0 = new wxMenuItem(popFile);
     if (menuFileSep0)
         popFile->Append(menuFileSep0);
+
+
     menuFileOpen = new wxMenuItem(popFile, ID_MenuFileOpen, _("Open\tCtrl+O"));
     if (menuFileOpen)
     {
@@ -1263,6 +1257,16 @@ void MainFrame::createMenuFile()
         menuFileOpen->SetBitmap(wxBitmap(img.Scale(iconW, iconH)));
         popFile->Append(menuFileOpen);
     }
+
+    menuFileAdd = new wxMenuItem(popFile, ID_MenuFileAdd, _("Add\tCtrl+D"));
+    if (menuFileAdd)
+    {
+        img.LoadFile(bubble.getThemePath() + wxString("/Add.png")); //##Change this image...
+        menuFileAdd->SetBitmap(wxBitmap(img.Scale(iconW, iconH)));
+        popFile->Append(menuFileAdd);
+    }
+////    menuFileRemove = new wxMenuItem(popFile, ID_MenuFileRemove, _("Remove\tCtrl+R"));
+////    popFile->Append(menuFileRemove);
 
     menuFileExamples = new wxMenuItem(popFile, ID_MenuFileExamples, _("Examples"));
     if (menuFileExamples)
@@ -1924,6 +1928,11 @@ void MainFrame::updateMenuFileGUI()
     {
         popFile->Destroy(menuFileOpen);
         menuFileOpen = NULL;
+    }
+    if (menuFileAdd)
+    {
+        popFile->Destroy(menuFileAdd);
+        menuFileAdd = NULL;
     }
     if (menuFileExamples)
     {
@@ -3127,25 +3136,57 @@ void MainFrame::onMenuFileCreateBlock(wxCommandEvent& evt)
 
 void MainFrame::onMenuFileAdd(wxCommandEvent& evt)
 {
-    wxString wildcards = _("Block files (*.mbqc)|*.mbqc");
+    //##Descablear ya las extensiones listadas en la primer parte de esto, y levantarlas del archivo .board:
+    wxString wildcards = _("C++ files (*.cpp;*.h)|*.cpp;*.h|Block files (*.mbq)|*.mbq|All files (*.*)|*.*");
 
     //##Falta obtener el último dir que el usuario quiere usar, y por defecto el work, etc..:
-    wxFileDialog dialog(this, _("Add a Block file to the Component"),
+    wxFileDialog dialog(this, _("Add a block or code file to the current component"),
                         wxEmptyString, wxEmptyString, wildcards,
-                        wxFD_OPEN);
-                        //|wxFD_MULTIPLE); //##Future use.
+                        wxFD_OPEN|
+                        wxFD_MULTIPLE|
+                        wxFD_FILE_MUST_EXIST);
                         //##Ver si usaré o no el flag wxFD_FILE_MUST_EXIST
-
-    //##Ojo: Aparentemente, Windows recuerda esto del diálogo, pero no sé bien donde ni cómo lo guarda,
-    //y obviamente no es portable, así que tengo que grabar todo en el archivo de configuración del
-    //entorno (tamaño, posición, dir, etc..).
-    //dialog.Centre();
 
     //##Implementar la lógica como para que si el usuario ingresa el nombre de un archivo que no
     //existía (aún cuando tenga seleccionados otros archivos además), éste se cree y se grabe (llamada
     //a AddBlock y Save, ya con el nombre del archivo devuelto por el diálogo.
 
-    //if (dialog.Show(true) == wxID_OK) //##No funciona
+    //##Test:
+    if (bubble.getCurrentCanvas())
+    {
+        if (notebook)
+        {
+            int index = notebook->GetPageIndex(bubble.getCurrentCanvas());
+            if (index != wxNOT_FOUND)
+            {
+                wxWindow *page = notebook->GetPage(index);
+                if (page)
+                {
+                    notebook->RemovePage(index);
+                    page->Hide();
+                }
+            }
+            else
+            {
+                wxBitmap page_bmp = wxArtProvider::GetBitmap(wxART_NORMAL_FILE, wxART_OTHER, wxSize(16, 16));
+                notebook->AddPage(  bubble.getCurrentCanvas(),
+                                    //_("New-1.mbqc"),
+                                    tempComponentName,
+                                    false,
+                                    page_bmp);
+                notebook->SetSelection(notebook->GetPageIndex(bubble.getCurrentCanvas()));
+                notebook->Split(notebook->GetPageIndex(bubble.getCurrentCanvas()), wxLEFT);
+            }
+            //auiManager.Update();
+        }
+    }
+//    if (notebook)
+//    {
+//        notebook->SetSize(wxSize(10,10));
+//        //auiManager.Update();
+//    }
+    return;
+
     if (dialog.ShowModal() == wxID_OK)
     {
         wxArrayString paths, filenames;
@@ -3157,15 +3198,17 @@ void MainFrame::onMenuFileAdd(wxCommandEvent& evt)
         size_t count = paths.GetCount();
         for ( size_t n = 0; n < count; n++ )
         {
+
+
+            //##Debug:
             s.Printf(_("File %d: %s (%s)\n"),
                      (int)n, paths[n].c_str(), filenames[n].c_str());
-
             msg += s;
         }
-        s.Printf(_("Filter index: %d"), dialog.GetFilterIndex());
-        msg += s;
 
         //##Debug:
+        s.Printf(_("Filter index: %d"), dialog.GetFilterIndex());
+        msg += s;
         wxMessageDialog dialog2(this, msg, _("Selected files"));
         dialog2.ShowModal();
     }
@@ -3296,7 +3339,7 @@ bool MainFrame::openFileComponent(const wxString &defaultDir)
     //##Ojo que registré al menos 2 cuelgues con esto, no sé qué pasó, pero esto se colgó alguna vez, posiblemente
     //sea el delete, o algo del AUI. Intentar reproducir el bug, que no ha resultado sistemático:
 
-    wxString wildcards = _("Component files (*.mbqc)|*.mbqc|C++ files (*.cpp;*.h)|*.cpp;*.h|All files (*.*)|*.*");
+    wxString wildcards = _("Component files (*.mbqc)|*.mbqc|All files (*.*)|*.*");
 
     //##Falta obtener el último dir que el usuario quiere usar, y por defecto el work, etc..:
     wxFileDialog dialog(this, _("Open"),
@@ -4647,6 +4690,19 @@ void MainFrame::onNotebookPageClose(wxAuiNotebookEvent& evt)
     wxAuiNotebook* ctrl = (wxAuiNotebook *)evt.GetEventObject();
     if (ctrl->GetPage(evt.GetSelection())->IsKindOf(CLASSINFO(BubbleCanvas)))
     {
+        if (notebook)
+        {
+            int index = notebook->GetPageIndex(bubble.getCurrentCanvas());
+            if (index != wxNOT_FOUND)
+            {
+                wxWindow *page = notebook->GetPage(index);
+                if (page)
+                {
+                    notebook->RemovePage(index);
+                    page->Hide();
+                }
+            }
+        }
         evt.Veto();
     }
     //##Futuro: Cambiar el CLASSINFO por BubbleEditor:
@@ -4798,9 +4854,7 @@ void MainFrame::OnNotebookPageClose(wxAuiNotebookEvent& evt)
 }
 #endif
 
-//////////////////////////////////////////////////////////////
-//##Code from the original aui demo, and code for testing:
-//////////////////////////////////////////////////////////////
+
 void MainFrame::onNotebookPageChanged(wxAuiNotebookEvent& evt)
 {
     //##Debug:

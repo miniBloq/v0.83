@@ -236,6 +236,7 @@ class MainFrame : public wxFrame, public IBubbleNotifier
 
         wxMenuItem *menuFileCreate;
         wxMenuItem *menuFileOpen;
+        wxMenuItem *menuFileAdd;
         wxMenuItem *menuFileExamples;
         wxMenuItem *menuFileSave;
         wxMenuItem *menuFileSaveAs;

@@ -294,7 +294,7 @@ class BubbleCanvasTicker : public wxTimer
 };
 
 
-class BubbleBlockInfo; //##Horrible...
+class BubbleBlockInfo;
 class BubbleCanvas : public BubblePanel, public IBubbleBlockNavigator, public BubbleInstanceManager//, public IBubbleFileIO
 {
     private:
