@@ -507,6 +507,7 @@ class MainFrame : public wxFrame, public IBubbleNotifier
         //frame and forwarded to the current bubbleCanvas:
         //void WxPanelBlocksMouseWheel(wxMouseEvent& event);
 
+        void setEditorSyntax(BubbleEditor *editor);
         void toggleGeneratedCode();
         bool isShowingGeneratedCode();
 
