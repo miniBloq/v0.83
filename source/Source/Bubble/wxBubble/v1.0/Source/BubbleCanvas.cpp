@@ -3003,14 +3003,21 @@ void BubbleCanvas::addParam(const BubbleBlockInfo &info, BubbleParam *paramSlot,
                             BubbleBlock *currentOldParamBlock = currentOldParam->getParamFirstBlock();
                             if (currentOldParamBlock)
                             {
-                                if (newParamBlock->getParamSlot(i))
+                                if (currentOldParamBlock->getDataType() == newParamBlock->getParamSlot(i)->getDataType())
                                 {
-                                    newParamBlock->getParamSlot(i)->setParamFirstBlock(currentOldParamBlock);
-                                    currentOldParamBlock->setBackBlock(newParamBlock);
-                                    currentOldParamBlock->changeAllBackBlocksRealSize(wxSize(0, newParamBlock->getRealSize().GetHeight()-info.getOriginalSize().GetHeight()), false);
-                                    newParamBlock->getParamSlot(i)->setImageDefault(paramSlot->getImageAssigned());
+                                    if (newParamBlock->getParamSlot(i))
+                                    {
+                                        newParamBlock->getParamSlot(i)->setParamFirstBlock(currentOldParamBlock);
+                                        currentOldParamBlock->setBackBlock(newParamBlock);
+                                        currentOldParamBlock->changeAllBackBlocksRealSize(wxSize(0, newParamBlock->getRealSize().GetHeight()-info.getOriginalSize().GetHeight()), false);
+                                        newParamBlock->getParamSlot(i)->setImageDefault(paramSlot->getImageAssigned());
+                                    }
+                                    currentOldParamBlock->Show(true);
                                 }
-                                currentOldParamBlock->Show(true);
+                                else
+                                {
+                                    cutBlock(currentOldParamBlock, false);
+                                }
                             }
                         }
                     }
