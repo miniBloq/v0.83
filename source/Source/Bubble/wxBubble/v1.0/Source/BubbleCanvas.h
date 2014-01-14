@@ -1268,8 +1268,6 @@ class BubbleBlock : public BubblePanel//##wxControl//##wxWindow//##BubblePanel
         wxPoint getInstanceNameFieldPos() const;
 
         wxSize getParamSize() const;
-        wxSize getTotalParamsSize() const;
-        wxPoint getParamPos(int index) const;
 
     public:
         BubbleBlock(BubbleCanvas *parent,
@@ -1468,6 +1466,9 @@ class BubbleBlock : public BubblePanel//##wxControl//##wxWindow//##BubblePanel
 
         inline void setNextBlockIndentationTabs(const unsigned int value) { nextBlockIndentationTabs = value; }
         inline int getNextBlockIndentationTabs() const { return nextBlockIndentationTabs; }
+
+        wxSize getTotalParamsSize() const;
+        wxPoint getParamPos(int index) const;
 
         bool getHasAddParamsButton() const;
         unsigned int getParamsCount() const;

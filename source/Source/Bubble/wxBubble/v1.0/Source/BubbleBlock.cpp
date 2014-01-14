@@ -2636,7 +2636,10 @@ void BubbleBlock::changeAllBackBlocksRealSize(wxSize delta, bool changeThis)
                 }
             }
         }
+//        if ((getRealSize() + delta).GetHeight() > getOriginalSize().GetHeight())
         setRealSize(getRealSize() + delta);
+////        else
+////            setRealSize(getOriginalSize());
     }
     if (backBlock)
         backBlock->changeAllBackBlocksRealSize(delta, true);

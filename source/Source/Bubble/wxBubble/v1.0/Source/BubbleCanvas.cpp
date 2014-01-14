@@ -2132,7 +2132,7 @@ void BubbleCanvas::cutBlock(BubbleBlock *block, bool makeCopy)
 
             if (tempBackBlock)
             {
-                wxSize tempSize = tempBackBlock->getRealSize();
+                //wxSize tempSize = tempBackBlock->getRealSize();
                 int delta = -block->getRealSize().GetHeight() + block->getOriginalSize().GetHeight();
                 tempBackBlock->changeAllBackBlocksRealSize(wxSize(0, delta), true);
 
@@ -2921,6 +2921,72 @@ void BubbleCanvas::addParam(const BubbleBlockInfo &info, BubbleParam *paramSlot,
 {
     if (paramSlot)
     {
+        if (paramSlot->getParamFirstBlock() != NULL)
+        {
+//            wxMessageDialog dialog0(parent, wxString("addParam"), _("0")); //##Debug.
+//            dialog0.ShowModal(); //##Debug
+
+            //##Param already asigned, delete it first:
+            cutBlock(paramSlot->getParamFirstBlock(), false);
+//## Debug:
+//            if (paramSlot->getParamFirstBlock())
+//            {
+//                wxMessageDialog dialog1(parent, wxString("NOT NULL"), _("1")); //##Debug.
+//                dialog1.ShowModal(); //##Debug
+//            }
+        }
+        if (paramSlot->GetParent())
+        {
+            int defWidth = info.getOriginalSize().GetWidth();
+            int defHeight = info.getOriginalSize().GetHeight();
+            if (info.getParamsCount() > 0)
+                defHeight = info.getOriginalSize().GetHeight()*(info.getParamsCount());
+//##2011.02.17:
+//            if (info.getHasInstanceNameField())
+//                defHeight += 24; //##Test: Parece que quiere, hay que definir mejor el size que se agrega con el label del name.
+            BubbleBlock *newParamBlock = new BubbleBlock(   this,
+                                                            wxNewId(),
+                                                            wxDefaultPosition,  //##Ver si se cambia esto por una función que devuelva
+                                                                                //la posición incial correcta, y a la que también se
+                                                                                //llame desde zoom()...
+                                                            wxSize(defWidth, defHeight),
+                                                            info
+                                                        );
+
+            paramSlot->setParamFirstBlock(newParamBlock);
+
+            if (newParamBlock)
+            {
+                newParamBlock->setBackBlock((BubbleBlock*)paramSlot->GetParent());
+                if (newParamBlock->getBackBlock())
+                {
+                    //##paramSlot->setImageDefault(newParamBlock->getBackBlock()->getParamDefaultImage());
+                    paramSlot->setImageDefault(paramSlot->getImageAssigned());
+                }
+                newParamBlock->setBackParamSlot(paramSlot);
+                if (newParamBlock->getRealSize().GetHeight() > info.getOriginalSize().GetHeight())
+                    newParamBlock->changeAllBackBlocksRealSize(wxSize(0, newParamBlock->getRealSize().GetHeight()-info.getOriginalSize().GetHeight()), false);
+
+                zoom(); //This rearranges everything (##but has some flickering by now, which could possibly be corrected
+                        //creating the blocks in it's very correct position. This flickering appears with brotherBlocks, due
+                        //to the repositioning of them once created...).
+
+                newParamBlock->SetBackgroundColourAndRefresh(info.getDefaultBackgroundColour1()); //##Esto es imprescindible por ahora, ver si lo mando adentro de los bloque...
+                setCurrentBlock(newParamBlock);
+                newParamBlock->Show(showParam); //Goes visible AFTER the zoom() call.
+            }
+
+            updateCodeAndRefresh();
+            forceSaved(false);
+        }
+    }
+}
+//##
+#if 0
+void BubbleCanvas::addParam(const BubbleBlockInfo &info, BubbleParam *paramSlot, const bool showParam)
+{
+    if (paramSlot)
+    {
         unsigned int firstBlockParamsCount = 0;
         bool firstBlockHasAddParamsButton = false;
         BubbleParam * firstBlockFirstParam = NULL;
@@ -2968,8 +3034,9 @@ void BubbleCanvas::addParam(const BubbleBlockInfo &info, BubbleParam *paramSlot,
                     paramSlot->setImageDefault(paramSlot->getImageAssigned());
                 }
                 newParamBlock->setBackParamSlot(paramSlot);
-                //if (newParamBlock->getRealSize().GetHeight() > info.getOriginalSize().GetHeight())
-                //    newParamBlock->changeAllBackBlocksRealSize(wxSize(0, newParamBlock->getRealSize().GetHeight()-info.getOriginalSize().GetHeight()), false);
+
+//                if (newParamBlock->getRealSize().GetHeight() > info.getOriginalSize().GetHeight())
+//                    newParamBlock->changeAllBackBlocksRealSize(wxSize(0, newParamBlock->getRealSize().GetHeight()-info.getOriginalSize().GetHeight()), false);
 
                 /////////////
                 //If the param's first block had addParamsButton, completes the paramSlots added to it in the newParamBlock:
@@ -3038,10 +3105,23 @@ void BubbleCanvas::addParam(const BubbleBlockInfo &info, BubbleParam *paramSlot,
                 }
 
                 if (newParamBlock->getRealSize().GetHeight() > info.getOriginalSize().GetHeight())
+                {
                     newParamBlock->changeAllBackBlocksRealSize(wxSize(0, newParamBlock->getRealSize().GetHeight()-info.getOriginalSize().GetHeight()), false);
+                }
+//                else
+//                {
+//                    float totalParamsSize = 0;
+//                    if (getZoomFactor() != 0)
+//                    {
+//                        totalParamsSize = (float)newParamBlock->getTotalParamsSize().GetHeight()/getZoomFactor();
+//                        if (totalParamsSize < newParamBlock->getRealSize().GetHeight())
+//                            newParamBlock->changeAllBackBlocksRealSize(wxSize(0, -(int)totalParamsSize + newParamBlock->getRealSize().GetHeight()), false);
+//                        //wxMessageDialog dialog0(parent, wxString("0"), _("0")); //##Debug.
+//                        //dialog0.ShowModal(); //##Debug
+//                    }
+//                }
 
                 /////////////
-
                 zoom(); //This rearranges everything (##but has some flickering by now, which could possibly be corrected
                         //creating the blocks in it's very correct position. This flickering appears with brotherBlocks, due
                         //to the repositioning of them once created...).
@@ -3056,6 +3136,7 @@ void BubbleCanvas::addParam(const BubbleBlockInfo &info, BubbleParam *paramSlot,
         }
     }
 }
+#endif
 
 
 void BubbleCanvas::autoPanTick()
