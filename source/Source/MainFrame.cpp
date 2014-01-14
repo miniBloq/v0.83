@@ -4082,34 +4082,36 @@ void MainFrame::refreshGeneratedCode()
     editCode->SetReadOnly(false);
     editCode->clear();
     Bubble::linesFromArrayToBubbleEditor(bubble.getGeneratedCode(), editCode);
-    int i = bubble.getCodeFirstModifiedLineNumber();
-    int j = bubble.getCodeLastModifiedLineNumber();
-    //editCode->MarkerAdd(0, 0); //##Debug
-    //editCode->MarkerAdd(editCode->GetLineCount()-1, 0); //##Debug
-    if (i != wxNOT_FOUND)
-    {
-        //editCode->MarkerDeleteAll(0); //Not necessary, due the call to editClode->clear() above.
-        editCode->MarkerSetBackground(0, wxColour(0, 255, 0)); //##This may be done only once (and must be user-configurable)...
-        //Marks all lines between the first and the last mofidified lines:
-        if (i < editCode->GetLineCount())
-            editCode->MarkerAdd(i, 0);
-//Don't delete: This marks all the lines between the first and the last modified lines:
-        while (i < j)
-        {
-            i++;
-            if (i < editCode->GetLineCount())
-                editCode->MarkerAdd(i, 0);
-            else
-                break;
-        }
-//Don't delete: This marks the first and the last lines:
-//        if (i != j)
+
+//    int i = bubble.getCodeFirstModifiedLineNumber();
+//    int j = bubble.getCodeLastModifiedLineNumber();
+//    //editCode->MarkerAdd(0, 0); //##Debug
+//    //editCode->MarkerAdd(editCode->GetLineCount()-1, 0); //##Debug
+//    if (i != wxNOT_FOUND)
+//    {
+//        //editCode->MarkerDeleteAll(0); //Not necessary, due the call to editClode->clear() above.
+//        editCode->MarkerSetBackground(0, wxColour(0, 255, 0)); //##This may be done only once (and must be user-configurable)...
+//        //Marks all lines between the first and the last mofidified lines:
+//        if (i < editCode->GetLineCount())
+//            editCode->MarkerAdd(i, 0);
+////Don't delete: This marks all the lines between the first and the last modified lines:
+//        while (i < j)
 //        {
-//            if (j < editCode->GetLineCount())
-//                editCode->MarkerAdd(j, 0);
+//            i++;
+//            if (i < editCode->GetLineCount())
+//                editCode->MarkerAdd(i, 0);
+//            else
+//                break;
 //        }
-        editCode->GotoLine(i);
-    }
+////Don't delete: This marks the first and the last lines:
+////        if (i != j)
+////        {
+////            if (j < editCode->GetLineCount())
+////                editCode->MarkerAdd(j, 0);
+////        }
+//        editCode->GotoLine(i);
+//    }
+
     editCode->SetReadOnly(true);
 
 //    if (bubble.getCurrentCanvas())
