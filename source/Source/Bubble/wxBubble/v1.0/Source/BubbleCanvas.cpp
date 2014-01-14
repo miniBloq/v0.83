@@ -2921,6 +2921,40 @@ void BubbleCanvas::addParam(const BubbleBlockInfo &info, BubbleParam *paramSlot,
 {
     if (paramSlot)
     {
+        BubbleBlock * firstBlock = paramSlot->getParamFirstBlock();
+
+        //Was there already a param in this paramSlot?
+        if (firstBlock)
+        {
+            //How many params will have the new block?
+            if (info.getParamsCount() == 0)
+            {
+                addParamDeletingParams(info, paramSlot, showParam);
+            }
+            else if (info.getParamsCount() == 1)
+            {
+                //wxMessageDialog dialog1(parent, wxString("1 param"), _("0")); //##Debug.
+                //dialog1.ShowModal(); //##Debug
+                addParamDeletingParams(info, paramSlot, showParam); //##
+            }
+            else //if (info.getParamsCount() > 1)
+            {
+                addParamKeepingParams(info, paramSlot, showParam);
+            }
+        }
+        else
+        {
+            //Here we are not replacing a preexistent block, but adding a new one:
+            addParamDeletingParams(info, paramSlot, showParam);
+        }
+    }
+}
+
+
+void BubbleCanvas::addParamDeletingParams(const BubbleBlockInfo &info, BubbleParam *paramSlot, const bool showParam)
+{
+    if (paramSlot)
+    {
         if (paramSlot->getParamFirstBlock() != NULL)
         {
 //            wxMessageDialog dialog0(parent, wxString("addParam"), _("0")); //##Debug.
@@ -2981,9 +3015,10 @@ void BubbleCanvas::addParam(const BubbleBlockInfo &info, BubbleParam *paramSlot,
         }
     }
 }
-//##
-#if 0
-void BubbleCanvas::addParam(const BubbleBlockInfo &info, BubbleParam *paramSlot, const bool showParam)
+
+
+//This routine keeps the params, but has a horrible bug in the resizing of the blocks, plus a possible memory bug:
+void BubbleCanvas::addParamKeepingParams(const BubbleBlockInfo &info, BubbleParam *paramSlot, const bool showParam)
 {
     if (paramSlot)
     {
@@ -3038,7 +3073,6 @@ void BubbleCanvas::addParam(const BubbleBlockInfo &info, BubbleParam *paramSlot,
 //                if (newParamBlock->getRealSize().GetHeight() > info.getOriginalSize().GetHeight())
 //                    newParamBlock->changeAllBackBlocksRealSize(wxSize(0, newParamBlock->getRealSize().GetHeight()-info.getOriginalSize().GetHeight()), false);
 
-                /////////////
                 //If the param's first block had addParamsButton, completes the paramSlots added to it in the newParamBlock:
                 if (newParamBlock->getHasAddParamsButton() && firstBlockHasAddParamsButton)
                 {
@@ -3064,27 +3098,38 @@ void BubbleCanvas::addParam(const BubbleBlockInfo &info, BubbleParam *paramSlot,
                     //Now points the original params from the previous block to the newParamBlock:
                     for (unsigned int i=0; i<newParamBlock->getParamsCount(); i++)
                     {
-                        BubbleParam *currentOldParam = firstBlock->getParamSlot(i);
-                        if (currentOldParam)
+//                        wxMessageDialog dialog2(parent, wxString("i = ") << i, _("2")); //##Debug.
+//                        dialog2.ShowModal(); //##Debug
+
+                        if (i < firstBlock->getParamsCount())
                         {
-                            BubbleBlock *currentOldParamBlock = currentOldParam->getParamFirstBlock();
-                            if (currentOldParamBlock)
+                            BubbleParam *currentOldParam = firstBlock->getParamSlot(i);
+                            if (currentOldParam)
                             {
-                                if (currentOldParamBlock->getDataType() == newParamBlock->getParamSlot(i)->getDataType())
+                                BubbleBlock *currentOldParamBlock = currentOldParam->getParamFirstBlock();
+                                if (currentOldParamBlock)
                                 {
-                                    if (newParamBlock->getParamSlot(i))
+                                    if (currentOldParamBlock->getDataType() == newParamBlock->getParamSlot(i)->getDataType())
                                     {
-                                        newParamBlock->getParamSlot(i)->setParamFirstBlock(currentOldParamBlock);
-                                        currentOldParamBlock->setBackBlock(newParamBlock);
-                                        currentOldParamBlock->changeAllBackBlocksRealSize(wxSize(0, newParamBlock->getRealSize().GetHeight()-info.getOriginalSize().GetHeight()), false);
-                                        newParamBlock->getParamSlot(i)->setImageDefault(paramSlot->getImageAssigned());
+                                        if (newParamBlock->getParamSlot(i))
+                                        {
+                                            newParamBlock->getParamSlot(i)->setParamFirstBlock(currentOldParamBlock);
+                                            currentOldParamBlock->setBackBlock(newParamBlock);
+                                            currentOldParamBlock->changeAllBackBlocksRealSize(wxSize(0, newParamBlock->getRealSize().GetHeight()-info.getOriginalSize().GetHeight()), false);
+                                            newParamBlock->getParamSlot(i)->setImageDefault(paramSlot->getImageAssigned());
+                                        }
+                                        currentOldParamBlock->Show(true);
                                     }
-                                    currentOldParamBlock->Show(true);
+                                    else
+                                    {
+                                        cutBlock(currentOldParamBlock, false);
+                                    }
                                 }
-                                else
-                                {
-                                    cutBlock(currentOldParamBlock, false);
-                                }
+                            }
+                            else
+                            {
+                                //No more paramSlots:
+                                break;
                             }
                         }
                     }
@@ -3121,7 +3166,6 @@ void BubbleCanvas::addParam(const BubbleBlockInfo &info, BubbleParam *paramSlot,
 //                    }
 //                }
 
-                /////////////
                 zoom(); //This rearranges everything (##but has some flickering by now, which could possibly be corrected
                         //creating the blocks in it's very correct position. This flickering appears with brotherBlocks, due
                         //to the repositioning of them once created...).
@@ -3136,7 +3180,6 @@ void BubbleCanvas::addParam(const BubbleBlockInfo &info, BubbleParam *paramSlot,
         }
     }
 }
-#endif
 
 
 void BubbleCanvas::autoPanTick()

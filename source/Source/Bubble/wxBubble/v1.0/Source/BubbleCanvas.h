@@ -607,6 +607,9 @@ class BubbleCanvas : public BubblePanel, public IBubbleBlockNavigator, public Bu
         //From here, every method must modify the "saved" field:
         void addBlock(const BubbleBlockInfo &info, const bool showBlock = true);
         void addParam(const BubbleBlockInfo &info, BubbleParam *paramSlot, const bool showParam= true);
+        void addParamDeletingParams(const BubbleBlockInfo &info, BubbleParam *paramSlot, const bool showParam);
+        void addParamKeepingParams(const BubbleBlockInfo &info, BubbleParam *paramSlot, const bool showParam);
+
         void undo();
         void redo();
         void selectAll();
