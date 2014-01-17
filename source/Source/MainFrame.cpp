@@ -3212,28 +3212,47 @@ void MainFrame::onMenuFileAdd(wxCommandEvent& evt)
 
     if (dialog.ShowModal() == wxID_OK)
     {
-        wxArrayString paths, filenames;
+        wxArrayString paths, fileNames;
 
         dialog.GetPaths(paths);
-        dialog.GetFilenames(filenames);
+        //dialog.GetFilenames(fileNames);
 
-        wxString msg, s;
+        //wxString msg; //##Debug.
+        wxString filePath;
         size_t count = paths.GetCount();
-        for ( size_t n = 0; n < count; n++ )
+        for (size_t i = 0; i < count; i++)
         {
+            filePath << paths[i];// << fileNames[i];
+            //msg += filePath + "\n\n"; //##Debug.
 
+            if (wxFile::Exists(filePath)) //Extra security check.
+            {
+                //If the component is not saved, save it and create it's files dir:
+                //##Implementar...
 
-            //##Debug:
-            s.Printf(_("File %d: %s (%s)\n"),
-                     (int)n, paths[n].c_str(), filenames[n].c_str());
-            msg += s;
+                //Verify if the file is already in the component's dir:
+                wxString strComponentFilesPath = bubble.getComponentFilesPath();
+                wxString strFilePath = filePath.BeforeLast(wxFileName::GetPathSeparator());
+                strComponentFilesPath.Replace("\\", "/");
+                strFilePath.Replace("\\", "/"); //Works both under Windows and Linux.
+                if (strComponentFilesPath == strFilePath)
+                {
+                    strFilePath
+                    //##Debug:
+                    //wxMessageDialog dialog2(this, strComponentFilesPath + "\n\n" + strFilePath, _("Same!"));
+                    //dialog2.ShowModal(); //##Debug
+                }
+                //If not, copy the file:
+
+                //Add the file to the component's file lists:
+
+                //Open the file, creating an editor for it:
+            }
         }
 
         //##Debug:
-        s.Printf(_("Filter index: %d"), dialog.GetFilterIndex());
-        msg += s;
-        wxMessageDialog dialog2(this, msg, _("Selected files"));
-        dialog2.ShowModal();
+        //wxMessageDialog dialog2(this, msg, _("Selected files"));
+        //dialog2.ShowModal();
     }
 }
 
