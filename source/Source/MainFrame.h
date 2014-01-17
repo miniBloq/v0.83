@@ -148,6 +148,7 @@ class MainFrame : public wxFrame, public IBubbleNotifier
             ID_MenuViewTerminal,
             ID_MenuViewQuickToolbar,
             ID_MenuViewGeneratedCode,
+            ID_MenuViewComponentBlocks,
             ID_MenuViewFullScreen,
             ID_MenuViewPrevView,
             ID_MenuViewNextView,
@@ -274,6 +275,7 @@ class MainFrame : public wxFrame, public IBubbleNotifier
         wxMenuItem *menuViewMessages;
         wxMenuItem *menuViewTerminal;
         wxMenuItem *menuViewQuickToolbar;
+        wxMenuItem *menuViewComponentBlocks;
         wxMenuItem *menuViewGeneratedCode;
         wxMenuItem *menuViewPrevView;
         wxMenuItem *menuViewNextView;
@@ -412,6 +414,7 @@ class MainFrame : public wxFrame, public IBubbleNotifier
         void onMenuViewTerminal(wxCommandEvent& evt);
         void onMenuViewQuickToolbar(wxCommandEvent& evt);
         void onMenuViewGeneratedCode(wxCommandEvent& evt);
+        void onMenuViewComponentBlocks(wxCommandEvent& evt);
         void refreshGeneratedCode();
         void onMenuViewFullScreen(wxCommandEvent& evt);
         void onMenuViewPrevView(wxCommandEvent& evt);

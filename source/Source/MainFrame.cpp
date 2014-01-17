@@ -68,6 +68,7 @@ BEGIN_EVENT_TABLE(MainFrame, wxFrame)
     EVT_MENU(ID_MenuViewMessages, MainFrame::onMenuViewMessages)
     EVT_MENU(ID_MenuViewTerminal, MainFrame::onMenuViewTerminal)
     EVT_MENU(ID_MenuViewQuickToolbar, MainFrame::onMenuViewQuickToolbar)
+    EVT_MENU(ID_MenuViewComponentBlocks, MainFrame::onMenuViewComponentBlocks)
     EVT_MENU(ID_MenuViewGeneratedCode, MainFrame::onMenuViewGeneratedCode)
     //##No implementado por ahora:
     //EVT_MENU(ID_MenuViewFullScreen, MainFrame::OnMenuViewFullScreen)
@@ -253,6 +254,7 @@ MainFrame::MainFrame(   wxWindow* parent,
                                         menuViewMessages(NULL),
                                         menuViewTerminal(NULL),
                                         menuViewQuickToolbar(NULL),
+                                        menuViewComponentBlocks(NULL),
                                         menuViewGeneratedCode(NULL),
                                         menuViewPrevView(NULL),
                                         menuViewNextView(NULL),
@@ -544,14 +546,26 @@ MainFrame::~MainFrame()
 
 void MainFrame::updateMenu()
 {
-    menuViewHelpAndResourceCenter->Check(auiManager.GetPane("HelpAndResourceCenter").IsShown());
-    menuViewQuickToolbar->Check(auiManager.GetPane("QuickToolBar").IsShown());
-
-    menuViewGeneratedCode->Check(auiManager.GetPane("GeneratedCode").IsShown());
-    menuViewHardware->Check(auiManager.GetPane("Hardware").IsShown());
-    menuViewProperties->Check(auiManager.GetPane("Properties").IsShown());
-    menuViewMessages->Check(auiManager.GetPane("Messages").IsShown());
-    menuViewTerminal->Check(auiManager.GetPane("Terminal").IsShown());
+    if (menuViewHelpAndResourceCenter)
+        menuViewHelpAndResourceCenter->Check(auiManager.GetPane("HelpAndResourceCenter").IsShown());
+    if (menuViewQuickToolbar)
+        menuViewQuickToolbar->Check(auiManager.GetPane("QuickToolBar").IsShown());
+    if (notebook)
+    {
+        int index = notebook->GetPageIndex(bubble.getCurrentCanvas());
+        if (menuViewComponentBlocks)
+            menuViewComponentBlocks->Check(index != wxNOT_FOUND);
+    }
+    if (menuViewGeneratedCode)
+        menuViewGeneratedCode->Check(auiManager.GetPane("GeneratedCode").IsShown());
+    if (menuViewHardware)
+        menuViewHardware->Check(auiManager.GetPane("Hardware").IsShown());
+    if (menuViewProperties)
+        menuViewProperties->Check(auiManager.GetPane("Properties").IsShown());
+    if (menuViewMessages)
+        menuViewMessages->Check(auiManager.GetPane("Messages").IsShown());
+    if (menuViewTerminal)
+        menuViewTerminal->Check(auiManager.GetPane("Terminal").IsShown());
 }
 
 
@@ -907,7 +921,9 @@ void MainFrame::createKeyboardAcceleratorTable()
     //también qué se hará con la internacionalización):
 //##2011.02.24: Prueba para ver el bug del "2" en las netbooks:
 //    unsigned int entriesCount = 54; //##Esto vuela, se levantará de XML casi con seguridad...
-    unsigned int entriesCount = 22; //##Esto vuela, se levantará de XML casi con seguridad...
+
+
+    unsigned int entriesCount = 24; //##Esto vuela, se levantará de XML casi con seguridad...
 
     //Some of these event IDs are not associated with a real menu or control:
     wxAcceleratorEntry kyboardEntries[entriesCount];
@@ -959,6 +975,8 @@ void MainFrame::createKeyboardAcceleratorTable()
 
     kyboardEntries[21].Set(wxACCEL_ALT,     (int) 'R',      ID_HardwareManagerPopUpPort);
     kyboardEntries[22].Set(wxACCEL_ALT,     (int) 'W',      ID_HardwareManagerPopUpBoard);
+
+    kyboardEntries[23].Set(wxACCEL_ALT,     (int) 'B',      ID_MenuViewComponentBlocks);
 
 //##:
 //    kyboardEntries[37].Set(wxACCEL_ALT,     WXK_RIGHT,      ID_MenuViewPrevView);
@@ -1620,7 +1638,10 @@ void MainFrame::createMenuView()
     menuViewHelpAndResourceCenter = new wxMenuItem( popView, ID_MenuViewHelpAndResourceCenter,
                                                     _("Help and Resource Center\tCtrl+H"),
                                                     wxString(""), wxITEM_CHECK);
-    popView->Append(menuViewHelpAndResourceCenter);
+    if (menuViewHelpAndResourceCenter)
+    {
+        popView->Append(menuViewHelpAndResourceCenter);
+    }
 
 #if UNDER_DEVELOPMENT
     menuViewLabels = new wxMenuItem(popView, ID_MenuViewLabels, _("Labels\tCtrl+L"),
@@ -1635,7 +1656,9 @@ void MainFrame::createMenuView()
     //Separator:
     menuViewSep0 = new wxMenuItem(popView);
     if (menuViewSep0)
+    {
         popView->Append(menuViewSep0);
+    }
 
     menuViewQuickToolbar = new wxMenuItem(popView, ID_MenuViewQuickToolbar, _("Quick toolbar\tAlt+Q"), wxString(""), wxITEM_CHECK);
     if (menuViewQuickToolbar)
@@ -1647,15 +1670,27 @@ void MainFrame::createMenuView()
     //Separator:
     menuViewSep1 = new wxMenuItem(popView);
     if (menuViewSep1)
+    {
         popView->Append(menuViewSep1);
+    }
 
 #if UNDER_DEVELOPMENT
     menuViewComponents = new wxMenuItem(popView, ID_MenuViewComponents, _("Components\tAlt+N"), wxString(""), wxITEM_CHECK);
     popView->Append(menuViewComponents);
 #endif
+
+    menuViewComponentBlocks = new wxMenuItem(popView, ID_MenuViewComponentBlocks, _("Component's blocks\tAlt+B"), wxString(""), wxITEM_CHECK);
+    if (menuViewComponentBlocks)
+    {
+        popView->Append(menuViewComponentBlocks);
+    }
+
     menuViewGeneratedCode = new wxMenuItem(popView, ID_MenuViewGeneratedCode, _("Generated code\tAlt+G"), wxString(""), wxITEM_CHECK);
-    popView->Append(menuViewGeneratedCode);
-    //menu->Check(true);
+    if (menuViewGeneratedCode)
+    {
+        popView->Append(menuViewGeneratedCode);
+    }
+
     menuViewHardware = new wxMenuItem(popView, ID_MenuViewHardware, _("Hardware\tAlt+H"), wxString(""), wxITEM_CHECK);
     if (menuViewHardware)
     {
@@ -1668,14 +1703,26 @@ void MainFrame::createMenuView()
         popView->Append(menuViewHardware);
         //menuViewHardware->Check(true);
     }
+
     menuViewProperties = new wxMenuItem(popView, ID_MenuViewProperties, _("Properties\tAlt+P"), wxString(""), wxITEM_CHECK);
-    popView->Append(menuViewProperties);
+    if (menuViewProperties)
+    {
+        popView->Append(menuViewProperties);
+    }
+
+
 #if UNDER_DEVELOPMENT
     menuViewLocalVariables = new wxMenuItem(popView, ID_MenuViewLocalVariables, _("Local variables\tAlt++L"), wxString(""), wxITEM_CHECK);
     popView->Append(menuViewLocalVariables);
 #endif
+
+
     menuViewMessages = new wxMenuItem(popView, ID_MenuViewMessages, _("Messages\tAlt+M"), wxString(""), wxITEM_CHECK);
-    popView->Append(menuViewMessages);
+    if (menuViewMessages)
+    {
+        popView->Append(menuViewMessages);
+    }
+
     menuViewTerminal = new wxMenuItem(popView, ID_MenuViewTerminal, _("Terminal\tAlt+T"), wxString(""), wxITEM_CHECK);
     if (menuViewTerminal)
     {
@@ -1700,9 +1747,16 @@ void MainFrame::createMenuView()
     //if (menuItemPop)
         //popView->Append(menuItemPop);
     menuViewPrevView = new wxMenuItem(popView, ID_MenuViewPrevView, _("Prev view\tAlt+Left"));
-    popView->Append(menuViewPrevView);
+    if (menuViewPrevView)
+    {
+        popView->Append(menuViewPrevView);
+    }
+
     menuViewNextView = new wxMenuItem(popView, ID_MenuViewNextView, _("Next view\tAlt+Right"));
-    popView->Append(menuViewNextView);
+    if (menuViewNextView)
+    {
+        popView->Append(menuViewNextView);
+    }
 #endif
 }
 
@@ -2155,6 +2209,11 @@ void MainFrame::updateMenuViewGUI()
     {
         popView->Destroy(menuViewGeneratedCode);
         menuViewGeneratedCode = NULL;
+    }
+    if (menuViewComponentBlocks)
+    {
+        popView->Destroy(menuViewComponentBlocks);
+        menuViewComponentBlocks = NULL;
     }
 #if UNDER_DEVELOPMENT
     if (menuViewPrevView)
@@ -3150,42 +3209,6 @@ void MainFrame::onMenuFileAdd(wxCommandEvent& evt)
     //##Implementar la lógica como para que si el usuario ingresa el nombre de un archivo que no
     //existía (aún cuando tenga seleccionados otros archivos además), éste se cree y se grabe (llamada
     //a AddBlock y Save, ya con el nombre del archivo devuelto por el diálogo.
-
-    //##Test:
-    if (bubble.getCurrentCanvas())
-    {
-        if (notebook)
-        {
-            int index = notebook->GetPageIndex(bubble.getCurrentCanvas());
-            if (index != wxNOT_FOUND)
-            {
-                wxWindow *page = notebook->GetPage(index);
-                if (page)
-                {
-                    notebook->RemovePage(index);
-                    page->Hide();
-                }
-            }
-            else
-            {
-                wxBitmap page_bmp = wxArtProvider::GetBitmap(wxART_NORMAL_FILE, wxART_OTHER, wxSize(16, 16));
-                notebook->AddPage(  bubble.getCurrentCanvas(),
-                                    //_("New-1.mbqc"),
-                                    tempComponentName,
-                                    false,
-                                    page_bmp);
-                notebook->SetSelection(notebook->GetPageIndex(bubble.getCurrentCanvas()));
-                notebook->Split(notebook->GetPageIndex(bubble.getCurrentCanvas()), wxLEFT);
-            }
-            //auiManager.Update();
-        }
-    }
-//    if (notebook)
-//    {
-//        notebook->SetSize(wxSize(10,10));
-//        //auiManager.Update();
-//    }
-    return;
 
     if (dialog.ShowModal() == wxID_OK)
     {
@@ -4239,6 +4262,47 @@ void MainFrame::toggleGeneratedCode()
                     menuViewGeneratedCode->Check(false);
                 }
             }
+        }
+    }
+}
+
+
+void MainFrame::onMenuViewComponentBlocks(wxCommandEvent& evt)
+{
+    if (bubble.getCurrentCanvas())
+    {
+        if (notebook)
+        {
+            int index = notebook->GetPageIndex(bubble.getCurrentCanvas());
+            if (index != wxNOT_FOUND)
+            {
+                wxWindow *page = notebook->GetPage(index);
+                if (page)
+                {
+                    notebook->RemovePage(index);
+                    page->Hide();
+                    if (menuViewComponentBlocks)
+                    {
+                        menuViewComponentBlocks->Check(false);
+                    }
+                }
+            }
+            else
+            {
+                wxBitmap page_bmp = wxArtProvider::GetBitmap(wxART_NORMAL_FILE, wxART_OTHER, wxSize(16, 16));
+                notebook->AddPage(  bubble.getCurrentCanvas(),
+                                    //_("New-1.mbqc"),
+                                    tempComponentName,
+                                    false,
+                                    page_bmp);
+                notebook->SetSelection(notebook->GetPageIndex(bubble.getCurrentCanvas()));
+                notebook->Split(notebook->GetPageIndex(bubble.getCurrentCanvas()), wxLEFT);
+                if (menuViewComponentBlocks)
+                {
+                    menuViewComponentBlocks->Check(true);
+                }
+            }
+            //auiManager.Update();
         }
     }
 }
