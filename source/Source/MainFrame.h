@@ -361,7 +361,7 @@ class MainFrame : public wxFrame, public IBubbleNotifier
         bool openFileComponent(const wxString &defaultDir = wxEmptyString);
         void createComponent(bool canCancel);
         void saveComponent();
-        void saveComponentAs();
+        bool saveComponentAs();
         void openExample();
 
         void onMenuFile(wxCommandEvent& evt);
@@ -512,6 +512,7 @@ class MainFrame : public wxFrame, public IBubbleNotifier
         //void WxPanelBlocksMouseWheel(wxMouseEvent& event);
 
         void setEditorSyntax(BubbleEditor *editor);
+        void toggleComponentBlocks();
         void toggleGeneratedCode();
         bool isShowingGeneratedCode();
 

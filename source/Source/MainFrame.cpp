@@ -127,37 +127,6 @@ BEGIN_EVENT_TABLE(MainFrame, wxFrame)
     EVT_HTML_LINK_CLICKED(wxID_ANY, MainFrame::OnHtmlLinkClicked)
 END_EVENT_TABLE()
 
-/*
-//##Si al final no se usan, elimintar todo esto:
-EVT_MENU(ID_AllowFloating, MainFrame::OnManagerFlag)
-EVT_MENU(ID_TransparentHint, MainFrame::OnManagerFlag)
-EVT_MENU(ID_VenetianBlindsHint, MainFrame::OnManagerFlag)
-EVT_MENU(ID_RectangleHint, MainFrame::OnManagerFlag)
-EVT_MENU(ID_NoHint, MainFrame::OnManagerFlag)
-EVT_MENU(ID_HintFade, MainFrame::OnManagerFlag)
-EVT_MENU(ID_NoVenetianFade, MainFrame::OnManagerFlag)
-EVT_MENU(ID_TransparentDrag, MainFrame::OnManagerFlag)
-EVT_MENU(ID_AllowActivePane, MainFrame::OnManagerFlag)
-EVT_MENU(ID_NotebookTabFixedWidth, MainFrame::OnNotebookFlag)
-EVT_MENU(ID_NotebookNoCloseButton, MainFrame::OnNotebookFlag)
-EVT_MENU(ID_NotebookCloseButton, MainFrame::OnNotebookFlag)
-EVT_MENU(ID_NotebookCloseButtonAll, MainFrame::OnNotebookFlag)
-EVT_MENU(ID_NotebookCloseButtonActive, MainFrame::OnNotebookFlag)
-EVT_MENU(ID_NotebookAllowTabMove, MainFrame::OnNotebookFlag)
-EVT_MENU(ID_NotebookAllowTabExternalMove, MainFrame::OnNotebookFlag)
-EVT_MENU(ID_NotebookAllowTabSplit, MainFrame::OnNotebookFlag)
-EVT_MENU(ID_NotebookScrollButtons, MainFrame::OnNotebookFlag)
-EVT_MENU(ID_NotebookWindowList, MainFrame::OnNotebookFlag)
-EVT_MENU(ID_NotebookArtGloss, MainFrame::OnNotebookFlag)
-EVT_MENU(ID_NotebookArtSimple, MainFrame::OnNotebookFlag)
-EVT_MENU(ID_NotebookAlignTop, MainFrame::OnTabAlignment)
-EVT_MENU(ID_NotebookAlignBottom, MainFrame::OnTabAlignment)
-EVT_MENU(ID_NoGradient, MainFrame::OnGradient)
-EVT_MENU(ID_VerticalGradient, MainFrame::OnGradient)
-EVT_MENU(ID_HorizontalGradient, MainFrame::OnGradient)
-EVT_MENU(ID_CustomizeToolbar, MainFrame::OnCustomizeToolbar)
-*/
-
 
 MainFrame::MainFrame(   wxWindow* parent,
                         wxWindowID id,
@@ -365,9 +334,6 @@ MainFrame::MainFrame(   wxWindow* parent,
     //wxMessageDialog dialog0(this, _("0"), _("0")); //##Debug
     //dialog0.ShowModal(); //##Debug
 
-    //##Levantar estas cosas de archivo de configuración, y enviarlas a la función CreateNotebook:
-    m_notebook_style = wxAUI_NB_DEFAULT_STYLE | wxAUI_NB_TAB_EXTERNAL_MOVE | wxNO_BORDER; //##Esto se va...
-    //m_notebook_theme = 0; //##Ver si esto se queda...
     SetMinSize(wxSize(400, 300)); //##
 
     //This is very important, to be able to load any image supported by the wxImage class:
@@ -2318,6 +2284,17 @@ void MainFrame::updateMenuZoomGUI()
 
 void MainFrame::createNotebook()
 {
+    m_notebook_style =  //wxAUI_NB_DEFAULT_STYLE |
+                        wxAUI_NB_TOP |
+                        //wxAUI_NB_TAB_SPLIT |
+                        wxAUI_NB_TAB_MOVE |
+                        wxAUI_NB_SCROLL_BUTTONS |
+                        wxAUI_NB_CLOSE_ON_ACTIVE_TAB |
+                        wxAUI_NB_MIDDLE_CLICK_CLOSE |
+                        //wxAUI_NB_TAB_EXTERNAL_MOVE |
+                        wxNO_BORDER |
+                        wxAUI_NB_WINDOWLIST_BUTTON;
+
     //Create the notebook off-window to avoid flicker:
     wxSize client_size = GetClientSize();
     notebook = new wxAuiNotebook(this,
@@ -2335,7 +2312,9 @@ void MainFrame::createNotebook()
         auiManager.AddPane( notebook,
                             wxAuiPaneInfo().Name(wxString("Blocks"))
                             .CenterPane()
-                            .PaneBorder(false)); //##Ver.
+                            .PaneBorder(false)
+                            //.MinSize(wxSize(340, 200))
+                          );
     }
 }
 
@@ -3221,7 +3200,8 @@ void MainFrame::onMenuFileAdd(wxCommandEvent& evt)
         int answer = question.ShowModal();
         if (answer == wxID_YES)
         {
-            saveComponentAs();
+            if (saveComponentAs())
+                bubble.createDirs(bubble.getOutputPath());
         }
         else
         {
@@ -3505,7 +3485,7 @@ bool MainFrame::openFileComponent(const wxString &defaultDir)
 }
 
 
-void MainFrame::saveComponentAs()
+bool MainFrame::saveComponentAs()
 {
     //##No quiero el diálogo de tamaño reducido, quiero el completo:
     if (notebook)
@@ -3545,9 +3525,11 @@ void MainFrame::saveComponentAs()
                     toggleGeneratedCode();
                     toggleGeneratedCode();
                 }
+                return true;
             }
         }
     }
+    return false;
 }
 
 
@@ -4276,9 +4258,20 @@ void MainFrame::createCodeEditor(const wxString &fullFileName)
     {
         if (bubble.getHardwareManager()->getCurrentBoardProperties())
         {
+            if (editCode)
+            {
+                //This is to always add the newEditor next to the generated code window, not to the canvas:
+                notebook->SetSelection(notebook->GetPageIndex(editCode));
+            }
             if (notebook->AddPage(newEditor, fullFileName.AfterLast(wxFileName::GetPathSeparator()), false, page_bmp))
             {
-                //notebook->Split(notebook->GetPageIndex(newEditor), wxRIGHT);
+                if (wxFile::Exists(fullFileName))
+                    newEditor->LoadFile(fullFileName);
+                //notebook->Split(notebook->GetPageIndex(newEditor), wxLEFT);
+//                if (bubble.getCurrentCanvas())
+//                    notebook->Split(notebook->GetPageIndex(bubble.getCurrentCanvas()), wxLEFT);
+//                if (editCode)
+//                    notebook->Split(notebook->GetPageIndex(editCode), wxRIGHT);
                 newEditor->Show(true);
                 notebook->SetSelection(notebook->GetPageIndex(newEditor));
                 newEditor->SetFocus();
@@ -4326,13 +4319,23 @@ void MainFrame::toggleGeneratedCode()
         {
             if (bubble.getHardwareManager()->getCurrentBoardProperties())
             {
+
+                //##Acá: ##1## Si hay archivos cargados, entonces tiene que hacer un setfocus para hacer el add, o hacer
+                //directamente un insert o algo, para que no haga el add al canvas.
+
                 if (notebook->AddPage(editCode,
                                       tempComponentName.BeforeLast('.') + wxString(".") +
                                       bubble.getHardwareManager()->getCurrentBoardProperties()->getOutputMainFileExtension(),
                                       false, page_bmp)
-                                      )
+                   )
                 {
-                    notebook->Split(notebook->GetPageIndex(editCode), wxRIGHT);
+                    //notebook->Split(notebook->GetPageIndex(editCode), wxRIGHT);
+                    if (bubble.getCurrentCanvas())
+                        notebook->Split(notebook->GetPageIndex(bubble.getCurrentCanvas()), wxLEFT);
+
+                    toggleComponentBlocks();
+                    toggleComponentBlocks();
+
                     editCode->Show(true);
                     bubble.updateCode();
                     refreshGeneratedCode();
@@ -4365,7 +4368,7 @@ void MainFrame::toggleGeneratedCode()
 }
 
 
-void MainFrame::onMenuViewComponentBlocks(wxCommandEvent& evt)
+void MainFrame::toggleComponentBlocks()
 {
     if (bubble.getCurrentCanvas())
     {
@@ -4403,6 +4406,12 @@ void MainFrame::onMenuViewComponentBlocks(wxCommandEvent& evt)
             //auiManager.Update();
         }
     }
+}
+
+
+void MainFrame::onMenuViewComponentBlocks(wxCommandEvent& evt)
+{
+    toggleComponentBlocks();
 }
 
 
