@@ -515,6 +515,8 @@ class MainFrame : public wxFrame, public IBubbleNotifier
         void toggleGeneratedCode();
         bool isShowingGeneratedCode();
 
+        void createCodeEditor(const wxString &fullFileName);
+
         //i8n/i10n:
         bool addLocaleCatalog(const wxString& value);
         inline const wxString &getLastAddedLocaleCatalog() const { return lastAddedLocaleCatalog; }

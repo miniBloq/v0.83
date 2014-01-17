@@ -779,6 +779,8 @@ class Bubble : public IBubbleFileIO
         wxString componentPath;
         wxString componentFilesPath;
         wxString outputPath;
+        wxArrayString addedFilesToBuild;
+        wxArrayString addedFilesOther;
 
         bool simplifyCode;
         wxArrayString prevGeneratedCode;
@@ -888,6 +890,10 @@ class Bubble : public IBubbleFileIO
 
         inline void setOutputPath(const wxString& value) { outputPath = value; }
         inline const wxString &getOutputPath() const { return outputPath; }
+
+        bool addFile(const wxString& fullFileName);
+        inline const wxArrayString &getFilesToBuild() const { return addedFilesToBuild; }
+        inline const wxArrayString &getAddedFilesOther() const { return addedFilesOther; }
 
         //Communications:
         //##In the future there will be two port names: bootPortName and commPortName:

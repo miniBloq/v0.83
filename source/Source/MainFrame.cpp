@@ -3210,6 +3210,26 @@ void MainFrame::onMenuFileAdd(wxCommandEvent& evt)
     //existía (aún cuando tenga seleccionados otros archivos además), éste se cree y se grabe (llamada
     //a AddBlock y Save, ya con el nombre del archivo devuelto por el diálogo.
 
+    //If the component is not saved, save it and create it's files dir:
+    if (!componentAlreadySaved)
+    {
+        wxMessageDialog question(   this,
+                                    _("The component was not saved, and it has to be saved before adding files. Do you want to save it now?"),
+                                    _("Question"),
+                                    wxICON_QUESTION | wxYES_NO | wxYES_DEFAULT
+                                );
+        int answer = question.ShowModal();
+        if (answer == wxID_YES)
+        {
+            saveComponentAs();
+        }
+        else
+        {
+            //Do nothing:
+            return;
+        }
+    }
+
     if (dialog.ShowModal() == wxID_OK)
     {
         wxArrayString paths, fileNames;
@@ -3219,34 +3239,56 @@ void MainFrame::onMenuFileAdd(wxCommandEvent& evt)
 
         //wxString msg; //##Debug.
         wxString filePath;
+        wxString strComponentFilesPath = bubble.getComponentFilesPath();
+        strComponentFilesPath.Replace("\\", "/");
         size_t count = paths.GetCount();
         for (size_t i = 0; i < count; i++)
         {
-            filePath << paths[i];// << fileNames[i];
+            filePath = paths[i];// << fileNames[i];
             //msg += filePath + "\n\n"; //##Debug.
 
             if (wxFile::Exists(filePath)) //Extra security check.
             {
-                //If the component is not saved, save it and create it's files dir:
-                //##Implementar...
-
-                //Verify if the file is already in the component's dir:
-                wxString strComponentFilesPath = bubble.getComponentFilesPath();
-                wxString strFilePath = filePath.BeforeLast(wxFileName::GetPathSeparator());
-                strComponentFilesPath.Replace("\\", "/");
-                strFilePath.Replace("\\", "/"); //Works both under Windows and Linux.
-                if (strComponentFilesPath == strFilePath)
+                //Verify if the file is already in the component's dir, and copy it if not:
+                wxString strFilePathWithoutName = filePath.BeforeLast(wxFileName::GetPathSeparator());
+                wxString strFileName = filePath.AfterLast(wxFileName::GetPathSeparator());
+                strFilePathWithoutName.Replace("\\", "/"); //Works both under Windows and Linux.
+                if (strComponentFilesPath != strFilePathWithoutName)
                 {
-                    strFilePath
-                    //##Debug:
-                    //wxMessageDialog dialog2(this, strComponentFilesPath + "\n\n" + strFilePath, _("Same!"));
-                    //dialog2.ShowModal(); //##Debug
+                    //If there is a file with the same name in the component's dir, asks the user to overwrite or not:
+                    if (wxFile::Exists(strComponentFilesPath + "/" + strFileName))
+                    {
+                        wxMessageDialog question(   this,
+                                                    _("The file ") + strFileName + _(" already exist in the component's dir. Do You want to overwrite it?"),
+                                                    _("Question"),
+                                                    wxICON_QUESTION | wxYES_NO | wxNO_DEFAULT
+                                                );
+                        int answer = question.ShowModal();
+                        if (answer == wxID_YES)
+                        {
+                            //Overwrite the file:
+                            wxCopyFile(filePath, strComponentFilesPath + "/" + strFileName, true);
+                        }
+                    }
+                    else
+                    {
+                        //Copy the file, whith overwriting disabled:
+                        wxCopyFile(filePath, strComponentFilesPath + "/" + strFileName, false);
+                    }
                 }
-                //If not, copy the file:
+//                else
+//                {
+//                    wxMessageDialog dialog2(this, strComponentFilesPath + "\n\n" + strFilePathWithoutName, _("Same dir!")); //##Debug
+//                    dialog2.ShowModal(); //##Debug
+//                }
 
-                //Add the file to the component's file lists:
-
-                //Open the file, creating an editor for it:
+                //Add the file to the component's file lists, whitout it's full path, since Bubble only will build files inside
+                //it's ComponentFilesPath:
+                if (bubble.addFile(strFileName))
+                {
+                    //If the file was added, open it, creating an new editor:
+                    createCodeEditor(filePath); //Passes the full fileName.
+                }
             }
         }
 
@@ -4209,6 +4251,43 @@ void MainFrame::setEditorSyntax(BubbleEditor *editor)
 }
 
 
+void MainFrame::createCodeEditor(const wxString &fullFileName)
+{
+    if (notebook == NULL)
+        return;
+
+    BubbleEditor *newEditor = new BubbleEditor(this, wxNewId());
+    if (newEditor == NULL)
+        return;
+
+    if (bubble.getHardwareManager() == NULL)
+        return;
+    if (bubble.getHardwareManager()->getCurrentBoardProperties() == NULL)
+        return;
+
+    setEditorSyntax(newEditor);
+    newEditor->SetZoom(getEditCodeZoom()); //##Zoom management is not ready yet!
+
+    int iconW = 16; //##Unhardcode
+    int iconH = 16;
+
+    wxBitmap page_bmp = wxArtProvider::GetBitmap(wxART_NORMAL_FILE, wxART_OTHER, wxSize(iconW, iconH)); //##
+    if (bubble.getHardwareManager())
+    {
+        if (bubble.getHardwareManager()->getCurrentBoardProperties())
+        {
+            if (notebook->AddPage(newEditor, fullFileName.AfterLast(wxFileName::GetPathSeparator()), false, page_bmp))
+            {
+                //notebook->Split(notebook->GetPageIndex(newEditor), wxRIGHT);
+                newEditor->Show(true);
+                notebook->SetSelection(notebook->GetPageIndex(newEditor));
+                newEditor->SetFocus();
+            }
+        }
+    }
+}
+
+
 void MainFrame::toggleGeneratedCode()
 {
     if (notebook == NULL)
@@ -4238,8 +4317,8 @@ void MainFrame::toggleGeneratedCode()
 //        wxMessageDialog dialog0(this, _("zoom"), wxString("zoom = ") << getEditCodeZoom());
 //        dialog0.ShowModal();
 
-        int iconW = 16; //##
-        int iconH = 16; //##
+        int iconW = 16; //##Unhardcode
+        int iconH = 16;
 
         wxBitmap page_bmp = wxArtProvider::GetBitmap(wxART_NORMAL_FILE, wxART_OTHER, wxSize(iconW, iconH)); //##
 
@@ -4785,6 +4864,10 @@ void MainFrame::onNotebookPageClose(wxAuiNotebookEvent& evt)
                 {
                     notebook->RemovePage(index);
                     page->Hide();
+                    if (menuViewComponentBlocks)
+                    {
+                        menuViewComponentBlocks->Check(false);
+                    }
                 }
             }
         }
