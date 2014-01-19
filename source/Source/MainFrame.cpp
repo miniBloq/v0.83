@@ -3557,9 +3557,39 @@ void MainFrame::onMenuFileSave(wxCommandEvent& evt)
 
 void MainFrame::onMenuFileSaveAll(wxCommandEvent& evt)
 {
+    //Saves the component itself:
     onMenuFileSave(evt);
 
+    //Saves the added text files:
+    if (notebook == NULL)
+        return;
 
+    for (size_t i=0; i<notebook->GetPageCount(); i++)
+    {
+        //Is the page an editor?
+        if (notebook->GetPage(i))
+        {
+            if (notebook->GetPage(i)->IsKindOf(CLASSINFO(BubbleEditor)))
+            {
+                BubbleEditor *currentEditor = (BubbleEditor *)notebook->GetPage(i);
+                if (currentEditor)
+                {
+                    //Is the page the generatedCodeViewer?
+                    if (currentEditor == editCode)
+                        continue;
+
+                    wxString strComponentFilesPath = bubble.getComponentFilesPath();
+                    strComponentFilesPath.Replace("\\", "/");
+                    strComponentFilesPath += wxString("/") + notebook->GetPageText(i);
+
+                    //wxMessageDialog dialog0(this, strComponentFilesPath, wxString("file")); //##Debug.
+                    //dialog0.ShowModal(); //##Debug.
+
+                    currentEditor->SaveFile(strComponentFilesPath);
+                }
+            }
+        }
+    }
 }
 
 
