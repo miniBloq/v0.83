@@ -551,8 +551,8 @@ bool Bubble::addFile(const wxString& fullFileName)
 {
     //##Implementar...
     //##Debe distinguir en base a la extensión si es un archivo para build o es un other.
-    //##Esta función se encarga de que los archivos que ya eran del component, etc., no se agreguen, así como los que tienen diferentes
-    //extensiones y devuelve true si agregó, y false si no agregó.
+    //##Esta función se encarga de que los archivos que ya eran del component, etc., no se agreguen, así como
+    //los que tienen diferentes extensiones y devuelve true si agregó, y false si no agregó.
     return true; //##Test.
 }
 

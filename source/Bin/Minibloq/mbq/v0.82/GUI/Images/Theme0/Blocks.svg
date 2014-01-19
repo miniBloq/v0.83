@@ -44,7 +44,7 @@
      showgrid="false"
      inkscape:zoom="1.84375"
      inkscape:cx="-153.97302"
-     inkscape:cy="-125.9988"
+     inkscape:cy="-117.86321"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -355,4 +355,104 @@
      inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\mbq\v0.82\GUI\Images\Theme0\Blocks.png"
      inkscape:export-xdpi="90"
      inkscape:export-ydpi="90" />
+  <rect
+     style="fill:none;stroke:none"
+     id="rect2991-9-1-3"
+     width="128"
+     height="128"
+     x="-184.24588"
+     y="203.93221"
+     inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\mbq\v0.82\GUI\Images\Theme0\Blocks.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <g
+     id="g3133"
+     inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\mbq\v0.82\GUI\Images\Theme0\Blocks.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90">
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\mbq\v0.82\GUI\Images\Theme0\Blocks.png"
+       ry="3.9999998"
+       rx="4"
+       y="303.63641"
+       x="-178.94144"
+       height="25.423729"
+       width="61.931999"
+       id="rect2989-1-5-5-7"
+       style="fill:#ff6600;fill-opacity:1;stroke:none" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\mbq\v0.82\GUI\Images\Theme0\Blocks.png"
+       ry="4"
+       rx="4"
+       y="231.79825"
+       x="-152.61841"
+       height="20"
+       width="50"
+       id="rect2989-7-9-4-2"
+       style="fill:#00aad4;fill-opacity:1;stroke:none" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\mbq\v0.82\GUI\Images\Theme0\Blocks.png"
+       ry="4"
+       rx="3.9999998"
+       y="231.79825"
+       x="-101.61084"
+       height="20"
+       width="40.060528"
+       id="rect2989-4-0-4-2-6"
+       style="fill:#00d400;fill-opacity:1;stroke:none" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\mbq\v0.82\GUI\Images\Theme0\Blocks.png"
+       ry="4"
+       rx="4"
+       y="252.33842"
+       x="-152.61841"
+       height="29.587889"
+       width="50"
+       id="rect2989-7-4-7-0-0"
+       style="fill:#3737c8;fill-opacity:1;stroke:none" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\mbq\v0.82\GUI\Images\Theme0\Blocks.png"
+       ry="4"
+       rx="4"
+       y="282.60751"
+       x="-152.61841"
+       height="20"
+       width="50"
+       id="rect2989-7-8-6-9-1"
+       style="fill:#ffff00;fill-opacity:1;stroke:none" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\mbq\v0.82\GUI\Images\Theme0\Blocks.png"
+       ry="4"
+       rx="4"
+       y="252.33842"
+       x="-101.61084"
+       height="29.587999"
+       width="21.61985"
+       id="rect2989-4-0-9-8-3-7-6"
+       style="fill:#ff6600;fill-opacity:1;stroke:none" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\mbq\v0.82\GUI\Images\Theme0\Blocks.png"
+       ry="3.9999998"
+       rx="4"
+       y="206.80426"
+       x="-178.94144"
+       height="24.338984"
+       width="61.932205"
+       id="rect2989-1-5-6-5"
+       style="fill:#ff6600;fill-opacity:1;stroke:none" />
+  </g>
 </svg>

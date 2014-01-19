@@ -109,7 +109,7 @@ class MainFrame : public wxFrame, public IBubbleNotifier
             ID_MenuFileOpen,
             ID_MenuFileExamples,
             ID_MenuFileSave,
-            ID_MenuFileSaveAs,
+            //ID_MenuFileSaveAs,
             ID_MenuFileSaveAll,
             ID_MenuFileClose,
             ID_MenuFileCloseAll,
@@ -239,7 +239,7 @@ class MainFrame : public wxFrame, public IBubbleNotifier
         wxMenuItem *menuFileAdd;
         wxMenuItem *menuFileExamples;
         wxMenuItem *menuFileSave;
-        wxMenuItem *menuFileSaveAs;
+        //wxMenuItem *menuFileSaveAs;
         wxMenuItem *menuFileExit;
         wxMenuItem *menuFileSep0;
         wxMenuItem *menuFileSep1;
@@ -371,7 +371,7 @@ class MainFrame : public wxFrame, public IBubbleNotifier
         void onMenuFileOpen(wxCommandEvent& evt);
         void onMenuFileExamples(wxCommandEvent& evt);
         void onMenuFileSave(wxCommandEvent& evt);
-        void onMenuFileSaveAs(wxCommandEvent& evt);
+        //void onMenuFileSaveAs(wxCommandEvent& evt);
         void onMenuFileSaveAll(wxCommandEvent& evt);
         void onMenuFileClose(wxCommandEvent& evt);
         void onMenuFileCloseAll(wxCommandEvent& evt);

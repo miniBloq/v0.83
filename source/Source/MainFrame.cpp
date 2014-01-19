@@ -31,7 +31,7 @@ BEGIN_EVENT_TABLE(MainFrame, wxFrame)
     EVT_MENU(ID_MenuFileAdd, MainFrame::onMenuFileAdd)
     EVT_MENU(ID_MenuFileExamples, MainFrame::onMenuFileExamples)
     EVT_MENU(ID_MenuFileSave, MainFrame::onMenuFileSave)
-    EVT_MENU(ID_MenuFileSaveAs, MainFrame::onMenuFileSaveAs)
+    //EVT_MENU(ID_MenuFileSaveAs, MainFrame::onMenuFileSaveAs)
     EVT_MENU(ID_MenuFileSaveAll, MainFrame::onMenuFileSaveAll)
     EVT_MENU(ID_MenuFileClose, MainFrame::onMenuFileClose)
     EVT_MENU(ID_MenuFileCloseAll, MainFrame::onMenuFileCloseAll)
@@ -188,7 +188,7 @@ MainFrame::MainFrame(   wxWindow* parent,
                                         menuFileAdd(NULL),
                                         menuFileExamples(NULL),
                                         menuFileSave(NULL),
-                                        menuFileSaveAs(NULL),
+                                        //menuFileSaveAs(NULL),
                                         menuFileExit(NULL),
                                         menuFileSep0(NULL),
                                         menuFileSep1(NULL),
@@ -1260,7 +1260,7 @@ void MainFrame::createMenuFile()
         popFile->Append(menuFileExamples);
     }
 
-    menuFileSave = new wxMenuItem(popFile, ID_MenuFileSave, _("Save\tCtrl+S"));
+    menuFileSave = new wxMenuItem(popFile, ID_MenuFileSave, _("Save all\tCtrl+S"));
     //##These lines may be put together in a new function, passing only the bitmap and the sizes as params:
     if (menuFileSave)
     {
@@ -1269,18 +1269,15 @@ void MainFrame::createMenuFile()
         popFile->Append(menuFileSave);
     }
 
-    menuFileSaveAs = new wxMenuItem(popFile, ID_MenuFileSaveAs, _("Save as"));
-    if (menuFileSaveAs)
-    {
-        img.LoadFile(bubble.getThemePath() + wxString("/SaveAs.png")); //##Change this image...
-        menuFileSaveAs->SetBitmap(wxBitmap(img.Scale(iconW, iconH)));
-        popFile->Append(menuFileSaveAs);
-    }
+//    menuFileSaveAs = new wxMenuItem(popFile, ID_MenuFileSaveAs, _("Save as"));
+//    if (menuFileSaveAs)
+//    {
+//        img.LoadFile(bubble.getThemePath() + wxString("/SaveAs.png")); //##Change this image...
+//        menuFileSaveAs->SetBitmap(wxBitmap(img.Scale(iconW, iconH)));
+//        popFile->Append(menuFileSaveAs);
+//    }
 
 #if UNDER_DEVELOPMENT
-        menuFileSaveAll = new wxMenuItem(popFile, ID_MenuFileSaveAll, _("Save all\tCtrl+Shift+S"));
-        if (menuFileSaveAll)
-            popFile->Append(menuFileSaveAll);
         //Separator:
         menuItem = new wxMenuItem(popFile);
         popFile->Append(menuItem);
@@ -1786,9 +1783,7 @@ void MainFrame::createQuickToolbar()
 
         img.LoadFile(bubble.getThemePath() + wxString("/SaveAll.png"));
         bmp = wxBitmap(img.Scale(iconW, iconH));
-        //##En cuanto esté la funcionalidad SaveAll activada, éste botón será saveAll, no sólo Save, como ahora:
-        //toolQuick->AddTool(ID_QuickFileSaveAll, wxString(""), bmp, _("Save all"));
-        toolQuick->AddTool(ID_QuickFileSaveAll, wxString(""), bmp, _("Save")); //##
+        toolQuick->AddTool(ID_QuickFileSaveAll, wxString(""), bmp, _("Save all"));
 
     #if UNDER_DEVELOPMENT
         img.LoadFile(bubble.getThemePath() + wxString("/Create.png"));
@@ -1965,11 +1960,11 @@ void MainFrame::updateMenuFileGUI()
         popFile->Destroy(menuFileSave);
         menuFileSave = NULL;
     }
-    if (menuFileSaveAs)
-    {
-        popFile->Destroy(menuFileSaveAs);
-        menuFileSaveAs = NULL;
-    }
+//    if (menuFileSaveAs)
+//    {
+//        popFile->Destroy(menuFileSaveAs);
+//        menuFileSaveAs = NULL;
+//    }
     if (menuFileExit)
     {
         popFile->Destroy(menuFileExit);
@@ -2206,7 +2201,7 @@ void MainFrame::updateQuickToolbarGUI()
         return;
     toolQuick->SetToolShortHelp(ID_QuickFileOpen, _("Open"));
     toolQuick->SetToolShortHelp(ID_QuickFileAdd, _("Add"));
-    toolQuick->SetToolShortHelp(ID_QuickFileSaveAll, _("Save"));
+    toolQuick->SetToolShortHelp(ID_QuickFileSaveAll, _("Save all"));
 
 #if UNDER_DEVELOPMENT
     toolQuick->SetToolShortHelp(ID_QuickFileCreate, _("Create block"));
@@ -3182,7 +3177,7 @@ void MainFrame::onMenuFileCreateBlock(wxCommandEvent& evt)
 void MainFrame::onMenuFileAdd(wxCommandEvent& evt)
 {
     //##Descablear ya las extensiones listadas en la primer parte de esto, y levantarlas del archivo .board:
-    wxString wildcards = _("C++ files (*.cpp;*.h)|*.cpp;*.h|Block files (*.mbq)|*.mbq|All files (*.*)|*.*");
+    wxString wildcards = _("C++ files (*.cpp;*.h)|*.cpp;*.h|Block files (*.mbqb)|*.mbq");
 
     //##Falta obtener el último dir que el usuario quiere usar, y por defecto el work, etc..:
     wxFileDialog dialog(this, _("Add a block or code file to the current component"),
@@ -3494,7 +3489,6 @@ bool MainFrame::openFileComponent(const wxString &defaultDir)
 
 bool MainFrame::saveComponentAs()
 {
-    //##No quiero el diálogo de tamaño reducido, quiero el completo:
     if (notebook)
     {
         wxString tempName = notebook->GetPageText(notebook->GetPageIndex(bubble.getCurrentCanvas()));
@@ -3555,29 +3549,29 @@ void MainFrame::onMenuFileSave(wxCommandEvent& evt)
 }
 
 
-void MainFrame::onMenuFileSaveAs(wxCommandEvent& evt)
-{
-    saveComponentAs();
-}
+//void MainFrame::onMenuFileSaveAs(wxCommandEvent& evt)
+//{
+//    saveComponentAs();
+//}
 
 
 void MainFrame::onMenuFileSaveAll(wxCommandEvent& evt)
 {
-    //##Por ahora, en que la funcionalidad saveAll no está implementada, el botón SaveAll de la barra
-    //rápida de herramientas, es equivalente a Save. En el futuro, será SaveAll:
     onMenuFileSave(evt);
+
+
 }
 
 
 void MainFrame::onMenuFileClose(wxCommandEvent& evt)
 {
-    //##Implementar...
+    //##Not by now...
 }
 
 
 void MainFrame::onMenuFileCloseAll(wxCommandEvent& evt)
 {
-    //##Implementar...
+    //##Not by now...
 }
 
 
