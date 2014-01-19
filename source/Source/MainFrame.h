@@ -91,7 +91,6 @@ class MainFrame : public wxFrame, public IBubbleNotifier
             ID_BlockEditorProperties,
             ID_TextEditorProperties,
 
-            //##Estos son definitivos:
             ID_QuickFileCreate,
             ID_QuickFileAdd,
             ID_QuickFileOpen,

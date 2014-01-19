@@ -80,8 +80,8 @@ BEGIN_EVENT_TABLE(MainFrame, wxFrame)
     //esta llamada a despliegue de menú aquí comentada:
     //popUpMenu(evt, popFileCreate):
     EVT_MENU(ID_QuickFileCreate, MainFrame::onMenuFileCreateBlock)
-    EVT_MENU(ID_QuickFileAdd, MainFrame::onMenuFileAdd)
     EVT_MENU(ID_QuickFileOpen, MainFrame::onMenuFileOpen)
+    EVT_MENU(ID_QuickFileAdd, MainFrame::onMenuFileAdd)
     EVT_MENU(ID_QuickFileSaveAll, MainFrame::onMenuFileSaveAll)
     EVT_MENU(ID_QuickComponentRun, MainFrame::onMenuComponentRun)
     EVT_MENU(ID_QuickComponentDeploy, MainFrame::onMenuComponentDeploy)
@@ -1779,8 +1779,10 @@ void MainFrame::createQuickToolbar()
         //##En cuanto esté la funcionalidad SaveAll activada, éste botón será saveAll, no sólo Save, como ahora:
         //toolQuick->AddTool(ID_QuickFileSaveAll, wxString(""), bmp, _("Save all"));
         toolQuick->AddTool(ID_QuickFileOpen, wxString(""), bmp, _("Open")); //##
-//    #endif
 
+        img.LoadFile(bubble.getThemePath() + wxString("/Add.png"));
+        bmp = wxBitmap(img.Scale(iconW, iconH));
+        toolQuick->AddTool(ID_QuickFileAdd, wxString(""), bmp, _("Add"));
 
         img.LoadFile(bubble.getThemePath() + wxString("/SaveAll.png"));
         bmp = wxBitmap(img.Scale(iconW, iconH));
@@ -1797,15 +1799,10 @@ void MainFrame::createQuickToolbar()
         //toolQuick->AddSeparator();
     #endif
 
-    //DON'T DELETE THIS: The "Add" button will be present in the feature (only if the user configures it), but the
-    //image in the current theme is a good one:
-    //    img.LoadFile(imagesPath + wxString("/Add.png"));
-    //    bmp = wxBitmap(img.Scale(iconW, iconH));
-    //    //toolQuick->AddTool(ID_QuickFileAdd, wxString(""), bmp, _("Add"));
-
         img.LoadFile(bubble.getThemePath() + wxString("/Run.png"));
         bmp = wxBitmap(img.Scale(iconW, iconH));
         toolQuick->AddTool(ID_QuickComponentRun, wxString(""), bmp, _("Run"));
+
     #if UNDER_DEVELOPMENT
         img.LoadFile(bubble.getThemePath() + wxString("/Deploy.png"));
         bmp = wxBitmap(img.Scale(iconW, iconH));
@@ -1818,6 +1815,10 @@ void MainFrame::createQuickToolbar()
     //    bmp = wxBitmap(img.Scale(iconW, iconH));
     //    //toolQuick->AddTool(ID_QuickComponentStop, wxString(""), bmp, _("Stop"));
     //    toolQuick->AddSeparator();
+
+        img.LoadFile(bubble.getThemePath() + wxString("/Blocks.png"));
+        bmp = wxBitmap(img.Scale(iconW, iconH));
+        toolQuick->AddTool(ID_MenuViewComponentBlocks, wxString(""), bmp, _("Component's blocks"));
 
         img.LoadFile(bubble.getThemePath() + wxString("/GeneratedCode.png"));
         bmp = wxBitmap(img.Scale(iconW, iconH));
@@ -2204,14 +2205,20 @@ void MainFrame::updateQuickToolbarGUI()
     if (toolQuick == NULL)
         return;
     toolQuick->SetToolShortHelp(ID_QuickFileOpen, _("Open"));
+    toolQuick->SetToolShortHelp(ID_QuickFileAdd, _("Add"));
     toolQuick->SetToolShortHelp(ID_QuickFileSaveAll, _("Save"));
+
 #if UNDER_DEVELOPMENT
     toolQuick->SetToolShortHelp(ID_QuickFileCreate, _("Create block"));
 #endif
+
     toolQuick->SetToolShortHelp(ID_QuickComponentRun, _("Run"));
+
 #if UNDER_DEVELOPMENT
     toolQuick->SetToolShortHelp(ID_QuickComponentDeploy, _("Deploy"));
 #endif
+
+    toolQuick->SetToolShortHelp(ID_MenuViewComponentBlocks, _("Component's blocks"));
     toolQuick->SetToolShortHelp(ID_MenuViewGeneratedCode, _("Generated code"));
     toolQuick->SetToolShortHelp(ID_MenuViewHardware, _("Hardware"));
     toolQuick->SetToolShortHelp(ID_QuickViewTerminal, _("Terminal"));
