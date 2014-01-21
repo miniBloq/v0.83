@@ -557,6 +557,13 @@ bool Bubble::addFile(const wxString& fullFileName)
 }
 
 
+bool Bubble::removeFile(const wxString& fullFileName)
+{
+    //##Implementar...
+    return true;
+}
+
+
 int Bubble::loadBoardRelations()
 {
     int result = bubbleXML.loadBoardRelations();

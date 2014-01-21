@@ -892,6 +892,7 @@ class Bubble : public IBubbleFileIO
         inline const wxString &getOutputPath() const { return outputPath; }
 
         bool addFile(const wxString& fullFileName);
+        bool removeFile(const wxString& fullFileName);
         inline const wxArrayString &getFilesToBuild() const { return addedFilesToBuild; }
         inline const wxArrayString &getAddedFilesOther() const { return addedFilesOther; }
 

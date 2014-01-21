@@ -4916,14 +4916,40 @@ void MainFrame::onNotebookPageClose(wxAuiNotebookEvent& evt)
     //##Futuro: Cambiar el CLASSINFO por BubbleEditor:
     else if (ctrl->GetPage(evt.GetSelection())->IsKindOf(CLASSINFO(BubbleEditor)))
     {
-        menuViewGeneratedCode->Check(false);
-        if (editCode)
+        BubbleEditor *currentEditor = (BubbleEditor *)ctrl->GetPage(evt.GetSelection());
+        if (currentEditor)
         {
-            if (notebook)
+            //Is the page the generatedCodeViewer?
+            if (currentEditor == editCode)
             {
-                if (notebook->GetPageIndex(editCode) != wxNOT_FOUND )
+                menuViewGeneratedCode->Check(false);
+                if (editCode)
                 {
-                    setEditCodeZoom(editCode->GetZoom());
+                    if (notebook)
+                    {
+                        if (notebook->GetPageIndex(editCode) != wxNOT_FOUND)
+                        {
+                            setEditCodeZoom(editCode->GetZoom());
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if (notebook)
+                {
+                    wxString strComponentFilesPath = bubble.getComponentFilesPath();
+                    strComponentFilesPath.Replace("\\", "/");
+                    int i = notebook->GetPageIndex(currentEditor);
+                    if (i != wxNOT_FOUND)
+                    {
+                        strComponentFilesPath += wxString("/") + notebook->GetPageText(i);
+
+                        //wxMessageDialog dialog0(this, strComponentFilesPath, _("fileName")); //##Debug.
+                        //dialog0.ShowModal(); //##Debug.
+
+                        bubble.removeFile(strComponentFilesPath);
+                    }
                 }
             }
         }
