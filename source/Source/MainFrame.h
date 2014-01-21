@@ -314,6 +314,9 @@ class MainFrame : public wxFrame, public IBubbleNotifier
         void onNotebookPageChanged(wxAuiNotebookEvent& evt);
         //void OnNotebookFlag(wxCommandEvent& evt);
 
+        void saveAllEditorFiles();
+        void askToSaveEditorContent(BubbleEditor *editor);
+
         //##void onTabAlignment(wxCommandEvent &evt);
         //##void onGradient(wxCommandEvent& evt);
         //##void onManagerFlag(wxCommandEvent& evt);

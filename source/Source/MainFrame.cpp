@@ -2933,6 +2933,23 @@ void MainFrame::onClose(wxCloseEvent& event)
         }
     }
 
+    //Save unsaved files in the text editors, but asking to the user:
+    if (notebook)
+    {
+        for (size_t i=0; i<notebook->GetPageCount(); i++)
+        {
+            //Is the page an editor?
+            if (notebook->GetPage(i))
+            {
+                if (notebook->GetPage(i)->IsKindOf(CLASSINFO(BubbleEditor)))
+                {
+                    BubbleEditor *currentEditor = (BubbleEditor *)notebook->GetPage(i);
+                    askToSaveEditorContent(currentEditor);
+                }
+            }
+        }
+    }
+
     writeConfig();
 
     //Closes the application (this is necessary if there is defined an OnClose event, like here):
@@ -3564,6 +3581,15 @@ void MainFrame::onMenuFileSaveAll(wxCommandEvent& evt)
     if (notebook == NULL)
         return;
 
+    saveAllEditorFiles();
+}
+
+
+void MainFrame::saveAllEditorFiles()
+{
+    if (notebook == NULL)
+        return;
+
     for (size_t i=0; i<notebook->GetPageCount(); i++)
     {
         //Is the page an editor?
@@ -3571,27 +3597,26 @@ void MainFrame::onMenuFileSaveAll(wxCommandEvent& evt)
         {
             if (notebook->GetPage(i)->IsKindOf(CLASSINFO(BubbleEditor)))
             {
+                wxString strComponentFilesPath = bubble.getComponentFilesPath();
+                strComponentFilesPath.Replace("\\", "/");
+                strComponentFilesPath += wxString("/") + notebook->GetPageText(i);
+
                 BubbleEditor *currentEditor = (BubbleEditor *)notebook->GetPage(i);
                 if (currentEditor)
                 {
                     //Is the page the generatedCodeViewer?
-                    if (currentEditor == editCode)
-                        continue;
+                    if (currentEditor != editCode)
+                    {
+                        //wxMessageDialog dialog0(this, strComponentFilesPath, wxString("file")); //##Debug.
+                        //dialog0.ShowModal(); //##Debug.
 
-                    wxString strComponentFilesPath = bubble.getComponentFilesPath();
-                    strComponentFilesPath.Replace("\\", "/");
-                    strComponentFilesPath += wxString("/") + notebook->GetPageText(i);
-
-                    //wxMessageDialog dialog0(this, strComponentFilesPath, wxString("file")); //##Debug.
-                    //dialog0.ShowModal(); //##Debug.
-
-                    currentEditor->SaveFile(strComponentFilesPath);
+                        currentEditor->SaveFile(strComponentFilesPath);
+                    }
                 }
             }
         }
     }
 }
-
 
 void MainFrame::onMenuFileClose(wxCommandEvent& evt)
 {
@@ -3963,6 +3988,7 @@ void MainFrame::onMenuComponentRun(wxCommandEvent& evt)
     if (commManager)
         commManager->close();
 
+    saveAllEditorFiles();
     bubble.run();
 }
 
@@ -3972,6 +3998,8 @@ void MainFrame::onMenuComponentBuild(wxCommandEvent& evt)
     //This is to avoid GUI problems (like flickering, etc.) whith things such as the serial port combobox:
     if (bubble.getCurrentCanvas())
         bubble.getCurrentCanvas()->SetFocusIgnoringChildren();
+
+    saveAllEditorFiles();
     bubble.build();
 }
 
@@ -4936,157 +4964,64 @@ void MainFrame::onNotebookPageClose(wxAuiNotebookEvent& evt)
             }
             else
             {
-                if (notebook)
+                askToSaveEditorContent(currentEditor);
+            }
+        }
+    }
+//    else    //##En este else entran los terminales, PERO ESTO, SI SE MUESTRA EL BOTÓN DE CIERRE EN LOS TABS
+//            //DEL TERMINAL SINGLE O DEL SPLIT, ¡DA ERROR!:
+////##        if (   ctrl->GetPage(evt.GetSelection())->IsKindOf(CLASSINFO(SingleTerminal)) ||
+////                ctrl->GetPage(evt.GetSelection())->IsKindOf(CLASSINFO(SplitTerminal))
+////            )
+//    {
+////        wxMessageDialog dialog0(this, imagesPath, _("toolsPath")); //Debug...
+////        dialog0.ShowModal();
+//
+//        evt.Veto();
+//    }
+}
+
+
+void MainFrame::askToSaveEditorContent(BubbleEditor *editor)
+{
+    if (editor == NULL)
+        return;
+    if (notebook == NULL)
+        return;
+
+    wxString strComponentFilesPath = bubble.getComponentFilesPath();
+    strComponentFilesPath.Replace("\\", "/");
+    int i = notebook->GetPageIndex(editor);
+    if (i != wxNOT_FOUND)
+    {
+        strComponentFilesPath += wxString("/") + notebook->GetPageText(i);
+
+        //wxMessageDialog dialog0(this, strComponentFilesPath, _("fileName")); //##Debug.
+        //dialog0.ShowModal(); //##Debug.
+
+        BubbleEditor *currentEditor = (BubbleEditor *)notebook->GetPage(i);
+        if (currentEditor)
+        {
+            if (currentEditor != editCode)
+            {
+                if (currentEditor->GetModify())
                 {
-                    wxString strComponentFilesPath = bubble.getComponentFilesPath();
-                    strComponentFilesPath.Replace("\\", "/");
-                    int i = notebook->GetPageIndex(currentEditor);
-                    if (i != wxNOT_FOUND)
+                    wxMessageDialog question(   this,
+                                                _("The file ") + notebook->GetPageText(i) + _(" was not saved. Do you want to save it?"),
+                                                _("Question"),
+                                                wxICON_QUESTION | wxYES_NO | wxYES_DEFAULT
+                                            );
+                    int answer = question.ShowModal();
+                    if (answer == wxID_YES)
                     {
-                        strComponentFilesPath += wxString("/") + notebook->GetPageText(i);
-
-                        //wxMessageDialog dialog0(this, strComponentFilesPath, _("fileName")); //##Debug.
-                        //dialog0.ShowModal(); //##Debug.
-
-                        bubble.removeFile(strComponentFilesPath);
+                        currentEditor->SaveFile(strComponentFilesPath);
                     }
                 }
             }
         }
+        bubble.removeFile(strComponentFilesPath);
     }
-//    else    //##En este else entran los terminales, PERO ESTO, SI SE MUESTRA EL BOTÓN DE CIERRE EN LOS TABS
-//            //DEL TERMINAL SINGLE O DEL SPLIT, ¡DA ERROR!:
-////##        if (   ctrl->GetPage(evt.GetSelection())->IsKindOf(CLASSINFO(SingleTerminal)) ||
-////                ctrl->GetPage(evt.GetSelection())->IsKindOf(CLASSINFO(SplitTerminal))
-////            )
-//    {
-////        wxMessageDialog dialog0(this, imagesPath, _("toolsPath")); //Debug...
-////        dialog0.ShowModal();
-//
-//        evt.Veto();
-//    }
 }
-#if 0
-//##Evento original:
-void MainFrame::onNotebookPageClose(wxAuiNotebookEvent& evt)
-{
-    //##Esto es lo más raro que ví hasta ahora, me parece que el AUI hace agua por todas partes: Si saco
-    //estas 2 líneas, que por supuesto, ¡NO SE USAN PARA NADA!, el programa ¡se cuelga en el inicio!:
-    //wxAuiNotebook* ctrl = (wxAuiNotebook*)evt.GetEventObject();
-    //ctrl->GetPage(evt.GetSelection())->IsKindOf(CLASSINFO(wxHtmlWindow));
-
-    //ctrl->GetPage(evt.GetSelection())->IsKindOf(CLASSINFO(wxWindow));
-
-    wxAuiNotebook* ctrl = (wxAuiNotebook *)evt.GetEventObject();
-    if (ctrl->GetPage(evt.GetSelection())->IsKindOf(CLASSINFO(BubbleCanvas)))
-    {
-        BubbleCanvas *canvas = (BubbleCanvas *)ctrl->GetPage(evt.GetSelection());
-        if ( !(canvas->isSaved()) ) //##El isSaved que se usa por ahora debería ser el de bubble.
-        {
-            //##Verificar el isSaved:
-            int res = wxMessageBox( _("Are you sure you want to close this page?"), //##
-                                    _("miniBloq"), //##
-                                    wxYES_NO,
-                                    this);
-            if (res != wxYES)
-            {
-                evt.Veto();
-            }
-            else
-            {
-                bubble.deleteCanvas(canvas);
-            }
-        }
-        else
-        {
-            bubble.deleteCanvas(canvas);
-        }
-    }
-    //##Futuro: Cambiar el CLASSINFO por BubbleEditor:
-    else if (ctrl->GetPage(evt.GetSelection())->IsKindOf(CLASSINFO(BubbleEditor)))
-    {
-        menuViewGeneratedCode->Check(false);
-    }
-//    else    //##En este else entran los terminales, PERO ESTO, SI SE MUESTRA EL BOTÓN DE CIERRE EN LOS TABS
-//            //DEL TERMINAL SINGLE O DEL SPLIT, ¡DA ERROR!:
-////##        if (   ctrl->GetPage(evt.GetSelection())->IsKindOf(CLASSINFO(SingleTerminal)) ||
-////                ctrl->GetPage(evt.GetSelection())->IsKindOf(CLASSINFO(SplitTerminal))
-////            )
-//    {
-////        wxMessageDialog dialog0(this, imagesPath, _("toolsPath")); //Debug...
-////        dialog0.ShowModal();
-//
-//        evt.Veto();
-//    }
-}
-#endif
-#if 0
-//##Este tiene bugs:
-void MainFrame::OnNotebookPageClose(wxAuiNotebookEvent& evt)
-{
-    //##Esto es lo más raro que ví hasta ahora, me parece que el AUI hace agua por todas partes: Si saco
-    //estas 2 líneas, que por supuesto, ¡NO SE USAN PARA NADA!, el programa ¡se cuelga en el inicio!:
-    //wxAuiNotebook* ctrl = (wxAuiNotebook*)evt.GetEventObject();
-    //ctrl->GetPage(evt.GetSelection())->IsKindOf(CLASSINFO(wxHtmlWindow));
-
-    //ctrl->GetPage(evt.GetSelection())->IsKindOf(CLASSINFO(wxWindow));
-
-    wxAuiNotebook* ctrl = (wxAuiNotebook *)evt.GetEventObject();
-    if (ctrl->GetPage(evt.GetSelection())->IsKindOf(CLASSINFO(BubbleCanvas)))
-    {
-        BubbleCanvas *canvas = (BubbleCanvas *)ctrl->GetPage(evt.GetSelection());
-        if ( canvas->isSaved() )
-        {
-            bubble.deleteCanvas(canvas);
-        }
-        else
-        {
-///////////
-            //##Este código es el mismo que en CreateBlock y en OpenFile, por lo que debe ser unificado, en lo posible:
-            if (bubble.getCurrentCanvas())
-            {
-                    if (ctrl)
-                    {
-                        wxString tempName = ctrl->GetPageText(ctrl->GetPageIndex(bubble.getCurrentCanvas()));
-                        wxMessageDialog question(   this,
-                                                    _("The component ") + tempName + _(" was not saved. Do You want to save it?"),
-                                                    _("Question"),
-                                                    wxICON_QUESTION | wxYES_NO | wxCANCEL | wxYES_DEFAULT
-                                                );
-                        int answer = question.ShowModal();
-                        if (answer == wxID_CANCEL)
-                        {
-                            evt.Veto();
-                        }
-                        else if (answer == wxID_YES)
-                        {
-                            saveComponent();
-                            bubble.deleteCanvas(canvas);
-                        }
-                        bubble.deleteCanvas(canvas);
-                    }
-            }
-///////////
-        }
-    }
-    //##Futuro: Cambiar el CLASSINFO por BubbleEditor:
-    else if (ctrl->GetPage(evt.GetSelection())->IsKindOf(CLASSINFO(BubbleEditor)))
-    {
-        menuViewGeneratedCode->Check(false);
-    }
-//    else    //##En este else entran los terminales, PERO ESTO, SI SE MUESTRA EL BOTÓN DE CIERRE EN LOS TABS
-//            //DEL TERMINAL SINGLE O DEL SPLIT, ¡DA ERROR!:
-////##        if (   ctrl->GetPage(evt.GetSelection())->IsKindOf(CLASSINFO(SingleTerminal)) ||
-////                ctrl->GetPage(evt.GetSelection())->IsKindOf(CLASSINFO(SplitTerminal))
-////            )
-//    {
-////        wxMessageDialog dialog0(this, imagesPath, _("toolsPath")); //Debug...
-////        dialog0.ShowModal();
-//
-//        evt.Veto();
-//    }
-}
-#endif
 
 
 void MainFrame::onNotebookPageChanged(wxAuiNotebookEvent& evt)
