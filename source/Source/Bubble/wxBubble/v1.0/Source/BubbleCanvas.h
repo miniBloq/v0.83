@@ -575,7 +575,7 @@ class BubbleCanvas : public BubblePanel, public IBubbleBlockNavigator, public Bu
         inline void setFocused(const bool value) { focused = value; }
 
         inline bool isSaved() const { return saved; }
-        inline void forceSaved(const bool value) { saved = value; }
+        void forceSaved(const bool value);
 
         void setCurrentBlock(BubbleBlock *const block); //##Ver en el futuro si recordará el estado inclusive de la última selección.
         inline BubbleBlock *getCurrentBlock() const { return  currentBlock; }

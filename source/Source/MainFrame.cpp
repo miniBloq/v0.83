@@ -471,6 +471,20 @@ MainFrame::MainFrame(   wxWindow* parent,
     readConfig();
     if (getShowCodeAtStart())
         toggleGeneratedCode();
+
+//    if (notebook)
+//    {
+//        if (bubble.getCurrentCanvas())
+//        {
+//            int index = notebook->GetPageIndex(bubble.getCurrentCanvas());
+//            if (index != wxNOT_FOUND)
+//            {
+//                wxBitmap page_bmp = wxArtProvider::GetBitmap(wxART_WARNING, wxART_OTHER, wxSize(16, 16));
+//                notebook->SetPageBitmap(index, page_bmp);
+//            }
+//        }
+//    }
+//    bubble.forceSaved(false);
 }
 
 
@@ -3094,13 +3108,7 @@ void MainFrame::createComponent(bool canCancel)
                 else if (answer == wxID_YES)
                     saveComponent();
 
-
-
-#if defined (WIN32)
-                if (notebook->GetPage(notebook->GetPageIndex(editCode)))
-#else
                 if (notebook->GetPageIndex(editCode) != wxNOT_FOUND )
-#endif
                 {
                     showCode = true;
                     toggleGeneratedCode();
@@ -3123,11 +3131,7 @@ void MainFrame::createComponent(bool canCancel)
         {
             if (notebook)
             {
-#if defined (WIN32)
-                if (notebook->GetPage(notebook->GetPageIndex(editCode)))
-#else
                 if (notebook->GetPageIndex(editCode) != wxNOT_FOUND )
-#endif
                 {
                     showCode = true;
                     toggleGeneratedCode();
@@ -3151,12 +3155,7 @@ void MainFrame::createComponent(bool canCancel)
     }
     else
     {
-
-#if defined (WIN32)
-        if (notebook->GetPage(notebook->GetPageIndex(editCode)))
-#else
         if (notebook->GetPageIndex(editCode) != wxNOT_FOUND )
-#endif
         {
             showCode = true;
             toggleGeneratedCode();
@@ -3168,6 +3167,8 @@ void MainFrame::createComponent(bool canCancel)
 
     if (showCode)
         toggleGeneratedCode();
+
+    closeAllEditorFiles();
 
     //##Horrible, super temporal:
     wxFileName aux(tempComponentName);
@@ -3495,6 +3496,8 @@ bool MainFrame::openFileComponent(const wxString &defaultDir)
 //                if (showHardwareManager)
 //                    toggleWindow("Hardware", menuViewHardware);
 //            }
+
+            closeAllEditorFiles();
             return true;
         }
     }
@@ -3547,6 +3550,21 @@ bool MainFrame::saveComponentAs()
                     toggleGeneratedCode();
                     toggleGeneratedCode();
                 }
+
+                if (notebook)
+                {
+                    if (bubble.getCurrentCanvas())
+                    {
+                        int index = notebook->GetPageIndex(bubble.getCurrentCanvas());
+                        if (index != wxNOT_FOUND)
+                        {
+                            wxBitmap page_bmp = wxArtProvider::GetBitmap(wxART_NORMAL_FILE, wxART_OTHER, wxSize(16, 16));
+                            notebook->SetPageBitmap(index, page_bmp);
+                        }
+                    }
+                }
+
+                saveAllEditorFiles();
                 return true;
             }
         }
@@ -3558,9 +3576,26 @@ bool MainFrame::saveComponentAs()
 void MainFrame::saveComponent()
 {
     if (componentAlreadySaved)
+    {
         bubble.saveComponentToFile(bubble.getComponentPath() + wxString("/") + tempComponentName);
+        if (notebook)
+        {
+            if (bubble.getCurrentCanvas())
+            {
+                int index = notebook->GetPageIndex(bubble.getCurrentCanvas());
+                if (index != wxNOT_FOUND)
+                {
+                    wxBitmap page_bmp = wxArtProvider::GetBitmap(wxART_NORMAL_FILE, wxART_OTHER, wxSize(16, 16));
+                    notebook->SetPageBitmap(index, page_bmp);
+                }
+            }
+        }
+        saveAllEditorFiles();
+    }
     else
+    {
         saveComponentAs();
+    }
 }
 
 
@@ -3585,7 +3620,38 @@ void MainFrame::onMenuFileSaveAll(wxCommandEvent& evt)
     if (notebook == NULL)
         return;
 
-    saveAllEditorFiles();
+    //saveAllEditorFiles();
+}
+
+
+void MainFrame::closeAllEditorFiles()
+{
+    if (notebook)
+    {
+        for (size_t i=0; i<notebook->GetPageCount(); i++)
+        {
+
+            wxMessageDialog dialog0(this, wxString("pages: ") << notebook->GetPageCount(), wxString("file")); //##Debug.
+            dialog0.ShowModal(); //##Debug.
+
+            //Is the page an editor?
+            if (notebook->GetPage(i))
+            {
+                if (notebook->GetPage(i)->IsKindOf(CLASSINFO(BubbleEditor)))
+                {
+                    BubbleEditor *currentEditor = (BubbleEditor *)notebook->GetPage(i);
+                    if (currentEditor)
+                    {
+                        if(currentEditor != editCode)
+                        {
+                            notebook->DeletePage(notebook->GetPageIndex(currentEditor));
+                            currentEditor = NULL;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 
@@ -3593,6 +3659,9 @@ void MainFrame::saveAllEditorFiles()
 {
     if (notebook == NULL)
         return;
+
+//    wxMessageDialog dialog0(this, wxString("pages: ") << notebook->GetPageCount(), wxString("file")); //##Debug.
+//    dialog0.ShowModal(); //##Debug.
 
     for (size_t i=0; i<notebook->GetPageCount(); i++)
     {
@@ -3609,7 +3678,7 @@ void MainFrame::saveAllEditorFiles()
                 if (currentEditor)
                 {
                     //Is the page the generatedCodeViewer?
-                    if (currentEditor != editCode)
+                    //if (currentEditor != editCode)
                     {
                         //wxMessageDialog dialog0(this, strComponentFilesPath, wxString("file")); //##Debug.
                         //dialog0.ShowModal(); //##Debug.
@@ -4463,6 +4532,8 @@ void MainFrame::toggleComponentBlocks()
             else
             {
                 wxBitmap page_bmp = wxArtProvider::GetBitmap(wxART_NORMAL_FILE, wxART_OTHER, wxSize(16, 16));
+                if (!bubble.isSaved())
+                    page_bmp = wxArtProvider::GetBitmap(wxART_WARNING, wxART_OTHER, wxSize(16, 16));
                 notebook->AddPage(  bubble.getCurrentCanvas(),
                                     //_("New-1.mbqc"),
                                     tempComponentName,
@@ -4931,8 +5002,12 @@ unsigned int MainFrame::getProgressPosition() const
 
 void MainFrame::textChanged(BubbleEditor *source)
 {
+    if (source == NULL)
+        return;
+
     if (notebook)
     {
+        //##Future simple optimization: this could be done without the for, just using notebook->GetPage(pointer):
         for (size_t i=0; i<notebook->GetPageCount(); i++)
         {
             BubbleEditor *currentEditor = (BubbleEditor *)notebook->GetPage(i);
@@ -4953,6 +5028,23 @@ void MainFrame::textChanged(BubbleEditor *source)
                     }
                 }
             }
+        }
+    }
+}
+
+
+void MainFrame::canvasChanged(BubbleCanvas *source)
+{
+    if (source == NULL)
+        return;
+
+    if (notebook)
+    {
+        int index = notebook->GetPageIndex(source);
+        if (index != wxNOT_FOUND)
+        {
+            wxBitmap page_bmp = wxArtProvider::GetBitmap(wxART_WARNING, wxART_OTHER, wxSize(16, 16));
+            notebook->SetPageBitmap(index, page_bmp);
         }
     }
 }

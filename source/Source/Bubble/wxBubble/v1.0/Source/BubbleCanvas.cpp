@@ -1767,6 +1767,15 @@ void BubbleCanvas::zoomParams(BubbleBlock *block)
 }
 
 
+void BubbleCanvas:: forceSaved(const bool value)
+{
+    saved = value;
+
+    if (bubble->getNotifier())
+        bubble->getNotifier()->canvasChanged(this);
+}
+
+
 void BubbleCanvas::setCurrentBlock(BubbleBlock *block)
 {
 

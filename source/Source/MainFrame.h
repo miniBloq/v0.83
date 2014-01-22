@@ -314,6 +314,7 @@ class MainFrame : public wxFrame, public IBubbleNotifier
         void onNotebookPageChanged(wxAuiNotebookEvent& evt);
         //void OnNotebookFlag(wxCommandEvent& evt);
 
+        void closeAllEditorFiles();
         void saveAllEditorFiles();
         void askToSaveEditorContent(BubbleEditor *editor);
 
@@ -478,6 +479,7 @@ class MainFrame : public wxFrame, public IBubbleNotifier
         unsigned int getProgressPosition() const;
 
         void textChanged(BubbleEditor *source);
+        void canvasChanged(BubbleCanvas *source);
 
         inline void setEditCodeZoom(int value) { editCodeZoom = value; }
         inline int getEditCodeZoom() const { return editCodeZoom; }

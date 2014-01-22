@@ -89,6 +89,7 @@ class IBubbleNotifier
         virtual unsigned int getProgressPosition() const = 0;
 
         virtual void textChanged(BubbleEditor *source) = 0;
+        virtual void canvasChanged(BubbleCanvas *source) = 0;
 };
 
 
