@@ -901,8 +901,8 @@ class Bubble : public IBubbleFileIO
         bool removeFile(const wxString& fullFileName);
         BubbleEditor *getFileEditor(const wxString& fullFileName);
         bool isFileAdded(const wxString& fullFileName) const;
+        inline FileEditorHash *getFileEditorHash() { return &fileEditorHash; }
         const wxArrayString &getFilesFullNames() const;
-
 
         //Communications:
         //##In the future there will be two port names: bootPortName and commPortName:
