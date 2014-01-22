@@ -572,8 +572,7 @@ bool Bubble::addFile(const wxString& fullFileName, BubbleEditor *const editor)
 
 bool Bubble::removeFile(const wxString& fullFileName)
 {
-    //##Implementar...
-    return true;
+    return fileEditorHash.erase(fullFileName) > 0;
 }
 
 

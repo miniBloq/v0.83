@@ -3297,10 +3297,10 @@ void MainFrame::onMenuFileAdd(wxCommandEvent& evt)
                 BubbleEditor *newEditor = new BubbleEditor(this, &bubble, wxNewId());
                 if (newEditor)
                 {
-                    if (bubble.addFile(filePath, newEditor))
+                    if (bubble.addFile(strComponentFilesPath + "/" + strFileName, newEditor))
                     {
                         //If the file was added, open it, creating an new editor:
-                        createCodeEditor(filePath, newEditor); //Passes the full fileName.
+                        createCodeEditor(strComponentFilesPath + "/" + strFileName, newEditor); //Passes the full fileName.
                     }
                     else
                     {
@@ -3653,6 +3653,8 @@ void MainFrame::closeAllEditorFiles()
                 int index = notebook->GetPageIndex(value);
                 if (index != wxNOT_FOUND)
                 {
+                    //##Falta acá preguntar si está grabado y si el usuario quiere grabar!
+
                     //This does not destroy de objetcs. This is not a big problem, since is more secure
                     //and is similar to the policy with blocks (and there are in general less editor files
                     //than blocks!
@@ -3663,33 +3665,6 @@ void MainFrame::closeAllEditorFiles()
         }
         fileEditorHash->clear();
     }
-
-//    //##This code is wrong, delete it in the next release:
-//    if (notebook)
-//    {
-//        for (size_t i=0; i<notebook->GetPageCount(); i++)
-//        {
-//            //wxMessageDialog dialog0(this, wxString("pages: ") << notebook->GetPageCount(), wxString("file")); //##Debug.
-//            //dialog0.ShowModal(); //##Debug.
-//
-//            //Is the page an editor?
-//            if (notebook->GetPage(i))
-//            {
-//                if (notebook->GetPage(i)->IsKindOf(CLASSINFO(BubbleEditor)))
-//                {
-//                    BubbleEditor *currentEditor = (BubbleEditor *)notebook->GetPage(i);
-//                    if (currentEditor)
-//                    {
-//                        if(currentEditor != editCode)
-//                        {
-//                            notebook->DeletePage(notebook->GetPageIndex(currentEditor));
-//                            currentEditor = NULL;
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
 }
 
 
