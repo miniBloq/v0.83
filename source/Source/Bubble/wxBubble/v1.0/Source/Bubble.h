@@ -4,7 +4,7 @@
 #include "IBubbleFileIO.h"
 #include "BubbleCanvas.h"
 #include "BubbleProcess.h"
-#include "BubblePicker.h" //##
+#include "BubblePicker.h"
 #include "BubbleEditor.h"
 
 #include <wx/process.h>
@@ -26,6 +26,9 @@ WX_DECLARE_STRING_HASH_MAP(wxImage, ImagesHash);
 
 //"BlockInfos" are also searched with a hash table:
 WX_DECLARE_STRING_HASH_MAP(BubbleBlockInfo*, BlocksHash);
+
+//Files and pointers to their editor:
+WX_DECLARE_STRING_HASH_MAP(BubbleEditor*, FileEditorHash);
 
 wxColour string2color(const wxString &value);
 
@@ -739,6 +742,8 @@ class Bubble : public IBubbleFileIO
         BubbleActionPicker *actionPicker;
         arrayOfExpressionPickers expressionPickers;
 
+        FileEditorHash fileEditorHash;
+
         BubbleXML bubbleXML;
 
         wxString actionDataType;
@@ -782,8 +787,6 @@ class Bubble : public IBubbleFileIO
         wxString componentPath;
         wxString componentFilesPath;
         wxString outputPath;
-        wxArrayString addedFilesToBuild;
-        wxArrayString addedFilesOther;
 
         bool simplifyCode;
         wxArrayString prevGeneratedCode;
@@ -894,10 +897,12 @@ class Bubble : public IBubbleFileIO
         inline void setOutputPath(const wxString& value) { outputPath = value; }
         inline const wxString &getOutputPath() const { return outputPath; }
 
-        bool addFile(const wxString& fullFileName);
+        bool addFile(const wxString& fullFileName, BubbleEditor *const editor);
         bool removeFile(const wxString& fullFileName);
-        inline const wxArrayString &getFilesToBuild() const { return addedFilesToBuild; }
-        inline const wxArrayString &getAddedFilesOther() const { return addedFilesOther; }
+        BubbleEditor *getFileEditor(const wxString& fullFileName);
+        bool isFileAdded(const wxString& fullFileName) const;
+        const wxArrayString &getFilesFullNames() const;
+
 
         //Communications:
         //##In the future there will be two port names: bootPortName and commPortName:

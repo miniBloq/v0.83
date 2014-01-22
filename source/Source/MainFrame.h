@@ -10,10 +10,9 @@
 #include <wx/wxhtml.h>
 
 #include "Bubble.h"
-//##Ver si alguno se puede ir:
 #include "BubbleEditor.h"
-#include "BubbleVariablesManager.h" //##Ver si hay que sacar cosas del header para hacer los include sólo acá:
-#include "BubbleComponentsManager.h"
+//#include "BubbleVariablesManager.h"
+//#include "BubbleComponentsManager.h"
 #include "Messages.h"
 #include "Terminal.h"
 
@@ -208,9 +207,9 @@ class MainFrame : public wxFrame, public IBubbleNotifier
         wxAuiNotebook *terminal;
 
         BubbleHardwareManager *hardware;
-        BubbleVariablesManager *localVariables;
+        //BubbleVariablesManager *localVariables;
         Messages *messages;
-        BubbleComponentsManager *components;
+        //BubbleComponentsManager *components;
 
         wxAuiToolBarItem *toolZoom;
         wxAuiToolBar *toolQuick;
@@ -354,7 +353,7 @@ class MainFrame : public wxFrame, public IBubbleNotifier
 
         void createNotebook();
         void createHardwareManager();
-        void createLocalVariablesManager();
+        //void createLocalVariablesManager();
         void createTerminal();
         void loadHelpAndResourceCenterFiles();
         void createHelpAndResourceCenter();
@@ -522,7 +521,7 @@ class MainFrame : public wxFrame, public IBubbleNotifier
         void toggleGeneratedCode();
         bool isShowingGeneratedCode();
 
-        void createCodeEditor(const wxString &fullFileName);
+        void createCodeEditor(const wxString &fullFileName, BubbleEditor *editor);
 
         //i8n/i10n:
         bool addLocaleCatalog(const wxString& value);

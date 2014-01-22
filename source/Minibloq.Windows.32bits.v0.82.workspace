@@ -5,5 +5,7 @@
 		<Project filename="Bin/Minibloq/tools/hidUploader/v1.0/_src/win/hid_bootloader_cli.cbp" />
 		<Project filename="Bin/Minibloq/tools/leonardoLoader/v1.0/_src/win/leonardoLoader.cbp" />
 		<Project filename="Minibloq.Windows.32bits.v0.82.cbp" active="1" />
+		<Project filename="../../../../../../../Apps/CodeBlocks-RG.v0.1/sdk/wxWidgets/wxWidgets-2.9.0/samples/stc/stctest.cbp" />
+		<Project filename="../../../../../../../Apps/CodeBlocks-RG.v0.1/sdk/wxWidgets/wxWidgets-2.9.0/samples/aui/auidemo.cbp" />
 	</Workspace>
 </CodeBlocks_workspace_file>

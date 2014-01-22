@@ -114,6 +114,7 @@ Bubble::Bubble(wxLocale& locale) :  parent(NULL),
     //##Falan implementar cosas...?
     saved = true;   //##Ver cómo funciona el tema de la herencia con clases abstractas, si se pueden
                     //inicializar las variables en la lista del constructor de la clase abstracta...
+    fileEditorHash.clear();
 }
 
 
@@ -135,6 +136,8 @@ Bubble::~Bubble()
         actionPicker = NULL; //Not necessary, but for extra security.
     }
     clearExpressionPickers();
+
+    fileEditorHash.clear();
 }
 
 
@@ -547,13 +550,23 @@ wxString Bubble::getOutputObjectsList(const wxString &fileExtension)
 }
 
 
-bool Bubble::addFile(const wxString& fullFileName)
+bool Bubble::addFile(const wxString& fullFileName, BubbleEditor *const editor)
 {
     //##Implementar...
-    //##Debe distinguir en base a la extensión si es un archivo para build o es un other.
+    //##La distición en base a la extensión de si es un archivo para build o es un other se hará en el build.
     //##Esta función se encarga de que los archivos que ya eran del component, etc., no se agreguen, así como
     //los que tienen diferentes extensiones y devuelve true si agregó, y false si no agregó.
-    return true; //##Test.
+    if (editor == NULL)
+        return false;
+
+    if (fileEditorHash.find(fullFileName) == fileEditorHash.end())
+    {
+        //The file were not loaded in the hash table, so it must be loaded and added to the table:
+        fileEditorHash[fullFileName] = editor;
+        return true;
+    }
+    //if the file already exists, returns false:
+    return false;
 }
 
 
@@ -561,6 +574,24 @@ bool Bubble::removeFile(const wxString& fullFileName)
 {
     //##Implementar...
     return true;
+}
+
+
+BubbleEditor *Bubble::getFileEditor(const wxString& fullFileName)
+{
+    return fileEditorHash[fullFileName];
+}
+
+
+bool Bubble::isFileAdded(const wxString& fullFileName) const
+{
+    return fileEditorHash.find(fullFileName) != fileEditorHash.end();
+}
+
+
+const wxArrayString &Bubble::getFilesFullNames() const
+{
+    //##Implementar....
 }
 
 

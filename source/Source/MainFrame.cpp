@@ -157,9 +157,9 @@ MainFrame::MainFrame(   wxWindow* parent,
                                         properties(NULL),
                                         terminal(NULL),
                                         hardware(NULL),
-                                        localVariables(NULL),
+                                        //localVariables(NULL),
                                         messages(NULL),
-                                        components(NULL),
+                                        //components(NULL),
 
                                         toolZoom(NULL),
                                         toolQuick(NULL),
@@ -2358,20 +2358,21 @@ void MainFrame::createHardwareManager()
 }
 
 
-void MainFrame::createLocalVariablesManager()
-{
-    localVariables = new BubbleVariablesManager(this, ID_LocalVariables, wxColour(255, 255, 255));
-    if (localVariables)
-    {
-        auiManager.AddPane( localVariables, wxAuiPaneInfo().
-                            Name(wxString("LocalVariables")).Caption(_("Local variables"))
-                            .Left().Layer(0).Row(0).Position(1)
-                            .CloseButton(true).Hide()
-                            .BestSize(wxSize(400, 450))
-                            .MinSize(wxSize(150, 150))
-                            );
-    }
-}
+//void MainFrame::createLocalVariablesManager()
+//{
+//    localVariables = new BubbleVariablesManager(this, ID_LocalVariables, wxColour(255, 255, 255));
+//    if (localVariables)
+//    {
+//        auiManager.AddPane( localVariables, wxAuiPaneInfo().
+//                            Name(wxString("LocalVariables")).Caption(_("Local variables"))
+//                            .Left().Layer(0).Row(0).Position(1)
+//                            .CloseButton(true).Hide()
+//                            .BestSize(wxSize(400, 450))
+//                            .MinSize(wxSize(150, 150))
+//                            );
+//    }
+//}
+
 
 //##Future: Put this in a class, wich will manage all the HelpAndResourceCenter functions:
 void MainFrame::OnHtmlLinkClicked(wxHtmlLinkEvent &event)
@@ -3244,15 +3245,20 @@ void MainFrame::onMenuFileAdd(wxCommandEvent& evt)
         size_t count = paths.GetCount();
         for (size_t i = 0; i < count; i++)
         {
-            filePath = paths[i];// << fileNames[i];
-            //msg += filePath + "\n\n"; //##Debug.
+            filePath = paths[i];
+
+            //Verify if the file is already in the component's dir, and copy it if not:
+            wxString strFilePathWithoutName = filePath.BeforeLast(wxFileName::GetPathSeparator());
+            wxString strFileName = filePath.AfterLast(wxFileName::GetPathSeparator());
+            strFilePathWithoutName.Replace("\\", "/"); //Works both under Windows and Linux.
+            filePath.Replace("\\", "/");
+
+            //If the file already belongs to the component, process the next file:
+            if (bubble.isFileAdded(filePath))
+                continue;
 
             if (wxFile::Exists(filePath)) //Extra security check.
             {
-                //Verify if the file is already in the component's dir, and copy it if not:
-                wxString strFilePathWithoutName = filePath.BeforeLast(wxFileName::GetPathSeparator());
-                wxString strFileName = filePath.AfterLast(wxFileName::GetPathSeparator());
-                strFilePathWithoutName.Replace("\\", "/"); //Works both under Windows and Linux.
                 if (strComponentFilesPath != strFilePathWithoutName)
                 {
                     //If there is a file with the same name in the component's dir, asks the user to overwrite or not:
@@ -3288,10 +3294,19 @@ void MainFrame::onMenuFileAdd(wxCommandEvent& evt)
 
                 //Add the file to the component's file lists, whitout it's full path, since Bubble only will build files inside
                 //it's ComponentFilesPath:
-                if (bubble.addFile(strFileName))
+                BubbleEditor *newEditor = new BubbleEditor(this, &bubble, wxNewId());
+                if (newEditor)
                 {
-                    //If the file was added, open it, creating an new editor:
-                    createCodeEditor(filePath); //Passes the full fileName.
+                    if (bubble.addFile(filePath, newEditor))
+                    {
+                        //If the file was added, open it, creating an new editor:
+                        createCodeEditor(filePath, newEditor); //Passes the full fileName.
+                    }
+                    else
+                    {
+                        delete newEditor;
+                        newEditor = NULL; //Not necessary.
+                    }
                 }
             }
         }
@@ -3630,9 +3645,8 @@ void MainFrame::closeAllEditorFiles()
     {
         for (size_t i=0; i<notebook->GetPageCount(); i++)
         {
-
-            wxMessageDialog dialog0(this, wxString("pages: ") << notebook->GetPageCount(), wxString("file")); //##Debug.
-            dialog0.ShowModal(); //##Debug.
+            //wxMessageDialog dialog0(this, wxString("pages: ") << notebook->GetPageCount(), wxString("file")); //##Debug.
+            //dialog0.ShowModal(); //##Debug.
 
             //Is the page an editor?
             if (notebook->GetPage(i))
@@ -3663,34 +3677,37 @@ void MainFrame::saveAllEditorFiles()
 //    wxMessageDialog dialog0(this, wxString("pages: ") << notebook->GetPageCount(), wxString("file")); //##Debug.
 //    dialog0.ShowModal(); //##Debug.
 
-    for (size_t i=0; i<notebook->GetPageCount(); i++)
-    {
-        //Is the page an editor?
-        if (notebook->GetPage(i))
-        {
-            if (notebook->GetPage(i)->IsKindOf(CLASSINFO(BubbleEditor)))
-            {
-                wxString strComponentFilesPath = bubble.getComponentFilesPath();
-                strComponentFilesPath.Replace("\\", "/");
-                strComponentFilesPath += wxString("/") + notebook->GetPageText(i);
 
-                BubbleEditor *currentEditor = (BubbleEditor *)notebook->GetPage(i);
-                if (currentEditor)
-                {
-                    //Is the page the generatedCodeViewer?
-                    //if (currentEditor != editCode)
-                    {
-                        //wxMessageDialog dialog0(this, strComponentFilesPath, wxString("file")); //##Debug.
-                        //dialog0.ShowModal(); //##Debug.
 
-                        currentEditor->SaveFile(strComponentFilesPath);
-                        wxBitmap page_bmp = wxArtProvider::GetBitmap(wxART_NORMAL_FILE, wxART_OTHER, wxSize(16, 16));
-                        notebook->SetPageBitmap(i, page_bmp);
-                    }
-                }
-            }
-        }
-    }
+//      //##2014.01.22: Strange bug here
+//    for (size_t i=0; i<notebook->GetPageCount(); i++)
+//    {
+//        //Is the page an editor?
+//        if (notebook->GetPage(i))
+//        {
+//            if (notebook->GetPage(i)->IsKindOf(CLASSINFO(BubbleEditor)))
+//            {
+//                wxString strComponentFilesPath = bubble.getComponentFilesPath();
+//                strComponentFilesPath.Replace("\\", "/");
+//                strComponentFilesPath += wxString("/") + notebook->GetPageText(i);
+//
+//                BubbleEditor *currentEditor = (BubbleEditor *)notebook->GetPage(i);
+//                if (currentEditor)
+//                {
+//                    //Is the page the generatedCodeViewer?
+//                    //if (currentEditor != editCode)
+//                    {
+//                        //wxMessageDialog dialog0(this, strComponentFilesPath, wxString("file")); //##Debug.
+//                        //dialog0.ShowModal(); //##Debug.
+//
+//                        currentEditor->SaveFile(strComponentFilesPath);
+//                        wxBitmap page_bmp = wxArtProvider::GetBitmap(wxART_NORMAL_FILE, wxART_OTHER, wxSize(16, 16));
+//                        notebook->SetPageBitmap(i, page_bmp);
+//                    }
+//                }
+//            }
+//        }
+//    }
 }
 
 void MainFrame::onMenuFileClose(wxCommandEvent& evt)
@@ -4367,22 +4384,17 @@ void MainFrame::setEditorSyntax(BubbleEditor *editor)
 }
 
 
-void MainFrame::createCodeEditor(const wxString &fullFileName)
+void MainFrame::createCodeEditor(const wxString &fullFileName, BubbleEditor *editor)
 {
+    if (editor == NULL)
+        return;
     if (notebook == NULL)
         return;
-
-    BubbleEditor *newEditor = new BubbleEditor(this, &bubble, wxNewId());
-    if (newEditor == NULL)
-        return;
-
     if (bubble.getHardwareManager() == NULL)
         return;
-    if (bubble.getHardwareManager()->getCurrentBoardProperties() == NULL)
-        return;
 
-    setEditorSyntax(newEditor);
-    newEditor->SetZoom(getEditCodeZoom()); //##Zoom management is not ready yet!
+    setEditorSyntax(editor);
+    editor->SetZoom(getEditCodeZoom()); //##Zoom management is not ready yet!
 
     int iconW = 16; //##Unhardcode
     int iconH = 16;
@@ -4390,33 +4402,30 @@ void MainFrame::createCodeEditor(const wxString &fullFileName)
     wxBitmap page_bmp = wxArtProvider::GetBitmap(wxART_NORMAL_FILE, wxART_OTHER, wxSize(iconW, iconH)); //##
     if (bubble.getHardwareManager())
     {
-        if (bubble.getHardwareManager()->getCurrentBoardProperties())
+        if (editCode)
         {
-            if (editCode)
-            {
-                //This is to always add the newEditor next to the generated code window, not to the canvas:
-                notebook->SetSelection(notebook->GetPageIndex(editCode));
-            }
-            if (notebook->AddPage(newEditor, fullFileName.AfterLast(wxFileName::GetPathSeparator()), false, page_bmp))
-            {
-                if (wxFile::Exists(fullFileName))
-                    newEditor->LoadFile(fullFileName);
-                //notebook->Split(notebook->GetPageIndex(newEditor), wxLEFT);
+            //This is to always add the editor next to the generated code window, not to the canvas:
+            notebook->SetSelection(notebook->GetPageIndex(editCode));
+        }
+        if (notebook->AddPage(editor, fullFileName.AfterLast(wxChar('/')), false, page_bmp))
+        {
+            if (wxFile::Exists(fullFileName))
+                editor->LoadFile(fullFileName);
+            //notebook->Split(notebook->GetPageIndex(editor), wxLEFT);
 //                if (bubble.getCurrentCanvas())
 //                    notebook->Split(notebook->GetPageIndex(bubble.getCurrentCanvas()), wxLEFT);
 //                if (editCode)
 //                    notebook->Split(notebook->GetPageIndex(editCode), wxRIGHT);
-                newEditor->Show(true);
+            editor->Show(true);
 
-                if (newEditor != editCode)
-                {
-                    wxBitmap page_bmp = wxArtProvider::GetBitmap(wxART_NORMAL_FILE, wxART_OTHER, wxSize(16, 16));
-                    notebook->SetPageBitmap(notebook->GetPageIndex(newEditor), page_bmp);
-                }
-
-                notebook->SetSelection(notebook->GetPageIndex(newEditor));
-                newEditor->SetFocus();
+            if (editor != editCode)
+            {
+                wxBitmap page_bmp = wxArtProvider::GetBitmap(wxART_NORMAL_FILE, wxART_OTHER, wxSize(16, 16));
+                notebook->SetPageBitmap(notebook->GetPageIndex(editor), page_bmp);
             }
+
+            notebook->SetSelection(notebook->GetPageIndex(editor));
+            editor->SetFocus();
         }
     }
 }
