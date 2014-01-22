@@ -3268,6 +3268,10 @@ void MainFrame::onMenuFileAdd(wxCommandEvent& evt)
                             //Overwrite the file:
                             wxCopyFile(filePath, strComponentFilesPath + "/" + strFileName, true);
                         }
+                        else
+                        {
+                            continue;
+                        }
                     }
                     else
                     {
@@ -3611,6 +3615,8 @@ void MainFrame::saveAllEditorFiles()
                         //dialog0.ShowModal(); //##Debug.
 
                         currentEditor->SaveFile(strComponentFilesPath);
+                        wxBitmap page_bmp = wxArtProvider::GetBitmap(wxART_NORMAL_FILE, wxART_OTHER, wxSize(16, 16));
+                        notebook->SetPageBitmap(i, page_bmp);
                     }
                 }
             }
@@ -4297,7 +4303,7 @@ void MainFrame::createCodeEditor(const wxString &fullFileName)
     if (notebook == NULL)
         return;
 
-    BubbleEditor *newEditor = new BubbleEditor(this, wxNewId());
+    BubbleEditor *newEditor = new BubbleEditor(this, &bubble, wxNewId());
     if (newEditor == NULL)
         return;
 
@@ -4332,6 +4338,13 @@ void MainFrame::createCodeEditor(const wxString &fullFileName)
 //                if (editCode)
 //                    notebook->Split(notebook->GetPageIndex(editCode), wxRIGHT);
                 newEditor->Show(true);
+
+                if (newEditor != editCode)
+                {
+                    wxBitmap page_bmp = wxArtProvider::GetBitmap(wxART_NORMAL_FILE, wxART_OTHER, wxSize(16, 16));
+                    notebook->SetPageBitmap(notebook->GetPageIndex(newEditor), page_bmp);
+                }
+
                 notebook->SetSelection(notebook->GetPageIndex(newEditor));
                 newEditor->SetFocus();
             }
@@ -4353,7 +4366,7 @@ void MainFrame::toggleGeneratedCode()
     {
         //##Does de wxAUI automatically deletes this child when closed by user? It's possible, but have to test
         //well this stuff:
-        editCode = new BubbleEditor(this, wxNewId());
+        editCode = new BubbleEditor(this, &bubble, wxNewId());
         if (editCode == NULL)
             return;
 
@@ -4916,6 +4929,35 @@ unsigned int MainFrame::getProgressPosition() const
 }
 
 
+void MainFrame::textChanged(BubbleEditor *source)
+{
+    if (notebook)
+    {
+        for (size_t i=0; i<notebook->GetPageCount(); i++)
+        {
+            BubbleEditor *currentEditor = (BubbleEditor *)notebook->GetPage(i);
+            if (currentEditor)
+            {
+                if (currentEditor->IsKindOf(CLASSINFO(BubbleEditor)))
+                {
+                    if (currentEditor == source)
+                    {
+                        if (currentEditor != editCode)
+                        {
+                            //if (currentEditor->GetModify())
+                            //{
+                                wxBitmap page_bmp = wxArtProvider::GetBitmap(wxART_WARNING, wxART_OTHER, wxSize(16, 16));
+                                notebook->SetPageBitmap(i, page_bmp);
+                            //}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
 void MainFrame::onNotebookPageClose(wxAuiNotebookEvent& evt)
 {
     //##Por ahora, no se permite cerrar desde la "X" al component:
@@ -4960,6 +5002,7 @@ void MainFrame::onNotebookPageClose(wxAuiNotebookEvent& evt)
                             setEditCodeZoom(editCode->GetZoom());
                         }
                     }
+                    editCode = NULL;
                 }
             }
             else
@@ -5015,6 +5058,8 @@ void MainFrame::askToSaveEditorContent(BubbleEditor *editor)
                     if (answer == wxID_YES)
                     {
                         currentEditor->SaveFile(strComponentFilesPath);
+                        wxBitmap page_bmp = wxArtProvider::GetBitmap(wxART_NORMAL_FILE, wxART_OTHER, wxSize(16, 16));
+                        notebook->SetPageBitmap(i, page_bmp);
                     }
                 }
             }

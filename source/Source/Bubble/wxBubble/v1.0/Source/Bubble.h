@@ -87,6 +87,8 @@ class IBubbleNotifier
         virtual unsigned int getProgressMax() const = 0;
         virtual void setProgressPosition(unsigned int value, bool showWindow, bool showMessages) = 0;
         virtual unsigned int getProgressPosition() const = 0;
+
+        virtual void textChanged(BubbleEditor *source) = 0;
 };
 
 

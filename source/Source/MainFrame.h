@@ -477,6 +477,8 @@ class MainFrame : public wxFrame, public IBubbleNotifier
         void setProgressPosition(unsigned int value, bool showWindow, bool showMessages);
         unsigned int getProgressPosition() const;
 
+        void textChanged(BubbleEditor *source);
+
         inline void setEditCodeZoom(int value) { editCodeZoom = value; }
         inline int getEditCodeZoom() const { return editCodeZoom; }
 
