@@ -719,8 +719,9 @@ class BubbleXML
         bool loadBoardInstancesFromXML(wxXmlNode *node, BubbleCanvasInfo *canvasInfo, BubbleBoardProperties *boardProperties);
         bool loadRelData(const wxString &relFileName, BubbleBoardProperties *boardProperties);
         int loadBoardRelations();
-        bool loadSyntaxFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties, bool onlyBoard);
-        bool loadExamplesFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties, bool onlyBoard);
+        bool loadSyntaxFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties);
+        bool loadExamplesFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties);
+        bool loadFileExtensions(wxXmlNode *node, BubbleBoardProperties *boardProperties);
         bool loadIncludePathsFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties, bool onlyBoard);
         bool loadIncludeFilesFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties, bool onlyBoard);
         bool loadDefinesFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties);

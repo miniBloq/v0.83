@@ -1886,11 +1886,15 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
         }
         else if (tempName == wxString("syntax"))
         {
-            loadSyntaxFromXML(rootChild, boardInfo, true);
+            loadSyntaxFromXML(rootChild, boardInfo);
         }
         else if (tempName == wxString("examples"))
         {
-            loadExamplesFromXML(rootChild, boardInfo, true);
+            loadExamplesFromXML(rootChild, boardInfo);
+        }
+        else if (tempName == wxString("examples"))
+        {
+            loadFileExtensions(rootChild, boardInfo);
         }
         else if (tempName == wxString("includeFiles"))
         {
@@ -2243,7 +2247,7 @@ bool BubbleXML::loadIncludePathsFromXML(wxXmlNode *node, BubbleBoardProperties *
 }
 
 
-bool BubbleXML::loadSyntaxFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties, bool onlyBoard)
+bool BubbleXML::loadSyntaxFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties)
 {
     if (bubble == NULL)
         return false;
@@ -2388,10 +2392,38 @@ bool BubbleXML::loadSyntaxFromXML(wxXmlNode *node, BubbleBoardProperties *boardP
 }
 
 
-bool BubbleXML::loadExamplesFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties, bool onlyBoard)
+bool BubbleXML::loadExamplesFromXML(wxXmlNode *node, BubbleBoardProperties *boardProperties)
 {
-    //
-    //##Implement
+    if (bubble == NULL)
+        return false;
+    if (node == NULL)
+        return false;
+    if (boardProperties == NULL)
+        return false;
+
+    //##Implement.
+
+    return true;
+}
+
+
+bool BubbleXML::loadFileExtensions(wxXmlNode *node, BubbleBoardProperties *boardProperties)
+{
+    if (bubble == NULL)
+        return false;
+    if (node == NULL)
+        return false;
+    if (boardProperties == NULL)
+        return false;
+
+    wxXmlNode *iteratorNode = node->GetChildren();
+    wxString includeStr("");
+    while (iteratorNode)
+    {
+        wxString resultStr("");
+        boardProperties->addFileExtension(iteratorNode->GetName());
+        iteratorNode = iteratorNode->GetNext();
+    }
     return true;
 }
 

@@ -3192,7 +3192,9 @@ void MainFrame::onMenuFileCreateBlock(wxCommandEvent& evt)
 void MainFrame::onMenuFileAdd(wxCommandEvent& evt)
 {
     //##Descablear ya las extensiones listadas en la primer parte de esto, y levantarlas del archivo .board:
-    wxString wildcards = _("C++ files (*.cpp;*.h)|*.cpp;*.h|Block files (*.mbqb)|*.mbq");
+    //wxString wildcards = _("C++ files (*.cpp;*.h)|*.cpp;*.h|Block files (*.mbqb)|*.mbq");
+    //wxString wildcards = _("C++ files (*.cpp;*.h)|*.cpp;*.h");
+    wxString wildcards = _("C++ files (*.cpp;*.h)|*.cpp;*.h");
 
     //##Falta obtener el último dir que el usuario quiere usar, y por defecto el work, etc..:
     wxFileDialog dialog(this, _("Add a block or code file to the current component"),
