@@ -2943,19 +2943,24 @@ void MainFrame::onClose(wxCloseEvent& event)
             }
         }
 
-        FileEditorHash *fileEditorHash = bubble.getFileEditorHash();
-        if (fileEditorHash)
-        {
-            FileEditorHash::iterator it;
-            for (it = fileEditorHash->begin(); it != fileEditorHash->end(); it++)
-            {
-                BubbleEditor *value = it->second;
-                if (value)
-                {
-                    askToSaveEditorContent(value, true);
-                }
-            }
-        }
+//        wxMessageDialog dialog0(this, wxString("0") , wxString("onClose"));
+//        dialog0.ShowModal();
+
+//        FileEditorHash *fileEditorHash = bubble.getFileEditorHash();
+//        if (fileEditorHash)
+//        {
+//            FileEditorHash::iterator it;
+//            for (it = fileEditorHash->begin(); it != fileEditorHash->end(); it++)
+//            {
+//                BubbleEditor *value = it->second;
+//                if (value)
+//                {
+//                    askToSaveEditorContent(value, false);
+//                }
+//            }
+//        }
+
+        closeAllEditorFiles();
     }
 
     writeConfig();
@@ -3432,6 +3437,7 @@ void MainFrame::openExample()
     openFileComponent(folderPath);
 }
 
+
 //##Puede que luego se unifique para grabar blocks y components, pero no por ahora:
 bool MainFrame::openFileComponent(const wxString &defaultDir)
 {
@@ -3473,6 +3479,8 @@ bool MainFrame::openFileComponent(const wxString &defaultDir)
     BubbleCanvas *tempCurrentCanvas = bubble.getCurrentCanvas();
     if (dialog.ShowModal() == wxID_OK)
     {
+        closeAllEditorFiles();
+
         bool showCode = false;
         if (notebook)
         {
@@ -3521,8 +3529,6 @@ bool MainFrame::openFileComponent(const wxString &defaultDir)
 //                if (showHardwareManager)
 //                    toggleWindow("Hardware", menuViewHardware);
 //            }
-
-            closeAllEditorFiles();
             return true;
         }
     }
@@ -3663,7 +3669,7 @@ void MainFrame::closeAllEditorFiles()
                 int index = notebook->GetPageIndex(value);
                 if (index != wxNOT_FOUND)
                 {
-                    //##Falta acá preguntar si está grabado y si el usuario quiere grabar!
+                    askToSaveEditorContent(value, false);
 
                     //This does not destroy de objetcs. This is not a big problem, since is more secure
                     //and is similar to the policy with blocks (and there are in general less editor files
