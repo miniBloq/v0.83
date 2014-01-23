@@ -563,6 +563,7 @@ bool Bubble::addFile(const wxString& fullFileName, BubbleEditor *const editor)
     {
         //The file were not loaded in the hash table, so it must be loaded and added to the table:
         fileEditorHash[fullFileName] = editor;
+        saved = false;
         return true;
     }
     //if the file already exists, returns false:
@@ -572,7 +573,12 @@ bool Bubble::addFile(const wxString& fullFileName, BubbleEditor *const editor)
 
 bool Bubble::removeFile(const wxString& fullFileName)
 {
-    return fileEditorHash.erase(fullFileName) > 0;
+    if (fileEditorHash.erase(fullFileName) > 0)
+    {
+        saved = false;
+        return true;
+    }
+    return false;
 }
 
 
@@ -750,6 +756,18 @@ bool Bubble::loadComponentFromFile(const wxString& name)
 
     while (rootChild)
     {
+        //Load the added files:
+        if (rootChild->GetName() == "files")
+        {
+            child = rootChild->GetChildren();
+            while (child)
+            {
+                if (getNotifier())
+                    getNotifier()->addBubbleFile(child->GetName());
+                child = child->GetNext();
+            }
+        }
+
         //Load de properties:
         if (rootChild->GetName() == "properties")
         {

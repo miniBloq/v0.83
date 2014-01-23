@@ -93,6 +93,8 @@ class IBubbleNotifier
 
         virtual void textChanged(BubbleEditor *source) = 0;
         virtual void canvasChanged(BubbleCanvas *source) = 0;
+
+        virtual void addBubbleFile(const wxString &fileName) = 0;
 };
 
 

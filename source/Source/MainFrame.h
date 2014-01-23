@@ -480,6 +480,8 @@ class MainFrame : public wxFrame, public IBubbleNotifier
         void textChanged(BubbleEditor *source);
         void canvasChanged(BubbleCanvas *source);
 
+        void addBubbleFile(const wxString &fileName);
+
         inline void setEditCodeZoom(int value) { editCodeZoom = value; }
         inline int getEditCodeZoom() const { return editCodeZoom; }
 

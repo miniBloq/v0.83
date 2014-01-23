@@ -1072,19 +1072,17 @@ void MainFrame::updateGUI()
 
 void MainFrame::loadFileComponent(const wxString& value)
 {
-//    wxMessageDialog dialog0(this, _("loadFileComponent: ") + value, "2");
-//    dialog0.ShowModal();
-
     //Used to open initial component from command line (ie: minibloq.exe C:\MyRoboticPrograms\LineFollower.mbqc):
     if (value != wxString(""))
     {
+        wxFileName aux(value);
+        bubble.setComponentPath(aux.GetPath());
+        tempComponentName = aux.GetFullName();
+        bubble.setComponentFilesPath(bubble.getComponentPath() + wxString("/") + aux.GetName());
+        bubble.setOutputPath(bubble.getComponentFilesPath() + wxString("/output"));
+
         if (bubble.loadComponentFromFile(value))
         {
-            wxFileName aux(value);
-            bubble.setComponentPath(aux.GetPath());
-            tempComponentName = aux.GetFullName();
-            bubble.setComponentFilesPath(bubble.getComponentPath() + wxString("/") + aux.GetName());
-            bubble.setOutputPath(bubble.getComponentFilesPath() + wxString("/output"));
             componentAlreadySaved = true;
 
             //Changes the names of the canvas and the code tabs to the new (loaded) component name:
@@ -3495,13 +3493,14 @@ bool MainFrame::openFileComponent(const wxString &defaultDir)
             }
         }
         createFileBlock(true, dialog.GetFilename()); //##By now...
+
+        wxFileName aux(dialog.GetPath());
+        bubble.setComponentPath(aux.GetPath());
+        tempComponentName = aux.GetFullName();
+        bubble.setComponentFilesPath(bubble.getComponentPath() + wxString("/") + aux.GetName());
+        bubble.setOutputPath(bubble.getComponentFilesPath() + wxString("/output"));
         if (bubble.loadComponentFromFile(dialog.GetPath()))
         {
-            wxFileName aux(dialog.GetPath());
-            bubble.setComponentPath(aux.GetPath());
-            tempComponentName = aux.GetFullName();
-            bubble.setComponentFilesPath(bubble.getComponentPath() + wxString("/") + aux.GetName());
-            bubble.setOutputPath(bubble.getComponentFilesPath() + wxString("/output"));
             componentAlreadySaved = true;
 //            wxMessageDialog dialog0(this, _("0"), _("Debug:")); //##Debug.
 //            dialog0.ShowModal(); //##Debug.
@@ -3609,6 +3608,10 @@ void MainFrame::saveComponent()
     if (componentAlreadySaved)
     {
         bubble.saveComponentToFile(bubble.getComponentPath() + wxString("/") + tempComponentName);
+
+//        wxMessageDialog dialog0(this, bubble.getComponentPath() + wxString("/") + tempComponentName, _("0")); //Debug...
+//        dialog0.ShowModal();
+
         if (notebook)
         {
             if (bubble.getCurrentCanvas())
@@ -3621,6 +3624,8 @@ void MainFrame::saveComponent()
                 }
             }
         }
+//        wxMessageDialog dialog1(this, wxString("1"), _("1")); //Debug...
+//        dialog1.ShowModal();
         saveAllEditorFiles();
     }
     else
@@ -3689,15 +3694,15 @@ void MainFrame::saveAllEditorFiles()
     if (notebook == NULL)
         return;
 
-//    wxMessageDialog dialog0(this, wxString("pages: ") << notebook->GetPageCount(), wxString("file")); //##Debug.
-//    dialog0.ShowModal(); //##Debug.
-
     FileEditorHash *fileEditorHash = bubble.getFileEditorHash();
     if (fileEditorHash)
     {
         FileEditorHash::iterator it;
         for (it = fileEditorHash->begin(); it != fileEditorHash->end(); it++)
         {
+//            wxMessageDialog dialog0(this, it->first, _("2")); //Debug...
+//            dialog0.ShowModal();
+
             BubbleEditor *value = it->second;
             if (value)
             {
@@ -5083,6 +5088,30 @@ void MainFrame::canvasChanged(BubbleCanvas *source)
 }
 
 
+void MainFrame::addBubbleFile(const wxString &fileName)
+{
+    wxString strComponentFilesPath = bubble.getComponentFilesPath();
+    strComponentFilesPath.Replace("\\", "/");
+    wxString destFileName = strComponentFilesPath + "/" + fileName;
+
+    BubbleEditor *newEditor = new BubbleEditor(this, &bubble, wxNewId());
+    if (newEditor)
+    {
+        if (bubble.addFile(destFileName, newEditor))
+        {
+            //If the file was added, open it, creating an new editor:
+            createCodeEditor(destFileName, newEditor); //Passes the full fileName.
+        }
+        else
+        {
+            //If not, destroy the new created editor:
+            delete newEditor;
+            newEditor = NULL; //Not necessary.
+        }
+    }
+}
+
+
 void MainFrame::onNotebookPageClose(wxAuiNotebookEvent& evt)
 {
     //##Por ahora, no se permite cerrar desde la "X" al component:
@@ -5188,8 +5217,13 @@ void MainFrame::askToSaveEditorContent(BubbleEditor *editor, bool removeFile)
                 }
             }
         }
-        if (removeFile)
-            bubble.removeFile(strComponentFilesPath);
+    }
+    if (removeFile)
+    {
+        //##Debug:
+//        wxMessageDialog dialog0(this, strComponentFilesPath, _("4"));
+//        dialog0.ShowModal();
+        bubble.removeFile(strComponentFilesPath);
     }
 }
 
