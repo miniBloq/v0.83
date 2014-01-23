@@ -967,15 +967,28 @@ bool Bubble::saveComponentToFile(const wxString& name, bool format)
         if (!currentCanvas)
             return false;
 
-        componentFile.AddLine(wxString("\t<properties>")); //##Ver si esto queda así, o si pasa a algo tipo "MinibloqComponent"...
+        componentFile.AddLine(wxString("\t<files>"));
+
+        FileEditorHash::iterator it;
+        for (it = fileEditorHash.begin(); it != fileEditorHash.end(); it++)
+        {
+            wxString fileName = it->first;
+
+            //wxChar('/') works both for Windows and Linux:
+            componentFile.AddLine(wxString("\t\t<" + fileName.AfterLast(wxChar('/')) + wxString("/>")));
+        }
+        componentFile.AddLine(wxString("\t</files>"));
+
+
+        componentFile.AddLine(wxString("\t<properties>"));
         componentFile.AddLine(wxString("\t\t<blocks count=\"") +
                               (wxString("") << currentCanvas->getBlocksCount()) + wxString("\"") +
-                              wxString(">")); //##
+                              wxString(">"));
         componentFile.AddLine(wxString("\t\t</blocks>"));
-        componentFile.AddLine(wxString("\t</properties>")); //##Ver si esto queda así, o si pasa a algo tipo "MinibloqComponent"...
+        componentFile.AddLine(wxString("\t</properties>"));
 
         //##Recorre todas las variables (##Esto va a cambiar en el futuro cuando haya más tipos de datos):
-        componentFile.AddLine("\t<variables>"); //##Ver si esto queda así, o si pasa a algo tipo "MinibloqComponent"...
+        componentFile.AddLine("\t<variables>");
 
         //This is a small patch to prevent the following bug: If the user is editing a variableInit block, and
         //hi has already changed the var name, and saves the program without unselecting the variableInit
