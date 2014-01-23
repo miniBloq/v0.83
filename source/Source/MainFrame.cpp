@@ -2914,15 +2914,11 @@ void MainFrame::onSize(wxSizeEvent& event)
 
 void MainFrame::onClose(wxCloseEvent& event)
 {
-    //##Buscar algún programita de detección de memory leackages y probar que todo ande bien
-    //en esta aplicación, que usa tantos objetos dinámicos.
-    //##Idea: ¡¡Se podría integrar dicho programita al XDF!!
-
-    if (bubble.getCurrentCanvas())
+    if (notebook)
     {
-        if (!(bubble.isSaved()))
+        if (bubble.getCurrentCanvas())
         {
-            if (notebook)
+            if (!(bubble.isSaved()))
             {
                 wxString tempName = notebook->GetPageText(notebook->GetPageIndex(bubble.getCurrentCanvas()));
                 wxMessageDialog question(   this,
@@ -2946,20 +2942,17 @@ void MainFrame::onClose(wxCloseEvent& event)
                 }
             }
         }
-    }
 
-    //Save unsaved files in the text editors, but asking to the user:
-    if (notebook)
-    {
-        for (size_t i=0; i<notebook->GetPageCount(); i++)
+        FileEditorHash *fileEditorHash = bubble.getFileEditorHash();
+        if (fileEditorHash)
         {
-            //Is the page an editor?
-            if (notebook->GetPage(i))
+            FileEditorHash::iterator it;
+            for (it = fileEditorHash->begin(); it != fileEditorHash->end(); it++)
             {
-                if (notebook->GetPage(i)->IsKindOf(CLASSINFO(BubbleEditor)))
+                BubbleEditor *value = it->second;
+                if (value)
                 {
-                    BubbleEditor *currentEditor = (BubbleEditor *)notebook->GetPage(i);
-                    askToSaveEditorContent(currentEditor);
+                    askToSaveEditorContent(value, true);
                 }
             }
         }
@@ -3206,7 +3199,7 @@ void MainFrame::onMenuFileAdd(wxCommandEvent& evt)
                         wxFD_FILE_MUST_EXIST);
                         //##Ver si usaré o no el flag wxFD_FILE_MUST_EXIST
 
-    //##Implementar la lógica como para que si el usuario ingresa el nombre de un archivo que no
+    //##Futuro: Implementar la lógica como para que si el usuario ingresa el nombre de un archivo que no
     //existía (aún cuando tenga seleccionados otros archivos además), éste se cree y se grabe (llamada
     //a AddBlock y Save, ya con el nombre del archivo devuelto por el diálogo.
 
@@ -3252,17 +3245,18 @@ void MainFrame::onMenuFileAdd(wxCommandEvent& evt)
             wxString strFileName = filePath.AfterLast(wxFileName::GetPathSeparator());
             strFilePathWithoutName.Replace("\\", "/"); //Works both under Windows and Linux.
             filePath.Replace("\\", "/");
+            wxString destFileName = strComponentFilesPath + "/" + strFileName;
 
-            //If the file already belongs to the component, process the next file:
-            if (bubble.isFileAdded(filePath))
-                continue;
+            ////If the file already belongs to the component, process the next file:
+            //if (bubble.isFileAdded(destFileName))
+            //    continue;
 
             if (wxFile::Exists(filePath)) //Extra security check.
             {
                 if (strComponentFilesPath != strFilePathWithoutName)
                 {
-                    //If there is a file with the same name in the component's dir, asks the user to overwrite or not:
-                    if (wxFile::Exists(strComponentFilesPath + "/" + strFileName))
+                    //If there is a file with the same name in the component's dir, asks the user to overwrite it or not:
+                    if (wxFile::Exists(destFileName))
                     {
                         wxMessageDialog question(   this,
                                                     _("The file ") + strFileName + _(" already exist in the component's dir. Do You want to overwrite it?"),
@@ -3273,7 +3267,27 @@ void MainFrame::onMenuFileAdd(wxCommandEvent& evt)
                         if (answer == wxID_YES)
                         {
                             //Overwrite the file:
-                            wxCopyFile(filePath, strComponentFilesPath + "/" + strFileName, true);
+                            wxCopyFile(filePath, destFileName, true);
+
+                            //If the file was overwritten and it was opened in an editor, the editor has to be reloaded:
+                            if (bubble.isFileAdded(destFileName))
+                            {
+                                BubbleEditor *editor = bubble.getFileEditor(destFileName);
+                                if  (editor)
+                                {
+                                    editor->LoadFile(destFileName);
+
+                                    //Mark as saved, since it has been reloaded:
+                                    wxBitmap page_bmp = wxArtProvider::GetBitmap(wxART_NORMAL_FILE, wxART_OTHER, wxSize(16, 16));
+                                    if (notebook)
+                                    {
+                                        int index = notebook->GetPageIndex(editor);
+                                        if (index != wxNOT_FOUND)
+                                            notebook->SetPageBitmap(index, page_bmp);
+                                    }
+                                }
+                                continue;
+                            }
                         }
                         else
                         {
@@ -3283,27 +3297,23 @@ void MainFrame::onMenuFileAdd(wxCommandEvent& evt)
                     else
                     {
                         //Copy the file, whith overwriting disabled:
-                        wxCopyFile(filePath, strComponentFilesPath + "/" + strFileName, false);
+                        wxCopyFile(filePath, destFileName, false);
                     }
                 }
-//                else
-//                {
-//                    wxMessageDialog dialog2(this, strComponentFilesPath + "\n\n" + strFilePathWithoutName, _("Same dir!")); //##Debug
-//                    dialog2.ShowModal(); //##Debug
-//                }
 
                 //Add the file to the component's file lists, whitout it's full path, since Bubble only will build files inside
                 //it's ComponentFilesPath:
                 BubbleEditor *newEditor = new BubbleEditor(this, &bubble, wxNewId());
                 if (newEditor)
                 {
-                    if (bubble.addFile(strComponentFilesPath + "/" + strFileName, newEditor))
+                    if (bubble.addFile(destFileName, newEditor))
                     {
                         //If the file was added, open it, creating an new editor:
-                        createCodeEditor(strComponentFilesPath + "/" + strFileName, newEditor); //Passes the full fileName.
+                        createCodeEditor(destFileName, newEditor); //Passes the full fileName.
                     }
                     else
                     {
+                        //If not, destroy the new created editor:
                         delete newEditor;
                         newEditor = NULL; //Not necessary.
                     }
@@ -5102,7 +5112,6 @@ void MainFrame::onNotebookPageClose(wxAuiNotebookEvent& evt)
         }
         evt.Veto();
     }
-    //##Futuro: Cambiar el CLASSINFO por BubbleEditor:
     else if (ctrl->GetPage(evt.GetSelection())->IsKindOf(CLASSINFO(BubbleEditor)))
     {
         BubbleEditor *currentEditor = (BubbleEditor *)ctrl->GetPage(evt.GetSelection());
@@ -5126,7 +5135,7 @@ void MainFrame::onNotebookPageClose(wxAuiNotebookEvent& evt)
             }
             else
             {
-                askToSaveEditorContent(currentEditor);
+                askToSaveEditorContent(currentEditor, true);
             }
         }
     }
@@ -5144,7 +5153,7 @@ void MainFrame::onNotebookPageClose(wxAuiNotebookEvent& evt)
 }
 
 
-void MainFrame::askToSaveEditorContent(BubbleEditor *editor)
+void MainFrame::askToSaveEditorContent(BubbleEditor *editor, bool removeFile)
 {
     if (editor == NULL)
         return;
@@ -5183,7 +5192,8 @@ void MainFrame::askToSaveEditorContent(BubbleEditor *editor)
                 }
             }
         }
-        bubble.removeFile(strComponentFilesPath);
+        if (removeFile)
+            bubble.removeFile(strComponentFilesPath);
     }
 }
 

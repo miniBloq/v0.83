@@ -588,12 +588,6 @@ bool Bubble::isFileAdded(const wxString& fullFileName) const
 }
 
 
-const wxArrayString &Bubble::getFilesFullNames() const
-{
-    //##Implementar....
-}
-
-
 int Bubble::loadBoardRelations()
 {
     int result = bubbleXML.loadBoardRelations();

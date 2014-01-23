@@ -315,7 +315,7 @@ class MainFrame : public wxFrame, public IBubbleNotifier
 
         void closeAllEditorFiles();
         void saveAllEditorFiles();
-        void askToSaveEditorContent(BubbleEditor *editor);
+        void askToSaveEditorContent(BubbleEditor *editor, bool removeFile);
 
         //##void onTabAlignment(wxCommandEvent &evt);
         //##void onGradient(wxCommandEvent& evt);
