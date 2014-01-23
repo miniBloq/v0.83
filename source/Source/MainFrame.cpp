@@ -5044,26 +5044,16 @@ void MainFrame::textChanged(BubbleEditor *source)
 
     if (notebook)
     {
-        //##Future simple optimization: this could be done without the for, just using notebook->GetPage(pointer):
-        for (size_t i=0; i<notebook->GetPageCount(); i++)
+        int index = notebook->GetPageIndex(source);
+        if (index != wxNOT_FOUND)
         {
-            BubbleEditor *currentEditor = (BubbleEditor *)notebook->GetPage(i);
-            if (currentEditor)
+            if (source != editCode)
             {
-                if (currentEditor->IsKindOf(CLASSINFO(BubbleEditor)))
-                {
-                    if (currentEditor == source)
-                    {
-                        if (currentEditor != editCode)
-                        {
-                            //if (currentEditor->GetModify())
-                            //{
-                                wxBitmap page_bmp = wxArtProvider::GetBitmap(wxART_WARNING, wxART_OTHER, wxSize(16, 16));
-                                notebook->SetPageBitmap(i, page_bmp);
-                            //}
-                        }
-                    }
-                }
+                //if (currentEditor->GetModify())
+                //{
+                    wxBitmap page_bmp = wxArtProvider::GetBitmap(wxART_WARNING, wxART_OTHER, wxSize(16, 16));
+                    notebook->SetPageBitmap(index, page_bmp);
+                //}
             }
         }
     }
