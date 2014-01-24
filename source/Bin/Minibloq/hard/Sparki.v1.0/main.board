@@ -84,6 +84,27 @@
 		<h/>
 		<cpp/>
 	</fileExtensions>
+	<cpp>
+		<cmd>
+			<s>"</s><s>toolsPath::</s>
+			<s>/avr-g++" -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD -mmcu=</s><s>cpu::</s>
+			<s> -DF_CPU=</s><s>clockFreq::</s>
+			<s> -DARDUINO=</s><s>arduinoVersion::</s>
+			<s> -I"</s><s>toolsPath::</s>
+			<s>" -I"</s><s>corePath::</s>
+			<s>" -I"</s><s>corePath::</s><s>/avr-libc</s>
+			<s>" -I"</s><s>corePath::</s><s>/variants/</s><s>arduinoVariant::</s>
+			<s>" -I"</s><s>boardPath::</s><s>/lib</s>
+			<s>" -I"</s><s>componentFilesPath::</s>
+			<s>" -I"</s><s>outputPath::</s>
+			<s>" -I"</s><s>libsPath::</s><s>/Arduino/miniBloq/v1.0</s>
+			<s>" -I"</s><s>libsPath::</s><s>/Arduino/Sparki/v1.0" </s>
+
+			<s>includesBuildList::</s>
+			
+			<s> "</s><s>componentFilesPath::</s><s>/</s><s>$currentFile$" -o "</s><s>outputPath::</s><s>/</s><s>$currentFile$.o"</s>
+		</cmd>
+	</cpp>
 	<includeFiles>
 		<include><s>Arduino.h</s></include>
 		<include><s>pins_arduino.h</s></include>
@@ -122,7 +143,7 @@
 			<s>" -I"</s><s>componentFilesPath::</s>
 			<s>" -I"</s><s>outputPath::</s>
 			<s>" -I"</s><s>libsPath::</s><s>/Arduino/miniBloq/v1.0</s>
-			<s>" -I"</s><s>libsPath::</s><s>/Arduino/PingIRReceiver/v1.0" </s>
+			<s>" -I"</s><s>libsPath::</s><s>/Arduino/Sparki/v1.0" </s>
 
 			<s>includesBuildList::</s>
 			
@@ -145,7 +166,7 @@
 			<s>" -I"</s><s>componentFilesPath::</s>
 			<s>" -I"</s><s>outputPath::</s>
 			<s>" -I"</s><s>libsPath::</s><s>/Arduino/miniBloq/v1.0</s>
-			<s>" -I"</s><s>libsPath::</s><s>/Arduino/PingIRReceiver/v1.0" </s>
+			<s>" -I"</s><s>libsPath::</s><s>/Arduino/Sparki/v1.0" </s>
 
 			<s>includesBuildList::</s>
 			

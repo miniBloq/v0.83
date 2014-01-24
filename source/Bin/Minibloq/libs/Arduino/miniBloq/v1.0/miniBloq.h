@@ -13,6 +13,10 @@
 #define M_E		2.7182818284590452354
 #define M_PI	3.14159265358979323846
 
+#ifndef INPUT_PULLUP
+	#define INPUT_PULLUP 0x2
+#endif
+
 //Forwared declaration; could not exist and it will be ok (since this function only exist in components with text-based code files:
 void go();
 

@@ -76,6 +76,9 @@
 #define GREEN 0,255,0
 #define BLUE 0,0,255
 
+//Forwared declaration; could not exist and it will be ok (since this function only exist in components with text-based code files:
+void go();
+
 // properties about the robot in cm
 const float WHEEL_DIAMETER_CM     = 5.15;
 const float WHEEL_CIRCUMFERENCE_CM = WHEEL_DIAMETER_CM * PI;

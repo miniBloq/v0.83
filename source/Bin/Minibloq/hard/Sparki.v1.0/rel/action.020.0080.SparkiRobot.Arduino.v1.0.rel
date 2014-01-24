@@ -34,8 +34,6 @@
 			
 			<s>"</s><s>libsPath::</s><s>/Arduino/Sparki/v1.0/Sparki.cpp" -o "</s><s>outputPath::</s><s>/Sparki.cpp.o"</s>
 		</cmd>
-	</build>
-	<build>
 		<cmd>
 			<s>"</s><s>toolsPath::</s>
 			<s>/avr-g++" -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD</s>
@@ -52,8 +50,6 @@
 			
 			<s>"</s><s>libsPath::</s><s>/Arduino/Sparki/v1.0/SPI.cpp" -o "</s><s>outputPath::</s><s>/SPI.cpp.o"</s>
 		</cmd>
-	</build>
-	<build>
 		<cmd>
 			<s>"</s><s>toolsPath::</s>
 			<s>/avr-g++" -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD</s>
