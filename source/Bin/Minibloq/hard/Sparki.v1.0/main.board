@@ -80,6 +80,11 @@
 		<path><s>componentsRepositoryPath::</s><s>/work/_examples/ArduinoUno</s></path>
 		<path><s>componentsRepositoryPath::</s><s>/work/_examples/DifferentialRobot</s></path>
 	</examples>
+	<fileExtensions>
+		<h/>
+		<cc/>
+		<mbqb/>
+	</fileExtensions>
 	<includeFiles>
 		<include><s>Arduino.h</s></include>
 		<include><s>pins_arduino.h</s></include>
