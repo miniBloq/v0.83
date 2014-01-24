@@ -856,7 +856,26 @@ bool Bubble::loadComponentFromFile(const wxString& name)
                             }
                         }
                     }
-                    //else if ( returnValue == wxString("noLoad") ) --> Do nothing!
+                    else if ( returnValue == wxString("noLoad") )
+                    {
+                        //Only do something in noLoad blocks if it's the ComponentStart:
+                        if (child->GetName() == wxString("ComponentStart"))
+                        {
+                            BubbleBlock *startBlock = currentCanvas->getFirstBlock();
+                            if (startBlock)
+                            {
+                                if (startBlock->getComponentStart())
+                                {
+                                    if ( child->HasAttribute(wxString("instanceName")) )
+                                    {
+                                        startBlock->setInstanceNameField(child->GetAttribute(wxString("instanceName"), wxString("")));
+                                    }
+                                    //wxMessageDialog dialog0(parent, _("ComponentStart!"), _("Debug:")); //##Debug.
+                                    //dialog0.ShowModal(); //##Debug.
+                                }
+                            }
+                        }
+                    }
                 }
                 //Show the loading progress:
                 if (getNotifier())

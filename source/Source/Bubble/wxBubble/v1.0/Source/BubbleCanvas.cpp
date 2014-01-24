@@ -218,6 +218,23 @@ BubbleCanvas::BubbleCanvas( wxWindow* parent,
 //##Quizá deje esto cableado y todo, e imponga como condición de Minibloq que debe existir el ComponentStart
 //y llamarse así, lo mismo que el BlockStart. El día de mañana se agregará lo de las classes, etc.:
 
+/////////////////
+///////////////
+
+    //##Preinstantiated objects:
+    for (int i = 0; i<info.getInstancesCount(); i++)
+    {
+        //##Esto va a cambiar cuando se introduzca el manejo de tipos definitivo con las
+        //variables, y cuando se introduzcan clases:
+        BubbleInstance *tempInstance = info.getInstance(i);
+        if (tempInstance)
+        {
+            BubbleInstance *newInstance = new BubbleInstance(tempInstance->getName(), tempInstance->getType());
+            setInstance(newInstance);
+        }
+    }
+
+/////////////////
     //##Los bloques de inicio de block (BlockStart), son bloques con el AddParams, y con el Return Visible
     //(único bloque con return visible, por ahora), etc.:
     //##Esto debe ser descableado, agregando una función en Bubble que sea getBlockStart, y otra que sea getComponentStart,
@@ -243,19 +260,7 @@ BubbleCanvas::BubbleCanvas( wxWindow* parent,
     //se le definen la cantidad de parámetros, etc..
     forceSaved(true); //The first block doesn't count.
     //firstBlock = &(blocks[0]);
-
-    //##Preinstantiated objects:
-    for (int i = 0; i<info.getInstancesCount(); i++)
-    {
-        //##Esto va a cambiar cuando se introduzca el manejo de tipos definitivo con las
-        //variables, y cuando se introduzcan clases:
-        BubbleInstance *tempInstance = info.getInstance(i);
-        if (tempInstance)
-        {
-            BubbleInstance *newInstance = new BubbleInstance(tempInstance->getName(), tempInstance->getType());
-            setInstance(newInstance);
-        }
-    }
+///////////////
 
     tabWidth = (int)(tabWidth*zoomFactor[zoomIndex]); //##Probar...
 

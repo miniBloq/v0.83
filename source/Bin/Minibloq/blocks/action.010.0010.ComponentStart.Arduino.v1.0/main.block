@@ -9,6 +9,7 @@
     </properties>
     <code>
 		<dataType>void</dataType>
+		<methodSeparator>();</methodSeparator>
 		<keywords0>setup loop</keywords0>
 	</code>
     <interface>
@@ -33,5 +34,9 @@
 			<default>Images/Block.png</default>
 			<disabled>Images/BlockDisabled.png</disabled>
 		</blockButton>
+		<hasInstanceNameField>true</hasInstanceNameField>
+		<instanceNameFieldDefaultValue>initBoard</instanceNameFieldDefaultValue>
+		<instanceNameFieldSorted>false</instanceNameFieldSorted>
+		<instanceType>StartBlock</instanceType>
 	</interface>
 </block>
