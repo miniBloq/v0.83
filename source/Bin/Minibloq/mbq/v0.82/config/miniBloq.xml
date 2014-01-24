@@ -10,8 +10,8 @@
         <perspective>layout2|name=QuickToolBar;caption=Quick toolbar;state=2106096;dir=1;layer=10;row=1;pos=222;prop=100000;bestw=311;besth=26;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=297;floaty=60;floatw=327;floath=60|name=Hardware;caption=Hardware;state=18876412;dir=4;layer=0;row=0;pos=0;prop=100000;bestw=400;besth=450;minw=340;minh=275;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Blocks;caption=;state=256;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=430;besth=200;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=HelpAndResourceCenter;caption=Ayuda y Centro de Recursos;state=2099198;dir=2;layer=1;row=0;pos=1;prop=100000;bestw=550;besth=300;minw=550;minh=300;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Properties;caption=Propiedades;state=2099198;dir=4;layer=0;row=0;pos=2;prop=100000;bestw=200;besth=200;minw=200;minh=200;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=toolMainMenu;caption=Menú principal;state=2106096;dir=1;layer=10;row=1;pos=0;prop=100000;bestw=220;besth=23;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=Messages;caption=Mensajes;state=2099196;dir=3;layer=0;row=1;pos=0;prop=100000;bestw=200;besth=150;minw=200;minh=150;maxw=-1;maxh=-1;floatx=590;floaty=650;floatw=400;floath=250|name=Terminal;caption=Terminal;state=2099198;dir=4;layer=0;row=0;pos=2;prop=100000;bestw=400;besth=450;minw=250;minh=275;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(1,10,1)=28|dock_size(5,0,0)=430|dock_size(4,0,0)=402|dock_size(3,0,1)=169|</perspective>
     </mainFrame>
     <hard>
-        <board>Arduino Uno</board>
-        <port/>
+        <board>DuinoBot.v2.3.HID</board>
+        <port>HID2</port>
     </hard>
     <terminal>
         <tab>single</tab>
@@ -26,7 +26,6 @@
         <zoom>3</zoom>
     </canvas>
     <code>
-        <shown>true</shown>
         <zoom>3</zoom>
     </code>
     <help>
