@@ -155,6 +155,7 @@ class BubbleBoardProperties
         wxString usbManufacturer;
         wxString usbProduct;
         wxArrayString relCommands;
+        wxArrayString fileExtensions;
 
         int codeLexer;
         wxColour codeOperatorColor;
@@ -273,6 +274,7 @@ class BubbleBoardProperties
                                     codeKeywords1(wxString(""))
         {
             relCommands.Clear(); //Not necessary, but just in case.
+            fileExtensions.Clear();
         }
         //##Ver si se necesita constructor de copia por las dudas, al menos que no haga gran cosa...
 
@@ -377,6 +379,13 @@ class BubbleBoardProperties
                 while (i < boardProperties->getRelCommandsCount())
                 {
                     relCommands.Add(boardProperties->getRelCommand(i));
+                    i++;
+                }
+
+                i = 0;
+                while (i < boardProperties->getFileExtensionsCount())
+                {
+                    fileExtensions.Add(boardProperties->getFileExtension(i));
                     i++;
                 }
             }
@@ -548,6 +557,19 @@ class BubbleBoardProperties
         {
             if (index < relCommands.GetCount())
                 return relCommands[index];
+            return wxString("");
+        }
+
+        inline void clearFileExtensions() { return fileExtensions.Clear(); };
+        inline unsigned int getFileExtensionsCount() const { return fileExtensions.GetCount(); };
+        inline void addFileExtension(const wxString& value)
+        {
+            fileExtensions.Add(value);
+        }
+        inline const wxString getFileExtension(const unsigned int index) const
+        {
+            if (index < fileExtensions.GetCount())
+                return fileExtensions[index];
             return wxString("");
         }
 

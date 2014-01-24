@@ -1555,6 +1555,7 @@ int BubbleXML::loadBoardRelations()
         return -3;
 
     bubble->getHardwareManager()->getCurrentBoardProperties()->clearRelCommands();
+    bubble->getHardwareManager()->getCurrentBoardProperties()->clearFileExtensions();
     bubble->setIncludesCodeList(bubble->getHardwareManager()->getCurrentBoardProperties()->getIncludesCodeList());
     bubble->setIncludesBuildList(bubble->getHardwareManager()->getCurrentBoardProperties()->getIncludesBuildList());
     bubble->setInitBoardCode(bubble->getHardwareManager()->getCurrentBoardProperties()->getInitBoardCode());
@@ -1892,7 +1893,7 @@ BubbleBoardProperties *BubbleXML::loadBoardProperties(const wxString &fullBoardF
         {
             loadExamplesFromXML(rootChild, boardInfo);
         }
-        else if (tempName == wxString("examples"))
+        else if (tempName == wxString("fileExtensions"))
         {
             loadFileExtensions(rootChild, boardInfo);
         }
@@ -2409,8 +2410,6 @@ bool BubbleXML::loadExamplesFromXML(wxXmlNode *node, BubbleBoardProperties *boar
 
 bool BubbleXML::loadFileExtensions(wxXmlNode *node, BubbleBoardProperties *boardProperties)
 {
-    if (bubble == NULL)
-        return false;
     if (node == NULL)
         return false;
     if (boardProperties == NULL)
