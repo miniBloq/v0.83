@@ -1399,6 +1399,52 @@ bool Bubble::build()
         }
         showStream(output, *wxWHITE);
 
+////////////////////////
+        //Loads and executes the commands from for each file extension set of added files:
+        unsigned int extensionIndex = 0;
+        while (extensionIndex < getHardwareManager()->getCurrentBoardProperties()->getFileExtensionsCount())
+        {
+            wxString extension = getHardwareManager()->getCurrentBoardProperties()->getFileExtension(extensionIndex);
+            cmd = wxString("");
+            wxArrayString fileCommands;
+            fileCommands.Clear();
+            fileCommands = bubbleXML.loadExternalCommands(extension, getHardwareManager()->getCurrentBoardProperties()->getPath() + wxString("/main.board"));
+
+            //Executes the loaded commands for each file added to the component with this extenstion:
+            FileEditorHash::iterator it;
+            for (it = fileEditorHash.begin(); it != fileEditorHash.end(); it++)
+            {
+                wxString fileName = it->first;
+                fileName.Replace("\\", "/"); //Extra secutiry.
+                fileName = fileName.AfterLast('/'); //Just fileName with noPath will be replaced in the $currentFile$ iterator.
+
+                //##Weird: this dialog appears 2 times!
+                //wxMessageDialog dialog0(parent, fileName, wxString("fileNames:") << fileEditorHash.size());
+                //dialog0.ShowModal();
+
+                if ( (wxFile::Exists(it->first)) && (fileName.AfterLast('.') == extension) )
+                {
+                    i = 0;
+                    while (i < fileCommands.GetCount())
+                    {
+                        cmd = fileCommands[i];
+                        cmd.Replace("$currentFile$", fileName);
+                        getNotifier()->showMessage(/*(wxString("") << i) + wxString(": ") + */cmd + wxString("\n"), false, true, *wxGREEN);
+                        wxExecute(cmd, output, errors);
+
+                        //Build process ends when a command finds an error:
+                        if (findErrorStringAndShow(errors))
+                            return false;
+                        i++;
+                    }
+                }
+            }
+
+            showStream(output, *wxWHITE);
+            extensionIndex++;
+        }
+////////////////////////
+
         //Loads and executes the commands from the .board XML file:
         cmd = wxString("");
         wxArrayString commands;
