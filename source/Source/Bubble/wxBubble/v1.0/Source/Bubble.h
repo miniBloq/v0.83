@@ -383,6 +383,7 @@ class BubbleBoardProperties
                 }
 
                 i = 0;
+                fileExtensions.Clear();
                 while (i < boardProperties->getFileExtensionsCount())
                 {
                     fileExtensions.Add(boardProperties->getFileExtension(i));

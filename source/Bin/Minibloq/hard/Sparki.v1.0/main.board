@@ -82,8 +82,7 @@
 	</examples>
 	<fileExtensions>
 		<h/>
-		<cc/>
-		<mbqb/>
+		<cpp/>
 	</fileExtensions>
 	<includeFiles>
 		<include><s>Arduino.h</s></include>
