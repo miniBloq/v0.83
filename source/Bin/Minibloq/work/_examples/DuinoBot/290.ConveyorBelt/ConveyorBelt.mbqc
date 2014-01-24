@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mbqc xmlns="http://mbqc.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.8.Beta">
+    <properties>
+        <blocks count="13"/>
+    </properties>
+    <variables>
+        <rev_time/>
+        <speed/>
+        <trigger/>
+    </variables>
+    <blocks>
+        <ComponentStart function="Flow" commented="false" instanceName="initBoard" paramsCount="0" hasAddParamsButton="false" loadAction="noLoad"/>
+        <VariableInit function="Setter" commented="false" constantValue="rev_time" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="2000" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </VariableInit>
+        <VariableInit function="Setter" commented="false" constantValue="speed" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="60" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </VariableInit>
+        <VariableInit function="Setter" commented="false" constantValue="trigger" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="50" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </VariableInit>
+        <IOPin function="Setter" commented="false" instanceName="D15" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <boolConstantTrue function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </IOPin>
+        <while function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <boolConstantTrue function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </while>
+        <if function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberLowerThan function="Operation" commented="false" paramsCount="2" hasAddParamsButton="false" loadAction="load">
+                <analogRead function="Getter" commented="false" instanceName="sensor0" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                <VariableGetter function="Getter" commented="false" instanceName="trigger" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </numberLowerThan>
+        </if>
+        <Motor function="Setter" commented="false" instanceName="motor0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <VariableGetter function="Getter" commented="false" instanceName="speed" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </Motor>
+        <else function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
+        <Motor function="Setter" commented="false" instanceName="motor0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberNegative function="Operation" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <VariableGetter function="Getter" commented="false" instanceName="speed" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </numberNegative>
+        </Motor>
+        <delay function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <VariableGetter function="Getter" commented="false" instanceName="rev_time" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </delay>
+        <endIf function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
+        <whileEnd function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
+    </blocks>
+</mbqc>

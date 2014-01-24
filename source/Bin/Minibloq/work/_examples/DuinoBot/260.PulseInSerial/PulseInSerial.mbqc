@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mbqc xmlns="http://mbqc.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
+    <files/>
+    <properties>
+        <blocks count="4"/>
+    </properties>
+    <variables/>
+    <blocks>
+        <ComponentStart function="Flow" commented="false" instanceName="initBoard" paramsCount="0" hasAddParamsButton="false" loadAction="noLoad"/>
+        <while function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <boolConstantTrue function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </while>
+        <Serial function="Setter" commented="false" instanceName="serial0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <SerialNumber function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <PulseIn function="Getter" commented="false" instanceName="D15" paramsCount="2" hasAddParamsButton="false" loadAction="load">
+                    <boolConstantTrue function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                    <numberConstant function="Constant" commented="false" constantValue="200000" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                </PulseIn>
+            </SerialNumber>
+        </Serial>
+        <whileEnd function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
+    </blocks>
+</mbqc>

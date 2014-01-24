@@ -4,7 +4,6 @@
 void setup()
 {
 	initBoard();
-
 	float temperature = 0;
 	while(true)
 	{

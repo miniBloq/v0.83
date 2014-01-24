@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mbqc xmlns="http://mbqc.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
+    <properties>
+        <blocks count="19"/>
+    </properties>
+    <variables>
+        <irCode/>
+        <ultrasonic/>
+    </variables>
+    <blocks>
+        <ComponentStart function="Flow" commented="false" instanceName="initBoard" paramsCount="0" hasAddParamsButton="false" loadAction="noLoad"/>
+        <VariableInit function="Setter" commented="false" constantValue="irCode" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="0" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </VariableInit>
+        <VariableInit function="Setter" commented="false" constantValue="ultrasonic" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="0" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </VariableInit>
+        <ServoRC function="Setter" commented="false" instanceName="servo0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="60" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </ServoRC>
+        <Motor function="Setter" commented="false" instanceName="motor0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="50" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </Motor>
+        <Motor function="Setter" commented="false" instanceName="motor1" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="50" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </Motor>
+        <while function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <boolConstantTrue function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </while>
+        <VariableSetter function="Setter" commented="false" instanceName="irCode" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <IRRemote function="Sensor" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </VariableSetter>
+        <Buzzer function="Setter" commented="false" paramsCount="2" hasAddParamsButton="false" loadAction="load">
+            <numberMul function="Operation" commented="false" paramsCount="2" hasAddParamsButton="true" loadAction="load">
+                <numberConstant function="Constant" commented="false" constantValue="440" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                <VariableGetter function="Getter" commented="false" instanceName="irCode" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </numberMul>
+            <numberConstant function="Constant" commented="false" constantValue="200" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </Buzzer>
+        <ServoRC function="Setter" commented="false" instanceName="servo0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberMul function="Operation" commented="false" paramsCount="2" hasAddParamsButton="true" loadAction="load">
+                <VariableGetter function="Getter" commented="false" instanceName="irCode" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                <numberConstant function="Constant" commented="false" constantValue="10" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </numberMul>
+        </ServoRC>
+        <if function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberEqual function="Operation" commented="false" paramsCount="2" hasAddParamsButton="false" loadAction="load">
+                <VariableGetter function="Getter" commented="false" instanceName="irCode" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                <numberConstant function="Constant" commented="false" constantValue="5" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </numberEqual>
+        </if>
+        <Buzzer function="Setter" commented="false" paramsCount="2" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="440" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            <numberConstant function="Constant" commented="false" constantValue="100" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </Buzzer>
+        <VariableSetter function="Setter" commented="false" instanceName="ultrasonic" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <Ping function="Sensor" commented="false" instanceName="D15" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </VariableSetter>
+        <Serial function="Setter" commented="false" instanceName="serial0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <SerialNumber function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <VariableGetter function="Getter" commented="false" instanceName="ultrasonic" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </SerialNumber>
+        </Serial>
+        <Motor function="Setter" commented="false" instanceName="motor0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <VariableGetter function="Getter" commented="false" instanceName="ultrasonic" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </Motor>
+        <Motor function="Setter" commented="false" instanceName="motor1" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <VariableGetter function="Getter" commented="false" instanceName="ultrasonic" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </Motor>
+        <else function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
+        <endIf function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
+        <whileEnd function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
+    </blocks>
+</mbqc>
