@@ -3208,14 +3208,14 @@ void MainFrame::onMenuFileAdd(wxCommandEvent& evt)
         wxString extension = wxString("*.") + bubble.getHardwareManager()->getCurrentBoardProperties()->getFileExtension(i);
         if (i != 0)
             extension = wxString(";") + extension;
-
+        extensionsList += extension;
         i++;
     }
     wildcards = wxString("(") + extensionsList + wxString(")|") + extensionsList;
 
     //##Debug:
-    wxMessageDialog dialog2(this, wildcards, _("File extenstions"));
-    dialog2.ShowModal();
+    //wxMessageDialog dialog2(this, wildcards, _("File extenstions"));
+    //dialog2.ShowModal();
 
     //##Futuro: obtener el último dir que el usuario quiere usar, y por defecto el work, etc..:
     wxFileDialog dialog(this, _("Add a block or code file to the current component"),

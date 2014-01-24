@@ -1555,7 +1555,6 @@ int BubbleXML::loadBoardRelations()
         return -3;
 
     bubble->getHardwareManager()->getCurrentBoardProperties()->clearRelCommands();
-    bubble->getHardwareManager()->getCurrentBoardProperties()->clearFileExtensions();
     bubble->setIncludesCodeList(bubble->getHardwareManager()->getCurrentBoardProperties()->getIncludesCodeList());
     bubble->setIncludesBuildList(bubble->getHardwareManager()->getCurrentBoardProperties()->getIncludesBuildList());
     bubble->setInitBoardCode(bubble->getHardwareManager()->getCurrentBoardProperties()->getInitBoardCode());
@@ -2416,12 +2415,13 @@ bool BubbleXML::loadFileExtensions(wxXmlNode *node, BubbleBoardProperties *board
         return false;
 
     wxXmlNode *iteratorNode = node->GetChildren();
-    wxString includeStr("");
     while (iteratorNode)
     {
-        wxString resultStr("");
         boardProperties->addFileExtension(iteratorNode->GetName());
         iteratorNode = iteratorNode->GetNext();
+
+        //wxMessageDialog dialog0(bubble->getParent(), wxString("") << boardProperties->getFileExtensionsCount(), _("extension")); //##Debug
+        //dialog0.ShowModal(); //##Debug
     }
     return true;
 }
