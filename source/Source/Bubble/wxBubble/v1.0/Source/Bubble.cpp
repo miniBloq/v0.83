@@ -763,7 +763,17 @@ bool Bubble::loadComponentFromFile(const wxString& name)
             while (child)
             {
                 if (getNotifier())
-                    getNotifier()->addBubbleFile(child->GetName());
+                {
+                    //getNotifier()->addBubbleFile(child->GetName());
+                    if ( child->HasAttribute(wxString("name")) )
+                    {
+                        wxString fileName = child->GetAttribute(wxString("name"), wxString(""));
+                        if (fileName != wxString(""))
+                        {
+                            getNotifier()->addBubbleFile(fileName);
+                        }
+                    }
+                }
                 child = child->GetNext();
             }
         }
@@ -1012,7 +1022,7 @@ bool Bubble::saveComponentToFile(const wxString& name, bool format)
             wxString fileName = it->first;
 
             //wxChar('/') works both for Windows and Linux:
-            componentFile.AddLine(wxString("\t\t<" + fileName.AfterLast(wxChar('/')) + wxString("/>")));
+            componentFile.AddLine(wxString("\t\t<f name=\"" + fileName.AfterLast(wxChar('/')) + wxString("\"/>")));
         }
         componentFile.AddLine(wxString("\t</files>"));
 
