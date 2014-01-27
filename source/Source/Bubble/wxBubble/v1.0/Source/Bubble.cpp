@@ -94,6 +94,7 @@ Bubble::Bubble(wxLocale& locale) :  parent(NULL),
 
                                     blocksEnabled(true),
                                     visibleLabels(false),
+                                    visibleCanvas(true),
 
                                     componentsRepositoryPath(wxString("")),
                                     toolsPath(wxString("")),
@@ -804,6 +805,18 @@ bool Bubble::loadComponentFromFile(const wxString& name)
                         }
                     }
                 }
+                if (child->GetName() == "canvas")
+                {
+                    if ( child->HasAttribute(wxString("visible")) )
+                    {
+                        wxString canvasVisible = child->GetAttribute(wxString("visible"), wxString("true"));
+                        setVisibleCanvas(Bubble::string2bool(canvasVisible));
+
+                        //wxMessageDialog dialog1(parent, wxString("visible=") << canvasVisible, _("Debug:")); //##Debug.
+                        //dialog1.ShowModal(); //##Debug.
+                    }
+                }
+
                 child = child->GetNext();
             }
         }

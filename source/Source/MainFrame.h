@@ -520,6 +520,7 @@ class MainFrame : public wxFrame, public IBubbleNotifier
 
         void setEditorSyntax(BubbleEditor *editor);
         void toggleComponentBlocks();
+        void showComponentBlocks(bool value);
         void toggleGeneratedCode();
         bool isShowingGeneratedCode();
 

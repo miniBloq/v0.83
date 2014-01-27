@@ -789,6 +789,7 @@ class Bubble : public IBubbleFileIO
 
         bool blocksEnabled;
         bool visibleLabels;
+        bool visibleCanvas;
 
         std::stack<BubbleBlock *> brothers;
 
@@ -831,6 +832,8 @@ class Bubble : public IBubbleFileIO
         BubbleBlockInfo loadBlockFromXML(wxXmlNode *child);
 
         wxString generateXMLFromParams(BubbleBlock *block);
+
+        void setVisibleCanvas(bool value) { visibleCanvas = value; }
 
     public:
         //Construction:
@@ -1014,5 +1017,7 @@ class Bubble : public IBubbleFileIO
         //Labels:
         inline bool getVisibleLabels() const  { return visibleLabels; }
         void setVisibleLabels(bool value);
+
+        inline bool getVisibleCanvas() const  { return visibleCanvas; }
 };
 #endif

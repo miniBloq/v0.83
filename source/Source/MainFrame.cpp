@@ -3584,6 +3584,11 @@ bool MainFrame::openFileComponent(const wxString &defaultDir)
 //                if (showHardwareManager)
 //                    toggleWindow("Hardware", menuViewHardware);
 //            }
+
+//##Not working yet:
+//            if (!bubble.getVisibleCanvas())
+//                showComponentBlocks(false);
+
             return true;
         }
     }
@@ -4628,35 +4633,58 @@ void MainFrame::toggleComponentBlocks()
             int index = notebook->GetPageIndex(bubble.getCurrentCanvas());
             if (index != wxNOT_FOUND)
             {
-                wxWindow *page = notebook->GetPage(index);
-                if (page)
-                {
-                    notebook->RemovePage(index);
-                    page->Hide();
-                    if (menuViewComponentBlocks)
-                    {
-                        menuViewComponentBlocks->Check(false);
-                    }
-                }
+                showComponentBlocks(false);
             }
             else
             {
-                wxBitmap page_bmp = wxArtProvider::GetBitmap(wxART_NORMAL_FILE, wxART_OTHER, wxSize(16, 16));
-                if (!bubble.isSaved())
-                    page_bmp = wxArtProvider::GetBitmap(wxART_WARNING, wxART_OTHER, wxSize(16, 16));
-                notebook->AddPage(  bubble.getCurrentCanvas(),
-                                    //_("New-1.mbqc"),
-                                    tempComponentName,
-                                    false,
-                                    page_bmp);
-                notebook->SetSelection(notebook->GetPageIndex(bubble.getCurrentCanvas()));
-                notebook->Split(notebook->GetPageIndex(bubble.getCurrentCanvas()), wxLEFT);
-                if (menuViewComponentBlocks)
-                {
-                    menuViewComponentBlocks->Check(true);
-                }
+                showComponentBlocks(true);
             }
             //auiManager.Update();
+        }
+    }
+}
+
+
+void MainFrame::showComponentBlocks(bool value)
+{
+    if (bubble.getCurrentCanvas() == NULL)
+        return;
+    if (notebook == NULL)
+        return;
+
+    if (value)
+    {
+        wxBitmap page_bmp = wxArtProvider::GetBitmap(wxART_NORMAL_FILE, wxART_OTHER, wxSize(16, 16));
+
+        if (!bubble.isSaved())
+            page_bmp = wxArtProvider::GetBitmap(wxART_WARNING, wxART_OTHER, wxSize(16, 16));
+        notebook->AddPage(  bubble.getCurrentCanvas(),
+                            //_("New-1.mbqc"),
+                            tempComponentName,
+                            false,
+                            page_bmp);
+        notebook->SetSelection(notebook->GetPageIndex(bubble.getCurrentCanvas()));
+        notebook->Split(notebook->GetPageIndex(bubble.getCurrentCanvas()), wxLEFT);
+        if (menuViewComponentBlocks)
+        {
+            menuViewComponentBlocks->Check(true);
+        }
+    }
+    else
+    {
+        int index = notebook->GetPageIndex(bubble.getCurrentCanvas());
+        if (index != wxNOT_FOUND)
+        {
+            wxWindow *page = notebook->GetPage(index);
+            if (page)
+            {
+                notebook->RemovePage(index);
+                page->Hide();
+                if (menuViewComponentBlocks)
+                {
+                    menuViewComponentBlocks->Check(false);
+                }
+            }
         }
     }
 }

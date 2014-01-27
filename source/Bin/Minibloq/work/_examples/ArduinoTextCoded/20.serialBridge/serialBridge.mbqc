@@ -4,6 +4,8 @@
         <f name="go.cpp"/>
     </files>
     <properties>
+		<canvas visible="true"/>
+		<generatedCode visible="true"/>
         <blocks count="1"/>
     </properties>
     <variables/>
