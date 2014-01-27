@@ -110,7 +110,8 @@
 		<include><s>board.h</s></include>
 	</includeFiles>
 	<initBoardCode>
-		<s>	Serial.begin(115200);&#10;&#10;</s>
+		<s>	Serial.begin(115200);&#10;</s>
+		<s>	Serial1.begin(115200);&#10;&#10;</s>
 		<s>	randomSeed(analogRead(0));&#10;&#10;</s>
 	</initBoardCode>
 	<initCode>

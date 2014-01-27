@@ -111,7 +111,8 @@
 		<include><s>board.h</s></include>
 	</includeFiles>
 	<initBoardCode>
-		<s>	Serial.begin(115200);&#10;&#10;</s>
+		<s>	Serial.begin(115200);&#10;</s>
+		<s>	Serial1.begin(115200);&#10;&#10;</s>
 		<s>	randomSeed(analogRead(0));&#10;&#10;</s>
 	</initBoardCode>
 	<initCode>
@@ -149,7 +150,7 @@
 		<cmd>
 			<s>"</s><s>toolsPath::</s>
 			<s>/avr-g++" -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -mmcu=</s><s>cpu::</s>
-			<s> -DF_CPU=</s><s>clockFreq::</s>
+			<s>  -DF_CPU=</s><s>clockFreq::</s>
 			<s> -DARDUINO=</s><s>arduinoVersion::</s>
 			<s> -I"</s><s>toolsPath::</s>
 			<s>" -I"</s><s>corePath::</s>
