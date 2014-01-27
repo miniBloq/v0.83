@@ -13,6 +13,7 @@
 #define sensor4  4
 #define sensor5  5
 #define BatteryPin       6
+#define TemperaturePin   7
 		
 #define PWM9    9
 #define PWM10  10

@@ -4,7 +4,7 @@
 #define serial0 Serial
 #define serial1 Serial1
 
-#define BuzzerPin 23
+#define BuzzerPin 22
 
 #define sensor0  0
 #define sensor1  1
@@ -15,11 +15,12 @@
 #define BatteryPin       6
 #define TemperaturePin   7
 		
-#define PWM3   3
-#define PWM5   5
-#define PWM6   6
-#define PWM9   7
-#define PWM22  22
+#define PWM9    9
+#define PWM10  10
+#define PWM12  12
+#define PWM13  13
+#define PWM27  27
+#define PWM28  28
 		
 #define D0  0
 #define D1  1
@@ -42,10 +43,15 @@
 #define D18 18
 #define D19 19
 #define D20 20
-#define D21 21
-#define D22 22
-#define D23_Buzzer 23
-#define D25_RunButton 25
+#define D21_BiLED 21
+#define D22_Speaker 22
+#define D23 23
+#define D24 24
+#define D25 25
+#define D26 26
+#define D27 27
+#define D28 28
+#define D29_RunButton 29
 
 void initBoard();
 
