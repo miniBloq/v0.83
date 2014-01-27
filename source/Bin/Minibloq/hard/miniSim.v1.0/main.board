@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<board xmlns="http://board.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
+    <properties>
+		<manufacturer>miniBloq</manufacturer>
+		<name>miniSim.v1.0</name>
+		<portType>HID2</portType>
+		<url0>http://minibloq.org</url0>
+		<url1>http://robotgroup.com.ar</url1>
+		<imgMain>main.png</imgMain>
+		<imgThumb>thumb.png</imgThumb>
+		<win_i386_lang>PPythonWin/v2.7.5.1</win_i386_lang>
+		<linux_i386_lang>PPythonWin/v2.7.5.1</linux_i386_lang>
+		<linux_amd64_lang>PPythonWin/v2.7.5.1</linux_amd64_lang>
+		<outputMainFileExtension>py</outputMainFileExtension>
+		<resetBeforeBuild>false</resetBeforeBuild>
+		<headerFileExtension>h</headerFileExtension>
+		<codeFileExtension>py</codeFileExtension>
+		<includeCodePrefix>import </includeCodePrefix>
+		<includeCodePostfix></includeCodePostfix>
+		<includeInitCode></includeInitCode>
+		<includeFinalCode></includeFinalCode>
+		<includeBuildPrefix></includeBuildPrefix>
+		<includeBuildPostfix></includeBuildPostfix>
+		<initBoardHeader></initBoardHeader>
+		<initBoardPrefix></initBoardPrefix>
+		<initBoardPostfix></initBoardPostfix>
+		<commentBegin>##</commentBegin>
+		<commentEnd></commentEnd>
+		<objectExtension>pyc</objectExtension>
+    </properties>
+	<syntax>
+		<lexer>2</lexer>
+		
+		<operatorColor>0,0,0</operatorColor>
+		<stringColor>150,0,0</stringColor>
+        <preprocesorColor>165,105,0</preprocesorColor>
+        <identifierColor>0,0,0</identifierColor>
+        <numberColor>0,255,0</numberColor>
+        <characterColor>150,0,0</characterColor>
+        <wordColor>255,128,0</wordColor>
+        <word2Color>0,0,150</word2Color>
+        <commentColor>92,92,92</commentColor>
+        <commentLineColor>92,92,92</commentLineColor>
+        <commentDocColor>92,92,92</commentDocColor>
+        <commentDocKeywordColor>92,92,92</commentDocKeywordColor>
+        <commentDocKeywordErrorColor>92,92,92</commentDocKeywordErrorColor>
+		
+		<operatorBold>true</operatorBold>
+		<wordBold>true</wordBold>
+		<word2Bold>true</word2Bold>
+		<commentDocKeywordBold>true</commentDocKeywordBold>
+		
+		<tabWidth>4</tabWidth>
+	</syntax>
+	<examples>
+		<path><s>componentsRepositoryPath::</s><s>/work/_examples/miniSim</s></path>
+	</examples>
+	<fileExtensions>
+		<h/>
+		<cpp/>
+	</fileExtensions>
+	<cpp>
+		<cmd>
+			<s>"</s><s>toolsPath::</s>
+			<s>/avr-g++" -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD -mmcu=</s><s>cpu::</s>
+			<s> -DF_CPU=</s><s>clockFreq::</s>
+			<s> -DARDUINO=</s><s>arduinoVersion::</s>
+			<s> -I"</s><s>toolsPath::</s>
+			<s>" -I"</s><s>corePath::</s>
+			<s>" -I"</s><s>corePath::</s><s>/avr-libc</s>
+			<s>" -I"</s><s>corePath::</s><s>/variants/</s><s>arduinoVariant::</s>
+			<s>" -I"</s><s>boardPath::</s><s>/lib</s>
+			<s>" -I"</s><s>componentFilesPath::</s>
+			<s>" -I"</s><s>outputPath::</s>
+			<s>" -I"</s><s>libsPath::</s><s>/Arduino/miniBloq/v1.0</s>
+			<s>" -I"</s><s>libsPath::</s><s>/Arduino/PingIRReceiver/v1.0" </s>
+
+			<s>includesBuildList::</s>
+			
+			<s> "</s><s>componentFilesPath::</s><s>/</s><s>$currentFile$" -o "</s><s>outputPath::</s><s>/</s><s>$currentFile$.o"</s>
+		</cmd>
+	</cpp>
+	<includeFiles>
+		<include><s>sys</s></include>
+		<include><s>serial</s></include>
+	</includeFiles>
+	<initBoardCode>
+		<s>##initBoard&#10;</s>
+	</initBoardCode>
+	<initCode>
+		<s>import sys&#10;&#10;</s>
+		<s>while(1): ##test&#10;</s>
+		<s>	print "test"</s>
+	</initCode>
+	<finalCode>
+		<s></s>
+	</finalCode>
+	<build>
+		<cmd>
+			<s>"</s><s>toolsPath::</s><s>/Python-Portable.exe"</s>
+			<s> "</s><s>componentFilesPath::</s><s>/</s><s>componentName::</s><s>.py"</s>
+		</cmd>
+	</build>
+	<deploy>
+		<cmd>
+		</cmd>
+	</deploy>
+	<instances>
+		<serial0 instanceType="Serial"/>
+		<serial1 instanceType="Serial"/>
+
+		<BatteryPin instanceType="analogRead"/>
+		<sensor0 instanceType="analogRead"/>
+		<sensor1 instanceType="analogRead"/>
+		<sensor2 instanceType="analogRead"/>
+		<sensor3 instanceType="analogRead"/>
+		<sensor4 instanceType="analogRead"/>
+		<sensor5 instanceType="analogRead"/>
+
+		<PWM9 instanceType="analogWrite"/>
+		<PWM10 instanceType="analogWrite"/>
+		<PWM12 instanceType="analogWrite"/>
+		<PWM13 instanceType="analogWrite"/>
+		<PWM27 instanceType="analogWrite"/>
+		<PWM28 instanceType="analogWrite"/>
+		
+		<D0 instanceType="IOPin"/>
+		<D1 instanceType="IOPin"/>
+		<D2 instanceType="IOPin"/>
+		<D3 instanceType="IOPin"/>
+		<D4 instanceType="IOPin"/>
+		<D5 instanceType="IOPin"/>
+		<D6 instanceType="IOPin"/>
+		<D7 instanceType="IOPin"/>
+		<D8 instanceType="IOPin"/>
+		<D9 instanceType="IOPin"/>
+		<D10 instanceType="IOPin"/>
+		<D11 instanceType="IOPin"/>
+		<D12 instanceType="IOPin"/>
+		<D13_LED instanceType="IOPin"/>
+		<D14 instanceType="IOPin"/>
+		<D15 instanceType="IOPin"/>
+		<D16 instanceType="IOPin"/>
+		<D17 instanceType="IOPin"/>
+		<D18 instanceType="IOPin"/>
+		<D19 instanceType="IOPin"/>
+		<D20 instanceType="IOPin"/>
+		<D21_BiLED instanceType="IOPin"/>
+		<D29_RunButton instanceType="IOPin"/>
+		<D23 instanceType="IOPin"/>
+		<D24 instanceType="IOPin"/>
+		<D25 instanceType="IOPin"/>
+		<D26 instanceType="IOPin"/>
+		<D27 instanceType="IOPin"/>
+		<D28 instanceType="IOPin"/>
+		<D29_RunButton instanceType="IOPin"/>
+	</instances>
+</board>

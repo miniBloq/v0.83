@@ -1490,7 +1490,7 @@ bool Bubble::build()
         {
             cmd = commands[i];
             getNotifier()->showMessage(/*(wxString("") << i) + wxString(": ") + */cmd + wxString("\n"), false, true, *wxGREEN);
-            wxExecute(cmd, output, errors);
+            wxExecute(cmd, output, errors);//, wxEXEC_ASYNC); //The Async execution does not work, wxExecute bug?
 
             //Build process ends when a command finds an error:
             if (findErrorStringAndShow(errors))
