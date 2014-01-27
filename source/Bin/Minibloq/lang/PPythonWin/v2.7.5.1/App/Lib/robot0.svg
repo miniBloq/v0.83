@@ -14,7 +14,10 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="robot0.svg">
+   sodipodi:docname="robot0.svg"
+   inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\miniSim.v1.0\lib\robot1.png"
+   inkscape:export-xdpi="62.849998"
+   inkscape:export-ydpi="62.849998">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -53,7 +56,10 @@
      id="layer1">
     <g
        id="g3966"
-       transform="translate(-4.6484388e-8,6.5314544)">
+       transform="translate(-4.6484388e-8,6.5314544)"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\miniSim.v1.0\lib\robot0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <g
          transform="translate(-2.7242126,0)"
          id="g3872">
@@ -174,6 +180,9 @@
        width="91.642021"
        height="91.642021"
        x="-957.53528"
-       y="246.96974" />
+       y="246.96974"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\miniSim.v1.0\lib\robot0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
   </g>
 </svg>
