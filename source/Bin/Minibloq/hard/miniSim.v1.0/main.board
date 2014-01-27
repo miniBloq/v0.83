@@ -24,7 +24,7 @@
 		<initBoardHeader></initBoardHeader>
 		<initBoardPrefix></initBoardPrefix>
 		<initBoardPostfix></initBoardPostfix>
-		<commentBegin>##</commentBegin>
+		<commentBegin>#</commentBegin>
 		<commentEnd></commentEnd>
 		<objectExtension>pyc</objectExtension>
     </properties>
@@ -85,11 +85,11 @@
 		<include><s>serial</s></include>
 	</includeFiles>
 	<initBoardCode>
-		<s>##initBoard&#10;</s>
+		<s>#initBoard&#10;</s>
 	</initBoardCode>
 	<initCode>
 		<s>import sys&#10;&#10;</s>
-		<s>while(1): ##test&#10;</s>
+		<s>while(1): #test&#10;</s>
 		<s>	print "test"</s>
 	</initCode>
 	<finalCode>
