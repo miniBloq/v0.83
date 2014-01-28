@@ -3369,6 +3369,7 @@ void MainFrame::onMenuFileAdd(wxCommandEvent& evt)
                     {
                         //If the file was added, open it, creating an new editor:
                         createCodeEditor(destFileName, newEditor); //Passes the full fileName.
+
                     }
                     else
                     {
@@ -3394,6 +3395,9 @@ void MainFrame::onMenuFileAdd(wxCommandEvent& evt)
                         //if (bubble.getFileEditorHash()->size() == 0)
                         //{
                             notebook->Split(notebook->GetPageIndex(bubble.getCurrentCanvas()), wxLEFT);
+                            //toggleComponentBlocks();
+                            //toggleComponentBlocks();
+
                             //wxMessageDialog dialog0(this, _("split!"), wxString("0") << getEditCodeZoom()); //##Debug.
                             //dialog0.ShowModal(); //##Debug.
                         //}

@@ -81,6 +81,7 @@
 	<fileExtensions>
 		<h/>
 		<cpp/>
+		<txt/>
 	</fileExtensions>
 	<cpp>
 		<cmd>
