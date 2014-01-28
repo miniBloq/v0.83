@@ -3380,6 +3380,28 @@ void MainFrame::onMenuFileAdd(wxCommandEvent& evt)
             }
         }
 
+        //If the canvas is visible, the split it to the left:
+        if (bubble.getCurrentCanvas())
+        {
+            if (notebook)
+            {
+                int index = notebook->GetPageIndex(bubble.getCurrentCanvas());
+                if (index != wxNOT_FOUND)
+                {
+                    //If there are other text files opened, then do not do the split:
+                    //if (bubble.getFileEditorHash())
+                    //{
+                        //if (bubble.getFileEditorHash()->size() == 0)
+                        //{
+                            notebook->Split(notebook->GetPageIndex(bubble.getCurrentCanvas()), wxLEFT);
+                            //wxMessageDialog dialog0(this, _("split!"), wxString("0") << getEditCodeZoom()); //##Debug.
+                            //dialog0.ShowModal(); //##Debug.
+                        //}
+                    //}
+                }
+            }
+        }
+
         //##Debug:
         //wxMessageDialog dialog2(this, msg, _("Selected files"));
         //dialog2.ShowModal();
@@ -4586,10 +4608,6 @@ void MainFrame::toggleGeneratedCode()
         {
             if (bubble.getHardwareManager()->getCurrentBoardProperties())
             {
-
-                //##Acá: ##1## Si hay archivos cargados, entonces tiene que hacer un setfocus para hacer el add, o hacer
-                //directamente un insert o algo, para que no haga el add al canvas.
-
                 if (notebook->AddPage(editCode,
                                       tempComponentName.BeforeLast('.') + wxString(".") +
                                       bubble.getHardwareManager()->getCurrentBoardProperties()->getOutputMainFileExtension(),
@@ -4617,7 +4635,6 @@ void MainFrame::toggleGeneratedCode()
                     bubble.updateCode();
                     refreshGeneratedCode();
 
-                    //##:
                     //notebook->SetSelection(notebook->GetPageIndex(editCode));
                     editCode->SetFocus();
 
