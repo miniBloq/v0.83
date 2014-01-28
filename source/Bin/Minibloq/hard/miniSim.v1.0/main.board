@@ -67,10 +67,8 @@
 		<s>#initBoard&#10;</s>
 	</initBoardCode>
 	<initCode>
-		<s>import miniSim&#10;&#10;</s>
-		<s>runMiniSim() #test&#10;</s>
-		<s>#while(1): #test&#10;</s>
-		<s>#	print "test"</s>
+		<s>from miniSim import miniSimRun&#10;&#10;</s>
+		<s>miniSimRun()&#10;</s>
 	</initCode>
 	<finalCode>
 		<s></s>

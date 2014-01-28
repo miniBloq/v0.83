@@ -1,7 +1,23 @@
 import os
 import pygame
 
-def runMiniSim():
+
+def miniSimAskToQuit():
+    # Application end events (both from keyboard or from the window close button):
+    for event in pygame.event.get():
+        # Application end:
+        if event.type == pygame.QUIT:
+            return True
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+            return True    
+    return False
+
+
+def miniSimLoop(robot, step):
+    return miniSimAskToQuit()
+
+
+def miniSimRun():
     pygame.init()
 
     # Setup the screen:
@@ -11,11 +27,15 @@ def runMiniSim():
 
     # Create the robot:
     robot0 = pygame.sprite.Sprite()
-    abspath = os.path.abspath(__file__)
-    dname = os.path.dirname(abspath)
-    robot0.image = pygame.image.load(dname + '/robot1.png')
+    dname = ''
+    #dname = os.path.dirname(os.path.abspath(__file__)) + '/'
+    robot0.image = pygame.image.load(dname + 'robot1.png')
+    
     robot0.rect = robot0.image.get_rect()
     robot0_group = pygame.sprite.GroupSingle(robot0)
+
+    robot0.rect.top = height/2 - robot0.rect.height/2
+    robot0.rect.left = width/2 - robot0.rect.width/2
 
     # Canvas:
     tileSize = robot0.rect.width
@@ -32,27 +52,13 @@ def runMiniSim():
         robot0_group.draw(screen)
         pygame.display.update()
 
-        # Events:
-        for event in pygame.event.get():
-            # Application end:
-            if event.type == pygame.QUIT:
-                finish = True
-            if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
-                finish = True
-
-            # Movements:
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_UP:
-                    robot0.rect.top = tileSize
-                elif event.key == pygame.K_DOWN:
-                    robot0.rect.top += tileSize
-                elif event.key == pygame.K_RIGHT:
-                    robot0.rect.right += tileSize
-                elif event.key == pygame.K_LEFT:
-                    robot0.rect.right = tileSize
+        # Movements:
+        finish = miniSimLoop(robot0, tileSize)
 
     # Program end:
     pygame.quit()
 
 
-runMiniSim()
+#if __name__=="__main__":
+#   miniSimRun()
+miniSimRun()
