@@ -4542,11 +4542,22 @@ void MainFrame::toggleGeneratedCode()
     if (notebook == NULL)
         return;
 
-#if defined (WIN32)
-    if (notebook->GetPage(notebook->GetPageIndex(editCode)) == NULL)
-#else
+    if (bubble.getFileEditorHash())
+    {
+        if (bubble.getFileEditorHash()->size() > 0)
+        {
+            //If there are files, try to set focus on the first one, to show the editCode next to it:
+            FileEditorHash::iterator it;
+            it = bubble.getFileEditorHash()->begin();
+            BubbleEditor *value = it->second;
+            if (value)
+            {
+                value->SetFocus();
+            }
+        }
+    }
+
     if (notebook->GetPageIndex(editCode) == wxNOT_FOUND )
-#endif
     {
         //##Does de wxAUI automatically deletes this child when closed by user? It's possible, but have to test
         //well this stuff:
@@ -4587,8 +4598,18 @@ void MainFrame::toggleGeneratedCode()
                 {
                     //notebook->Split(notebook->GetPageIndex(editCode), wxRIGHT);
                     if (bubble.getCurrentCanvas())
-                        notebook->Split(notebook->GetPageIndex(bubble.getCurrentCanvas()), wxLEFT);
-
+                    {
+                        //If there are other text files opened, then do not do the split:
+                        if (bubble.getFileEditorHash())
+                        {
+                            if (bubble.getFileEditorHash()->size() == 0)
+                            {
+                                notebook->Split(notebook->GetPageIndex(bubble.getCurrentCanvas()), wxLEFT);
+                                //wxMessageDialog dialog0(this, _("split!"), wxString("0") << getEditCodeZoom()); //##Debug.
+                                //dialog0.ShowModal(); //##Debug.
+                            }
+                        }
+                    }
                     toggleComponentBlocks();
                     toggleComponentBlocks();
 
@@ -4598,9 +4619,10 @@ void MainFrame::toggleGeneratedCode()
 
                     //##:
                     //notebook->SetSelection(notebook->GetPageIndex(editCode));
-                    //editCode->SetFocus();
+                    editCode->SetFocus();
 
                     menuViewGeneratedCode->Check(true);
+
                 }
             }
         }
