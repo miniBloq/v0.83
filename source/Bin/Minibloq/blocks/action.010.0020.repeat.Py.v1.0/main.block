@@ -8,12 +8,11 @@
     <code>
 		<dataType>void</dataType>
 		<initialCode>
-			<line0>for</line0>
-			<line1>{</line1>
+			<line0>for </line0>
 		</initialCode>
-		<paramListStart>(unsigned int _i=0; _i&lt;(unsigned int)(</paramListStart>
-		<paramListEnd>); _i++)</paramListEnd>
-		<keywords0>for</keywords0>
+		<paramListStart>_i in range(</paramListStart>
+		<paramListEnd>):</paramListEnd>
+		<keywords0>for in range</keywords0>
 	</code>
     <interface>
 		<originalSize>
