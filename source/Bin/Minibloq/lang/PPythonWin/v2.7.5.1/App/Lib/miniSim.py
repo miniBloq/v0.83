@@ -1,64 +1,91 @@
 import os
 import pygame
 
+        
+class MiniSim(object):
+    def __init__(self):
+        pygame.init()
 
-def miniSimAskToQuit():
-    # Application end events (both from keyboard or from the window close button):
-    for event in pygame.event.get():
-        # Application end:
-        if event.type == pygame.QUIT:
-            return True
-        if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
-            return True    
-    return False
+        # Setup the screen:
+        self.width = 800
+        self.height = 600
+        self.screen = pygame.display.set_mode((self.width, self.height))
+
+        # Create the robot:
+        self.robot0 = pygame.sprite.Sprite()
+        dname = ''
+        if __name__ != "__main__": # Necessary to work both with IDLE and with miniBloq.
+            dname = os.path.dirname(os.path.abspath(__file__)) + '/'
+        self.robot0.image = pygame.image.load(dname + 'robot1.png')
+        
+        self.robot0.rect = self.robot0.image.get_rect()
+        self.robot0_group = pygame.sprite.GroupSingle(self.robot0)
+
+        self.robot0.rect.top = self.height/2 - self.robot0.rect.height/2
+        self.robot0.rect.left = self.width/2 - self.robot0.rect.width/2
+
+        # Canvas:
+        self.tileSize = self.robot0.rect.width
+        self.numTilesWidth = self.width / self.tileSize
+        self.numTilesHeight = self.height / self.tileSize
+
+    def run(self):
+        # Main application loop:
+        self.finish = False
+        while self.finish != True:
+            # Background painting:
+            self.screen.fill((192, 192, 192))
+
+            # robot0 painting:
+            self.robot0_group.draw(self.screen)
+            pygame.display.update()
+
+            # Movements:
+            self.loop()
+
+        # Program end:
+        pygame.quit()
+
+    def loop(self):
+        return self.askToQuit()
+        
+    def askToQuit(self):
+        # Application end events (both from keyboard or from the window close button):
+        for event in pygame.event.get():
+            # Application end:
+            if event.type == pygame.QUIT:
+                self.finish = True
+                return
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                self.finish = True
+                return
+        self.finish = False
 
 
-def miniSimLoop(robot, step):
-    return miniSimAskToQuit()
+class MobileRobot(object):
+    def __init__(self, simulator):
+        self.speed = 1 #[ms]
+        self.simulator = simulator
 
+    def wait(self, time_ms):
+        pygame.time.wait(time_ms)
 
-def miniSimRun():
-    pygame.init()
+    def forward(self, distance):
+        for i in range(distance):
+            self.simulator.robot0.rect.top -= 1
+            self.wait(self.speed);
+            self.simulator.askToQuit()
 
-    # Setup the screen:
-    width = 800
-    height = 600
-    screen = pygame.display.set_mode((width, height))
-
-    # Create the robot:
-    robot0 = pygame.sprite.Sprite()
-    dname = ''
-    if __name__ != "__main__": # Necessary to work both with IDLE and with miniBloq.
-        dname = os.path.dirname(os.path.abspath(__file__)) + '/'
-    robot0.image = pygame.image.load(dname + 'robot1.png')
-    
-    robot0.rect = robot0.image.get_rect()
-    robot0_group = pygame.sprite.GroupSingle(robot0)
-
-    robot0.rect.top = height/2 - robot0.rect.height/2
-    robot0.rect.left = width/2 - robot0.rect.width/2
-
-    # Canvas:
-    tileSize = robot0.rect.width
-    numTilesWidth = width / tileSize
-    numTilesHeight = height / tileSize
-
-    # Main application loop:
-    finish = False
-    while finish != True:
-        # Background painting:
-        screen.fill((192, 192, 192))
-
-        # robot0 painting:
-        robot0_group.draw(screen)
-        pygame.display.update()
-
-        # Movements:
-        finish = miniSimLoop(robot0, tileSize)
-
-    # Program end:
-    pygame.quit()
+    def reverse(self, distance):
+        for i in range(distance):
+            self.simulator.robot0.rect.top -= 1
+            self.wait(self.speed);
+            self.simulator.askToQuit()
 
 
 if __name__ == "__main__": # Necessary to work both with IDLE and with miniBloq.
-   miniSimRun()
+    # Main user program here:
+    miniSim = MiniSim()
+    robot = MobileRobot(miniSim)
+    robot.forward(50)
+    miniSim.run()

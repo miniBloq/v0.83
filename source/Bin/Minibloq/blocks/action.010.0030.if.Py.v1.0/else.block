@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<block xmlns="http://block.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.8.Beta">
+    <properties>
+		<name>else</name>
+		<function>Flow</function>
+		<loadAction>brother</loadAction>
+    </properties>
+    <code>
+		<dataType>void</dataType>
+		<initialCode>
+			<line1>else:</line1>
+		</initialCode>
+	</code>
+    <interface>
+		<originalSize>
+			<width>blockDefaultWidth::</width>
+			<height>blockDefaultHeight::</height>
+		</originalSize>
+        <childFactor>0.9</childFactor>
+        <defaultBackgroundColour0>
+			<R>flowBlockColour0R::</R>
+			<G>flowBlockColour0G::</G>
+			<B>flowBlockColour0B::</B>
+		</defaultBackgroundColour0>
+        <defaultBackgroundColour1>
+			<R>flowBlockColour1R::</R>
+			<G>flowBlockColour1G::</G>
+			<B>flowBlockColour1B::</B>
+		</defaultBackgroundColour1>
+		<nextBlockIndentationTabs>1</nextBlockIndentationTabs>
+		<blockButton>
+			<has>true</has>
+			<imagesBasePath>thisBlockPath::</imagesBasePath>
+			<default>Images/BlockDefault.png</default>
+			<disabled>Images/BlockDisabled.png</disabled>
+		</blockButton>
+		<methodButton>
+			<has>true</has>
+			<allowDrag>true</allowDrag>
+			<imagesBasePath>thisBlockPath::</imagesBasePath>
+			<default>Images/FalseDefault.png</default>
+			<disabled>Images/FalseDisabled.png</disabled>
+		</methodButton>
+	</interface>
+</block>
