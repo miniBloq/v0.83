@@ -833,7 +833,6 @@ class Bubble : public IBubbleFileIO
 
         wxString generateXMLFromParams(BubbleBlock *block);
 
-        void setVisibleCanvas(bool value) { visibleCanvas = value; }
 
     public:
         //Construction:
@@ -1018,6 +1017,7 @@ class Bubble : public IBubbleFileIO
         inline bool getVisibleLabels() const  { return visibleLabels; }
         void setVisibleLabels(bool value);
 
+        inline void setVisibleCanvas(bool value) { visibleCanvas = value; }
         inline bool getVisibleCanvas() const  { return visibleCanvas; }
 };
 #endif

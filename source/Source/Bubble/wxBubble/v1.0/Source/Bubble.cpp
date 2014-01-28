@@ -816,7 +816,6 @@ bool Bubble::loadComponentFromFile(const wxString& name)
                         //dialog1.ShowModal(); //##Debug.
                     }
                 }
-
                 child = child->GetNext();
             }
         }
@@ -1041,6 +1040,7 @@ bool Bubble::saveComponentToFile(const wxString& name, bool format)
 
 
         componentFile.AddLine(wxString("\t<properties>"));
+        componentFile.AddLine(wxString("\t\t<canvas visible=\"" + bool2string(getVisibleCanvas()) +  wxString("\"/>")));
         componentFile.AddLine(wxString("\t\t<blocks count=\"") +
                               (wxString("") << currentCanvas->getBlocksCount()) + wxString("\"") +
                               wxString(">"));

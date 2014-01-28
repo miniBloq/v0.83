@@ -108,7 +108,7 @@ BEGIN_EVENT_TABLE(MainFrame, wxFrame)
     EVT_AUINOTEBOOK_PAGE_CLOSE(ID_Notebook, MainFrame::onNotebookPageClose)
     EVT_AUINOTEBOOK_PAGE_CHANGED(ID_Notebook, MainFrame::onNotebookPageChanged)
 
-//##Implemente those too?:
+//##Implement those too?:
 //    EVT_AUINOTEBOOK_ALLOW_DND(ID_Terminal, MainFrame::onAllowTerminalDnD)
 //    EVT_AUINOTEBOOK_PAGE_CLOSE(ID_Terminal, MainFrame::onTerminalPageClose)
 //    EVT_AUINOTEBOOK_PAGE_CHANGED(ID_Terminal, MainFrame::onTerminalPageChanged)
@@ -3572,13 +3572,16 @@ bool MainFrame::openFileComponent(const wxString &defaultDir)
         }
         createFileBlock(true, dialog.GetFilename()); //##By now...
 
+        bool visibleCanvas = true;
         wxFileName aux(dialog.GetPath());
         bubble.setComponentPath(aux.GetPath());
         tempComponentName = aux.GetFullName();
         bubble.setComponentFilesPath(bubble.getComponentPath() + wxString("/") + aux.GetName());
         bubble.setOutputPath(bubble.getComponentFilesPath() + wxString("/output"));
+        bubble.setVisibleCanvas(true); //Default
         if (bubble.loadComponentFromFile(dialog.GetPath()))
         {
+            visibleCanvas = bubble.getVisibleCanvas();
             componentAlreadySaved = true;
 //            wxMessageDialog dialog0(this, _("0"), _("Debug:")); //##Debug.
 //            dialog0.ShowModal(); //##Debug.
@@ -3607,9 +3610,26 @@ bool MainFrame::openFileComponent(const wxString &defaultDir)
 //                    toggleWindow("Hardware", menuViewHardware);
 //            }
 
-//##Not working yet:
-//            if (!bubble.getVisibleCanvas())
-//                showComponentBlocks(false);
+
+            if (bubble.getCurrentCanvas())
+            {
+                if (notebook)
+                {
+                    int index = notebook->GetPageIndex(bubble.getCurrentCanvas());
+                    if (index != wxNOT_FOUND)
+                    {
+                        //notebook->Split(notebook->GetPageIndex(bubble.getCurrentCanvas()), wxLEFT);
+                        toggleComponentBlocks();
+                        toggleComponentBlocks();
+                        if (!visibleCanvas)
+                        {
+                            toggleComponentBlocks();
+                            //wxMessageDialog dialog0(this, wxString("visible=")<<bubble.getVisibleCanvas(), _("Debug:")); //##Debug.
+                            //dialog0.ShowModal(); //##Debug.
+                        }
+                    }
+                }
+            }
 
             return true;
         }
@@ -4678,6 +4698,7 @@ void MainFrame::toggleComponentBlocks()
             {
                 showComponentBlocks(true);
             }
+            bubble.forceSaved(false);
             //auiManager.Update();
         }
     }
@@ -4691,6 +4712,7 @@ void MainFrame::showComponentBlocks(bool value)
     if (notebook == NULL)
         return;
 
+    bubble.setVisibleCanvas(value);
     if (value)
     {
         wxBitmap page_bmp = wxArtProvider::GetBitmap(wxART_NORMAL_FILE, wxART_OTHER, wxSize(16, 16));
@@ -5260,6 +5282,9 @@ void MainFrame::onNotebookPageClose(wxAuiNotebookEvent& evt)
                     if (menuViewComponentBlocks)
                     {
                         menuViewComponentBlocks->Check(false);
+                        bubble.setVisibleCanvas(false);
+                        //bubble.forceSaved(false);
+                        //##2##
                     }
                 }
             }

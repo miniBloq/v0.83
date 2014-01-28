@@ -1772,7 +1772,7 @@ void BubbleCanvas::zoomParams(BubbleBlock *block)
 }
 
 
-void BubbleCanvas:: forceSaved(const bool value)
+void BubbleCanvas::forceSaved(const bool value)
 {
     saved = value;
 
