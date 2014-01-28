@@ -28,7 +28,8 @@ def miniSimRun():
     # Create the robot:
     robot0 = pygame.sprite.Sprite()
     dname = ''
-    #dname = os.path.dirname(os.path.abspath(__file__)) + '/'
+    if __name__ != "__main__": # Necessary to work both with IDLE and with miniBloq.
+        dname = os.path.dirname(os.path.abspath(__file__)) + '/'
     robot0.image = pygame.image.load(dname + 'robot1.png')
     
     robot0.rect = robot0.image.get_rect()
@@ -59,6 +60,5 @@ def miniSimRun():
     pygame.quit()
 
 
-#if __name__=="__main__":
-#   miniSimRun()
-miniSimRun()
+if __name__ == "__main__": # Necessary to work both with IDLE and with miniBloq.
+   miniSimRun()
