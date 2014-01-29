@@ -29,24 +29,31 @@ class MiniSim(object):
         self.numTilesWidth = self.width / self.tileSize
         self.numTilesHeight = self.height / self.tileSize
 
+    def update(self):
+        # Background painting:
+        self.screen.fill((192, 192, 192))
+
+        # robot0 painting:
+        self.robot0_group.draw(self.screen)
+        pygame.display.update()
+
+        #Program end?
+        self.askToQuit()
+
     def run(self):
+        # Robot movements:
+        self.go()
+
         # Main application loop:
         self.finish = False
         while self.finish != True:
-            # Background painting:
-            self.screen.fill((192, 192, 192))
-
-            # robot0 painting:
-            self.robot0_group.draw(self.screen)
-            pygame.display.update()
-
-            # Movements:
-            self.loop()
+            self.askToQuit()
 
         # Program end:
         pygame.quit()
 
-    def loop(self):
+    def go(self):
+        #This function will be redefined by the simulator user (see main() below):
         return self.askToQuit()
         
     def askToQuit(self):
@@ -74,18 +81,27 @@ class MobileRobot(object):
         for i in range(distance):
             self.simulator.robot0.rect.top -= 1
             self.wait(self.speed);
-            self.simulator.askToQuit()
+            self.simulator.update()
 
     def reverse(self, distance):
         for i in range(distance):
-            self.simulator.robot0.rect.top -= 1
+            self.simulator.robot0.rect.top += 1
             self.wait(self.speed);
-            self.simulator.askToQuit()
+            self.simulator.update()
 
+
+miniSim = MiniSim()
+robot = MobileRobot(miniSim)
+
+def go():
+    robot.forward(50)
+    robot.wait(300)
+    robot.reverse(150)
+
+def main():
+    # Main user program here:
+    miniSim.go = go
+    miniSim.run()
 
 if __name__ == "__main__": # Necessary to work both with IDLE and with miniBloq.
-    # Main user program here:
-    miniSim = MiniSim()
-    robot = MobileRobot(miniSim)
-    robot.forward(50)
-    miniSim.run()
+    main()

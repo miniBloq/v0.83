@@ -71,11 +71,11 @@
 		<s>from miniSim import MobileRobot&#10;</s>
 		<s>miniSim = MiniSim()&#10;</s>
 		<s>robot = MobileRobot(miniSim)&#10;&#10;</s>
-		<s>def Loop():</s>
+		<s>def go():</s>
 	</initCode>
 	<finalCode>
 		<s>	miniSim.askToQuit()&#10;&#10;</s>
-		<s>miniSim.loop = Loop&#10;</s>
+		<s>miniSim.go = go&#10;</s>
 		<s>miniSim.run()</s>
 	</finalCode>
 	<build>
