@@ -21,13 +21,16 @@ class MiniSim(object):
         self.robot0.rect = self.robot0.image.get_rect()
         self.robot0_group = pygame.sprite.GroupSingle(self.robot0)
 
-        self.robot0.rect.top = self.height/2 - self.robot0.rect.height/2
-        self.robot0.rect.left = self.width/2 - self.robot0.rect.width/2
+        self.centerSprite(self.robot0)
 
         # Canvas:
         self.tileSize = self.robot0.rect.width
         self.numTilesWidth = self.width / self.tileSize
         self.numTilesHeight = self.height / self.tileSize
+
+    def centerSprite(self, sprite):
+        sprite.rect.top = self.height/2 - sprite.rect.height/2
+        sprite.rect.left = self.width/2 - sprite.rect.width/2
 
     def update(self):
         # Background painting:
@@ -41,6 +44,9 @@ class MiniSim(object):
         self.askToQuit()
 
     def run(self):
+        # Centers the robot again:
+        self.centerSprite(self.robot0)
+        
         # Robot movements:
         self.go()
 
@@ -62,10 +68,16 @@ class MiniSim(object):
             # Application end:
             if event.type == pygame.QUIT:
                 self.finish = True
+                pygame.quit()
                 return
             if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
                 self.finish = True
+                pygame.quit()
                 return
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+                # Run the simulation (go function) again:
+                self.run()
+                return            
         self.finish = False
 
 
@@ -76,6 +88,12 @@ class MobileRobot(object):
 
     def wait(self, time_ms):
         pygame.time.wait(time_ms)
+
+    def move(self, distance):
+        if (distance >= 0):
+            self.forward(distance)
+        else:
+            self.reverse(-distance)
 
     def forward(self, distance):
         for i in range(distance):
