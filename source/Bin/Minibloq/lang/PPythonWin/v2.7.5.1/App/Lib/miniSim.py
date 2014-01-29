@@ -106,12 +106,6 @@ class MobileRobot(object):
     def wait(self, time_ms):
         pygame.time.wait(time_ms)
 
-##    def move(self, distance):
-##        if (distance >= 0):
-##            self.forward(distance)
-##        else:
-##            self.reverse(-distance)
-
     def move(self, distance):
         #for i in range(distance):
             self.wait(self.speed)
@@ -119,18 +113,6 @@ class MobileRobot(object):
             dy = -distance*math.sin(math.radians(self.heading))
             self.sprite.rect = self.sprite.rect.move(dx, dy)
             self.simulator.update()
-
-##    def reverse(self, distance):
-##            self.wait(self.speed)
-##            dx = distance*math.cos(math.radians(self.heading))
-##            dy = -distance*math.sin(math.radians(self.heading))
-##            self.sprite.rect = self.sprite.rect.move(dx, dy)
-##            self.simulator.update()
-##
-##"""        for i in range(distance):
-##            self.sprite.rect.top += 1
-##            self.wait(self.speed);
-##            self.simulator.update()"""
 
     def rotate(self, angle):
         if (angle >= 0):
@@ -158,9 +140,9 @@ def go():
     robot.home()
     robot.move(100)
     robot.wait(250)
-    robot.rotate(180)
+    robot.rotate(30)
     robot.wait(300)
-    robot.move(100)
+    robot.move(-100)
     """
     robot.wait(500)
     robot.rotate(30)
