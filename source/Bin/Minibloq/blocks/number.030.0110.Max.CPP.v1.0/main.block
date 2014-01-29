@@ -13,7 +13,7 @@
 		<paramSeparator>, </paramSeparator>
 		<paramListStart>(</paramListStart>
 		<paramListEnd>)</paramListEnd>
-		<keywords1>max</keywords1>
+		<keywords0>max</keywords0>
 	</code>
     <interface>
 		<originalSize>

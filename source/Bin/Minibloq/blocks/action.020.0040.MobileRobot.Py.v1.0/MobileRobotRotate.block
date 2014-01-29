@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <block xmlns="http://block.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.8.Beta">
     <properties>
-		<name>numberMin</name>
-		<function>Operation</function>
+		<name>mobileRobotRotate</name>
+		<function>Setter</function>
 		<loadAction>load</loadAction>
     </properties>
     <code>
-		<dataType>number</dataType>
+		<dataType>mobileRobotMethod</dataType>
 		<initialCode>
-			<line0>min</line0>
+			<line0>rotate</line0>
 		</initialCode>
-		<paramSeparator>, </paramSeparator>
 		<paramListStart>(</paramListStart>
 		<paramListEnd>)</paramListEnd>
-		<keywords0>min</keywords0>
+		<keywords1>rotate</keywords1>
 	</code>
     <interface>
 		<originalSize>
@@ -22,33 +21,31 @@
 		</originalSize>
         <childFactor>0.9</childFactor>
         <defaultBackgroundColour0>
-			<R>operationBlockColour0R::</R>
-			<G>operationBlockColour0G::</G>
-			<B>operationBlockColour0B::</B>
+			<R>setterBlockColour0R::</R>
+			<G>setterBlockColour0G::</G>
+			<B>setterBlockColour0B::</B>
 		</defaultBackgroundColour0>
         <defaultBackgroundColour1>
-			<R>operationBlockColour1R::</R>
-			<G>operationBlockColour1G::</G>
-			<B>operationBlockColour1B::</B>
+			<R>setterBlockColour1R::</R>
+			<G>setterBlockColour1G::</G>
+			<B>setterBlockColour1B::</B>
 		</defaultBackgroundColour1>
-		<hasHorizontalParams>true</hasHorizontalParams>
-		<minParamsCount>2</minParamsCount>
 		<picker>
 			<imagesBasePath>thisBlockPath::</imagesBasePath>
-			<default>Images/BlockDefault.png</default>
-			<hover>Images/BlockHover.png</hover>
-			<pressed>Images/BlockPressed.png</pressed>
-			<disabled>Images/BlockDisabled.png</disabled>
+			<default>Images/mobileRobotRotatePickerDefault.png</default>
+			<hover>Images/mobileRobotRotatePickerHover.png</hover>
+			<pressed>Images/mobileRobotRotatePickerPressed.png</pressed>
+			<disabled>Images/mobileRobotRotatePickerDisabled.png</disabled>
 		</picker>
-		<methodButton>
+		<blockButton>
 			<has>true</has>
 			<imagesBasePath>thisBlockPath::</imagesBasePath>
-			<default>Images/BlockDefault.png</default>
-			<disabled>Images/BlockDisabled.png</disabled>
-		</methodButton>
+			<default>Images/mobileRobotRotate.png</default>
+			<disabled>Images/mobileRobotRotateDisabled.png</disabled>
+		</blockButton>
 	</interface>
 	<params>
-		<value1>
+		<value>
 			<dataType>number</dataType>
 			<imagesBasePath>themePath::</imagesBasePath>
 			<notAssigned>ParamNotAssigned.png</notAssigned>
@@ -56,15 +53,6 @@
 			<hover>ParamHover.png</hover>
 			<pressed>ParamPressed.png</pressed>
 			<disabled>ParamDisabled.png</disabled>
-		</value1>
-		<value2>
-			<dataType>number</dataType>
-			<imagesBasePath>themePath::</imagesBasePath>
-			<notAssigned>ParamNotAssigned.png</notAssigned>
-			<default>ParamDefault.png</default>
-			<hover>ParamHover.png</hover>
-			<pressed>ParamPressed.png</pressed>
-			<disabled>ParamDisabled.png</disabled>
-		</value2>
+		</value>
 	</params>
 </block>

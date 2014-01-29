@@ -126,9 +126,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8"
-     inkscape:cx="-798.21823"
-     inkscape:cy="743.29186"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="-863.7649"
+     inkscape:cy="711.99208"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -155,7 +155,7 @@
      id="layer1">
     <g
        id="g3966"
-       transform="matrix(0,1,-1,0,-666.16928,1190.5765)"
+       transform="matrix(0,1,-1,0,-743.64279,1193.3934)"
        inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\miniSim.v1.0\lib\robot0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
@@ -278,15 +278,18 @@
        id="rect3964"
        width="91.642021"
        height="91.642021"
-       x="246.96974"
-       y="865.89325"
+       x="235.85808"
+       y="984.08105"
        inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\miniSim.v1.0\lib\robot0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90"
        transform="matrix(0,1,-1,0,0,0)" />
     <g
        id="g3892"
-       transform="matrix(0,1,-1,0,-553.35209,1050.2193)">
+       transform="matrix(0,1,-1,0,-553.35209,1050.2193)"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\lang\PPythonWin\v2.7.5.1\App\Lib\robot1.png"
+       inkscape:export-xdpi="62.849998"
+       inkscape:export-ydpi="62.849998">
       <g
          transform="translate(137.56149,1.4600248)"
          id="g3872-7">
