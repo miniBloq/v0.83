@@ -7,6 +7,7 @@
 
 import os
 import pygame
+import math
 
         
 class MiniSim(object):
@@ -29,14 +30,14 @@ class MiniSim(object):
         self.robot0.rect = self.robot0.image.get_rect()
         self.allRobots = pygame.sprite.GroupSingle(self.robot0)
 
-        self.centerSprite(self.robot0)
+        self.resetSprite(self.robot0)
 
         # Canvas:
         self.tileSize = self.robot0.rect.width
         self.numTilesWidth = self.width / self.tileSize
         self.numTilesHeight = self.height / self.tileSize
 
-    def centerSprite(self, sprite):
+    def resetSprite(self, sprite):
         sprite.rect.top = self.height/2 - sprite.rect.height/2
         sprite.rect.left = self.width/2 - sprite.rect.width/2
 
@@ -53,7 +54,7 @@ class MiniSim(object):
 
     def run(self):
         # Centers the robot again:
-        self.centerSprite(self.robot0)
+        self.resetSprite(self.robot0)
         
         # Robot movements:
         self.go()
@@ -91,33 +92,44 @@ class MiniSim(object):
 
 class MobileRobot(object):
     def __init__(self, simulator):
-        self.speed = 1 #[ms]
+        self.speed = 1 # [ms]
         self.simulator = simulator
         self.sprite = simulator.robot0
         self.group = simulator.allRobots
         self.originalImage = simulator.robot0.image
+        self.home()
+
+    def home(self):
         self.heading = 0
 
     def wait(self, time_ms):
         pygame.time.wait(time_ms)
 
+##    def move(self, distance):
+##        if (distance >= 0):
+##            self.forward(distance)
+##        else:
+##            self.reverse(-distance)
+
     def move(self, distance):
-        if (distance >= 0):
-            self.forward(distance)
-        else:
-            self.reverse(-distance)
-
-    def forward(self, distance):
-        for i in range(distance):
-            self.sprite.rect.top -= 1
-            self.wait(self.speed);
+        #for i in range(distance):
+            self.wait(self.speed)
+            dx = distance*math.cos(math.radians(self.heading))
+            dy = -distance*math.sin(math.radians(self.heading))
+            self.sprite.rect = self.sprite.rect.move(dx, dy)
             self.simulator.update()
 
-    def reverse(self, distance):
-        for i in range(distance):
-            self.sprite.rect.top += 1
-            self.wait(self.speed);
-            self.simulator.update()
+##    def reverse(self, distance):
+##            self.wait(self.speed)
+##            dx = distance*math.cos(math.radians(self.heading))
+##            dy = -distance*math.sin(math.radians(self.heading))
+##            self.sprite.rect = self.sprite.rect.move(dx, dy)
+##            self.simulator.update()
+##
+##"""        for i in range(distance):
+##            self.sprite.rect.top += 1
+##            self.wait(self.speed);
+##            self.simulator.update()"""
 
     def rotate(self, angle):
         if (angle >= 0):
@@ -140,15 +152,22 @@ class MobileRobot(object):
 miniSim = MiniSim()
 robot = MobileRobot(miniSim)
 
-def go():    
-    robot.forward(100)
-    robot.rotate(-45)
+def go():
+    # User program here:
+    robot.home()
+    robot.wait(500)
+    robot.rotate(30)
     robot.wait(300)
-    robot.rotate(45)
-
+    robot.move(100)
+    robot.wait(300)
+    robot.rotate(-30)
+    robot.wait(300)
+    robot.move(100)
+    robot.wait(300)
+    robot.rotate(-45)
+    robot.move(50)    
 
 def main():
-    # Main user program here:
     miniSim.go = go
     miniSim.run()
 

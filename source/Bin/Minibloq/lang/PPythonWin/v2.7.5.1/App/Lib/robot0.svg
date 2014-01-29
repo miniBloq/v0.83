@@ -61,8 +61,8 @@
     </linearGradient>
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient3862"
-       id="linearGradient3868"
+       xlink:href="#linearGradient3862-6"
+       id="linearGradient3868-7"
        x1="-753.92859"
        y1="313.43362"
        x2="-789.64288"
@@ -70,13 +70,54 @@
        gradientUnits="userSpaceOnUse" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient3878"
-       id="linearGradient3890"
+       id="linearGradient3862-6">
+      <stop
+         style="stop-color:#ff6600;stop-opacity:1;"
+         offset="0"
+         id="stop3864-1" />
+      <stop
+         style="stop-color:#ff6600;stop-opacity:0;"
+         offset="1"
+         id="stop3866-4" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3878-3"
+       id="linearGradient3890-2"
        x1="-788.62787"
        y1="248.2861"
        x2="-760.30072"
        y2="269.0004"
        gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       id="linearGradient3878-3">
+      <stop
+         style="stop-color:#ffff00;stop-opacity:1;"
+         offset="0"
+         id="stop3880-2" />
+      <stop
+         style="stop-color:#ff6600;stop-opacity:1;"
+         offset="1"
+         id="stop3882-2" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3862"
+       id="linearGradient4000"
+       gradientUnits="userSpaceOnUse"
+       x1="-753.92859"
+       y1="313.43362"
+       x2="-789.64288"
+       y2="273.43362" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3878"
+       id="linearGradient4002"
+       gradientUnits="userSpaceOnUse"
+       x1="-788.62787"
+       y1="248.2861"
+       x2="-760.30072"
+       y2="269.0004" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -114,7 +155,7 @@
      id="layer1">
     <g
        id="g3966"
-       transform="translate(-4.6484388e-8,6.5314544)"
+       transform="matrix(0,1,-1,0,-666.16928,1190.5765)"
        inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\miniSim.v1.0\lib\robot0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
@@ -233,137 +274,269 @@
       </g>
     </g>
     <rect
-       style="fill:none;stroke:none;stroke-width:0.35797667999999999;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       style="fill:none;stroke:none"
        id="rect3964"
        width="91.642021"
        height="91.642021"
-       x="-957.53528"
-       y="246.96974"
+       x="246.96974"
+       y="865.89325"
        inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\miniSim.v1.0\lib\robot0.png"
        inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
+       inkscape:export-ydpi="90"
+       transform="matrix(0,1,-1,0,0,0)" />
     <g
-       id="g3872-7"
-       transform="translate(137.56149,1.4600248)">
+       id="g3892"
+       transform="matrix(0,1,-1,0,-553.35209,1050.2193)">
+      <g
+         transform="translate(137.56149,1.4600248)"
+         id="g3872-7">
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           id="rect3870-4"
+           width="60"
+           height="2.5"
+           x="-939.64282"
+           y="268.62213" />
+        <rect
+           style="fill:#1a1a1a;fill-opacity:1;stroke:none"
+           id="rect2985-1-0"
+           width="14"
+           height="25"
+           x="-880.99261"
+           y="257.37213"
+           rx="2"
+           ry="2" />
+        <rect
+           style="fill:#1a1a1a;fill-opacity:1;stroke:none"
+           id="rect2985-1-7-9"
+           width="14"
+           height="25"
+           x="-950.98755"
+           y="257.37213"
+           rx="2"
+           ry="2" />
+      </g>
+      <g
+         id="g3872-8-4"
+         transform="translate(137.56149,40.710025)">
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           id="rect3870-2-8"
+           width="60"
+           height="2.5"
+           x="-939.64282"
+           y="268.62213" />
+        <rect
+           style="fill:#1a1a1a;fill-opacity:1;stroke:none"
+           id="rect2985-1-4-8"
+           width="14"
+           height="25"
+           x="-880.99261"
+           y="257.37213"
+           rx="2"
+           ry="2" />
+        <rect
+           style="fill:#1a1a1a;fill-opacity:1;stroke:none"
+           id="rect2985-1-7-5-2"
+           width="14"
+           height="25"
+           x="-950.98755"
+           y="257.37213"
+           rx="2"
+           ry="2" />
+      </g>
       <rect
-         y="268.62213"
-         x="-939.64282"
-         height="2.5"
-         width="60"
-         id="rect3870-4"
-         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+         ry="7.9999995"
+         rx="8"
+         y="263.10944"
+         x="-798.38629"
+         height="59.731174"
+         width="53.915363"
+         id="rect2985-4"
+         style="fill:#ffcc00;fill-opacity:1;stroke:#000000;stroke-width:0.48311281;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         ry="7.9999995"
+         rx="7.9999995"
+         y="269.8407"
+         x="-792.31042"
+         height="46.268631"
+         width="41.763622"
+         id="rect2985-7-5"
+         style="fill:url(#linearGradient4000);fill-opacity:1;stroke:#000000;stroke-width:0.37422618;stroke-miterlimit:4;stroke-dasharray:none" />
+      <path
+         transform="translate(258.39282,24.005686)"
+         d="m -1020.3571,250.04076 c 0,5.22698 -4.2373,9.46428 -9.4643,9.46428 -5.227,0 -9.4643,-4.2373 -9.4643,-9.46428 0,-5.22698 4.2373,-9.46429 9.4643,-9.46429 5.227,0 9.4643,4.23731 9.4643,9.46429 z"
+         sodipodi:ry="9.4642859"
+         sodipodi:rx="9.4642859"
+         sodipodi:cy="250.04076"
+         sodipodi:cx="-1029.8214"
+         id="path3944-5"
+         style="fill:#ff6600;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         sodipodi:type="arc" />
       <rect
          ry="2"
          rx="2"
-         y="257.37213"
-         x="-880.99261"
-         height="25"
-         width="14"
-         id="rect2985-1-0"
-         style="fill:#1a1a1a;fill-opacity:1;stroke:none" />
+         y="257.35754"
+         x="-788.37781"
+         height="14"
+         width="33.898476"
+         id="rect2985-9-1"
+         style="fill:url(#linearGradient4002);fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none" />
+      <g
+         transform="translate(137.33545,-10.539975)"
+         id="g3940-7">
+        <rect
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:0.13780782;stroke-miterlimit:4;stroke-dasharray:none"
+           id="rect2985-9-5-11"
+           width="9.1846895"
+           height="4.6132612"
+           x="-922.12042"
+           y="262.96536" />
+        <rect
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:0.13780782;stroke-miterlimit:4;stroke-dasharray:none"
+           id="rect2985-9-5-1-5"
+           width="9.1846895"
+           height="4.6132612"
+           x="-904.59235"
+           y="262.96536" />
+      </g>
       <rect
-         ry="2"
-         rx="2"
-         y="257.37213"
-         x="-950.98755"
-         height="25"
-         width="14"
-         id="rect2985-1-7-9"
-         style="fill:#1a1a1a;fill-opacity:1;stroke:none" />
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\miniSim.v1.0\lib\robot0.png"
+         y="241.89832"
+         x="-817.24957"
+         height="91.642021"
+         width="91.642021"
+         id="rect3964-2"
+         style="fill:none;stroke:none" />
     </g>
     <g
-       transform="translate(137.56149,40.710025)"
-       id="g3872-8-4">
+       transform="translate(53.571419,-9.6428573)"
+       id="g3892-1">
+      <g
+         transform="translate(137.56149,1.4600248)"
+         id="g3872-7-6">
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           id="rect3870-4-8"
+           width="60"
+           height="2.5"
+           x="-939.64282"
+           y="268.62213" />
+        <rect
+           style="fill:#1a1a1a;fill-opacity:1;stroke:none"
+           id="rect2985-1-0-5"
+           width="14"
+           height="25"
+           x="-880.99261"
+           y="257.37213"
+           rx="2"
+           ry="2" />
+        <rect
+           style="fill:#1a1a1a;fill-opacity:1;stroke:none"
+           id="rect2985-1-7-9-7"
+           width="14"
+           height="25"
+           x="-950.98755"
+           y="257.37213"
+           rx="2"
+           ry="2" />
+      </g>
+      <g
+         id="g3872-8-4-6"
+         transform="translate(137.56149,40.710025)">
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           id="rect3870-2-8-1"
+           width="60"
+           height="2.5"
+           x="-939.64282"
+           y="268.62213" />
+        <rect
+           style="fill:#1a1a1a;fill-opacity:1;stroke:none"
+           id="rect2985-1-4-8-8"
+           width="14"
+           height="25"
+           x="-880.99261"
+           y="257.37213"
+           rx="2"
+           ry="2" />
+        <rect
+           style="fill:#1a1a1a;fill-opacity:1;stroke:none"
+           id="rect2985-1-7-5-2-9"
+           width="14"
+           height="25"
+           x="-950.98755"
+           y="257.37213"
+           rx="2"
+           ry="2" />
+      </g>
       <rect
-         y="268.62213"
-         x="-939.64282"
-         height="2.5"
-         width="60"
-         id="rect3870-2-8"
-         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+         ry="7.9999995"
+         rx="8"
+         y="263.10944"
+         x="-798.38629"
+         height="59.731174"
+         width="53.915363"
+         id="rect2985-4-2"
+         style="fill:#ffcc00;fill-opacity:1;stroke:#000000;stroke-width:0.48311281;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         ry="7.9999995"
+         rx="7.9999995"
+         y="269.8407"
+         x="-792.31042"
+         height="46.268631"
+         width="41.763622"
+         id="rect2985-7-5-7"
+         style="fill:url(#linearGradient3868-7);fill-opacity:1;stroke:#000000;stroke-width:0.37422618;stroke-miterlimit:4;stroke-dasharray:none" />
+      <path
+         transform="translate(258.39282,24.005686)"
+         d="m -1020.3571,250.04076 c 0,5.22698 -4.2373,9.46428 -9.4643,9.46428 -5.227,0 -9.4643,-4.2373 -9.4643,-9.46428 0,-5.22698 4.2373,-9.46429 9.4643,-9.46429 5.227,0 9.4643,4.23731 9.4643,9.46429 z"
+         sodipodi:ry="9.4642859"
+         sodipodi:rx="9.4642859"
+         sodipodi:cy="250.04076"
+         sodipodi:cx="-1029.8214"
+         id="path3944-5-9"
+         style="fill:#ff6600;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         sodipodi:type="arc" />
       <rect
          ry="2"
          rx="2"
-         y="257.37213"
-         x="-880.99261"
-         height="25"
-         width="14"
-         id="rect2985-1-4-8"
-         style="fill:#1a1a1a;fill-opacity:1;stroke:none" />
+         y="257.35754"
+         x="-788.37781"
+         height="14"
+         width="33.898476"
+         id="rect2985-9-1-5"
+         style="fill:url(#linearGradient3890-2);fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none" />
+      <g
+         transform="translate(137.33545,-10.539975)"
+         id="g3940-7-4">
+        <rect
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:0.13780782;stroke-miterlimit:4;stroke-dasharray:none"
+           id="rect2985-9-5-11-3"
+           width="9.1846895"
+           height="4.6132612"
+           x="-922.12042"
+           y="262.96536" />
+        <rect
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:0.13780782;stroke-miterlimit:4;stroke-dasharray:none"
+           id="rect2985-9-5-1-5-1"
+           width="9.1846895"
+           height="4.6132612"
+           x="-904.59235"
+           y="262.96536" />
+      </g>
       <rect
-         ry="2"
-         rx="2"
-         y="257.37213"
-         x="-950.98755"
-         height="25"
-         width="14"
-         id="rect2985-1-7-5-2"
-         style="fill:#1a1a1a;fill-opacity:1;stroke:none" />
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\miniSim.v1.0\lib\robot0.png"
+         y="241.89832"
+         x="-817.24957"
+         height="91.642021"
+         width="91.642021"
+         id="rect3964-2-2"
+         style="fill:none;stroke:none" />
     </g>
-    <rect
-       style="fill:#ffcc00;fill-opacity:1;stroke:#000000;stroke-width:0.48311281;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect2985-4"
-       width="53.915363"
-       height="59.731174"
-       x="-798.38629"
-       y="263.10944"
-       rx="8"
-       ry="7.9999995" />
-    <rect
-       style="fill:url(#linearGradient3868);fill-opacity:1;stroke:#000000;stroke-width:0.37422618000000002;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect2985-7-5"
-       width="41.763622"
-       height="46.268631"
-       x="-792.31042"
-       y="269.8407"
-       rx="7.9999995"
-       ry="7.9999995" />
-    <path
-       sodipodi:type="arc"
-       style="fill:#ff6600;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-       id="path3944-5"
-       sodipodi:cx="-1029.8214"
-       sodipodi:cy="250.04076"
-       sodipodi:rx="9.4642859"
-       sodipodi:ry="9.4642859"
-       d="m -1020.3571,250.04076 a 9.4642859,9.4642859 0 1 1 -18.9286,0 9.4642859,9.4642859 0 1 1 18.9286,0 z"
-       transform="translate(258.39282,24.005686)" />
-    <rect
-       style="fill:url(#linearGradient3890);fill-opacity:1;stroke:#000000;stroke-width:0.50000000000000000;stroke-miterlimit:4;stroke-dasharray:none"
-       id="rect2985-9-1"
-       width="33.898476"
-       height="14"
-       x="-788.37781"
-       y="257.35754"
-       rx="2"
-       ry="2" />
-    <g
-       id="g3940-7"
-       transform="translate(137.33545,-10.539975)">
-      <rect
-         y="262.96536"
-         x="-922.12042"
-         height="4.6132612"
-         width="9.1846895"
-         id="rect2985-9-5-11"
-         style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:0.13780782;stroke-miterlimit:4;stroke-dasharray:none" />
-      <rect
-         y="262.96536"
-         x="-904.59235"
-         height="4.6132612"
-         width="9.1846895"
-         id="rect2985-9-5-1-5"
-         style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:0.13780782;stroke-miterlimit:4;stroke-dasharray:none" />
-    </g>
-    <rect
-       style="fill:none;stroke:none"
-       id="rect3964-2"
-       width="91.642021"
-       height="91.642021"
-       x="-817.24957"
-       y="241.89832"
-       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\miniSim.v1.0\lib\robot0.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
   </g>
 </svg>
