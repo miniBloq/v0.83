@@ -1,3 +1,10 @@
+# Copyright (C) 2014 Julian U. da Silva Gillig - http://minibloq.org
+#
+# miniSim is distributed under the RobotGroup-Multiplo Pacifist License (RMPL),
+# either version 1.0 of the licence, or (at your option) any later version.
+# You should have received a copy of the RMPL along with this software. If not,
+# you can download it from http://minibloq.org.
+
 import os
 import pygame
 
@@ -10,6 +17,7 @@ class MiniSim(object):
         self.width = 800
         self.height = 600
         self.screen = pygame.display.set_mode((self.width, self.height))
+        pygame.display.set_caption("miniSim.v0.1")
 
         # Create the robot:
         self.robot0 = pygame.sprite.Sprite()
@@ -19,7 +27,7 @@ class MiniSim(object):
         self.robot0.image = pygame.image.load(dname + 'robot1.png')
         
         self.robot0.rect = self.robot0.image.get_rect()
-        self.robot0_group = pygame.sprite.GroupSingle(self.robot0)
+        self.allRobots = pygame.sprite.GroupSingle(self.robot0)
 
         self.centerSprite(self.robot0)
 
@@ -37,7 +45,7 @@ class MiniSim(object):
         self.screen.fill((192, 192, 192))
 
         # robot0 painting:
-        self.robot0_group.draw(self.screen)
+        self.allRobots.draw(self.screen)
         pygame.display.update()
 
         #Program end?
@@ -85,6 +93,10 @@ class MobileRobot(object):
     def __init__(self, simulator):
         self.speed = 1 #[ms]
         self.simulator = simulator
+        self.sprite = simulator.robot0
+        self.group = simulator.allRobots
+        self.originalImage = simulator.robot0.image
+        self.heading = 0
 
     def wait(self, time_ms):
         pygame.time.wait(time_ms)
@@ -97,24 +109,43 @@ class MobileRobot(object):
 
     def forward(self, distance):
         for i in range(distance):
-            self.simulator.robot0.rect.top -= 1
+            self.sprite.rect.top -= 1
             self.wait(self.speed);
             self.simulator.update()
 
     def reverse(self, distance):
         for i in range(distance):
-            self.simulator.robot0.rect.top += 1
+            self.sprite.rect.top += 1
             self.wait(self.speed);
             self.simulator.update()
+
+    def rotate(self, angle):
+        if (angle >= 0):
+            for i in range(angle+1):
+                oldCenter = self.sprite.rect.center
+                self.sprite.image = pygame.transform.rotate(self.originalImage, self.heading + i)
+                self.sprite.rect = self.sprite.image.get_rect()
+                self.sprite.rect.center = oldCenter
+                self.simulator.update()
+        else:
+            for i in range(-angle+1):
+                oldCenter = self.sprite.rect.center
+                self.sprite.image = pygame.transform.rotate(self.originalImage, self.heading + 360 -i)
+                self.sprite.rect = self.sprite.image.get_rect()
+                self.sprite.rect.center = oldCenter
+                self.simulator.update()
+        self.heading += angle
 
 
 miniSim = MiniSim()
 robot = MobileRobot(miniSim)
 
-def go():
-    robot.forward(50)
+def go():    
+    robot.forward(100)
+    robot.rotate(-45)
     robot.wait(300)
-    robot.reverse(150)
+    robot.rotate(45)
+
 
 def main():
     # Main user program here:
