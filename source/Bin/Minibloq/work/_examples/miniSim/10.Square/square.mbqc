@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mbqc xmlns="http://mbqc.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
+    <files/>
+    <properties>
+        <canvas visible="true"/>
+        <blocks count="11"/>
+    </properties>
+    <variables/>
+    <blocks>
+        <ComponentStart function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="noLoad"/>
+        <Code function="Code" commented="false" constantValue="side=100" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        <Code function="Code" commented="false" constantValue="robot.move(side)" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        <Code function="Code" commented="false" constantValue="robot.rotate(90)" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        <Code function="Code" commented="false" constantValue="robot.move(side)" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        <Code function="Code" commented="false" constantValue="robot.rotate(90)" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        <Code function="Code" commented="false" constantValue="robot.move(side)" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        <Code function="Code" commented="false" constantValue="robot.rotate(90)" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        <Code function="Code" commented="false" constantValue="robot.move(side)" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        <Code function="Code" commented="false" constantValue="robot.rotate(90)" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        <Code function="Code" commented="false" constantValue="robot.move(side)" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+    </blocks>
+</mbqc>

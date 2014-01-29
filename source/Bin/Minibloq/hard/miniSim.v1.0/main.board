@@ -67,6 +67,8 @@
 		<s>#initBoard&#10;</s>
 	</initBoardCode>
 	<initCode>
+		<s>import math&#10;</s>
+		<s>import pygame&#10;</s>
 		<s>from miniSim import MiniSim&#10;</s>
 		<s>from miniSim import MobileRobot&#10;</s>
 		<s>miniSim = MiniSim()&#10;</s>
