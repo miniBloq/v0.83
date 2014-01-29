@@ -97,10 +97,11 @@ class MobileRobot(object):
         self.sprite = simulator.robot0
         self.group = simulator.allRobots
         self.originalImage = simulator.robot0.image
+        self.heading = 0
         self.home()
 
     def home(self):
-        self.heading = 0
+        self.rotate(-self.heading)        
 
     def wait(self, time_ms):
         pygame.time.wait(time_ms)
@@ -155,6 +156,12 @@ robot = MobileRobot(miniSim)
 def go():
     # User program here:
     robot.home()
+    robot.move(100)
+    robot.wait(250)
+    robot.rotate(180)
+    robot.wait(300)
+    robot.move(100)
+    """
     robot.wait(500)
     robot.rotate(30)
     robot.wait(300)
@@ -166,7 +173,7 @@ def go():
     robot.wait(300)
     robot.rotate(-45)
     robot.move(50)    
-
+"""
 def main():
     miniSim.go = go
     miniSim.run()
