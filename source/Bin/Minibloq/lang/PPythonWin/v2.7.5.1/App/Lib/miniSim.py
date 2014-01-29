@@ -92,7 +92,7 @@ class MiniSim(object):
 
 class MobileRobot(object):
     def __init__(self, simulator):
-        self.speed = 1 # [ms]
+        self.delay = 10 # [ms]
         self.simulator = simulator
         self.sprite = simulator.robot0
         self.group = simulator.allRobots
@@ -107,10 +107,18 @@ class MobileRobot(object):
         pygame.time.wait(time_ms)
 
     def move(self, distance):
-        #for i in range(distance):
-            self.wait(self.speed)
-            dx = distance*math.cos(math.radians(self.heading))
-            dy = -distance*math.sin(math.radians(self.heading))
+        step = 5;
+        if (distance > step):
+            distanceRange = distance/step
+        else:
+            distanceRange = distance
+        if distance <= 0:
+            distanceRange = -distanceRange
+            step = -step
+        for i in range(distanceRange):
+            self.wait(self.delay)
+            dx = step*math.cos(math.radians(self.heading))
+            dy = -step*math.sin(math.radians(self.heading))
             self.sprite.rect = self.sprite.rect.move(dx, dy)
             self.simulator.update()
 
@@ -138,16 +146,25 @@ robot = MobileRobot(miniSim)
 def go():
     # User program here:
     robot.home()
+
+    robot.move(100)
+    robot.rotate(90)
+    robot.move(100)
+    robot.rotate(90)
+    robot.move(100)
+    robot.rotate(90)
+    robot.move(100)
+    
+    
     robot.move(100)
     robot.wait(250)
     robot.rotate(30)
     robot.wait(300)
-    robot.move(-100)
-    """
+    robot.move(100)
     robot.wait(500)
     robot.rotate(30)
     robot.wait(300)
-    robot.move(100)
+    robot.move(-50)
     robot.wait(300)
     robot.rotate(-30)
     robot.wait(300)
@@ -155,7 +172,7 @@ def go():
     robot.wait(300)
     robot.rotate(-45)
     robot.move(50)    
-"""
+
 def main():
     miniSim.go = go
     miniSim.run()
