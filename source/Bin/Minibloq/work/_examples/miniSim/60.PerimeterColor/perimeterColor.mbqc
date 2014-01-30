@@ -3,7 +3,7 @@
     <files/>
     <properties>
         <canvas visible="true"/>
-        <blocks count="28"/>
+        <blocks count="31"/>
     </properties>
     <variables/>
     <blocks>
@@ -87,6 +87,18 @@
                 <numberConstant function="Constant" commented="false" constantValue="2" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
             </mobileRobotMove>
         </MobileRobot>
+        <if function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <colorEqual function="Operation" commented="false" paramsCount="2" hasAddParamsButton="false" loadAction="load">
+                <mobileRobotColorSensor function="Getter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                <colorRed function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </colorEqual>
+        </if>
+        <Print function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <PrintText function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <emoticonSmile function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </PrintText>
+        </Print>
+        <endIf function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
         <whileEnd function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <mobileRobotMove function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">

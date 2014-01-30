@@ -10,9 +10,9 @@
 		<initialCode>
 			<line0></line0>
 		</initialCode>
-		<paramSeparator> != miniSim.screen.map_rgb(</paramSeparator>
+		<paramSeparator> != </paramSeparator>
 		<paramListStart></paramListStart>
-		<paramListEnd>)</paramListEnd>
+		<paramListEnd></paramListEnd>
 	</code>
     <interface>
 		<originalSize>
