@@ -13,9 +13,19 @@
         <VariableInit function="Setter" commented="false" constantValue="side" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <numberConstant function="Constant" commented="false" constantValue="1" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </VariableInit>
-        <Code function="Code" commented="false" constantValue="robot.penWidth=20" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-        <Code function="Code" commented="false" constantValue="robot.penDown()" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-        <Code function="Code" commented="false" constantValue="robot.penColor=(0,0,255)" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <mobileRobotPenWidthSetter function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <numberConstant function="Constant" commented="false" constantValue="20" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </mobileRobotPenWidthSetter>
+        </MobileRobot>
+        <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <mobileRobotPenDown function="Setter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </MobileRobot>
+        <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <colorConstant function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <colorRed function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </colorConstant>
+        </MobileRobot>
         <repeat function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <numberConstant function="Constant" commented="false" constantValue="60" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </repeat>

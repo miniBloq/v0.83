@@ -20,7 +20,7 @@ class MiniSim(object):
         # Setup the screen:
         self.width = 800
         self.height = 600
-        self.screenColor = (192, 192, 192)
+        self.screenColor = (255, 255, 146)
         self.screen = pygame.display.set_mode((self.width, self.height))
         pygame.display.set_caption("miniSim.v0.1")
 
@@ -62,6 +62,7 @@ class MiniSim(object):
 
         # Robot's pen:
         self.updateLines()
+        #self.robot0.readCenterColorSensor() #debug.
 
         # robot0 painting:
         self.allRobots.draw(self.screen)
@@ -124,11 +125,18 @@ class MobileRobot(pygame.sprite.Sprite):
         self.penWidth = 2
         self.penColor = (0,0,0)
         self.penPoints = [ ([0,0], self.isPenDown()) ]
+        
         self.delay = 10 # Unit: [ms]
+
         self.simulator = simulator
         self.originalImage = self.image
+
         self.heading = 0
-        self.penWidth = 2
+
+        self.centerSenX = 30.0
+        self.centerSenY = 0.0
+        self.centerSenH = math.sqrt(self.centerSenX*self.centerSenX + self.centerSenY*self.centerSenY)
+        self.centerSenHeading = math.degrees(math.acos(self.centerSenX/self.centerSenH))
 
     def resetHeading(self):
         self.rotate(-self.heading)        
@@ -138,6 +146,7 @@ class MobileRobot(pygame.sprite.Sprite):
 
     def move(self, distance):
         step = 5;
+        distance = int(distance)
         if (math.fabs(distance) > step):
             distanceRange = distance/step
         else:
@@ -183,19 +192,30 @@ class MobileRobot(pygame.sprite.Sprite):
     def random(self):
         return int(random.uniform(0,100))
 
-    def readLeftColorSensor(self):
-        ## Add the transform to locate the LeftColorSensor x and y instead of using the center of the robot:
+    def readCenterColorSensor(self):
         pxArray = pygame.PixelArray(self.simulator.screen)
         return pxArray[self.rect.centerx, self.rect.centery]
 
+## Future, not working yet:
+##    def readCenterColorSensor(self):
+##        pxArray = pygame.PixelArray(self.simulator.screen)
+##        
+##        angle = self.heading + self.centerSenHeading
+##        senX = self.centerSenH*math.cos(math.radians(angle)) + self.rect.centerx
+##        senY = self.centerSenH*math.sin(math.radians(angle)) + self.rect.centery
+##        
+##        pixelColor =  pxArray[int(senX), int(senY)]
+##        pygame.draw.circle(self.simulator.screen, (0,0,255), [int(senX), int(senY)], 10)
+##        return pixelColor
+        
 
 miniSim = MiniSim()
 robot = miniSim.robot0
 
 def go():
     # User program here:
-    miniSim.resetRobot(robot)
 
+    # Zone keeping:
     robot.penDown()
     robot.penWidth = 20
     for i in range(180):
@@ -206,11 +226,21 @@ def go():
     robot.rotate(90)
     robot.move(20)
     while True:
-        while robot.readLeftColorSensor() != miniSim.screen.map_rgb((0, 0, 0)):
+        while robot.readCenterColorSensor() != miniSim.screen.map_rgb((0, 0, 0)):
             robot.move(2)
         robot.move(-10)
         robot.rotate(robot.random()*1.8)
         #robot.rotate(30)
+
+##    robot.wait(1000)
+##    miniSim.resetRobot(robot)
+##    robot.wait(1000)
+##    robot.rotate(30)
+##    robot.move(50)
+##    robot.wait(1000)
+##    robot.rotate(30)
+##    robot.move(50)
+
 
 ##    robot.penDown()
 ##    robot.rotate(30)

@@ -62,6 +62,6 @@
 		</condition>
 	</params>
 	<brothers>
-		<endif>whileEnd</endif>
+		<whileEnd>whileEnd</whileEnd>
 	</brothers>
 </block>

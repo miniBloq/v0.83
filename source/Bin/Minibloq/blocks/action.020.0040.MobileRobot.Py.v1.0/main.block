@@ -55,7 +55,10 @@
 		</value>
 	</params>
 	<friends>
-		<serialPrintlnText>MobileRobotMove</serialPrintlnText>
-		<serialPrintlnNumber>MobileRobotRotate</serialPrintlnNumber>
+		<MobileRobotMove>MobileRobotMove</MobileRobotMove>
+		<MobileRobotRotate>MobileRobotRotate</MobileRobotRotate>
+		<MobileRobotPenDown>MobileRobotPenDown</MobileRobotPenDown>
+		<MobileRobotPenUp>MobileRobotPenUp</MobileRobotPenUp>
+		<MobileRobotPenWidthSetter>MobileRobotPenWidthSetter</MobileRobotPenWidthSetter>
 	</friends>
 </block>

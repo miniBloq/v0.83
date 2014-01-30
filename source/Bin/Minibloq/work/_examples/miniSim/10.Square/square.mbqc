@@ -8,8 +8,14 @@
     <variables/>
     <blocks>
         <ComponentStart function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="noLoad"/>
-        <Code function="Code" commented="false" constantValue="robot.penWidth=30" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-        <Code function="Code" commented="false" constantValue="robot.penDown()" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <mobileRobotPenWidthSetter function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <numberConstant function="Constant" commented="false" constantValue="30" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </mobileRobotPenWidthSetter>
+        </MobileRobot>
+        <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <mobileRobotPenDown function="Setter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </MobileRobot>
         <repeat function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <numberConstant function="Constant" commented="false" constantValue="4" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </repeat>

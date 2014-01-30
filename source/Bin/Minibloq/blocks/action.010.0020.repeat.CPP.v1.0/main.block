@@ -64,6 +64,6 @@
 		</repetitions>
 	</params>
 	<brothers>
-		<endif>repeatEnd</endif>
+		<repeatEnd>repeatEnd</repeatEnd>
 	</brothers>
 </block>

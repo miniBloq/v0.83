@@ -7,10 +7,10 @@ robot = miniSim.robot0
 
 def go():
 	miniSim.resetRobot(robot)
-	side = 1
-	robot.penWidth=20
+	side = 1.1
+	robot.penWidth = 20
 	robot.penDown()
-	robot.penColor=(0,0,255)
+	robot.penColor = (255,0,0)
 	for _i in range(60):
 		robot.rotate(8)
 		robot.move(side)

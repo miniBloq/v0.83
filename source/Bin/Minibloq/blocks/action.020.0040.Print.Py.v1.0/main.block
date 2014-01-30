@@ -55,7 +55,7 @@
 		</value>
 	</params>
 	<friends>
-		<serialPrintlnText>PrintText</serialPrintlnText>
-		<serialPrintlnNumber>PrintNumber</serialPrintlnNumber>
+		<PrintText>PrintText</PrintText>
+		<PrintNumber>PrintNumber</PrintNumber>
 	</friends>
 </block>
