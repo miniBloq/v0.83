@@ -14,6 +14,7 @@ import random
         
 class MiniSim(object):
     def __init__(self):
+        os.environ['SDL_VIDEO_CENTERED'] = '1' # Centers the main window on the screen.
         pygame.init()
 
         # Setup the screen:

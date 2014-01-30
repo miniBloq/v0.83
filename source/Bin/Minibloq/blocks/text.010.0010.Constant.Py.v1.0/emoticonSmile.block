@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<block xmlns="http://block.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.8.Beta">
+    <properties>
+		<name>emoticonSmile</name>
+		<function>Constant</function>
+		<loadAction>load</loadAction>
+    </properties>
+    <code>
+		<dataType>text</dataType>
+		<initialCode>
+			<line0>":)"</line0>
+		</initialCode>
+	</code>
+    <interface>
+		<originalSize>
+			<width>smallGettersDefaultWidth::</width>
+			<height>blockDefaultHeight::</height>
+		</originalSize>
+        <childFactor>0.9</childFactor>
+        <defaultBackgroundColour0>
+			<R>constantBlockColour0R::</R>
+			<G>constantBlockColour0G::</G>
+			<B>constantBlockColour0B::</B>
+		</defaultBackgroundColour0>
+        <defaultBackgroundColour1>
+			<R>constantBlockColour1R::</R>
+			<G>constantBlockColour1G::</G>
+			<B>constantBlockColour1B::</B>
+		</defaultBackgroundColour1>
+		<picker>
+			<imagesBasePath>thisBlockPath::</imagesBasePath>
+			<default>Images/EmoticonSmilePickerDefault.png</default>
+			<hover>Images/EmoticonSmilePickerHover.png</hover>
+			<pressed>Images/EmoticonSmilePickerPressed.png</pressed>
+			<disabled>Images/EmoticonSmilePickerDisabled.png</disabled>
+		</picker>
+		<blockButton>
+			<has>true</has>
+			<imagesBasePath>thisBlockPath::</imagesBasePath>
+			<default>Images/EmoticonSmileDefault.png</default>
+			<disabled>Images/EmoticonSmileDisabled.png</disabled>
+		</blockButton>
+	</interface>
+</block>
