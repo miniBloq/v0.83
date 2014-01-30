@@ -7,6 +7,7 @@ robot = miniSim.robot0
 
 def go():
 	miniSim.resetRobot(robot)
+	robot.penDown()
 	for _i in range(4):
 		robot.move(200)
 		robot.rotate(90)

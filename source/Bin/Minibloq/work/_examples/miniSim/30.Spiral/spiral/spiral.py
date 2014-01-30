@@ -9,6 +9,7 @@ def go():
 	miniSim.resetRobot(robot)
 	side = 1
 	for _i in range(60):
+		robot.penDown()
 		robot.rotate(8)
 		robot.move(side)
 		side = (side+1)

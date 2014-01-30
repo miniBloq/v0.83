@@ -34,16 +34,34 @@ class MiniSim(object):
     def resetRobot(self, robot):
         robot.rect.top = self.height/2 - robot.rect.height/2
         robot.rect.left = self.width/2 - robot.rect.width/2
-        robot.penPoints = [[robot.rect.centerx, robot.rect.centery]]
-        robot.resetHeading()        
+        robot.resetHeading()
+        robot.penWidth = 2 #Default value.
+        robot.penUp()
+        robot.penPoints = [ ([robot.rect.centerx, robot.rect.centery], robot.isPenDown()) ]
+
+##    def updateLines(self):
+##        for point in self.robot0.penPoints:
+##            if point[1]: # point[1] is a bool value that indicates if the pen was down for this segment.
+##                nextPoint = iter(self.robot0.penPoints).next() ## Is this secure?
+##                pygame.draw.line(self.screen, (0,0,0), point[0], nextPoint[0],  self.robot0.penWidth)
+                
+    def updateLines(self):
+        points = [self.robot0.penPoints[0]] # Draw all the lines, so it starts with from the very first point.
+        prevPoint = self.robot0.penPoints[0][0]
+        for point in self.robot0.penPoints:
+            points = [prevPoint]
+            if point[1]:
+                points.append(point[0])
+                if len(points) > 1: # Security check.
+                    pygame.draw.lines(self.screen, (0,0,0), False, points, self.robot0.penWidth)
+            prevPoint = point[0]
         
     def update(self):
         # Background painting:
         self.screen.fill((192, 192, 192))
 
         # Robot's pen:
-        self.robot0.penPoints.append([self.robot0.rect.centerx, self.robot0.rect.centery])
-        pygame.draw.lines(self.screen, (0,0,0), False, self.robot0.penPoints, 2)
+        self.updateLines()
 
         # robot0 painting:
         self.allRobots.draw(self.screen)
@@ -101,7 +119,9 @@ class MobileRobot(pygame.sprite.Sprite):
         self.image = pygame.image.load(dirName + 'miniSim/robot1.png')
         self.rect = self.image.get_rect()
 
-        self.penPoints = [(0,0)]        
+        self.__pen = False
+        self.penWidth = 2
+        self.penPoints = [ ([0,0], self.isPenDown()) ]
         self.delay = 10 # [ms]
         self.simulator = simulator
         self.originalImage = self.image
@@ -128,6 +148,7 @@ class MobileRobot(pygame.sprite.Sprite):
             dx = step*math.cos(math.radians(self.heading))
             dy = -step*math.sin(math.radians(self.heading))
             self.rect = self.rect.move(dx, dy)
+            self.penPoints.append( ([self.rect.centerx, self.rect.centery], self.isPenDown()) )
             self.simulator.update()
 
     def rotate(self, angle):
@@ -147,6 +168,15 @@ class MobileRobot(pygame.sprite.Sprite):
                 self.simulator.update()
         self.heading += angle
 
+    def penDown(self):
+        self.__pen = True
+        
+    def penUp(self):
+        self.__pen = False
+
+    def isPenDown(self):
+        return self.__pen
+
     def random(self):
         return int(random.uniform(0,100))
 
@@ -157,20 +187,26 @@ robot = miniSim.robot0
 def go():
     # User program here:
     miniSim.resetRobot(robot)
-    robot.wait(int(math.e))
-    robot.rotate(robot.random())
-    robot.wait(-500.1)
-    robot.move(100)
-    robot.move(10)
-    
 
-##    robot.move(100)
-##    robot.rotate(90)
-##    robot.move(100)
-##    robot.rotate(90)
-##    robot.move(100)
-##    robot.rotate(90)
-##    robot.move(100)
+    robot.penDown()
+    robot.penWidth = 1
+    for i in range(360/6):
+        robot.rotate(6)
+        robot.move(1)
+
+    robot.penDown()
+    robot.rotate(30)
+    robot.move(100)
+    robot.rotate(90)
+
+    robot.penUp()
+    robot.move(100)
+    robot.rotate(90)
+    robot.move(100)
+    robot.rotate(90)
+
+    robot.penDown()
+    robot.move(100)
 ##    
 ##    
 ##    robot.move(100)
