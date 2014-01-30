@@ -3,11 +3,13 @@
     <files/>
     <properties>
         <canvas visible="true"/>
-        <blocks count="5"/>
+        <blocks count="7"/>
     </properties>
     <variables/>
     <blocks>
         <ComponentStart function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="noLoad"/>
+        <Code function="Code" commented="false" constantValue="robot.penWidth=30" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        <Code function="Code" commented="false" constantValue="robot.penDown()" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         <repeat function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <numberConstant function="Constant" commented="false" constantValue="180" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </repeat>

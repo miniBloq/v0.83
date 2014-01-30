@@ -35,15 +35,10 @@ class MiniSim(object):
         robot.rect.top = self.height/2 - robot.rect.height/2
         robot.rect.left = self.width/2 - robot.rect.width/2
         robot.resetHeading()
+        robot.penColor = (0,0,0) #Default value.
         robot.penWidth = 2 #Default value.
         robot.penUp()
         robot.penPoints = [ ([robot.rect.centerx, robot.rect.centery], robot.isPenDown()) ]
-
-##    def updateLines(self):
-##        for point in self.robot0.penPoints:
-##            if point[1]: # point[1] is a bool value that indicates if the pen was down for this segment.
-##                nextPoint = iter(self.robot0.penPoints).next() ## Is this secure?
-##                pygame.draw.line(self.screen, (0,0,0), point[0], nextPoint[0],  self.robot0.penWidth)
                 
     def updateLines(self):
         points = [self.robot0.penPoints[0]] # Draw all the lines, so it starts with from the very first point.
@@ -53,7 +48,9 @@ class MiniSim(object):
             if point[1]:
                 points.append(point[0])
                 if len(points) > 1: # Security check.
-                    pygame.draw.lines(self.screen, (0,0,0), False, points, self.robot0.penWidth)
+                    pygame.draw.lines(self.screen, self.robot0.penColor, False, points, self.robot0.penWidth)
+                    if self.robot0.penWidth > 4: #Small antialiasing:
+                        pygame.draw.circle(self.screen, self.robot0.penColor, point[0], self.robot0.penWidth/2)
             prevPoint = point[0]
         
     def update(self):
@@ -121,8 +118,9 @@ class MobileRobot(pygame.sprite.Sprite):
 
         self.__pen = False
         self.penWidth = 2
+        self.penColor = (0,0,0)
         self.penPoints = [ ([0,0], self.isPenDown()) ]
-        self.delay = 10 # [ms]
+        self.delay = 10 # Unit: [ms]
         self.simulator = simulator
         self.originalImage = self.image
         self.heading = 0
@@ -152,6 +150,7 @@ class MobileRobot(pygame.sprite.Sprite):
             self.simulator.update()
 
     def rotate(self, angle):
+        angle = int(angle) #Security
         if (angle >= 0):
             for i in range(angle+1):
                 oldCenter = self.rect.center
@@ -180,6 +179,11 @@ class MobileRobot(pygame.sprite.Sprite):
     def random(self):
         return int(random.uniform(0,100))
 
+    def readLeftColorSensor(self):
+        ## Add the transform to locate the LeftColorSensor x and y instead of using the center of the robot:
+        pxArray = pygame.PixelArray(self.simulator.screen)
+        return pxArray[self.rect.centerx, self.rect.centery]
+
 
 miniSim = MiniSim()
 robot = miniSim.robot0
@@ -189,24 +193,34 @@ def go():
     miniSim.resetRobot(robot)
 
     robot.penDown()
-    robot.penWidth = 1
-    for i in range(360/6):
-        robot.rotate(6)
+    robot.penWidth = 20
+    for i in range(180):
+        robot.rotate(2)
         robot.move(1)
-
-    robot.penDown()
-    robot.rotate(30)
-    robot.move(100)
-    robot.rotate(90)
-
     robot.penUp()
-    robot.move(100)
+    robot.move(-10)
     robot.rotate(90)
-    robot.move(100)
-    robot.rotate(90)
+    robot.move(20)
+    while True:
+        while robot.readLeftColorSensor() != miniSim.screen.map_rgb((0, 0, 0)):
+            robot.move(2)
+        robot.move(-10)
+        robot.rotate(robot.random()*1.8)
+        #robot.rotate(30)
 
-    robot.penDown()
-    robot.move(100)
+##    robot.penDown()
+##    robot.rotate(30)
+##    robot.move(100)
+##    robot.rotate(90)
+##
+##    robot.penUp()
+##    robot.move(100)
+##    robot.rotate(90)
+##    robot.move(100)
+##    robot.rotate(90)
+##
+##    robot.penDown()
+##    robot.move(100)
 ##    
 ##    
 ##    robot.move(100)

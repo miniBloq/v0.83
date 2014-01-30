@@ -3,7 +3,7 @@
     <files/>
     <properties>
         <canvas visible="true"/>
-        <blocks count="7"/>
+        <blocks count="10"/>
     </properties>
     <variables>
         <side/>
@@ -13,6 +13,9 @@
         <VariableInit function="Setter" commented="false" constantValue="side" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <numberConstant function="Constant" commented="false" constantValue="1" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </VariableInit>
+        <Code function="Code" commented="false" constantValue="robot.penWidth=20" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        <Code function="Code" commented="false" constantValue="robot.penDown()" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        <Code function="Code" commented="false" constantValue="robot.penColor=(0,0,255)" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         <repeat function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <numberConstant function="Constant" commented="false" constantValue="60" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </repeat>
