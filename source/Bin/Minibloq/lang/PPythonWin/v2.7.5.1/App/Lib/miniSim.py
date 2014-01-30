@@ -41,7 +41,7 @@ class MiniSim(object):
         robot.penColor = (0,0,0) #Default value.
         robot.penWidth = 2.0
         robot.penUp()
-        robot.penPoints = [ ([robot.rect.centerx, robot.rect.centery], robot.isPenDown(), robot.penColor) ]
+        robot.penPoints = [ ([robot.rect.centerx, robot.rect.centery], robot.isPenDown(), robot.penColor, robot.penWidth) ]
                 
     def updateLines(self):
         points = [self.robot0.penPoints[0]] # Draw all the lines, so it starts with from the very first point.
@@ -51,9 +51,9 @@ class MiniSim(object):
             if point[1]:
                 points.append(point[0])
                 if len(points) > 1: # Security check.
-                    pygame.draw.lines(self.screen, point[2], False, points, int(self.robot0.penWidth))
+                    pygame.draw.lines(self.screen, point[2], False, points, int(point[3]))
                     if self.robot0.penWidth > 4: #Small antialiasing:
-                        pygame.draw.circle(self.screen, point[2], point[0], int(self.robot0.penWidth/2))
+                        pygame.draw.circle(self.screen, point[2], point[0], int(point[3]/2))
             prevPoint = point[0]
         
     def update(self):
@@ -124,7 +124,7 @@ class MobileRobot(pygame.sprite.Sprite):
         self.__pen = False
         self.penWidth = 2.0 #Default value: Float to protect from run time errors. ##Future: create a setter and a getter.
         self.penColor = (0,0,0)
-        self.penPoints = [ ([0,0], self.isPenDown(), self.penColor) ]
+        self.penPoints = [ ([0,0], self.isPenDown(), self.penColor, self.penWidth) ]
         
         self.delay = 10 # Unit: [ms]
 
@@ -159,7 +159,7 @@ class MobileRobot(pygame.sprite.Sprite):
             dx = step*math.cos(math.radians(self.heading))
             dy = -step*math.sin(math.radians(self.heading))
             self.rect = self.rect.move(dx, dy)
-            self.penPoints.append( ([self.rect.centerx, self.rect.centery], self.isPenDown(), self.penColor) )
+            self.penPoints.append( ([self.rect.centerx, self.rect.centery], self.isPenDown(), self.penColor, self.penWidth) )
             self.simulator.update()
 
     def rotate(self, angle):
