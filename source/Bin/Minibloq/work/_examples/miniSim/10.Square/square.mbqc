@@ -3,20 +3,24 @@
     <files/>
     <properties>
         <canvas visible="true"/>
-        <blocks count="11"/>
+        <blocks count="5"/>
     </properties>
     <variables/>
     <blocks>
         <ComponentStart function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="noLoad"/>
-        <Code function="Code" commented="false" constantValue="side=100" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-        <Code function="Code" commented="false" constantValue="robot.move(side)" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-        <Code function="Code" commented="false" constantValue="robot.rotate(90)" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-        <Code function="Code" commented="false" constantValue="robot.move(side)" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-        <Code function="Code" commented="false" constantValue="robot.rotate(90)" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-        <Code function="Code" commented="false" constantValue="robot.move(side)" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-        <Code function="Code" commented="false" constantValue="robot.rotate(90)" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-        <Code function="Code" commented="false" constantValue="robot.move(side)" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-        <Code function="Code" commented="false" constantValue="robot.rotate(90)" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-        <Code function="Code" commented="false" constantValue="robot.move(side)" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        <repeat function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="4" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </repeat>
+        <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <mobileRobotMove function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <numberConstant function="Constant" commented="false" constantValue="200" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </mobileRobotMove>
+        </MobileRobot>
+        <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <mobileRobotRotate function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <numberConstant function="Constant" commented="false" constantValue="90" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </mobileRobotRotate>
+        </MobileRobot>
+        <repeatEnd function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
     </blocks>
 </mbqc>

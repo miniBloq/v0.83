@@ -16,9 +16,9 @@
    version="1.1"
    inkscape:version="0.48.4 r9939"
    sodipodi:docname="robot0.svg"
-   inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\miniSim.v1.0\lib\robot1.png"
-   inkscape:export-xdpi="62.849998"
-   inkscape:export-ydpi="62.849998">
+   inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\lang\PPythonWin\v2.7.5.1\App\Lib\miniSim\robot1.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
   <defs
      id="defs4">
     <linearGradient
@@ -118,6 +118,49 @@
        y1="248.2861"
        x2="-760.30072"
        y2="269.0004" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3862-7">
+      <stop
+         style="stop-color:#ff6600;stop-opacity:1;"
+         offset="0"
+         id="stop3864-4" />
+      <stop
+         style="stop-color:#ff6600;stop-opacity:0;"
+         offset="1"
+         id="stop3866-0" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3878-4">
+      <stop
+         style="stop-color:#ffff00;stop-opacity:1;"
+         offset="0"
+         id="stop3880-8" />
+      <stop
+         style="stop-color:#ff6600;stop-opacity:1;"
+         offset="1"
+         id="stop3882-8" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3878-4"
+       id="linearGradient3214"
+       gradientUnits="userSpaceOnUse"
+       x1="-788.62787"
+       y1="248.2861"
+       x2="-760.30072"
+       y2="269.0004"
+       gradientTransform="translate(1195.2193,441.92354)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3862-7"
+       id="linearGradient3218"
+       gradientUnits="userSpaceOnUse"
+       x1="-753.92859"
+       y1="313.43362"
+       x2="-789.64288"
+       y2="273.43362"
+       gradientTransform="translate(1195.2193,441.92354)" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -126,9 +169,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="-863.7649"
-     inkscape:cy="711.99208"
+     inkscape:zoom="2.8"
+     inkscape:cx="-762.92901"
+     inkscape:cy="662.18617"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -145,7 +188,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -155,7 +198,7 @@
      id="layer1">
     <g
        id="g3966"
-       transform="matrix(0,1,-1,0,-743.64279,1193.3934)"
+       transform="matrix(0,1,-1,0,-557.77472,1188.3426)"
        inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\miniSim.v1.0\lib\robot0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
@@ -278,15 +321,15 @@
        id="rect3964"
        width="91.642021"
        height="91.642021"
-       x="235.85808"
-       y="984.08105"
+       x="230.80731"
+       y="798.21301"
        inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\miniSim.v1.0\lib\robot0.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90"
        transform="matrix(0,1,-1,0,0,0)" />
     <g
        id="g3892"
-       transform="matrix(0,1,-1,0,-553.35209,1050.2193)"
+       transform="matrix(0,1,-1,0,-562.44347,1198.7117)"
        inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\lang\PPythonWin\v2.7.5.1\App\Lib\robot1.png"
        inkscape:export-xdpi="62.849998"
        inkscape:export-ydpi="62.849998">
@@ -540,6 +583,177 @@
          width="91.642021"
          id="rect3964-2-2"
          style="fill:none;stroke:none" />
+    </g>
+    <g
+       id="g3872-7-4"
+       transform="matrix(0,1,-1,0,-443.38356,1332.7808)">
+      <rect
+         y="268.62213"
+         x="-939.64282"
+         height="2.5"
+         width="60"
+         id="rect3870-4-5"
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <rect
+         ry="2"
+         rx="2"
+         y="257.37213"
+         x="-880.99261"
+         height="25"
+         width="14"
+         id="rect2985-1-0-51"
+         style="fill:#1a1a1a;fill-opacity:1;stroke:none" />
+      <rect
+         ry="2"
+         rx="2"
+         y="257.37213"
+         x="-950.98755"
+         height="25"
+         width="14"
+         id="rect2985-1-7-9-71"
+         style="fill:#1a1a1a;fill-opacity:1;stroke:none" />
+    </g>
+    <g
+       transform="matrix(0,1,-1,0,-482.63356,1332.7808)"
+       id="g3872-8-4-1">
+      <rect
+         y="268.62213"
+         x="-939.64282"
+         height="2.5"
+         width="60"
+         id="rect3870-2-8-5"
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <rect
+         ry="2"
+         rx="2"
+         y="257.37213"
+         x="-880.99261"
+         height="25"
+         width="14"
+         id="rect2985-1-4-8-2"
+         style="fill:#1a1a1a;fill-opacity:1;stroke:none" />
+      <rect
+         ry="2"
+         rx="2"
+         y="257.37213"
+         x="-950.98755"
+         height="25"
+         width="14"
+         id="rect2985-1-7-5-2-7"
+         style="fill:#1a1a1a;fill-opacity:1;stroke:none" />
+    </g>
+    <rect
+       style="fill:#ffcc00;fill-opacity:1;stroke:#000000;stroke-width:0.48311281;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect2985-4-6"
+       width="53.915363"
+       height="59.731174"
+       x="396.83301"
+       y="705.03296"
+       rx="8"
+       ry="7.9999995"
+       transform="matrix(0,1,-1,0,0,0)" />
+    <rect
+       style="fill:url(#linearGradient3218);fill-opacity:1;stroke:#000000;stroke-width:0.37422618;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect2985-7-5-1"
+       width="41.763622"
+       height="46.268631"
+       x="402.90887"
+       y="711.76422"
+       rx="7.9999995"
+       ry="7.9999995"
+       transform="matrix(0,1,-1,0,0,0)" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#ff6600;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path3944-5-4"
+       sodipodi:cx="-1029.8214"
+       sodipodi:cy="250.04076"
+       sodipodi:rx="9.4642859"
+       sodipodi:ry="9.4642859"
+       d="m -1020.3571,250.04076 a 9.4642859,9.4642859 0 1 1 -18.9286,0 9.4642859,9.4642859 0 1 1 18.9286,0 z"
+       transform="matrix(0,0.77941177,-0.77941177,0,-521.08528,1226.4456)" />
+    <rect
+       style="fill:url(#linearGradient3214);fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect2985-9-1-2"
+       width="33.898476"
+       height="14"
+       x="406.84149"
+       y="699.28107"
+       rx="2"
+       ry="2"
+       transform="matrix(0,1,-1,0,0,0)" />
+    <g
+       id="g3940-7-3"
+       transform="matrix(0,1,-1,0,-431.38356,1332.5548)">
+      <rect
+         y="262.96536"
+         x="-922.12042"
+         height="4.6132612"
+         width="9.1846895"
+         id="rect2985-9-5-11-2"
+         style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:0.13780782;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         y="262.96536"
+         x="-904.59235"
+         height="4.6132612"
+         width="9.1846895"
+         id="rect2985-9-5-1-5-2"
+         style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:0.13780782;stroke-miterlimit:4;stroke-dasharray:none" />
+    </g>
+    <rect
+       style="fill:none;stroke:none"
+       id="rect3964-2-1"
+       width="91.642021"
+       height="91.642021"
+       x="377.96973"
+       y="683.82184"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\miniSim.v1.0\lib\robot0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="matrix(0,1,-1,0,0,0)" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000"
+       id="path3143"
+       sodipodi:cx="-966.25"
+       sodipodi:cy="381.11218"
+       sodipodi:rx="4.1071429"
+       sodipodi:ry="4.1071429"
+       d="m -962.14286,381.11218 a 4.1071429,4.1071429 0 1 1 -8.21428,0 4.1071429,4.1071429 0 1 1 8.21428,0 z"
+       transform="translate(236.60713,42.678555)" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#000000;fill-opacity:1;stroke:#000000"
+       id="path3143-6"
+       sodipodi:cx="-966.25"
+       sodipodi:cy="381.11218"
+       sodipodi:rx="4.1071429"
+       sodipodi:ry="4.1071429"
+       d="m -962.14286,381.11218 a 4.1071429,4.1071429 0 1 1 -8.21428,0 4.1071429,4.1071429 0 1 1 8.21428,0 z"
+       transform="matrix(0.37984497,0,0,0.37984497,-362.61767,279.02719)" />
+    <g
+       id="g3301"
+       transform="translate(0,0.26032374)">
+      <path
+         transform="matrix(0.53488373,0,0,0.53488373,-192.55893,198.34793)"
+         d="m -962.14286,381.11218 c 0,2.26832 -1.83883,4.10715 -4.10714,4.10715 -2.26831,0 -4.10714,-1.83883 -4.10714,-4.10715 0,-2.26831 1.83883,-4.10714 4.10714,-4.10714 2.26831,0 4.10714,1.83883 4.10714,4.10714 z"
+         sodipodi:ry="4.1071429"
+         sodipodi:rx="4.1071429"
+         sodipodi:cy="381.11218"
+         sodipodi:cx="-966.25"
+         id="path3143-8"
+         style="fill:#ff0000;fill-opacity:1;stroke:#000000"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(0.53488373,0,0,0.53488373,-192.55893,241.01147)"
+         d="m -962.14286,381.11218 c 0,2.26832 -1.83883,4.10715 -4.10714,4.10715 -2.26831,0 -4.10714,-1.83883 -4.10714,-4.10715 0,-2.26831 1.83883,-4.10714 4.10714,-4.10714 2.26831,0 4.10714,1.83883 4.10714,4.10714 z"
+         sodipodi:ry="4.1071429"
+         sodipodi:rx="4.1071429"
+         sodipodi:cy="381.11218"
+         sodipodi:cx="-966.25"
+         id="path3143-8-7"
+         style="fill:#ff0000;fill-opacity:1;stroke:#000000"
+         sodipodi:type="arc" />
     </g>
   </g>
 </svg>

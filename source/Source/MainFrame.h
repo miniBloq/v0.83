@@ -361,7 +361,6 @@ class MainFrame : public wxFrame, public IBubbleNotifier
         void createFileBlock(bool mainCanvas, const wxString &newTabName);
 
         bool openFileComponent(const wxString &defaultDir = wxEmptyString);
-        void createComponent(bool canCancel);
         void saveComponent();
         bool saveComponentAs();
         void openExample();
@@ -538,6 +537,7 @@ class MainFrame : public wxFrame, public IBubbleNotifier
 //        inline const void setInitialFile(const wxString& value) { initialFile = value; }
 //        inline wxString getInitialFile() { return initialFile; }
 
+        void createComponent(bool canCancel);
         void loadFileComponent(const wxString &value);
 };
 #endif

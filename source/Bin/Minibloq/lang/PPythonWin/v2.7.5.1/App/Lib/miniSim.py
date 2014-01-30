@@ -25,11 +25,12 @@ class MiniSim(object):
         dname = ''
         if __name__ != "__main__": # Necessary to work both with IDLE and with miniBloq.
             dname = os.path.dirname(os.path.abspath(__file__)) + '/'
-        self.robot0.image = pygame.image.load(dname + 'robot1.png')
+        self.robot0.image = pygame.image.load(dname + 'miniSim/robot1.png')
         
         self.robot0.rect = self.robot0.image.get_rect()
         self.allRobots = pygame.sprite.GroupSingle(self.robot0)
 
+        self.penPoints = [(0,0)]
         self.resetSprite(self.robot0)
 
         # Canvas:
@@ -40,13 +41,19 @@ class MiniSim(object):
     def resetSprite(self, sprite):
         sprite.rect.top = self.height/2 - sprite.rect.height/2
         sprite.rect.left = self.width/2 - sprite.rect.width/2
-
+        self.penPoints = [[sprite.rect.centerx, sprite.rect.centery]]
+        
     def update(self):
         # Background painting:
         self.screen.fill((192, 192, 192))
 
+        # Robot's pen:
+        self.penPoints.append([self.robot0.rect.centerx, self.robot0.rect.centery])
+        pygame.draw.lines(self.screen, (0,0,0), False, self.penPoints, 2)
+
         # robot0 painting:
         self.allRobots.draw(self.screen)
+
         pygame.display.update()
 
         #Program end?
@@ -98,6 +105,7 @@ class MobileRobot(object):
         self.group = simulator.allRobots
         self.originalImage = simulator.robot0.image
         self.heading = 0
+        self.penWidth = 2
         self.home()
 
     def home(self):

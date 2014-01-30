@@ -31,7 +31,7 @@
 	<syntax>
 		<lexer>2</lexer>
 		
-		<operatorColor>0,0,0</operatorColor>
+		<operatorColor>0,0,255</operatorColor>
 		<stringColor>150,0,0</stringColor>
         <preprocesorColor>165,105,0</preprocesorColor>
         <identifierColor>0,0,0</identifierColor>

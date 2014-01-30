@@ -7,10 +7,10 @@ robot = MobileRobot(miniSim)
 
 def go():
 	robot.home()
-	robot.move(-50)
-	robot.rotate(-30)
-	for _i in range(360):
-		robot.move(1)
-		robot.rotate(1)
+	side = 1
+	for _i in range(60):
+		robot.rotate(8)
+		robot.move(side)
+		side = (side+1)
 miniSim.go = go
 miniSim.run()

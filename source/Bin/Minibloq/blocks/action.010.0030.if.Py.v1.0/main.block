@@ -63,7 +63,6 @@
 		</condition>
 	</params>
 	<brothers>
-		<else>else</else>
 		<endif>endIf</endif>
 	</brothers>
 </block>

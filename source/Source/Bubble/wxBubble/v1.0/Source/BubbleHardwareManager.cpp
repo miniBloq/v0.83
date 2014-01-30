@@ -847,6 +847,7 @@ void BubbleHardwareManager::onComboBoardNameChanged(wxCommandEvent &event)
                     }
                 }
             }
+            ((MainFrame*)parent)->createComponent(true);
             if (currentComponentSaved)
                 ((MainFrame*)parent)->loadFileComponent(currentComponentName);
             if ( ((MainFrame*)parent)->isShowingGeneratedCode() )

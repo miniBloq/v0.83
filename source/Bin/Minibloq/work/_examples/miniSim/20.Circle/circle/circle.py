@@ -9,6 +9,6 @@ def go():
 	robot.home()
 	for _i in range(180):
 		robot.move(1)
-		robot.rotate(2)
+		robot.rotate(3)
 miniSim.go = go
 miniSim.run()
