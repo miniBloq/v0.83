@@ -72,9 +72,9 @@
 		<s>from miniSim import MiniSim&#10;</s>
 		<s>from miniSim import MobileRobot&#10;</s>
 		<s>miniSim = MiniSim()&#10;</s>
-		<s>robot = MobileRobot(miniSim)&#10;&#10;</s>
+		<s>robot = miniSim.robot0&#10;&#10;</s>
 		<s>def go():&#10;</s>
-		<s>	robot.home()</s>
+		<s>	miniSim.resetRobot(robot)</s>
 	</initCode>
 	<finalCode>
 		<s>miniSim.go = go&#10;</s>

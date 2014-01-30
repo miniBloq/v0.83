@@ -21,35 +21,28 @@ class MiniSim(object):
         pygame.display.set_caption("miniSim.v0.1")
 
         # Create the robot:
-        self.robot0 = pygame.sprite.Sprite()
-        dname = ''
-        if __name__ != "__main__": # Necessary to work both with IDLE and with miniBloq.
-            dname = os.path.dirname(os.path.abspath(__file__)) + '/'
-        self.robot0.image = pygame.image.load(dname + 'miniSim/robot1.png')
-        
-        self.robot0.rect = self.robot0.image.get_rect()
+        self.robot0 = MobileRobot(self)
         self.allRobots = pygame.sprite.GroupSingle(self.robot0)
-
-        self.penPoints = [(0,0)]
-        self.resetSprite(self.robot0)
+        self.resetRobot(self.robot0)
 
         # Canvas:
         self.tileSize = self.robot0.rect.width
         self.numTilesWidth = self.width / self.tileSize
         self.numTilesHeight = self.height / self.tileSize
 
-    def resetSprite(self, sprite):
-        sprite.rect.top = self.height/2 - sprite.rect.height/2
-        sprite.rect.left = self.width/2 - sprite.rect.width/2
-        self.penPoints = [[sprite.rect.centerx, sprite.rect.centery]]
+    def resetRobot(self, robot):
+        robot.rect.top = self.height/2 - robot.rect.height/2
+        robot.rect.left = self.width/2 - robot.rect.width/2
+        robot.penPoints = [[robot.rect.centerx, robot.rect.centery]]
+        robot.resetHeading()        
         
     def update(self):
         # Background painting:
         self.screen.fill((192, 192, 192))
 
         # Robot's pen:
-        self.penPoints.append([self.robot0.rect.centerx, self.robot0.rect.centery])
-        pygame.draw.lines(self.screen, (0,0,0), False, self.penPoints, 2)
+        self.robot0.penPoints.append([self.robot0.rect.centerx, self.robot0.rect.centery])
+        pygame.draw.lines(self.screen, (0,0,0), False, self.robot0.penPoints, 2)
 
         # robot0 painting:
         self.allRobots.draw(self.screen)
@@ -61,7 +54,7 @@ class MiniSim(object):
 
     def run(self):
         # Centers the robot again:
-        self.resetSprite(self.robot0)
+        self.resetRobot(self.robot0)
         
         # Robot movements:
         self.go()
@@ -97,18 +90,24 @@ class MiniSim(object):
         self.finish = False
 
 
-class MobileRobot(object):
+class MobileRobot(pygame.sprite.Sprite):
     def __init__(self, simulator):
+        pygame.sprite.Sprite.__init__(self)
+
+        dirName = ''
+        if __name__ != "__main__": # Necessary to work both with IDLE and with miniBloq.
+            dirName = os.path.dirname(os.path.abspath(__file__)) + '/'
+        self.image = pygame.image.load(dirName + 'miniSim/robot1.png')
+        self.rect = self.image.get_rect()
+
+        self.penPoints = [(0,0)]        
         self.delay = 10 # [ms]
         self.simulator = simulator
-        self.sprite = simulator.robot0
-        self.group = simulator.allRobots
-        self.originalImage = simulator.robot0.image
+        self.originalImage = self.image
         self.heading = 0
         self.penWidth = 2
-        self.home()
 
-    def home(self):
+    def resetHeading(self):
         self.rotate(-self.heading)        
 
     def wait(self, time_ms):
@@ -127,33 +126,33 @@ class MobileRobot(object):
             self.wait(self.delay)
             dx = step*math.cos(math.radians(self.heading))
             dy = -step*math.sin(math.radians(self.heading))
-            self.sprite.rect = self.sprite.rect.move(dx, dy)
+            self.rect = self.rect.move(dx, dy)
             self.simulator.update()
 
     def rotate(self, angle):
         if (angle >= 0):
             for i in range(angle+1):
-                oldCenter = self.sprite.rect.center
-                self.sprite.image = pygame.transform.rotate(self.originalImage, self.heading + i)
-                self.sprite.rect = self.sprite.image.get_rect()
-                self.sprite.rect.center = oldCenter
+                oldCenter = self.rect.center
+                self.image = pygame.transform.rotate(self.originalImage, self.heading + i)
+                self.rect = self.image.get_rect()
+                self.rect.center = oldCenter
                 self.simulator.update()
         else:
             for i in range(-angle+1):
-                oldCenter = self.sprite.rect.center
-                self.sprite.image = pygame.transform.rotate(self.originalImage, self.heading + 360 -i)
-                self.sprite.rect = self.sprite.image.get_rect()
-                self.sprite.rect.center = oldCenter
+                oldCenter = self.rect.center
+                self.image = pygame.transform.rotate(self.originalImage, self.heading + 360 -i)
+                self.rect = self.image.get_rect()
+                self.rect.center = oldCenter
                 self.simulator.update()
         self.heading += angle
 
 
 miniSim = MiniSim()
-robot = MobileRobot(miniSim)
+robot = miniSim.robot0
 
 def go():
     # User program here:
-    robot.home()
+    miniSim.resetRobot(robot)
     robot.wait(int(math.e))
     robot.rotate(30)
     robot.wait(-500.1)

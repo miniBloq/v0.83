@@ -3,12 +3,12 @@ import pygame
 from miniSim import MiniSim
 from miniSim import MobileRobot
 miniSim = MiniSim()
-robot = MobileRobot(miniSim)
+robot = miniSim.robot0
 
 def go():
-	robot.home()
+	miniSim.resetRobot(robot)
 	for _i in range(180):
 		robot.move(1)
-		robot.rotate(3)
+		robot.rotate(2)
 miniSim.go = go
 miniSim.run()
