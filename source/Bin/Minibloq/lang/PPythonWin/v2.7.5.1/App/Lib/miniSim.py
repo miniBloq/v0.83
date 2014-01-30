@@ -5,6 +5,7 @@
 # You should have received a copy of the RMPL along with this software. If not,
 # you can download it from http://minibloq.org.
 
+import sys
 import os
 import pygame
 import math
@@ -18,6 +19,7 @@ class MiniSim(object):
         # Setup the screen:
         self.width = 800
         self.height = 600
+        self.screenColor = (192, 192, 192)
         self.screen = pygame.display.set_mode((self.width, self.height))
         pygame.display.set_caption("miniSim.v0.1")
 
@@ -55,7 +57,7 @@ class MiniSim(object):
         
     def update(self):
         # Background painting:
-        self.screen.fill((192, 192, 192))
+        self.screen.fill(self.screenColor)
 
         # Robot's pen:
         self.updateLines()
@@ -81,7 +83,7 @@ class MiniSim(object):
             self.askToQuit()
 
         # Program end:
-        pygame.quit()
+        #pygame.quit()
 
     def go(self):
         #This function will be redefined by the simulator user (see main() below):
@@ -98,6 +100,7 @@ class MiniSim(object):
             if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
                 self.finish = True
                 pygame.quit()
+                sys.exit()
                 return
             if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
                 # Run the simulation (go function) again:
@@ -113,7 +116,7 @@ class MobileRobot(pygame.sprite.Sprite):
         dirName = ''
         if __name__ != "__main__": # Necessary to work both with IDLE and with miniBloq.
             dirName = os.path.dirname(os.path.abspath(__file__)) + '/'
-        self.image = pygame.image.load(dirName + 'miniSim/robot1.png')
+        self.image = pygame.image.load(dirName + 'miniSim/robot0.png')
         self.rect = self.image.get_rect()
 
         self.__pen = False
@@ -243,6 +246,7 @@ def go():
 def main():
     miniSim.go = go
     miniSim.run()
+    sys.exit()
 
 if __name__ == "__main__": # Necessary to work both with IDLE and with miniBloq.
     main()
