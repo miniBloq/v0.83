@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mbqc xmlns="http://mbqc.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
+    <files/>
+    <properties>
+        <canvas visible="true"/>
+        <blocks count="10"/>
+    </properties>
+    <variables>
+        <avance/>
+    </variables>
+    <blocks>
+        <ComponentStart function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="noLoad"/>
+        <VariableInit function="Setter" commented="false" constantValue="avance" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="0" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </VariableInit>
+        <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <mobileRobotPenDown function="Setter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </MobileRobot>
+        <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <colorConstant function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <colorGreen function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </colorConstant>
+        </MobileRobot>
+        <repeat function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="20" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </repeat>
+        <VariableSetter function="Setter" commented="false" instanceName="avance" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <random function="Getter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </VariableSetter>
+        <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <mobileRobotMove function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <VariableGetter function="Getter" commented="false" instanceName="avance" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </mobileRobotMove>
+        </MobileRobot>
+        <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <mobileRobotRotate function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <random function="Getter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </mobileRobotRotate>
+        </MobileRobot>
+        <Print function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <PrintNumber function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <VariableGetter function="Getter" commented="false" instanceName="avance" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </PrintNumber>
+        </Print>
+        <repeatEnd function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
+    </blocks>
+</mbqc>

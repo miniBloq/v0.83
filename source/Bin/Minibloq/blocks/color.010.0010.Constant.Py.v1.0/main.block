@@ -56,5 +56,10 @@
 	</params>
 	<friends>
 		<colorRed>colorRed</colorRed>
+		<colorGreen>colorGreen</colorGreen>
+		<colorBlue>colorBlue</colorBlue>
+		<colorYellow>colorYellow</colorYellow>
+		<colorBlack>colorBlack</colorBlack>
+		<colorWhite>colorWhite</colorWhite>
 	</friends>
 </block>
