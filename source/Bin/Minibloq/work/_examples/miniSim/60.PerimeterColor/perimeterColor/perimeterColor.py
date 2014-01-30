@@ -17,12 +17,14 @@ def go():
 	#Move inside the perimeter (with the pen disabled):
 	robot.penUp()
 	robot.rotate(90)
-	robot.move(20)
+	robot.move(60)
 	robot.penWidth = 30
+	#Draw a small red object:
 	robot.penColor = (255,0,0)
 	robot.penDown()
-	robot.move(10)
+	robot.move(30)
 	#Now, keep inside it with the color sensor:
+	robot.penUp()
 	while True:
 		while robot.readCenterColorSensor() != miniSim.screen.map_rgb((0,0,0)):
 			robot.move(2)

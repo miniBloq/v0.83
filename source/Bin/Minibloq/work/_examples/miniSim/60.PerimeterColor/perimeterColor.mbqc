@@ -3,7 +3,7 @@
     <files/>
     <properties>
         <canvas visible="true"/>
-        <blocks count="26"/>
+        <blocks count="28"/>
     </properties>
     <variables/>
     <blocks>
@@ -47,7 +47,7 @@
         </MobileRobot>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <mobileRobotMove function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-                <numberConstant function="Constant" commented="false" constantValue="20" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                <numberConstant function="Constant" commented="false" constantValue="60" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
             </mobileRobotMove>
         </MobileRobot>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
@@ -55,6 +55,7 @@
                 <numberConstant function="Constant" commented="false" constantValue="30" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
             </mobileRobotPenWidthSetter>
         </MobileRobot>
+        <Comment function="Code" commented="false" constantValue="Draw a small red object:" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <colorConstant function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
                 <colorRed function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
@@ -65,10 +66,13 @@
         </MobileRobot>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <mobileRobotMove function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-                <numberConstant function="Constant" commented="false" constantValue="10" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                <numberConstant function="Constant" commented="false" constantValue="30" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
             </mobileRobotMove>
         </MobileRobot>
         <Comment function="Code" commented="false" constantValue="Now, keep inside it with the color sensor:" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <mobileRobotPenUp function="Setter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </MobileRobot>
         <while function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <boolConstantTrue function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </while>

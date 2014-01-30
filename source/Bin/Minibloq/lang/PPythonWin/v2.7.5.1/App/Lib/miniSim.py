@@ -41,7 +41,7 @@ class MiniSim(object):
         robot.penColor = (0,0,0) #Default value.
         robot.penWidth = 2.0
         robot.penUp()
-        robot.penPoints = [ ([robot.rect.centerx, robot.rect.centery], robot.isPenDown()) ]
+        robot.penPoints = [ ([robot.rect.centerx, robot.rect.centery], robot.isPenDown(), robot.penColor) ]
                 
     def updateLines(self):
         points = [self.robot0.penPoints[0]] # Draw all the lines, so it starts with from the very first point.
@@ -51,9 +51,9 @@ class MiniSim(object):
             if point[1]:
                 points.append(point[0])
                 if len(points) > 1: # Security check.
-                    pygame.draw.lines(self.screen, self.robot0.penColor, False, points, int(self.robot0.penWidth))
+                    pygame.draw.lines(self.screen, point[2], False, points, int(self.robot0.penWidth))
                     if self.robot0.penWidth > 4: #Small antialiasing:
-                        pygame.draw.circle(self.screen, self.robot0.penColor, point[0], int(self.robot0.penWidth/2))
+                        pygame.draw.circle(self.screen, point[2], point[0], int(self.robot0.penWidth/2))
             prevPoint = point[0]
         
     def update(self):
@@ -124,7 +124,7 @@ class MobileRobot(pygame.sprite.Sprite):
         self.__pen = False
         self.penWidth = 2.0 #Default value: Float to protect from run time errors. ##Future: create a setter and a getter.
         self.penColor = (0,0,0)
-        self.penPoints = [ ([0,0], self.isPenDown()) ]
+        self.penPoints = [ ([0,0], self.isPenDown(), self.penColor) ]
         
         self.delay = 10 # Unit: [ms]
 
@@ -159,7 +159,7 @@ class MobileRobot(pygame.sprite.Sprite):
             dx = step*math.cos(math.radians(self.heading))
             dy = -step*math.sin(math.radians(self.heading))
             self.rect = self.rect.move(dx, dy)
-            self.penPoints.append( ([self.rect.centerx, self.rect.centery], self.isPenDown()) )
+            self.penPoints.append( ([self.rect.centerx, self.rect.centery], self.isPenDown(), self.penColor) )
             self.simulator.update()
 
     def rotate(self, angle):
@@ -215,26 +215,65 @@ robot = miniSim.robot0
 def go():
     # User program here:
 
-	miniSim.resetRobot(robot)
-	#First, draw the perimeter:
-	robot.penColor = (0,0,0)
-	robot.penWidth = 20
-	robot.penDown()
-	for _i in range(180):
-		robot.rotate(2)
-		robot.move(1)
-	#Move inside the perimeter (with the pen disabled):
-	robot.penUp()
-	robot.move(-10)
-	robot.rotate(90)
-	robot.move(50)
-	#Now, keep inside it with the color sensor:
-	while True:
-		while robot.readCenterColorSensor() != miniSim.screen.map_rgb((0,0,0)):
-			robot.move(2)
-		robot.move(-(10))
-		#Rotates a random angle between 0 and 180 degrees:
-		robot.rotate((robot.random()*1.8))
+        miniSim.resetRobot(robot)
+        robot.penDown()
+        robot.penWidth = 30
+        robot.penColor = (255,0,0)
+        robot.move(100)
+        robot.rotate(90)
+        robot.penColor = (0,255,0)
+        robot.move(100)
+        robot.rotate(90)
+        robot.penColor = (0,0,255)
+        robot.move(100)
+        robot.rotate(90)
+        robot.penColor = (0,0,0)
+        robot.move(100)
+        robot.rotate(90)
+        robot.penUp()
+        robot.move(200)
+        robot.rotate(90)
+        robot.move(50)
+        robot.rotate(90)
+        while True:
+            robot.move(1)
+            robot.wait(50)
+            if robot.readCenterColorSensor() == miniSim.screen.map_rgb((255,0,0)):
+                print 'red!'
+            if robot.readCenterColorSensor() == miniSim.screen.map_rgb((0,255,0)):
+                print 'green!'
+            if robot.readCenterColorSensor() == miniSim.screen.map_rgb((0,0,0)):
+                print 'black!'
+            if robot.readCenterColorSensor() == miniSim.screen.map_rgb((0,0,255)):
+                print 'blue!'
+##
+##
+##
+##	miniSim.resetRobot(robot)
+##	#First, draw the perimeter:
+##	robot.penColor = (0,0,0)
+##	robot.penWidth = 20
+##	robot.penDown()
+##	for _i in range(180):
+##		robot.rotate(2)
+##		robot.move(1)
+##	#Move inside the perimeter (with the pen disabled):
+##	robot.penUp()
+##	robot.rotate(90)
+##	robot.move(40)
+##	robot.penWidth = 30
+##	#Draw a small red object:
+##	robot.penColor = (255,0,0)
+##	robot.penDown()
+##	robot.move(30)
+##	#Now, keep inside it with the color sensor:
+##	robot.penUp()
+##	while True:
+##		while robot.readCenterColorSensor() != miniSim.screen.map_rgb((0,0,0)):
+##			robot.move(2)
+##		robot.move(-(10))
+##		#Rotates a random angle between 0 and 180 degrees:
+##		robot.rotate((robot.random()*1.8))
 
 ##    # Zone keeping:
 ##    robot.penDown()
