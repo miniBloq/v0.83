@@ -8,6 +8,7 @@
 import os
 import pygame
 import math
+import random
 
         
 class MiniSim(object):
@@ -54,7 +55,7 @@ class MiniSim(object):
 
     def run(self):
         # Centers the robot again:
-        self.resetRobot(self.robot0)
+        #self.resetRobot(self.robot0)
         
         # Robot movements:
         self.go()
@@ -146,6 +147,9 @@ class MobileRobot(pygame.sprite.Sprite):
                 self.simulator.update()
         self.heading += angle
 
+    def random(self):
+        return int(random.uniform(0,100))
+
 
 miniSim = MiniSim()
 robot = miniSim.robot0
@@ -154,7 +158,7 @@ def go():
     # User program here:
     miniSim.resetRobot(robot)
     robot.wait(int(math.e))
-    robot.rotate(30)
+    robot.rotate(robot.random())
     robot.wait(-500.1)
     robot.move(100)
     robot.move(10)
