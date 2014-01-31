@@ -60,6 +60,7 @@
 		<MobileRobotPenDown>MobileRobotPenDown</MobileRobotPenDown>
 		<MobileRobotPenUp>MobileRobotPenUp</MobileRobotPenUp>
 		<MobileRobotPenWidthSetter>MobileRobotPenWidthSetter</MobileRobotPenWidthSetter>
+		<MobileRobotPenWidthSetter>MobileRobotPenColorSetter</MobileRobotPenWidthSetter>
 		<MobileRobotColorSensor>MobileRobotColorSensor</MobileRobotColorSensor>
 	</friends>
 </block>

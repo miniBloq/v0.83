@@ -10,9 +10,9 @@
         <ComponentStart function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="noLoad"/>
         <Comment function="Code" commented="false" constantValue="First, draw the perimeter:" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <colorConstant function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <mobileRobotPenColorSetter function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
                 <colorBlack function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-            </colorConstant>
+            </mobileRobotPenColorSetter>
         </MobileRobot>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <mobileRobotPenWidthSetter function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">

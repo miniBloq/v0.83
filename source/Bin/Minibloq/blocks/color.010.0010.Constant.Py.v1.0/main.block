@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<block xmlns="http://block.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.81.Beta">
+<block xmlns="http://block.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.8.Beta">
     <properties>
-		<name>colorConstant</name>
-		<function>Setter</function>
+		<name>colorRGB</name>
+		<function>Getter</function>
 		<loadAction>load</loadAction>
     </properties>
     <code>
-		<dataType>mobileRobotMethod</dataType>
+		<dataType>color</dataType>
 		<initialCode>
-			<line0>penColor = </line0>
+			<line0></line0>
 		</initialCode>
-		<keywords1>penColor</keywords1>
+		<paramSeparator>,</paramSeparator>
+		<paramListStart>(</paramListStart>
+		<paramListEnd>)</paramListEnd>
 	</code>
     <interface>
 		<originalSize>
@@ -19,40 +21,57 @@
 		</originalSize>
         <childFactor>0.9</childFactor>
         <defaultBackgroundColour0>
-			<R>setterBlockColour0R::</R>
-			<G>setterBlockColour0G::</G>
-			<B>setterBlockColour0B::</B>
+			<R>constantBlockColour0R::</R>
+			<G>constantBlockColour0G::</G>
+			<B>constantBlockColour0B::</B>
 		</defaultBackgroundColour0>
         <defaultBackgroundColour1>
-			<R>setterBlockColour1R::</R>
-			<G>setterBlockColour1G::</G>
-			<B>setterBlockColour1B::</B>
+			<R>constantBlockColour1R::</R>
+			<G>constantBlockColour1G::</G>
+			<B>constantBlockColour1B::</B>
 		</defaultBackgroundColour1>
 		<picker>
 			<imagesBasePath>thisBlockPath::</imagesBasePath>
-			<default>Images/mobileRobotPenColorPickerDefault.png</default>
-			<hover>Images/mobileRobotPenColorPickerHover.png</hover>
-			<pressed>Images/mobileRobotPenColorPickerPressed.png</pressed>
-			<disabled>Images/mobileRobotPenColorPickerDisabled.png</disabled>
+			<default>Images/colorRGBPickerDefault.png</default>
+			<hover>Images/colorRGBPickerHover.png</hover>
+			<pressed>Images/colorRGBPickerPressed.png</pressed>
+			<disabled>Images/colorRGBPickerDisabled.png</disabled>
 		</picker>
 		<blockButton>
 			<has>true</has>
 			<imagesBasePath>thisBlockPath::</imagesBasePath>
-			<default>Images/mobileRobotPenColor.png</default>
-			<disabled>Images/mobileRobotPenColorDisabled.png</disabled>
+			<default>Images/colorRGBDefault.png</default>
+			<disabled>Images/colorRGBDisabled.png</disabled>
 		</blockButton>
 	</interface>
-
 	<params>
-		<value>
-			<dataType>color</dataType>
+		<R>
+			<dataType>number</dataType>
 			<imagesBasePath>themePath::</imagesBasePath>
 			<notAssigned>ParamNotAssigned.png</notAssigned>
 			<default>ParamDefault.png</default>
 			<hover>ParamHover.png</hover>
 			<pressed>ParamPressed.png</pressed>
 			<disabled>ParamDisabled.png</disabled>
-		</value>
+		</R>
+		<G>
+			<dataType>number</dataType>
+			<imagesBasePath>themePath::</imagesBasePath>
+			<notAssigned>ParamNotAssigned.png</notAssigned>
+			<default>ParamDefault.png</default>
+			<hover>ParamHover.png</hover>
+			<pressed>ParamPressed.png</pressed>
+			<disabled>ParamDisabled.png</disabled>
+		</G>
+		<B>
+			<dataType>number</dataType>
+			<imagesBasePath>themePath::</imagesBasePath>
+			<notAssigned>ParamNotAssigned.png</notAssigned>
+			<default>ParamDefault.png</default>
+			<hover>ParamHover.png</hover>
+			<pressed>ParamPressed.png</pressed>
+			<disabled>ParamDisabled.png</disabled>
+		</B>
 	</params>
 	<friends>
 		<colorRed>colorRed</colorRed>

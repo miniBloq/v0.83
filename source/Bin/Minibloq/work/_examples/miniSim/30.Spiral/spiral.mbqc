@@ -22,9 +22,9 @@
             <mobileRobotPenDown function="Setter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </MobileRobot>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <colorConstant function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-                <colorRed function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-            </colorConstant>
+            <mobileRobotPenColorSetter function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <colorBlue function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </mobileRobotPenColorSetter>
         </MobileRobot>
         <repeat function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <numberConstant function="Constant" commented="false" constantValue="60" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>

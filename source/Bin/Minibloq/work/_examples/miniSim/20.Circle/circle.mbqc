@@ -14,9 +14,9 @@
             </mobileRobotPenWidthSetter>
         </MobileRobot>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <colorConstant function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <mobileRobotPenColorSetter function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
                 <colorGreen function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-            </colorConstant>
+            </mobileRobotPenColorSetter>
         </MobileRobot>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <mobileRobotPenDown function="Setter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>

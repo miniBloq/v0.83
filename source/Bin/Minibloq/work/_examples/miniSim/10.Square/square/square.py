@@ -12,7 +12,5 @@ def go():
 	for _i in range(4):
 		robot.move(200)
 		robot.rotate(90)
-	robot.penUp()
-	robot.move(300)
 miniSim.go = go
 miniSim.run()

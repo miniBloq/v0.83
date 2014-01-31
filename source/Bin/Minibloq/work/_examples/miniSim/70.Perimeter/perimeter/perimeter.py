@@ -20,7 +20,7 @@ def go():
 	robot.move(20)
 	#Now, keep inside it with the color sensor:
 	while True:
-		while robot.readCenterColorSensor() != miniSim.screen.map_rgb((0,0,0)):
+		while robot.readCenterColorSensor() != (0,0,0):
 			robot.move(2)
 		robot.move(-(10))
 		#Rotates a random angle between 0 and 180 degrees:

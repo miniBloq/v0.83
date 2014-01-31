@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mbqc xmlns="http://mbqc.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
+    <files/>
+    <properties>
+        <canvas visible="true"/>
+        <blocks count="9"/>
+    </properties>
+    <variables>
+        <colorFactor/>
+    </variables>
+    <blocks>
+        <ComponentStart function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="noLoad"/>
+        <VariableInit function="Setter" commented="false" constantValue="colorFactor" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="2.5" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </VariableInit>
+        <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <mobileRobotPenDown function="Setter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </MobileRobot>
+        <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <mobileRobotPenWidthSetter function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <numberConstant function="Constant" commented="false" constantValue="10" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </mobileRobotPenWidthSetter>
+        </MobileRobot>
+        <repeat function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="180" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </repeat>
+        <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <mobileRobotRotate function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <numberConstant function="Constant" commented="false" constantValue="2" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </mobileRobotRotate>
+        </MobileRobot>
+        <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <mobileRobotMove function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <numberConstant function="Constant" commented="false" constantValue="1" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </mobileRobotMove>
+        </MobileRobot>
+        <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <mobileRobotPenColorSetter function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <colorRGB function="Getter" commented="false" paramsCount="3" hasAddParamsButton="false" loadAction="load">
+                    <numberMul function="Operation" commented="false" paramsCount="2" hasAddParamsButton="true" loadAction="load">
+                        <random function="Getter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                        <VariableGetter function="Getter" commented="false" instanceName="colorFactor" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                    </numberMul>
+                    <numberMul function="Operation" commented="false" paramsCount="2" hasAddParamsButton="true" loadAction="load">
+                        <random function="Getter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                        <VariableGetter function="Getter" commented="false" instanceName="colorFactor" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                    </numberMul>
+                    <numberMul function="Operation" commented="false" paramsCount="2" hasAddParamsButton="true" loadAction="load">
+                        <random function="Getter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                        <VariableGetter function="Getter" commented="false" instanceName="colorFactor" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                    </numberMul>
+                </colorRGB>
+            </mobileRobotPenColorSetter>
+        </MobileRobot>
+        <repeatEnd function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
+    </blocks>
+</mbqc>

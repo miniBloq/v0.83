@@ -20,7 +20,7 @@
     </terminal>
     <properties>
         <language>English</language>
-        <profile>user</profile>
+        <profile>developer</profile>
     </properties>
     <canvas>
         <zoom>3</zoom>

@@ -10,7 +10,7 @@ def go():
 	side = 1
 	robot.penWidth = 20.1
 	robot.penDown()
-	robot.penColor = (255,0,0)
+	robot.penColor = (0,0,255)
 	for _i in range(60):
 		robot.rotate(8)
 		robot.move(side)
