@@ -2,7 +2,7 @@
 <board xmlns="http://board.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
     <properties>
 		<manufacturer>miniBloq</manufacturer>
-		<name>miniSim.v1.0</name>
+		<name>miniSim.v0.2</name>
 		<portType>HID2</portType>
 		<url0>http://minibloq.org</url0>
 		<url1>http://robotgroup.com.ar</url1>

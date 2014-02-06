@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<board xmlns="http://board.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
+    <properties>
+		<manufacturer>SparkFun</manufacturer>
+		<name>RedBoard</name>
+		<url0>https://www.sparkfun.com/products/11575</url0>
+		<url1>https://www.sparkfun.com</url1>
+		<cpu>atmega328p</cpu>
+		<clockFreq>16000000L</clockFreq>
+		<imgMain>main.png</imgMain>
+		<imgThumb>thumb.png</imgThumb>
+		<win_i386_lang>WinAVR/v20090313/bin</win_i386_lang>
+		<win_i386_uploader>avrdude.209130919.exe</win_i386_uploader>
+		<win_i386_corePath>Arduino.v1.5.4.r2/avr</win_i386_corePath>
+		<win_i386_core>mega328.a</win_i386_core>
+		<linux_i386_lang>avrlinux/i386/v4.3.5/bin</linux_i386_lang>
+		<linux_i386_uploader>avrdude.20071012.exe</linux_i386_uploader>
+		<linux_i386_corePath>Arduino.v1.5.4.r2/avr</linux_i386_corePath>
+		<linux_i386_core>mega328.a</linux_i386_core>
+		<linux_amd64_lang>avrlinux/amd64/v4.3.5/bin</linux_amd64_lang>
+		<linux_amd64_uploader>avrdude.20071012.exe</linux_amd64_uploader>
+		<linux_amd64_corePath>Arduino.v1.5.4.r2/avr</linux_amd64_corePath>
+		<linux_amd64_core>mega328.a</linux_amd64_core>
+		<win_i386_driverPath>drivers/FTDI/win/x64_64bits/v2.08.14</win_i386_driverPath>
+		<outputMainFileExtension>cpp</outputMainFileExtension>
+		<resetBeforeBuild>false</resetBeforeBuild>
+		<bootBaudRate>115200</bootBaudRate>
+		<bootFindPortTries>15</bootFindPortTries>
+		<bootTimeOut>200</bootTimeOut>
+		<headerFileExtension>h</headerFileExtension>
+		<codeFileExtension>cpp</codeFileExtension>		
+		<includeCodePrefix>#include &lt;</includeCodePrefix>
+		<includeCodePostfix>&gt;</includeCodePostfix>
+		<includeInitCode>#ifndef mbq_h&#10;#define mbq_h&#10;&#10;</includeInitCode>
+		<includeFinalCode>#endif</includeFinalCode>
+		<includeBuildPrefix> -I"</includeBuildPrefix>
+		<includeBuildPostfix>"</includeBuildPostfix>
+		<initBoardHeader>#include &lt;mbq.h&gt;&#10;</initBoardHeader>
+		<initBoardPrefix>void initBoard()&#10;{</initBoardPrefix>
+		<initBoardPostfix>}</initBoardPostfix>
+		<commentBegin>//</commentBegin>
+		<commentEnd></commentEnd>
+		<arduinoVersion>154</arduinoVersion>
+		<objectExtension>o</objectExtension>
+		<boardDefine>ARDUINO_AVR_UNO</boardDefine>
+		<arduinoVariant>standard</arduinoVariant>
+    </properties>
+	<syntax>
+		<lexer>3</lexer>
+		
+		<operatorColor>0,0,0</operatorColor>
+		<stringColor>150,0,0</stringColor>
+        <preprocesorColor>165,105,0</preprocesorColor>
+        <identifierColor>0,0,0</identifierColor>
+        <numberColor>0,255,0</numberColor>
+        <characterColor>150,0,0</characterColor>
+        <wordColor>255,128,0</wordColor>
+        <word2Color>0,0,150</word2Color>
+        <commentColor>92,92,92</commentColor>
+        <commentLineColor>92,92,92</commentLineColor>
+        <commentDocColor>92,92,92</commentDocColor>
+        <commentDocKeywordColor>92,92,92</commentDocKeywordColor>
+        <commentDocKeywordErrorColor>92,92,92</commentDocKeywordErrorColor>
+		
+		<operatorBold>true</operatorBold>
+		<wordBold>true</wordBold>
+		<word2Bold>true</word2Bold>
+		<commentDocKeywordBold>true</commentDocKeywordBold>
+		
+		<tabWidth>4</tabWidth>
+	</syntax>
+	<examples>
+		<path><s>componentsRepositoryPath::</s><s>/work/_examples/ArduinoUno</s></path>
+		<path><s>componentsRepositoryPath::</s><s>/work/_examples/DifferentialRobot</s></path>
+	</examples>
+	<fileExtensions>
+		<h/>
+		<cpp/>
+		<txt/>
+	</fileExtensions>
+	<cpp>
+		<cmd>
+			<s>"</s><s>toolsPath::</s>
+			<s>/avr-g++" -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD -mmcu=</s><s>cpu::</s>
+			<s> -DF_CPU=</s><s>clockFreq::</s>
+			<s> -DARDUINO=</s><s>arduinoVersion::</s>
+			<s> -I"</s><s>toolsPath::</s>
+			<s>" -I"</s><s>corePath::</s>
+			<s>" -I"</s><s>corePath::</s><s>/avr-libc</s>
+			<s>" -I"</s><s>corePath::</s><s>/variants/</s><s>arduinoVariant::</s>
+			<s>" -I"</s><s>boardPath::</s><s>/lib</s>
+			<s>" -I"</s><s>componentFilesPath::</s>
+			<s>" -I"</s><s>outputPath::</s>
+			<s>" -I"</s><s>libsPath::</s><s>/Arduino/miniBloq/v1.0</s>
+			<s>" -I"</s><s>libsPath::</s><s>/Arduino/PingIRReceiver/v1.0" </s>
+
+			<s>includesBuildList::</s>
+			
+			<s> "</s><s>componentFilesPath::</s><s>/</s><s>$currentFile$" -o "</s><s>outputPath::</s><s>/</s><s>$currentFile$.o"</s>
+		</cmd>
+	</cpp>
+	<includeFiles>
+		<include><s>Arduino.h</s></include>
+		<include><s>pins_arduino.h</s></include>
+		<include><s>stdlib.h</s></include>
+		<include><s>miniBloq.h</s></include>
+		<include><s>board.h</s></include>
+	</includeFiles>
+	<initBoardCode>
+		<s>	Serial.begin(115200);&#10;&#10;</s>
+		<s>	//Uses the analog input 0, that may have the same value in some designs, but it's not so prabably:&#10;</s>
+		<s>	randomSeed(analogRead(0));&#10;&#10;</s>
+	</initBoardCode>
+	<initCode>
+		<s>#include &lt;mbq.h&gt;&#10;</s>
+		<s>#include &lt;PingIRReceiver.h&gt;&#10;&#10;</s>
+		<s>void setup()&#10;</s>
+		<s>{</s>
+	</initCode>
+	<finalCode>
+		<s>}&#10;&#10;</s>
+		<s>void loop()&#10;</s>
+		<s>{&#10;</s>
+		<s>}</s>
+	</finalCode>
+	<build>
+		<cmd>
+			<s>"</s><s>toolsPath::</s>
+			<s>/avr-g++" -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD -mmcu=</s><s>cpu::</s>
+			<s> -DF_CPU=</s><s>clockFreq::</s><s> -DARDUINO=</s><s>arduinoVersion::</s>
+			<s> -D=</s><s>boardDefine::</s>
+			<s> -DARDUINO_ARCH_AVR</s>
+			<s> -I"</s><s>toolsPath::</s>
+			<s>" -I"</s><s>corePath::</s>
+			<s>" -I"</s><s>corePath::</s><s>/avr-libc</s>
+			<s>" -I"</s><s>corePath::</s><s>/variants/</s><s>arduinoVariant::</s>
+			<s>" -I"</s><s>boardPath::</s><s>/lib</s>
+			<s>" -I"</s><s>componentFilesPath::</s>
+			<s>" -I"</s><s>outputPath::</s>
+			<s>" -I"</s><s>libsPath::</s><s>/Arduino/miniBloq/v1.0</s>
+			<s>" -I"</s><s>libsPath::</s><s>/Arduino/PingIRReceiver/v1.0" </s>
+
+			<s>includesBuildList::</s>
+			
+			<s> "</s><s>componentFilesPath::</s><s>/</s><s>initBoard.cpp" -o "</s><s>outputPath::</s><s>/</s><s>initBoard.cpp.o"</s>
+		</cmd>
+		<cmd>
+			<s>"</s><s>toolsPath::</s>
+			<s>/avr-g++" -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD -mmcu=</s><s>cpu::</s>
+			<s> -DF_CPU=</s><s>clockFreq::</s><s> -DARDUINO=</s><s>arduinoVersion::</s>
+			<s> -D=</s><s>boardDefine::</s>
+			<s> -DARDUINO_ARCH_AVR</s>			
+			<s> -I"</s><s>toolsPath::</s>
+			<s>" -I"</s><s>corePath::</s>
+			<s>" -I"</s><s>corePath::</s><s>/avr-libc</s>
+			<s>" -I"</s><s>corePath::</s><s>/variants/</s><s>arduinoVariant::</s>
+			<s>" -I"</s><s>boardPath::</s><s>/lib</s>
+			<s>" -I"</s><s>componentFilesPath::</s>
+			<s>" -I"</s><s>outputPath::</s>
+			<s>" -I"</s><s>libsPath::</s><s>/Arduino/miniBloq/v1.0</s>
+			<s>" -I"</s><s>libsPath::</s><s>/Arduino/PingIRReceiver/v1.0" </s>
+
+			<s>includesBuildList::</s>
+
+			<s> "</s><s>componentFilesPath::</s><s>/</s><s>componentName::</s><s>.cpp" -o "</s><s>outputPath::</s><s>/</s><s>componentName::</s><s>.cpp.o"</s>
+		</cmd>
+		<cmd>
+			<s>"</s><s>toolsPath::</s>
+			<s>/avr-gcc" -Os -Wl,--gc-sections -mmcu=</s><s>cpu::</s><s> -o</s>
+			<s>"</s><s>outputPath::</s><s>/main.cpp.elf" </s>
+			<s>outputObjectsList::</s>
+			<s> "</s><s>outputPath::</s><s>/</s><s>initBoard.cpp.o"</s>
+			<s> "</s><s>outputPath::</s><s>/</s><s>componentName::</s><s>.cpp.o" "</s>
+			<s>corePath::</s><s>/obj/</s><s>core::</s><s>"</s>
+			<s> -L ./ -lm</s>
+		</cmd>
+		<cmd>
+			<s>"</s><s>toolsPath::</s>
+			<s>/avr-objcopy" -O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0 </s>
+			<s>"</s><s>outputPath::</s><s>/main.cpp.elf" "</s>
+			<s>outputPath::</s><s>/main.cpp.epp"</s>
+		</cmd>
+		<cmd>
+			<s>"</s><s>toolsPath::</s>
+			<s>/avr-objcopy" -O ihex -R .eeprom </s>
+			<s>"</s><s>outputPath::</s><s>/main.cpp.elf" "</s>
+			<s>outputPath::</s><s>/main.cpp.hex"</s>
+		</cmd>
+		<cmd>
+			<s>"</s><s>toolsPath::</s><s>/avr-size" --mcu=</s><s>cpu::</s><s> --format=avr </s>
+			<s>"</s><s>outputPath::</s><s>/main.cpp.elf"</s>
+		</cmd>
+	</build>
+	<deploy>
+		<cmd>
+			<s>"</s><s>toolsPath::</s><s>/</s><s>uploader::</s><s>" -C"</s>
+			<s>toolsPath::</s><s>/avrdude.conf" -p</s><s>cpu::</s><s> -carduino -P</s><s>bootPortName::</s>
+			<s> -b</s><s>bootBaudRate::</s><s> -D -Uflash:w:"</s><s>outputPath::</s><s>/main.cpp.hex</s><s>":i</s>
+		</cmd>
+	</deploy>
+	<instances>
+		<serial0 instanceType="Serial"/>
+
+		<sensor0 instanceType="analogRead"/>
+		<sensor1 instanceType="analogRead"/>
+		<sensor2 instanceType="analogRead"/>
+		<sensor3 instanceType="analogRead"/>
+		<sensor4 instanceType="analogRead"/>
+		<sensor5 instanceType="analogRead"/>
+
+		<PWM3 instanceType="analogWrite"/>
+		<PWM5 instanceType="analogWrite"/>
+		<PWM6 instanceType="analogWrite"/>
+		<PWM9 instanceType="analogWrite"/>
+		<PWM10 instanceType="analogWrite"/>
+		<PWM11 instanceType="analogWrite"/>
+
+		<D0 instanceType="IOPin"/>
+		<D1 instanceType="IOPin"/>
+		<D2 instanceType="IOPin"/>
+		<D3 instanceType="IOPin"/>
+		<D4 instanceType="IOPin"/>
+		<D5 instanceType="IOPin"/>
+		<D6 instanceType="IOPin"/>
+		<D7 instanceType="IOPin"/>
+		<D8 instanceType="IOPin"/>
+		<D9 instanceType="IOPin"/>
+		<D10 instanceType="IOPin"/>
+		<D11 instanceType="IOPin"/>
+		<D12 instanceType="IOPin"/>
+		<D13_LED instanceType="IOPin"/>
+		<D14 instanceType="IOPin"/>
+		<D15 instanceType="IOPin"/>
+		<D16 instanceType="IOPin"/>
+		<D17 instanceType="IOPin"/>
+		<D18 instanceType="IOPin"/>
+		<D19 instanceType="IOPin"/>
+	</instances>
+</board>
