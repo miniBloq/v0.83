@@ -2,9 +2,9 @@
 <board xmlns="http://board.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
     <properties>
 		<manufacturer>SparkFun</manufacturer>
-		<name>RedBoard</name>
-		<url0>https://www.sparkfun.com/products/11575</url0>
-		<url1>https://www.sparkfun.com</url1>
+		<name>RedBot</name>
+		<url0>https://www.sparkfun.com/products/12032</url0>
+		<url1>https://www.sparkfun.com/products/11954</url1>
 		<cpu>atmega328p</cpu>
 		<clockFreq>16000000L</clockFreq>
 		<imgMain>main.png</imgMain>
