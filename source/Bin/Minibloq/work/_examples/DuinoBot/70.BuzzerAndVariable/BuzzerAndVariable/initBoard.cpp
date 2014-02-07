@@ -4,8 +4,7 @@
 Servo servo0;
 Servo servo1;
 Servo servo2;
-RedBot robot;
-IRrecv irReceiver(14);
+IRrecv irReceiver(2);
 PingSensor ping(0);
 IRRanger irRanger20to150(1, IRRanger::range20to150cm);
 IRRanger irRanger10to80(1, IRRanger::range10to80cm);
@@ -22,5 +21,4 @@ void initBoard()
 	servo0.setPin(6);
 	servo1.setPin(7);
 	servo2.setPin(8);
-	//;
 }

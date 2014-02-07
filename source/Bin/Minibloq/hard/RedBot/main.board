@@ -92,6 +92,7 @@
 			<s>" -I"</s><s>componentFilesPath::</s>
 			<s>" -I"</s><s>outputPath::</s>
 			<s>" -I"</s><s>libsPath::</s><s>/Arduino/miniBloq/v1.0</s>
+			<s>" -I"</s><s>libsPath::</s><s>/Arduino/RedBot/v1.0</s>
 			<s>" -I"</s><s>libsPath::</s><s>/Arduino/PingIRReceiver/v1.0" </s>
 
 			<s>includesBuildList::</s>
@@ -138,6 +139,7 @@
 			<s>" -I"</s><s>componentFilesPath::</s>
 			<s>" -I"</s><s>outputPath::</s>
 			<s>" -I"</s><s>libsPath::</s><s>/Arduino/miniBloq/v1.0</s>
+			<s>" -I"</s><s>libsPath::</s><s>/Arduino/RedBot/v1.0</s>
 			<s>" -I"</s><s>libsPath::</s><s>/Arduino/PingIRReceiver/v1.0" </s>
 
 			<s>includesBuildList::</s>
@@ -158,6 +160,7 @@
 			<s>" -I"</s><s>componentFilesPath::</s>
 			<s>" -I"</s><s>outputPath::</s>
 			<s>" -I"</s><s>libsPath::</s><s>/Arduino/miniBloq/v1.0</s>
+			<s>" -I"</s><s>libsPath::</s><s>/Arduino/RedBot/v1.0</s>
 			<s>" -I"</s><s>libsPath::</s><s>/Arduino/PingIRReceiver/v1.0" </s>
 
 			<s>includesBuildList::</s>
