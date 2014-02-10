@@ -18,7 +18,7 @@ class RedBot
 	//Differential tracktion mobile robot functions:
     void move(float power);
 	void move(float powerLeft, float powerRight);
-    void rotate(int power);
+    void rotate(float power);
     void brake();
     void leftBrake();
     void rightBrake();

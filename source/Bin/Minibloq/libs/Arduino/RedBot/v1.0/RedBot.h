@@ -19,14 +19,19 @@ class RedBotMotor
     void drive(int speed);
     void pivot(int speed);
     void rightDrive(int speed);
+	inline int getRightSpeed() const { return rightSpeed; }
     void leftDrive(int speed);
+	inline int getLeftSpeed() const { return leftSpeed; }
     void stop();
     void brake();
     void rightStop();
     void leftStop();
     void leftBrake();
     void rightBrake();
+  
   private:
+	int leftSpeed, rightSpeed;
+	
     void leftFwd(byte speed);
     void leftRev(byte speed);
     void rightFwd(byte speed);

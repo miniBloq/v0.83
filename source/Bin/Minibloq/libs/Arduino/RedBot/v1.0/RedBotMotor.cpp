@@ -5,7 +5,8 @@ const int dcMotMaxPower = 255;
 const int dcMotMinPower = -dcMotMaxPower;
 
 
-RedBotMotor::RedBotMotor()
+RedBotMotor::RedBotMotor() : 	leftSpeed(0),
+								rightSpeed(0)
 {
   pinMode(R_CTRL_1, OUTPUT);
   pinMode(R_CTRL_2, OUTPUT);
@@ -38,6 +39,8 @@ void RedBotMotor::drive(int speed)
     leftRev((byte)(-power));
     rightRev((byte)(-power));
   }
+  leftSpeed = power;
+  rightSpeed = power;
 }
 
 void RedBotMotor::pivot(int speed)
@@ -47,11 +50,15 @@ void RedBotMotor::pivot(int speed)
   {
     leftRev((byte)(power));
     rightFwd((byte)(power));
+    leftSpeed = -power;
+    rightSpeed = power;  
   }
   else
   {
     leftFwd((byte)(-power));
     rightRev((byte)(-power));
+    leftSpeed = power;
+    rightSpeed = -power;  
   }
 }
 
@@ -66,6 +73,7 @@ void RedBotMotor::rightDrive(int speed)
   {
     rightRev((byte)(-power));
   }
+  rightSpeed = power;
 }
 
 void RedBotMotor::leftDrive(int speed)
@@ -79,6 +87,7 @@ void RedBotMotor::leftDrive(int speed)
   {
     leftRev((byte)(-power));
   }
+  leftSpeed = power;
 }
 
 void RedBotMotor::leftBrake()
@@ -86,6 +95,7 @@ void RedBotMotor::leftBrake()
   digitalWrite(L_CTRL_1, HIGH);
   digitalWrite(L_CTRL_2, HIGH);
   analogWrite(PWM_L, 0);
+  leftSpeed = 0;
 }
 
 void RedBotMotor::rightBrake()
@@ -93,6 +103,7 @@ void RedBotMotor::rightBrake()
   digitalWrite(R_CTRL_1, HIGH);
   digitalWrite(R_CTRL_2, HIGH);
   analogWrite(PWM_R, 0);
+  rightSpeed = 0;
 }
 
 void RedBotMotor::leftStop()
@@ -100,6 +111,7 @@ void RedBotMotor::leftStop()
   digitalWrite(L_CTRL_1, LOW);
   digitalWrite(L_CTRL_2, LOW);
   analogWrite(PWM_L, 0);
+  leftSpeed = 0;
 }
 
 void RedBotMotor::rightStop()
@@ -107,6 +119,7 @@ void RedBotMotor::rightStop()
   digitalWrite(R_CTRL_1, LOW);
   digitalWrite(R_CTRL_2, LOW);
   analogWrite(PWM_R, 0);
+  rightSpeed = 0;
 }
 
 /******************************************************************************
