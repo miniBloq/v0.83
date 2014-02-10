@@ -31,22 +31,6 @@
 			<s>" -I"</s><s>outputPath::</s><s>" </s>
 			<s>-I"</s><s>libsPath::</s><s>/Arduino/RedBot/v1.0" </s>
 			
-			<s>"</s><s>libsPath::</s><s>/Arduino/RedBot/v1.0/mbqRedBot.cpp" -o "</s><s>outputPath::</s><s>/mbqRedBot.cpp.o"</s>
-		</cmd>
-		<cmd>
-			<s>"</s><s>toolsPath::</s>
-			<s>/avr-g++" -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD</s>
-			<s> -mmcu=</s><s>cpu::</s>
-			<s> -DF_CPU=</s><s>clockFreq::</s>
-			<s> -DARDUINO=</s><s>arduinoVersion::</s>
-			<s> -I"</s> <s>toolsPath::</s>
-			<s>" -I"</s><s>corePath::</s>
-			<s>" -I"</s><s>corePath::</s><s>/avr-libc</s>
-			<s>" -I"</s><s>corePath::</s><s>/variants/</s><s>arduinoVariant::</s>
-			<s>" -I"</s><s>componentPath::</s>
-			<s>" -I"</s><s>outputPath::</s><s>" </s>
-			<s>-I"</s><s>libsPath::</s><s>/Arduino/RedBot/v1.0" </s>
-			
 			<s>"</s><s>libsPath::</s><s>/Arduino/RedBot/v1.0/RedBotAccel.cpp" -o "</s><s>outputPath::</s><s>/RedBotAccel.cpp.o"</s>
 		</cmd>
 		<cmd>
@@ -79,6 +63,23 @@
 			<s>" -I"</s><s>outputPath::</s><s>" </s>
 			<s>-I"</s><s>libsPath::</s><s>/Arduino/RedBot/v1.0" </s>
 			
-			<s>"</s><s>libsPath::</s><s>/Arduino/RedBot/v1.0/RedBotSensor.cpp" -o "</s><s>outputPath::</s><s>/RedBotMotor.cpp.o"</s>
-		</cmd>	</build>
+			<s>"</s><s>libsPath::</s><s>/Arduino/RedBot/v1.0/RedBotSensor.cpp" -o "</s><s>outputPath::</s><s>/RedBotSensor.cpp.o"</s>
+		</cmd>
+		<cmd>
+			<s>"</s><s>toolsPath::</s>
+			<s>/avr-g++" -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD</s>
+			<s> -mmcu=</s><s>cpu::</s>
+			<s> -DF_CPU=</s><s>clockFreq::</s>
+			<s> -DARDUINO=</s><s>arduinoVersion::</s>
+			<s> -I"</s> <s>toolsPath::</s>
+			<s>" -I"</s><s>corePath::</s>
+			<s>" -I"</s><s>corePath::</s><s>/avr-libc</s>
+			<s>" -I"</s><s>corePath::</s><s>/variants/</s><s>arduinoVariant::</s>
+			<s>" -I"</s><s>componentPath::</s>
+			<s>" -I"</s><s>outputPath::</s><s>" </s>
+			<s>-I"</s><s>libsPath::</s><s>/Arduino/RedBot/v1.0" </s>
+			
+			<s>"</s><s>libsPath::</s><s>/Arduino/RedBot/v1.0/mbqRedBot.cpp" -o "</s><s>outputPath::</s><s>/mbqRedBot.cpp.o"</s>
+		</cmd>
+	</build>
 </rel>

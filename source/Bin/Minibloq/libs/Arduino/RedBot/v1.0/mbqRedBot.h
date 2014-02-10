@@ -4,26 +4,29 @@
 #include <Arduino.h>
 #include <RedBot.h>
 
-#define    L_CTRL_1   2
-#define    L_CTRL_2   4
-#define    PWM_L      5
-
-#define    R_CTRL_1   7
-#define    R_CTRL_2   8
-#define    PWM_R      6
-
 
 class RedBot
 {
+  protected:
+    RedBotMotor motor;
+
   public:
     RedBot()
 	{
 	}
+	
+	//Differential tracktion mobile robot functions:
     void move(float power);
 	void move(float powerLeft, float powerRight);
     void rotate(int power);
     void brake();
     void leftBrake();
     void rightBrake();
+	
+	//DuinoBot compatibility functions:
+	void motor0(float power);
+	float motor0() const;
+	void motor1(float power);
+	float motor1() const;
 };
 #endif
