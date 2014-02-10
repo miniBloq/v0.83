@@ -4,9 +4,12 @@
 void setup()
 {
 	initBoard();
+	float pwm = 0;
 	while(true)
 	{
-		AnalogWrite(PWM10, AnalogRead(sensor3));
+		AnalogWrite(PWM10, pwm);
+		pwm = (pwm+1);
+		delay(100);
 	}
 }
 

@@ -4,9 +4,14 @@
 void setup()
 {
 	initBoard();
+	float x = 0;
+	float y = 0;
 	while(true)
 	{
-		AnalogWrite(PWM10, AnalogRead(sensor3));
+		y = abs((sin(x)*100));
+		AnalogWrite(PWM10, y);
+		x = (x+0.01);
+		delay(10);
 	}
 }
 

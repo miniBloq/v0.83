@@ -31,7 +31,7 @@
 			<s>" -I"</s><s>outputPath::</s><s>" </s>
 			<s>-I"</s><s>libsPath::</s><s>/Arduino/RedBot/v1.0" </s>
 			
-			<s>"</s><s>libsPath::</s><s>/Arduino/RedBot/v1.0/RedBot.cpp" -o "</s><s>outputPath::</s><s>/RedBot.cpp.o"</s>
+			<s>"</s><s>libsPath::</s><s>/Arduino/RedBot/v1.0/mbqRedBot.cpp" -o "</s><s>outputPath::</s><s>/mbqRedBot.cpp.o"</s>
 		</cmd>
 		<cmd>
 			<s>"</s><s>toolsPath::</s>

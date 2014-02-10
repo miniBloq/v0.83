@@ -12,7 +12,7 @@
             <boolConstantTrue function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </while>
         <analogWrite function="Setter" commented="false" instanceName="PWM10" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <analogRead function="Getter" commented="false" instanceName="sensor4" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            <analogRead function="Getter" commented="false" instanceName="sensor3" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </analogWrite>
         <whileEnd function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
     </blocks>

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mbqc xmlns="http://mbqc.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
+    <files/>
     <properties>
+        <canvas visible="true"/>
         <blocks count="7"/>
     </properties>
     <variables>
@@ -14,15 +16,15 @@
         <while function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <boolConstantTrue function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </while>
+        <analogWrite function="Setter" commented="false" instanceName="PWM10" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <VariableGetter function="Getter" commented="false" instanceName="pwm" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </analogWrite>
         <VariableSetter function="Setter" commented="false" instanceName="pwm" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <numberAdd function="Operation" commented="false" paramsCount="2" hasAddParamsButton="true" loadAction="load">
                 <VariableGetter function="Getter" commented="false" instanceName="pwm" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
                 <numberConstant function="Constant" commented="false" constantValue="1" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
             </numberAdd>
         </VariableSetter>
-        <analogWrite function="Setter" commented="false" instanceName="PWM9" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <VariableGetter function="Getter" commented="false" instanceName="pwm" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-        </analogWrite>
         <delay function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <numberConstant function="Constant" commented="false" constantValue="100" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </delay>
