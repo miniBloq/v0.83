@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mbqc xmlns="http://mbqc.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
+    <files/>
+    <properties>
+        <canvas visible="true"/>
+        <blocks count="13"/>
+    </properties>
+    <variables/>
+    <blocks>
+        <ComponentStart function="Flow" commented="false" instanceName="initBoard" paramsCount="0" hasAddParamsButton="false" loadAction="noLoad"/>
+        <ServoRC function="Setter" commented="false" instanceName="servo0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="0" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </ServoRC>
+        <ServoRC function="Setter" commented="false" instanceName="servo1" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="0" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </ServoRC>
+        <repeat function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="180" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </repeat>
+        <ServoRC function="Setter" commented="false" instanceName="servo0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberAdd function="Operation" commented="false" paramsCount="2" hasAddParamsButton="true" loadAction="load">
+                <ServoRCGetter function="Getter" commented="false" instanceName="servo0" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                <numberConstant function="Constant" commented="false" constantValue="1" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </numberAdd>
+        </ServoRC>
+        <ServoRC function="Setter" commented="false" instanceName="servo1" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberAdd function="Operation" commented="false" paramsCount="2" hasAddParamsButton="true" loadAction="load">
+                <ServoRCGetter function="Getter" commented="false" instanceName="servo1" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                <numberConstant function="Constant" commented="false" constantValue="1" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </numberAdd>
+        </ServoRC>
+        <delay function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="15" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </delay>
+        <repeatEnd function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
+        <repeat function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="180" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </repeat>
+        <ServoRC function="Setter" commented="false" instanceName="servo0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberSub function="Operation" commented="false" paramsCount="2" hasAddParamsButton="false" loadAction="load">
+                <ServoRCGetter function="Getter" commented="false" instanceName="servo0" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                <numberConstant function="Constant" commented="false" constantValue="1" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </numberSub>
+        </ServoRC>
+        <ServoRC function="Setter" commented="false" instanceName="servo1" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberSub function="Operation" commented="false" paramsCount="2" hasAddParamsButton="false" loadAction="load">
+                <ServoRCGetter function="Getter" commented="false" instanceName="servo1" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                <numberConstant function="Constant" commented="false" constantValue="1" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </numberSub>
+        </ServoRC>
+        <delay function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="15" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </delay>
+        <repeatEnd function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
+    </blocks>
+</mbqc>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mbqc xmlns="http://mbqc.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
+    <files/>
+    <properties>
+        <canvas visible="true"/>
+        <blocks count="11"/>
+    </properties>
+    <variables>
+        <pwm/>
+    </variables>
+    <blocks>
+        <ComponentStart function="Flow" commented="false" instanceName="initBoard" paramsCount="0" hasAddParamsButton="false" loadAction="noLoad"/>
+        <VariableInit function="Setter" commented="false" constantValue="pwm" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="50" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </VariableInit>
+        <Comment function="Code" commented="false" constantValue="Set motor direction pins to make the robot spin:" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        <Comment function="Code" commented="false" constantValue="Left motor:" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        <IOPin function="Setter" commented="false" instanceName="D2" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <boolConstantTrue function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </IOPin>
+        <IOPin function="Setter" commented="false" instanceName="D4" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <boolConstantFalse function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </IOPin>
+        <Comment function="Code" commented="false" constantValue="Right motor:" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        <IOPin function="Setter" commented="false" instanceName="D7" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <boolConstantFalse function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </IOPin>
+        <IOPin function="Setter" commented="false" instanceName="D8" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <boolConstantTrue function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </IOPin>
+        <analogWrite function="Setter" commented="false" instanceName="PWM5" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <VariableGetter function="Getter" commented="false" instanceName="pwm" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </analogWrite>
+        <analogWrite function="Setter" commented="false" instanceName="PWM6" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <VariableGetter function="Getter" commented="false" instanceName="pwm" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </analogWrite>
+    </blocks>
+</mbqc>

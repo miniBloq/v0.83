@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mbqc xmlns="http://mbqc.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
+    <files/>
     <properties>
+        <canvas visible="true"/>
         <blocks count="4"/>
     </properties>
     <variables/>
@@ -9,8 +11,8 @@
         <while function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <boolConstantTrue function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </while>
-        <analogWrite function="Setter" commented="false" instanceName="PWM9" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <analogRead function="Getter" commented="false" instanceName="sensor0" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        <analogWrite function="Setter" commented="false" instanceName="PWM10" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <analogRead function="Getter" commented="false" instanceName="sensor4" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </analogWrite>
         <whileEnd function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
     </blocks>
