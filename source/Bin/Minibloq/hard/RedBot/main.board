@@ -203,6 +203,7 @@
 	</deploy>
 	<instances>
 		<serial0 instanceType="Serial"/>
+		<robot.xbee instanceType="Serial"/>
 
 		<sensor0 instanceType="analogRead"/>
 		<sensor1 instanceType="analogRead"/>

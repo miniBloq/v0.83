@@ -1,3 +1,15 @@
+/****************************************************************
+Main CPP for RedBot accelerometer board.
+
+This code is beerware; if you use it, please buy me (or any other
+SparkFun employee) a cold beverage next time you run into one of
+us at the local.
+
+21 Jan 2014- Mike Hord, SparkFun Electronics
+
+Code developed in Arduino 1.0.5, on an SparkFun Redbot v12.
+****************************************************************/
+
 #include "RedBot.h"
 #include <Arduino.h>
 
@@ -179,7 +191,6 @@ void RedBotAccel::setBumpThresh(int xThresh)
 // Private function that reads some number of bytes from the accelerometer.
 void RedBotAccel::xlReadBytes(byte addr, byte *buffer, byte len)
 {
-  byte temp = 0;
   // First, we need to write the address we want to read from, so issue a write
   //  with that address. That's two steps: first, the slave address:
   TWCR = START_COND;          // Send a start condition         

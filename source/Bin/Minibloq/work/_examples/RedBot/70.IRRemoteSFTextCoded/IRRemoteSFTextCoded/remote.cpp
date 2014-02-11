@@ -47,7 +47,7 @@ const uint16_t BUTTON_LEFT = 0x10EF;
 const uint16_t BUTTON_RIGHT = 0x807F;
 const uint16_t BUTTON_CIRCLE = 0x20DF;
 
-IRrecvSF irReceiverSF(14);
+IRrecvSF irReceiverSF(11);
 
 decode_resultsSF results; // This will store our IR received codes
 uint16_t lastCode = 0; // This keeps track of the last code RX'd

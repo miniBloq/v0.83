@@ -1,391 +1,324 @@
+/****************************************************************
+Main CPP for RedBot. This file handles the pin change interrupts
+and how we multiplex between the different potential causes of
+a pin change interrupt.
+
+This code is beerware; if you use it, please buy me (or any other
+SparkFun employee) a cold beverage next time you run into one of
+us at the local.
+
+21 Jan 2014- Mike Hord, SparkFun Electronics
+
+Code developed in Arduino 1.0.5, on an SparkFun Redbot v12.
+****************************************************************/
+
 #include "RedBot.h"
+#include <avr/interrupt.h>
 #include <Arduino.h>
 
-/**********************************************************
-
-This file exists solely because I don't feel right not having
- a file with the name of the library. Lacking anything else
- constructive to put here, I'll just throw in the text of
- Abbott and Costello's comedy classic, "Who's on first?"
- 
- Abbott: Well Costello, I'm going to New York with you. You know Bucky Harris, the Yankee's manager, gave me a job as coach for as long as you're on the team.
-
-Costello: Look Abbott, if you're the coach, you must know all the players.
-
-Abbott: I certainly do.
-
-Costello: Well you know I've never met the guys. So you'll have to tell me their names, and then I'll know who's playing on the team.
-
-Abbott: Oh, I'll tell you their names, but you know it seems to me they give these ball players now-a-days very peculiar names.
-
-Costello: You mean funny names?
-
-Abbott: Strange names, pet names...like Dizzy Dean...
-
-Costello: His brother Daffy.
-
-Abbott: Daffy Dean...
-
-Costello: And their French cousin.
-
-Abbott: French?
-
-Costello: Goofè.
-
-Abbott: Goofè Dean. Well, let's see, we have on the bags, Who's on first, What's on second, I Don't Know is on third...
-
-Costello: That's what I want to find out.
-
-Abbott: I say Who's on first, What's on second, I Don't Know's on third.
-
-Costello: Are you the manager?
-
-Abbott: Yes.
-
-Costello: You gonna be the coach too?
-
-Abbott: Yes.
-
-Costello: And you don't know the fellows' names?
-
-Abbott: Well I should.
-
-Costello: Well then who's on first?
-
-Abbott: Yes.
-
-Costello: I mean the fellow's name.
-
-Abbott: Who.
-
-Costello: The guy on first.
-
-Abbott: Who.
-
-Costello: The first baseman.
-
-Abbott: Who.
-
-Costello: The guy playing...
-
-Abbott: Who is on first!
-
-Costello: I'm asking YOU who's on first.
-
-Abbott: That's the man's name.
-
-Costello: That's who's name?
-
-Abbott: Yes.
-
-Costello: Well go ahead and tell me.
-
-Abbott: That's it.
-
-Costello: That's who?
-
-Abbott: Yes.
-
-PAUSE
-
-Costello: Look, you gotta first baseman?
-
-Abbott: Certainly.
-
-Costello: Who's playing first?
-
-Abbott: That's right.
-
-Costello: When you pay off the first baseman every month, who gets the money?
-
-Abbott: Every dollar of it.
-
-Costello: All I'm trying to find out is the fellow's name on first base.
-
-Abbott: Who.
-
-Costello: The guy that gets...
-
-Abbott: That's it.
-
-Costello: Who gets the money...
-
-Abbott: He does, every dollar. Sometimes his wife comes down and collects it.
-
-Costello: Who's wife?
-
-Abbott: Yes.
-
-PAUSE
-
-Abbott: What's wrong with that?
-
-Costello: Look, all I wanna know is when you sign up the first baseman, how does he sign his name?
-
-Abbott: Who.
-
-Costello: The guy.
-
-Abbott: Who.
-
-Costello: How does he sign...
-
-Abbott: That's how he signs it.
-
-Costello: Who?
-
-Abbott: Yes.
-
-PAUSE
-
-Costello: All I'm trying to find out is what's the guy's name on first base.
-
-Abbott: No. What is on second base.
-
-Costello: I'm not asking you who's on second.
-
-Abbott: Who's on first.
-
-Costello: One base at a time!
-
-Abbott: Well, don't change the players around.
-
-Costello: I'm not changing nobody!
-
-Abbott: Take it easy, buddy.
-
-Costello: I'm only asking you, who's the guy on first base?
-
-Abbott: That's right.
-
-Costello: Ok.
-
-Abbott: All right.
-
-PAUSE
-
-Costello: What's the guy's name on first base?
-
-Abbott: No. What is on second.
-
-Costello: I'm not asking you who's on second.
-
-Abbott: Who's on first.
-
-Costello: I don't know.
-
-Abbott: He's on third, we're not talking about him.
-
-Costello: Now how did I get on third base?
-
-Abbott: Why you mentioned his name.
-
-Costello: If I mentioned the third baseman's name, who did I say is playing third?
-
-Abbott: No. Who's playing first.
-
-Costello: What's on first?
-
-Abbott: What's on second.
-
-Costello: I don't know.
-
-Abbott: He's on third.
-
-Costello: There I go, back on third again!
-
-PAUSE
-
-Costello: Would you just stay on third base and don't go off it.
-
-Abbott: All right, what do you want to know?
-
-Costello: Now who's playing third base?
-
-Abbott: Why do you insist on putting Who on third base?
-
-Costello: What am I putting on third.
-
-Abbott: No. What is on second.
-
-Costello: You don't want who on second?
-
-Abbott: Who is on first.
-
-Costello: I don't know.
-
-Abbott & Costello Together:Third base!
-
-PAUSE
-
-Costello: Look, you gotta outfield?
-
-Abbott: Sure.
-
-Costello: The left fielder's name?
-
-Abbott: Why.
-
-Costello: I just thought I'd ask you.
-
-Abbott: Well, I just thought I'd tell ya.
-
-Costello: Then tell me who's playing left field.
-
-Abbott: Who's playing first.
-
-Costello: I'm not... stay out of the infield! I want to know what's the guy's name in left field?
-
-Abbott: No, What is on second.
-
-Costello: I'm not asking you who's on second.
-
-Abbott: Who's on first!
-
-Costello: I don't know.
-
-Abbott & Costello Together: Third base!
-
-PAUSE
-
-Costello: The left fielder's name?
-
-Abbott: Why.
-
-Costello: Because!
-
-Abbott: Oh, he's centerfield.
-
-PAUSE
-
-Costello: Look, You gotta pitcher on this team?
-
-Abbott: Sure.
-
-Costello: The pitcher's name?
-
-Abbott: Tomorrow.
-
-Costello: You don't want to tell me today?
-
-Abbott: I'm telling you now.
-
-Costello: Then go ahead.
-
-Abbott: Tomorrow!
-
-Costello: What time?
-
-Abbott: What time what?
-
-Costello: What time tomorrow are you gonna tell me who's pitching?
-
-Abbott: Now listen. Who is not pitching.
-
-Costello: I'll break your arm, you say who's on first! I want to know what's the pitcher's name?
-
-Abbott: What's on second.
-
-Costello: I don't know.
-
-Abbott & Costello Together: Third base!
-
-PAUSE
-
-Costello: Gotta a catcher?
-
-Abbott: Certainly.
-
-Costello: The catcher's name?
-
-Abbott: Today.
-
-Costello: Today, and tomorrow's pitching.
-
-Abbott: Now you've got it.
-
-Costello: All we got is a couple of days on the team.
-
-PAUSE
-
-Costello: You know I'm a catcher too.
-
-Abbott: So they tell me.
-
-Costello: I get behind the plate to do some fancy catching, Tomorrow's pitching on my team and a heavy hitter gets up. Now the heavy hitter bunts the ball. When he bunts the ball, me, being a good catcher, I'm gonna throw the guy out at first base. So I pick up the ball and throw it to who?
-
-Abbott: Now that's the first thing you've said right.
-
-Costello: I don't even know what I'm talking about!
-
-PAUSE
-
-Abbott: That's all you have to do.
-
-Costello: Is to throw the ball to first base.
-
-Abbott: Yes!
-
-Costello: Now who's got it?
-
-Abbott: Naturally.
-
-PAUSE
-
-Costello: Look, if I throw the ball to first base, somebody's gotta get it. Now who has it?
-
-Abbott: Naturally.
-
-Costello: Who?
-
-Abbott: Naturally.
-
-Costello: Naturally?
-
-Abbott: Naturally.
-
-Costello: So I pick up the ball and I throw it to Naturally.
-
-Abbott: No you don't, you throw the ball to Who.
-
-Costello: Naturally.
-
-Abbott: That's different.
-
-Costello: That's what I said.
-
-Abbott: You're not saying it...
-
-Costello: I throw the ball to Naturally.
-
-Abbott: You throw it to Who.
-
-Costello: Naturally.
-
-Abbott: That's it.
-
-Costello: That's what I said!
-
-Abbott: You ask me.
-
-Costello: I throw the ball to who?
-
-Abbott: Naturally.
-
-Costello: Now you ask me.
-
-Abbott: You throw the ball to Who?
-
-Costello: Naturally.
-
-Abbott: That's it.
-
-Costello: Same as you! Same as YOU! I throw the ball to who. Whoever it is drops the ball and the guy runs to second. Who picks up the ball and throws it to What. What throws it to I Don't Know. I Don't Know throws it back to Tomorrow, Triple play. Another guy gets up and hits a long fly ball to Because. Why? I don't know! He's on third and I don't give a darn!
-
-Abbott: What?
-
-Costello: I said I don't give a darn!
-
-Abbott: Oh, that's our shortstop.
-
-***********************************************************************/
+// We need to track what the prior state of our pins for various PCINTS was;
+//  this varies by interrupt. These values are initialized to the "all high"
+//  state; we don't want any low-to-high transitions at beginning of code
+//  execution to be caught.
+volatile byte lastPC0PinState = 0x0E;  // For pins 9, 10, 11, PB1-3
+volatile byte lastPC1PinState = 0x3F;  // For pins A0-A5/14-19, PC0-5
+volatile byte lastPC2PinState = 0x08;  // For pin 3, PD3
+
+// We need some way to exclude short transients on the encoder inputs; we'll do
+//  that by capturing the most recent rise time with millis() and ignoring
+//  falling edges that happen within 20ms of a rise.
+volatile unsigned long lastRRise = 0;
+volatile unsigned long lastLRise = 0;
+#define  ENC_HIGH_DELAY   10
+
+byte PBMask = 0;
+byte PCMask = 0;
+byte PDMask = 0;
+
+volatile byte pinFunction[10];     // Store the currently assigned fucntion
+                                       //  of the PCINT associated with each pin
+                                       //  in this array. Array indices are of
+                                       //  the type "PCINT_pinname".
+                                       
+extern void (*whiskerAction[10])(void); // Declared in RedBotBumper.cpp
+
+extern RedBotEncoder *encoderObject;   // Declared in RedBotEncoder.cpp
+RedBotSoftwareSerial *RBSPObject=0;
+
+                                       
+// The RedBot uses pin change interrupts for detecting wheel encoder ticks and
+//  wire bumper contacts. The sources for these are normally high, so we want to
+//  look for falling edges and take an action when we see one.
+ISR(PCINT0_vect)
+{
+  // The first thing we want to do is determine which interrupt(s) we're 
+  //  servicing, and what those interrupts are associated with. We can cheat, a
+  //  bit, because we know which pins we care about: for PCINT0, it's only
+  //  bits 1, 2, and 3, which are pins 9, 10, and 11 in Arduino-land, or pins
+  //  PB1, PB2, and PB3.
+  // Since all the pins are in Port B, we can check for a low-to-high transition
+  //  by masking out the pins on Port B we don't care about and returning if they
+  //  are all high.
+  byte PBTemp = PINB & PBMask;  // Capture the state of the pins-of-interest now,
+                                //  before they have a chance to change.
+  
+  PC0Handler(PBTemp);
+}
+
+void PC0Handler(byte PBTemp)
+{
+  // Okay, now we have to figure out what changed, and if the change was a
+  //  high-to-low or a low-to-high transition.
+        
+  // Was it pin 9, AKA PB1?
+  if ((lastPC0PinState & 0x02) && !(PBTemp & 0x02))  // a falling edge
+  {
+    pinFunctionHandler(PCINT_9);
+  }
+  else if (!(lastPC0PinState & 0x02) && (PBTemp & 0x02)) // a rising edge
+  {
+    if (pinFunction[PCINT_9] == LENCODER) lastLRise = millis();
+    if (pinFunction[PCINT_9] == RENCODER) lastRRise = millis();
+  }
+  // Was it pin 10, AKA PB2?
+  if ((lastPC0PinState & 0x04) && !(PBTemp & 0x04)) // a falling edge
+  {
+    pinFunctionHandler(PCINT_10);
+  }
+  else if (!(lastPC0PinState & 0x04) && (PBTemp & 0x04)) // a rising edge
+  {
+    if (pinFunction[PCINT_10] == LENCODER) lastLRise = millis();
+    if (pinFunction[PCINT_10] == RENCODER) lastRRise = millis();
+  }
+  // Was it pin 11, AKA PB3?
+  if ((lastPC0PinState & 0x08) && !(PBTemp & 0x08)) // a falling edge
+  {
+    pinFunctionHandler(PCINT_11);
+  }
+  else if (!(lastPC0PinState & 0x04) && (PBTemp & 0x04)) // a rising edge
+  {
+    if (pinFunction[PCINT_11] == LENCODER) lastLRise = millis();
+    if (pinFunction[PCINT_11] == RENCODER) lastRRise = millis();
+  }
+  lastPC0PinState = PBTemp;
+}
+
+ISR(PCINT1_vect)
+{
+
+  // The first thing we want to do is determine which interrupt(s) we're 
+  //  servicing, and what those interrupts are associated with. We can cheat, a
+  //  bit, because we know which pins we care about: for PCINT1, it's only
+  //  bits 0-5, PC0-PC5, or for Arduino, A0-A5/14-19.
+  // Since all the pins are in Port C, we can check for a low-to-high transition
+  //  by masking out the pins on Port C we don't care about and returning if they
+  //  are all high.
+  
+  byte PCTemp = PINC & PCMask;  // Capture the state of the pins-of-interest now,
+                               //  before they have a chance to change.
+                       
+  PC1Handler(PCTemp);
+}
+
+void PC1Handler(byte PCTemp)
+{
+  // Okay, now we have to figure out what changed, and if the change was a
+  //  high-to-low or a low-to-high transition. All these if() statements check
+  //  for a high-to-low transition; we want to ignore the low-to-highs.
+  
+  // Was it pin A0/14, AKA PC0?
+  if ((lastPC1PinState & 0x01) && !(PCTemp & 0x01))
+  {
+    pinFunctionHandler(PCINT_A0);
+  }
+  else if (!(lastPC1PinState & 0x01) && (PCTemp & 0x01))
+  {
+    if (pinFunction[PCINT_A0] == LENCODER) lastLRise = millis();
+    if (pinFunction[PCINT_A0] == RENCODER) lastRRise = millis();
+  }
+  // Was it pin A1/15, AKA PC1?
+  if ((lastPC1PinState & 0x02) && !(PCTemp & 0x02))
+  {
+    pinFunctionHandler(PCINT_A1);
+  }
+  else if (!(lastPC1PinState & 0x02) && (PCTemp & 0x02))
+  {
+    if (pinFunction[PCINT_A1] == LENCODER) lastLRise = millis();
+    if (pinFunction[PCINT_A1] == RENCODER) lastRRise = millis();
+  }
+  // Was it pin A2/16, AKA PC2?
+  if ((lastPC1PinState & 0x04) && !(PCTemp & 0x04))
+  {
+    pinFunctionHandler(PCINT_A2);
+  }
+  else if (!(lastPC1PinState & 0x04) && (PCTemp & 0x04))
+  {
+    if (pinFunction[PCINT_A2] == LENCODER) lastLRise = millis();
+    if (pinFunction[PCINT_A2] == RENCODER) lastRRise = millis();
+  }
+  // Was it pin A3/17, AKA PC3?
+  if ((lastPC1PinState & 0x08) && !(PCTemp & 0x08))
+  {
+    pinFunctionHandler(PCINT_A3);
+  }
+  else if (!(lastPC1PinState & 0x08) && (PCTemp & 0x08))
+  {
+    if (pinFunction[PCINT_A3] == LENCODER) lastLRise = millis();
+    if (pinFunction[PCINT_A3] == RENCODER) lastRRise = millis();
+  }
+  // Was it pin A4/18, AKA PC4?
+  if ((lastPC1PinState & 0x10) && !(PCTemp & 0x10))
+  {
+    pinFunctionHandler(PCINT_A4);
+  }
+  else if (!(lastPC1PinState & 0x10) && (PCTemp & 0x10))
+  {
+    if (pinFunction[PCINT_A4] == LENCODER) lastLRise = millis();
+    if (pinFunction[PCINT_A4] == RENCODER) lastRRise = millis();
+  }
+  // Was it pin A5/19, AKA PC5?
+  if ((lastPC1PinState & 0x20) && !(PCTemp & 0x20))
+  {
+    pinFunctionHandler(PCINT_A5);
+  }
+  else if (!(lastPC1PinState & 0x20) && (PCTemp & 0x20))
+  {
+    if (pinFunction[PCINT_A5] == LENCODER) lastLRise = millis();
+    if (pinFunction[PCINT_A5] == RENCODER) lastRRise = millis();
+  }
+  lastPC1PinState = PCTemp;
+}
+
+ISR(PCINT2_vect)
+{
+
+  // The first thing we want to do is determine which interrupt(s) we're 
+  //  servicing, and what those interrupts are associated with. We can cheat, a
+  //  bit, because we know which pins we care about: for PCINT2, it's only
+  //  bit 3, PD3 or pin 3 in Arduino-speke.
+  // First, check if that pin is high. If so, we don't need to know any more.
+  
+  byte PDTemp = PIND & PDMask;// Capture the state of the pin-of-interest now,
+                               //  before they have a chance to change.
+  PC2Handler(PDTemp);                   
+}
+
+void PC2Handler(byte PDTemp)
+{
+  // Okay, now we know that at least one of our pin-of-interest is low. Which one
+  //  has GONE low since the last time we called this function?
+  
+  // Was it pin 3, AKA PD3?
+  if ((lastPC2PinState & 0x08) && !(PDTemp & 0x08))
+  {
+    pinFunctionHandler(PCINT_3);
+  }
+  else if (!(lastPC2PinState & 0x08) && (PDTemp & 0x08))
+  {
+    if (pinFunction[PCINT_3] == LENCODER) lastLRise = millis();
+    if (pinFunction[PCINT_3] == RENCODER) lastRRise = millis();
+  }
+    
+  lastPC2PinState = PDTemp;
+}
+
+void pinFunctionHandler(byte pinIndex)
+{
+  switch(pinFunction[pinIndex])
+  {
+    case LENCODER:
+      if (lastLRise + ENC_HIGH_DELAY < millis()) encoderObject->wheelTick(LEFT);
+      break;
+    case RENCODER:
+      if (lastRRise + ENC_HIGH_DELAY < millis()) encoderObject->wheelTick(RIGHT);
+      break;
+    case WHISKER:
+      sei();
+      (*whiskerAction[pinIndex])();
+      break;
+    case SW_SERIAL:
+      RBSPObject->recv();
+    case NOT_IN_USE:
+    break;
+  }
+}
+
+void setPinChangeInterrupt(int pin, byte role)
+{
+  switch(pin)
+  {
+    // Start with the analog pins, and provide a means for either the analog
+    //  name or the digital name to enter that case.
+    case A0:    // PCINT 8: PCMSK1, bit 0, PC0
+      PCMSK1 |= 0x01;  // Enable the pin change interrupt for this pin.
+      PCICR |= 0x02;   // Enable pin change interrupts for this group.
+      pinFunction[PCINT_A0] = role; // Set the role for this pin- ENCODER,
+                                    //  whisker, serial, etc.
+      PCMask |= 0x01;  // Add this pin to our mask bits for Port C.
+      break;
+    case A1:    // PCINT 9: PCMSK1, bit 1, PC1
+      PCMSK1 |= 0x02;  // Enable the pin change interrupt for this pin.
+      PCICR |= 0x02;   // Enable pin change interrupts for this group.
+      pinFunction[PCINT_A1] = role; // Set the role for this pin- ENCODER,
+                                    //  whisker, serial, etc.
+      PCMask |= 0x02;  // Add this pin to our mask bits for Port C.
+      break;
+    case A2:    // PCINT 10: PCMSK1, bit 2, PC2
+      PCMSK1 |= 0x04;  // Enable the pin change interrupt for this pin.
+      PCICR |= 0x02;   // Enable pin change interrupts for this group.
+      pinFunction[PCINT_A2] = role; // Set the role for this pin- ENCODER,
+                                    //  whisker, serial, etc.
+      PCMask |= 0x04;  // Add this pin to our mask bits for Port C.
+      break;
+    case A3:    // PCINT 11: PCMSK1, bit 3, PC3
+      PCMSK1 |= 0x08;  // Enable the pin change interrupt for this pin.
+      PCICR |= 0x02;   // Enable pin change interrupts for this group.
+      pinFunction[PCINT_A3] = role; // Set the role for this pin- ENCODER,
+                                    //  whisker, serial, etc.
+      PCMask |= 0x08;  // Add this pin to our mask bits for Port C.
+      break;
+    case A4:    // PCINT 12: PCMSK1, bit 4
+      PCMSK1 |= 0x10;  // Enable the pin change interrupt for this pin.
+      PCICR |= 0x02;   // Enable pin change interrupts for this group.
+      pinFunction[PCINT_A4] = role; // Set the role for this pin- ENCODER,
+                                    //  whisker, serial, etc.
+      PCMask |= 0x10;  // Add this pin to our mask bits for Port C.
+      break;
+    case A5:    // PCINT 13: PCMSK1, bit 5
+      PCMSK1 |= 0x20;  // Enable the pin change interrupt for this pin.
+      PCICR |= 0x02;   // Enable pin change interrupts for this group.
+      pinFunction[PCINT_A5] = role; // Set the role for this pin- ENCODER,
+                                    //  whisker, serial, etc.
+      PCMask |= 0x20;  // Add this pin to our mask bits for Port C.
+      break;
+    // On to the digital pins.
+    case 3:     // PCINT 19: PCMSK2, bit 3
+      PCMSK2 |= 0x08;  // Enable the pin change interrupt for this pin.
+      PCICR |= 0x04;   // Enable pin change interrupts for this group.
+      pinFunction[PCINT_3] = role; // Set the role for this pin- ENCODER,
+                                    //  whisker, serial, etc.
+      PDMask |= 0x08;  // Add this pin to our mask bits for Port D.
+      break;    
+    case 9:     // PCINT 1: PCMSK0, bit 1
+      PCMSK0 |= 0x02;  // Enable the pin change interrupt for this pin.
+      PCICR |= 0x01;   // Enable pin change interrupts for this group.
+      pinFunction[PCINT_9] = role; // Set the role for this pin- ENCODER,
+                                    //  whisker, serial, etc.
+      PBMask |= 0x02;  // Add this pin to our mask bits for Port B.
+      break; 
+    case 10:     // PCINT 2: PCMSK0, bit 2
+      PCMSK0 |= 0x04;  // Enable the pin change interrupt for this pin.
+      PCICR |= 0x01;   // Enable pin change interrupts for this group.
+      pinFunction[PCINT_10] = role; // Set the role for this pin- ENCODER,
+                                    //  whisker, serial, etc.
+      PBMask |= 0x04;  // Add this pin to our mask bits for Port B.
+      break; 
+    case 11:     // PCINT 3: PCMSK0, bit 3
+      PCMSK0 |= 0x08;  // Enable the pin change interrupt for this pin.
+      PCICR |= 0x01;   // Enable pin change interrupts for this group.
+      pinFunction[PCINT_11] = role; // Set the role for this pin- ENCODER,
+                                    //  whisker, serial, etc.
+      PBMask |= 0x08;  // Add this pin to our mask bits for Port B.
+      break;
+  }
+}

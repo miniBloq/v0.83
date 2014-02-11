@@ -2,7 +2,6 @@
 #define board_h
 
 #define serial0 Serial
-#define serial1 Serial1
 
 #define BuzzerPin 9
 

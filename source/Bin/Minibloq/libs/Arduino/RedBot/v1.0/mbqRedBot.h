@@ -4,7 +4,6 @@
 #include <Arduino.h>
 #include <RedBot.h>
 
-
 class RedBot
 {
   protected:
@@ -12,8 +11,12 @@ class RedBot
     RedBotMotor motor;
 
   public:
-    RedBot() : leftPower(0.0), rightPower(0.0)
+	RedBotSoftwareSerial xbee;
+
+	RedBot() : 	leftPower(0.0),
+				rightPower(0.0)
 	{
+		xbee.begin(115200);
 	}
 	
 	//Differential tracktion mobile robot functions:
