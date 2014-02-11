@@ -1,9 +1,6 @@
 #include "RedBot.h"
 #include <Arduino.h>
 
-const int dcMotMaxPower = 255;
-const int dcMotMinPower = -dcMotMaxPower;
-
 
 RedBotMotor::RedBotMotor() : 	leftSpeed(0),
 								rightSpeed(0)

@@ -8,10 +8,11 @@
 class RedBot
 {
   protected:
+    float leftPower, rightPower;
     RedBotMotor motor;
 
   public:
-    RedBot()
+    RedBot() : leftPower(0.0), rightPower(0.0)
 	{
 	}
 	

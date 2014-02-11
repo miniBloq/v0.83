@@ -4,11 +4,12 @@
 void setup()
 {
 	initBoard();
+	robot.motor0(-(100));
 	while((robot.motor0()<100))
 	{
-		serial0.println(robot.motor0());
 		robot.motor0((robot.motor0()+1));
-		delay(1000);
+		serial0.println(robot.motor0());
+		delay(100);
 	}
 	robot.motor0(0);
 }

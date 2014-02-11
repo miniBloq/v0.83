@@ -11,6 +11,9 @@
 #define    R_CTRL_2   8
 #define    PWM_R      6
 
+const int dcMotMaxPower = 255;
+const int dcMotMinPower = -dcMotMaxPower;
+
 
 class RedBotMotor
 {

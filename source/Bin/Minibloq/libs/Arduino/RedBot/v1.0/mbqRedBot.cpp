@@ -2,6 +2,7 @@
 #include <RedBot.h>
 #include <mbqRedBot.h>
 
+const int maxPWMValue = 255;
 
 void RedBot::move(float power)
 {
@@ -37,18 +38,22 @@ void RedBot::rotate(float power)
 void RedBot::brake()
 {
 	motor.brake();
+	leftPower = 0.0;
+	rightPower = 0.0;
 }
 
 
 void RedBot::leftBrake()
 {
 	motor.leftBrake();
+	leftPower = 0.0;
 }
 
 
 void RedBot::rightBrake()
 {
 	motor.rightBrake();
+	rightPower = 0.0;
 }
 
 
@@ -56,14 +61,13 @@ void RedBot::motor0(float power)
 {
 	int intPower = map((int)power, -100, 100, -255, 255);
 	motor.leftDrive((int)intPower);
+	leftPower = power;
 }
 
 
 float RedBot::motor0() const
 {
-	//float power = map(motor.getLeftSpeed(), -255, 255, -100, 100);
-	float power = (float)motor.getLeftSpeed();
-	return power;
+	return leftPower;
 }
 
 
@@ -71,11 +75,11 @@ void RedBot::motor1(float power)
 {
 	int intPower = map((int)power, -100, 100, -255, 255);
 	motor.rightDrive((int)intPower);
+	rightPower = power;
 }
 
 
 float RedBot::motor1() const
 {
-	float power = map(motor.getRightSpeed(), -255, 255, -100, 100);
-	return power;
+	return rightPower;
 }

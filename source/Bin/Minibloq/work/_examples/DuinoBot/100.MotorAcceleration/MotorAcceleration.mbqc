@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mbqc xmlns="http://mbqc.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.8.Beta">
+<mbqc xmlns="http://mbqc.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
+    <files/>
     <properties>
-        <blocks count="6"/>
+        <canvas visible="true"/>
+        <blocks count="8"/>
     </properties>
     <variables/>
     <blocks>
         <ComponentStart function="Flow" commented="false" instanceName="initBoard" paramsCount="0" hasAddParamsButton="false" loadAction="noLoad"/>
+        <Motor function="Setter" commented="false" instanceName="motor0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberNegative function="Operation" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <numberConstant function="Constant" commented="false" constantValue="100" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </numberNegative>
+        </Motor>
         <while function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <numberLowerThan function="Operation" commented="false" paramsCount="2" hasAddParamsButton="false" loadAction="load">
                 <MotorGetter function="Getter" commented="false" instanceName="motor0" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
@@ -18,6 +25,11 @@
                 <numberConstant function="Constant" commented="false" constantValue="1" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
             </numberAdd>
         </Motor>
+        <Serial function="Setter" commented="false" instanceName="serial0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <SerialNumber function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <MotorGetter function="Getter" commented="false" instanceName="motor0" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </SerialNumber>
+        </Serial>
         <delay function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <numberConstant function="Constant" commented="false" constantValue="100" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </delay>
