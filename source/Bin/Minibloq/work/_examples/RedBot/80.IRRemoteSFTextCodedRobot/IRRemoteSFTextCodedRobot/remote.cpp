@@ -26,7 +26,7 @@
        5, 9, and 6 (red, green, and blue pins).
  */
 
-#include <IRremote.h> // Include the IRremote library
+#include <IRremoteSF.h> // Include the IRremote library
 #include <mbq.h> // Include the IRremote library
 
 /* Setup constants for SparkFun's IR Remote: */
@@ -47,7 +47,9 @@ const uint16_t BUTTON_LEFT = 0x10EF;
 const uint16_t BUTTON_RIGHT = 0x807F;
 const uint16_t BUTTON_CIRCLE = 0x20DF;
 
-decode_results results; // This will store our IR received codes
+IRrecvSF irReceiverSF(14);
+
+decode_resultsSF results; // This will store our IR received codes
 uint16_t lastCode = 0; // This keeps track of the last code RX'd
 
 int speed = 80l;
@@ -57,7 +59,7 @@ void mainLoop();
 void go()
 {
 	serial0.begin(115200);
-	irReceiver.enableIRIn();
+	irReceiverSF.enableIRIn();
 	while(true)
 	{
 		mainLoop();
@@ -66,7 +68,7 @@ void go()
 
 void mainLoop()
 {
-  if (irReceiver.decode(&results)) 
+  if (irReceiverSF.decode(&results)) 
   {
     /* read the RX'd IR into a 16-bit variable: */
     uint16_t resultCode = (results.value & 0xFFFF);
@@ -121,6 +123,6 @@ void mainLoop()
         Serial.println(results.value, HEX);
         break;        
     }    
-    irReceiver.resume(); // Receive the next value
+    irReceiverSF.resume(); // Receive the next value
   }
 }

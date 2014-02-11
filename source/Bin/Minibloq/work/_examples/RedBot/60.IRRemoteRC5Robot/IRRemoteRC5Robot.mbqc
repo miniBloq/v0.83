@@ -3,7 +3,7 @@
     <files/>
     <properties>
         <canvas visible="true"/>
-        <blocks count="33"/>
+        <blocks count="44"/>
     </properties>
     <variables>
         <vel/>
@@ -94,9 +94,47 @@
         <if function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <numberEqual function="Operation" commented="false" paramsCount="2" hasAddParamsButton="false" loadAction="load">
                 <VariableGetter function="Getter" commented="false" instanceName="code" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                <numberConstant function="Constant" commented="false" constantValue="3" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </numberEqual>
+        </if>
+        <Motor function="Setter" commented="false" instanceName="motor0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <VariableGetter function="Getter" commented="false" instanceName="vel" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </Motor>
+        <Motor function="Setter" commented="false" instanceName="motor1" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberMul function="Operation" commented="false" paramsCount="2" hasAddParamsButton="true" loadAction="load">
+                <VariableGetter function="Getter" commented="false" instanceName="vel" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                <numberConstant function="Constant" commented="false" constantValue="0.7" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </numberMul>
+        </Motor>
+        <else function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
+        <endIf function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
+        <if function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberEqual function="Operation" commented="false" paramsCount="2" hasAddParamsButton="false" loadAction="load">
+                <VariableGetter function="Getter" commented="false" instanceName="code" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                <numberConstant function="Constant" commented="false" constantValue="1" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </numberEqual>
+        </if>
+        <Motor function="Setter" commented="false" instanceName="motor0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberMul function="Operation" commented="false" paramsCount="2" hasAddParamsButton="true" loadAction="load">
+                <VariableGetter function="Getter" commented="false" instanceName="vel" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                <numberConstant function="Constant" commented="false" constantValue="0.7" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </numberMul>
+        </Motor>
+        <Motor function="Setter" commented="false" instanceName="motor1" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <VariableGetter function="Getter" commented="false" instanceName="vel" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </Motor>
+        <else function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
+        <endIf function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
+        <if function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberEqual function="Operation" commented="false" paramsCount="2" hasAddParamsButton="false" loadAction="load">
+                <VariableGetter function="Getter" commented="false" instanceName="code" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
                 <numberConstant function="Constant" commented="false" constantValue="5" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
             </numberEqual>
         </if>
+        <Buzzer function="Setter" commented="false" paramsCount="2" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="880" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            <numberConstant function="Constant" commented="false" constantValue="150" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </Buzzer>
         <Motor function="Setter" commented="false" instanceName="motor0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <numberConstant function="Constant" commented="false" constantValue="0" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </Motor>

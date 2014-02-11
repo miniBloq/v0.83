@@ -22,7 +22,7 @@
 // Provides ISR
 #include <avr/interrupt.h>
 
-volatile irparams_t irparams;
+volatile irparams_t irparamsSF;
 
 
 // These versions of MATCH, MATCH_MARK, and MATCH_SPACE are only for debugging.
@@ -278,8 +278,8 @@ void IRsend::enableIROut(int khz) {
 
 IRrecvSF::IRrecvSF(int recvpin) : enabled (false) //##miniBloq
 {
-  irparams.recvpin = recvpin;
-  irparams.blinkflag = 0;
+  irparamsSF.recvpin = recvpin;
+  irparamsSF.blinkflag = 0;
 }
 
 
@@ -322,11 +322,11 @@ void IRrecvSF::enableIRIn() {
   sei();  // enable interrupts
 
   // initialize state machine variables
-  irparams.rcvstate = STATE_IDLE;
-  irparams.rawlen = 0;
+  irparamsSF.rcvstate = STATE_IDLE;
+  irparamsSF.rawlen = 0;
 
   // set pin modes
-  pinMode(irparams.recvpin, INPUT);
+  pinMode(irparamsSF.recvpin, INPUT);
   
   // Multiplo: Set enabled flag for Minibloq
   enabled = true;
@@ -335,7 +335,7 @@ void IRrecvSF::enableIRIn() {
 // enable/disable blinking of pin 13 on IR processing
 void IRrecvSF::blink13(int blinkflag)
 {
-  irparams.blinkflag = blinkflag;
+  irparamsSF.blinkflag = blinkflag;
   if (blinkflag)
     pinMode(BLINKLED, OUTPUT);
 }
@@ -351,60 +351,60 @@ ISR(TIMER_INTR_NAME)
 {
   TIMER_RESET;
 
-  uint8_t irdata = (uint8_t)digitalRead(irparams.recvpin);
+  uint8_t irdata = (uint8_t)digitalRead(irparamsSF.recvpin);
 
-  irparams.timer++; // One more 50us tick
-  if (irparams.rawlen >= RAWBUF) {
+  irparamsSF.timer++; // One more 50us tick
+  if (irparamsSF.rawlen >= RAWBUF) {
     // Buffer overflow
-    irparams.rcvstate = STATE_STOP;
+    irparamsSF.rcvstate = STATE_STOP;
   }
-  switch(irparams.rcvstate) {
+  switch(irparamsSF.rcvstate) {
   case STATE_IDLE: // In the middle of a gap
     if (irdata == MARK) {
-      if (irparams.timer < GAP_TICKS) {
+      if (irparamsSF.timer < GAP_TICKS) {
         // Not big enough to be a gap.
-        irparams.timer = 0;
+        irparamsSF.timer = 0;
       } 
       else {
         // gap just ended, record duration and start recording transmission
-        irparams.rawlen = 0;
-        irparams.rawbuf[irparams.rawlen++] = irparams.timer;
-        irparams.timer = 0;
-        irparams.rcvstate = STATE_MARK;
+        irparamsSF.rawlen = 0;
+        irparamsSF.rawbuf[irparamsSF.rawlen++] = irparamsSF.timer;
+        irparamsSF.timer = 0;
+        irparamsSF.rcvstate = STATE_MARK;
       }
     }
     break;
   case STATE_MARK: // timing MARK
     if (irdata == SPACE) {   // MARK ended, record time
-      irparams.rawbuf[irparams.rawlen++] = irparams.timer;
-      irparams.timer = 0;
-      irparams.rcvstate = STATE_SPACE;
+      irparamsSF.rawbuf[irparamsSF.rawlen++] = irparamsSF.timer;
+      irparamsSF.timer = 0;
+      irparamsSF.rcvstate = STATE_SPACE;
     }
     break;
   case STATE_SPACE: // timing SPACE
     if (irdata == MARK) { // SPACE just ended, record it
-      irparams.rawbuf[irparams.rawlen++] = irparams.timer;
-      irparams.timer = 0;
-      irparams.rcvstate = STATE_MARK;
+      irparamsSF.rawbuf[irparamsSF.rawlen++] = irparamsSF.timer;
+      irparamsSF.timer = 0;
+      irparamsSF.rcvstate = STATE_MARK;
     } 
     else { // SPACE
-      if (irparams.timer > GAP_TICKS) {
+      if (irparamsSF.timer > GAP_TICKS) {
         // big SPACE, indicates gap between codes
         // Mark current code as ready for processing
         // Switch to STOP
         // Don't reset timer; keep counting space width
-        irparams.rcvstate = STATE_STOP;
+        irparamsSF.rcvstate = STATE_STOP;
       } 
     }
     break;
   case STATE_STOP: // waiting, measuring gap
     if (irdata == MARK) { // reset gap timer
-      irparams.timer = 0;
+      irparamsSF.timer = 0;
     }
     break;
   }
 
-  if (irparams.blinkflag) {
+  if (irparamsSF.blinkflag) {
     if (irdata == MARK) {
       BLINKLED_ON();  // turn pin 13 LED on
     } 
@@ -415,8 +415,8 @@ ISR(TIMER_INTR_NAME)
 }
 
 void IRrecvSF::resume() {
-  irparams.rcvstate = STATE_IDLE;
-  irparams.rawlen = 0;
+  irparamsSF.rcvstate = STATE_IDLE;
+  irparamsSF.rawlen = 0;
 }
 
 
@@ -425,9 +425,9 @@ void IRrecvSF::resume() {
 // Returns 0 if no data ready, 1 if data ready.
 // Results of decoding are stored in results
 int IRrecvSF::decode(decode_resultsSF *results) {
-  results->rawbuf = irparams.rawbuf;
-  results->rawlen = irparams.rawlen;
-  if (irparams.rcvstate != STATE_STOP) {
+  results->rawbuf = irparamsSF.rawbuf;
+  results->rawlen = irparamsSF.rawlen;
+  if (irparamsSF.rcvstate != STATE_STOP) {
     return ERR;
   }
 #ifdef DEBUG
@@ -499,7 +499,7 @@ long IRrecvSF::decodeNEC(decode_resultsSF *results) {
   }
   offset++;
   // Check for repeat
-  if (irparams.rawlen == 4 &&
+  if (irparamsSF.rawlen == 4 &&
     MATCH_SPACE(results->rawbuf[offset], NEC_RPT_SPACE) &&
     MATCH_MARK(results->rawbuf[offset+1], NEC_BIT_MARK)) {
     results->bits = 0;
@@ -507,7 +507,7 @@ long IRrecvSF::decodeNEC(decode_resultsSF *results) {
     results->decode_type = NEC;
     return DECODED;
   }
-  if (irparams.rawlen < 2 * NEC_BITS + 4) {
+  if (irparamsSF.rawlen < 2 * NEC_BITS + 4) {
     return ERR;
   }
   // Initial space  
@@ -540,7 +540,7 @@ long IRrecvSF::decodeNEC(decode_resultsSF *results) {
 
 long IRrecvSF::decodeSony(decode_resultsSF *results) {
   long data = 0;
-  if (irparams.rawlen < 2 * SONY_BITS + 2) {
+  if (irparamsSF.rawlen < 2 * SONY_BITS + 2) {
     return ERR;
   }
   int offset = 0; // Dont skip first space, check its size
@@ -562,7 +562,7 @@ long IRrecvSF::decodeSony(decode_resultsSF *results) {
   }
   offset++;
 
-  while (offset + 1 < irparams.rawlen) {
+  while (offset + 1 < irparamsSF.rawlen) {
     if (!MATCH_SPACE(results->rawbuf[offset], SONY_HDR_SPACE)) {
       break;
     }
@@ -594,7 +594,7 @@ long IRrecvSF::decodeSony(decode_resultsSF *results) {
 // Looks like Sony except for timings, 48 chars of data and time/space different
 long IRrecvSF::decodeSanyo(decode_resultsSF *results) {
   long data = 0;
-  if (irparams.rawlen < 2 * SANYO_BITS + 2) {
+  if (irparamsSF.rawlen < 2 * SANYO_BITS + 2) {
     return ERR;
   }
   int offset = 0; // Skip first space
@@ -626,7 +626,7 @@ long IRrecvSF::decodeSanyo(decode_resultsSF *results) {
   }
   offset++;
 
-  while (offset + 1 < irparams.rawlen) {
+  while (offset + 1 < irparamsSF.rawlen) {
     if (!MATCH_SPACE(results->rawbuf[offset], SANYO_HDR_SPACE)) {
       break;
     }
@@ -656,9 +656,9 @@ long IRrecvSF::decodeSanyo(decode_resultsSF *results) {
 
 // Looks like Sony except for timings, 48 chars of data and time/space different
 long IRrecvSF::decodeMitsubishi(decode_resultsSF *results) {
-  // Serial.print("?!? decoding Mitsubishi:");Serial.print(irparams.rawlen); Serial.print(" want "); Serial.println( 2 * MITSUBISHI_BITS + 2);
+  // Serial.print("?!? decoding Mitsubishi:");Serial.print(irparamsSF.rawlen); Serial.print(" want "); Serial.println( 2 * MITSUBISHI_BITS + 2);
   long data = 0;
-  if (irparams.rawlen < 2 * MITSUBISHI_BITS + 2) {
+  if (irparamsSF.rawlen < 2 * MITSUBISHI_BITS + 2) {
     return ERR;
   }
   int offset = 0; // Skip first space
@@ -688,7 +688,7 @@ long IRrecvSF::decodeMitsubishi(decode_resultsSF *results) {
     return ERR;
   }
   offset++;
-  while (offset + 1 < irparams.rawlen) {
+  while (offset + 1 < irparamsSF.rawlen) {
     if (MATCH_MARK(results->rawbuf[offset], MITSUBISHI_ONE_MARK)) {
       data = (data << 1) | 1;
     } 
@@ -766,7 +766,7 @@ int IRrecvSF::getRClevel(decode_resultsSF *results, int *offset, int *used, int 
 }
 
 long IRrecvSF::decodeRC5(decode_resultsSF *results) {
-  if (irparams.rawlen < MIN_RC5_SAMPLES + 2) {
+  if (irparamsSF.rawlen < MIN_RC5_SAMPLES + 2) {
     return ERR;
   }
   int offset = 1; // Skip gap space
@@ -777,7 +777,7 @@ long IRrecvSF::decodeRC5(decode_resultsSF *results) {
   if (getRClevel(results, &offset, &used, RC5_T1) != SPACE) return ERR;
   if (getRClevel(results, &offset, &used, RC5_T1) != MARK) return ERR;
   int nbits;
-  for (nbits = 0; offset < irparams.rawlen; nbits++) {
+  for (nbits = 0; offset < irparamsSF.rawlen; nbits++) {
     int levelA = getRClevel(results, &offset, &used, RC5_T1); 
     int levelB = getRClevel(results, &offset, &used, RC5_T1);
     if (levelA == SPACE && levelB == MARK) {
@@ -887,9 +887,9 @@ long IRrecvSF::decodeJVC(decode_resultsSF *results) {
     long data = 0;
     int offset = 1; // Skip first space
     // Check for repeat
-    if (irparams.rawlen - 1 == 33 &&
+    if (irparamsSF.rawlen - 1 == 33 &&
         MATCH_MARK(results->rawbuf[offset], JVC_BIT_MARK) &&
-        MATCH_MARK(results->rawbuf[irparams.rawlen-1], JVC_BIT_MARK)) {
+        MATCH_MARK(results->rawbuf[irparamsSF.rawlen-1], JVC_BIT_MARK)) {
         results->bits = 0;
         results->value = REPEAT;
         results->decode_type = JVC;
@@ -900,7 +900,7 @@ long IRrecvSF::decodeJVC(decode_resultsSF *results) {
         return ERR;
     }
     offset++; 
-    if (irparams.rawlen < 2 * JVC_BITS + 1 ) {
+    if (irparamsSF.rawlen < 2 * JVC_BITS + 1 ) {
         return ERR;
     }
     // Initial space 

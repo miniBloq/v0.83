@@ -42,8 +42,25 @@ void setup()
 		else
 		{
 		}
+		if(((int)(code)==(int)(3)))
+		{
+			robot.motor0(vel);
+			robot.motor1((vel*0.7));
+		}
+		else
+		{
+		}
+		if(((int)(code)==(int)(1)))
+		{
+			robot.motor0((vel*0.7));
+			robot.motor1(vel);
+		}
+		else
+		{
+		}
 		if(((int)(code)==(int)(5)))
 		{
+			toneWithDelay(BuzzerPin, 880, 150);
 			robot.motor0(0);
 			robot.motor1(0);
 		}
