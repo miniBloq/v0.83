@@ -5,7 +5,7 @@ void setup()
 {
 	initBoard();
 	float vel = 80;
-	float spinVel = 55;
+	float spinVel = 70;
 	float code = 0;
 	while(true)
 	{

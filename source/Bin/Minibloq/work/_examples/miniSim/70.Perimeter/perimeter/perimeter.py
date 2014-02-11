@@ -8,7 +8,7 @@ robot = miniSim.robot0
 def go():
 	miniSim.resetRobot(robot)
 	#First, draw the perimeter:
-	robot.penColor = (255,0,0)
+	robot.penColor = (0,0,0)
 	robot.penWidth = 20
 	robot.penDown()
 	for _i in range(180):
