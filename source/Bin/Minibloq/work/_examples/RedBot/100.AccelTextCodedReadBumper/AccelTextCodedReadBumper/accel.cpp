@@ -1,8 +1,6 @@
 #include <RedBot.h>
 #include <mbq.h>
 
-RedBotAccel accel;
-
 int speed = 50;
 
 void go()

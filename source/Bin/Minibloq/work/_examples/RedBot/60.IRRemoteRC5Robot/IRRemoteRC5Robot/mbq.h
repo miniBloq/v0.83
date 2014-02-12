@@ -15,6 +15,8 @@
 #include <IRRemote.h>
 #include <Ping.h>
 #include <IRRanger.h>
+#include <RedBot.h>
+#include <mbqRedBot.h>
 
 
 extern Servo servo0;
@@ -26,5 +28,6 @@ extern IRrecv irReceiver;
 extern PingSensor ping;
 extern IRRanger irRanger20to150;
 extern IRRanger irRanger10to80;
+extern RedBotAccel accel;
 
 #endif

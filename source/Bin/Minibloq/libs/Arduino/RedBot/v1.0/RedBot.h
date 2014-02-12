@@ -166,6 +166,9 @@ class RedBotAccel
     int x;
     int y;
     int z;
+	inline int readX() { read(); return x; }
+	inline int readY() { read(); return y; }
+	inline int readZ() { read(); return z; }
   private:
     void xlWriteBytes(byte addr, byte *buffer, byte len);
     void xlReadBytes(byte addr, byte *buffer, byte len);

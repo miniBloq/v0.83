@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<block xmlns="http://block.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.8.Beta">
+    <properties>
+		<name>RedBotAccelY</name>
+		<function>Getter</function>
+		<loadAction>load</loadAction>
+    </properties>
+    <code>
+		<dataType>RedBotAccelMethod</dataType>
+		<initialCode>
+			<line0>readY()</line0>
+		</initialCode>
+		<keywords1>readY</keywords1>
+	</code>
+    <interface>
+		<originalSize>
+			<width>smallGettersDefaultWidth::</width>
+			<height>blockDefaultHeight::</height>
+		</originalSize>
+        <childFactor>0.9</childFactor>
+        <defaultBackgroundColour0>
+			<R>getterBlockColour0R::</R>
+			<G>getterBlockColour0G::</G>
+			<B>getterBlockColour0B::</B>
+		</defaultBackgroundColour0>
+        <defaultBackgroundColour1>
+			<R>getterBlockColour1R::</R>
+			<G>getterBlockColour1G::</G>
+			<B>getterBlockColour1B::</B>
+		</defaultBackgroundColour1>
+		<picker>
+			<imagesBasePath>thisBlockPath::</imagesBasePath>
+			<default>Images/RedBotAccelYPickerDefault.png</default>
+			<hover>Images/RedBotAccelYPickerHover.png</hover>
+			<pressed>Images/RedBotAccelYPickerPressed.png</pressed>
+			<disabled>Images/RedBotAccelYPickerDisabled.png</disabled>
+		</picker>
+		<blockButton>
+			<has>true</has>
+			<imagesBasePath>thisBlockPath::</imagesBasePath>
+			<default>Images/RedBotAccelY.png</default>
+			<disabled>Images/RedBotAccelYDisabled.png</disabled>
+		</blockButton>
+	</interface>
+</block>

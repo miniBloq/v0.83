@@ -1,8 +1,6 @@
 #include <RedBot.h>
 #include <mbq.h>
 
-RedBotAccel accel;
-
 void go()
 {
 	serial0.begin(115200);

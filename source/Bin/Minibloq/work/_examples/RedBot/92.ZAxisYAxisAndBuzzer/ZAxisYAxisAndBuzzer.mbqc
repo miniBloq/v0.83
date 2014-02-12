@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mbqc xmlns="http://mbqc.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
+    <files/>
+    <properties>
+        <canvas visible="true"/>
+        <blocks count="4"/>
+    </properties>
+    <variables/>
+    <blocks>
+        <ComponentStart function="Flow" commented="false" instanceName="initBoard" paramsCount="0" hasAddParamsButton="false" loadAction="noLoad"/>
+        <while function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <boolConstantTrue function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </while>
+        <Buzzer function="Setter" commented="false" paramsCount="2" hasAddParamsButton="false" loadAction="load">
+            <numberMul function="Operation" commented="false" paramsCount="2" hasAddParamsButton="true" loadAction="load">
+                <numberAbs function="Operation" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                    <RedBotAccel function="Sensor" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                        <RedBotAccelZ function="Getter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                    </RedBotAccel>
+                </numberAbs>
+                <numberConstant function="Constant" commented="false" constantValue="0.1" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </numberMul>
+            <numberMul function="Operation" commented="false" paramsCount="2" hasAddParamsButton="true" loadAction="load">
+                <numberAbs function="Operation" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                    <RedBotAccel function="Sensor" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                        <RedBotAccelY function="Getter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                    </RedBotAccel>
+                </numberAbs>
+                <numberConstant function="Constant" commented="false" constantValue="0.01" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </numberMul>
+        </Buzzer>
+        <whileEnd function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
+    </blocks>
+</mbqc>
