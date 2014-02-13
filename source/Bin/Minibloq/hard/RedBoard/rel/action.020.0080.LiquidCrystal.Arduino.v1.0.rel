@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rel xmlns="http://rel.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
+	<includePaths>
+		<include><s>libsPath::</s><s>/Arduino/LiquidCrystal/v1.5.4.r2/src</s></include>
+	</includePaths>
+	<includeFiles>
+		<include><s>LiquidCrystal.h</s></include>
+	</includeFiles>
+	<instancesHeader>
+		<s>extern LiquidCrystal textLCD;</s>
+	</instancesHeader>	
+	<instancesCode>
+		<s>LiquidCrystal textLCD(12, 11, 5, 4, 3, 2);</s>
+	</instancesCode>
+	<initBoardCode>
+		<s>textLCD.begin(16, 2);&#10;</s>
+	</initBoardCode>
+	<build>
+		<cmd>
+			<s>"</s><s>toolsPath::</s>
+			<s>/avr-g++" -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD</s>
+			<s> -mmcu=</s><s>cpu::</s>
+			<s> -DF_CPU=</s><s>clockFreq::</s>
+			<s> -DARDUINO=</s><s>arduinoVersion::</s>
+			<s> -I"</s> <s>toolsPath::</s>
+			<s>" -I"</s><s>corePath::</s>
+			<s>" -I"</s><s>corePath::</s><s>/avr-libc</s>
+			<s>" -I"</s><s>corePath::</s><s>/variants/</s><s>arduinoVariant::</s>
+			<s>" -I"</s><s>componentPath::</s>
+			<s>" -I"</s><s>outputPath::</s><s>" </s>
+			<s>-I"</s><s>libsPath::</s><s>/Arduino/LCDColor130x130/v1.0" </s>
+			
+			<s>"</s><s>libsPath::</s><s>/Arduino/LiquidCrystal/v1.5.4.r2/src/LiquidCrystal.cpp" -o "</s><s>outputPath::</s><s>/LiquidCrystal.cpp.o"</s>
+		</cmd>
+	</build>
+</rel>
