@@ -1,7 +1,10 @@
 ''' Moves the robot according the captured movements (with the camera) of a blue object. '''
 
-##This software contains code derived from the work of Abid Rahman and Jay Edry.
-##The original work is available from: https://github.com/abidrahmank
+## This software contains code derived from the work of Abid Rahman and Jay Edry.
+## The original work is available from: https://github.com/abidrahmank (specifically
+## from https://github.com/abidrahmank/MyRoughWork).
+## Please the license file here:
+## https://github.com/abidrahmank/MyRoughWork/blob/master/license.txt
 
 import sys
 import serial
