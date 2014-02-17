@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mbqc xmlns="http://mbqc.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
+    <files/>
+    <properties>
+        <canvas visible="true"/>
+        <blocks count="15"/>
+    </properties>
+    <variables>
+        <speed/>
+        <rotationTime/>
+        <forwardTime/>
+    </variables>
+    <blocks>
+        <ComponentStart function="Flow" commented="false" instanceName="initBoard" paramsCount="0" hasAddParamsButton="false" loadAction="noLoad"/>
+        <VariableInit function="Setter" commented="false" constantValue="speed" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="50" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </VariableInit>
+        <VariableInit function="Setter" commented="false" constantValue="rotationTime" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="250" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </VariableInit>
+        <VariableInit function="Setter" commented="false" constantValue="forwardTime" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="1100" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </VariableInit>
+        <repeat function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="10" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </repeat>
+        <Motor function="Setter" commented="false" instanceName="motor0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberNegative function="Operation" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <VariableGetter function="Getter" commented="false" instanceName="speed" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </numberNegative>
+        </Motor>
+        <Motor function="Setter" commented="false" instanceName="motor1" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <VariableGetter function="Getter" commented="false" instanceName="speed" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </Motor>
+        <delay function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <VariableGetter function="Getter" commented="false" instanceName="rotationTime" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </delay>
+        <Motor function="Setter" commented="false" instanceName="motor0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <VariableGetter function="Getter" commented="false" instanceName="speed" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </Motor>
+        <delay function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <VariableGetter function="Getter" commented="false" instanceName="forwardTime" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </delay>
+        <Motor function="Setter" commented="false" instanceName="motor1" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberNegative function="Operation" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <VariableGetter function="Getter" commented="false" instanceName="speed" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </numberNegative>
+        </Motor>
+        <delay function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <VariableGetter function="Getter" commented="false" instanceName="rotationTime" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </delay>
+        <Motor function="Setter" commented="false" instanceName="motor1" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <VariableGetter function="Getter" commented="false" instanceName="speed" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </Motor>
+        <delay function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <VariableGetter function="Getter" commented="false" instanceName="forwardTime" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </delay>
+        <repeatEnd function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
+    </blocks>
+</mbqc>
