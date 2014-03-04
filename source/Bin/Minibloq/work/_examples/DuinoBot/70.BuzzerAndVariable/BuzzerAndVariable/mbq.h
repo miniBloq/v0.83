@@ -11,17 +11,23 @@
 #include <toneDelay.h>
 #include <Servo.h>
 #include <RedBot.h>
+#include <mbqRedBot.h>
 #include <IRRemote.h>
 #include <Ping.h>
 #include <IRRanger.h>
+#include <RedBot.h>
+#include <mbqRedBot.h>
 
 
 extern Servo servo0;
 extern Servo servo1;
 extern Servo servo2;
+extern Servo servo3;
+extern RedBot robot;
 extern IRrecv irReceiver;
 extern PingSensor ping;
 extern IRRanger irRanger20to150;
 extern IRRanger irRanger10to80;
+extern RedBotAccel accel;
 
 #endif

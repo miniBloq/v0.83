@@ -9,17 +9,14 @@
 #include <board.h>
 #include <pitches.h>
 #include <toneDelay.h>
-#include <DCMotor.h>
-#include <Servo.h>
+#include <RedBot.h>
+#include <mbqRedBot.h>
 #include <IRRemote.h>
 #include <Ping.h>
 #include <IRRanger.h>
 
 
-extern DCMotor motor0;
-extern DCMotor motor1;
-extern Servo servo0;
-extern Servo servo1;
+extern RedBot robot;
 extern IRrecv irReceiver;
 extern PingSensor ping;
 extern IRRanger irRanger20to150;

@@ -6,6 +6,7 @@ DCMotor motor1(11, 10, 9);
 Servo servo0;
 Servo servo1;
 Servo servo2;
+LiquidCrystal textLCD(12, 11, 5, 4, 3, 2);
 IRrecv irReceiver(2);
 PingSensor ping(0);
 IRRanger irRanger20to150(1, IRRanger::range20to150cm);
@@ -23,4 +24,5 @@ void initBoard()
 	servo0.setPin(6);
 	servo1.setPin(7);
 	servo2.setPin(8);
+	//;
 }

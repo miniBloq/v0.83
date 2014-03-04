@@ -6,7 +6,7 @@ void setup()
 	initBoard();
 	while(true)
 	{
-		toneWithDelay(BuzzerPin, (irReceiver.getIRRemoteCode()*1000), 100);
+		toneWithDelay(BuzzerPin, (irReceiver.getIRRemoteCode()*440), 100);
 	}
 }
 
