@@ -15,7 +15,7 @@
    height="297mm"
    id="svg2996"
    version="1.1"
-   inkscape:version="0.48.0 r9654"
+   inkscape:version="0.48.4 r9939"
    sodipodi:docname="Source.svg">
   <defs
      id="defs2998">
@@ -1389,6 +1389,21 @@
          style="stop-color:#0A0A0A"
          offset="1" />
     </linearGradient>
+    <filter
+       id="filter3361"
+       inkscape:label="Desaturate"
+       x="0"
+       y="0"
+       width="1"
+       height="1"
+       inkscape:menu="Color"
+       inkscape:menu-tooltip="Render in shades of gray by reducing saturation to zero"
+       color-interpolation-filters="sRGB">
+      <feColorMatrix
+         id="feColorMatrix3363"
+         type="saturate"
+         values="0" />
+    </filter>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -1398,13 +1413,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.417193"
-     inkscape:cx="276.64163"
-     inkscape:cy="607.6859"
+     inkscape:cx="-536.72478"
+     inkscape:cy="718.81781"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1280"
-     inkscape:window-height="720"
+     inkscape:window-width="1600"
+     inkscape:window-height="838"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1" />
@@ -1427,7 +1442,7 @@
     <g
        id="g3105"
        transform="translate(5.3880447,10.776138)"
-       inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq-RG\v1.0\Soft\Bin\Minibloq-RG.v1.0\Components\Minibloq\v1.0\Libs\CPP\Bloqs\CPP_numberUnequal.v1.0\Images\BlockHover.png"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\blocks\bool.030.0010.colorUnequal.Py.v1.0\Images\BlockHover.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
@@ -1457,7 +1472,7 @@
     <g
        id="g3058"
        transform="matrix(0.85042772,0,0,0.85042772,-289.68103,-291.27549)"
-       inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq-RG\v1.0\Soft\Bin\Minibloq-RG.v1.0\Components\Minibloq\v1.0\Libs\CPP\Bloqs\CPP_numberUnequal.v1.0\Images\BlockDefault.png"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\blocks\bool.030.0010.colorUnequal.Py.v1.0\Images\BlockDefault.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
@@ -1487,7 +1502,7 @@
     <g
        transform="matrix(-0.85042772,0,0,-0.85042772,659.53632,1217.9362)"
        id="g3067"
-       inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq-RG\v1.0\Soft\Bin\Minibloq-RG.v1.0\Components\Minibloq\v1.0\Libs\CPP\Bloqs\CPP_numberUnequal.v1.0\Images\BlockPressed.png"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\blocks\bool.030.0010.colorUnequal.Py.v1.0\Images\BlockPressed.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
@@ -1524,13 +1539,13 @@
        rx="17.077295"
        ry="21.26066"
        transform="scale(-1,-1)"
-       inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq-RG\v1.0\Soft\Bin\Minibloq-RG.v1.0\Components\Minibloq\v1.0\Libs\CPP\Bloqs\CPP_numberUnequal.v1.0\Images\Block.png"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\blocks\bool.030.0010.colorUnequal.Py.v1.0\Images\Block.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <g
        id="g3084"
        transform="matrix(0.85042772,0,0,0.85042772,113.52344,238.57587)"
-       inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq-RG\v1.0\Soft\Bin\Minibloq-RG.v1.0\Components\Minibloq\v1.0\Libs\CPP\Bloqs\CPP_numberUnequal.v1.0\Images\BlockDisabled.png"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\blocks\bool.030.0010.colorUnequal.Py.v1.0\Images\BlockDisabled.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
@@ -1562,7 +1577,7 @@
        id="flowRoot6245"
        style="font-size:40px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffff00;fill-opacity:1;display:inline;font-family:Helvetica;-inkscape-font-specification:Helvetica"
        transform="matrix(6.6955676,0,0,6.6955676,164847.28,1266.4128)"
-       inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq-RG\v1.0\Soft\Bin\Minibloq-RG.v1.0\Components\Minibloq\v1.0\Libs\CPP\Bloqs\CPP_numberUnequal.v1.0\Images\Block.png"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\blocks\bool.030.0010.colorUnequal.Py.v1.0\Images\Block.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90"><flowRegion
          id="flowRegion6247"
@@ -1575,7 +1590,7 @@
            style="fill:#ffff00;fill-opacity:1" /></flowRegion><flowPara
          id="flowPara6251"
          style="fill:#ffff00;fill-opacity:1">=</flowPara></flowRoot>    <g
-       transform="translate(-403.21,331.38682)"
+       transform="translate(-403.21,325.38685)"
        id="g3315-1">
       <flowRoot
          inkscape:export-ydpi="90"
@@ -1614,7 +1629,7 @@
        id="flowRoot6245-8-1-5"
        style="font-size:40px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffff00;fill-opacity:1;display:inline;font-family:Helvetica;-inkscape-font-specification:Helvetica"
        transform="matrix(8.2887121,-12.904549,3.749913,2.4086042,204612.58,-316190.95)"
-       inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq-RG\v1.0\Soft\Bin\Minibloq-RG.v1.0\Components\Minibloq\v1.0\Libs\CPP\Bloqs\CPP_numberUnequal.v1.0\Images\Block.png"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\blocks\bool.030.0010.colorUnequal.Py.v1.0\Images\Block.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90"><flowRegion
          id="flowRegion6247-7-8-4"
@@ -1661,6 +1676,57 @@
              id="rect6249-4-9-3-4" /></flowRegion><flowPara
            style="fill:#ffff00;fill-opacity:1"
            id="flowPara6251-27-7-12-5">-</flowPara></flowRoot>    </g>
+    <g
+       transform="matrix(0.54055524,0,0,0.54055524,2173.4187,46.743047)"
+       id="g6075-8-1"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\blocks\action.020.0040.MobileRobot.Py.v1.0\Images\mobileRobotPenColor.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(-1342.6637,755.15532)"
+         d="m -2200.8227,112.04318 c 0,21.69328 -17.5858,39.27915 -39.2791,39.27915 -21.6933,0 -39.2792,-17.58587 -39.2792,-39.27915 0,-21.693272 17.5859,-39.279146 39.2792,-39.279146 21.6933,0 39.2791,17.585874 39.2791,39.279146 z"
+         sodipodi:ry="39.279148"
+         sodipodi:rx="39.279148"
+         sodipodi:cy="112.04318"
+         sodipodi:cx="-2240.1018"
+         id="path5262-8-5-2-2-7"
+         style="fill:#00ff00;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+      <path
+         transform="translate(-1259.4917,755.15532)"
+         d="m -2200.8227,112.04318 c 0,21.69328 -17.5858,39.27915 -39.2791,39.27915 -21.6933,0 -39.2792,-17.58587 -39.2792,-39.27915 0,-21.693272 17.5859,-39.279146 39.2792,-39.279146 21.6933,0 39.2791,17.585874 39.2791,39.279146 z"
+         sodipodi:ry="39.279148"
+         sodipodi:rx="39.279148"
+         sodipodi:cy="112.04318"
+         sodipodi:cx="-2240.1018"
+         id="path5262-8-5-2-5-9-4"
+         style="fill:#0000ff;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+      <g
+         transform="translate(0,-116.14813)"
+         id="g6071-6-0">
+        <path
+           sodipodi:type="arc"
+           style="fill:#ff0000;fill-opacity:1;stroke:none"
+           id="path5262-8-5-2-5-4-8-9"
+           sodipodi:cx="-2240.1018"
+           sodipodi:cy="112.04318"
+           sodipodi:rx="39.279148"
+           sodipodi:ry="39.279148"
+           d="m -2200.8227,112.04318 c 0,21.69328 -17.5858,39.27915 -39.2791,39.27915 -21.6933,0 -39.2792,-17.58587 -39.2792,-39.27915 0,-21.693272 17.5859,-39.279146 39.2792,-39.279146 21.6933,0 39.2791,17.585874 39.2791,39.279146 z"
+           transform="translate(-1342.6637,953.78545)" />
+        <path
+           sodipodi:type="arc"
+           style="fill:#000000;fill-opacity:1;stroke:none"
+           id="path5262-8-5-2-5-1-9-4"
+           sodipodi:cx="-2240.1018"
+           sodipodi:cy="112.04318"
+           sodipodi:rx="39.279148"
+           sodipodi:ry="39.279148"
+           d="m -2200.8227,112.04318 c 0,21.69328 -17.5858,39.27915 -39.2791,39.27915 -21.6933,0 -39.2792,-17.58587 -39.2792,-39.27915 0,-21.693272 17.5859,-39.279146 39.2792,-39.279146 21.6933,0 39.2791,17.585874 39.2791,39.279146 z"
+           transform="translate(-1259.4917,953.78545)" />
+      </g>
+    </g>
     <g
        transform="translate(-52.650003,317.38685)"
        id="g3315-0"
@@ -1732,5 +1798,210 @@
              id="rect6249-4-9-3-4-0" /></flowRegion><flowPara
            style="fill:#ffff00;fill-opacity:1"
            id="flowPara6251-27-7-12-5-6">-</flowPara></flowRoot>    </g>
+    <g
+       transform="matrix(0.54055524,0,0,0.54055524,2173.4187,-263.07016)"
+       id="g6075-8"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\blocks\action.020.0040.MobileRobot.Py.v1.0\Images\mobileRobotPenColor.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(-1342.6637,755.15532)"
+         d="m -2200.8227,112.04318 c 0,21.69328 -17.5858,39.27915 -39.2791,39.27915 -21.6933,0 -39.2792,-17.58587 -39.2792,-39.27915 0,-21.693272 17.5859,-39.279146 39.2792,-39.279146 21.6933,0 39.2791,17.585874 39.2791,39.279146 z"
+         sodipodi:ry="39.279148"
+         sodipodi:rx="39.279148"
+         sodipodi:cy="112.04318"
+         sodipodi:cx="-2240.1018"
+         id="path5262-8-5-2-2"
+         style="fill:#00ff00;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+      <path
+         transform="translate(-1259.4917,755.15532)"
+         d="m -2200.8227,112.04318 c 0,21.69328 -17.5858,39.27915 -39.2791,39.27915 -21.6933,0 -39.2792,-17.58587 -39.2792,-39.27915 0,-21.693272 17.5859,-39.279146 39.2792,-39.279146 21.6933,0 39.2791,17.585874 39.2791,39.279146 z"
+         sodipodi:ry="39.279148"
+         sodipodi:rx="39.279148"
+         sodipodi:cy="112.04318"
+         sodipodi:cx="-2240.1018"
+         id="path5262-8-5-2-5-9"
+         style="fill:#0000ff;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+      <g
+         transform="translate(0,-116.14813)"
+         id="g6071-6">
+        <path
+           sodipodi:type="arc"
+           style="fill:#ff0000;fill-opacity:1;stroke:none"
+           id="path5262-8-5-2-5-4-8"
+           sodipodi:cx="-2240.1018"
+           sodipodi:cy="112.04318"
+           sodipodi:rx="39.279148"
+           sodipodi:ry="39.279148"
+           d="m -2200.8227,112.04318 c 0,21.69328 -17.5858,39.27915 -39.2791,39.27915 -21.6933,0 -39.2792,-17.58587 -39.2792,-39.27915 0,-21.693272 17.5859,-39.279146 39.2792,-39.279146 21.6933,0 39.2791,17.585874 39.2791,39.279146 z"
+           transform="translate(-1342.6637,953.78545)" />
+        <path
+           sodipodi:type="arc"
+           style="fill:#000000;fill-opacity:1;stroke:none"
+           id="path5262-8-5-2-5-1-9"
+           sodipodi:cx="-2240.1018"
+           sodipodi:cy="112.04318"
+           sodipodi:rx="39.279148"
+           sodipodi:ry="39.279148"
+           d="m -2200.8227,112.04318 c 0,21.69328 -17.5858,39.27915 -39.2791,39.27915 -21.6933,0 -39.2792,-17.58587 -39.2792,-39.27915 0,-21.693272 17.5859,-39.279146 39.2792,-39.279146 21.6933,0 39.2791,17.585874 39.2791,39.279146 z"
+           transform="translate(-1259.4917,953.78545)" />
+      </g>
+    </g>
+    <g
+       transform="matrix(0.54055524,0,0,0.54055524,2173.4187,364.55622)"
+       id="g6075-8-1-8"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\blocks\action.020.0040.MobileRobot.Py.v1.0\Images\mobileRobotPenColor.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(-1342.6637,755.15532)"
+         d="m -2200.8227,112.04318 c 0,21.69328 -17.5858,39.27915 -39.2791,39.27915 -21.6933,0 -39.2792,-17.58587 -39.2792,-39.27915 0,-21.693272 17.5859,-39.279146 39.2792,-39.279146 21.6933,0 39.2791,17.585874 39.2791,39.279146 z"
+         sodipodi:ry="39.279148"
+         sodipodi:rx="39.279148"
+         sodipodi:cy="112.04318"
+         sodipodi:cx="-2240.1018"
+         id="path5262-8-5-2-2-7-8"
+         style="fill:#00ff00;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+      <path
+         transform="translate(-1259.4917,755.15532)"
+         d="m -2200.8227,112.04318 c 0,21.69328 -17.5858,39.27915 -39.2791,39.27915 -21.6933,0 -39.2792,-17.58587 -39.2792,-39.27915 0,-21.693272 17.5859,-39.279146 39.2792,-39.279146 21.6933,0 39.2791,17.585874 39.2791,39.279146 z"
+         sodipodi:ry="39.279148"
+         sodipodi:rx="39.279148"
+         sodipodi:cy="112.04318"
+         sodipodi:cx="-2240.1018"
+         id="path5262-8-5-2-5-9-4-2"
+         style="fill:#0000ff;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+      <g
+         transform="translate(0,-116.14813)"
+         id="g6071-6-0-4">
+        <path
+           sodipodi:type="arc"
+           style="fill:#ff0000;fill-opacity:1;stroke:none"
+           id="path5262-8-5-2-5-4-8-9-5"
+           sodipodi:cx="-2240.1018"
+           sodipodi:cy="112.04318"
+           sodipodi:rx="39.279148"
+           sodipodi:ry="39.279148"
+           d="m -2200.8227,112.04318 c 0,21.69328 -17.5858,39.27915 -39.2791,39.27915 -21.6933,0 -39.2792,-17.58587 -39.2792,-39.27915 0,-21.693272 17.5859,-39.279146 39.2792,-39.279146 21.6933,0 39.2791,17.585874 39.2791,39.279146 z"
+           transform="translate(-1342.6637,953.78545)" />
+        <path
+           sodipodi:type="arc"
+           style="fill:#000000;fill-opacity:1;stroke:none"
+           id="path5262-8-5-2-5-1-9-4-5"
+           sodipodi:cx="-2240.1018"
+           sodipodi:cy="112.04318"
+           sodipodi:rx="39.279148"
+           sodipodi:ry="39.279148"
+           d="m -2200.8227,112.04318 c 0,21.69328 -17.5858,39.27915 -39.2791,39.27915 -21.6933,0 -39.2792,-17.58587 -39.2792,-39.27915 0,-21.693272 17.5859,-39.279146 39.2792,-39.279146 21.6933,0 39.2791,17.585874 39.2791,39.279146 z"
+           transform="translate(-1259.4917,953.78545)" />
+      </g>
+    </g>
+    <g
+       transform="matrix(0.54055524,0,0,0.54055524,2523.979,-263.07014)"
+       id="g6075-8-17"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\blocks\action.020.0040.MobileRobot.Py.v1.0\Images\mobileRobotPenColor.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(-1342.6637,755.15532)"
+         d="m -2200.8227,112.04318 c 0,21.69328 -17.5858,39.27915 -39.2791,39.27915 -21.6933,0 -39.2792,-17.58587 -39.2792,-39.27915 0,-21.693272 17.5859,-39.279146 39.2792,-39.279146 21.6933,0 39.2791,17.585874 39.2791,39.279146 z"
+         sodipodi:ry="39.279148"
+         sodipodi:rx="39.279148"
+         sodipodi:cy="112.04318"
+         sodipodi:cx="-2240.1018"
+         id="path5262-8-5-2-2-1"
+         style="fill:#00ff00;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+      <path
+         transform="translate(-1259.4917,755.15532)"
+         d="m -2200.8227,112.04318 c 0,21.69328 -17.5858,39.27915 -39.2791,39.27915 -21.6933,0 -39.2792,-17.58587 -39.2792,-39.27915 0,-21.693272 17.5859,-39.279146 39.2792,-39.279146 21.6933,0 39.2791,17.585874 39.2791,39.279146 z"
+         sodipodi:ry="39.279148"
+         sodipodi:rx="39.279148"
+         sodipodi:cy="112.04318"
+         sodipodi:cx="-2240.1018"
+         id="path5262-8-5-2-5-9-1"
+         style="fill:#0000ff;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+      <g
+         transform="translate(0,-116.14813)"
+         id="g6071-6-5">
+        <path
+           sodipodi:type="arc"
+           style="fill:#ff0000;fill-opacity:1;stroke:none"
+           id="path5262-8-5-2-5-4-8-2"
+           sodipodi:cx="-2240.1018"
+           sodipodi:cy="112.04318"
+           sodipodi:rx="39.279148"
+           sodipodi:ry="39.279148"
+           d="m -2200.8227,112.04318 c 0,21.69328 -17.5858,39.27915 -39.2791,39.27915 -21.6933,0 -39.2792,-17.58587 -39.2792,-39.27915 0,-21.693272 17.5859,-39.279146 39.2792,-39.279146 21.6933,0 39.2791,17.585874 39.2791,39.279146 z"
+           transform="translate(-1342.6637,953.78545)" />
+        <path
+           sodipodi:type="arc"
+           style="fill:#000000;fill-opacity:1;stroke:none"
+           id="path5262-8-5-2-5-1-9-7"
+           sodipodi:cx="-2240.1018"
+           sodipodi:cy="112.04318"
+           sodipodi:rx="39.279148"
+           sodipodi:ry="39.279148"
+           d="m -2200.8227,112.04318 c 0,21.69328 -17.5858,39.27915 -39.2791,39.27915 -21.6933,0 -39.2792,-17.58587 -39.2792,-39.27915 0,-21.693272 17.5859,-39.279146 39.2792,-39.279146 21.6933,0 39.2791,17.585874 39.2791,39.279146 z"
+           transform="translate(-1259.4917,953.78545)" />
+      </g>
+    </g>
+    <g
+       transform="matrix(0.54055524,0,0,0.54055524,2523.979,366.55622)"
+       id="g6075-8-6"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\blocks\action.020.0040.MobileRobot.Py.v1.0\Images\mobileRobotPenColor.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       style="filter:url(#filter3361)">
+      <path
+         transform="translate(-1342.6637,755.15532)"
+         d="m -2200.8227,112.04318 c 0,21.69328 -17.5858,39.27915 -39.2791,39.27915 -21.6933,0 -39.2792,-17.58587 -39.2792,-39.27915 0,-21.693272 17.5859,-39.279146 39.2792,-39.279146 21.6933,0 39.2791,17.585874 39.2791,39.279146 z"
+         sodipodi:ry="39.279148"
+         sodipodi:rx="39.279148"
+         sodipodi:cy="112.04318"
+         sodipodi:cx="-2240.1018"
+         id="path5262-8-5-2-2-14"
+         style="fill:#00ff00;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+      <path
+         transform="translate(-1259.4917,755.15532)"
+         d="m -2200.8227,112.04318 c 0,21.69328 -17.5858,39.27915 -39.2791,39.27915 -21.6933,0 -39.2792,-17.58587 -39.2792,-39.27915 0,-21.693272 17.5859,-39.279146 39.2792,-39.279146 21.6933,0 39.2791,17.585874 39.2791,39.279146 z"
+         sodipodi:ry="39.279148"
+         sodipodi:rx="39.279148"
+         sodipodi:cy="112.04318"
+         sodipodi:cx="-2240.1018"
+         id="path5262-8-5-2-5-9-2"
+         style="fill:#0000ff;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+      <g
+         transform="translate(0,-116.14813)"
+         id="g6071-6-3">
+        <path
+           sodipodi:type="arc"
+           style="fill:#ff0000;fill-opacity:1;stroke:none"
+           id="path5262-8-5-2-5-4-8-22"
+           sodipodi:cx="-2240.1018"
+           sodipodi:cy="112.04318"
+           sodipodi:rx="39.279148"
+           sodipodi:ry="39.279148"
+           d="m -2200.8227,112.04318 c 0,21.69328 -17.5858,39.27915 -39.2791,39.27915 -21.6933,0 -39.2792,-17.58587 -39.2792,-39.27915 0,-21.693272 17.5859,-39.279146 39.2792,-39.279146 21.6933,0 39.2791,17.585874 39.2791,39.279146 z"
+           transform="translate(-1342.6637,953.78545)" />
+        <path
+           sodipodi:type="arc"
+           style="fill:#000000;fill-opacity:1;stroke:none"
+           id="path5262-8-5-2-5-1-9-1"
+           sodipodi:cx="-2240.1018"
+           sodipodi:cy="112.04318"
+           sodipodi:rx="39.279148"
+           sodipodi:ry="39.279148"
+           d="m -2200.8227,112.04318 c 0,21.69328 -17.5858,39.27915 -39.2791,39.27915 -21.6933,0 -39.2792,-17.58587 -39.2792,-39.27915 0,-21.693272 17.5859,-39.279146 39.2792,-39.279146 21.6933,0 39.2791,17.585874 39.2791,39.279146 z"
+           transform="translate(-1259.4917,953.78545)" />
+      </g>
+    </g>
   </g>
 </svg>

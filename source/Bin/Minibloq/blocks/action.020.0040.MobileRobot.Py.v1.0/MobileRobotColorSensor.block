@@ -19,14 +19,14 @@
 		</originalSize>
         <childFactor>0.9</childFactor>
         <defaultBackgroundColour0>
-			<R>setterBlockColour0R::</R>
-			<G>setterBlockColour0G::</G>
-			<B>setterBlockColour0B::</B>
+			<R>getterBlockColour0R::</R>
+			<G>getterBlockColour0G::</G>
+			<B>getterBlockColour0B::</B>
 		</defaultBackgroundColour0>
         <defaultBackgroundColour1>
-			<R>setterBlockColour1R::</R>
-			<G>setterBlockColour1G::</G>
-			<B>setterBlockColour1B::</B>
+			<R>getterBlockColour1R::</R>
+			<G>getterBlockColour1G::</G>
+			<B>getterBlockColour1B::</B>
 		</defaultBackgroundColour1>
 		<picker>
 			<imagesBasePath>thisBlockPath::</imagesBasePath>

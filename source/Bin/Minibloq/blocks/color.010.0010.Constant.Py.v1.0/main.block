@@ -21,14 +21,14 @@
 		</originalSize>
         <childFactor>0.9</childFactor>
         <defaultBackgroundColour0>
-			<R>constantBlockColour0R::</R>
-			<G>constantBlockColour0G::</G>
-			<B>constantBlockColour0B::</B>
+			<R>getterBlockColour0R::</R>
+			<G>getterBlockColour0G::</G>
+			<B>getterBlockColour0B::</B>
 		</defaultBackgroundColour0>
         <defaultBackgroundColour1>
-			<R>constantBlockColour1R::</R>
-			<G>constantBlockColour1G::</G>
-			<B>constantBlockColour1B::</B>
+			<R>getterBlockColour1R::</R>
+			<G>getterBlockColour1G::</G>
+			<B>getterBlockColour1B::</B>
 		</defaultBackgroundColour1>
 		<picker>
 			<imagesBasePath>thisBlockPath::</imagesBasePath>
