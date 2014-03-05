@@ -26,22 +26,22 @@
         </while>
         <while function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <colorEqual function="Operation" commented="false" paramsCount="2" hasAddParamsButton="false" loadAction="load">
-                <mobileRobotColorSensor function="Getter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                <MobileRobotColorSensor function="Getter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
                 <colorBlack function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
             </colorEqual>
         </while>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <mobileRobotMove function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <MobileRobotMove function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
                 <numberConstant function="Constant" commented="false" constantValue="1" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-            </mobileRobotMove>
+            </MobileRobotMove>
         </MobileRobot>
         <whileEnd function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <mobileRobotMove function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <MobileRobotMove function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
                 <numberNegative function="Operation" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
                     <numberConstant function="Constant" commented="false" constantValue="1" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
                 </numberNegative>
-            </mobileRobotMove>
+            </MobileRobotMove>
         </MobileRobot>
         <VariableSetter function="Setter" commented="false" instanceName="rotation" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <numberConstant function="Constant" commented="false" constantValue="90" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
@@ -67,9 +67,9 @@
         </VariableSetter>
         <endIf function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <mobileRobotRotate function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <MobileRobotRotate function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
                 <VariableGetter function="Getter" commented="false" instanceName="rotation" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-            </mobileRobotRotate>
+            </MobileRobotRotate>
         </MobileRobot>
         <whileEnd function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
     </blocks>

@@ -7,7 +7,7 @@ void setup()
 	float speed = 50;
 	float rotationTime = 250;
 	float forwardTime = 1100;
-	for(unsigned int _i=0; _i<(unsigned int)(50); _i++)
+	for(unsigned int _i=0; _i<(unsigned int)(10); _i++)
 	{
 		robot.motor0(-(speed));
 		robot.motor1(speed);

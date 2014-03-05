@@ -14,12 +14,12 @@
             <numberConstant function="Constant" commented="false" constantValue="0" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </VariableInit>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <mobileRobotPenDown function="Setter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            <MobileRobotPenDown function="Setter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </MobileRobot>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <mobileRobotPenColorSetter function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <MobileRobotPenColorSetter function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
                 <colorBlue function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-            </mobileRobotPenColorSetter>
+            </MobileRobotPenColorSetter>
         </MobileRobot>
         <repeat function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <numberConstant function="Constant" commented="false" constantValue="20" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
@@ -28,14 +28,14 @@
             <random function="Getter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </VariableSetter>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <mobileRobotMove function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <MobileRobotMove function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
                 <VariableGetter function="Getter" commented="false" instanceName="step" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-            </mobileRobotMove>
+            </MobileRobotMove>
         </MobileRobot>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <mobileRobotRotate function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <MobileRobotRotate function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
                 <random function="Getter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-            </mobileRobotRotate>
+            </MobileRobotRotate>
         </MobileRobot>
         <Print function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <PrintNumber function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">

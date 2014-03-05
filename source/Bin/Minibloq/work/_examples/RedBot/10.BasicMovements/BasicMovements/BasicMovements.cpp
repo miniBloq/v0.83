@@ -4,8 +4,8 @@
 void setup()
 {
 	initBoard();
-	robot.motor0(50);
-	robot.motor1(-(50));
+	robot.motor0(100);
+	robot.motor1(50);
 }
 
 void loop()

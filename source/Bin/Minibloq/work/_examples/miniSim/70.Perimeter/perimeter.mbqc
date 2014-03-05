@@ -10,45 +10,45 @@
         <ComponentStart function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="noLoad"/>
         <Comment function="Code" commented="false" constantValue="First, draw the perimeter:" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <mobileRobotPenColorSetter function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <MobileRobotPenColorSetter function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
                 <colorBlack function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-            </mobileRobotPenColorSetter>
+            </MobileRobotPenColorSetter>
         </MobileRobot>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <mobileRobotPenWidthSetter function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <MobileRobotPenWidthSetter function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
                 <numberConstant function="Constant" commented="false" constantValue="20" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-            </mobileRobotPenWidthSetter>
+            </MobileRobotPenWidthSetter>
         </MobileRobot>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <mobileRobotPenDown function="Setter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            <MobileRobotPenDown function="Setter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </MobileRobot>
         <repeat function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <numberConstant function="Constant" commented="false" constantValue="180" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </repeat>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <mobileRobotRotate function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <MobileRobotRotate function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
                 <numberConstant function="Constant" commented="false" constantValue="2" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-            </mobileRobotRotate>
+            </MobileRobotRotate>
         </MobileRobot>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <mobileRobotMove function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <MobileRobotMove function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
                 <numberConstant function="Constant" commented="false" constantValue="1" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-            </mobileRobotMove>
+            </MobileRobotMove>
         </MobileRobot>
         <repeatEnd function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
         <Comment function="Code" commented="false" constantValue="Move inside the perimeter (with the pen disabled):" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <mobileRobotPenUp function="Setter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            <MobileRobotPenUp function="Setter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </MobileRobot>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <mobileRobotRotate function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <MobileRobotRotate function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
                 <numberConstant function="Constant" commented="false" constantValue="90" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-            </mobileRobotRotate>
+            </MobileRobotRotate>
         </MobileRobot>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <mobileRobotMove function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <MobileRobotMove function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
                 <numberConstant function="Constant" commented="false" constantValue="20" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-            </mobileRobotMove>
+            </MobileRobotMove>
         </MobileRobot>
         <Comment function="Code" commented="false" constantValue="Now, keep inside it with the color sensor:" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         <while function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
@@ -56,31 +56,31 @@
         </while>
         <while function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <colorUnequal function="Operation" commented="false" paramsCount="2" hasAddParamsButton="false" loadAction="load">
-                <mobileRobotColorSensor function="Getter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                <MobileRobotColorSensor function="Getter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
                 <colorBlack function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
             </colorUnequal>
         </while>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <mobileRobotMove function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <MobileRobotMove function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
                 <numberConstant function="Constant" commented="false" constantValue="2" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-            </mobileRobotMove>
+            </MobileRobotMove>
         </MobileRobot>
         <whileEnd function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <mobileRobotMove function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <MobileRobotMove function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
                 <numberNegative function="Operation" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
                     <numberConstant function="Constant" commented="false" constantValue="10" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
                 </numberNegative>
-            </mobileRobotMove>
+            </MobileRobotMove>
         </MobileRobot>
         <Comment function="Code" commented="false" constantValue="Rotates a random angle between 0 and 180 degrees:" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <mobileRobotRotate function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <MobileRobotRotate function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
                 <numberMul function="Operation" commented="false" paramsCount="2" hasAddParamsButton="true" loadAction="load">
                     <random function="Getter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
                     <numberConstant function="Constant" commented="false" constantValue="1.8" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
                 </numberMul>
-            </mobileRobotRotate>
+            </MobileRobotRotate>
         </MobileRobot>
         <whileEnd function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
     </blocks>

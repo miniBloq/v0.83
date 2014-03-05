@@ -9,25 +9,25 @@
     <blocks>
         <ComponentStart function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="noLoad"/>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <mobileRobotPenWidthSetter function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <MobileRobotPenWidthSetter function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
                 <numberConstant function="Constant" commented="false" constantValue="30" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-            </mobileRobotPenWidthSetter>
+            </MobileRobotPenWidthSetter>
         </MobileRobot>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <mobileRobotPenDown function="Setter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            <MobileRobotPenDown function="Setter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </MobileRobot>
         <repeat function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <numberConstant function="Constant" commented="false" constantValue="4" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </repeat>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <mobileRobotMove function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <MobileRobotMove function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
                 <numberConstant function="Constant" commented="false" constantValue="200" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-            </mobileRobotMove>
+            </MobileRobotMove>
         </MobileRobot>
         <MobileRobot function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <mobileRobotRotate function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <MobileRobotRotate function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
                 <numberConstant function="Constant" commented="false" constantValue="90" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-            </mobileRobotRotate>
+            </MobileRobotRotate>
         </MobileRobot>
         <repeatEnd function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
     </blocks>
