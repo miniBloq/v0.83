@@ -3,7 +3,7 @@
     <files/>
     <properties>
         <canvas visible="true"/>
-        <blocks count="15"/>
+        <blocks count="17"/>
     </properties>
     <variables>
         <speed/>
@@ -56,5 +56,11 @@
             <VariableGetter function="Getter" commented="false" instanceName="forwardTime" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </delay>
         <repeatEnd function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
+        <Motor function="Setter" commented="false" instanceName="motor0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="0" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </Motor>
+        <Motor function="Setter" commented="false" instanceName="motor1" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="0" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </Motor>
     </blocks>
 </mbqc>

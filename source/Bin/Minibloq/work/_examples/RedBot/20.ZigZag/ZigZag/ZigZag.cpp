@@ -19,6 +19,8 @@ void setup()
 		robot.motor1(speed);
 		delay(forwardTime);
 	}
+	robot.motor0(0);
+	robot.motor1(0);
 }
 
 void loop()
