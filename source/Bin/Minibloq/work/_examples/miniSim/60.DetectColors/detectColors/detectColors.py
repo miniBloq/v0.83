@@ -33,6 +33,8 @@ def go():
 	for _i in range(20):
 		if robot.readCenterColorSensor() == (0,255,0):
 			print 'Green color detected!'
+		if robot.readCenterColorSensor() == (0,0,255):
+			print 'Blue color detected!'
 		robot.move(5)
 miniSim.go = go
 miniSim.run()

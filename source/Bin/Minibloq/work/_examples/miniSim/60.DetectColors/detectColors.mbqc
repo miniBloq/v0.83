@@ -3,7 +3,7 @@
     <files/>
     <properties>
         <canvas visible="true"/>
-        <blocks count="30"/>
+        <blocks count="33"/>
     </properties>
     <variables>
         <angle/>
@@ -128,6 +128,18 @@
         <Print function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <PrintText function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
                 <textConstant function="Constant" commented="false" constantValue="Green color detected!" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </PrintText>
+        </Print>
+        <endIf function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
+        <if function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <colorEqual function="Operation" commented="false" paramsCount="2" hasAddParamsButton="false" loadAction="load">
+                <MobileRobotColorSensor function="Getter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                <colorBlue function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </colorEqual>
+        </if>
+        <Print function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <PrintText function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+                <textConstant function="Constant" commented="false" constantValue="Blue color detected!" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
             </PrintText>
         </Print>
         <endIf function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
