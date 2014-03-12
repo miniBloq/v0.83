@@ -3,7 +3,12 @@
 
 void setup()
 {
-	go();
+	initBoard();
+	while(true)
+	{
+		serial0.println(timeStamp());
+		delay(300);
+	}
 }
 
 void loop()
