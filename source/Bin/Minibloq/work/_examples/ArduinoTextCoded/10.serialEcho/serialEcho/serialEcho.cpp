@@ -3,7 +3,7 @@
 
 void setup()
 {
-	go();
+	initBoard();
 }
 
 void loop()

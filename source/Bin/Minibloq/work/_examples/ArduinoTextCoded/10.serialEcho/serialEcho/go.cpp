@@ -1,4 +1,4 @@
-include <mbq.h>
+#include <mbq.h>
 
 void go()
 {
