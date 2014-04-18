@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mbqc xmlns="http://mbqc.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.81.Beta">
+<mbqc xmlns="http://mbqc.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
+    <files/>
     <properties>
+        <canvas visible="true"/>
         <blocks count="4"/>
     </properties>
     <variables/>
@@ -14,7 +16,7 @@
                 <Ping function="Sensor" commented="false" instanceName="D15" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
                 <numberConstant function="Constant" commented="false" constantValue="400" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
             </numberMul>
-            <numberConstant function="Constant" commented="false" constantValue="250" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            <numberConstant function="Constant" commented="false" constantValue="50" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </Buzzer>
         <whileEnd function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
     </blocks>
