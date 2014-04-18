@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rel xmlns="http://rel.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
+	<includePaths>
+		<include><s>libsPath::</s><s>/Arduino/HCSR0x/v1.0</s></include>
+	</includePaths>
+	<includeFiles>
+		<include><s>HCSR0x.h</s></include>
+	</includeFiles>
+	<instancesHeader>
+		<s>extern HCSRSensor hcsr;</s>
+	</instancesHeader>		
+	<instancesCode>
+		<s>HCSRSensor hcsr(0);</s>
+	</instancesCode>
+</rel>

@@ -17,4 +17,14 @@ long pingMeasureCM(int pin)
 	return ping.measureCM(pin);
 }
 
+long hcsrMeasureCM(int pin)
+{
+	if (irReceiver.isEnabledIRIn())
+	{
+		irReceiver.disableIRIn();
+		delay(10);
+	}
+	return hcsr.measureCM(pin);
+}
+
 #endif
