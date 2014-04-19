@@ -6,7 +6,7 @@ void setup()
 	initBoard();
 	while(true)
 	{
-		serial0.println(hcsrMeasureCM(D14));
+		serial0.println(hcsrMeasureCM(D15));
 		delay(200);
 	}
 }

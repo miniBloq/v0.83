@@ -11,11 +11,9 @@
         <while function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <boolConstantTrue function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </while>
-        <Serial function="Setter" commented="false" instanceName="serial0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-            <SerialNumber function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-                <HC-SR0x function="Sensor" commented="false" instanceName="D15" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-            </SerialNumber>
-        </Serial>
+        <Motor function="Setter" commented="false" instanceName="motor0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <HC-SR0x function="Sensor" commented="false" instanceName="D15" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </Motor>
         <delay function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <numberConstant function="Constant" commented="false" constantValue="200" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </delay>
