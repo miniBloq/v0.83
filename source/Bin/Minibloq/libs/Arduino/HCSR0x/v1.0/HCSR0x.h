@@ -2,7 +2,7 @@
 #define HCSR_h
 
 /*
-   2011.12.23 (yyyy.mm.dd):
+   2014.04.21 (yyyy.mm.dd):
    This class is based on the sketch created by David A. Mellis and Tom Igoe (please see notice below).
    The class is a wrapper written by Julián U. da Silva Gillig and is under the RMPL (RobotGroup-Multiplo-Pacifist-License), but
    the code inside the functions is in the public domain (as is the original code from David A. Mellis).
@@ -56,11 +56,11 @@ class HCSRSensor
     }    
 
   public:
-    HCSRSensor(int echo, int trig) : _echo(echo), _trig(trig)
+    HCSRSensor(int trig, int echo) : _trig(trig), _echo(echo)
     {
     }
 
-    HCSRSensor(int echo) : _echo(echo), _trig(echo + 1) //Consecutive pins.
+    HCSRSensor(int trig) : _trig(trig), _echo(trig + 1) //Consecutive pins.
     {
     }
     
