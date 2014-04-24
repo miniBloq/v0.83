@@ -9,12 +9,10 @@
 	<instancesHeader>
 		<s>extern Servo servo0;</s>
 		<s>extern Servo servo1;</s>
-		<s>extern Servo servo2;</s>
 	</instancesHeader>	
 	<instancesCode>
 		<s>Servo servo0;</s>
 		<s>Servo servo1;</s>
-		<s>Servo servo2;</s>
 	</instancesCode>
 	<instances>
 		<servo0 instanceType="ServoRC"/>
@@ -23,9 +21,8 @@
 	</instances>
 	<initBoardCode>
 		<s>	//setPin() does not attach the servo (so the pin can be used by other library if the servo is not used).&#10;</s>
-		<s>	servo0.setPin(6);&#10;</s>
-		<s>	servo1.setPin(7);&#10;</s>
-		<s>	servo2.setPin(8);&#10;</s>
+		<s>	servo0.setPin(9);&#10;</s>
+		<s>	servo1.setPin(10);&#10;</s>
 	</initBoardCode>
 	<build>
 		<cmd>
