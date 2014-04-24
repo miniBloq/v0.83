@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rel xmlns="http://rel.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
+	<includePaths>
+		<include><s>libsPath::</s><s>/Arduino/RedBot/v1.0</s></include>
+	</includePaths>
+	<includeFiles>
+		<include><s>RedBot.h</s></include>
+		<include><s>mbqRedBot.h</s></include>
+	</includeFiles>
+	<instancesHeader>
+		<s>extern RedBot robot;</s>
+	</instancesHeader>	
+	<instancesCode>
+		<s>RedBot robot;</s>
+	</instancesCode>
+	<initBoardCode>
+		<s>	//;&#10;</s>
+	</initBoardCode>
+	<build>
+		<cmd>
+			<s>"</s><s>toolsPath::</s>
+			<s>/avr-g++" -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD</s>
+			<s> -mmcu=</s><s>cpu::</s>
+			<s> -DF_CPU=</s><s>clockFreq::</s>
+			<s> -DARDUINO=</s><s>arduinoVersion::</s>
+			<s> -I"</s> <s>toolsPath::</s>
+			<s>" -I"</s><s>corePath::</s>
+			<s>" -I"</s><s>corePath::</s><s>/avr-libc</s>
+			<s>" -I"</s><s>corePath::</s><s>/variants/</s><s>arduinoVariant::</s>
+			<s>" -I"</s><s>componentPath::</s>
+			<s>" -I"</s><s>outputPath::</s><s>" </s>
+			<s>-I"</s><s>libsPath::</s><s>/Arduino/RedBot/v1.0" </s>
+			
+			<s>"</s><s>libsPath::</s><s>/Arduino/RedBot/v1.0/RedBotMotor.cpp" -o "</s><s>outputPath::</s><s>/RedBotMotor.cpp.o"</s>
+		</cmd>
+		<cmd>
+			<s>"</s><s>toolsPath::</s>
+			<s>/avr-g++" -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD</s>
+			<s> -mmcu=</s><s>cpu::</s>
+			<s> -DF_CPU=</s><s>clockFreq::</s>
+			<s> -DARDUINO=</s><s>arduinoVersion::</s>
+			<s> -I"</s> <s>toolsPath::</s>
+			<s>" -I"</s><s>corePath::</s>
+			<s>" -I"</s><s>corePath::</s><s>/avr-libc</s>
+			<s>" -I"</s><s>corePath::</s><s>/variants/</s><s>arduinoVariant::</s>
+			<s>" -I"</s><s>componentPath::</s>
+			<s>" -I"</s><s>outputPath::</s><s>" </s>
+			<s>-I"</s><s>libsPath::</s><s>/Arduino/RedBot/v1.0" </s>
+			
+			<s>"</s><s>libsPath::</s><s>/Arduino/RedBot/v1.0/RedBotSensor.cpp" -o "</s><s>outputPath::</s><s>/RedBotSensor.cpp.o"</s>
+		</cmd>
+		<cmd>
+			<s>"</s><s>toolsPath::</s>
+			<s>/avr-g++" -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD</s>
+			<s> -mmcu=</s><s>cpu::</s>
+			<s> -DF_CPU=</s><s>clockFreq::</s>
+			<s> -DARDUINO=</s><s>arduinoVersion::</s>
+			<s> -I"</s> <s>toolsPath::</s>
+			<s>" -I"</s><s>corePath::</s>
+			<s>" -I"</s><s>corePath::</s><s>/avr-libc</s>
+			<s>" -I"</s><s>corePath::</s><s>/variants/</s><s>arduinoVariant::</s>
+			<s>" -I"</s><s>componentPath::</s>
+			<s>" -I"</s><s>outputPath::</s><s>" </s>
+			<s>-I"</s><s>libsPath::</s><s>/Arduino/RedBot/v1.0" </s>
+			
+			<s>"</s><s>libsPath::</s><s>/Arduino/RedBot/v1.0/RedBotEncoder.cpp" -o "</s><s>outputPath::</s><s>/RedBotEncoder.cpp.o"</s>
+		</cmd>
+		<cmd>
+			<s>"</s><s>toolsPath::</s>
+			<s>/avr-g++" -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD</s>
+			<s> -mmcu=</s><s>cpu::</s>
+			<s> -DF_CPU=</s><s>clockFreq::</s>
+			<s> -DARDUINO=</s><s>arduinoVersion::</s>
+			<s> -I"</s> <s>toolsPath::</s>
+			<s>" -I"</s><s>corePath::</s>
+			<s>" -I"</s><s>corePath::</s><s>/avr-libc</s>
+			<s>" -I"</s><s>corePath::</s><s>/variants/</s><s>arduinoVariant::</s>
+			<s>" -I"</s><s>componentPath::</s>
+			<s>" -I"</s><s>outputPath::</s><s>" </s>
+			<s>-I"</s><s>libsPath::</s><s>/Arduino/RedBot/v1.0" </s>
+			
+			<s>"</s><s>libsPath::</s><s>/Arduino/RedBot/v1.0/RedBotSoftwareSerial.cpp" -o "</s><s>outputPath::</s><s>/RedBotSoftwareSerial.cpp.o"</s>
+		</cmd>
+		<cmd>
+			<s>"</s><s>toolsPath::</s>
+			<s>/avr-g++" -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD</s>
+			<s> -mmcu=</s><s>cpu::</s>
+			<s> -DF_CPU=</s><s>clockFreq::</s>
+			<s> -DARDUINO=</s><s>arduinoVersion::</s>
+			<s> -I"</s> <s>toolsPath::</s>
+			<s>" -I"</s><s>corePath::</s>
+			<s>" -I"</s><s>corePath::</s><s>/avr-libc</s>
+			<s>" -I"</s><s>corePath::</s><s>/variants/</s><s>arduinoVariant::</s>
+			<s>" -I"</s><s>componentPath::</s>
+			<s>" -I"</s><s>outputPath::</s><s>" </s>
+			<s>-I"</s><s>libsPath::</s><s>/Arduino/RedBot/v1.0" </s>
+			
+			<s>"</s><s>libsPath::</s><s>/Arduino/RedBot/v1.0/RedBotBumper.cpp" -o "</s><s>outputPath::</s><s>/RedBotBumper.cpp.o"</s>
+		</cmd>
+		<cmd>
+			<s>"</s><s>toolsPath::</s>
+			<s>/avr-g++" -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD</s>
+			<s> -mmcu=</s><s>cpu::</s>
+			<s> -DF_CPU=</s><s>clockFreq::</s>
+			<s> -DARDUINO=</s><s>arduinoVersion::</s>
+			<s> -I"</s> <s>toolsPath::</s>
+			<s>" -I"</s><s>corePath::</s>
+			<s>" -I"</s><s>corePath::</s><s>/avr-libc</s>
+			<s>" -I"</s><s>corePath::</s><s>/variants/</s><s>arduinoVariant::</s>
+			<s>" -I"</s><s>componentPath::</s>
+			<s>" -I"</s><s>outputPath::</s><s>" </s>
+			<s>-I"</s><s>libsPath::</s><s>/Arduino/RedBot/v1.0" </s>
+			
+			<s>"</s><s>libsPath::</s><s>/Arduino/RedBot/v1.0/RedBot.cpp" -o "</s><s>outputPath::</s><s>/RedBot.cpp.o"</s>
+		</cmd>
+		<cmd>
+			<s>"</s><s>toolsPath::</s>
+			<s>/avr-g++" -c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -MMD</s>
+			<s> -mmcu=</s><s>cpu::</s>
+			<s> -DF_CPU=</s><s>clockFreq::</s>
+			<s> -DARDUINO=</s><s>arduinoVersion::</s>
+			<s> -I"</s> <s>toolsPath::</s>
+			<s>" -I"</s><s>corePath::</s>
+			<s>" -I"</s><s>corePath::</s><s>/avr-libc</s>
+			<s>" -I"</s><s>corePath::</s><s>/variants/</s><s>arduinoVariant::</s>
+			<s>" -I"</s><s>componentPath::</s>
+			<s>" -I"</s><s>outputPath::</s><s>" </s>
+			<s>-I"</s><s>libsPath::</s><s>/Arduino/RedBot/v1.0" </s>
+			
+			<s>"</s><s>libsPath::</s><s>/Arduino/RedBot/v1.0/mbqRedBot.cpp" -o "</s><s>outputPath::</s><s>/mbqRedBot.cpp.o"</s>
+		</cmd>
+	</build>
+</rel>

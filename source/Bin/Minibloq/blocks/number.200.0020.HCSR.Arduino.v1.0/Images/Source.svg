@@ -4721,7 +4721,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -4733,7 +4733,7 @@
        style="filter:url(#filter3833)"
        transform="matrix(0.85042772,0,0,0.85042772,60.870053,342.35094)"
        id="g3081"
-       inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Bin\Minibloq\Components\Minibloq\Lib\CPP\Blocks\number.050.0020.Ping.Arduino.v1.0\Images\PickerDisabled.png"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\blocks\number.200.0020.HCSR.Arduino.v1.0\Images\PickerDisabled.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90">
       <rect
@@ -4763,7 +4763,7 @@
     <rect
        inkscape:export-ydpi="90"
        inkscape:export-xdpi="90"
-       inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Bin\Minibloq\Components\Minibloq\Lib\CPP\Blocks\number.050.0020.Ping.Arduino.v1.0\Images\BlockDefault.png"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\blocks\number.200.0020.HCSR.Arduino.v1.0\Images\BlockDefault.png"
        transform="scale(-1,-1)"
        ry="21.26066"
        rx="17.077295"
@@ -4776,7 +4776,7 @@
     <rect
        inkscape:export-ydpi="90"
        inkscape:export-xdpi="90"
-       inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Bin\Minibloq\Components\Minibloq\Lib\CPP\Blocks\number.050.0020.Ping.Arduino.v1.0\Images\BlockDefault.png"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\blocks\number.200.0020.HCSR.Arduino.v1.0\Images\BlockDefault.png"
        transform="scale(-1,-1)"
        ry="21.26066"
        rx="17.077295"
@@ -4789,7 +4789,7 @@
     <rect
        inkscape:export-ydpi="90"
        inkscape:export-xdpi="90"
-       inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Bin\Minibloq\Components\Minibloq\Lib\CPP\Blocks\number.050.0020.Ping.Arduino.v1.0\Images\BlockDisabled.png"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\blocks\number.200.0020.HCSR.Arduino.v1.0\Images\BlockDisabled.png"
        transform="scale(-1,-1)"
        ry="21.26066"
        rx="17.077295"
@@ -4802,7 +4802,7 @@
     <rect
        inkscape:export-ydpi="90"
        inkscape:export-xdpi="90"
-       inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Bin\Minibloq\Components\Minibloq\Lib\CPP\Blocks\number.050.0020.Ping.Arduino.v1.0\Images\BlockDisabled.png"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\blocks\number.200.0020.HCSR.Arduino.v1.0\Images\BlockDisabled.png"
        transform="scale(-1,-1)"
        ry="21.26066"
        rx="17.077295"
@@ -4815,7 +4815,7 @@
     <g
        inkscape:export-ydpi="90"
        inkscape:export-xdpi="90"
-       inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Bin\Minibloq\Components\Minibloq\Lib\CPP\Blocks\number.050.0020.Ping.Arduino.v1.0\Images\PickerDefault.png"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\blocks\number.200.0020.HCSR.Arduino.v1.0\Images\PickerDefault.png"
        transform="translate(385.3111,-711.00246)"
        id="g3758-0">
       <rect
@@ -4845,7 +4845,7 @@
     <g
        inkscape:export-ydpi="90"
        inkscape:export-xdpi="90"
-       inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Bin\Minibloq\Components\Minibloq\Lib\CPP\Blocks\number.050.0020.Ping.Arduino.v1.0\Images\PickerPressed.png"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\blocks\number.200.0020.HCSR.Arduino.v1.0\Images\PickerPressed.png"
        transform="matrix(-1,0,0,-1,-15.455812,1651.6633)"
        id="g3758-3-1">
       <rect
@@ -4875,7 +4875,7 @@
     <g
        inkscape:export-ydpi="90"
        inkscape:export-xdpi="90"
-       inkscape:export-filename="C:\Projects\Multiplo\Soft\Minibloq\v1.0\Soft\Bin\Minibloq\Components\Minibloq\Lib\CPP\Blocks\number.050.0020.Ping.Arduino.v1.0\Images\PickerHover.png"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\blocks\number.200.0020.HCSR.Arduino.v1.0\Images\PickerHover.png"
        transform="translate(5.3880501,1.227684)"
        id="g3105-5">
       <rect
