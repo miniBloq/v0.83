@@ -1,8 +1,8 @@
 #include <mbq.h>
 
 
-DCMotor motor0(3, 4, 5);
-DCMotor motor1(11, 10, 9);
+Mot8833 motor0(3, 5);
+Mot8833 motor1(6, 11, false);
 Servo servo0;
 Servo servo1;
 LiquidCrystal textLCD(12, 11, 5, 4, 3, 2);
