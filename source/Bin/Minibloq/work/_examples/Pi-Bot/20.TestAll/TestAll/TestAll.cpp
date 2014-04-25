@@ -7,10 +7,10 @@ void setup()
 	float ultrasonic = 0;
 	motor0.setPower(80);
 	motor1.setPower(80);
-	delay(500);
+	delay(1500);
 	motor0.setPower(-(50));
 	motor1.setPower(-(50));
-	delay(500);
+	delay(1500);
 	motor0.setPower(0);
 	motor1.setPower(0);
 	while(true)

@@ -4,7 +4,7 @@
 void setup()
 {
 	initBoard();
-	float vel = 100;
+	float vel = 75;
 	float code = 0;
 	while(true)
 	{

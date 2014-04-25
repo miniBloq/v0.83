@@ -70,6 +70,8 @@ class Mot8833
 			pinMode(pin1, OUTPUT);
 			digitalWrite(pin0, LOW);
 			digitalWrite(pin1, LOW);
+			analogWrite(pin0, 0);
+			analogWrite(pin1, 0);
 		}
 
 		void setClockwise(const bool value)
@@ -123,7 +125,7 @@ class Mot8833
 			else if (tempPower < -zeroPowerZone)
 			{
 				//Reverse:				
-				analogWrite(pin0, (int)tempPower);
+				analogWrite(pin0, (int)(-tempPower));
 				analogWrite(pin1, 0);
 			}
 			else //(tempPower == 0)
