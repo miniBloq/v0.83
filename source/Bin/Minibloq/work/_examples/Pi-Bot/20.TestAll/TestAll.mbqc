@@ -3,7 +3,7 @@
     <files/>
     <properties>
         <canvas visible="true"/>
-        <blocks count="23"/>
+        <blocks count="25"/>
     </properties>
     <variables>
         <ultrasonic/>
@@ -61,6 +61,9 @@
         <ServoRC function="Setter" commented="false" instanceName="servo0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <numberConstant function="Constant" commented="false" constantValue="0" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </ServoRC>
+        <ServoRC function="Setter" commented="false" instanceName="servo1" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="50" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </ServoRC>
         <Buzzer function="Setter" commented="false" paramsCount="2" hasAddParamsButton="false" loadAction="load">
             <numberConstant function="Constant" commented="false" constantValue="880" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
             <numberConstant function="Constant" commented="false" constantValue="50" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
@@ -71,6 +74,9 @@
         <else function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
         <ServoRC function="Setter" commented="false" instanceName="servo0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <numberConstant function="Constant" commented="false" constantValue="50" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </ServoRC>
+        <ServoRC function="Setter" commented="false" instanceName="servo1" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="0" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </ServoRC>
         <IOPin function="Setter" commented="false" instanceName="D13_LED" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <boolConstantFalse function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
