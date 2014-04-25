@@ -17,7 +17,7 @@
 	<instances>
 		<servo0 instanceType="ServoRC"/>
 		<servo1 instanceType="ServoRC"/>
-		<servo2 instanceType="ServoRC"/>
+
 	</instances>
 	<initBoardCode>
 		<s>	//setPin() does not attach the servo (so the pin can be used by other library if the servo is not used).&#10;</s>

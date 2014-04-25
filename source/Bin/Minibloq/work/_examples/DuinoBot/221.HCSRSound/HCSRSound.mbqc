@@ -13,10 +13,10 @@
         </while>
         <Buzzer function="Setter" commented="false" paramsCount="2" hasAddParamsButton="false" loadAction="load">
             <numberMul function="Operation" commented="false" paramsCount="2" hasAddParamsButton="true" loadAction="load">
-                <HC-SR0x function="Sensor" commented="false" instanceName="D15" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
-                <numberConstant function="Constant" commented="false" constantValue="400" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                <HC-SR0x function="Sensor" commented="false" instanceName="D7" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                <numberConstant function="Constant" commented="false" constantValue="100" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
             </numberMul>
-            <numberConstant function="Constant" commented="false" constantValue="50" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            <numberConstant function="Constant" commented="false" constantValue="100" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
         </Buzzer>
         <whileEnd function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
     </blocks>

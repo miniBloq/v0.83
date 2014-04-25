@@ -22,7 +22,6 @@ extern DCMotor motor0;
 extern DCMotor motor1;
 extern Servo servo0;
 extern Servo servo1;
-extern Servo servo2;
 extern LiquidCrystal textLCD;
 extern IRrecv irReceiver;
 extern HCSRSensor hcsr;

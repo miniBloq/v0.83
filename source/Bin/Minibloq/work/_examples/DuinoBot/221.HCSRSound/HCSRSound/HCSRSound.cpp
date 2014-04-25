@@ -6,8 +6,7 @@ void setup()
 	initBoard();
 	while(true)
 	{
-		serial0.println(hcsrMeasureCM(D7));
-		delay(200);
+		toneWithDelay(BuzzerPin, (hcsrMeasureCM(D7)*100), 100);
 	}
 }
 
