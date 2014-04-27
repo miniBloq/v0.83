@@ -10,7 +10,7 @@
 		<s>extern IRrecv irReceiver;</s>
 	</instancesHeader>		
 	<instancesCode>
-		<s>IRrecv irReceiver(2);</s>
+		<s>IRrecv irReceiver(14);</s>
 	</instancesCode>
 	<build>
 		<cmd>

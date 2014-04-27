@@ -47,29 +47,23 @@
 	// #include "WProgram.h"
 // #endif
 
+#include "AFMotor.h"
 
 const float dcMotMaxPower = 100.0;
 const float dcMotMinPower = -dcMotMaxPower;
 const int maxPWMValue = 255;
 
 
-class Mot8833
+class DCMotorWrap
 {
 	private:
 		bool clockwise;
 		float power, prevPower, zeroPowerZone;
-		int pin0, pin1;
+		AF_DCMotor *_motor;
 
 	public:
-		inline Mot8833(const int pin0, const int pin1,
-                       const bool clockwise = true) :   clockwise(clockwise),
-                                                        power(0.0), prevPower(0.0), zeroPowerZone(0.1),
-                                                        pin0(pin0), pin1(pin1)
+		DCMotorWrap(AF_DCMotor *motor) : _motor(motor)
 		{
-			pinMode(pin0, OUTPUT);
-			pinMode(pin1, OUTPUT);
-			digitalWrite(pin0, LOW);
-			digitalWrite(pin1, LOW);
 		}
 
 		void setClockwise(const bool value)
@@ -105,6 +99,9 @@ class Mot8833
 
 		void setPower(const float value)
 		{
+			if (_motor == NULL)
+				return;
+		
 			float tempPower = constrain(value, dcMotMinPower, dcMotMaxPower);
 
 			prevPower = power;
@@ -117,20 +114,19 @@ class Mot8833
 			if (tempPower > zeroPowerZone) //Margin for floating point: between -zeroPowerZone and +zeroPowerZone is read as zero.
 			{
 				//Forward:
-				analogWrite(pin0, 0);
-				analogWrite(pin1, (int)tempPower);
+				_motor->setSpeed((int)tempPower);
+				_motor->run(FORWARD);
 			}
 			else if (tempPower < -zeroPowerZone)
 			{
 				//Reverse:				
-				analogWrite(pin0, (int)tempPower);
-				analogWrite(pin1, 0);
+				_motor->setSpeed((int)(-tempPower));
+				_motor->run(FORWARD);
 			}
 			else //(tempPower == 0)
 			{
 				//Stop:
-				analogWrite(pin0, 0);
-				analogWrite(pin1, 0);
+				_motor->run(RELEASE); 
 			}
 		}
 };
