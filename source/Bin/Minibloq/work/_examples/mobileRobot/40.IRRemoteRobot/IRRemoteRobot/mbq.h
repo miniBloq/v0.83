@@ -9,7 +9,8 @@
 #include <board.h>
 #include <pitches.h>
 #include <toneDelay.h>
-#include <Mot8833.h>
+#include <DCMotorWrap.h>
+#include <AFMotor.h>
 #include <Servo.h>
 #include <IRRemote.h>
 #include <HCSR0x.h>
@@ -17,8 +18,10 @@
 #include <IRRanger.h>
 
 
-extern Mot8833 motor0;
-extern Mot8833 motor1;
+extern AF_DCMotor afMotor0;
+extern AF_DCMotor afMotor1;
+extern DCMotorWrap motor0;
+extern DCMotorWrap motor1;
 extern Servo servo0;
 extern Servo servo1;
 extern IRrecv irReceiver;
