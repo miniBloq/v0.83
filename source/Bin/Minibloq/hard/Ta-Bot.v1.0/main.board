@@ -170,8 +170,7 @@
 			<s>outputObjectsList::</s>
 			<s> "</s><s>outputPath::</s><s>/</s><s>initBoard.cpp.o"</s>
 			<s> "</s><s>outputPath::</s><s>/</s><s>componentName::</s><s>.cpp.o" "</s>
-			<s>corePath::</s><s>/obj/</s><s>core::</s><s>"</s>
-			<s> -L ./ -lm</s>
+			<s>corePath::</s><s>/obj/</s><s>core::</s><s>"</s><s>  -L ./ -lm</s>
 		</cmd>
 		<cmd>
 			<s>"</s><s>toolsPath::</s>
