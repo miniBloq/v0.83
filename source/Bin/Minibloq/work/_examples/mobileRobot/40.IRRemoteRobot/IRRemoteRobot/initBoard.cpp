@@ -1,13 +1,11 @@
 #include <mbq.h>
 
 
-AF_DCMotor afMotor0(1, MOTOR12_1KHZ);
-AF_DCMotor afMotor1(2, MOTOR12_1KHZ);
-DCMotorWrap motor0(&afMotor0);
-DCMotorWrap motor1(&afMotor1);
+Mot8833 motor0(3, 5);
+Mot8833 motor1(6, 11, false);
 Servo servo0;
 Servo servo1;
-IRrecv irReceiver(14);
+IRrecv irReceiver(4);
 HCSRSensor hcsr(0);
 PingSensor ping(0);
 IRRanger irRanger20to150(1, IRRanger::range20to150cm);
