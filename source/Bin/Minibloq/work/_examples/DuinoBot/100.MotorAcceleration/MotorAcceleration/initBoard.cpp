@@ -5,7 +5,6 @@ Mot8833 motor0(3, 5);
 Mot8833 motor1(6, 11, false);
 Servo servo0;
 Servo servo1;
-LiquidCrystal textLCD(12, 11, 5, 4, 3, 2);
 IRrecv irReceiver(4);
 HCSRSensor hcsr(0);
 PingSensor ping(0);
@@ -23,5 +22,4 @@ void initBoard()
 	//setPin() does not attach the servo (so the pin can be used by other library if the servo is not used).
 	servo0.setPin(9);
 	servo1.setPin(10);
-	//;
 }

@@ -3,8 +3,8 @@
     <properties>
 		<manufacturer>STEM Center USA</manufacturer>
 		<name>Pi-Bot v1.0</name>
-		<url0>http://www.stemcenterusa.com</url0>
-		<url1>http://pi-bot.org/</url1>
+		<url0>http://www.STEMCenterUSA.com</url0>
+		<url1>http://Pi-Bot.org/</url1>
 		<cpu>atmega328p</cpu>
 		<clockFreq>16000000L</clockFreq>
 		<imgMain>main.png</imgMain>

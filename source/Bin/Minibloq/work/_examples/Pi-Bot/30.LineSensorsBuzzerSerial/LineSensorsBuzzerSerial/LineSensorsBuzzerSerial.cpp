@@ -8,19 +8,19 @@ void setup()
 	{
 		if(!(DigitalRead(D14)))
 		{
-			toneWithDelay(BuzzerPin, NOTE_E4, 100);
+			toneWithDelay(BuzzerPin, 440, 100);
 		}
 		else
 		{
 			if(!(DigitalRead(D15)))
 			{
-				toneWithDelay(BuzzerPin, NOTE_E5, 100);
+				toneWithDelay(BuzzerPin, 880, 100);
 			}
 			else
 			{
 				if(!(DigitalRead(D16)))
 				{
-					toneWithDelay(BuzzerPin, NOTE_E6, 100);
+					toneWithDelay(BuzzerPin, 1760, 100);
 				}
 				else
 				{

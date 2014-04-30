@@ -9,7 +9,7 @@ void setup()
 	{
 		code = irReceiver.getIRRemoteCode();
 		toneWithDelay(BuzzerPin, (code*440), 250);
-		serial0.println(irReceiver.getIRRemoteCode());
+		serial0.println(code);
 	}
 }
 

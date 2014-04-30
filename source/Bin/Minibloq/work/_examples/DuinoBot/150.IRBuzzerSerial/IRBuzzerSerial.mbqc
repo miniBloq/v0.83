@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mbqc xmlns="http://mbqc.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
+    <files/>
     <properties>
+        <canvas visible="true"/>
         <blocks count="7"/>
     </properties>
     <variables>
@@ -26,7 +28,7 @@
         </Buzzer>
         <Serial function="Setter" commented="false" instanceName="serial0" paramsCount="1" hasAddParamsButton="false" loadAction="load">
             <SerialNumber function="Setter" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
-                <IRRemote function="Sensor" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                <VariableGetter function="Getter" commented="false" instanceName="code" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
             </SerialNumber>
         </Serial>
         <whileEnd function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>

@@ -11,7 +11,6 @@
 #include <toneDelay.h>
 #include <Mot8833.h>
 #include <Servo.h>
-#include <LiquidCrystal.h>
 #include <IRRemote.h>
 #include <HCSR0x.h>
 #include <Ping.h>
@@ -22,7 +21,6 @@ extern Mot8833 motor0;
 extern Mot8833 motor1;
 extern Servo servo0;
 extern Servo servo1;
-extern LiquidCrystal textLCD;
 extern IRrecv irReceiver;
 extern HCSRSensor hcsr;
 extern PingSensor ping;
