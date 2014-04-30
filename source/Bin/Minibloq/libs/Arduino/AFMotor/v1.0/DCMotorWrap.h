@@ -121,7 +121,7 @@ class DCMotorWrap
 			{
 				//Reverse:				
 				_motor->setSpeed((int)(-tempPower));
-				_motor->run(FORWARD);
+				_motor->run(BACKWARD);
 			}
 			else //(tempPower == 0)
 			{
