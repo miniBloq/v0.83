@@ -20,10 +20,10 @@
 #define sensor9  9
 #define sensor10 10
 #define sensor11 11
-#define sensor11 12
-#define sensor11 13
-#define sensor11 14
-#define sensor11 15
+#define sensor12 12
+#define sensor13 13
+#define sensor14 14
+#define sensor15 15
 		
 #define PWM3   3
 #define PWM4   4
@@ -68,6 +68,45 @@
 #define D27 27
 #define D28 28
 
+#define D30 30
+#define D31 31
+#define D32 32
+#define D33	33
+#define D34 34
+#define D35 35
+#define D36 36
+#define D37 37
+#define D38 38
+
+#define D40 40
+#define D41 41
+#define D42 42
+#define D43	43
+#define D44 44
+#define D45 45
+#define D46 46
+#define D47 47
+#define D48 48
+
+#define D50 50
+#define D51 51
+#define D52 52
+#define D53	53
+#define D54 54
+#define D55 55
+#define D56 56
+#define D57 57
+#define D58 58
+
+#define D60 60
+#define D61 61
+#define D62 62
+#define D63	63
+#define D64 64
+#define D65 65
+#define D66 66
+#define D67 67
+#define D68 68
 
 void initBoard();
 
