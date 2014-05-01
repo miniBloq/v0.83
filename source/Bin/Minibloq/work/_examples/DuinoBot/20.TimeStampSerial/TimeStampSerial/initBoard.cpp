@@ -8,6 +8,7 @@ Servo servo1;
 Servo servo2;
 LiquidCrystal textLCD(12, 11, 5, 4, 3, 2);
 IRrecv irReceiver(2);
+HCSRSensor hcsr(0);
 PingSensor ping(0);
 IRRanger irRanger20to150(1, IRRanger::range20to150cm);
 IRRanger irRanger10to80(1, IRRanger::range10to80cm);

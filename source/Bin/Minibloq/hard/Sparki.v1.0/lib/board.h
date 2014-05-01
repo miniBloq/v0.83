@@ -6,12 +6,12 @@
 
 #define BuzzerPin 11
 
-#define sensor0  A0
-#define sensor1  A1
-#define sensor2  A2
-#define sensor3  A3
-#define sensor4  A4
-#define sensor5  A5
+#define sensor0  0
+#define sensor1  1
+#define sensor2  2
+#define sensor3  3
+#define sensor4  4
+#define sensor5  5
 		
 #define PWM3   3
 #define PWM5   5
