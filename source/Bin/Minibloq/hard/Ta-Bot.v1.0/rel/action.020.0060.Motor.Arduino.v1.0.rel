@@ -10,18 +10,28 @@
 	<instancesHeader>
 		<s>extern AF_DCMotor afMotor0;</s>
 		<s>extern AF_DCMotor afMotor1;</s>
+		<s>extern AF_DCMotor afMotor2;</s>
+		<s>extern AF_DCMotor afMotor3;</s>
 		<s>extern DCMotorWrap motor0;</s>
 		<s>extern DCMotorWrap motor1;</s>
+		<s>extern DCMotorWrap motor2;</s>
+		<s>extern DCMotorWrap motor3;</s>
 	</instancesHeader>
 	<instancesCode>
 		<s>AF_DCMotor afMotor0(1, MOTOR12_1KHZ);</s>
 		<s>AF_DCMotor afMotor1(2, MOTOR12_1KHZ);</s>
+		<s>AF_DCMotor afMotor2(3);</s>
+		<s>AF_DCMotor afMotor3(4);</s>
 		<s>DCMotorWrap motor0(&amp;afMotor0);</s>
 		<s>DCMotorWrap motor1(&amp;afMotor1);</s>
+		<s>DCMotorWrap motor2(&amp;afMotor2);</s>
+		<s>DCMotorWrap motor3(&amp;afMotor3);</s>
 	</instancesCode>
 	<instances>
 		<motor0 instanceType="Motor"/>
 		<motor1 instanceType="Motor"/>
+		<motor2 instanceType="Motor"/>
+		<motor3 instanceType="Motor"/>
 	</instances>
 	<build>
 		<cmd>
