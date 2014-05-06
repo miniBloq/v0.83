@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rel xmlns="http://rel.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
+	<includePaths>
+		<include><s>libsPath::</s><s>/Arduino/IRRanger/v1.0</s></include>
+	</includePaths>
+	<includeFiles>
+		<include><s>IRRanger.h</s></include>
+	</includeFiles>
+	<instancesHeader>
+		<s>extern IRRanger irRanger20to150;</s>
+		<s>extern IRRanger irRanger10to80;</s>
+	</instancesHeader>		
+	<instancesCode>
+		<s>IRRanger irRanger20to150(1, IRRanger::range20to150cm);</s>
+		<s>IRRanger irRanger10to80(1, IRRanger::range10to80cm);</s>
+	</instancesCode>
+</rel>

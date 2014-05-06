@@ -16,7 +16,7 @@ IRRanger irRanger10to80(1, IRRanger::range10to80cm);
 
 void initBoard()
 {
-	Serial.begin(115200);
+	Serial.begin(57600);
 
 	//Uses the analog input 0, that may have the same value in some designs, but it's not so prabably:
 	randomSeed(analogRead(0));
