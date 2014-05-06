@@ -20,8 +20,12 @@
 
 extern AF_DCMotor afMotor0;
 extern AF_DCMotor afMotor1;
+extern AF_DCMotor afMotor2;
+extern AF_DCMotor afMotor3;
 extern DCMotorWrap motor0;
 extern DCMotorWrap motor1;
+extern DCMotorWrap motor2;
+extern DCMotorWrap motor3;
 extern Servo servo0;
 extern Servo servo1;
 extern IRrecv irReceiver;

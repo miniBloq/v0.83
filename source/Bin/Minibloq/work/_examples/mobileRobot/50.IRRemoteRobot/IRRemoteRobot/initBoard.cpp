@@ -3,8 +3,12 @@
 
 AF_DCMotor afMotor0(1, MOTOR12_1KHZ);
 AF_DCMotor afMotor1(2, MOTOR12_1KHZ);
+AF_DCMotor afMotor2(3);
+AF_DCMotor afMotor3(4);
 DCMotorWrap motor0(&afMotor0);
 DCMotorWrap motor1(&afMotor1);
+DCMotorWrap motor2(&afMotor2);
+DCMotorWrap motor3(&afMotor3);
 Servo servo0;
 Servo servo1;
 IRrecv irReceiver(14);
