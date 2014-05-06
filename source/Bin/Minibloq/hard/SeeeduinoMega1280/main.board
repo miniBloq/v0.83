@@ -2,25 +2,25 @@
 <board xmlns="http://board.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
     <properties>
 		<manufacturer>Seeedstudio</manufacturer>
-		<name>Seeeduino 328 / Arduino Duemilanove</name>
+		<name>Seeeduino Mega 1280 / Arduino Mega</name>
 		<url0>http://www.seeedstudio.com/</url0>
-		<url1>http://www.seeedstudio.com/wiki/Seeeduino_v3.0</url1>
-		<cpu>atmega328p</cpu>
+		<url1>http://arduino.cc/en/Main/arduinoBoardMega</url1>
+		<cpu>atmega1280</cpu>
 		<clockFreq>16000000L</clockFreq>
 		<imgMain>main.png</imgMain>
 		<imgThumb>thumb.png</imgThumb>
 		<win_i386_lang>WinAVR/v20090313/bin</win_i386_lang>
 		<win_i386_uploader>avrdude.209130919.exe</win_i386_uploader>
 		<win_i386_corePath>Arduino.v1.5.4.r2/avr</win_i386_corePath>
-		<win_i386_core>mega328.a</win_i386_core>
+		<win_i386_core>mega1280.a</win_i386_core>
 		<linux_i386_lang>avrlinux/i386/v4.3.5/bin</linux_i386_lang>
 		<linux_i386_uploader>avrdude.20071012.exe</linux_i386_uploader>
 		<linux_i386_corePath>Arduino.v1.5.4.r2/avr</linux_i386_corePath>
-		<linux_i386_core>mega328.a</linux_i386_core>
+		<linux_i386_core>mega2560.a</linux_i386_core>
 		<linux_amd64_lang>avrlinux/amd64/v4.3.5/bin</linux_amd64_lang>
 		<linux_amd64_uploader>avrdude.20071012.exe</linux_amd64_uploader>
 		<linux_amd64_corePath>Arduino.v1.5.4.r2/avr</linux_amd64_corePath>
-		<linux_amd64_core>mega328.a</linux_amd64_core>
+		<linux_amd64_core>mega2560.a</linux_amd64_core>
 		<win_i386_driverPath>drivers/Arduino/win</win_i386_driverPath>
 		<outputMainFileExtension>cpp</outputMainFileExtension>
 		<resetBeforeBuild>false</resetBeforeBuild>
@@ -42,7 +42,7 @@
 		<commentEnd></commentEnd>
 		<arduinoVersion>154</arduinoVersion>
 		<objectExtension>o</objectExtension>
-		<boardDefine>DARDUINO_AVR_DUEMILANOVE</boardDefine>
+		<boardDefine>DARDUINO_AVR_MEGA</boardDefine>
 		<arduinoVariant>standard</arduinoVariant>
     </properties>
 	<syntax>
@@ -70,7 +70,8 @@
 		<tabWidth>4</tabWidth>
 	</syntax>
 	<examples>
-		<path><s>componentsRepositoryPath::</s><s>/work/_examples/ArduinoUno</s></path>
+		<path><s>componentsRepositoryPath::</s><s>/work/_examples/Arduino</s></path>
+		<path><s>componentsRepositoryPath::</s><s>/work/_examples/ArduinoMega</s></path>
 		<path><s>componentsRepositoryPath::</s><s>/work/_examples/DifferentialRobot</s></path>
 	</examples>
 	<fileExtensions>
@@ -200,6 +201,8 @@
 	</deploy>
 	<instances>
 		<serial0 instanceType="Serial"/>
+		<serial1 instanceType="Serial"/>
+		<serial2 instanceType="Serial"/>
 
 		<sensor0 instanceType="analogRead"/>
 		<sensor1 instanceType="analogRead"/>
@@ -207,13 +210,28 @@
 		<sensor3 instanceType="analogRead"/>
 		<sensor4 instanceType="analogRead"/>
 		<sensor5 instanceType="analogRead"/>
+		<sensor6 instanceType="analogRead"/>
+		<sensor7 instanceType="analogRead"/>
+		<sensor8 instanceType="analogRead"/>
+		<sensor9 instanceType="analogRead"/>
+		<sensor10 instanceType="analogRead"/>
+		<sensor11 instanceType="analogRead"/>
+		<sensor12 instanceType="analogRead"/>
+		<sensor13 instanceType="analogRead"/>
+		<sensor14 instanceType="analogRead"/>
+		<sensor15 instanceType="analogRead"/>
 
 		<PWM3 instanceType="analogWrite"/>
+		<PWM4 instanceType="analogWrite"/>
 		<PWM5 instanceType="analogWrite"/>
 		<PWM6 instanceType="analogWrite"/>
+		<PWM7 instanceType="analogWrite"/>
+		<PWM8 instanceType="analogWrite"/>
 		<PWM9 instanceType="analogWrite"/>
 		<PWM10 instanceType="analogWrite"/>
 		<PWM11 instanceType="analogWrite"/>
+		<PWM12 instanceType="analogWrite"/>
+		<PWM13 instanceType="analogWrite"/>
 
 		<D0 instanceType="IOPin"/>
 		<D1 instanceType="IOPin"/>
@@ -225,6 +243,7 @@
 		<D7 instanceType="IOPin"/>
 		<D8 instanceType="IOPin"/>
 		<D9 instanceType="IOPin"/>
+		
 		<D10 instanceType="IOPin"/>
 		<D11 instanceType="IOPin"/>
 		<D12 instanceType="IOPin"/>
@@ -235,5 +254,44 @@
 		<D17 instanceType="IOPin"/>
 		<D18 instanceType="IOPin"/>
 		<D19 instanceType="IOPin"/>
+		
+		<D20 instanceType="IOPin"/>
+		<D21 instanceType="IOPin"/>
+		<D22 instanceType="IOPin"/>
+		<D23 instanceType="IOPin"/>
+		<D24 instanceType="IOPin"/>
+		<D25 instanceType="IOPin"/>
+		<D26 instanceType="IOPin"/>
+		<D27 instanceType="IOPin"/>
+		<D28 instanceType="IOPin"/>
+		<D29 instanceType="IOPin"/>
+
+		<D30 instanceType="IOPin"/>
+		<D31 instanceType="IOPin"/>
+		<D32 instanceType="IOPin"/>
+		<D33 instanceType="IOPin"/>
+		<D34 instanceType="IOPin"/>
+		<D35 instanceType="IOPin"/>
+		<D36 instanceType="IOPin"/>
+		<D37 instanceType="IOPin"/>
+		<D38 instanceType="IOPin"/>
+		<D39 instanceType="IOPin"/>
+
+		<D40 instanceType="IOPin"/>
+		<D41 instanceType="IOPin"/>
+		<D42 instanceType="IOPin"/>
+		<D43 instanceType="IOPin"/>
+		<D44 instanceType="IOPin"/>
+		<D45 instanceType="IOPin"/>
+		<D46 instanceType="IOPin"/>
+		<D47 instanceType="IOPin"/>
+		<D48 instanceType="IOPin"/>
+		<D49 instanceType="IOPin"/>
+
+		<D50 instanceType="IOPin"/>
+		<D51 instanceType="IOPin"/>
+		<D52 instanceType="IOPin"/>
+		<D53 instanceType="IOPin"/>
+		<D54 instanceType="IOPin"/>
 	</instances>
 </board>

@@ -12387,7 +12387,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -12396,7 +12396,10 @@
      inkscape:groupmode="layer"
      id="layer1">
     <g
-       id="g6548">
+       id="g6548"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\Seeeduino328.v2.2\img\main.png"
+       inkscape:export-xdpi="113.53"
+       inkscape:export-ydpi="113.53">
       <path
          inkscape:export-ydpi="3.45"
          inkscape:export-xdpi="3.45"

@@ -6,7 +6,7 @@ void setup()
 	initBoard();
 	while(true)
 	{
-		serial0.println(AnalogRead(sensor3));
+		serial0.println(AnalogRead(sensor0));
 		delay(100);
 	}
 }
