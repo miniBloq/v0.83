@@ -1,6 +1,8 @@
 #include <mbq.h>
 
+//SparkFun's RedBot:
 #define baudrate 38400
+//#define baudrate 115200 //debug
 #define serial serial0
 
 

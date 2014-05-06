@@ -38,6 +38,7 @@
 #define D16 16
 #define D17 17
 #define D18 18
+#define D19 19
 
 void initBoard();
 

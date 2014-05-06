@@ -43,8 +43,8 @@ def getThresholdedImg(hsv):
 
 ##Main program:
 ##sp = serial.Serial('COM69', 115200) ##KC21 BT module
-sp = serial.Serial('COM64', 9600) ##HC-07 BT module
-#sp = serial.Serial('COM76', 38400) ##SparkFun's XBee module (RedBot)
+##sp = serial.Serial('COM64', 9600) ##HC-07 BT module
+sp = serial.Serial('COM76', 38400) ##SparkFun's XBee module (RedBot)
 
 ##Initializes video capturing:
 c = cv2.VideoCapture(0)

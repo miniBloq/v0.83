@@ -57,6 +57,7 @@
 #define D16 16
 #define D17 17
 #define D18 18
+#define D19 19
 
 #define D20 20
 #define D21 21
@@ -67,6 +68,7 @@
 #define D26 26
 #define D27 27
 #define D28 28
+#define D29 29
 
 #define D30 30
 #define D31 31
@@ -77,6 +79,7 @@
 #define D36 36
 #define D37 37
 #define D38 38
+#define D39 39
 
 #define D40 40
 #define D41 41
@@ -87,6 +90,7 @@
 #define D46 46
 #define D47 47
 #define D48 48
+#define D49 49
 
 #define D50 50
 #define D51 51
