@@ -19,7 +19,7 @@
 		<linux_i386_corePath>DuinoBot.v1.x.HID.v0022</linux_i386_corePath>
 		<linux_i386_core>mega32U4.a</linux_i386_core>
 		<linux_amd64_lang>avrlinux/amd64/v4.3.5/bin</linux_amd64_lang>
-		<linux_amd64_uploader>tools/hidUploader/v1.0/hid_bootloader_cli.Linux</linux_amd64_uploader>
+		<linux_amd64_uploader>tools/hidUploader/v1.0/hid_bootloader_cli.Linux.amd64</linux_amd64_uploader>
 		<linux_amd64_corePath>DuinoBot.v1.x.HID.v0022</linux_amd64_corePath>
 		<linux_amd64_core>mega32U4.a</linux_amd64_core>
 		<linux_i386_driverPath>drivers/DuinoBot/linux/v1.x.HID</linux_i386_driverPath>

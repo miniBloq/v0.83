@@ -7,8 +7,8 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output=".\Bin\Minibloq\Components\Minibloq\v1.0\Minibloq-i386" prefix_auto="1" extension_auto="1" />
-				<Option object_output="Obj\Debug\" />
+				<Option output=".\Bin\Minibloq\mbq\v0.82\Minibloq-i386-dbg" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Obj\Debug-i386\" />
 				<Option type="0" />
 				<Option compiler="gcc" />
 				<Option projectLinkerOptionsRelation="2" />
@@ -42,8 +42,8 @@
 				</Linker>
 			</Target>
 			<Target title="Release">
-				<Option output=".\Bin\Minibloq\Components\Minibloq\v1.0\Minibloq-i386" prefix_auto="1" extension_auto="1" />
-				<Option object_output="Obj\Release\" />
+				<Option output=".\Bin\Minibloq\mbq\v0.82\Minibloq-i386" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Obj\Release-i386\" />
 				<Option type="0" />
 				<Option compiler="gcc" />
 				<Option projectLinkerOptionsRelation="2" />

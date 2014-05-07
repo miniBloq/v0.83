@@ -1,0 +1,832 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="robot0.svg"
+   inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\lang\PPythonWin\v2.7.5.1\App\Lib\miniSim\robot1.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient3878">
+      <stop
+         style="stop-color:#ffff00;stop-opacity:1;"
+         offset="0"
+         id="stop3880" />
+      <stop
+         style="stop-color:#ff6600;stop-opacity:1;"
+         offset="1"
+         id="stop3882" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3862">
+      <stop
+         style="stop-color:#ff6600;stop-opacity:1;"
+         offset="0"
+         id="stop3864" />
+      <stop
+         style="stop-color:#ff6600;stop-opacity:0;"
+         offset="1"
+         id="stop3866" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3065">
+      <stop
+         style="stop-color:#ff5700;stop-opacity:1;"
+         offset="0"
+         id="stop3067" />
+      <stop
+         id="stop3886"
+         offset="0.5"
+         style="stop-color:#ff9100;stop-opacity:0.49803922;" />
+      <stop
+         style="stop-color:#ffcc00;stop-opacity:0;"
+         offset="1"
+         id="stop3069" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3862-6"
+       id="linearGradient3868-7"
+       x1="-753.92859"
+       y1="313.43362"
+       x2="-789.64288"
+       y2="273.43362"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3862-6">
+      <stop
+         style="stop-color:#ff6600;stop-opacity:1;"
+         offset="0"
+         id="stop3864-1" />
+      <stop
+         style="stop-color:#ff6600;stop-opacity:0;"
+         offset="1"
+         id="stop3866-4" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3878-3"
+       id="linearGradient3890-2"
+       x1="-788.62787"
+       y1="248.2861"
+       x2="-760.30072"
+       y2="269.0004"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       id="linearGradient3878-3">
+      <stop
+         style="stop-color:#ffff00;stop-opacity:1;"
+         offset="0"
+         id="stop3880-2" />
+      <stop
+         style="stop-color:#ff6600;stop-opacity:1;"
+         offset="1"
+         id="stop3882-2" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3862"
+       id="linearGradient4000"
+       gradientUnits="userSpaceOnUse"
+       x1="-753.92859"
+       y1="313.43362"
+       x2="-789.64288"
+       y2="273.43362" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3878"
+       id="linearGradient4002"
+       gradientUnits="userSpaceOnUse"
+       x1="-788.62787"
+       y1="248.2861"
+       x2="-760.30072"
+       y2="269.0004" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3862-7">
+      <stop
+         style="stop-color:#ff6600;stop-opacity:1;"
+         offset="0"
+         id="stop3864-4" />
+      <stop
+         style="stop-color:#ff6600;stop-opacity:0;"
+         offset="1"
+         id="stop3866-0" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3878-4">
+      <stop
+         style="stop-color:#ffff00;stop-opacity:1;"
+         offset="0"
+         id="stop3880-8" />
+      <stop
+         style="stop-color:#ff6600;stop-opacity:1;"
+         offset="1"
+         id="stop3882-8" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3878-4"
+       id="linearGradient3214"
+       gradientUnits="userSpaceOnUse"
+       x1="-788.62787"
+       y1="248.2861"
+       x2="-760.30072"
+       y2="269.0004"
+       gradientTransform="translate(1195.2193,441.92354)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3862-7"
+       id="linearGradient3218"
+       gradientUnits="userSpaceOnUse"
+       x1="-753.92859"
+       y1="313.43362"
+       x2="-789.64288"
+       y2="273.43362"
+       gradientTransform="translate(1195.2193,441.92354)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3878-4-4"
+       id="linearGradient3214-3"
+       gradientUnits="userSpaceOnUse"
+       x1="-788.62787"
+       y1="248.2861"
+       x2="-760.30072"
+       y2="269.0004"
+       gradientTransform="matrix(1.0039063,0,0,1.0039063,1105.3763,734.76741)" />
+    <linearGradient
+       id="linearGradient3878-4-4">
+      <stop
+         style="stop-color:#ffff00;stop-opacity:1;"
+         offset="0"
+         id="stop3880-8-9" />
+      <stop
+         style="stop-color:#ff6600;stop-opacity:1;"
+         offset="1"
+         id="stop3882-8-6" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3862-7-1"
+       id="linearGradient3218-5"
+       gradientUnits="userSpaceOnUse"
+       x1="-753.92859"
+       y1="313.43362"
+       x2="-789.64288"
+       y2="273.43362"
+       gradientTransform="matrix(1.0039063,0,0,1.0039063,1105.3763,734.76741)" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3862-7-1">
+      <stop
+         style="stop-color:#ff6600;stop-opacity:1;"
+         offset="0"
+         id="stop3864-4-0" />
+      <stop
+         style="stop-color:#ff6600;stop-opacity:0;"
+         offset="1"
+         id="stop3866-0-9" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="-800.05748"
+     inkscape:cy="668.81149"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1600"
+     inkscape:window-height="838"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g3966"
+       transform="matrix(0,1,-1,0,-557.77472,1188.3426)"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\miniSim.v1.0\lib\robot0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <g
+         transform="translate(-2.7242126,0)"
+         id="g3872">
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           id="rect3870"
+           width="60"
+           height="2.5"
+           x="-939.64282"
+           y="268.62213" />
+        <rect
+           style="fill:#1a1a1a;fill-opacity:1;stroke:none"
+           id="rect2985-1"
+           width="14"
+           height="25"
+           x="-880.99261"
+           y="257.37213"
+           rx="2"
+           ry="2" />
+        <rect
+           style="fill:#1a1a1a;fill-opacity:1;stroke:none"
+           id="rect2985-1-7"
+           width="14"
+           height="25"
+           x="-950.98755"
+           y="257.37213"
+           rx="2"
+           ry="2" />
+      </g>
+      <g
+         id="g3872-8"
+         transform="translate(-2.7242126,39.25)">
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           id="rect3870-2"
+           width="60"
+           height="2.5"
+           x="-939.64282"
+           y="268.62213" />
+        <rect
+           style="fill:#1a1a1a;fill-opacity:1;stroke:none"
+           id="rect2985-1-4"
+           width="14"
+           height="25"
+           x="-880.99261"
+           y="257.37213"
+           rx="2"
+           ry="2" />
+        <rect
+           style="fill:#1a1a1a;fill-opacity:1;stroke:none"
+           id="rect2985-1-7-5"
+           width="14"
+           height="25"
+           x="-950.98755"
+           y="257.37213"
+           rx="2"
+           ry="2" />
+      </g>
+      <rect
+         ry="7.9999995"
+         rx="8"
+         y="261.64941"
+         x="-938.672"
+         height="59.731174"
+         width="53.915363"
+         id="rect2985"
+         style="fill:#ffcc00;fill-opacity:1;stroke:#000000;stroke-width:0.48311281;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         ry="7.9999995"
+         rx="7.9999995"
+         y="268.38068"
+         x="-932.59613"
+         height="46.268631"
+         width="41.763622"
+         id="rect2985-7"
+         style="fill:#ffcc00;fill-opacity:1;stroke:#000000;stroke-width:0.37422618;stroke-miterlimit:4;stroke-dasharray:none" />
+      <path
+         transform="translate(118.10712,22.545661)"
+         d="m -1020.3571,250.04076 c 0,5.22698 -4.2373,9.46428 -9.4643,9.46428 -5.227,0 -9.4643,-4.2373 -9.4643,-9.46428 0,-5.22698 4.2373,-9.46429 9.4643,-9.46429 5.227,0 9.4643,4.23731 9.4643,9.46429 z"
+         sodipodi:ry="9.4642859"
+         sodipodi:rx="9.4642859"
+         sodipodi:cy="250.04076"
+         sodipodi:cx="-1029.8214"
+         id="path3944"
+         style="fill:#ff6600;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         sodipodi:type="arc" />
+      <rect
+         ry="2"
+         rx="2"
+         y="255.89752"
+         x="-928.66351"
+         height="14"
+         width="33.898476"
+         id="rect2985-9"
+         style="fill:#ff6600;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none" />
+      <g
+         transform="translate(-2.9502549,-12)"
+         id="g3940">
+        <rect
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:0.13780782;stroke-miterlimit:4;stroke-dasharray:none"
+           id="rect2985-9-5"
+           width="9.1846895"
+           height="4.6132612"
+           x="-922.12042"
+           y="262.96536" />
+        <rect
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:0.13780782;stroke-miterlimit:4;stroke-dasharray:none"
+           id="rect2985-9-5-1"
+           width="9.1846895"
+           height="4.6132612"
+           x="-904.59235"
+           y="262.96536" />
+      </g>
+    </g>
+    <rect
+       style="fill:none;stroke:none"
+       id="rect3964"
+       width="91.642021"
+       height="91.642021"
+       x="230.80731"
+       y="798.21301"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\miniSim.v1.0\lib\robot0.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="matrix(0,1,-1,0,0,0)" />
+    <g
+       id="g3892"
+       transform="matrix(0,1,-1,0,-562.44347,1198.7117)"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\lang\PPythonWin\v2.7.5.1\App\Lib\robot1.png"
+       inkscape:export-xdpi="62.849998"
+       inkscape:export-ydpi="62.849998">
+      <g
+         transform="translate(137.56149,1.4600248)"
+         id="g3872-7">
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           id="rect3870-4"
+           width="60"
+           height="2.5"
+           x="-939.64282"
+           y="268.62213" />
+        <rect
+           style="fill:#1a1a1a;fill-opacity:1;stroke:none"
+           id="rect2985-1-0"
+           width="14"
+           height="25"
+           x="-880.99261"
+           y="257.37213"
+           rx="2"
+           ry="2" />
+        <rect
+           style="fill:#1a1a1a;fill-opacity:1;stroke:none"
+           id="rect2985-1-7-9"
+           width="14"
+           height="25"
+           x="-950.98755"
+           y="257.37213"
+           rx="2"
+           ry="2" />
+      </g>
+      <g
+         id="g3872-8-4"
+         transform="translate(137.56149,40.710025)">
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           id="rect3870-2-8"
+           width="60"
+           height="2.5"
+           x="-939.64282"
+           y="268.62213" />
+        <rect
+           style="fill:#1a1a1a;fill-opacity:1;stroke:none"
+           id="rect2985-1-4-8"
+           width="14"
+           height="25"
+           x="-880.99261"
+           y="257.37213"
+           rx="2"
+           ry="2" />
+        <rect
+           style="fill:#1a1a1a;fill-opacity:1;stroke:none"
+           id="rect2985-1-7-5-2"
+           width="14"
+           height="25"
+           x="-950.98755"
+           y="257.37213"
+           rx="2"
+           ry="2" />
+      </g>
+      <rect
+         ry="7.9999995"
+         rx="8"
+         y="263.10944"
+         x="-798.38629"
+         height="59.731174"
+         width="53.915363"
+         id="rect2985-4"
+         style="fill:#ffcc00;fill-opacity:1;stroke:#000000;stroke-width:0.48311281;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         ry="7.9999995"
+         rx="7.9999995"
+         y="269.8407"
+         x="-792.31042"
+         height="46.268631"
+         width="41.763622"
+         id="rect2985-7-5"
+         style="fill:url(#linearGradient4000);fill-opacity:1;stroke:#000000;stroke-width:0.37422618;stroke-miterlimit:4;stroke-dasharray:none" />
+      <path
+         transform="translate(258.39282,24.005686)"
+         d="m -1020.3571,250.04076 c 0,5.22698 -4.2373,9.46428 -9.4643,9.46428 -5.227,0 -9.4643,-4.2373 -9.4643,-9.46428 0,-5.22698 4.2373,-9.46429 9.4643,-9.46429 5.227,0 9.4643,4.23731 9.4643,9.46429 z"
+         sodipodi:ry="9.4642859"
+         sodipodi:rx="9.4642859"
+         sodipodi:cy="250.04076"
+         sodipodi:cx="-1029.8214"
+         id="path3944-5"
+         style="fill:#ff6600;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         sodipodi:type="arc" />
+      <rect
+         ry="2"
+         rx="2"
+         y="257.35754"
+         x="-788.37781"
+         height="14"
+         width="33.898476"
+         id="rect2985-9-1"
+         style="fill:url(#linearGradient4002);fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none" />
+      <g
+         transform="translate(137.33545,-10.539975)"
+         id="g3940-7">
+        <rect
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:0.13780782;stroke-miterlimit:4;stroke-dasharray:none"
+           id="rect2985-9-5-11"
+           width="9.1846895"
+           height="4.6132612"
+           x="-922.12042"
+           y="262.96536" />
+        <rect
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:0.13780782;stroke-miterlimit:4;stroke-dasharray:none"
+           id="rect2985-9-5-1-5"
+           width="9.1846895"
+           height="4.6132612"
+           x="-904.59235"
+           y="262.96536" />
+      </g>
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\miniSim.v1.0\lib\robot0.png"
+         y="241.89832"
+         x="-817.24957"
+         height="91.642021"
+         width="91.642021"
+         id="rect3964-2"
+         style="fill:none;stroke:none" />
+    </g>
+    <g
+       transform="translate(53.571419,-9.6428573)"
+       id="g3892-1">
+      <g
+         transform="translate(137.56149,1.4600248)"
+         id="g3872-7-6">
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           id="rect3870-4-8"
+           width="60"
+           height="2.5"
+           x="-939.64282"
+           y="268.62213" />
+        <rect
+           style="fill:#1a1a1a;fill-opacity:1;stroke:none"
+           id="rect2985-1-0-5"
+           width="14"
+           height="25"
+           x="-880.99261"
+           y="257.37213"
+           rx="2"
+           ry="2" />
+        <rect
+           style="fill:#1a1a1a;fill-opacity:1;stroke:none"
+           id="rect2985-1-7-9-7"
+           width="14"
+           height="25"
+           x="-950.98755"
+           y="257.37213"
+           rx="2"
+           ry="2" />
+      </g>
+      <g
+         id="g3872-8-4-6"
+         transform="translate(137.56149,40.710025)">
+        <rect
+           style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           id="rect3870-2-8-1"
+           width="60"
+           height="2.5"
+           x="-939.64282"
+           y="268.62213" />
+        <rect
+           style="fill:#1a1a1a;fill-opacity:1;stroke:none"
+           id="rect2985-1-4-8-8"
+           width="14"
+           height="25"
+           x="-880.99261"
+           y="257.37213"
+           rx="2"
+           ry="2" />
+        <rect
+           style="fill:#1a1a1a;fill-opacity:1;stroke:none"
+           id="rect2985-1-7-5-2-9"
+           width="14"
+           height="25"
+           x="-950.98755"
+           y="257.37213"
+           rx="2"
+           ry="2" />
+      </g>
+      <rect
+         ry="7.9999995"
+         rx="8"
+         y="263.10944"
+         x="-798.38629"
+         height="59.731174"
+         width="53.915363"
+         id="rect2985-4-2"
+         style="fill:#ffcc00;fill-opacity:1;stroke:#000000;stroke-width:0.48311281;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         ry="7.9999995"
+         rx="7.9999995"
+         y="269.8407"
+         x="-792.31042"
+         height="46.268631"
+         width="41.763622"
+         id="rect2985-7-5-7"
+         style="fill:url(#linearGradient3868-7);fill-opacity:1;stroke:#000000;stroke-width:0.37422618;stroke-miterlimit:4;stroke-dasharray:none" />
+      <path
+         transform="translate(258.39282,24.005686)"
+         d="m -1020.3571,250.04076 c 0,5.22698 -4.2373,9.46428 -9.4643,9.46428 -5.227,0 -9.4643,-4.2373 -9.4643,-9.46428 0,-5.22698 4.2373,-9.46429 9.4643,-9.46429 5.227,0 9.4643,4.23731 9.4643,9.46429 z"
+         sodipodi:ry="9.4642859"
+         sodipodi:rx="9.4642859"
+         sodipodi:cy="250.04076"
+         sodipodi:cx="-1029.8214"
+         id="path3944-5-9"
+         style="fill:#ff6600;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         sodipodi:type="arc" />
+      <rect
+         ry="2"
+         rx="2"
+         y="257.35754"
+         x="-788.37781"
+         height="14"
+         width="33.898476"
+         id="rect2985-9-1-5"
+         style="fill:url(#linearGradient3890-2);fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none" />
+      <g
+         transform="translate(137.33545,-10.539975)"
+         id="g3940-7-4">
+        <rect
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:0.13780782;stroke-miterlimit:4;stroke-dasharray:none"
+           id="rect2985-9-5-11-3"
+           width="9.1846895"
+           height="4.6132612"
+           x="-922.12042"
+           y="262.96536" />
+        <rect
+           style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:0.13780782;stroke-miterlimit:4;stroke-dasharray:none"
+           id="rect2985-9-5-1-5-1"
+           width="9.1846895"
+           height="4.6132612"
+           x="-904.59235"
+           y="262.96536" />
+      </g>
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\hard\miniSim.v1.0\lib\robot0.png"
+         y="241.89832"
+         x="-817.24957"
+         height="91.642021"
+         width="91.642021"
+         id="rect3964-2-2"
+         style="fill:none;stroke:none" />
+    </g>
+    <g
+       id="g3872-7-4"
+       transform="matrix(0,1,-1,0,-443.38356,1332.7808)"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\lang\PPythonWin\v2.7.5.1\App\Lib\miniSim\robot0.png"
+       inkscape:export-xdpi="90.349998"
+       inkscape:export-ydpi="90.349998">
+      <rect
+         y="268.62213"
+         x="-939.64282"
+         height="2.5"
+         width="60"
+         id="rect3870-4-5"
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <rect
+         ry="2"
+         rx="2"
+         y="257.37213"
+         x="-880.99261"
+         height="25"
+         width="14"
+         id="rect2985-1-0-51"
+         style="fill:#1a1a1a;fill-opacity:1;stroke:none" />
+      <rect
+         ry="2"
+         rx="2"
+         y="257.37213"
+         x="-950.98755"
+         height="25"
+         width="14"
+         id="rect2985-1-7-9-71"
+         style="fill:#1a1a1a;fill-opacity:1;stroke:none" />
+    </g>
+    <g
+       transform="matrix(0,1,-1,0,-482.63356,1332.7808)"
+       id="g3872-8-4-1"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\lang\PPythonWin\v2.7.5.1\App\Lib\miniSim\robot0.png"
+       inkscape:export-xdpi="90.349998"
+       inkscape:export-ydpi="90.349998">
+      <rect
+         y="268.62213"
+         x="-939.64282"
+         height="2.5"
+         width="60"
+         id="rect3870-2-8-5"
+         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <rect
+         ry="2"
+         rx="2"
+         y="257.37213"
+         x="-880.99261"
+         height="25"
+         width="14"
+         id="rect2985-1-4-8-2"
+         style="fill:#1a1a1a;fill-opacity:1;stroke:none" />
+      <rect
+         ry="2"
+         rx="2"
+         y="257.37213"
+         x="-950.98755"
+         height="25"
+         width="14"
+         id="rect2985-1-7-5-2-7"
+         style="fill:#1a1a1a;fill-opacity:1;stroke:none" />
+    </g>
+    <rect
+       style="fill:#ffcc00;fill-opacity:1;stroke:#000000;stroke-width:0.48311281;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect2985-4-6"
+       width="53.915363"
+       height="59.731174"
+       x="396.83301"
+       y="705.03296"
+       rx="8"
+       ry="7.9999995"
+       transform="matrix(0,1,-1,0,0,0)"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\lang\PPythonWin\v2.7.5.1\App\Lib\miniSim\robot0.png"
+       inkscape:export-xdpi="90.349998"
+       inkscape:export-ydpi="90.349998" />
+    <rect
+       style="fill:url(#linearGradient3218);fill-opacity:1;stroke:#000000;stroke-width:0.37422618;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect2985-7-5-1"
+       width="41.763622"
+       height="46.268631"
+       x="402.90887"
+       y="711.76422"
+       rx="7.9999995"
+       ry="7.9999995"
+       transform="matrix(0,1,-1,0,0,0)"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\lang\PPythonWin\v2.7.5.1\App\Lib\miniSim\robot0.png"
+       inkscape:export-xdpi="90.349998"
+       inkscape:export-ydpi="90.349998" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#ff6600;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path3944-5-4"
+       sodipodi:cx="-1029.8214"
+       sodipodi:cy="250.04076"
+       sodipodi:rx="9.4642859"
+       sodipodi:ry="9.4642859"
+       d="m -1020.3571,250.04076 a 9.4642859,9.4642859 0 1 1 -18.9286,0 9.4642859,9.4642859 0 1 1 18.9286,0 z"
+       transform="matrix(0,0.77941177,-0.77941177,0,-521.08528,1226.4456)"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\lang\PPythonWin\v2.7.5.1\App\Lib\miniSim\robot0.png"
+       inkscape:export-xdpi="90.349998"
+       inkscape:export-ydpi="90.349998" />
+    <rect
+       style="fill:url(#linearGradient3214);fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect2985-9-1-2"
+       width="33.898476"
+       height="14"
+       x="406.84149"
+       y="699.28107"
+       rx="2"
+       ry="2"
+       transform="matrix(0,1,-1,0,0,0)"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\lang\PPythonWin\v2.7.5.1\App\Lib\miniSim\robot0.png"
+       inkscape:export-xdpi="90.349998"
+       inkscape:export-ydpi="90.349998" />
+    <g
+       id="g3940-7-3"
+       transform="matrix(0,1,-1,0,-431.38356,1332.5548)"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\lang\PPythonWin\v2.7.5.1\App\Lib\miniSim\robot0.png"
+       inkscape:export-xdpi="90.349998"
+       inkscape:export-ydpi="90.349998">
+      <rect
+         y="262.96536"
+         x="-922.12042"
+         height="4.6132612"
+         width="9.1846895"
+         id="rect2985-9-5-11-2"
+         style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:0.13780782;stroke-miterlimit:4;stroke-dasharray:none" />
+      <rect
+         y="262.96536"
+         x="-904.59235"
+         height="4.6132612"
+         width="9.1846895"
+         id="rect2985-9-5-1-5-2"
+         style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:0.13780782;stroke-miterlimit:4;stroke-dasharray:none" />
+    </g>
+    <rect
+       style="fill:none;stroke:none"
+       id="rect3964-2-1"
+       width="91.642021"
+       height="91.642021"
+       x="377.96973"
+       y="683.82184"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\lang\PPythonWin\v2.7.5.1\App\Lib\miniSim\robot0.png"
+       inkscape:export-xdpi="90.349998"
+       inkscape:export-ydpi="90.349998"
+       transform="matrix(0,1,-1,0,0,0)" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000"
+       id="path3143"
+       sodipodi:cx="-966.25"
+       sodipodi:cy="381.11218"
+       sodipodi:rx="4.1071429"
+       sodipodi:ry="4.1071429"
+       d="m -962.14286,381.11218 a 4.1071429,4.1071429 0 1 1 -8.21428,0 4.1071429,4.1071429 0 1 1 8.21428,0 z"
+       transform="translate(236.60713,42.678555)"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\lang\PPythonWin\v2.7.5.1\App\Lib\miniSim\robot0.png"
+       inkscape:export-xdpi="90.349998"
+       inkscape:export-ydpi="90.349998" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#000000;fill-opacity:1;stroke:#000000"
+       id="path3143-6"
+       sodipodi:cx="-966.25"
+       sodipodi:cy="381.11218"
+       sodipodi:rx="4.1071429"
+       sodipodi:ry="4.1071429"
+       d="m -962.14286,381.11218 a 4.1071429,4.1071429 0 1 1 -8.21428,0 4.1071429,4.1071429 0 1 1 8.21428,0 z"
+       transform="matrix(0.37984497,0,0,0.37984497,-362.61767,279.02719)"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\lang\PPythonWin\v2.7.5.1\App\Lib\miniSim\robot0.png"
+       inkscape:export-xdpi="90.349998"
+       inkscape:export-ydpi="90.349998" />
+    <g
+       id="g3301"
+       transform="translate(0,0.26032374)"
+       inkscape:export-filename="C:\Projects\multiplo\soft\miniBloq\v0.8x\v0.82\source\Bin\Minibloq\lang\PPythonWin\v2.7.5.1\App\Lib\miniSim\robot0.png"
+       inkscape:export-xdpi="90.349998"
+       inkscape:export-ydpi="90.349998">
+      <path
+         transform="matrix(0.53488373,0,0,0.53488373,-192.55893,198.34793)"
+         d="m -962.14286,381.11218 c 0,2.26832 -1.83883,4.10715 -4.10714,4.10715 -2.26831,0 -4.10714,-1.83883 -4.10714,-4.10715 0,-2.26831 1.83883,-4.10714 4.10714,-4.10714 2.26831,0 4.10714,1.83883 4.10714,4.10714 z"
+         sodipodi:ry="4.1071429"
+         sodipodi:rx="4.1071429"
+         sodipodi:cy="381.11218"
+         sodipodi:cx="-966.25"
+         id="path3143-8"
+         style="fill:#ff0000;fill-opacity:1;stroke:#000000"
+         sodipodi:type="arc" />
+      <path
+         transform="matrix(0.53488373,0,0,0.53488373,-192.55893,241.01147)"
+         d="m -962.14286,381.11218 c 0,2.26832 -1.83883,4.10715 -4.10714,4.10715 -2.26831,0 -4.10714,-1.83883 -4.10714,-4.10715 0,-2.26831 1.83883,-4.10714 4.10714,-4.10714 2.26831,0 4.10714,1.83883 4.10714,4.10714 z"
+         sodipodi:ry="4.1071429"
+         sodipodi:rx="4.1071429"
+         sodipodi:cy="381.11218"
+         sodipodi:cx="-966.25"
+         id="path3143-8-7"
+         style="fill:#ff0000;fill-opacity:1;stroke:#000000"
+         sodipodi:type="arc" />
+    </g>
+  </g>
+</svg>

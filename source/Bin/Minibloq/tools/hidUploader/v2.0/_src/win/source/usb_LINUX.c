@@ -71,13 +71,13 @@ usb_dev_handle * open_usb_device(int vid, int pid)
 
 static usb_dev_handle *libusb_teensy_handle = NULL;
 
-int teensy_open(void)
+int teensy_open(int vid, int pid)
 {
 	teensy_close();
 	libusb_teensy_handle = open_usb_device(0x16C0, 0x0478);
 
 	if (!libusb_teensy_handle)
-		libusb_teensy_handle = open_usb_device(0x03eb, 0x2067);
+		libusb_teensy_handle = open_usb_device(vid, pid);
 
 	if (!libusb_teensy_handle) return 0;
 	return 1;
