@@ -1,0 +1,5 @@
+If you want to have the new flat design cool and easy to read blocks you have to copy all the folders inside the "block flat design" folder and paste them inside the "block" default folder in your computer.
+
+V1 
+*Almost all block pictures redesigned.
+*All source files have been put together in one .svg file inside "block flat design" folder. (minibloq_flat_blocks_source_v1.svg)
