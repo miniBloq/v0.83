@@ -1,0 +1,5 @@
+The new flat design cool and easy to read blocks
+
+V1 
+*Almost all block pictures redesigned.
+*All source files have been put together in one .svg file inside this folder. (minibloq_flat_blocks_source_v1.svg)
