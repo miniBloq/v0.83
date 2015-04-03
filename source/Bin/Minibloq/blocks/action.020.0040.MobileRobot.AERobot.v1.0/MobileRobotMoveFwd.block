@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<block xmlns="http://block.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.8.Beta">
+    <properties>
+		<name>MobileRobotMoveFwd</name>
+		<function>Setter</function>
+		<loadAction>load</loadAction>
+    </properties>
+    <code>
+		<dataType>mobileRobotMethod</dataType>
+		<initialCode>
+			<line0>move(FORWARD);</line0>
+		</initialCode>
+		<keywords0>FORWARD</keywords0>
+		<keywords1>move</keywords1>
+	</code>
+    <interface>
+		<originalSize>
+			<width>smallGettersDefaultWidth::</width>
+			<height>blockDefaultHeight::</height>
+		</originalSize>
+        <childFactor>0.9</childFactor>
+        <defaultBackgroundColour0>
+			<R>setterBlockColour0R::</R>
+			<G>setterBlockColour0G::</G>
+			<B>setterBlockColour0B::</B>
+		</defaultBackgroundColour0>
+        <defaultBackgroundColour1>
+			<R>setterBlockColour1R::</R>
+			<G>setterBlockColour1G::</G>
+			<B>setterBlockColour1B::</B>
+		</defaultBackgroundColour1>
+		<picker>
+			<imagesBasePath>thisBlockPath::</imagesBasePath>
+			<default>Images/mobileRobotMoveFwdPickerDefault.png</default>
+			<hover>Images/mobileRobotMoveFwdPickerHover.png</hover>
+			<pressed>Images/mobileRobotMoveFwdPickerPressed.png</pressed>
+			<disabled>Images/mobileRobotMoveFwdPickerDisabled.png</disabled>
+		</picker>
+		<blockButton>
+			<has>true</has>
+			<imagesBasePath>thisBlockPath::</imagesBasePath>
+			<default>Images/mobileRobotMoveFwd.png</default>
+			<disabled>Images/mobileRobotMoveFwdDisabled.png</disabled>
+		</blockButton>
+	</interface>
+</block>

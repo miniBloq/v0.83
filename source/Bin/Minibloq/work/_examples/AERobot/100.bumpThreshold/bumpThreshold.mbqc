@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mbqc xmlns="http://mbqc.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.82.Beta">
+    <files/>
+    <properties>
+        <canvas visible="true"/>
+        <blocks count="9"/>
+    </properties>
+    <variables/>
+    <blocks>
+        <ComponentStart function="Flow" commented="false" instanceName="initBoard" paramsCount="0" hasAddParamsButton="false" loadAction="noLoad"/>
+        <while function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <boolConstantTrue function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </while>
+        <if function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberGreaterThan function="Operation" commented="false" paramsCount="2" hasAddParamsButton="false" loadAction="load">
+                <DistCenter function="Getter" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+                <numberConstant function="Constant" commented="false" constantValue="400" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+            </numberGreaterThan>
+        </if>
+        <RGBled function="" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <colorRed function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </RGBled>
+        <delay function="Flow" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <numberConstant function="Constant" commented="false" constantValue="0.3" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </delay>
+        <else function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
+        <RGBled function="" commented="false" paramsCount="1" hasAddParamsButton="false" loadAction="load">
+            <colorBlack function="Constant" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="load"/>
+        </RGBled>
+        <endIf function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
+        <whileEnd function="Flow" commented="false" paramsCount="0" hasAddParamsButton="false" loadAction="brother"/>
+    </blocks>
+</mbqc>

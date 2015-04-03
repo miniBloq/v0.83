@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<block xmlns="http://block.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.8.Beta">
+    <properties>
+		<name>MobileRobotRotateCW</name>
+		<function>Setter</function>
+		<loadAction>load</loadAction>
+    </properties>
+    <code>
+		<dataType>mobileRobotMethod</dataType>
+		<initialCode>
+			<line0>move(TURN_RIGHT);</line0>
+		</initialCode>
+		<keywords0>TURN_RIGHT</keywords0>
+	</code>
+    <interface>
+		<originalSize>
+			<width>smallGettersDefaultWidth::</width>
+			<height>blockDefaultHeight::</height>
+		</originalSize>
+        <childFactor>0.9</childFactor>
+        <defaultBackgroundColour0>
+			<R>setterBlockColour0R::</R>
+			<G>setterBlockColour0G::</G>
+			<B>setterBlockColour0B::</B>
+		</defaultBackgroundColour0>
+        <defaultBackgroundColour1>
+			<R>setterBlockColour1R::</R>
+			<G>setterBlockColour1G::</G>
+			<B>setterBlockColour1B::</B>
+		</defaultBackgroundColour1>
+		<picker>
+			<imagesBasePath>thisBlockPath::</imagesBasePath>
+			<default>Images/mobileRobotRotateCWPickerDefault.png</default>
+			<hover>Images/mobileRobotRotateCWPickerHover.png</hover>
+			<pressed>Images/mobileRobotRotateCWPickerPressed.png</pressed>
+			<disabled>Images/mobileRobotRotateCWPickerDisabled.png</disabled>
+		</picker>
+		<blockButton>
+			<has>true</has>
+			<imagesBasePath>thisBlockPath::</imagesBasePath>
+			<default>Images/mobileRobotRotateCW.png</default>
+			<disabled>Images/mobileRobotRotateCWDisabled.png</disabled>
+		</blockButton>
+	</interface>
+</block>

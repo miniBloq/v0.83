@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<block xmlns="http://block.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.8.Beta">
+    <properties>
+		<name>DistLeft</name>
+		<function>Getter</function>
+		<loadAction>load</loadAction>
+    </properties>
+    <code>
+		<dataType>number</dataType>
+		<initialCode>
+			<line0>distSens(LEFT)</line0>
+		</initialCode>
+	</code>
+    <interface>
+		<originalSize>
+			<width>smallGettersDefaultWidth::</width>
+			<height>blockDefaultHeight::</height>
+		</originalSize>
+        <childFactor>0.9</childFactor>
+        <defaultBackgroundColour0>
+			<R>getterBlockColour0R::</R>
+			<G>getterBlockColour0G::</G>
+			<B>getterBlockColour0B::</B>
+		</defaultBackgroundColour0>
+        <defaultBackgroundColour1>
+			<R>getterBlockColour1R::</R>
+			<G>getterBlockColour1G::</G>
+			<B>getterBlockColour1B::</B>
+		</defaultBackgroundColour1>
+		<hasHorizontalParams>true</hasHorizontalParams>
+		<minParamsCount>2</minParamsCount>
+		<picker>
+			<imagesBasePath>thisBlockPath::</imagesBasePath>
+			<default>Images/BlockLeftDefault.png</default>
+			<hover>Images/BlockLeftHover.png</hover>
+			<pressed>Images/BlockLeftPressed.png</pressed>
+			<disabled>Images/BlockLeftDisabled.png</disabled>
+		</picker>
+		<methodButton>
+			<has>true</has>
+			<imagesBasePath>thisBlockPath::</imagesBasePath>
+			<default>Images/BlockLeft.png</default>
+			<disabled>Images/LeftDisabled.png</disabled>
+		</methodButton>
+	</interface>
+</block>

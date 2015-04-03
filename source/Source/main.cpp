@@ -145,7 +145,7 @@ class Minibloq : public wxApp
             }
 
             MainFrame* frame = NULL;
-            wxString caption = wxString("miniBloq v0.82.Beta");
+            wxString caption = wxString("miniBloq v0.83");
             wxPoint framePosition = wxDefaultPosition;
             wxSize frameSize = wxDefaultSize;
             long style = wxDEFAULT_FRAME_STYLE;

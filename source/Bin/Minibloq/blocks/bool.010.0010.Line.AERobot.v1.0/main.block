@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<block xmlns="http://block.namespaces.minibloq.org" xmlns:minibloq="http://minibloq.org" MinibloqVersion="0.8.Beta">
+    <properties>
+		<name>LineRight</name>
+		<function>Getter</function>
+		<loadAction>load</loadAction>
+    </properties>
+    <code>
+		<dataType>bool</dataType>
+		<initialCode>
+			<line0>lineSens(RIGHT)</line0>
+		</initialCode>
+		<keywords0>RIGHT LEFT CENTER NONE</keywords0>
+		<keywords1>lineSens</keywords1>
+	</code>
+    <interface>
+		<originalSize>
+			<width>smallGettersDefaultWidth::</width>
+			<height>blockDefaultHeight::</height>
+		</originalSize>
+        <childFactor>0.9</childFactor>
+        <defaultBackgroundColour0>
+			<R>getterBlockColour0R::</R>
+			<G>getterBlockColour0G::</G>
+			<B>getterBlockColour0B::</B>
+		</defaultBackgroundColour0>
+        <defaultBackgroundColour1>
+			<R>getterBlockColour1R::</R>
+			<G>getterBlockColour1G::</G>
+			<B>getterBlockColour1B::</B>
+		</defaultBackgroundColour1>
+		<hasHorizontalParams>true</hasHorizontalParams>
+		<minParamsCount>2</minParamsCount>
+		<picker>
+			<imagesBasePath>thisBlockPath::</imagesBasePath>
+			<default>Images/BlockRightDefault.png</default>
+			<hover>Images/BlockRightHover.png</hover>
+			<pressed>Images/BlockRightPressed.png</pressed>
+			<disabled>Images/BlockRightDisabled.png</disabled>
+		</picker>
+		<methodButton>
+			<has>true</has>
+			<imagesBasePath>thisBlockPath::</imagesBasePath>
+			<default>Images/BlockRight.png</default>
+			<disabled>Images/RightDisabled.png</disabled>
+		</methodButton>
+	</interface>
+	<friends>
+		<lineLeft>lineLeft</lineLeft>
+		<lineCenter>lineCenter</lineCenter>
+	</friends>
+</block>
