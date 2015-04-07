@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<CodeBlocks_workspace_file>
-	<Workspace title="Minibloq.v0.82">
-		<Project filename="Bin/Minibloq/tools/hidUploader/v2.0/_src/win/hiduploader.cbp" />
-		<Project filename="Bin/Minibloq/tools/hidUploader/v1.0/_src/win/hid_bootloader_cli.cbp" />
-		<Project filename="Bin/Minibloq/tools/leonardoLoader/v1.0/_src/win/leonardoLoader.cbp" />
-		<Project filename="Minibloq.Windows.32bits.v0.82.cbp" active="1" />
-	</Workspace>
-</CodeBlocks_workspace_file>
