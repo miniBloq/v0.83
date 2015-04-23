@@ -8,4 +8,4 @@ Minibloq v0.83 version. This is the latest wxWidgets based Minibloq version.
 	- Changed the icons by the new Flat Icons designed by Camilo Parra Palacio (https://github.com/cparrapa)
     - Added Russian translation (credits on http://minibloq.org)
     - Added Japanese translation (credits on http://minibloq.org)
-	- Added updatePack1 (Flat Icons) and updatePack2 (Classic 3D Icons) so the user can install the them he prefers.
+	- Added updatePack1 (Flat Icons) and updatePack2 (Classic 3D Icons) so the user can install the them he prefers (available here: https://github.com/miniBloq/v0.83/tree/master/updatePacks).
