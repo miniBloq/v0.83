@@ -1026,6 +1026,11 @@ void MainFrame::updateGUI()
         minibloqProperties->updateGUI();
     //##Future: Add the other Properties' pages.
 
+    //AERobotCalibration:
+    auiManager.GetPane(wxString("AERobotCalibration")).Caption(_("AERobotCalibration"));
+    if (textEditorProperties)
+        textEditorProperties->updateGUI();
+
     //Terminal:
     auiManager.GetPane(wxString("Terminal")).Caption(_("Terminal"));
     if (terminal)
@@ -2598,6 +2603,20 @@ void MainFrame::createProperties()
             bmp = wxBitmap(img.Scale(iconW, iconH));
             properties->AddPage(minibloqProperties,
                                 _("Minibloq"),
+                                false,
+                                bmp);
+        }
+
+        textEditorProperties = new TextEditorProperties(this,
+                                                        ID_TextEditorProperties,
+                                                        &bubble,
+                                                        wxColour(255, 255, 255));
+        if (textEditorProperties)
+        {
+            img.LoadFile(bubble.getThemePath() + wxString("/Minibloq.ico")); //##
+            bmp = wxBitmap(img.Scale(iconW, iconH));
+            properties->AddPage(textEditorProperties,
+                                _("AERobot"),
                                 false,
                                 bmp);
         }

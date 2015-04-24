@@ -820,8 +820,6 @@ class Bubble : public IBubbleFileIO
         wxArrayString generatedCode;
 
         bool isSubstringInArrayString(const wxArrayString &value, const wxString& substring);
-        bool findErrorStringAndShow(const wxArrayString &value);
-        void showStream(const wxArrayString &value, const wxColour& colour = *wxGREEN);
 
         void addLibrariesToCode();
         void addInitCode();
@@ -841,6 +839,9 @@ class Bubble : public IBubbleFileIO
         virtual ~Bubble();
 
         //Utils:
+        bool findErrorStringAndShow(const wxArrayString &value);
+        void showStream(const wxArrayString &value, const wxColour& colour = *wxGREEN);
+
         wxWindow *getParent() { return parent; };
 #if defined (WIN32)
         static LPWSTR cstrToWChar(LPCSTR value);
