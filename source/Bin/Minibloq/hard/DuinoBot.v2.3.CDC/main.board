@@ -14,11 +14,11 @@
 		<win_i386_corePath>Arduino.v1.5.4.r2/avr</win_i386_corePath>
 		<win_i386_core>mega1284.a</win_i386_core>
 		<linux_i386_lang>avrlinux/i386/v4.3.5/bin</linux_i386_lang>
-		<linux_i386_uploader>avrdude.20071012.exe</linux_i386_uploader>
+		<linux_i386_uploader>avrdude</linux_i386_uploader>
 		<linux_i386_corePath>Arduino.v1.5.4.r2/avr</linux_i386_corePath>
 		<linux_i386_core>mega1284.a</linux_i386_core>
 		<linux_amd64_lang>avrlinux/amd64/v4.3.5/bin</linux_amd64_lang>
-		<linux_amd64_uploader>avrdude.20071012.exe</linux_amd64_uploader>
+		<linux_amd64_uploader>avrdude</linux_amd64_uploader>
 		<linux_amd64_corePath>Arduino.v1.5.4.r2/avr</linux_amd64_corePath>
 		<linux_amd64_core>mega1284.a</linux_amd64_core>
 		<win_i386_driverPath>drivers/DuinoBot/win/v2.3.CDC</win_i386_driverPath>

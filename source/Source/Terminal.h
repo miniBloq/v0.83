@@ -110,7 +110,9 @@ class EmoticonScreen : public BubbleButton
         inline void setImageEmoticonStop(const wxImage& image) { imageEmoticonStop = image; }
         inline const wxImage &getImageEmoticonStop() const { return imageEmoticonStop; }
 };
-
+#if defined(linux)
+    class BaseTerminalGUI;
+#endif
 
 class TerminalRXThread : public wxThread
 {
@@ -142,6 +144,9 @@ class TerminalRXThread : public wxThread
         virtual ExitCode Entry();
         int readSerial(char *buffer, size_t sizeOfBuffer);
         int readUsbHid(char *buffer, size_t sizeOfBuffer);
+ #if defined(linux)
+        BaseTerminalGUI *m_pHandler;
+ #endif
 };
 
 
@@ -221,6 +226,9 @@ class TerminalCommManager
         inline SingleTerminalGUI *getSingleTerminal() const { return singleTerminal; }
         inline void setSingleTerminal(SingleTerminalGUI *const terminal) { singleTerminal = terminal; }
         void enableTerminalsButtons(bool openEnable, bool closeEnable);
+ #if defined(linux)
+        BaseTerminalGUI *m_pHandler;
+ #endif
 };
 
 
@@ -288,6 +296,9 @@ class BaseTerminalGUI : public BubblePanel
 
         virtual void enableTerminalsButtons(bool openEnable, bool closeEnable);
         virtual void OnCheckShowEmoticonsClick(wxCommandEvent &event) { };
+#if defined(linux)
+        void OnThreadUpdate(wxCommandEvent&);
+#endif
 };
 
 
@@ -366,4 +377,7 @@ class SplitTerminalGUI : public BaseTerminalGUI
         virtual bool getEmoticonsEnabled() const;
         virtual void setEmoticonsEnabled(bool value);
 };
+#if defined(linux)
+        wxDECLARE_EVENT(wxEVT_COMMAND_TERMINAL_UPDATE, wxCommandEvent);
+#endif
 #endif
