@@ -117,13 +117,10 @@ class Minibloq : public wxApp
 
         bool OnInit()
         {
-            //i18n/l10n:
-            //20120603: Change suggested by Juan Pizarro to solve the i18n bug in some Windows and Linux machines:
-            //if ( !locale.Init(wxLANGUAGE_DEFAULT, wxLOCALE_CONV_ENCODING) )
 #if defined (linux)
             wxLogNull logNo;
 #endif
-            if ( !locale.Init(wxLANGUAGE_ENGLISH, wxLOCALE_CONV_ENCODING) )
+            if ( !locale.Init(wxLANGUAGE_DEFAULT))
                 wxLogWarning(_("Error #1: This language is not supported by the system."));
 
             wxString lanPath(wxStandardPaths::Get().GetExecutablePath().BeforeLast(wxFileName::GetPathSeparator()) +
