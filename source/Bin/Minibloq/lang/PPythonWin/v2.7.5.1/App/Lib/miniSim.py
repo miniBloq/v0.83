@@ -153,7 +153,7 @@ class MobileRobot(pygame.sprite.Sprite):
         step = 5;
         distance = int(distance)
         if (math.fabs(distance) > step):
-            distanceRange = distance/step
+            distanceRange = distance//step
         else:
             distanceRange = distance
         if distance <= 0:
