@@ -81,8 +81,8 @@
 	</finalCode>
 	<build>
 		<cmd>
-			<s>"</s><s>toolsPath::</s><s>/Python-Portable.exe"</s>
-			<s> "</s><s>componentFilesPath::</s><s>/</s><s>componentName::</s><s>.py"</s>
+			<s>"bash" "-c" "PYTHONPATH='</s><s>toolsPath::</s><s>/App/Lib</s><s>' /usr/bin/python3 </s>
+			<s> '</s><s>componentFilesPath::</s><s>/</s><s>componentName::</s><s>.py'"</s>
 		</cmd>
 	</build>
 	<deploy>
