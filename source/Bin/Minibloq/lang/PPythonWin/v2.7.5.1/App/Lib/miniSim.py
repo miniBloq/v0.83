@@ -153,18 +153,20 @@ class MobileRobot(pygame.sprite.Sprite):
         step = 5;
         distance = int(distance)
         if (math.fabs(distance) > step):
-            distanceRange = distance/step
+            distanceRange = distance//step
         else:
             distanceRange = distance
         if distance <= 0:
             distanceRange = -distanceRange
             step = -step
+        origx, origy, origcx, origcy = self.rect.x, self.rect.y, self.rect.centerx, self.rect.centery
         for i in range(distanceRange):
             self.wait(self.delay)
-            dx = step*math.cos(math.radians(self.heading))
-            dy = -step*math.sin(math.radians(self.heading))
-            if (0 + self.penWidth/2 < self.rect.centerx + dx < self.simulator.width - self.penWidth/2) and (0 + self.penWidth/2 < self.rect.centery + dy < self.simulator.height - self.penWidth/2):
-                self.rect = self.rect.move(dx, dy)
+            dx = step*math.cos(math.radians(self.heading))*(i+1)
+            dy = -step*math.sin(math.radians(self.heading))*(i+1)
+            if (0 + self.penWidth/2 < origcx + dx < self.simulator.width - self.penWidth/2) and (0 + self.penWidth/2 < origcy + dy < self.simulator.height - self.penWidth/2):
+                self.rect.x = origx + dx
+                self.rect.y = origy + dy
                 self.penPoints.append( ([self.rect.centerx, self.rect.centery], self.isPenDown(), self.penColor, self.penWidth) )
                 self.simulator.update()
             else:
