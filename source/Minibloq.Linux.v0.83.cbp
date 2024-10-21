@@ -6,6 +6,13 @@
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
+		<!--
+		Output to Bin/Minibloq/Components/
+		*but* /hard/ directory is hardcoded to binary's grand-parent directory
+		and /GUI/ is expected in the same directory the binary lives in,
+		so output into Bin/Minibloq/mbq/<version>/miniBloq could be a good spot
+		(as long as the ./GUI symlink is created
+		-->
 			<Target title="Debug">
 				<Option output=".\Bin\Minibloq\Components\Minibloq\v1.0\Minibloq" prefix_auto="1" extension_auto="1" />
 				<Option object_output="Obj\Debug\" />
@@ -82,6 +89,7 @@
 			<!--<Add option="-pipe" />-->
             <!--<Add option="-Wno-attributes" />-->
 			<Add option="-fpermissive" />
+			<!-- apt install libwxgtk3.0-gtk3-0v5 -->
 			<Add option="`wx-config --cflags`" />
 			<!--<Add option="-mthreads" />
 			<Add option='[[if (PLATFORM == PLATFORM_MSW &amp;&amp; (GetCompilerFactory().GetCompilerVersionString(_T(&quot;gcc&quot;)) &gt;= _T(&quot;4.0.0&quot;))) print(_T(&quot;-Wno-attributes&quot;));]]' />
@@ -98,14 +106,14 @@
 			<Add directory="Source\Bubble\wxBubble\v1.0\Source" />
 			<Add directory="Resources" />
 			<Add directory="Source" />
+                        <Add directory="Source\HID\v0.10" />
 		</Compiler>
 		<ResourceCompiler>
 			<!--<Add directory="$(#wx)\include" />-->
 		</ResourceCompiler>
 		<Linker>
             <Add option="`wx-config --libs`" />
-            <Add option="-lwx_gtk2u_stc-2.9" />
-            <Add option="-lwx_gtk2u_aui-2.9" />
+            <Add option="`wx-config --optional-libs stc aui`" />
             <!--<Add option="-lauidll_auibook" />-->
 			<!--<Add option="-lkernel32" />
 			<Add option="-luser32" />
@@ -124,6 +132,7 @@
 			<Add option="-lodbc32" />
 			<Add option="-lopengl32" />
 			<Add library="wxmsw29u_stc" />-->
+                        <Add option="-lusb" />
 		</Linker>
 		<Unit filename="Source\BlockEditorProperties.cpp" />
 		<Unit filename="Source\BlockEditorProperties.h" />
@@ -158,6 +167,7 @@
 		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubbleProcess.h" />
 		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubbleVariablesManager.cpp" />
 		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubbleVariablesManager.h" />
+                <Unit filename="Source\Bubble\wxBubble\v1.0\Source\BubbleXML.cpp" />
 		<Unit filename="Source\Bubble\wxBubble\v1.0\Source\IBubbleFileIO.h" />
 		<Unit filename="Source\CTB\v0.13\src\fifo.cpp" />
 		<Unit filename="Source\CTB\v0.13\src\iobase.cpp" />
@@ -171,6 +181,8 @@
         <Unit filename="Source\CTB\v0.13\src\portscan.cpp" />
 		<Unit filename="Source\ComponentProperties.cpp" />
 		<Unit filename="Source\ComponentProperties.h" />
+                <Unit filename="Source\HID\v0.10\hid.h" />
+                <Unit filename="Source\HID\v0.10\hid_LINUX.cpp" />
 		<Unit filename="Source\MainFrame.cpp" />
 		<Unit filename="Source\MainFrame.h" />
 		<Unit filename="Source\Messages.cpp" />
