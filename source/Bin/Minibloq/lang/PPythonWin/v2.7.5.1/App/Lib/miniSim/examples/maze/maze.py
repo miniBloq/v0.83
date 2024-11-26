@@ -1,4 +1,3 @@
-
 def drawMaze(robot):
-	robot.penDown()
-	robot.move(100)
+    robot.penDown()
+    robot.move(100)
